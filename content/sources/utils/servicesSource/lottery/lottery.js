@@ -3,8 +3,8 @@ import {
     API_ENV,
     API_KEY_ARC_SERVICES
 } from 'fusion:environment';
-import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
+import { handleHttpError } from '../../../../../components/private/common/utils/handleHttpError';
 import {
     transformLotteryHome,
     transformLotteryDetail,
@@ -21,16 +21,19 @@ const getUri = ({ service = '', serviceItem = '' }) => {
     throw new Error('Debe definir un servicio ó servicio e item.');
 };
 
-const lotteryRequest = ({ queryData } = {}) => {
-    const opt = {
-        uri: getUri(queryData),
-        json: true,
+const lotteryRequest = async ({ queryData } = {}) => {
+    const uri = getUri(queryData);
+    const response = await global.fetch(uri, {
+        method: 'GET',
         headers: {
+            'Content-Type': 'application/json',
             Referer: API_ENV,
             'api-key': API_KEY_ARC_SERVICES
         }
-    };
-    return request(opt).then(data => data);
+    });
+
+    handleHttpError(response);
+    return response.json();
 };
 
 const reject = ({ error, uri, arcSite }) => {

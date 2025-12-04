@@ -1,7 +1,9 @@
 import React from 'react';
 import '../../../../../resources/dist/css/ln/components/divider.css';
 
-const Divider = () => <div className="divider" />;
+function Divider() {
+    return <div className="divider container-center-100" />;
+}
 
 Divider.arcType = 'divider';
 

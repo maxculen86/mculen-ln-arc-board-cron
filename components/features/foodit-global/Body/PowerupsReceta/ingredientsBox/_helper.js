@@ -7,12 +7,19 @@ import {
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import deleteIngredientList from '../../../common/bookmark/api/deleteIngredientList';
 
-export const saveIngredientsList = async ({ text, sections, id, portions }) => {
+export const saveIngredientsList = async ({
+    text,
+    sections,
+    id,
+    portions,
+    canonicalUrl
+}) => {
     const response = await postIngredientsList({
         text,
         sections,
         id,
-        portions
+        portions,
+        canonicalUrl
     });
 
     if (response && response.bookmarkId) {
@@ -55,7 +62,8 @@ export const handleIngredientListButton = async ({
     bookmarkId,
     setBookmarkId,
     ingredientsLists,
-    portions
+    portions,
+    canonicalUrl
 }) => {
     if (isSuscriptor) {
         addEventToDataLayerV2({
@@ -81,7 +89,8 @@ export const handleIngredientListButton = async ({
                 text: title,
                 sections: ingredientsLists.reduce(ingredientsListReduce, []),
                 id: articleId,
-                portions
+                portions,
+                canonicalUrl
             });
             if (newBookmarkId) {
                 setBookmarkId(newBookmarkId);

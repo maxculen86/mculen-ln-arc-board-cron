@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
@@ -6,13 +6,13 @@ import { Category } from '@ln/foodit-ui-category';
 import {
     groupsParser,
     itemGroupsParser,
+    registerCardIndex,
     resolveUrl,
     validateCardCategory
 } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
-import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 function CardCategory({ id: featureId, isAdmin, customFields }) {
     const {
@@ -24,28 +24,13 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
         itemGroups = []
     } = customFields;
 
-    const cardRef = useRef(null);
-    const [cardIndex, setCardIndex] = useState(null);
-
-    useEffect(() => {
-        if (cardRef.current) {
-            const track = document.querySelector('ul[data-scroller="track"]');
-
-            if (track) {
-                const cards = Array.from(track.children);
-
-                const cardContainer = cardRef.current.closest('li');
-
-                if (cardContainer) {
-                    const index = cards.indexOf(cardContainer);
-                    setCardIndex(index);
-                }
-            }
-        }
-    }, []);
+    const cardIndex = useMemo(() => registerCardIndex(featureId), [featureId]);
+    const cardCategoryLabel =
+        cardIndex !== null && cardIndex !== undefined
+            ? (cardIndex + 1).toString()
+            : 'N/A';
 
     const { resized_urls: resizedUrls } = useGetImage(image) || {};
-
     const { resizedUrl: imageUrl = '' } = getShortestImage(resizedUrls);
 
     const error = validateCardCategory({
@@ -80,17 +65,9 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
 
-    const handleClick = () => {
-        addEventToDataLayerV2({
-            event: 'navbar',
-            button: title,
-            label: (cardIndex + 1).toString()
-        });
-    };
-
     return (
         <Static id={featureId}>
-            <div ref={cardRef} className="h-100">
+            <div className="h-100">
                 <Category
                     title={title}
                     imageProps={{
@@ -101,8 +78,11 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
                         href: url || urlCustom,
                         title: `Ir a ${title}`
                     }}
-                    onClick={handleClick}
                     data-test-id={`carousel-category-card-${featureId}`}
+                    data-interaction="dataLayerInteraction"
+                    data-event="navbar"
+                    data-button={title}
+                    data-label={cardCategoryLabel}
                 />
             </div>
         </Static>

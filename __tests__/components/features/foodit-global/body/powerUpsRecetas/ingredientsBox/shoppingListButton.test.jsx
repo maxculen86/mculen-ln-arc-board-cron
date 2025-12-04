@@ -29,6 +29,7 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
         isSuscriptor: true,
         articleId: '12345',
         title: 'Test Recipe',
+        canonicalUrl: '',
         ingredientsLists: [
             {
                 titleList: 'Ingredientes',
@@ -87,7 +88,60 @@ describe('Components - Features - Foodit-global - Body - PowerUpsRecetas - Ingre
             portions: 1,
             bookmarkId: null,
             setBookmarkId: setBookmarkIdMock,
-            ingredientsLists: defaultProps.ingredientsLists
+            ingredientsLists: defaultProps.ingredientsLists,
+            canonicalUrl: ''
         });
+    });
+
+    it('should call handleIngredientListButton with canonicalUrl when provided', () => {
+        useIsInShoppingList.mockReturnValue({
+            bookmarkId: null,
+            setBookmarkId: setBookmarkIdMock
+        });
+
+        const propsWithUrl = {
+            ...defaultProps,
+            canonicalUrl: '/recetas/test-recipe-nid12345/'
+        };
+
+        render(<ShoppingListButton {...propsWithUrl} />);
+
+        fireEvent.click(screen.getByText('AGREGAR A LISTA'));
+
+        expect(handleIngredientListButton).toHaveBeenCalledWith({
+            isSuscriptor: true,
+            title: 'Test Recipe',
+            articleId: '12345',
+            portions: 1,
+            bookmarkId: null,
+            setBookmarkId: setBookmarkIdMock,
+            ingredientsLists: defaultProps.ingredientsLists,
+            canonicalUrl: '/recetas/test-recipe-nid12345/'
+        });
+    });
+
+    it('should handle errors gracefully when handleIngredientListButton fails', async () => {
+        useIsInShoppingList.mockReturnValue({
+            bookmarkId: null,
+            setBookmarkId: setBookmarkIdMock
+        });
+
+        const consoleErrorSpy = jest
+            .spyOn(console, 'error')
+            .mockImplementation();
+        handleIngredientListButton.mockRejectedValue(new Error('API Error'));
+
+        render(<ShoppingListButton {...defaultProps} />);
+
+        fireEvent.click(screen.getByText('AGREGAR A LISTA'));
+
+        await screen.findByText('AGREGAR A LISTA');
+
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+            'Shopping list update failed:',
+            expect.any(Error)
+        );
+
+        consoleErrorSpy.mockRestore();
     });
 });

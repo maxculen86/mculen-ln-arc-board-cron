@@ -402,6 +402,7 @@ a {
   --red-700: #b40d15;
   --yellow-subscribe: #ffff24;
   --yellow-secondary: #f2f20d;
+  --neutral-700: #4C4C4C;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -1841,12 +1842,20 @@ strong:not(.--font-primary),
   letter-spacing: -0.145rem;
 }
 
+.tracking--032 {
+  letter-spacing: -0.32px;
+}
+
 .leading-125 {
   line-height: 125%;
 }
 
 .leading-130 {
   line-height: 130%;
+}
+
+.leading-150 {
+  line-height: 150%;
 }
 
 .tracking-none {
@@ -1857,6 +1866,18 @@ strong:not(.--font-primary),
   line-height: 116%;
 }
 
+.text-12px {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 64rem) {
+  .text-8px_lg {
+    font-size: 0.5rem;
+  }
+  .leading-130_l {
+    line-height: 130%;
+  }
+}
 @media (min-width: 48rem) {
   .leading-110_md {
     line-height: 110%;
@@ -2550,6 +2571,9 @@ strong:not(.--font-primary),
   }
   .-mt-57_l {
     margin-top: -3.5625rem;
+  }
+  .-mt-2_l {
+    margin-top: -0.125rem;
   }
   .mt-0_l {
     margin-top: 0rem;
@@ -3806,6 +3830,10 @@ strong:not(.--font-primary),
   text-transform: lowercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .ellipsis-text-3-80 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -3849,6 +3877,11 @@ strong:not(.--font-primary),
   text-decoration: underline;
 }
 
+@media (min-width: 1024px) {
+  .uppercase_l {
+    text-transform: uppercase;
+  }
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -4395,6 +4428,9 @@ strong:not(.--font-primary),
 @media (min-width: 64rem) {
   .gap-0_l {
     gap: 0rem;
+  }
+  .gap-24_l {
+    gap: 1.5rem;
   }
   .column-gap-12_l {
     -moz-column-gap: 0.75rem;

@@ -26,6 +26,7 @@ import {
     hasSticky
 } from './_children/helper';
 import {
+    NOTICIA,
     VIDEO,
     VIDEO_VERTICAL
 } from '../../../private/common/utils/subtypes/subtypeHelper';
@@ -48,6 +49,8 @@ function Share() {
 
     const isNegative = subtype === VIDEO || subtype === VIDEO_VERTICAL;
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
+
+    const isNotaNoticia = subtype === NOTICIA;
 
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
@@ -106,7 +109,8 @@ function Share() {
         mobileTitle,
         isNegative,
         articleId: id,
-        isHorizontal
+        isHorizontal,
+        isNotaNoticia
     };
     return (
         <div className={modShareContainerClass}>

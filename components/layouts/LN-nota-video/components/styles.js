@@ -1,19 +1,22 @@
 import { cva } from '@ln/cva';
 
+const COL_SPAN_8 = 'col-span-8';
+
 export const openingVideoMediaStyles = cva(
-    ['opening-video-container', 'flex flex-column jc-start', 'col-span-8'],
+    ['opening-video-container', 'flex flex-column jc-start', COL_SPAN_8],
     {
         variants: {
             variant: {
                 vertical: [
                     'col-span-5_m',
                     'order-1_md',
-                    'col-span-8',
+                    COL_SPAN_8,
                     'grid-col-7-10_l',
                     'max-h-642 max-h-478_md max-h-652_lg',
                     'ai-center',
                     'h-100',
-                    'bg-black'
+                    'bg-black',
+                    'mt-16_m mt-0_l'
                 ],
                 horizontal: [
                     'col-span-12_m col-span-8_l',
@@ -49,7 +52,7 @@ export const descriptionVariants = cva(
         'flex flex-column',
         'gap-16',
         'text-neutral-light-1',
-        'col-span-8',
+        COL_SPAN_8,
         'mt-32'
     ],
     {

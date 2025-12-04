@@ -12,7 +12,7 @@
         .opening-video {
             .ln-banner-container {
                 background: none;
-                margin-bottom: $spacing-lg;
+                margin-bottom: $spacing-md;
                 // Se le colocó 101 porque era menor al del video y al del share
                 // El z-index del share es el mayor, con un valor de 100
                 // por lo que se le incrementó el del banner a 101

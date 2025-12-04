@@ -119,6 +119,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             data-section="CompartirNotaLN"
             data-variant="default"
             id="whatsAppShareDesktop"
+            style="gap: 4px;"
             title="Compartir la nota en WhatsApp"
             type="button"
           >
@@ -140,6 +141,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
               data-section="CompartirNotaLN"
               data-variant="default"
               id="copyLinkNote"
+              style="gap: 4px;"
               title="Copiar link de la nota"
               type="button"
             >
@@ -159,6 +161,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnfacebook"
+            style="gap: 4px;"
             title="Compartir la nota en Facebook"
             type="button"
           >
@@ -177,6 +180,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btntwitter"
+            style="gap: 4px;"
             title="Compartir la nota en X"
             type="button"
           >
@@ -195,6 +199,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnemail"
+            style="gap: 4px;"
             title="Compartir la nota por E-mail"
             type="button"
           >
@@ -203,6 +208,546 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             >
               <mock-icon
                 name="mail"
+              />
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Share buttons for NOTICIA subtype should show Google follow button for NOTICIA subtype 1`] = `
+<div>
+  <div
+    class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+  >
+    <div
+      class="mod-share flex mb-0 p-0_l"
+    >
+      <div
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        id="v-share"
+      >
+        <div
+          class="first-buttons-group flex gap-16 flex-column_l"
+          id="first-button-group"
+        >
+          <button
+            aria-label="Leer resumen generado por inteligencia artificial"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            data-event="LinkClick"
+            data-section="IA"
+            data-variant="secondary"
+            id="btnIA"
+            title="Leer resumen generado por inteligencia artificial"
+            type="button"
+          >
+            <i
+              class="icon --icon-32"
+            >
+              <svg
+                class="logo-ai"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="star big"
+                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
+                  fill="#FEFEFE"
+                  stroke="#333333"
+                  stroke-width="1"
+                />
+                <path
+                  class="star small"
+                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
+                  fill="#FEFEFE"
+                  stroke="#333333"
+                  stroke-width="1"
+                />
+              </svg>
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
+            data-event="LinkClick"
+            data-section="Guardar Nota"
+            data-variant="secondary"
+            id="btnbookmark"
+            title="Guardar nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmarkFilled"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 comment-btn flex w-fit-content p-8 gap-4 h-40_max1023 h-fit-content_min1024 w-40_min1024 flex-column_l --secondary"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="secondary"
+            id="btncomments"
+            title="Ir a los comentarios de la nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="chat"
+              />
+            </i>
+          </button>
+        </div>
+        <hr
+          class="l-none vertical mx-16 border border-2"
+        />
+        <hr
+          class="l-only my-16 border border-2"
+        />
+        <div
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
+        >
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
+            data-variant="secondary"
+            id="compartirMobile"
+            title="Compartir la nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="reply"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="whatsAppShareDesktop"
+            style="gap: 4px;"
+            title="Compartir la nota en WhatsApp"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="whatsapp"
+              />
+            </i>
+          </button>
+          <div
+            class="btn-container sm-none flex relative"
+          >
+            <button
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+              data-event="LinkClick"
+              data-section="CompartirNotaLN"
+              data-variant="default"
+              id="copyLinkNote"
+              style="gap: 4px;"
+              title="Copiar link de la nota"
+              type="button"
+            >
+              <i
+                class="icon --icon-24 --inherit"
+              >
+                <mock-icon
+                  name="fileCopy"
+                />
+              </i>
+            </button>
+          </div>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btnfacebook"
+            style="gap: 4px;"
+            title="Compartir la nota en Facebook"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="facebook"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btntwitter"
+            style="gap: 4px;"
+            title="Compartir la nota en X"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="twitter"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 email p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btnemail"
+            style="gap: 4px;"
+            title="Compartir la nota por E-mail"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="mail"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 l-none p-12 px-8 h-40 --secondary"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="secondary"
+            id="btnGoogle"
+            style="gap: 4px;"
+            title="Seguir a LA NACION en Google"
+            type="button"
+          >
+            <span
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
+            >
+              + Seguir
+            </span>
+            <i
+              class="icon --icon-18 --inherit"
+            >
+              <mock-icon
+                color="true"
+                name="googleColor"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent l-only flex-column-reverse_l --custom"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="custom"
+            id="btnGoogle"
+            style="gap: 4px;"
+            title="Seguir a LA NACION en Google"
+            type="button"
+          >
+            <span
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
+            >
+              Seguir
+            </span>
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                color="true"
+                name="googleColor"
+              />
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Share buttons for NOTICIA subtype should show correct number of buttons for NOTICIA subtype (includes Google buttons) 1`] = `
+<div>
+  <div
+    class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
+  >
+    <div
+      class="mod-share flex mb-0 p-0_l"
+    >
+      <div
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        id="v-share"
+      >
+        <div
+          class="first-buttons-group flex gap-16 flex-column_l"
+          id="first-button-group"
+        >
+          <button
+            aria-label="Leer resumen generado por inteligencia artificial"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            data-event="LinkClick"
+            data-section="IA"
+            data-variant="secondary"
+            id="btnIA"
+            title="Leer resumen generado por inteligencia artificial"
+            type="button"
+          >
+            <i
+              class="icon --icon-32"
+            >
+              <svg
+                class="logo-ai"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="star big"
+                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
+                  fill="#FEFEFE"
+                  stroke="#333333"
+                  stroke-width="1"
+                />
+                <path
+                  class="star small"
+                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
+                  fill="#FEFEFE"
+                  stroke="#333333"
+                  stroke-width="1"
+                />
+              </svg>
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
+            data-event="LinkClick"
+            data-section="Guardar Nota"
+            data-variant="secondary"
+            id="btnbookmark"
+            title="Guardar nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                critical="true"
+                name="bookmarkFilled"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 comment-btn flex w-fit-content p-8 gap-4 h-40_max1023 h-fit-content_min1024 w-40_min1024 flex-column_l --secondary"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="secondary"
+            id="btncomments"
+            title="Ir a los comentarios de la nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="chat"
+              />
+            </i>
+          </button>
+        </div>
+        <hr
+          class="l-none vertical mx-16 border border-2"
+        />
+        <hr
+          class="l-only my-16 border border-2"
+        />
+        <div
+          class="second-buttons-group flex ai-center gap-16 gap-24_m flex-column_l ai-center_max1023 jc-center_l"
+        >
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 sm-only --secondary"
+            data-variant="secondary"
+            id="compartirMobile"
+            title="Compartir la nota"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="reply"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="whatsAppShareDesktop"
+            style="gap: 4px;"
+            title="Compartir la nota en WhatsApp"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="whatsapp"
+              />
+            </i>
+          </button>
+          <div
+            class="btn-container sm-none flex relative"
+          >
+            <button
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+              data-event="LinkClick"
+              data-section="CompartirNotaLN"
+              data-variant="default"
+              id="copyLinkNote"
+              style="gap: 4px;"
+              title="Copiar link de la nota"
+              type="button"
+            >
+              <i
+                class="icon --icon-24 --inherit"
+              >
+                <mock-icon
+                  name="fileCopy"
+                />
+              </i>
+            </button>
+          </div>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btnfacebook"
+            style="gap: 4px;"
+            title="Compartir la nota en Facebook"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="facebook"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btntwitter"
+            style="gap: 4px;"
+            title="Compartir la nota en X"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="twitter"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 email p-0 sm-none --default"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="default"
+            id="btnemail"
+            style="gap: 4px;"
+            title="Compartir la nota por E-mail"
+            type="button"
+          >
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                name="mail"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 l-none p-12 px-8 h-40 --secondary"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="secondary"
+            id="btnGoogle"
+            style="gap: 4px;"
+            title="Seguir a LA NACION en Google"
+            type="button"
+          >
+            <span
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
+            >
+              + Seguir
+            </span>
+            <i
+              class="icon --icon-18 --inherit"
+            >
+              <mock-icon
+                color="true"
+                name="googleColor"
+              />
+            </i>
+          </button>
+          <button
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent l-only flex-column-reverse_l --custom"
+            data-event="LinkClick"
+            data-section="CompartirNotaLN"
+            data-variant="custom"
+            id="btnGoogle"
+            style="gap: 4px;"
+            title="Seguir a LA NACION en Google"
+            type="button"
+          >
+            <span
+              class="text ln-text tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+              style="font-weight: 400;"
+            >
+              Seguir
+            </span>
+            <i
+              class="icon --icon-24 --inherit"
+            >
+              <mock-icon
+                color="true"
+                name="googleColor"
               />
             </i>
           </button>
@@ -349,6 +894,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             data-section="CompartirNotaLN"
             data-variant="default"
             id="whatsAppShareDesktop"
+            style="gap: 4px;"
             title="Compartir la nota en WhatsApp"
             type="button"
           >
@@ -370,6 +916,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
               data-section="CompartirNotaLN"
               data-variant="default"
               id="copyLinkNote"
+              style="gap: 4px;"
               title="Copiar link de la nota"
               type="button"
             >
@@ -389,6 +936,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnfacebook"
+            style="gap: 4px;"
             title="Compartir la nota en Facebook"
             type="button"
           >
@@ -407,6 +955,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btntwitter"
+            style="gap: 4px;"
             title="Compartir la nota en X"
             type="button"
           >
@@ -425,6 +974,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnemail"
+            style="gap: 4px;"
             title="Compartir la nota por E-mail"
             type="button"
           >
@@ -443,7 +993,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
 </div>
 `;
 
-exports[`components - private - LN - nota - share Snapshot - Should show 10 buttons  1`] = `
+exports[`components - private - LN - nota - share Snapshot - Should show correct number of buttons for non-NOTICIA subtype 1`] = `
 <div>
   <div
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
@@ -561,6 +1111,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
             data-section="CompartirNotaLN"
             data-variant="default"
             id="whatsAppShareDesktop"
+            style="gap: 4px;"
             title="Compartir la nota en WhatsApp"
             type="button"
           >
@@ -582,6 +1133,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
               data-section="CompartirNotaLN"
               data-variant="default"
               id="copyLinkNote"
+              style="gap: 4px;"
               title="Copiar link de la nota"
               type="button"
             >
@@ -601,6 +1153,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnfacebook"
+            style="gap: 4px;"
             title="Compartir la nota en Facebook"
             type="button"
           >
@@ -619,6 +1172,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btntwitter"
+            style="gap: 4px;"
             title="Compartir la nota en X"
             type="button"
           >
@@ -637,6 +1191,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show 10 butt
             data-section="CompartirNotaLN"
             data-variant="default"
             id="btnemail"
+            style="gap: 4px;"
             title="Compartir la nota por E-mail"
             type="button"
           >
