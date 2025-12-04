@@ -21,8 +21,6 @@ import outputQuiniProvincia from '../../../../../__mocks__/data/lottery/transfor
 import outputTelekino from '../../../../../__mocks__/data/lottery/transformDetail/outputTelekino';
 import outputLotoPLus from '../../../../../__mocks__/data/lottery/transformDetail/outputLotoPlus';
 
-const mockResponse = Promise.resolve(lotteryMock);
-
 const {
     getUri,
     request: lotteryRequest,
@@ -32,12 +30,8 @@ const {
     getTemplates
 } = lottery;
 
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: () => mockResponse
-    };
-});
+// Mock global.fetch
+global.fetch = jest.fn();
 
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => [301, 302, 404]
@@ -62,10 +56,22 @@ describe('Test getUri function', () => {
 });
 
 describe('Tests lottery request', () => {
-    it('Should return data from the request', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('Should return data from the request', async () => {
+        global.fetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: async () => lotteryMock
+        });
+
         const queryObj = { service: 'loterias', serviceItem: '' };
         const req = { queryData: queryObj, auth: {} };
-        expect(lotteryRequest(req)).toStrictEqual(mockResponse);
+        const result = await lotteryRequest(req);
+
+        expect(result).toEqual(lotteryMock);
     });
 });
 
