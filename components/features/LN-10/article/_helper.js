@@ -418,8 +418,8 @@ export const getCllBoard = inputUrl => {
     if (!src) return {};
 
     return {
-        embedCode: `<iframe src=${src} title="Embebido canchallena" class="w-100 h-82" scrolling="no"> </iframe>`,
-        classNames: 'h-82'
+        embedCode: `<iframe src=${src} title="Embebido canchallena" class="w-100 h-57" scrolling="no" > </iframe>`,
+        classNames: 'h-57'
     };
 };
 

@@ -1855,8 +1855,8 @@ describe('generateLazyLoadEmbedCode', () => {
 
             const result = getCllBoard(input);
             expect(result).toEqual({
-                embedCode: `<iframe src=https://widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true title="Embebido canchallena" class="w-100 h-82" scrolling="no"> </iframe>`,
-                classNames: 'h-82'
+                embedCode: `<iframe src=https://widget-canchallena.clanacion.com.ar/futbol/la-liga-2024-2025/real-sociedad-villarreal-7h1kn1uskboomf15gmovbwavo/widget/?isHome=true title="Embebido canchallena" class="w-100 h-57" scrolling="no" > </iframe>`,
+                classNames: 'h-57'
             });
         });
     });
