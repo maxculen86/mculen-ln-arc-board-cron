@@ -118,7 +118,12 @@ export function useVideoJwCustomSettings({ isInView, loading, playerRef }) {
                 playerRef.current.setMute(isMuted);
             }
         } else {
-            playerRef?.current?.stop();
+            playerRef.current?.skipAd?.();
+            playerRef.current?.pauseAd?.();
+            playerRef.current?.stop?.();
+            playerRef.current?.remove?.();
+            // eslint-disable-next-line no-param-reassign
+            playerRef.current = null;
         }
     }, [isInView, loading]);
 }

@@ -480,6 +480,12 @@
   .ln-card.--tablet-img-right.--liveblog .ln-link .media-container .ln-placeholder {
     max-width: none;
   }
+  .ln-card.--tablet-img-right.--5xl .link, .ln-card.--tablet-img-right.--6xl .link {
+    gap: 2rem;
+  }
+  .ln-card.--tablet-img-right.--5xl .link .description-container .ln-badge, .ln-card.--tablet-img-right.--6xl .link .description-container .ln-badge {
+    right: -1.75rem;
+  }
   .ln-card.--tablet-img-right.--liveblog .media-container {
     width: 16.125rem;
   }
@@ -528,6 +534,12 @@
   }
   .ln-card.--desktop-img-right.--liveblog .ln-link .media-container .ln-placeholder {
     max-width: none;
+  }
+  .ln-card.--desktop-img-right.--5xl .link, .ln-card.--desktop-img-right.--6xl .link {
+    gap: 2rem;
+  }
+  .ln-card.--desktop-img-right.--5xl .link .description-container .ln-badge, .ln-card.--desktop-img-right.--6xl .link .description-container .ln-badge {
+    right: -1.75rem;
   }
   .ln-card.--desktop-img-right.--liveblog .media-container {
     width: 16.125rem;

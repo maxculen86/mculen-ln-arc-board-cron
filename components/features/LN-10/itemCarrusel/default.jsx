@@ -31,11 +31,13 @@ function itemCarrusel({
 
     const getLayoutType = layoutName => layoutTypesForEvent[layoutName] || '';
 
+    const sanitizedVideoId = checkForId(videoId) || '';
+
     const videoData =
         useContent({
-            source: checkForId(videoId) ? 'videosJwCarruselSource' : null,
+            source: sanitizedVideoId ? 'videosJwCarruselSource' : null,
             query: {
-                id: checkForId(videoId),
+                id: sanitizedVideoId,
                 website: 'la-nacion-ar',
                 isAdmin
             }
@@ -43,7 +45,7 @@ function itemCarrusel({
 
     const error = validateItemCarrusel({
         video: videoData,
-        videoId
+        videoId: sanitizedVideoId
     });
 
     const parent = getChainParentOfFeature(featureId, renderables);
@@ -60,7 +62,7 @@ function itemCarrusel({
     });
 
     const extraOpts = getDataAttributesForViewability(
-        videoId,
+        sanitizedVideoId,
         boxPosition,
         cardPosition,
         true
@@ -90,7 +92,7 @@ function itemCarrusel({
                 src={videoData?.posterVideo}
                 duration={videoData?.duration}
                 cardPosition={cardPosition}
-                videoId={videoId}
+                videoId={sanitizedVideoId}
                 layoutType={getLayoutType(layout)}
                 {...extraOpts}
             />
