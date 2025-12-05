@@ -16,7 +16,6 @@ export default `
     type
     content_elements {
         _id
-        subtype
         promo_items {
             basic {
                 ${image}
@@ -26,41 +25,11 @@ export default `
             basic
             mobile
         }
-        subheadlines {
-            basic
-        }
-        content_elements {
-            type
-            content
-        }
-        display_date
-        publish_date
         website_url
-        display_date
-        website_url
-        marquesina
         label  {
-            recomendar {
-                text
-            }
             volanta {
                 text
                 display
-            }
-        }
-        taxonomy {
-            tags {
-                description
-                slug
-            }
-        }
-        related_content {
-            basic {
-                _id
-                type
-                referent {
-                    type
-                }
             }
         }
     }
