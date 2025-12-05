@@ -47,7 +47,7 @@ describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () =>
         getImageConfig.mockReturnValue({});
         get.mockReturnValue('subtype');
 
-        const result = await transformFooditAcu(response, cachedCall, query);
+        const result = await transformFooditAcu(response, query, cachedCall);
 
         expect(result).toEqual({
             ...response,
@@ -97,7 +97,7 @@ describe('Content - Sources - Utils - FooditSources - transformFooditAcu', () =>
         getImageConfig.mockReturnValue({ config: 'config' });
         get.mockReturnValue('subtype');
 
-        const result = await transformFooditAcu(response, cachedCall, query);
+        const result = await transformFooditAcu(response, query, cachedCall);
 
         expect(result).toEqual({
             ...response,

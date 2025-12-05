@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { getTypeOfDevice } from '@ln/hooks';
+import { getTypeOfDevicev2 } from '@ln/utils';
 import useAuthManager from '../../../../../../../components/private/common/auth/hooks/useAuthManager';
 import { useShoppingList } from '../../../../../../../components/features/foodit-global/common/shoppingList/hooks/useShoppingList';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
 import { isSubscribed } from '../../../../../../../components/private/common/auth/helper/loginHelper';
 
-jest.mock('@ln/hooks', () => ({
-    getTypeOfDevice: jest.fn()
+jest.mock('@ln/utils', () => ({
+    getTypeOfDevicev2: jest.fn()
 }));
 
 jest.mock(
@@ -62,7 +62,7 @@ describe('useShoppingList', () => {
     });
 
     it('should set isMobile to true when device is mobile', () => {
-        getTypeOfDevice.mockReturnValue('mobile');
+        getTypeOfDevicev2.mockReturnValue('mobile');
         isSubscribed.mockReturnValue(false);
 
         render(<TestComponent />);
@@ -72,7 +72,7 @@ describe('useShoppingList', () => {
     });
 
     it('should set isMobile to false when device is desktop', () => {
-        getTypeOfDevice.mockReturnValue('desktop');
+        getTypeOfDevicev2.mockReturnValue('desktop');
         isSubscribed.mockReturnValue(false);
 
         render(<TestComponent />);
@@ -82,7 +82,7 @@ describe('useShoppingList', () => {
     });
 
     it('should fetch bookmarks and set shopping list when subscribed and tokens are present', async () => {
-        getTypeOfDevice.mockReturnValue('mobile');
+        getTypeOfDevicev2.mockReturnValue('mobile');
         isSubscribed.mockReturnValue(true);
         getBookmarks.mockResolvedValue({
             data: [
@@ -110,7 +110,7 @@ describe('useShoppingList', () => {
     });
 
     it('should not fetch bookmarks and set loading to false when not subscribed', () => {
-        getTypeOfDevice.mockReturnValue('mobile');
+        getTypeOfDevicev2.mockReturnValue('mobile');
         isSubscribed.mockReturnValue(false);
 
         render(<TestComponent />);
@@ -126,7 +126,7 @@ describe('useShoppingList', () => {
             token: null,
             accessToken: null
         });
-        getTypeOfDevice.mockReturnValue('mobile');
+        getTypeOfDevicev2.mockReturnValue('mobile');
         isSubscribed.mockReturnValue(true);
 
         render(<TestComponent />);

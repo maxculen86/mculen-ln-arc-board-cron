@@ -75,7 +75,7 @@ function SaveRecipe({
 
     const availableCollections = useMemo(() => {
         if (modeConfig === 'move') {
-            const filtered = collectionArticles.filter(collection => {
+            return collectionArticles.filter(collection => {
                 const collectionGroup = collection.bookmarkGroup;
 
                 if (
@@ -95,8 +95,6 @@ function SaveRecipe({
 
                 return Boolean(collectionGroup);
             });
-
-            return filtered;
         }
 
         return collectionArticles;

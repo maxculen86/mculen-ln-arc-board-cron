@@ -15,7 +15,8 @@ export function Search({ className, ...r }) {
     const [inputValue, setInputValue] = useState(querySelected || '');
 
     // add a space at the end to the query term to avoid the search engine from suggesting
-    const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodeURIComponent(`${inputValue} `)}`;
+    const encodedQuery = encodeURIComponent(`${inputValue} `);
+    const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodedQuery}`;
 
     const handleInputValue = e => {
         setInputValue(e.target.value);
