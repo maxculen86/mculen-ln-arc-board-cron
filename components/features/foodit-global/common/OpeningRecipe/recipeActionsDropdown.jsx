@@ -25,6 +25,7 @@ export function RecipeActionsDropdown({
     article
 }) {
     const title = get(article, 'headlines.basic', '');
+    const canonicalUrl = get(article, 'canonical_url', '');
     const isSuscriptor = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
     const tooltipWasVisible =
         !isSSR() && window?.localStorage.getItem('menu-semanal-tooltip');
@@ -52,7 +53,8 @@ export function RecipeActionsDropdown({
                 bookmarkId,
                 setBookmarkId,
                 ingredientsLists,
-                portions: portionsValue
+                portions: portionsValue,
+                canonicalUrl
             });
         } catch (error) {
             console.error('Shopping list update failed:', error);
@@ -64,7 +66,8 @@ export function RecipeActionsDropdown({
         bookmarkId,
         setBookmarkId,
         ingredientsLists,
-        portionsValue
+        portionsValue,
+        canonicalUrl
     ]);
 
     const options = useMemo(
