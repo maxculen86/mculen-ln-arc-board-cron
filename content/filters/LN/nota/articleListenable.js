@@ -736,6 +736,7 @@ export default `
     }
     subscription,
     paywallEnabled,
+    checkoutEnabled,
     withFirmaDistributor
     isListenable
     withSponsoredLink
