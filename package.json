@@ -141,6 +141,7 @@
         "@ln/user.client.libs": "7.0.1",
         "@ln/utility-hooks": "0.0.1",
         "@ln/utils": "0.0.6",
+        "@xmldom/xmldom": "0.8.11",
         "classnames": "2.3.2",
         "html-react-parser": "2.0.0",
         "lazy-child": "0.3.1",
