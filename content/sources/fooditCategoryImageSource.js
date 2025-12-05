@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 
 import get from '../../components/private/common/utils/get';
@@ -37,31 +36,44 @@ const resolve = key => {
     return `/photo/api/v2/photos/${id}`;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
+const fetch = async (query, { cachedCall } = {}) => {
     const { id = '' } = query;
-
     const arcSite = query['arc-site'];
 
     const url = `${CONTENT_BASE}${resolve(query)}`;
+
+    const abortController = new AbortController();
+    const timeoutId = setTimeout(() => abortController.abort(), 5000);
+
     const opt = {
         method: 'GET',
-        json: true
+        signal: abortController.signal
     };
+
     if (ARC_ACCESS_TOKEN) {
         opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
 
-    return nodeFetch(url, opt)
-        .then(resp => {
-            if (!resp.ok) {
-                throw new Error(
-                    `HTTP error! status: ${resp.status}, URL: ${url}`
-                );
-            }
-            return resp.json();
-        })
-        .then(data => transform(data, query, cachedCall))
-        .catch(err => {
+    try {
+        const resp = await global.fetch(url, opt);
+
+        if (!resp.ok) {
+            throw new Error(`HTTP error! status: ${resp.status}, URL: ${url}`);
+        }
+
+        const data = await resp.json();
+        return await transform(data, query, cachedCall);
+    } catch (err) {
+        if (err.name === 'AbortError') {
+            logger.push(
+                'Request timed out',
+                {
+                    source: 'content/sources/fooditCategoryImageSource',
+                    id
+                },
+                arcSite
+            );
+        } else {
             logger.push(
                 err,
                 {
@@ -70,7 +82,11 @@ const fetch = (query, { cachedCall } = {}) => {
                 },
                 arcSite
             );
-        });
+        }
+        return {};
+    } finally {
+        clearTimeout(timeoutId);
+    }
 };
 
 export default {
