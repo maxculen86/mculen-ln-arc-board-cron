@@ -104,6 +104,29 @@ const setupPlayerInstance = async ({ config, initialMode, facade }) => {
     );
 };
 
+const attachManualHandler = (facade, initialize) => {
+    if (facade) {
+        const handleFacadeClick = () => {
+            facade.removeEventListener('click', handleFacadeClick);
+            initialize('manual');
+        };
+
+        facade.addEventListener('click', handleFacadeClick);
+        return;
+    }
+
+    initialize('manual');
+};
+
+const handleEnterViewport = (config, initialize, facade) => {
+    if (config.hasAutoplay) {
+        setTimeout(() => initialize('autoplay'), 1000);
+        return;
+    }
+
+    attachManualHandler(facade, initialize);
+};
+
 const bootstrapVideo = element => {
     if (element.dataset.jwInitialized === 'true') return;
 
@@ -111,8 +134,11 @@ const bootstrapVideo = element => {
     if (!config || !config.mediaId) return;
 
     const facade = document.getElementById(`facade-${config.mediaId}`);
+    let hasInitialized = false;
 
     const initialize = initialMode => {
+        if (hasInitialized) return;
+        hasInitialized = true;
         setupPlayerInstance({
             config,
             initialMode,
@@ -120,26 +146,11 @@ const bootstrapVideo = element => {
         });
     };
 
-    const attachManualHandler = () => {
-        if (facade) {
-            const handleFacadeClick = () => {
-                facade.removeEventListener('click', handleFacadeClick);
-                initialize('manual');
-            };
-
-            facade.addEventListener('click', handleFacadeClick);
-        } else {
-            initialize('manual');
-        }
-    };
-
-    if (config.hasAutoplay) {
-        setupVideoObserver(element, () => {
-            setTimeout(() => initialize('autoplay'), 1000);
-        });
-    } else {
-        setupVideoObserver(element, attachManualHandler);
-    }
+    setupVideoObserver(element, (entry, observer) => {
+        if (!entry.isIntersecting || hasInitialized) return;
+        observer?.unobserve(element);
+        handleEnterViewport(config, initialize, facade);
+    });
 
     addVideoDisplayEvent({
         title: config.title || '',

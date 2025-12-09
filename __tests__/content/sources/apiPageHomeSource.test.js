@@ -185,7 +185,7 @@ describe('content - sources - apiPageHomeSource', () => {
             });
         } catch (error) {
             expect(error.message).toBe(
-                'Error content/apiPageHomeSource QueryParams: {"rootPath":"https://wwww.lanacion.com.arr/homepage","ticksCache":"01","website":"la-nacion-ar","isPage":true,"versionDeploy":null,"cookie":null} errorMsj: Not found page'
+                'Error content/apiPageHomeSource QueryParams: {"rootPath":"https://wwww.lanacion.com.arr/","ticksCache":"01","website":"la-nacion-ar","isPage":true,"versionDeploy":null,"cookie":null} errorMsj: Not found page'
             );
             expect(console.error).toHaveBeenCalledTimes(1);
         }
