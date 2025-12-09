@@ -68,7 +68,6 @@ const fetch = async (query, { cachedCall } = {}) => {
         const cookie = get(query, 'useCookie', null);
         const alias = get(query, 'namePage', 'home');
         const useCachedCall = get(query, 'useCachedCall', 'true') !== 'false';
-
         let configItemPage = configPages[alias];
         if (!configItemPage) {
             configItemPage = configPages.default;
@@ -90,7 +89,10 @@ const fetch = async (query, { cachedCall } = {}) => {
         // `http://172.17.0.1${aliasPages[alias]}` o en el .env SITE_LANACION=http://172.17.0.1
 
         queryParams = {
-            rootPath: `${SITE_LANACION}${aliasPage}`,
+            rootPath:
+                aliasPage === '/homepage' || aliasPage === '/bitacora'
+                    ? `${SITE_LANACION}/`
+                    : `${SITE_LANACION}${aliasPage}`,
             ticksCache,
             website,
             isPage: true,

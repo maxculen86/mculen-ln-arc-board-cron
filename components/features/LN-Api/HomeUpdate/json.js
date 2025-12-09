@@ -51,7 +51,7 @@ class HomeUpdate {
         this.ticksCache = get(this.query, 'ticks', null);
 
         this.queryParams = {
-            rootPath: `${SITE_LANACION}${this.aliasPage}`,
+            rootPath: `${SITE_LANACION}`,
             ticksCache: this.ticksCache,
             website: this.website,
             isPage: true,
