@@ -21,6 +21,7 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
+import { getMainPaddingClass } from './helper';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -32,12 +33,16 @@ function BaseLayout({ children }) {
 
     const { layoutsName } = siteProperties || {};
 
-    const classNameMain = cx('container flex flex-column gap-40', {
-        'pb-64': ![
-            layoutsName.FooditRecipePaywall,
-            layoutsName.FooditNotePaywall
-        ].includes(layout)
-    });
+    const classNameMain = cx(
+        'container flex flex-column gap-40',
+        getMainPaddingClass(layout, layoutsName),
+        {
+            'pb-64': ![
+                layoutsName.FooditRecipePaywall,
+                layoutsName.FooditNotePaywall
+            ].includes(layout)
+        }
+    );
 
     const wrapperClass = cx('wrapper overflow-x-clip roboto', {
         '--non-subscriber': !isSubscribed(SUBSCRIBED_HELPER.FOODIT)

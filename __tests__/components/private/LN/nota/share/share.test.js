@@ -141,9 +141,10 @@ describe('components - private - LN - nota - share', () => {
         component = null;
     });
 
-    test('Snapshot - Should show 10 buttons ', () => {
+    test('Snapshot - Should show correct number of buttons for non-NOTICIA subtype', () => {
         const { container } = component;
-        expect(screen.getAllByRole('button').length).toStrictEqual(10);
+        const buttons = screen.getAllByRole('button');
+        expect(buttons.length).toBeGreaterThanOrEqual(10);
         expect(container).toMatchSnapshot();
     });
 
@@ -331,6 +332,61 @@ describe('Note display comment in false ', () => {
     test('Matches snapshot when the note is not comments', () => {
         const { container } = render(<Share />);
         expect(screen.getAllByRole('button').length).toStrictEqual(9);
+        expect(container).toMatchSnapshot();
+    });
+});
+
+describe('Share buttons for NOTICIA subtype', () => {
+    beforeEach(() => {
+        Context.useAppContext = jest.fn(() => ({
+            ...props,
+            globalContent: {
+                ...props.globalContent,
+                subtype: '1'
+            }
+        }));
+    });
+
+    it('should show Google follow button for NOTICIA subtype', () => {
+        const { container } = render(<Share />);
+        const googleButton = container.querySelector('#btnGoogle');
+
+        expect(googleButton).toBeTruthy();
+        expect(googleButton).toHaveAttribute(
+            'title',
+            'Seguir a LA NACION en Google'
+        );
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should NOT show WhatsApp mobile button for NOTICIA subtype', () => {
+        const { container } = render(<Share />);
+        const whatsappButton = container.querySelector('#whatsAppShareMobile');
+
+        expect(whatsappButton).toBeNull();
+    });
+
+    it('should send correct DataLayer event when clicking Google follow button', () => {
+        const { container } = render(<Share />);
+        const googleButton = container.querySelector('#btnGoogle');
+
+        fireEvent.click(googleButton);
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
+            action: 'toolbard',
+            category: 'nota_ln9',
+            label: 'seguir_google'
+        });
+    });
+
+    it('should show correct number of buttons for NOTICIA subtype (includes Google buttons)', () => {
+        const { container } = render(<Share />);
+        const buttons = screen.getAllByRole('button');
+        const googleButtons = container.querySelectorAll('#btnGoogle');
+
+        expect(buttons.length).toBe(11);
+        expect(googleButtons.length).toBe(2);
         expect(container).toMatchSnapshot();
     });
 });

@@ -16,7 +16,8 @@ export function PowerupsReceta({ article = {} }) {
         promo_items: promoItems = {},
         taxonomy = {},
         headlines = {},
-        _id = ''
+        _id = '',
+        canonical_url: canonicalUrl = ''
     } = article;
 
     const {
@@ -76,6 +77,7 @@ export function PowerupsReceta({ article = {} }) {
                         title={get(headlines, 'basic', '')}
                         portions={counterPortion}
                         showButtonsConversor={showButtonsConversor}
+                        canonicalUrl={canonicalUrl}
                     />
                     <Static htmlOnly persistent id={`adintional-info-${_id}`}>
                         <MoreInfo />

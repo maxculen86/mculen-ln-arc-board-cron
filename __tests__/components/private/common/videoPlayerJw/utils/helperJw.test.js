@@ -263,7 +263,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 w-320',
                 facade: 'com-image',
-                facadeContainer: 'w-320 ratio-9-16',
+                facadeContainer: 'w-100 ratio-9-16',
                 captionClasses: 'w-100'
             });
         });
@@ -278,7 +278,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 videoPlayer:
                     'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 h-478_md h-652_lg',
                 facade: 'com-image',
-                facadeContainer: 'w-320 ratio-9-16',
+                facadeContainer: 'w-100 ratio-9-16',
                 captionClasses: 'w-100'
             });
         });

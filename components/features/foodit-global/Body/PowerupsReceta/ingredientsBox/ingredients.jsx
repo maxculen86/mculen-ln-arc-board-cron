@@ -48,7 +48,8 @@ export function Ingredients({
     title,
     portions,
     showButton = true,
-    showButtonsConversor = true
+    showButtonsConversor = true,
+    canonicalUrl
 }) {
     const isSuscriptor = useMemo(
         () => isSubscribed(SUBSCRIBED_HELPER.FOODIT),
@@ -102,6 +103,7 @@ export function Ingredients({
                     ingredientsLists={ingredientsModified}
                     title={title}
                     articleId={articleId}
+                    canonicalUrl={canonicalUrl}
                 />
             )}
         </div>
@@ -125,7 +127,8 @@ Ingredients.propTypes = {
             titleList: PropTypes.string.isRequired,
             typeList: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    canonicalUrl: PropTypes.string.isRequired
 };
 
 export default Ingredients;

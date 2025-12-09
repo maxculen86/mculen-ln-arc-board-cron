@@ -389,6 +389,7 @@ export const transform = async (response, query, cachedCall) => {
     const {
         meteringVariant,
         paywallEnabled = '',
+        checkoutEnabled = '',
         isInApertura = false,
         isAdmin = false,
         imageConfig
@@ -501,6 +502,7 @@ export const transform = async (response, query, cachedCall) => {
             basic: relatedContentBasic
         },
         paywallEnabled,
+        checkoutEnabled,
         subscription: meteringVariant,
         credits: {
             ...get(result, 'credits', {}),

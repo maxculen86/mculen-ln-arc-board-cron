@@ -5,10 +5,10 @@ import {
     CONTENT_BASE,
     LANACION_SERVICES_URL
 } from 'fusion:environment';
-import request from 'request-promise-native';
 import { isValidString } from '../../components/private/common/utils/dataValidation';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import filter from '../filters/LN/acumulado/tag';
 import getRequest from './utils/getRequest';
 import getRequestWithJSON from './utils/getRequestWithJson';
@@ -112,48 +112,59 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
 const fetch = async (query, { cachedCall }) => {
     const { slug, website = 'la-nacion-ar' } = query || {};
 
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
     const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
         query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,
         independent: true
     });
 
-    return request(opt)
-        .then(resp => {
-            if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
-                if (resp.Payload.items[0].slug !== slug) {
-                    throw new NotFoundError(`Tag no encontrado: ${slug}`);
-                }
-            }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
-            if (!resp.Payload.items.length) {
+    const requestInit = {
+        method: 'GET',
+        signal: controller.signal,
+        ...(ARC_ACCESS_TOKEN && {
+            headers: { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` }
+        })
+    };
+
+    const requestUrl = `${CONTENT_BASE}${resolve(query)}`;
+
+    try {
+        const response = await global.fetch(requestUrl, requestInit);
+        handleHttpError(response);
+
+        const resp = await response.json();
+
+        if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
+            if (resp.Payload.items[0].slug !== slug) {
                 throw new NotFoundError(`Tag no encontrado: ${slug}`);
             }
+        }
 
-            return transform(resp, query, tagConfigData, cachedCall);
-        })
-        .catch(error => {
-            console.warn(
-                `LnWarn:Error in content/sources/tagSource : 
+        if (!resp.Payload.items.length) {
+            throw new NotFoundError(`Tag no encontrado: ${slug}`);
+        }
+
+        return transform(resp, query, tagConfigData, cachedCall);
+    } catch (error) {
+        const isAbortError = error?.name === 'AbortError';
+
+        console.warn(
+            `LnWarn:Error in content/sources/tagSource : 
                 query parameters: ${JSON.stringify(query)} 
-                - errorMsj: ${error.message}`,
-                'sourceError'
-            );
-            logger.push(
-                error,
-                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
-                query['arc-site']
-            );
-        });
+                - errorMsj: ${error.message} - timeout:${isAbortError}`,
+            'sourceError'
+        );
+        logger.push(
+            isAbortError ? { ...error, statusCode: 504 } : error,
+            { source: 'content/source/tagSource', url: `/tema/${slug}/` },
+            query['arc-site']
+        );
+        return {};
+    } finally {
+        clearTimeout(timeoutId);
+    }
 };
 
 export default {

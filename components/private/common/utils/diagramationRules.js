@@ -14,6 +14,8 @@ export const size = {
     T1Focal100: 'T1Focal100'
 };
 
+const CENTER_TEXT_CLASS = '--txt-center';
+
 const diagramationRules = diagramation => {
     const img = {
         bottom: 'img-bottom',
@@ -100,7 +102,7 @@ const diagramationRules = diagramation => {
         withMarquee: false,
         withMarqueeImg: false,
         withSubhead: false,
-        className: '--txt-center',
+        className: CENTER_TEXT_CLASS,
         cardSize: size.ML,
         imageConfig: size.XS,
         imagePosition: imagePositions.top,
@@ -304,7 +306,7 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h2,
                 imageConfig: 'bombaHorizontal',
                 aspectRatio: 'ratio-3-2',
-                className: '--txt-center',
+                className: CENTER_TEXT_CLASS,
                 extraClass: { withoutMedia: '--no-mc' },
                 withMedia: true,
                 withPreload: true
@@ -318,7 +320,7 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h2,
                 imageConfig: 'bombaVertical',
                 aspectRatio: 'ratio-3-4',
-                className: '--txt-center',
+                className: CENTER_TEXT_CLASS,
                 withMedia: true,
                 withPreload: true
             })
@@ -333,7 +335,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: false,
                 cardSize: size.fiveXL,
-                className: '--txt-center'
+                className: CENTER_TEXT_CLASS
             }
         ],
         bombitaMas4: [
@@ -346,7 +348,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 cardSize: size.fiveXL,
-                className: '--txt-center',
+                className: CENTER_TEXT_CLASS,
                 hideBadget: false
             },
             ...repeat(4, () =>

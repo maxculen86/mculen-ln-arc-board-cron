@@ -1,9 +1,9 @@
-import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import {
     getMediaJwData,
     transformResultWithResizer
 } from './utils/videoFichaJwSource/_helper';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 
 // ESTE SOURCE SE UTILIZA TANTO PARA OTT COMO PARA EL VIDEO EXPANDIDO DEL CARROUSEL
 const transform = (data, url) => getMediaJwData(data, url);
@@ -21,8 +21,11 @@ const fetch = async (query, { cachedCall } = {}) => {
     const mediaUrl = `https://cdn.jwplayer.com/v2/media/${videoId}`;
 
     try {
-        const mediaResponse = await request(mediaUrl);
-        const result = transform(mediaResponse, url);
+        const response = await global.fetch(mediaUrl);
+        handleHttpError(response);
+        const mediaString = await response.text();
+
+        const result = transform(mediaString, url);
 
         return await transformResultWithResizer({
             result,

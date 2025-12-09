@@ -95,6 +95,11 @@ export function popUpCompartirMailTo(notaId, dominio) {
     }
 }
 
+export function openGoogleDiscoverFollow() {
+    const googleFollowUrl = 'https://profile.google.com/cp/CgkvbS8wNm5xYno';
+    window.open(googleFollowUrl, '_blank', 'noopener,noreferrer');
+}
+
 export function popUpCompartirNotaRss() {
     window.open(
         'http://servicios.lanacion.com.ar/herramientas/rss/ayuda',
@@ -198,6 +203,40 @@ BtnContainer.propTypes = {
     id: PropTypes.string.isRequired
 };
 
+const googleButtonBase = {
+    dataEvent: 'LinkClick',
+    dataSection: 'CompartirNotaLN',
+    icon: <IconSprite name="googleColor" color />,
+    title: 'Seguir a LA NACION en Google',
+    id: 'btnGoogle',
+    handleClick: () => {
+        openGoogleDiscoverFollow();
+    },
+    labelDataLayer: 'seguir_google',
+    iconOnly: false,
+    customDataLayerEvent: {
+        event: 'e_linkclick',
+        action: 'toolbard',
+        category: 'nota_ln9',
+        label: 'seguir_google'
+    }
+};
+
+const googleButtonVariants = {
+    mobile: {
+        className: 'l-none p-12 px-8 h-40',
+        label: '+ Seguir',
+        variant: 'secondary',
+        iconSize: 18
+    },
+    desktop: {
+        className: 'l-only flex-column-reverse_l',
+        label: 'Seguir',
+        variant: 'custom',
+        iconSize: 24
+    }
+};
+
 export const buttonsList = [
     {
         dataEvent: 'LinkClick',
@@ -262,6 +301,11 @@ export const buttonsList = [
         className: 'email p-0 sm-none',
         labelDataLayer: 'enviar_mail'
     }
+];
+
+export const googleButtons = [
+    { ...googleButtonBase, ...googleButtonVariants.mobile },
+    { ...googleButtonBase, ...googleButtonVariants.desktop }
 ];
 
 export function isLN10IAHidden(renderables, glossary, summary) {

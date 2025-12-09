@@ -85,6 +85,7 @@ export default {
         meteringVariant: 'text',
         paywallUrl: 'text',
         paywallEnabled: 'text',
+        checkoutEnabled: 'text',
         outputType: 'text',
         sourceInclude: 'text',
         imageConfig: 'text',
