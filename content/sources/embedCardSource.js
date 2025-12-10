@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import logger from '../../components/private/common/utils/logger';
@@ -49,8 +48,7 @@ const transformImages = async (data, cachedCall) => {
         } catch (error) {
             logger.push(error, {
                 source: 'content/sources/embedCardSource.js - transformImages',
-                imageUrl,
-                errorDetails: error.message
+                url: imageUrl
             });
             return imageUrl;
         }
@@ -87,8 +85,12 @@ const fetch = (query, { cachedCall } = {}) => {
     const safeNoteId = isEncoded(noteId) ? noteId : encodeURIComponent(noteId);
     const url = `${CONTENT_BASE}/content/v4/stories/?website=foodit&_id=${safeNoteId}&published=true`;
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
     const opt = {
-        method: 'GET'
+        method: 'GET',
+        signal: controller.signal
     };
 
     if (ARC_ACCESS_TOKEN) {
@@ -97,7 +99,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
     const resolveData = async () => {
         try {
-            const response = await nodeFetch(url, opt);
+            const response = await global.fetch(url, opt);
             handleHttpError(response);
             const data = await response.json();
 
@@ -111,7 +113,9 @@ const fetch = (query, { cachedCall } = {}) => {
 
             return await transformImages(data, cachedCall);
         } catch (error) {
-            logger.push(error, {
+            const isAbortError = error?.name === 'AbortError';
+
+            logger.push(isAbortError ? { ...error, statusCode: 504 } : error, {
                 source: 'content/sources/embedCardSource.js',
                 url,
                 noteId
@@ -122,6 +126,8 @@ const fetch = (query, { cachedCall } = {}) => {
                 message: error.message,
                 noteId
             };
+        } finally {
+            clearTimeout(timeoutId);
         }
     };
 
