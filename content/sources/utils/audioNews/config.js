@@ -3,9 +3,11 @@ import {
     VIDEO,
     RECETA,
     AGENCIA,
-    LIVEBLOG
+    LIVEBLOG,
+    FOTOAL100
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 export default {
-    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA, LIVEBLOG]
+    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA, LIVEBLOG],
+    disableSubtypesForApps: [RECETA, HTMLLIBRE, FOTOAL100]
 };
