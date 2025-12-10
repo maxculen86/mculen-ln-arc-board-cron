@@ -1,4 +1,3 @@
-import nodeFetch from 'node-fetch';
 import { API_QUERYLY, API_KEY_QUERYLY } from 'fusion:environment';
 
 import logger from '../../components/private/common/utils/logger';
@@ -44,21 +43,32 @@ export const resolve = key => {
     return `${basePath}&${extendedDataFields}&${endIndex}&${batchSize}&${queryParams.join('&')}`;
 };
 
-const fetch = (query = {}) => {
+const fetch = async (query = {}) => {
     const arcSite = query['arc-site'];
     const { title = '', _id = '' } = query;
     const url = `${resolve(query)}`;
+
+    const abortController = new AbortController();
+    const timeoutId = setTimeout(() => abortController.abort(), 5000);
+
     const opt = {
         method: 'GET',
-        json: true
+        signal: abortController.signal
     };
 
-    return nodeFetch(url, opt)
-        .then(response => {
-            handleHttpError(response);
-            return response.json();
-        })
-        .then(({ items = [], metadata: { total, endindex } = {} }) => ({
+    try {
+        const resp = await global.fetch(url, opt);
+
+        handleHttpError(resp);
+
+        if (!resp.ok) {
+            throw new Error(`HTTP error! status: ${resp.status}, URL: ${url}`);
+        }
+
+        const { items = [], metadata: { total, endindex } = {} } =
+            await resp.json();
+
+        return {
             articles: items,
             total,
             endindex,
@@ -66,8 +76,18 @@ const fetch = (query = {}) => {
             title,
             query,
             name: title
-        }))
-        .catch(err => {
+        };
+    } catch (err) {
+        if (err.name === 'AbortError') {
+            logger.push(
+                'Request timed out',
+                {
+                    source: 'content/sources/fooditQuerylySource',
+                    url
+                },
+                arcSite
+            );
+        } else {
             logger.push(
                 err,
                 {
@@ -75,7 +95,11 @@ const fetch = (query = {}) => {
                 },
                 arcSite
             );
-        });
+        }
+        return {};
+    } finally {
+        clearTimeout(timeoutId);
+    }
 };
 
 export default {
