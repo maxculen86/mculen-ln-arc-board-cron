@@ -161,6 +161,34 @@ const diagramationRules = diagramation => {
                 subheadTag: tag.h3
             })
         ],
+        'left-focal-video-vertical': [
+            setArticleSettings(leadCardDefaults, {
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
+                imageConfig: size.T1,
+                imagePosition: imagePositions.topBottom,
+                withPreload: true
+            }),
+            setArticleSettings(standardCardDefaults, {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                withPreload: true,
+                isFetchPriorityHigh: true
+            }),
+            setArticleSettings(standardCardDefaults, {
+                titleTag: tag.h2,
+                subheadTag: tag.h3
+            }),
+            setArticleSettings(standardCardDefaults, {
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                imagePosition: img.bottom
+            }),
+            setArticleSettings(standardCardDefaults, {
+                titleTag: tag.h2,
+                subheadTag: tag.h3
+            })
+        ],
         'center-focal': [
             setArticleSettings(leadCardDefaults, {
                 variantsDisabled: variantsDisabledByType.author,

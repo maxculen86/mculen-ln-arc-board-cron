@@ -33,7 +33,8 @@ const BoxType = {
 
 const diagramationFromLayout = layout => {
     const diagramation = {
-        'left-focal-without-timeline': 'apertura_left-focal-without-timeline'
+        'left-focal-without-timeline': 'apertura_left-focal-without-timeline',
+        'left-focal-video-vertical': 'apertura_left-focal-with-video',
     };
     return diagramation[layout] ?? layout;
 };
@@ -180,14 +181,15 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 ? 'enVivo'
                 : informationLayout;
 
-        if (elem.sectionAliasMobile === 'bnplayer' && elem.video) {
+        if ((elem.sectionAliasMobile === 'bnplayer' || elem.sectionAliasMobile === 'apertura') && elem.video) {
+            const videoPosition = information?.layout === 'left-focal-video-vertical' ? 6 : 1;
             videos = [
                 createVideo(
                     {
                         _id: elem.video?.id,
                         website_url: elem.video?.fullVideoUrl
                     },
-                    1
+                    videoPosition
                 )
             ];
         }
