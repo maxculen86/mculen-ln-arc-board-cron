@@ -157,6 +157,64 @@ const updateFolderCountsAfterDelete = (
     });
 };
 
+const getDeleteToastMessage = bookmarkInfo => {
+    if (!bookmarkInfo) return null;
+
+    if (bookmarkInfo.variant === 'note') {
+        return `La nota ${bookmarkInfo.name} se quitó de tu colección.`;
+    }
+
+    if (bookmarkInfo.variant === 'recipe') {
+        return `La receta ${bookmarkInfo.name} se quitó de tu colección.`;
+    }
+
+    return null;
+};
+
+const showDeleteSuccessToast = bookmarkInfo =>
+    addToast({
+        variant: TOAST.SUCCESS.VARIANT,
+        title: TOAST.SUCCESS.TITLE,
+        message:
+            getDeleteToastMessage(bookmarkInfo) ||
+            TOAST.SUCCESS.MESSAGE.DELETE_ARTICLE
+    });
+
+const handleSuccessfulDeletion = ({
+    successfullResponses,
+    bookmarkedArticles,
+    allBookmarks,
+    setUserBookmarks,
+    setSelectedItem,
+    userBookmarksQuantity
+}) => {
+    updateFolderCountsAfterDelete(
+        successfullResponses,
+        bookmarkedArticles,
+        allBookmarks
+    );
+
+    setLocalStorageBookmarks(successfullResponses);
+
+    if (setUserBookmarks) {
+        setClientSideBookmarks({
+            successfullResponses,
+            setUserBookmarks,
+            setSelectedItem,
+            userBookmarksQuantity
+        });
+    }
+};
+
+const handleFailureToggle = (failureResponses, setUserBookmarks) => {
+    if (!setUserBookmarks && failureResponses?.length) {
+        const failureTypeIds = failureResponses.map(
+            response => response.bookmarkTypeId
+        );
+        toggleBookmarks(failureTypeIds, true);
+    }
+};
+
 const fetchDeleteBookmark = async (
     bookmarkedArticles,
     setUserBookmarks = null,
@@ -168,55 +226,30 @@ const fetchDeleteBookmark = async (
     const { successfullResponses, failureResponses } =
         await deleteBookmark(bookmarkedArticles);
 
-    if (successfullResponses && successfullResponses.length) {
-        updateFolderCountsAfterDelete(
-            successfullResponses,
-            bookmarkedArticles,
-            allBookmarks
-        );
+    if (!successfullResponses?.length) {
+        addErrorToast();
+        handleFailureToggle(failureResponses, setUserBookmarks);
+        return false;
+    }
 
-        setLocalStorageBookmarks(successfullResponses);
+    handleSuccessfulDeletion({
+        successfullResponses,
+        bookmarkedArticles,
+        allBookmarks,
+        setUserBookmarks,
+        setSelectedItem,
+        userBookmarksQuantity
+    });
 
-        if (setUserBookmarks) {
-            setClientSideBookmarks({
-                successfullResponses,
-                setUserBookmarks,
-                setSelectedItem,
-                userBookmarksQuantity
-            });
-        }
-
-        if (successfullResponses.length === bookmarkedArticles.length) {
-            let toastMessage;
-
-            if (bookmarkInfo) {
-                if (bookmarkInfo.variant === 'note') {
-                    toastMessage = `La nota ${bookmarkInfo.name} se quitó de tu colección.`;
-                } else if (bookmarkInfo.variant === 'recipe') {
-                    toastMessage = `La receta ${bookmarkInfo.name} se quitó de tu colección.`;
-                }
-            }
-
-            addToast({
-                variant: TOAST.SUCCESS.VARIANT,
-                title: TOAST.SUCCESS.TITLE,
-                message: toastMessage || TOAST.SUCCESS.MESSAGE.DELETE_ARTICLE
-            });
-        } else {
-            addErrorToast();
-        }
+    if (successfullResponses.length === bookmarkedArticles.length) {
+        showDeleteSuccessToast(bookmarkInfo);
     } else {
         addErrorToast();
     }
 
-    if (!setUserBookmarks && failureResponses && failureResponses.length) {
-        const failureTypeIds = failureResponses.map(
-            response => response.bookmarkTypeId
-        );
-        toggleBookmarks(failureTypeIds, true);
-    }
+    handleFailureToggle(failureResponses, setUserBookmarks);
 
-    return successfullResponses?.length > 0;
+    return true;
 };
 
 export default fetchDeleteBookmark;
