@@ -57,6 +57,22 @@ export const generatePath = (sectionId, regex, fullMatch, $1) => {
     );
 };
 
+const LOGO_NAME_MAP = {
+    lnmas: 'ln-mas',
+    'economia/campo': 'campo',
+    'deportes/canchallena': 'canchallena',
+    'economia/IA': 'futuria',
+    'que-sale': 'que-sale',
+    masmusica: 'ln-radio'
+};
+
+const getLogoName = captureGroup => LOGO_NAME_MAP[captureGroup] || captureGroup;
+
+const isExternalPath = path => {
+    if (!path) return false;
+    return !path.startsWith('/') && !path.startsWith(SITE_LANACION);
+};
+
 export const getLogoData = sections => {
     const resp = {};
 
@@ -67,32 +83,16 @@ export const getLogoData = sections => {
         const match = (regex && sectionId.match(regex)) || [];
 
         const [fullMatch, $1] = match;
-        const logoName =
-            ($1 === 'lnmas' && 'ln-mas') ||
-            ($1 === 'economia/campo' && 'campo') ||
-            ($1 === 'deportes/canchallena' && 'canchallena') ||
-            ($1 === 'economia/IA' && 'futuria') ||
-            ($1 === 'que-sale' && 'que-sale') ||
-            ($1 === 'masmusica' && 'ln-radio') ||
-            $1;
-
+        const logoName = getLogoName($1);
         const path = generatePath(sectionId, regex, fullMatch, $1);
+        const isExternal = isExternalPath(path);
 
-        const isExternal = !!(
-            path &&
-            !path.startsWith('/') &&
-            !path.startsWith(SITE_LANACION)
-        );
+        if (logoName && path) {
+            Object.assign(resp, { logoName, path, isExternal });
+            return true;
+        }
 
-        return (
-            logoName &&
-            path &&
-            Object.assign(resp, {
-                logoName,
-                path,
-                isExternal
-            })
-        );
+        return false;
     });
 
     return resp;
