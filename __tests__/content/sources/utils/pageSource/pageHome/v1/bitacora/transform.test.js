@@ -46,9 +46,9 @@ describe('Transform bitacora v1 test', () => {
 
     test('Bitacora should return right data', async () => {
         const result = await transform(homePage, queryParams);
-        expect(result.cajas.length).toBe(29);
-        expect(result.cajas[4]).toEqual({
-            id_caja: '04',
+        expect(result.cajas.length).toBe(30);
+        expect(result.cajas[5]).toEqual({
+            id_caja: '05',
             visible: true,
             feature: 'tema',
             diagramacion_caja: 'bnGrilla4',
@@ -84,9 +84,9 @@ describe('Transform bitacora v1 test', () => {
 
     test('Bitacora should not return status 500 if a box has no articles', async () => {
         const result = await transform(homePage, queryParams);
-        expect(result.cajas.length).toBe(29);
-        expect(result.cajas[4]).toEqual({
-            id_caja: '04',
+        expect(result.cajas.length).toBe(30);
+        expect(result.cajas[5]).toEqual({
+            id_caja: '05',
             visible: true,
             feature: 'tema',
             diagramacion_caja: 'bnGrilla4',
@@ -743,4 +743,67 @@ describe('Transform bitacora v1 test', () => {
 
         expect(result).toEqual(expected);
     });
+
+    test('transforms left-focal-video-vertical', async () => {
+        const page = {
+            information: { layoutPage: 'LN10-Home_Main' },
+            content_elements: [
+                {
+                    type: 0,
+                    sectionAliasMobile: 'apertura',
+                    information: {
+                        layout: 'left-focal-video-vertical',
+                        initialPosition: 1,
+                        hideTitle: false,
+                        hideCaja: false,
+                        title: '',
+                        url: '',
+                        pbInternal_cloneId: 'c0faaS86p5aj3t8',
+                        typeChain: 'apertura',
+                        nameChain: 'LN10_Caja_Apertura',
+                        idRender: 'c0fsRI3Shaz0clH'
+                    },
+                    articles: [
+                        { _id: 'A1', website_url: '/nota/1' },
+                        { _id: 'A2', website_url: '/nota/2' },
+                        { _id: 'A3', website_url: '/nota/3' },
+                        { _id: 'A4', website_url: '/nota/4' },
+                        { _id: 'A5', website_url: '/nota/5' }
+                    ],
+                    video: {
+                        id: "9WOZs2Z7",
+                        posterUrl: "https://cdn.jwplayer.com/v2/media/9WOZs2Z7/poster.jpg?width=320",
+                        previewVideoUrl: "https://assets-jpcust.jwpsrv.com/thumbnails/32p01tsy-320.mp4",
+                        fullVideoUrl: "https://cdn.jwplayer.com/manifests/9WOZs2Z7.m3u8",
+                        fullVideoDuration: 124,
+                        badgeStyle: "default",
+                        type: "LN-10/videoPlayer"
+                    },
+                    configurations: { arcSite: 'la-nacion-ar' },
+                    sectionWeb: 'Apertura'
+                }
+            ]
+        };
+
+        const result = await transform(page, queryParams);
+
+        expect(result.cajas[0]).toEqual({
+            id_caja: '01',
+            visible: true,
+            feature: 'apertura',
+            diagramacion_caja: 'left-focal-video-vertical',
+            item_category: 'N/A',
+            notas: [
+                { id_nota: 'A1', url_nota: '/nota/1', posicion: '01' },
+                { id_nota: 'A2', url_nota: '/nota/2', posicion: '02' },
+                { id_nota: 'A3', url_nota: '/nota/3', posicion: '03' },
+                { id_nota: 'A4', url_nota: '/nota/4', posicion: '04' },
+                { id_nota: 'A5', url_nota: '/nota/5', posicion: '05' }
+            ],
+            videos: [
+                { id_video: '9WOZs2Z7', url_video: "https://cdn.jwplayer.com/manifests/9WOZs2Z7.m3u8", posicion: '06' }
+            ]
+        });
+    });
+
 });

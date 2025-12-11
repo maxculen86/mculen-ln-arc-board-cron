@@ -180,14 +180,15 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 ? 'enVivo'
                 : informationLayout;
 
-        if (elem.sectionAliasMobile === 'bnplayer' && elem.video) {
+        if ((elem.sectionAliasMobile === 'bnplayer' || elem.sectionAliasMobile === 'apertura') && elem.video) {
+            const videoPosition = information?.layout === 'left-focal-video-vertical' ? 6 : 1;
             videos = [
                 createVideo(
                     {
                         _id: elem.video?.id,
                         website_url: elem.video?.fullVideoUrl
                     },
-                    1
+                    videoPosition
                 )
             ];
         }
