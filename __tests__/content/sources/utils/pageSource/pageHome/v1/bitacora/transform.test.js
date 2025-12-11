@@ -791,7 +791,7 @@ describe('Transform bitacora v1 test', () => {
             id_caja: '01',
             visible: true,
             feature: 'apertura',
-            diagramacion_caja: 'left-focal-video-vertical',
+            diagramacion_caja: 'apertura_left-focal-with-video',
             item_category: 'N/A',
             notas: [
                 { id_nota: 'A1', url_nota: '/nota/1', posicion: '01' },

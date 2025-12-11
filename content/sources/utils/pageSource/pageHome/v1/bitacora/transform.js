@@ -33,7 +33,8 @@ const BoxType = {
 
 const diagramationFromLayout = layout => {
     const diagramation = {
-        'left-focal-without-timeline': 'apertura_left-focal-without-timeline'
+        'left-focal-without-timeline': 'apertura_left-focal-without-timeline',
+        'left-focal-video-vertical': 'apertura_left-focal-with-video',
     };
     return diagramation[layout] ?? layout;
 };
