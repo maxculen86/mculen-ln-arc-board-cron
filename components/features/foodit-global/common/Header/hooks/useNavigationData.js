@@ -19,8 +19,8 @@ export const useNavigationData = () => {
         },
         transform: data => {
             const transformedData = transformMenuData({ ...data, isMobile });
-            const termicasData = (!isSSR() && data.Termicas) || {};
-            return { transformedData, termicasData };
+            const processedTermicas = (!isSSR() && data.Termicas) || {};
+            return { transformedData, termicasData: processedTermicas };
         },
         filter: filterMenuSections
     });
