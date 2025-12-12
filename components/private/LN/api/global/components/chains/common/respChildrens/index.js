@@ -34,8 +34,7 @@ const respChain = (props, containerImage) => {
             typeChain,
             viewabilityRoof
         },
-
-        responseChildren
+        articles: respChildrens
     };
 };
 export default respChain;
