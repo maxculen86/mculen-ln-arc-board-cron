@@ -28,7 +28,9 @@ export const LAYOUTS = {
     OPINION_8: 'opinion8',
     FOODIT_1_GRID: 'foodit_1_grid',
     FOODIT_3_GRID: 'foodit_3_grid',
-    LOGO_3_GRID: 'logo_3_grid'
+    LOGO_3_GRID: 'logo_3_grid',
+    FOCAL_LEFT_VIDEO_VERTICAL: 'left-focal-video-vertical',
+
 };
 
 export const VERTICALS = [
@@ -80,7 +82,8 @@ const {
     OPINION_4,
     OPINION_8,
     FOODIT_1_GRID,
-    FOODIT_3_GRID
+    FOODIT_3_GRID,
+    FOCAL_LEFT_VIDEO_VERTICAL
 } = LAYOUTS;
 
 export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
@@ -113,6 +116,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [OPINION_8]: 8,
         [FOODIT_1_GRID]: 1,
         [FOODIT_3_GRID]: 3,
+        [FOCAL_LEFT_VIDEO_VERTICAL]: 6,
         default: Number(layout && layout.slice(-1)) || 3
     };
 
