@@ -106,5 +106,31 @@ describe('Tests - helpers- breadcrumb - foodit ', () => {
                 }
             ]);
         });
+
+        test('returns correct array when parentInfo is provided (using splitSections logic)', () => {
+            const parentInfo = {
+                parentName: 'Parent Category',
+                parentId: '/parent'
+            };
+            expect(
+                setArraySection('/recetas/stews', false, parentInfo)
+            ).toEqual([
+                {
+                    name: 'Foodit',
+                    url: site,
+                    disabled: false
+                },
+                {
+                    name: parentInfo.parentName,
+                    url: `${site}${parentInfo.parentId}/`,
+                    disabled: false
+                },
+                {
+                    name: 'Stews',
+                    url: `${site}/recetas/stews/`,
+                    disabled: false
+                }
+            ]);
+        });
     });
 });
