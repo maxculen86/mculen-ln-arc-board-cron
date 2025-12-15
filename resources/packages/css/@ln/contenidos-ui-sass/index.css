@@ -385,11 +385,11 @@ a {
   --neutral-dark-50: #0D0D0D;
   --neutral-dark-300: #4D4D4D;
   --neutral-dark-999: #FEFEFE;
-  --muted: #E5E5E5;
+  --muted: #e5e5e5;
   --no-digital: #e6e6e6;
   --primary-ia: #27d2be;
   --primary-ia-30: #27d2be4d;
-  --cards-nota: #FAFAFA;
+  --cards-nota: #fafafa;
   /* Colores base */
   --blue-100: #e7f0ff;
   --blue-200: #bcd6ff;
@@ -402,7 +402,7 @@ a {
   --red-700: #b40d15;
   --yellow-subscribe: #ffff24;
   --yellow-secondary: #f2f20d;
-  --neutral-700: #4C4C4C;
+  --neutral-700: #4c4c4c;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -441,6 +441,7 @@ a {
   --ranking: #74d1e5;
   --adivinanzas: #81b6e2;
   --cruci-experto: #666666;
+  --combinadas: #bb1e69;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1192,6 +1193,10 @@ a {
   background: var(--cruci-experto);
 }
 
+.bg-combinadas {
+  background: var(--combinadas);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1336,6 +1341,10 @@ a {
   background: var(--cruci-experto);
 }
 
+.bg-combinadas__hover:hover {
+  background: var(--combinadas);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -1455,6 +1464,11 @@ a {
   background-color: white;
 }
 
+.ln-card-games-combinadas__hover:hover .cardGame__hover {
+  border-color: var(--combinadas);
+  background-color: white;
+}
+
 .bg-gradient-dark {
   background: linear-gradient(360deg, rgba(0, 0, 0, 0) 8.81%, rgba(0, 22, 49, 0.2) 53.77%, rgba(0, 22, 49, 0.375) 77.2%, rgba(0, 22, 49, 0.45) 100%);
 }
@@ -1563,12 +1577,12 @@ a {
 }
 .prumo.text-28 {
   font-size: 1.75rem;
-  line-height: 116%;
+  line-height: 110%;
   --prumo-letter-spacing: -0.3px;
 }
 .prumo.text-32 {
   font-size: 2rem;
-  line-height: 116%;
+  line-height: 110%;
   --prumo-letter-spacing: -0.64px;
 }
 .prumo.text-34 {
@@ -1594,17 +1608,17 @@ a {
   }
   .prumo.text-28_md {
     font-size: 1.75rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.3px;
   }
   .prumo.text-32_md {
     font-size: 2rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.64px;
   }
   .prumo.text-40_md {
     font-size: 2.5rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.64px;
   }
   .prumo.text-52_md {
@@ -1614,19 +1628,19 @@ a {
   }
   .prumo.text-56_md {
     font-size: 3.5rem;
-    line-height: 110%;
+    line-height: 100%;
     --prumo-letter-spacing: -0.64px;
   }
 }
 @media (min-width: 80rem) {
   .prumo.text-36_lg {
     font-size: 2.25rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.64px;
   }
   .prumo.text-28_lg {
     font-size: 1.75rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.3px;
   }
   .prumo.text-48_lg {
@@ -1643,7 +1657,7 @@ a {
 @media (min-width: 83.75rem) {
   .prumo.text-40_xl {
     font-size: 2.5rem;
-    line-height: 116%;
+    line-height: 110%;
     --prumo-letter-spacing: -0.64px;
   }
   .prumo.text-48_xl {
