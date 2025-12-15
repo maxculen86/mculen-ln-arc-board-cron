@@ -12,6 +12,7 @@ import {
     isExcludedSubtype
 } from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
 import getOpeningMode from '../label/openingMode';
+import { getDomainCLL } from '../domain';
 
 export const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -90,6 +91,8 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const subtype = get(dataNota, 'subtype', '');
 
+    const domain = getDomainCLL(dataNota);
+
     const resp = {
         id,
         template:
@@ -114,7 +117,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         trust: !isTrust,
         metadata: Metadata(dataNota),
         ia: getIa(dataNota, subtype),
-        openingMode: hasTable ? 'NativeBrowser' : openingMode
+        openingMode: hasTable ? 'NativeBrowser' : openingMode,
+        ...(domain && { domain })
     };
 
     switch (dataNota.subtype) {
