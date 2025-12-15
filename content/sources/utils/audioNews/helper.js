@@ -1,66 +1,7 @@
 import get from '../../../../components/private/common/utils/get';
 import config from './config';
 
-const { disableSubtypes } = config;
-
-const getCommonProperties = data => {
-    const sourceOrigin = get(data, 'source.system', '');
-    const subtype = get(data, 'subtype', '');
-    const labelAudioNews = get(data, 'label.republicar_audio', null);
-    const textAudioNews = get(data, 'label.republicar_audio.text', '');
-    const date = get(data, 'first_publish_date', '');
-    const displayDate = get(data, 'display_date', '');
-    const contentElements = get(data, 'content_elements', []);
-    const primarySectionId = get(data, 'taxonomy.primary_section._id', '');
-    const wordCount = get(
-        data,
-        'planning.story_length.word_count_actual',
-        null
-    );
-
-    const audioStatus = get(
-        data,
-        'promo_items.audio_nota.embed.config.audio_status',
-        null
-    );
-
-    return {
-        sourceOrigin,
-        subtype,
-        labelAudioNews,
-        textAudioNews,
-        date,
-        contentElements,
-        primarySectionId,
-        displayDate,
-        audioStatus,
-        wordCount
-    };
-};
-
-export const isValidDate = (date = '', releaseDate = 20231123) => {
-    const formatDate = date.replace(/-|[a-z][^/]+/gi, '');
-    return Number(formatDate) >= releaseDate;
-};
-
-const hasParagraphs = contentElements =>
-    contentElements.some(({ type = '' } = {}) => type === 'text');
-
-const isSectionNoListenable = primarySectionId => {
-    const regex = /^\/(juegos|newsletters)/i;
-    return regex.test(primarySectionId);
-};
-
-const isSectionEstadosUnidosListenable = (primarySectionId, date = '') => {
-    const regex = /^\/(estados-unidos)/i;
-    const formatDate = date.replace(/-|[a-z][^/]+/gi, '');
-    const releaseDateSection = 20250217;
-
-    if (regex.test(primarySectionId)) {
-        return Number(formatDate) >= releaseDateSection;
-    }
-    return true;
-};
+const { disableSubtypes, disableSubtypesForApps } = config;
 
 const AUDIO_STATUS = {
     CREATED_AUDIO: 6,
@@ -69,73 +10,104 @@ const AUDIO_STATUS = {
 
 const RELEASE_DATE_FOR_AUDIO_STATUS = 20250401;
 
-export const isAudioGenerated = (audioStatus = null) =>
+const getCommonProperties = data => ({
+    sourceOrigin: get(data, 'source.system', ''),
+    subtype: get(data, 'subtype', ''),
+    labelAudioNews: get(data, 'label.republicar_audio', null),
+    textAudioNews: get(data, 'label.republicar_audio.text', ''),
+    date: get(data, 'first_publish_date', get(data, 'display_date', '')),
+    contentElements: get(data, 'content_elements', []),
+    primarySectionId: get(data, 'taxonomy.primary_section._id', ''),
+    wordCount: get(data, 'planning.story_length.word_count_actual', null),
+    audioStatus: get(
+        data,
+        'promo_items.audio_nota.embed.config.audio_status',
+        null
+    )
+});
+
+const normalizeDate = date => date.replace(/-|[a-z][^/]+/gi, '');
+
+export const isValidDate = (date = '', releaseDate = 20231123) =>
+    Number(normalizeDate(date)) >= releaseDate;
+
+export const isAudioGenerated = audioStatus =>
     audioStatus === AUDIO_STATUS.CREATED_AUDIO ||
     audioStatus === AUDIO_STATUS.UPDATED_AUDIO;
 
-const isListenable = (data, isForWeb = true) => {
-    const {
-        sourceOrigin,
-        subtype,
-        labelAudioNews,
-        textAudioNews,
-        date,
-        contentElements,
-        primarySectionId,
-        displayDate,
-        audioStatus
-    } = getCommonProperties(data);
+const hasParagraphs = contentElements =>
+    contentElements.some(({ type = '' } = {}) => type === 'text');
 
-    if (audioStatus !== null) {
-        const shouldShowAudio = isAudioGenerated(audioStatus);
-        const isAudioAllowedByLabel = textAudioNews !== 'No mostrar audio';
+const isSectionNoListenable = primarySectionId =>
+    /^\/(juegos|newsletters|estados-unidos)/i.test(primarySectionId);
 
-        if (!isForWeb) {
-            return shouldShowAudio;
-        }
-        return shouldShowAudio && isAudioAllowedByLabel;
-    }
+const validSourceOrigins = ['composer', ''];
 
-    const publishedDate = date || displayDate;
-    if (
-        isForWeb &&
-        audioStatus === null &&
-        isValidDate(publishedDate, RELEASE_DATE_FOR_AUDIO_STATUS)
-    ) {
-        return false;
-    }
-    const validShouldShowAudio = (forWeb, label, text) => {
-        if (!forWeb) return true;
-
-        return label ? text !== 'No mostrar audio' : true;
-    };
-
-    return (
-        (sourceOrigin === 'composer' || sourceOrigin === '') &&
-        validShouldShowAudio(isForWeb, labelAudioNews, textAudioNews) &&
-        !isSectionNoListenable(primarySectionId) &&
-        isSectionEstadosUnidosListenable(
-            primarySectionId,
-            date || displayDate
-        ) &&
+const passesCommonRules = (
+    { sourceOrigin, subtype, primarySectionId, date, contentElements },
+    isForWeb
+) => {
+    const baseRules =
+        validSourceOrigins.includes(sourceOrigin) &&
         !disableSubtypes.includes(subtype) &&
-        (isValidDate(date) || isValidDate(displayDate)) &&
-        (isForWeb ? hasParagraphs(contentElements) : true)
-    );
+        !isSectionNoListenable(primarySectionId) &&
+        isValidDate(date);
+
+    const webSpecificRule = isForWeb ? hasParagraphs(contentElements) : true;
+
+    return baseRules && webSpecificRule;
 };
 
-const isNoteListenable = data => isListenable(data);
-export const isNoteListenableForApps = data => {
-    const { subtype, audioStatus, wordCount } = getCommonProperties(data);
+const passesWebLabelRules = (labelAudioNews, textAudioNews) =>
+    !labelAudioNews || textAudioNews !== 'No mostrar audio';
 
-    let shouldShowAudio = false;
+const handleAudioStatusCase = (audioStatus, textAudioNews, isForWeb) => {
+    const generated = isAudioGenerated(audioStatus);
+    if (!isForWeb) return generated;
+    return generated && textAudioNews !== 'No mostrar audio';
+};
+
+const handleWebFutureAudioCase = (publishedDate, audioStatus) => {
+    if (audioStatus !== null) return true;
+    return !isValidDate(publishedDate, RELEASE_DATE_FOR_AUDIO_STATUS);
+};
+
+const isListenable = (data, isForWeb = true) => {
+    const props = getCommonProperties(data);
+    const { audioStatus, labelAudioNews, textAudioNews, date } = props;
 
     if (audioStatus !== null) {
-        shouldShowAudio = isAudioGenerated(audioStatus);
+        return handleAudioStatusCase(audioStatus, textAudioNews, isForWeb);
     }
 
-    if (!shouldShowAudio && wordCount)
-        return Number(wordCount) >= 100 && !['7', '8', '9'].includes(subtype);
+    if (isForWeb && !handleWebFutureAudioCase(date, audioStatus)) {
+        return false;
+    }
+
+    if (isForWeb) {
+        return (
+            passesCommonRules(props, true) &&
+            passesWebLabelRules(labelAudioNews, textAudioNews)
+        );
+    }
+
+    return passesCommonRules(props, false);
+};
+
+export const isNoteListenableForApps = data => {
+    const { audioStatus, subtype, wordCount } = getCommonProperties(data);
+
+    if (audioStatus !== null && isAudioGenerated(audioStatus)) {
+        return true;
+    }
+
+    if (
+        wordCount &&
+        Number(wordCount) >= 100 &&
+        !disableSubtypesForApps.includes(subtype)
+    ) {
+        return true;
+    }
 
     return isListenable(data, false);
 };
@@ -143,4 +115,4 @@ export const isNoteListenableForApps = data => {
 export const isCustomVoice = data =>
     data?.voice !== undefined && data?.voice != null;
 
-export default isNoteListenable;
+export default data => isListenable(data, true);
