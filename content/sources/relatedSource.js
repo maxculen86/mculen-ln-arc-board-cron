@@ -34,8 +34,7 @@ const fetch = async query => {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
 
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         logger.push(
             error,
