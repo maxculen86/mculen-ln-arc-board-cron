@@ -3,16 +3,17 @@ import { BuildBanners } from '../_children/_buildBanners';
 import { processElement } from '../_children/_processElement';
 import get from '../../../../private/common/utils/get';
 
-export const renderWithBanners = (
-    ComponentWithProps,
-    banners,
-    globalContent,
-    elements,
-    outputType,
-    counter,
-    element,
-    currentIndex
-) => {
+export const renderWithBanners = (ComponentWithProps, config) => {
+    const {
+        banners,
+        globalContent,
+        elements,
+        outputType,
+        counter,
+        element,
+        currentIndex
+    } = config;
+
     const bannerToRender = BuildBanners({
         banners,
         globalContent,
@@ -98,16 +99,15 @@ export const renderElement = (
     if (shouldSkipElement(nodeType)) return null;
 
     if (banners) {
-        return renderWithBanners(
-            ComponentWithProps,
+        return renderWithBanners(ComponentWithProps, {
             banners,
             globalContent,
             elements,
             outputType,
-            counter.current + 1,
+            counter: counter.current + 1,
             element,
             currentIndex
-        );
+        });
     }
 
     return ComponentWithProps;
