@@ -1,14 +1,15 @@
 import request from 'request-promise-native';
-import { ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { STRAPI_API_KEY } from 'fusion:environment';
 
 const getRequestWithJSON = query => {
     const opt = {
         uri: query.uri || '',
         json: true
     };
-    if (ARC_ACCESS_TOKEN) {
+
+    if (STRAPI_API_KEY) {
         opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
+            bearer: STRAPI_API_KEY
         };
     }
     if (query.headers) {

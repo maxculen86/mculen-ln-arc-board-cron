@@ -1,9 +1,7 @@
 import 'regenerator-runtime/runtime';
-import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../../components/private/common/utils/logger';
 import wikiTagSource from '../../../content/sources/wikiTagSource';
 import mockWikiData from '../../../__mocks__/data/wikiTag/messiDataMock';
-import getProperties from 'fusion:properties';
 
 const mockGetReq = jest.fn();
 
@@ -12,21 +10,25 @@ jest.mock('../../../components/private/common/utils/logger', () => {
     return { push };
 });
 
-jest.mock('../../../content/sources/utils/getRequestWithJson', () => () =>
-    mockGetReq()
+jest.mock(
+    '../../../content/sources/utils/getRequestWithJson',
+    () => () => mockGetReq()
 );
 
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => []
 }));
 
+jest.mock('fusion:environment', () => ({
+    STRAPI_API_URL: 'https://admin-lanacion.lnapps.com.ar'
+}));
+
 const loggerPush = jest.spyOn(logger, 'push');
 
 describe('Content Sources - Wiki Tag Source', () => {
-    const { fetch, resolve, transform } = wikiTagSource;
+    const { fetch, resolve } = wikiTagSource;
 
     const query = { slug: 'lionel-messi-tid1619' };
-    const siteProps = { imageConfig: '', 'arc-site': 'la-nacion-ar' };
 
     it('should test fetch function', done => {
         mockGetReq.mockResolvedValue(mockWikiData);
@@ -37,7 +39,7 @@ describe('Content Sources - Wiki Tag Source', () => {
 
     it('should get uri data correctly', () => {
         expect(resolve(query)).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/tags/lionel-messi-tid1619'
+            'https://admin-lanacion.lnapps.com.ar/api/v1/tags/lionel-messi-tid1619'
         );
     });
 
