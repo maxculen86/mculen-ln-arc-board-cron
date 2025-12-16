@@ -8,8 +8,19 @@ function AuthInitializer({ children, website = 'la-nacion-ar' }) {
     const [tokens, setTokens] = useState({});
 
     useEffect(() => {
-        initializeAuth({ website, setTokens });
-    }, []);
+        const init = async () => {
+            await initializeAuth({
+                website,
+                setTokens
+            });
+
+            if (window.UCL) {
+                window.dispatchEvent(new CustomEvent('ucl-ready'));
+            }
+        };
+
+        init();
+    }, [website]);
 
     const valuesFromLibUCL = useMemo(() => tokens, [tokens]);
 

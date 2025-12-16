@@ -32,6 +32,7 @@ import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
 import get from '../../../common/utils/get';
 import MetaRobots from '../../../common/scriptManager/MetaRobots';
 import TikTokPixel from '../../../common/scriptManager/TikTokPixel';
+import GoogleOneTap from '../../../common/scriptManager/GoogleOneTap';
 
 const scriptList = [
     {
@@ -151,6 +152,10 @@ const scriptList = [
     },
     {
         component: { name: 'TikTokPixel', function: TikTokPixel },
+        feature: 'none'
+    },
+    {
+        component: { name: 'GoogleOneTap', function: GoogleOneTap },
         feature: 'none'
     }
 ];
