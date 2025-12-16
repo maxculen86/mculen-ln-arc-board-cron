@@ -1,4 +1,3 @@
-import { name } from 'file-loader';
 import { respChildrens } from '../../config/configReponseByTypeChain';
 
 const respChainByVersion = (props, version) =>
@@ -8,7 +7,9 @@ const respChainByVersion = (props, version) =>
 
 const respChain = (props, containerImage) => {
     const { customFields, typeChain, version, viewabilityRoof } = props;
-    const isFocalVideoVertical = customFields.layout === 'left-focal-video-vertical' && typeChain === 'apertura';
+    const isFocalVideoVertical =
+        customFields.layout === 'left-focal-video-vertical' &&
+        typeChain === 'apertura';
     const nameChain = isFocalVideoVertical ? 'bnPlayer' : typeChain;
 
     const responseChildren = respChildrens[nameChain]
@@ -34,7 +35,7 @@ const respChain = (props, containerImage) => {
             typeChain,
             viewabilityRoof
         },
-        articles: respChildrens
+        articles: responseChildren
     };
 };
 export default respChain;
