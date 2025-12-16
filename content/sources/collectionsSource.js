@@ -36,9 +36,12 @@ const resolve = key => {
     if (!website)
         throw new Error('Debe indicar el website - Collections Source');
 
-    const uriParams = [
-        `${key && key.sourceInclude && key.sourceInclude !== '' ? `&included_fields=${key.sourceInclude}` : ''}`
-    ].join('');
+    const includedFields =
+        key && key.sourceInclude && key.sourceInclude !== ''
+            ? `&included_fields=${key.sourceInclude}`
+            : '';
+
+    const uriParams = [includedFields].join('');
 
     if (params) {
         fromParam = getParamFromQuery(key, 'from') || fromParam;
