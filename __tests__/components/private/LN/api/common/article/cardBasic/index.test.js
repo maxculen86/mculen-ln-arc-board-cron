@@ -1,6 +1,10 @@
 import CardBasic from '../../../../../../../../components/private/LN/api/common/article/cardBasic';
 import LNApiErrorArticles from '../../../../../../../../components/private/LN/api/common/article/models/exceptions/lnApiErrorArticles';
 
+jest.mock('fusion:environment', () => ({
+    CLL_HTMLFREE_DOMAIN: 'https://canchallena.lanacion.com.ar/especiales'
+}));
+
 describe('CardBasic real integration', () => {
     const baseArticle = {
         _id: 'article123',
@@ -84,5 +88,18 @@ describe('CardBasic real integration', () => {
         const result = CardBasic(article);
 
         expect(result.authors[0].voice).toEqual(1234);
+    });
+
+    it('Should return domain when subtype is HTMLLIBRECLL', () => {
+        const article = {
+            ...baseArticle,
+            subtype: '15'
+        };
+
+        const result = CardBasic(article);
+
+        expect(result.domain).toContain(
+            'canchallena.lanacion.com.ar/especiales'
+        );
     });
 });
