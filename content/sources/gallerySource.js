@@ -19,6 +19,7 @@ const transform = async (data, siteProps, cachedCall) => {
     const shouldResize = get(siteProps, 'resize', false);
     const isFotoAl100 = get(siteProps, 'isFotoAl100', false);
     const count = get(siteProps, 'count', 0);
+    const startPosition = get(siteProps, 'startPosition', 1);
 
     if (!shouldResize) return data;
 
@@ -26,7 +27,11 @@ const transform = async (data, siteProps, cachedCall) => {
 
     const elements = get(clonedData, 'content_elements', []);
 
-    const filteredContentElements = elements.slice(0, count);
+    const startIndex = Math.max(0, startPosition - 1);
+    const filteredContentElements = elements.slice(
+        startIndex,
+        startIndex + Number(count)
+    );
 
     clonedData.content_elements = filteredContentElements;
 
@@ -91,7 +96,8 @@ export default {
         resize: 'bool',
         isFotoAl100: 'bool',
         imageConfig: 'text',
-        count: 'number'
+        count: 'number',
+        startPosition: 'number'
     },
     ttl: 600
 };

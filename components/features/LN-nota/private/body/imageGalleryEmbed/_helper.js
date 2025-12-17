@@ -11,6 +11,7 @@ export const extractGalleryEmbedData = (element = {}) => {
     const isFotoAl100 = get(config, 'isFotoAl100', false);
     const galleryImages = get(config, 'galleryImages', []);
     const count = get(config, 'count', 0);
+    const startPosition = get(config, 'startPosition', 1);
 
     return {
         galleryId,
@@ -18,7 +19,8 @@ export const extractGalleryEmbedData = (element = {}) => {
         diagram,
         isFotoAl100,
         galleryImages,
-        count
+        count,
+        startPosition
     };
 };
 
@@ -29,43 +31,3 @@ export const getAspectRatioClass = diagram =>
         'aspect-[3/2]':
             diagram !== 'vertical-two' && diagram !== 'vertical-three'
     });
-
-export const buildGalleryEmbedData = async ({
-    element,
-    cachedCall,
-    gallerySource,
-    arcSite
-}) => {
-    if (get(element, 'subtype') !== 'gallery-embed') return null;
-
-    const { galleryId, diagram, count, isFotoAl100 } =
-        extractGalleryEmbedData(element);
-
-    const resp = await cachedCall('gallerySource', gallerySource.fetch, {
-        query: {
-            id: galleryId,
-            imageConfig: diagram,
-            count,
-            isFotoAl100,
-            arcSite,
-            resize: true
-        }
-    });
-
-    const images = get(resp, 'content_elements', []).map(img => ({
-        url: get(img, 'url', ''),
-        height: get(img, 'height', 0),
-        width: get(img, 'width', 0),
-        resized_urls: get(img, 'resized_urls', [])
-    }));
-
-    return {
-        ...element,
-        embed: {
-            config: {
-                ...element.embed.config,
-                galleryImages: images
-            }
-        }
-    };
-};
