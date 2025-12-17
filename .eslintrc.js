@@ -35,7 +35,8 @@ module.exports = {
                 ]
             }
         ],
-        'no-console': [2, { allow: ['warn', 'error', 'info'] }]
+        'no-console': [2, { allow: ['warn', 'error', 'info'] }],
+        'react/prop-types': 'off'
     },
     overrides: [
         {
