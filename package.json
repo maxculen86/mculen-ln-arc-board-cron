@@ -147,8 +147,7 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "request-promise-native": "1.0.8",
-        "slugify": "1.6.5",
-        "thumbor": "0.1.5"
+        "slugify": "1.6.5"
     },
     "devDependencies": {
         "@arc-fusion/cli": "2.3.0",
