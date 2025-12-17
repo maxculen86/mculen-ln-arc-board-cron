@@ -1065,7 +1065,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres"
+                    href="https://www.lanacion.com.ar/avisos/funebres/"
                     target="_self"
                     title="Avisos fúnebres"
                   >
@@ -1077,7 +1077,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
-                    href="https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales"
+                    href="https://www.lanacion.com.ar/avisos/sociales/"
                     target="_self"
                     title="Avisos sociales"
                   >

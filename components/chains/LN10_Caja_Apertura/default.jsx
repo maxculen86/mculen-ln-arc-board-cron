@@ -6,7 +6,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
 import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
-import { setCustomFields } from './_helper';
+import { setCustomFields, getReorderedChildren } from './_helper';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import {
     getCommonProps,
@@ -25,11 +25,10 @@ import {
 } from '../utils/common/_helpers-WebApi';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
-import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
 
 const { FOCAL_LEFT } = LAYOUTS;
 
-const CajaApertura = props => {
+function CajaApertura(props) {
     const {
         id: chainId,
         isAdmin,
@@ -51,8 +50,6 @@ const CajaApertura = props => {
             validateChain(childProps, layout, isInOpening)
     });
 
-    const isFocalLeft = layout === FOCAL_LEFT;
-
     const { position, positionInsideSection } = getCommonProps(props);
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
@@ -68,7 +65,10 @@ const CajaApertura = props => {
 
     const slicedChildrenInitial = setSlicedChildren({
         children: featuredChildren,
-        config: { layout, countTimeline: true }
+        config: {
+            layout,
+            countTimeline: layout === FOCAL_LEFT
+        }
     });
 
     const [slicedChildren, setUpdateChildrens] = useState(
@@ -85,7 +85,6 @@ const CajaApertura = props => {
                 setQuantityByLayout
             });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [children]);
 
     // TODO testear dynamic banners en esta chain
@@ -110,12 +109,11 @@ const CajaApertura = props => {
                         {...viewabilityData}
                         focalType={layout}
                     >
-                        {isFocalLeft
-                            ? reorderArticlesWithTimeline(
-                                  slicedChildren,
-                                  childProps
-                              )
-                            : slicedChildren}
+                        {getReorderedChildren(
+                            layout,
+                            slicedChildren,
+                            childProps
+                        )}
                     </Opening>
                     {bannerMob}
                 </>
@@ -124,7 +122,7 @@ const CajaApertura = props => {
     });
 
     return setStaticDynamically(Component, isAdmin, extraOptsDiv, chainId);
-};
+}
 
 CajaApertura.label = 'LN10 Caja Apertura';
 
