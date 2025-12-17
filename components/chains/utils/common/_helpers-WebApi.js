@@ -1,5 +1,6 @@
 export const LAYOUTS = {
     FOCAL_LEFT: 'left-focal',
+    FOCAL_LEFT_VIDEO: 'left-focal-video-vertical',
     FOCAL_CENTER: 'center-focal',
     FOCAL_70: 'focal-70',
     BN_OPENING_4: 'bn-opening-4',
@@ -29,8 +30,7 @@ export const LAYOUTS = {
     FOODIT_1_GRID: 'foodit_1_grid',
     FOODIT_3_GRID: 'foodit_3_grid',
     LOGO_3_GRID: 'logo_3_grid',
-    FOCAL_LEFT_VIDEO_VERTICAL: 'left-focal-video-vertical',
-
+    FOCAL_LEFT_VIDEO_VERTICAL: 'left-focal-video-vertical'
 };
 
 export const VERTICALS = [
@@ -57,6 +57,7 @@ export const CHAIN_STYLE = {
 const {
     FOCAL_LEFT,
     FOCAL_CENTER,
+    FOCAL_LEFT_VIDEO,
     FOCAL_70,
     BN_OPENING_4,
     FOCAL_100,
@@ -89,6 +90,7 @@ const {
 export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
     const options = {
         [FOCAL_LEFT]: countTimeline ? 6 : 5,
+        [FOCAL_LEFT_VIDEO]: 6,
         [FOCAL_CENTER]: 4,
         [FOCAL_70]: 3,
         [BN_OPENING_4]: 4,
