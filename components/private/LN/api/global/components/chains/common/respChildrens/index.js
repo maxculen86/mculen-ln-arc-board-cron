@@ -7,12 +7,16 @@ const respChainByVersion = (props, version) =>
 
 const respChain = (props, containerImage) => {
     const { customFields, typeChain, version, viewabilityRoof } = props;
+    const isFocalVideoVertical =
+        customFields.layout === 'left-focal-video-vertical' &&
+        typeChain === 'apertura';
+    const nameChain = isFocalVideoVertical ? 'bnPlayer' : typeChain;
 
-    const responseChildren = respChildrens[typeChain]
-        ? respChildrens[typeChain](props)
+    const responseChildren = respChildrens[nameChain]
+        ? respChildrens[nameChain](props)
         : respChainByVersion(props, version);
 
-    if (typeChain === 'bnPlayer') {
+    if (typeChain === 'bnPlayer' || isFocalVideoVertical) {
         return {
             information: {
                 ...customFields,

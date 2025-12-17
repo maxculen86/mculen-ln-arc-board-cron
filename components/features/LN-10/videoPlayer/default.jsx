@@ -25,13 +25,14 @@ function LN10VideoPlayer({
 
     const { title, mediaId, videoFile, playlist } = videoData || {};
 
-    const cardPosition = 0;
     const termicaCajaSegmentada = useTermica('caja_segmentada');
-    const { boxPosition } = getChainConfig({
+    const { boxPosition, layout } = getChainConfig({
         featureId: id,
         renderables,
         termicaCajaSegmentada
     });
+
+    const cardPosition = layout === 'left-focal-video-vertical' ? 5 : 0;
 
     const extraOpts = getDataAttributesForViewability(
         videoId,
@@ -76,15 +77,17 @@ function LN10VideoPlayer({
 
     return (
         !error && (
-            <VideoCommonJw
-                videoId={videoId}
-                mediaId={mediaId}
-                videoConfig={videoConfig}
-                extraOpts={extraOpts}
-                videoData={videoData}
-                ratio="ratio-9-16"
-                isAdmin={isAdmin}
-            />
+            <div className="video-container">
+                <VideoCommonJw
+                    videoId={videoId}
+                    mediaId={mediaId}
+                    videoConfig={videoConfig}
+                    extraOpts={extraOpts}
+                    videoData={videoData}
+                    ratio="ratio-9-16"
+                    isAdmin={isAdmin}
+                />
+            </div>
         )
     );
 }

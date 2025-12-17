@@ -286,12 +286,12 @@ export const menuData = [
                 },
                 {
                     name: 'Avisos fúnebres',
-                    href: 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres',
+                    href: 'https://www.lanacion.com.ar/avisos/funebres/',
                     title: 'Avisos fúnebres'
                 },
                 {
                     name: 'Avisos sociales',
-                    href: 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales',
+                    href: 'https://www.lanacion.com.ar/avisos/sociales/',
                     title: 'Avisos sociales'
                 }
             ]

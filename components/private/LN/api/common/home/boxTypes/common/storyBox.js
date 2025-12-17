@@ -1,7 +1,7 @@
 import get from '../../../../../../common/utils/get';
 import { orderArticles } from '../../utils/helpers';
 
-const videoPlayerDiagramations = ['bn_player_3_grid', 'bn_player_4_grid'];
+const videoPlayerDiagramations = ['bn_player_3_grid', 'bn_player_4_grid', 'left-focal-video-vertical'];
 const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
     const { sectionWeb } = informationBox;
 
