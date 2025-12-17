@@ -22,7 +22,8 @@ describe('Components - features - LN-nota - private - body - imageGalleryEmbed -
                 diagram: '1_2',
                 galleryImages: [{ url: 'image.png' }],
                 isFotoAl100: false,
-                count: 0
+                count: 0,
+                startPosition: 1
             });
         });
 
@@ -33,7 +34,8 @@ describe('Components - features - LN-nota - private - body - imageGalleryEmbed -
                 galleryId: '',
                 galleryImages: [],
                 isFotoAl100: false,
-                count: 0
+                count: 0,
+                startPosition: 1
             });
             expect(extractGalleryEmbedData(null)).toEqual({});
         });
@@ -47,7 +49,8 @@ describe('Components - features - LN-nota - private - body - imageGalleryEmbed -
                 diagram: '',
                 galleryImages: [],
                 isFotoAl100: false,
-                count: 0
+                count: 0,
+                startPosition: 1
             });
         });
     });
