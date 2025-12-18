@@ -16,7 +16,7 @@ const isEncoded = str => {
 
 export const transform = async ({ data = {}, cachedCall }) => {
     const authors = get(data, 'authors', []);
-    const transformedAuthors = await Promise.all(
+    return Promise.all(
         authors.map(async author => {
             const image = get(author, 'image', '');
             let signingResponse = null;
@@ -51,11 +51,9 @@ export const transform = async ({ data = {}, cachedCall }) => {
             };
         })
     );
-
-    return transformedAuthors;
 };
 
-const fetch = (query, { cachedCall } = {}) => {
+const fetch = async (query, { cachedCall } = {}) => {
     const { authorName = '' } = query;
     const safeAuthorName = isEncoded(authorName)
         ? authorName
@@ -71,23 +69,19 @@ const fetch = (query, { cachedCall } = {}) => {
         opt.headers = { Authorization: `Bearer ${ARC_ACCESS_TOKEN}` };
     }
 
-    const resolveData = async () => {
-        try {
-            const response = await global.fetch(url, opt);
-            handleHttpError(response);
-            const data = await response.json();
-            return await transform({ data, cachedCall });
-        } catch (error) {
-            logger.push(
-                error,
-                { source: 'content/sources/liveblogAuthorSource', url },
-                query['arc-site']
-            );
-            return [];
-        }
-    };
-
-    return resolveData();
+    try {
+        const response = await global.fetch(url, opt);
+        handleHttpError(response);
+        const data = await response.json();
+        return transform({ data, cachedCall });
+    } catch (error) {
+        logger.push(
+            error,
+            { source: 'content/sources/liveblogAuthorSource', url },
+            query['arc-site']
+        );
+        return [];
+    }
 };
 
 export default {

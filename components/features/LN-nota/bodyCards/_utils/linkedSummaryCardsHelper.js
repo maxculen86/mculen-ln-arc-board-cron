@@ -8,9 +8,7 @@ const ensureEmbedConfig = cardData => {
     if (!cardData || typeof cardData !== 'object') return {};
 
     const embed = get(cardData, 'embed', {});
-    const config = get(embed, 'config', {});
-
-    return config;
+    return get(embed, 'config', {});
 };
 
 export const normalizeCardColor = color => {
@@ -44,10 +42,8 @@ export const getNormalizedCardFields = (
         return fallbackIndex + 1;
     };
 
-    const resolvedCardNumber = resolveNumber();
-
     return {
-        cardNumber: resolvedCardNumber,
+        cardNumber: resolveNumber(),
         title: get(embedConfig, 'title', ''),
         description: get(embedConfig, 'description', ''),
         buttonText: get(embedConfig, 'buttonText', 'Ver más'),

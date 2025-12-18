@@ -16,7 +16,7 @@ function buildEmbedCll(data = {}) {
         return null;
     }
 
-    const content = `<div class="p-overflow_max767">
+    return `<div class="p-overflow_max767">
                         <iframe
                             class="pym"
                             src="${widgetUrl}"
@@ -24,8 +24,6 @@ function buildEmbedCll(data = {}) {
                             loading="lazy">
                         </iframe>
                     </div>`;
-
-    return content;
 }
 
 export default buildEmbedCll;
