@@ -1330,6 +1330,44 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             });
         });
 
+        it('prefers the closest height <= 360p for big cards on Home', () => {
+            const videoJwData = {
+                sources: [
+                    {
+                        file: 'https://cdn.jwplayer.com/videos/QJu5hzn2-kTExGaWf.mp4',
+                        type: 'video/mp4',
+                        height: 214
+                    },
+                    {
+                        file: 'https://cdn.jwplayer.com/videos/QJu5hzn2-K8B0kybS.mp4',
+                        type: 'video/mp4',
+                        height: 320
+                    },
+                    {
+                        file: 'https://cdn.jwplayer.com/videos/QJu5hzn2-FnZGUVnC.mp4',
+                        type: 'video/mp4',
+                        height: 426
+                    },
+                    {
+                        file: 'https://cdn.jwplayer.com/videos/QJu5hzn2-0G6Pwvlw.mp4',
+                        type: 'video/mp4',
+                        height: 640
+                    }
+                ],
+                poster: 'https://cdn.jwplayer.com/v2/media/QJu5hzn2/poster.jpg?width=320',
+                type: 'video'
+            };
+
+            expect(
+                transformVideoData(videoJwData, size.fourXL, false, true, true)
+            ).toStrictEqual({
+                dataSrc:
+                    'https://cdn.jwplayer.com/videos/QJu5hzn2-K8B0kybS.mp4',
+                poster: 'https://cdn.jwplayer.com/v2/media/QJu5hzn2/poster.jpg?width=320',
+                type: 'video'
+            });
+        });
+
         it('tests transformVideoData when data is null', () => {
             expect(transformVideoData(null)).toStrictEqual({
                 dataSrc: '',

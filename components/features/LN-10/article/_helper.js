@@ -36,6 +36,18 @@ export const typeMedia = {
     HTML: 'html'
 };
 
+const PREFERRED_HEIGHT_FOR_VIDEO_HOME = 360;
+const BIG_CARD_SIZES = new Set([
+    size.fourXL,
+    size.threeXL,
+    size.XL,
+    size.XLL,
+    size.fiveXL,
+    size.sixXL,
+    size.T1,
+    size.T1Focal100
+]);
+
 const promoItemsBasic = 'promo_items.basic';
 
 export const sectionsTranslate = {
@@ -57,6 +69,28 @@ export const sectionsTranslate = {
     transito: 'Tránsito y transporte',
     'ultimas-noticias': 'Últimas noticias',
     lnmas: 'LN+'
+};
+
+const pickPreferredMedia = (
+    collection = [],
+    key = 'file',
+    preferredHeight = PREFERRED_HEIGHT_FOR_VIDEO_HOME
+) => {
+    const valid = collection.filter(
+        item => item && typeof item.height === 'number'
+    );
+
+    if (!valid.length) return null;
+
+    const upToPreferred = valid
+        .filter(item => item.height <= preferredHeight)
+        .sort((a, b) => b.height - a.height)[0];
+
+    const lowest = valid.sort((a, b) => a.height - b.height)[0];
+
+    const selected = upToPreferred || lowest;
+
+    return selected[key] || '';
 };
 
 export const translateSectionName = sectionName => {
@@ -271,6 +305,8 @@ export const transformVideoData = (
     isHome = false,
     isInApertura = false
 ) => {
+    const isBigHomeCard = isHome && BIG_CARD_SIZES.has(cardSize);
+
     // TODO: Quitar logica de videocenter una vez que se pase a JW tanto en LN como en OTT
     const streams = get(videoData, 'streams', []);
     const sources = get(videoData, 'sources', []);
@@ -288,18 +324,24 @@ export const transformVideoData = (
     const resizedUrls = get(basicWithWWW, 'resized_urls', []);
     const { resizedUrl } = getShortestImage(resizedUrls);
 
-    const streamOperator = getDynamicStreamOperator(
-        size,
-        cardSize,
-        isHome ? 'T1' : undefined
-    );
+    const streamOperator = getDynamicStreamOperator(size, cardSize);
+
+    const preferredStreamUrl = isBigHomeCard
+        ? pickPreferredMedia(streams, 'url')
+        : null;
+    const preferredSourceFile = isBigHomeCard
+        ? pickPreferredMedia(sources, 'file')
+        : null;
 
     const { url } = getStreams(streams, streamOperator) || {};
     const { file } = getSourcesJw(sources, streamOperator) || {};
 
+    const pickedData =
+        preferredStreamUrl || preferredSourceFile || url || file || '';
+
     return {
         type,
-        [isAdmin ? 'src' : 'dataSrc']: url || file || '',
+        [isAdmin ? 'src' : 'dataSrc']: pickedData,
         poster: resizedUrl || poster
     };
 };

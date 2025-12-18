@@ -313,6 +313,7 @@ const galleryEmbed = `
     isFotoAl100
     caption
     count
+    startPosition
     galleryImages{
         url
         resized_urls{
