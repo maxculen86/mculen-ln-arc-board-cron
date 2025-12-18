@@ -22,7 +22,7 @@ describe('VideoPlaylistFeature test', () => {
     });
 
     describe('render()', () => {
-        it('Returns [] when no content was fetched', () => {
+        it('Returns null when no content was fetched', () => {
             const feature = new VideoPlaylistFeature({
                 arcSite,
                 customFields: { playlistId: '123' }
@@ -33,7 +33,7 @@ describe('VideoPlaylistFeature test', () => {
             expect(feature.render()).toBeNull();
         });
 
-        it('Returns [] when playlist is empty', () => {
+        it('Returns null when playlist is empty', () => {
             const feature = new VideoPlaylistFeature({
                 arcSite,
                 customFields: { playlistId: '123' }
@@ -46,7 +46,7 @@ describe('VideoPlaylistFeature test', () => {
             expect(feature.render()).toBeNull();
         });
 
-        it('Returns [] when isTodayEnabled is false', () => {
+        it('Returns null when isTodayEnabled is false', () => {
             isTodayEnabled.mockReturnValue(false);
             const feature = new VideoPlaylistFeature({
                 arcSite,
@@ -64,6 +64,25 @@ describe('VideoPlaylistFeature test', () => {
             expect(feature.render()).toBeNull();
         });
 
+        it('Returns null when hidePlaylist is true', () => {
+            isTodayEnabled.mockReturnValue(true);
+            const feature = new VideoPlaylistFeature({
+                arcSite,
+                customFields: {
+                    playlistId: '123',
+                    shouldSchedule: true,
+                    enabledDays: ['lunes'],
+                    hidePlaylist: true
+                }
+            });
+
+            feature.state = {
+                playlist: { playlist: [{ mediaid: '1' }] }
+            };
+
+            expect(feature.render()).toBeNull();
+        });
+
         it('Returns transformed videos when playlist has items', () => {
             isTodayEnabled.mockReturnValue(true);
 
@@ -71,7 +90,8 @@ describe('VideoPlaylistFeature test', () => {
                 arcSite,
                 customFields: {
                     playlistId: '123',
-                    shouldSchedule: false
+                    shouldSchedule: false,
+                    hidePlaylist: false
                 }
             });
 
