@@ -55,6 +55,7 @@ function seguirLeyendo({ globalContent, outputType }) {
 }
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
+seguirLeyendo.lazy = true;
 
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({ _id: PropTypes.string }).isRequired,
