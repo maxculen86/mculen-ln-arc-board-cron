@@ -1,5 +1,5 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { handleHttpError } from '../../components/private/common/utils/handleHttpError';
 import Redirect from './utils/redirect';
 
 const is404 = message => {
@@ -15,55 +15,27 @@ const eventByFilter = {
         if (redirectUrl) throw new Redirect(redirectUrl, statusCode || 301);
         else return response;
     },
-    source_id: () => {
-        // NOSONAR - This is intentional
-    },
-    canonical_url: () => {
-        // NOSONAR - This is intentional
-    }
-};
-
-const fetch = query => {
-    const { statusCode } = query;
-    const { path, typeFilter } = resolve(query);
-    const opt = {
-        uri: `${CONTENT_BASE}${path}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    return request(opt)
-        .then(response => {
-            eventByFilter[typeFilter]
-                ? eventByFilter[typeFilter]({ response, statusCode })
-                : is404('No contiene redirect');
-        })
-        .catch(error => {
-            throw error;
-        });
+    source_id: () => {},
+    canonical_url: () => {}
 };
 
 const resolve = (query = {}) => {
     const website = `website=${query.website || query['arc-site']}`;
     const published = `&published=${query.published || 'true'}`;
 
-    if (query.hasOwnProperty('website_url')) {
+    if (Object.prototype.hasOwnProperty.call(query, 'website_url')) {
         return {
             path: `/content/v4/?website_url=${query.website_url}&${website}&${published}`,
             typeFilter: 'website_url'
         };
     }
-    if (query.hasOwnProperty('source_id')) {
+    if (Object.prototype.hasOwnProperty.call(query, 'source_id')) {
         return {
             path: `/content/v3/search/published?${website}&${published}&q=source.source_id=${query.id}&single=true`,
             typeFilter: 'source_id'
         };
     }
-    if (query.hasOwnProperty('canonical_url')) {
+    if (Object.prototype.hasOwnProperty.call(query, 'canonical_url')) {
         return {
             path: `/content/v3/?canonical_url=${query.canonical_url}`,
             typeFilter: 'canonical_url'
@@ -73,6 +45,34 @@ const resolve = (query = {}) => {
     throw new Error(
         'website and source id, or canonical url, or website url is required'
     );
+};
+
+const fetch = query => {
+    const resolveData = async () => {
+        const { statusCode } = query;
+        const { path, typeFilter } = resolve(query);
+        const url = `${CONTENT_BASE}${path}`;
+
+        const headers = {};
+
+        if (ARC_ACCESS_TOKEN) {
+            headers.Authorization = `Bearer ${ARC_ACCESS_TOKEN}`;
+        }
+
+        const response = await global.fetch(url, { headers });
+        handleHttpError(response);
+        const data = await response.json();
+
+        if (eventByFilter[typeFilter]) {
+            return eventByFilter[typeFilter]({
+                response: data,
+                statusCode
+            });
+        }
+        return is404('No contiene redirect');
+    };
+
+    return resolveData();
 };
 
 export default {
