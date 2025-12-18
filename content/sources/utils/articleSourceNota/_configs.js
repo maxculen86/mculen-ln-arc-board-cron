@@ -8,7 +8,7 @@ import convertVideoArcToJw from './cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../components/private/common/utils/get';
 import gallerySource from '../../gallerySource';
-import { buildGalleryEmbedData } from '../../../../components/features/LN-nota/private/body/imageGalleryEmbed/_helper';
+import { buildGalleryEmbedData } from './_helper';
 
 export const configPromoItems = {
     video: ({ cachedCall, element, arcSite }) =>
