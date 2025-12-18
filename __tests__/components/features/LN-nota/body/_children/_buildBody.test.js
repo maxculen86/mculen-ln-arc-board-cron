@@ -9,6 +9,7 @@ import siteProperties from '../../../../../../__mocks__/data/nota/body/sitePrope
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import * as utils from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
+import { transformElementText } from '../../../../../../content/sources/utils/articleSourceNota/_configs';
 
 jest.mock('fusion:context', Component => {
     return function (Component) {
@@ -38,8 +39,21 @@ jest.mock('react', () => {
     };
 });
 
+const transformTextElements = elements =>
+    elements.map(element => {
+        if (element?.type === 'text') {
+            return transformElementText({
+                element,
+                withSponsoredLink: false,
+                articlePath: element?.website_url || '',
+                baseOrigin: siteProperties?.host || ''
+            });
+        }
+        return element;
+    });
+
 const globalContent = {
-    content_elements,
+    content_elements: transformTextElements(content_elements),
     headlines: { basic: 'titulo de la nota' }
 };
 

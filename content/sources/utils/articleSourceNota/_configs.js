@@ -9,6 +9,67 @@ import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../components/private/common/utils/get';
 import gallerySource from '../../gallerySource';
 import { buildGalleryEmbedData } from './_helper';
+import { compose } from '../../../../components/private/common/utils/functional';
+import config from '../../../../properties/sites/la-nacion-ar';
+import { appendPageReferrerParam } from '../../../../components/private/LN/common/utils/pageReferrer';
+import {
+    setOtherChar,
+    createReplaceClassForMark,
+    setBoldText,
+    setItalicText,
+    deleteTagsForTitle
+} from '../common/textTransformHelpers';
+
+const replaceClassForMark = createReplaceClassForMark(
+    'yellow|pink|purple|orange|green|gold'
+);
+
+export const setExternalLinks = ({
+    content = '',
+    withSponsoredLink,
+    articlePath,
+    baseOrigin
+} = {}) =>
+    content.replace(
+        /<a[\s]+([^>]+)>((?:.(?!<\/a>))*.)<\/a>/g,
+        (_, href, string) => {
+            const [, , link] = href.match(/href=(["'\\])([^"'\\]*)\1/) || [
+                null,
+                null,
+                '#'
+            ];
+            const [, , title] = href.match(/title=(["'\\])+(.*?)\1/) || [
+                null,
+                null,
+                string
+            ];
+
+            const referredLink = appendPageReferrerParam(link, {
+                articlePath,
+                baseOrigin
+            });
+            const finalLink = referredLink || link;
+
+            const target = !href.includes(config.host) ? '_blank' : '_self';
+            const isLanacionLink = link.split('.').includes('lanacion');
+            const rel =
+                target === '_blank' && !isLanacionLink && !withSponsoredLink
+                    ? 'nofollow'
+                    : undefined;
+
+            const attrs = [
+                `href="${finalLink}"`,
+                `target="${target}"`,
+                `title="${deleteTagsForTitle(title)}"`,
+                `class="com-link break-word"`,
+                'data-mrf-recirculation="n_link_parrafo"'
+            ];
+
+            if (rel) attrs.push(`rel="${rel}"`);
+
+            return `<a ${attrs.join(' ')}>${string}</a>`;
+        }
+    );
 
 export const configPromoItems = {
     video: ({ cachedCall, element, arcSite }) =>
@@ -57,21 +118,20 @@ export const configCallbackContentElements = {
         }
         return element;
     },
-    text: ({ element = {}, glossary = [] } = {}) => {
-        const elements = formatElementText(element);
-        const content = get(elements, 'content', '');
-
-        const { text, foundGlossaryWord } = injectGlossaryInText(
-            content,
-            glossary
-        );
-
-        return {
-            ...elements,
-            content: text,
-            ...(foundGlossaryWord && { subtype: 'glossary' })
-        };
-    },
+    text: ({
+        element = {},
+        glossary = [],
+        withSponsoredLink,
+        articlePath,
+        baseOrigin
+    } = {}) =>
+        transformElementText({
+            element,
+            glossary,
+            withSponsoredLink,
+            articlePath,
+            baseOrigin
+        }),
     interstitial_link: ({ element = {} } = {}) => {
         const interstitialLink = get(element, 'url', '');
         const validUrl = formatInterstitialLink(interstitialLink);
@@ -81,8 +141,20 @@ export const configCallbackContentElements = {
     video: ({ element, arcSite, cachedCall } = {}) => {
         return convertVideoArcToJw(element, arcSite, cachedCall);
     },
-    list: ({ element = {}, glossary = [] }) => {
-        return configListWithItemText(element, glossary);
+    list: ({
+        element = {},
+        glossary = [],
+        withSponsoredLink,
+        articlePath,
+        baseOrigin
+    } = {}) => {
+        return configListWithItemText({
+            element,
+            glossary,
+            withSponsoredLink,
+            articlePath,
+            baseOrigin
+        });
     }
 };
 
@@ -92,23 +164,29 @@ const callbacksByTypeReference = {
     }
 };
 
-const configListWithItemText = (element, glossary) => {
+const configListWithItemText = ({
+    element,
+    glossary,
+    withSponsoredLink,
+    articlePath,
+    baseOrigin
+}) => {
     if (!element) return null;
 
     const items = get(element, 'items', []);
 
-    items.map(item => {
-        if (item.type === 'text') {
-            const { text, foundGlossaryWord } = injectGlossaryInText(
-                item.content,
-                glossary
-            );
-            item.content = text;
-            foundGlossaryWord && (item.subtype = 'glossary');
-        }
+    const newItems = items.map(item => {
+        if (item?.type !== 'text') return item;
+        return transformElementText({
+            element: item,
+            glossary,
+            withSponsoredLink,
+            articlePath,
+            baseOrigin
+        });
     });
 
-    return element;
+    return { ...element, items: newItems };
 };
 
 export const configCallbacksRelatedContent = {
@@ -240,4 +318,37 @@ export const injectGlossaryInText = (text, glossary) => {
     });
 
     return { text: processedParts.join(''), foundGlossaryWord };
+};
+
+export const transformElementText = ({
+    element = {},
+    glossary = [],
+    withSponsoredLink,
+    articlePath,
+    baseOrigin
+} = {}) => {
+    const formattedElement = formatElementText(element);
+    const content = get(formattedElement, 'content', '');
+
+    const { text: contentWithGlossary, foundGlossaryWord } =
+        injectGlossaryInText(content, glossary);
+
+    const transformedContent = compose(
+        replaceClassForMark,
+        setOtherChar,
+        setExternalLinks,
+        setItalicText,
+        setBoldText
+    )({
+        content: contentWithGlossary,
+        withSponsoredLink,
+        articlePath,
+        baseOrigin
+    });
+
+    return {
+        ...formattedElement,
+        content: transformedContent,
+        ...(foundGlossaryWord && { subtype: 'glossary' })
+    };
 };

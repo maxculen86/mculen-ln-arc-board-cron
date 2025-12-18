@@ -427,11 +427,18 @@ export const transform = async (response, query, cachedCall) => {
         })
     };
 
+    const withSponsoredLink = validateSponsoredLink(result);
+    const articlePath = get(response, 'website_url', '');
+    const baseOrigin = get(siteProperties, 'host', '');
+
     const aditionalProps = {
         siteProperties,
         cachedCall,
         subtype,
         arcSite,
+        withSponsoredLink,
+        articlePath,
+        baseOrigin,
         glossary:
             !notShowGlossary && isValidSectionIA(sections)
                 ? get(
@@ -474,7 +481,7 @@ export const transform = async (response, query, cachedCall) => {
 
     return {
         ...result,
-        withSponsoredLink: validateSponsoredLink(result),
+        withSponsoredLink,
         isListenable: isNoteListenable(result),
         withFirmaDistributor: firmaDistributorValidation(
             sections,

@@ -1759,7 +1759,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >
@@ -5176,7 +5176,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >
@@ -8593,7 +8593,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >

@@ -20,7 +20,8 @@ import {
     formatElementText,
     removeErrosInterstitialLink,
     formatInterstitialLink,
-    injectGlossaryInText
+    injectGlossaryInText,
+    configCallbackContentElements
 } from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
 jest.mock(
@@ -34,6 +35,69 @@ jest.mock(
 );
 
 describe('Tests articleSourceNota - _helper', () => {
+    describe('configCallbackContentElements text', () => {
+        it('should normalize links and styles on text elements', () => {
+            injectGlossaryInText.mockImplementation((text = '') => ({
+                text,
+                foundGlossaryWord: false
+            }));
+
+            const textElement = {
+                type: 'text',
+                content:
+                    'Texto con <a href="https://www.lanacion.com.ar/politica">link</a> y <b>bold</b>'
+            };
+
+            const result = configCallbackContentElements.text({
+                element: textElement,
+                glossary: [],
+                withSponsoredLink: false,
+                articlePath: '/politica/nota-prueba',
+                baseOrigin: 'https://www.lanacion.com.ar'
+            });
+
+            const transformed = result.content;
+
+            expect(transformed).toContain('class="com-link break-word"');
+            expect(transformed).toContain('target="_self"');
+            expect(transformed).toContain('<strong>bold</strong>');
+        });
+    });
+
+    describe('configCallbackContentElements list', () => {
+        it('should transform text items applying link and style normalization', () => {
+            injectGlossaryInText.mockImplementation((text = '') => ({
+                text,
+                foundGlossaryWord: false
+            }));
+
+            const listElement = {
+                type: 'list',
+                items: [
+                    {
+                        type: 'text',
+                        content:
+                            'Item con <a href="https://www.lanacion.com.ar">link</a> y <b>negrita</b>'
+                    }
+                ]
+            };
+
+            const result = configCallbackContentElements.list({
+                element: listElement,
+                glossary: [],
+                withSponsoredLink: false,
+                articlePath: '/nota-prueba',
+                baseOrigin: 'https://www.lanacion.com.ar'
+            });
+
+            const transformedContent = result.items[0].content;
+
+            expect(transformedContent).toContain('class="com-link break-word"');
+            expect(transformedContent).toContain('target="_self"');
+            expect(transformedContent).toContain('<strong>negrita</strong>');
+        });
+    });
+
     describe('Tests injectGlossaryInText function', () => {
         beforeEach(() => {
             injectGlossaryInText.mockClear();
