@@ -1990,6 +1990,34 @@ export default {
                 }
             }
         },
+        // AGREGAR MEDIDAS REALES FRONT
+        'vertical-single-centered': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 562,
+                        height: 843,
+                        minScreenWidth: 1280,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 502,
+                        height: 752,
+                        minScreenWidth: 768,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 767,
+                        height: 1150,
+                        maxScreenWidth: 767,
+                        proportion: '2:3',
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
         default: [
             {
                 width: 1033,
