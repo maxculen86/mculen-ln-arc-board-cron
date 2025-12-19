@@ -11,7 +11,7 @@ const hasIframeWithPYM = (domParser, content) => {
         .querySelectorAll('iframe.pym').length;
 };
 
-const Html = props => {
+function Html(props) {
     const { data } = props;
     const { content, _id: idMedia } = data || { content: null };
     const domParser = typeof DOMParser === 'function' && new DOMParser();
@@ -23,13 +23,13 @@ const Html = props => {
     ) : (
         <div
             id={`anexo-${idMedia}`}
-            className="com-embed --html"
+            className="com-embed --html container-center-100"
             dangerouslySetInnerHTML={{
                 __html: content
             }}
         />
     );
-};
+}
 
 Html.arcType = 'raw_html';
 Html.outputType = 'default';
