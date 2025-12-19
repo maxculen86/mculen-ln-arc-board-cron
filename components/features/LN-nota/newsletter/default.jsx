@@ -2,8 +2,8 @@ import Consumer from 'fusion:consumer';
 import { LAZY_OFFSETTOP, API_ENV } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import React, { useEffect, useState } from 'react';
-import Lazy from 'lazy-child';
 import { NewsletterBox } from '@ln/lib-newsletter';
+import LazyLoad from '../../../common/LazyLoad/LazyLoad';
 import renderToast from '../../private-global/common/utils/renderToast';
 import get from '../../../private/common/utils/get';
 import { TOAST_CONFIG } from '../../LN-10-global/common/toasts/helpers';
@@ -56,20 +56,18 @@ function NewsLetter({ globalContent }) {
     }, [token, accessToken]);
 
     return (
-        <Lazy
-            renderPlaceholder={ref => <div ref={ref} />}
-            offsetTop={LAZY_OFFSETTOP}
-        >
+        <LazyLoad PlaceholderComponent="div" rootMargin={`${LAZY_OFFSETTOP}px`}>
             <div className="mb-32">
                 <NewsletterBox {...propsNewsletter} />
             </div>
 
             <NewsLetterEventsScript />
-        </Lazy>
+        </LazyLoad>
     );
 }
 
 NewsLetter.label = 'LN-Common-Newsletter';
+NewsLetter.lazy = true;
 NewsLetter.propTypes = {
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
