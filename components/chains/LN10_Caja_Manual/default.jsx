@@ -7,9 +7,7 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import validateCajaManual, {
-    getOrderedArticles
-} from './common/_helper-WebApi';
+import validateCajaManual from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
@@ -21,9 +19,10 @@ import {
     checkVariants,
     setStaticDynamically
 } from '../utils/_helpers';
-import { LAYOUTS, setSlicedChildren } from '../utils/common/_helpers-WebApi';
+import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import { processLayoutItems } from '../utils/processLayoutItems';
 
 const {
     BN_6_GRID_MAS_TIMELINE,
@@ -84,17 +83,12 @@ function CajaManual(props) {
         viewabilityRoof
     );
 
-    const reorderedChildren = getOrderedArticles({
+    const articles = processLayoutItems(
+        children,
         childProps,
-        nodeList: children,
-        isGrid6MasTimeline,
-        isBnPlayer
-    });
-
-    const articles = setSlicedChildren({
-        config: { layout, countTimeline: isGrid6MasTimeline },
-        children: reorderedChildren
-    });
+        layout,
+        isGrid6MasTimeline
+    );
 
     const hasVariants = checkVariants({ children, renderables });
 
