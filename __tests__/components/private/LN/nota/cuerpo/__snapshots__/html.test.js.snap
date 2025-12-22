@@ -37,7 +37,7 @@ exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot  
 exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot - HTML 1`] = `
 <div>
   <div
-    class="com-embed --html"
+    class="com-embed --html container-center-100"
     id="anexo-AHYEKXSUEQIUXZD"
   >
     <div
@@ -78,7 +78,7 @@ exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot -
 exports[`components - private - LN - nota - cuerpo - <Html /> renders snapshot - iframe without "pym" 1`] = `
 <div>
   <div
-    class="com-embed --html"
+    class="com-embed --html container-center-100"
     id="anexo-AHYEKXSUEQIUXZD"
   >
     <iframe

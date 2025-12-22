@@ -31,11 +31,14 @@ describe('videos banners intersection observers', () => {
 
         const mockPauseEntry = [
             {
-                isIntersecting: true,
+                isIntersecting: false,
                 target: {
-                    dataset:
-                        'https://lanacionar-prod.video.arc-cdn.net/wp-lanacionar/20230706/64a6a5abac2d3801cb3c35e',
-                    pause: mockPause
+                    dataset: {
+                        src: 'https://lanacionar-prod.video.arc-cdn.net/wp-lanacionar/20230706/64a6a5abac2d3801cb3c35e'
+                    },
+                    pause: mockPause,
+                    paused: false,
+                    src: 'https://lanacionar-prod.video.arc-cdn.net/wp-lanacionar/20230706/64a6a5abac2d3801cb3c35e'
                 }
             }
         ];
@@ -45,11 +48,11 @@ describe('videos banners intersection observers', () => {
                 isIntersecting: true,
                 target: {
                     dataset: {
-                        src:
-                            'https://lanacionar-prod.video.arc-cdn.net/wp-lanacionar/20230706/64a6a5abac2d3801cb3c35e'
+                        src: 'https://lanacionar-prod.video.arc-cdn.net/wp-lanacionar/20230706/64a6a5abac2d3801cb3c35e'
                     },
                     play: mockPlay,
-                    paused: true
+                    paused: true,
+                    src: ''
                 }
             }
         ];
