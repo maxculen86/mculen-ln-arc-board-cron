@@ -97,6 +97,13 @@ const featureArticleCustomsFields = (featuredName, isLN10) => ({
         description: 'Seleccione si no debe mostrarse la bajada en la nota',
         default: false
     }),
+    ...(isLN10 && {
+        video: PropTypes.string.tag({
+            name: 'Video',
+            description: 'Ingrese aquí el id de Video',
+            default: ''
+        })
+    }),
     ...(!isLN10 && {
         opinion: PropTypes.bool.tag({
             name: 'Nota Opinión',
@@ -127,22 +134,17 @@ const featureArticleCustomsFields = (featuredName, isLN10) => ({
             default: '',
             name: 'Estilo Chapita',
             description: 'Elija la clase CSS de la chapita'
+        }),
+        videoComercial: PropTypes.bool.tag({
+            name: 'Video Comercial',
+            description: 'Marque aqui para desactivar carga diferida',
+            default: false
         })
-    }),
-    video: PropTypes.string.tag({
-        name: 'VIDEO',
-        description: 'Ingrese aquí el ID del video de VideoCenter',
-        default: ''
     }),
     html: PropTypes.string.tag({
         name: 'HTML',
         description: 'Ingrese aquí el código HTML / embed',
         default: ''
-    }),
-    videoComercial: PropTypes.bool.tag({
-        name: 'Video Comercial',
-        description: 'Marque aqui para desactivar carga diferida',
-        default: false
     }),
     ...(isLN10 && {
         cllBoard: PropTypes.string.tag({
