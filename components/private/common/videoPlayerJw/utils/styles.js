@@ -3,7 +3,7 @@ import { cva } from '@ln/cva';
 export const videoPlayerVariant = cva(['video-player'], {
     variants: {
         variant: {
-            vertical: 'w-100 ratio-9-16 flex jc-center ai-center h-640',
+            vertical: 'ratio-9-16 flex jc-center ai-center w-100 h-100',
             horizontal: 'bg-black ratio-16-9'
         }
     },
