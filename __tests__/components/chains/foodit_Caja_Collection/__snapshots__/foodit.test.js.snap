@@ -92,7 +92,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="Merkel, mostró su satisfacción, tras la votación del fondo de rescate"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -195,7 +195,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -298,7 +298,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -401,7 +401,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -504,7 +504,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -607,7 +607,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="Test noticia en ARC"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -710,7 +710,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       />
                       <img
                         alt="Test noticia en ARC"
-                        class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -800,11 +800,12 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                   >
                     <img
                       alt="Bullrich visita El Calafate y presenta libro"
-                      class="image flex object-cover card-image ratio-3-2 w-100 none --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 none --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
                       src=""
+                      style="display: none;"
                     />
                   </div>
                 </div>
@@ -962,7 +963,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="Merkel, mostró su satisfacción, tras la votación del fondo de rescate"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1065,7 +1066,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1168,7 +1169,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1271,7 +1272,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1374,7 +1375,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1477,7 +1478,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="Test noticia en ARC"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1580,7 +1581,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         />
                         <img
                           alt="Test noticia en ARC"
-                          class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                          class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -1670,11 +1671,12 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                     >
                       <img
                         alt="Bullrich visita El Calafate y presenta libro"
-                        class="image flex object-cover card-image ratio-3-2 w-100 none --cover"
+                        class="image object-cover card-image ratio-3-2 w-100 none --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
                         src=""
+                        style="display: none;"
                       />
                     </div>
                   </div>

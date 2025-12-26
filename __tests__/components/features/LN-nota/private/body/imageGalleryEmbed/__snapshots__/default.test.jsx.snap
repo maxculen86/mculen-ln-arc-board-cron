@@ -18,7 +18,7 @@ exports[`Components - features - LN-nota - private - body - default should rende
           <div>
             <img
               alt="Galería de imagenes"
-              class="image flex w-full h-full object-cover aspect-[3/2] --cover"
+              class="image w-full h-full object-cover aspect-[3/2] flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

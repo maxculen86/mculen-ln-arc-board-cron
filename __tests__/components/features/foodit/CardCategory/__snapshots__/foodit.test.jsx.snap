@@ -28,7 +28,7 @@ exports[`Components - features - foodit - CardCategory should match snapshot wit
           >
             <img
               alt="Foto de Snapshot Title"
-              class="image flex w-100 ratio-1-1 border border-all border-thin border-light-200 --cover"
+              class="image w-100 ratio-1-1 border border-all border-thin border-light-200 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

@@ -62,7 +62,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
                 />
                 <img
                   alt="MockTitle"
-                  class="image flex com-image --cover"
+                  class="image com-image flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"

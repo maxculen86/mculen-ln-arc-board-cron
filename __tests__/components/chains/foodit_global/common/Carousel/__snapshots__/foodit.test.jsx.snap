@@ -37,7 +37,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -142,7 +142,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -247,7 +247,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -336,7 +336,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Acompañá las patas de pollo con zucchinis"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -441,7 +441,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Pie de foto"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -546,7 +546,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Acompañá las patas de pollo con zucchinis"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -651,7 +651,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -740,7 +740,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Subtitle"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -829,7 +829,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt=""
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -934,7 +934,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt=""
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -1039,7 +1039,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt=""
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -1149,7 +1149,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
               >
                 <img
                   alt="Provoleta con vegetales"
-                  class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                  class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
