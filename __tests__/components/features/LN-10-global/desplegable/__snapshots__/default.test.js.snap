@@ -25,7 +25,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
           >
             <img
               alt="LA NACION"
-              class="image flex h-100 w-100 --cover"
+              class="image h-100 w-100 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

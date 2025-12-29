@@ -18,10 +18,11 @@ exports[`PwaModal should render the modal when isShowModal is true 1`] = `
     >
       <img
         alt="LA NACION"
-        class="image flex none --cover"
+        class="image none --cover"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
+        style="display: none;"
         width="164"
       />
     </a>

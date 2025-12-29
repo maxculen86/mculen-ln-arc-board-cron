@@ -28,7 +28,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           >
             <img
               alt="Imagen de Aprendé en la cocina"
-              class="image flex w-100 ratio-3-2 --cover"
+              class="image w-100 ratio-3-2 flex --cover"
               decoding="async"
               fetchpriority="high"
               loading="eager"
@@ -70,7 +70,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           >
             <img
               alt="Imagen de Cociná fácil y rápido"
-              class="image flex w-100 ratio-3-2 --cover"
+              class="image w-100 ratio-3-2 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
@@ -112,7 +112,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           >
             <img
               alt="Imagen de Cociná a tu medida"
-              class="image flex w-100 ratio-3-2 --cover"
+              class="image w-100 ratio-3-2 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
@@ -154,7 +154,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           >
             <img
               alt="Imagen de Todas las recetas"
-              class="image flex w-100 ratio-3-2 --cover"
+              class="image w-100 ratio-3-2 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

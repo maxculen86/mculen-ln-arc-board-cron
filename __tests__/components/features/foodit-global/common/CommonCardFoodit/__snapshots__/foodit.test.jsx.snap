@@ -23,11 +23,12 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
         >
           <img
             alt=""
-            class="image flex object-cover card-image ratio-3-2 w-100 w-147 w-224_md w-100_lg none --cover"
+            class="image object-cover card-image ratio-3-2 w-100 w-147 w-224_md w-100_lg none --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
             src=""
+            style="display: none;"
           />
         </div>
         <span
@@ -137,7 +138,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
             />
             <img
               alt="Tortilla de patatas"
-              class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+              class="image object-cover card-image ratio-3-2 w-100 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
@@ -252,7 +253,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
             />
             <img
               alt="Tortilla de patatas"
-              class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+              class="image object-cover card-image ratio-3-2 w-100 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

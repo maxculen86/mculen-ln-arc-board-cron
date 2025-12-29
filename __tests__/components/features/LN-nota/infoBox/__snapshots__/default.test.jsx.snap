@@ -27,11 +27,12 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
             />
             <img
               alt="Imagen de asistencia contra suicidio"
-              class="image flex w-100 none --cover"
+              class="image w-100 none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
             />
           </picture>
         </div>
@@ -43,11 +44,12 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
           >
             <img
               alt="Logo de asistencia contra suicidio"
-              class="image flex none --cover"
+              class="image none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
               width="150"
             />
             <p
@@ -100,11 +102,12 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
             />
             <img
               alt="Imagen de asistencia contra violencia de género"
-              class="image flex w-100 none --cover"
+              class="image w-100 none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
             />
           </picture>
         </div>
@@ -116,11 +119,12 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
           >
             <img
               alt="Logo de asistencia contra violencia de género"
-              class="image flex none --cover"
+              class="image none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
               width="150"
             />
             <p
@@ -173,11 +177,12 @@ exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] 
             />
             <img
               alt="Imagen de celular con la app de Canchallena"
-              class="image flex w-100 none --cover"
+              class="image w-100 none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
             />
           </picture>
         </div>
@@ -189,11 +194,12 @@ exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] 
           >
             <img
               alt="Logo de Canchallena"
-              class="image flex none --cover"
+              class="image none --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src=""
+              style="display: none;"
             />
             <p
               class="text --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800"

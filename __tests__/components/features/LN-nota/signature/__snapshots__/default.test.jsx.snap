@@ -22,7 +22,7 @@ exports[`components - feature - LN-nota - signature - default renders with autho
           >
             <div>
               <img
-                class="image flex rounded-circle w-70 h-70 bg-neutral-light-50 --cover"
+                class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"

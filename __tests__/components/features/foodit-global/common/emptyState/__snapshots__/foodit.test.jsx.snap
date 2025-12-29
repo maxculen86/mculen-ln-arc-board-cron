@@ -8,7 +8,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
     >
       <img
         alt="Logo Foodit"
-        class="image flex -mb-8 w-87 h-91 --fill"
+        class="image -mb-8 w-87 h-91 flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -153,7 +153,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
     >
       <img
         alt="¡Aún no hay nada por acá!"
-        class="image flex -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
+        class="image -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -220,7 +220,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
     >
       <img
         alt="¡Aún no hay nada por acá!"
-        class="image flex -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg --fill"
+        class="image -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
