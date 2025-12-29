@@ -86,7 +86,6 @@ export const renderElement = (
         currentIndex,
         outputType,
         {
-            useCapitalIndex: elementProps.capitalIndex !== undefined,
             capitalIndex: elementProps.capitalIndex,
             processElementProps: true
         }

@@ -77,12 +77,7 @@ export const createComponentProps = (
     outputType,
     options = {}
 ) => {
-    const {
-        useCapitalIndex = false,
-        capitalIndex,
-        arcType,
-        processElementProps = false
-    } = options;
+    const { capitalIndex, arcType, processElementProps = false } = options;
 
     const extraProps = processElementProps
         ? setExtraProps(elementPropsOrExtraProps)
@@ -99,9 +94,7 @@ export const createComponentProps = (
         arcType: finalArcType
     };
 
-    if (useCapitalIndex && capitalIndex !== undefined) {
-        baseProps.capitalIndex = capitalIndex;
-    } else if (capitalIndex !== undefined) {
+    if (capitalIndex !== undefined) {
         baseProps.capitalIndex = capitalIndex;
     }
 
