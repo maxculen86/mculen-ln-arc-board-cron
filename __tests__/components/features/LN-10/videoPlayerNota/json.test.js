@@ -50,7 +50,7 @@ describe('Video Player Nota Feature test', () => {
                 customFields: { video: '000000' }
             });
 
-            video.state = { videoSource: null };
+            video.state = { videosJwData: null };
 
             const result = video.render();
             expect(result).toBeNull();
@@ -69,7 +69,7 @@ describe('Video Player Nota Feature test', () => {
 
             video.state = {
                 articleSourceNota: { ...responseArticleSourceNota },
-                videoSource: {
+                videosJwData: {
                     _id: '_ID',
                     title: 'Título desde JW',
                     poster: 'poster.jpg?width=320',

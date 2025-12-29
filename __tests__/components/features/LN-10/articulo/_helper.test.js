@@ -442,7 +442,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             ]
                         }
                     }
-                }
+                },
+                sources: [
+                    {
+                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
+                        height: 720,
+                        width: 1280
+                    }
+                ]
             };
             expect(
                 getMediaData(
@@ -458,7 +465,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             ).toStrictEqual({
                 poster: 'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
                 dataSrc:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_640x360-600.mp4',
+                    'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
                 type: 'video'
             });
         });
@@ -682,7 +689,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             ).toStrictEqual('ln-70-video --className');
         });
 
-        test('Should return a class that match with video type', () => {
+        test('Should return a class that match with image type', () => {
             expect(
                 showExtraClass(
                     getTypeOfMedia({ image: '123' }),
@@ -1158,11 +1165,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             resizedImages: {
                 promo_items: {
                     basic: {
+                        type: 'image',
+                        url: 'https://example.com/promo_items_image.jpg',
                         resized_urls: [
-                            {
-                                resizedUrl:
-                                    'https://example.com/promo_items_image_high.jpg'
-                            },
                             {
                                 resizedUrl:
                                     'https://example.com/promo_items_image_low.jpg'
@@ -1171,37 +1176,17 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     }
                 }
             },
-            promo_items: {
-                basic: {
-                    resized_urls: [
-                        {
-                            resizedUrl:
-                                'https://example.com/promo_items_image_high.jpg'
-                        },
-                        {
-                            resizedUrl:
-                                'https://example.com/promo_items_image_low.jpg'
-                        }
-                    ]
-                }
-            },
-            resizedUrl: [
+            sources: [
                 {
-                    resizedUrl: 'https://example.com/image_high.jpg'
-                },
-                {
-                    resizedUrl: 'https://example.com/image_low.jpg'
-                }
-            ],
-            streams: [
-                {
-                    height: 360,
-                    url: 'https://example.com/video_low.mp4',
+                    file: 'https://example.com/video_low.mp4',
+                    type: 'video/mp4',
+                    height: 180,
                     width: 542
                 },
                 {
+                    file: 'https://example.com/video_high.mp4',
+                    type: 'video/mp4',
                     height: 720,
-                    url: 'https://example.com/video_high.mp4',
                     width: 1084
                 }
             ],
@@ -1296,16 +1281,6 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                         label: 'AAC Audio',
                         bitrate: 120009,
                         filesize: 150012
-                    },
-                    {
-                        file: 'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
-                        type: 'video/mp4',
-                        height: 360,
-                        width: 640,
-                        label: '360p',
-                        bitrate: 1026344,
-                        filesize: 1282931,
-                        framerate: 25
                     },
                     {
                         file: 'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',

@@ -44,7 +44,7 @@ class videoPlayerNotaFeature {
         if (videoId) {
             this.jwVideoId = videoId;
             this.fetchContent({
-                videoSource: {
+                videosJwData: {
                     source,
                     query: { id: videoId, website }
                 }
@@ -69,9 +69,9 @@ class videoPlayerNotaFeature {
 
     render() {
         try {
-            const { articleSourceNota, videoSource } = this.state || {};
+            const { articleSourceNota, videosJwData } = this.state || {};
 
-            if (!articleSourceNota && !videoSource) {
+            if (!articleSourceNota && !videosJwData) {
                 return null;
             }
 
@@ -80,8 +80,8 @@ class videoPlayerNotaFeature {
                 duration: fullVideoDuration,
                 posterVideo: previewVideoUrl,
                 title
-            } = videoSource;
-            const fullVideoUrl = videoJWM3u8(videoSource.sources);
+            } = videosJwData;
+            const fullVideoUrl = videoJWM3u8(videosJwData.sources);
 
             const articleResponse = renderProps(
                 articleSourceNota,
@@ -95,7 +95,7 @@ class videoPlayerNotaFeature {
             } = this.props;
             const validationError = validateVideoPlayerNota({
                 noteId,
-                video: videoSource,
+                video: videosJwData,
                 videoId,
                 variant,
                 layout: this.configs?.layout
