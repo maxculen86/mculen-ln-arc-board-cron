@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from '@ln/common-ui-button';
+import { Button } from '@ln/contenidos-ui-button';
+import { Spinner } from '@ln/common-ui-spinner';
 
-export function LoadMoreButton({ clickMoreArticle, loading = false, name }) {
+export function LoadMoreButton({
+    clickMoreArticle,
+    loading = false,
+    name = ''
+}) {
     const notesName = name ? `${name.toUpperCase()}` : '';
 
     return (
@@ -11,23 +15,12 @@ export function LoadMoreButton({ clickMoreArticle, loading = false, name }) {
                 onClick={clickMoreArticle}
                 variant="secondary"
                 size={40}
-                loading={loading}
                 type="button"
                 title={`Ver más notas de ${notesName}`}
             >
                 {`VER MÁS NOTAS DE ${notesName}`}
+                {loading && <Spinner />}
             </Button>
         </div>
     );
 }
-
-LoadMoreButton.propTypes = {
-    clickMoreArticle: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
-    name: PropTypes.string
-};
-
-LoadMoreButton.defaultProps = {
-    loading: false,
-    name: ''
-};

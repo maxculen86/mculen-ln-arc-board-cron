@@ -21,7 +21,6 @@ import {
     assignPropsToChildren
 } from './common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
-import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
 import getGridType from '../utils/getGridType';
 import getComponent from '../utils/getComponent';
@@ -33,10 +32,15 @@ import bannersHome from '../../private/common/banners/bannersDivHome';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 import CajaFooditEventScript from '../../private/common/scriptManager/scriptDataLayerCajaFoodit';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
+import getImageConfigByCollections from '../utils/getImageConfigByCollections';
+import { diagramationRulesCustomOptions } from './common/helpers';
+import diagramationRules from '../../private/common/utils/diagramationRules';
 
 const { BN_6_GRID_MAS_TIMELINE } = LAYOUTS;
 
 function CajaCollection(props) {
+    const { layoutsName = {} } = siteConfig || {};
     const {
         id: chainId,
         isAdmin,
@@ -88,8 +92,17 @@ function CajaCollection(props) {
         featureId: chainId
     });
 
+    const customOptions = diagramationRulesCustomOptions({
+        layout,
+        pageLayout,
+        layoutsName
+    });
+
     const breakingsChildren = getBreakingChildren(renderables);
-    const rules = diagramationRules(layout) || [];
+
+    const rules = diagramationRules(layout, customOptions) || [];
+
+    const imagesConfigByCollections = getImageConfigByCollections(rules);
 
     const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
@@ -108,6 +121,7 @@ function CajaCollection(props) {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
+              imagesConfigByCollections,
               website: isFoodit ? 'foodit' : 'la-nacion-ar',
               staticMode: true
           })

@@ -55,7 +55,8 @@ export default {
         Receta: 'LN-nota-receta',
         LiveBlog: 'LN-Nota-Liveblog_Editorial',
         VideoAl100: 'LN-Nota-Video-100',
-        Cards: 'LN-Nota-Cards'
+        Cards: 'LN-Nota-Cards',
+        AcumuladoV2: 'LN-acumulado-v2'
     },
     notRecommendedSections: ['recetas']
 };

@@ -75,7 +75,7 @@ export const setTLArticles = (source, articles = []) => {
             link: article.website_url,
             hour: !isCollection && (
                 <ComHour
-                    display_date={displayDateWithThreeHours}
+                    displayDate={displayDateWithThreeHours}
                     size="--fivexs"
                 />
             ),

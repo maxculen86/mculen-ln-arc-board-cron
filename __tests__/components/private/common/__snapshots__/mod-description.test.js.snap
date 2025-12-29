@@ -66,7 +66,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     </div>
     <div
       data-testid="com-date-mock"
-      display_date="2020-06-02T15:28:04.694Z"
+      displaydate="2020-06-02T15:28:04.694Z"
     />
   </section>
 </DocumentFragment>
