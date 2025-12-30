@@ -3,6 +3,11 @@ import { render, screen, fireEvent, within } from '@testing-library/react';
 import DrawerMenu from '../../../../../../components/features/foodit-global/common/DrawerMenu/foodit';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 
+window.SpeechRecognition = jest.fn(() => ({
+    start: jest.fn(),
+    stop: jest.fn()
+}));
+
 describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     beforeEach(() => {
         render(<DrawerMenu categories={menuCategories} />);

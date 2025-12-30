@@ -6,10 +6,8 @@ import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Header, MainHeader } from '@ln/common-ui-header';
 import { DRAWER } from '../DrawerContainer/constants';
-import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
-import { Promotions } from './components/promotions/Promotions';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerMenu from '../DrawerMenu/foodit';
@@ -18,6 +16,7 @@ import { useLayoutHeader } from './hooks/useLayoutHeader';
 import { useNavigationData } from './hooks/useNavigationData';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 import { BackButton } from './components/backButton';
+import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 function HeaderFoodit({ layout, layoutsName }) {
     const { toggleDrawer } = useDrawer({ id: DRAWER.MENU });
@@ -25,24 +24,24 @@ function HeaderFoodit({ layout, layoutsName }) {
     const isHome = layout === layoutsName.FooditHome;
     const HeaderTag = isHome ? 'h1' : 'div';
 
-    const {
-        classNameHeaderContainer,
-        showSubheaderInLayout,
-        showSubheaderInSheet
-    } = useLayoutHeader();
+    const { classNameHeaderContainer } = useLayoutHeader();
 
     const { categories, termicasData } = useNavigationData();
+    const { isSubscribed } = useGetUserConfig();
 
     return (
         <>
             <Header classNameContainer={classNameHeaderContainer}>
                 <MainHeader className="z-1">
-                    <MainHeader.Content containerClassName="bg-positive py-16 border border-bottom border-thin border-light-100">
-                        <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
+                    <MainHeader.Content
+                        className="column-gap-0 column-gap-32_lg flex ai-center"
+                        containerClassName="bg-positive py-16 border border-bottom border-thin border-light-100"
+                    >
+                        <MainHeader.Content.Left className="flex jc-start ai-center gap-16 gap-24_md">
                             <BackButton variant="link" iconOnly={false} />
                             <Button
                                 title="Menu"
-                                className="text-light-800"
+                                className="text-light-800 lg-none"
                                 data-test-id="button-menu-foodit"
                                 onClick={() => toggleDrawer()}
                             >
@@ -50,9 +49,6 @@ function HeaderFoodit({ layout, layoutsName }) {
                                     <IconSprite name="menu" critical />
                                 </Icon>
                             </Button>
-                        </MainHeader.Content.Left>
-                        <MainHeader.Content.Center className="jc-center ai-center">
-                            <BackButton iconOnly variant="secondary" />
                             <MainHeader.Brand
                                 data-test-id="header-link-inicio"
                                 href="/"
@@ -65,21 +61,22 @@ function HeaderFoodit({ layout, layoutsName }) {
                                     </span>
                                     <Logo
                                         variant="row"
-                                        classNameSvgAnimated="h-32 h-40_md h-56_lg"
-                                        classNameSvgText="h-20 h-24_md h-28_lg"
+                                        classNameSvgAnimated="h-bowl_max389 h-bowl_max767 h-40_md h-56_lg"
+                                        classNameSvgText="h-text_max389 h-text_max767 h-24_md h-28_lg"
                                         enabledAnimation
                                     />
                                 </HeaderTag>
                             </MainHeader.Brand>
-                        </MainHeader.Content.Center>
-                        <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
+                        </MainHeader.Content.Left>
+                        <MainHeader.Content.Right className="flex h-32 h-auto_lg jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons
                                 comesFrom="HeaderFoodit"
                                 loginClassName="roboto roboto-regular"
-                                classNameButtons="lg-only"
                                 termicasData={termicasData}
                             />
-                            <BellButton />
+                            <BellButton
+                                className={!isSubscribed && 'lg-only'}
+                            />
                             <RenderUserOptions />
                         </MainHeader.Content.Right>
                         <MainHeader.Content.Search>
@@ -90,11 +87,6 @@ function HeaderFoodit({ layout, layoutsName }) {
                         <TopNavigationBar categories={categories} />
                     </MainHeader.Bottom>
                 </MainHeader>
-                {(showSubheaderInLayout || showSubheaderInSheet) && (
-                    <SubHeader>
-                        <Promotions />
-                    </SubHeader>
-                )}
             </Header>
             <DrawerMenu categories={categories} />
         </>
