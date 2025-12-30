@@ -33,8 +33,6 @@ describe('components - features - LN-10-global - desplegable - search', () => {
 
     it('should render item LN 104.9 + Música', () => {
         const { getByText } = render(<FirstSection />);
-        const badge = getByText('NUEVO');
-        expect(badge).toBeInTheDocument();
         expect(getByText('LN 104.9 + Música')).toBeInTheDocument();
     });
     it('should match snapshot', () => {

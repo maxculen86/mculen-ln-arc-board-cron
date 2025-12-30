@@ -6,7 +6,6 @@ import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import { Badge } from '@ln/contenidos-ui-badge';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -57,7 +56,6 @@ function FirstSection() {
                         </Icon>
                         LN 104.9 + Música
                     </span>
-                    <Badge type="negative" text="NUEVO" />
                 </Link>
             </li>
         </ul>
