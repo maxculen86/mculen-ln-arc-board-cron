@@ -1,10 +1,8 @@
-import 'node-fetch';
 import apiAcuAuthorsV2Source from '../../../content/sources/apiAcuAuthorsV2Source';
 import acuArticleSourceResponseMock from '../../../__mocks__/data/acuArticleByAuthor/articleSourceAuthor.json';
 import acuArticlesSource from '../../../content/sources/acuArticlesSource';
 import authorSource from '../../../content/sources/authorSource';
 import NotFoundError from '../../../content/sources/utils/notFoundError';
-import fetch from 'node-fetch';
 const mockNotFoundError = NotFoundError;
 
 acuArticlesSource.fetch = jest.fn();
@@ -19,8 +17,9 @@ const { fetch: autorSourceFetch } = authorSource;
 const cachedCall = async (nameOfCall, callbackFunc, params) => {
     return callbackFunc(params);
 };
-jest.mock('node-fetch', () =>
-    jest.fn(uri => {
+
+beforeEach(() => {
+    global.fetch = jest.fn(uri => {
         if (uri.includes('not-exists')) {
             throw new mockNotFoundError();
         }
@@ -50,11 +49,7 @@ jest.mock('node-fetch', () =>
             statusText: 'OK',
             json: () => Promise.resolve(authorDataMock)
         });
-    })
-);
-
-beforeEach(() => {
-    global.fetch = fetch;
+    });
     jest.clearAllMocks();
 });
 
