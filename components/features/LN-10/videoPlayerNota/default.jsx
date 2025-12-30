@@ -89,11 +89,11 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
         staticMode: true
     });
 
-    const { title: videoTitle, mediaId, playlist } = videoData || {};
+    const { title: videoTitle, playlist } = videoData || {};
 
     const videoConfig = {
         videoId,
-        mediaId,
+        mediaId: featureId,
         title: videoTitle,
         playerId: 'XD8x4oQD',
         instanceConfig: {
@@ -174,7 +174,7 @@ function LN10VideoPlayerNota({ id: featureId, customFields }) {
             <ErrorBoundary>
                 <VideoCommonJw
                     videoId={videoId}
-                    mediaId={mediaId}
+                    mediaId={featureId}
                     videoConfig={videoConfig}
                     extraOpts={{
                         ...extraOpts,
