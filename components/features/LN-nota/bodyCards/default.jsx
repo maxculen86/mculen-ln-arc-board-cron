@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
-import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
 import useViewportSize from '../../../private/common/hooks/useViewportSize';
-import useScrollDispatcher, {
-    registerScrollTrigger
-} from '../../LN-common/hooks/useScrollDispatcher';
+import BaseBodyWrapper from '../body/_children/BaseBodyWrapper';
+import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
 import {
     groupByMarkers,
     getContentBeforeMarkers
@@ -60,27 +58,14 @@ function BodyCards() {
 
     const leadingElements = processElementsWithImageProps(rawLeadingElements);
 
-    useLazyEmbeds({
-        contentElements,
-        outputType,
-        bodyOrigin: 'Body default',
-        noteId: _id,
-        selector: 'cuerpo__nota'
-    });
-
-    useScrollDispatcher({ startSelector: 'h1', endSelector: '#fin-de-nota' });
-
-    useEffect(
-        () =>
-            registerScrollTrigger({
-                id: 'scroll-body-GA',
-                type: 'percentage',
-                threshold: 10,
-                thresholdStep: 10,
-                callback: scrollCallback
-            }),
-        []
-    );
+    const registerScrollTracking = () =>
+        registerScrollTrigger({
+            id: 'scroll-body-GA',
+            type: 'percentage',
+            threshold: 10,
+            thresholdStep: 10,
+            callback: scrollCallback
+        });
 
     const renderConfig = useMemo(
         () => createRenderConfig(renderExpandedCard, outputType),
@@ -105,35 +90,42 @@ function BodyCards() {
     }, [googleTagConfigs]);
 
     return (
-        <div className="mb-120 grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
-            <BodyTop>
-                {leadingElements?.length > 0 &&
-                    BuildBody({
-                        outputType,
-                        globalContent,
-                        groupedElements: leadingElements,
-                        supportedTypesOverride: supportedTypesCards
-                    })}
-            </BodyTop>
-            <div
-                ref={gridRef}
-                className="pt-8 grid grid-col-1 grid-row-2 grid-col-3-15_lg"
-            >
-                {cardsGrid.length > 0 && (
-                    <LinkedSummaryCardsGrid
-                        cards={cardsGrid}
-                        gridColumns={getGridColumns(cardsGrid.length)}
-                    />
-                )}
-            </div>
-            <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
-            <span className="block grid-row-4 grid-col-1 h-1 bg-muted w-100 mb-80 grid-col-3-11_m grid-col-5-13_lg" />
-            <div className="grid-row-5 grid-col-1">
-                <div className="grid grid-cols-8 row-gap-80 grid-cols-12_m row-gap-120_m grid-cols-16_lg">
-                    {cardsWithBanners}
+        <BaseBodyWrapper
+            contentElements={contentElements}
+            outputType={outputType}
+            noteId={_id}
+            onRegisterScrollTrigger={registerScrollTracking}
+        >
+            <div className="mb-120 grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
+                <BodyTop>
+                    {leadingElements?.length > 0 &&
+                        BuildBody({
+                            outputType,
+                            globalContent,
+                            groupedElements: leadingElements,
+                            supportedTypesOverride: supportedTypesCards
+                        })}
+                </BodyTop>
+                <div
+                    ref={gridRef}
+                    className="pt-8 grid grid-col-1 grid-row-2 grid-col-3-15_lg"
+                >
+                    {cardsGrid.length > 0 && (
+                        <LinkedSummaryCardsGrid
+                            cards={cardsGrid}
+                            gridColumns={getGridColumns(cardsGrid.length)}
+                        />
+                    )}
+                </div>
+                <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
+                <span className="block grid-row-4 grid-col-1 h-1 bg-muted w-100 mb-80 grid-col-3-11_m grid-col-5-13_lg" />
+                <div className="grid-row-5 grid-col-1">
+                    <div className="grid grid-cols-8 row-gap-80 grid-cols-12_m row-gap-120_m grid-cols-16_lg">
+                        {cardsWithBanners}
+                    </div>
                 </div>
             </div>
-        </div>
+        </BaseBodyWrapper>
     );
 }
 
