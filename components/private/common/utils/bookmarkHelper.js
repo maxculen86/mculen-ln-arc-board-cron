@@ -40,15 +40,7 @@ export function getBookmarkContent(globalContent) {
         get(globalContent, 'label.enviar_a_apps.text', 'No') === 'Si';
 
     const imageApertura = get(globalContent, 'promo_items.basic', {});
-    const { url: imageUrl = '', resized_urls: resizedUrls = [] } =
-        imageApertura;
-
-    const parametros = resizedUrls.map(size => ({
-        alto: size.option.height,
-        media: size.option.width,
-        ancho: size.option.width,
-        firma: size.resizedUrl?.replace(regexResizerUrl, '$4')?.slice(0, -1)
-    }));
+    const { url: imageUrl = '' } = imageApertura;
 
     const autores = authors.map(autor => {
         const image = get(autor, 'image.resized_urls[0].resizedUrl', null);
@@ -64,7 +56,7 @@ export function getBookmarkContent(globalContent) {
         };
     });
 
-    const absoluteUrl = imageUrl.replace(regexResizerUrl, '$1$2$3{{param}}/$5');
+    const absoluteUrl = imageUrl.replace(regexResizerUrl, '$1$2$3v2/$5');
 
     return {
         origen: 'web',
@@ -88,8 +80,7 @@ export function getBookmarkContent(globalContent) {
         )}`,
         ...(Object.keys(imageApertura).length && {
             imagen: {
-                absoluteUrl,
-                parametros
+                absoluteUrl
             }
         })
     };

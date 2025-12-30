@@ -1,13 +1,14 @@
 import get from '../../../../../common/utils/get';
-import LNApiErrorArticles from '../models/exceptions/lnApiErrorArticles';
-import { getLastPublishDate } from '../elements/date/index';
-import { getArticleTitle } from '../elements/title/index';
-import { getArticleAuthor } from '../elements/author/index';
-import { getArticleOpinionSubtype } from '../elements/subType/index';
 import { distributorOrAuthorSignature } from '../../elements/author';
-import sentToApps from '../../elements/label/sentToApps';
-import getOpeningMode from '../../elements/label/openingMode';
 import getDistributor from '../../elements/distributor';
+import { getDomainCLL } from '../../elements/domain';
+import getOpeningMode from '../../elements/label/openingMode';
+import sentToApps from '../../elements/label/sentToApps';
+import { getArticleAuthor } from '../elements/author/index';
+import { getLastPublishDate } from '../elements/date/index';
+import { getArticleOpinionSubtype } from '../elements/subType/index';
+import { getArticleTitle } from '../elements/title/index';
+import LNApiErrorArticles from '../models/exceptions/lnApiErrorArticles';
 
 const transformAuthors = (articleAuthors, isListenable) => {
     if (!articleAuthors) return null;
@@ -54,7 +55,7 @@ export const CardBasic = article => {
     const enviarApps = sentToApps(article);
     const openingMode = getOpeningMode(article);
     const distributor = getDistributor(article);
-
+    const domain = getDomainCLL(article);
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -79,7 +80,8 @@ export const CardBasic = article => {
         fechaPublicacion: getLastPublishDate(article),
         openingMode,
         distributor,
-        videoData: article.videoData
+        videoData: article.videoData,
+        ...(domain && { domain })
     };
 };
 

@@ -66,7 +66,7 @@ describe('Content - Sources - Utils - FooditSources - AcuArticleSourceV2 - trans
             return defaultValue;
         });
 
-        const result = await transformFooditAcu(response, cachedCall, query);
+        const result = await transformFooditAcu(response, query, cachedCall);
 
         expect(result).toEqual({
             content_elements: [
@@ -95,7 +95,7 @@ describe('Content - Sources - Utils - FooditSources - AcuArticleSourceV2 - trans
         const query = { site: 'lanacion' };
         const cachedCall = jest.fn();
 
-        const result = await transformFooditAcu(response, cachedCall, query);
+        const result = await transformFooditAcu(response, query, cachedCall);
 
         expect(result).toEqual({ content_elements: [] });
         expect(getAllImagesAuth).not.toHaveBeenCalled();
@@ -116,7 +116,7 @@ describe('Content - Sources - Utils - FooditSources - AcuArticleSourceV2 - trans
 
         getAllImagesAuth.mockRejectedValue(new Error('Auth failed'));
 
-        const result = await transformFooditAcu(response, cachedCall, query);
+        const result = await transformFooditAcu(response, query, cachedCall);
 
         expect(result).toEqual({
             content_elements: [

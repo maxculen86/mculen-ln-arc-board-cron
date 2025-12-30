@@ -30,7 +30,7 @@ exports[`Tests - Component - AperturaStorytelling Cases render image should retu
             />
             <img
               alt="Federico Levrino es uno de los profesionales de alto rango de Telefe"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="high"
               loading="eager"
@@ -97,7 +97,7 @@ exports[`Tests - Component - AperturaStorytelling Cases render video should show
             />
             <img
               alt="Trastornos de la alimentación"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="high"
               loading="eager"

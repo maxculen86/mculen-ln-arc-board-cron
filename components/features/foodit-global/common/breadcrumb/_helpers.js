@@ -43,8 +43,8 @@ export const setArraySection = (
     pageName = ''
 ) => {
     if (parentInfo) {
-        const arraySections = stringSections.split('/').filter(Boolean);
-        const lastSection = arraySections[arraySections.length - 1];
+        const splitSections = stringSections.split('/').filter(Boolean);
+        const lastSection = splitSections[splitSections.length - 1];
 
         const displayName = pageName || formatSectionName(lastSection);
 

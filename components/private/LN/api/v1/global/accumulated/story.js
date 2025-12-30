@@ -1,12 +1,13 @@
-import get from '../../../../../common/utils/get';
-import Image from '../../../common/elements/image';
-import { authorCommon as Author } from '../../../common/elements/author';
-import { getTag } from '../../../common/elements/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
+import get from '../../../../../common/utils/get';
+import { authorCommon as Author } from '../../../common/elements/author';
 import { getPrincipalCategory } from '../../../common/elements/category';
-import sentToApps from '../../../common/elements/label/sentToApps';
-import getOpeningMode from '../../../common/elements/label/openingMode';
 import getDistributor from '../../../common/elements/distributor';
+import { getDomainCLL } from '../../../common/elements/domain';
+import Image from '../../../common/elements/image';
+import getOpeningMode from '../../../common/elements/label/openingMode';
+import sentToApps from '../../../common/elements/label/sentToApps';
+import { getTag } from '../../../common/elements/tag';
 
 const articleItem = article => {
     const {
@@ -25,6 +26,7 @@ const articleItem = article => {
     const primarySection = get(article, 'taxonomy.primary_section', null);
     const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
+    const domain = getDomainCLL(article);
     const resp = {
         id,
         templateId: Number.isInteger(templateId)
@@ -38,7 +40,8 @@ const articleItem = article => {
         bajada,
         enviarApps: sentToApps(article),
         openingMode: getOpeningMode(article),
-        distributor: getDistributor(article)
+        distributor: getDistributor(article),
+        ...(domain && { domain })
     };
 
     if (image && image.type === 'image') {
@@ -59,6 +62,10 @@ const articleItem = article => {
 
     if (tags && tags.length > 0) {
         resp.tags = tags.map(v => getTag(v));
+    }
+
+    if (domain) {
+        resp.domain = domain;
     }
 
     return resp;

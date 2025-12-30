@@ -1,34 +1,37 @@
 import { RESIZER_URL_PUBLIC } from 'fusion:environment';
 import get from '../get';
-import { getShortestImage } from '../../../LN/common/utils/mediaHelper';
 
-export const getHeightOfUrl = (url = '') => {
-    const [measures = ''] = url.match(/\/[0-9]*x[0-9]*\//g) || '';
-    return measures ? Number(measures.split('x')[1].replace('/', '')) : 0;
+const BASE_BOOKMARK_SIZE = { width: 150, height: 100 };
+
+export const buildBookmarkResizedImageUrl = (rawUrl = '') => {
+    if (!rawUrl || typeof rawUrl !== 'string') return '';
+
+    const normalizedUrl = rawUrl.replace('/resizer/{{param}}/', '/resizer/v2/');
+
+    const parsedUrl = new URL(normalizedUrl);
+
+    parsedUrl.searchParams.set('width', String(BASE_BOOKMARK_SIZE.width));
+    parsedUrl.searchParams.set('height', String(BASE_BOOKMARK_SIZE.height));
+
+    return parsedUrl.toString();
 };
 
 const getImages = objectImage => {
-    if (objectImage && objectImage.absoluteUrl) {
-        const arrayImageResized = get(objectImage, 'parametros', []);
-        const urlAbsolute = get(objectImage, 'absoluteUrl', '');
-        const resizedUrls = arrayImageResized.map(({ ancho, firma }) => ({
-            option: {
-                width: ancho
-            },
-            resizedUrl: firma ? urlAbsolute.replace('{{param}}', firma) : ''
-        }));
+    if (!objectImage) return {};
 
-        const { resizedUrl, width } = getShortestImage(resizedUrls);
+    const rawUrl =
+        get(objectImage, 'url', '') || get(objectImage, 'absoluteUrl', '');
+    if (!rawUrl) return {};
 
-        return {
-            height: getHeightOfUrl(resizedUrl),
-            resized_urls: [],
-            type: 'image',
-            url: resizedUrl,
-            width
-        };
-    }
-    return {};
+    const url = buildBookmarkResizedImageUrl(rawUrl);
+
+    return {
+        height: BASE_BOOKMARK_SIZE.height,
+        resized_urls: [],
+        type: 'image',
+        url,
+        width: BASE_BOOKMARK_SIZE.width
+    };
 };
 
 const trasformBookmarkContent = (data = []) =>
@@ -39,9 +42,7 @@ const trasformBookmarkContent = (data = []) =>
             const autores = get(bookmarkContent, 'autores', []).map(
                 ({ imagen, valor }) => ({
                     additional_properties: {
-                        original: {
-                            author_type: ''
-                        }
+                        original: { author_type: '' }
                     },
                     image: imagen && `${RESIZER_URL_PUBLIC}${imagen}`,
                     name: valor,
@@ -51,12 +52,8 @@ const trasformBookmarkContent = (data = []) =>
 
             return {
                 _id: get(article, 'bookmarkTypeId', ''),
-                credits: {
-                    by: autores
-                },
-                headlines: {
-                    basic: get(bookmarkContent, 'titulo', '')
-                },
+                credits: { by: autores },
+                headlines: { basic: get(bookmarkContent, 'titulo', '') },
                 label: {
                     recomendar: { text: '' },
                     volanta: { display: false, text: '' }

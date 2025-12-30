@@ -16,7 +16,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
         >
           <img
             alt="Ir a notas de Pablo Lisotto"
-            class="image flex rounded-circle w-70 h-70 bg-neutral-light-50 --cover"
+            class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
@@ -121,7 +121,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
         >
           <div>
             <img
-              class="image flex rounded-circle w-70 h-70 bg-neutral-dark-50 --cover"
+              class="image rounded-circle w-70 h-70 bg-neutral-dark-50 flex --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

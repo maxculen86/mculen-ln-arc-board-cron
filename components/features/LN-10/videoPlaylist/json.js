@@ -2,12 +2,18 @@ import Consumer from 'fusion:consumer';
 import isTodayEnabled from '../../../chains/utils/isTodayEnabled';
 import { videoJWM3u8 } from '../../../private/LN/api/common/elements/videoJW';
 
-const shouldSkipRender = ({ enabledDays = [], shouldSchedule = false }) => {
+const shouldSkipRender = ({
+    enabledDays = [],
+    shouldSchedule = false,
+    hidePlaylist = false
+}) => {
     if (!shouldSchedule) {
-        return false;
+        return hidePlaylist;
     }
 
-    return enabledDays.length === 0 || !isTodayEnabled(enabledDays);
+    return (
+        hidePlaylist || enabledDays.length === 0 || !isTodayEnabled(enabledDays)
+    );
 };
 
 class VideoPlaylistFeature {

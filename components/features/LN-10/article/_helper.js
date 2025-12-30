@@ -3,7 +3,6 @@ import get from '../../../private/common/utils/get';
 import getAuthorsPhoto from '../../../private/common/utils/getAuthorsPhoto';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
-import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules, {
     size
 } from '../../../private/common/utils/diagramationRules';
@@ -307,8 +306,6 @@ export const transformVideoData = (
 ) => {
     const isBigHomeCard = isHome && BIG_CARD_SIZES.has(cardSize);
 
-    // TODO: Quitar logica de videocenter una vez que se pase a JW tanto en LN como en OTT
-    const streams = get(videoData, 'streams', []);
     const sources = get(videoData, 'sources', []);
     const poster = get(videoData, 'poster', '');
     const videoImagesResized = get(
@@ -326,18 +323,13 @@ export const transformVideoData = (
 
     const streamOperator = getDynamicStreamOperator(size, cardSize);
 
-    const preferredStreamUrl = isBigHomeCard
-        ? pickPreferredMedia(streams, 'url')
-        : null;
     const preferredSourceFile = isBigHomeCard
         ? pickPreferredMedia(sources, 'file')
         : null;
 
-    const { url } = getStreams(streams, streamOperator) || {};
     const { file } = getSourcesJw(sources, streamOperator) || {};
 
-    const pickedData =
-        preferredStreamUrl || preferredSourceFile || url || file || '';
+    const pickedData = preferredSourceFile || file || '';
 
     return {
         type,
@@ -415,6 +407,14 @@ export const getMediaData = ({
         isLoadWithPicture
     });
 
+    const videoData = transformVideoData(
+        video,
+        config.cardSize,
+        isAdmin,
+        isHome,
+        isInApertura
+    );
+
     const rules = [
         {
             validation: Boolean(cllBoard.trim()),
@@ -432,13 +432,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(
-                video,
-                config.cardSize,
-                isAdmin,
-                isHome,
-                isInApertura
-            )
+            data: videoData
         },
         {
             validation: imageId && image,

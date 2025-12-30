@@ -39,7 +39,7 @@ class ArticleFeature {
 
         const website = 'la-nacion-ar';
 
-        checkForId(videoId) &&
+        if (checkForId(videoId)) {
             this.fetchContent({
                 articleVideoLN10: {
                     source: 'videosJwSource',
@@ -53,8 +53,9 @@ class ArticleFeature {
                     filter: videoFilterLN10
                 }
             });
+        }
 
-        noteId &&
+        if (noteId) {
             this.fetchContent({
                 articleSourceNotaLN10: {
                     source: 'articleSourceNota',
@@ -64,13 +65,14 @@ class ArticleFeature {
                         published: true,
                         checkExclusiveAccess: false,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
-                        sourceInclude
+                        sourceInclude,
+                        isApi: true
                     }
                 }
             });
+        }
 
-        imageId &&
-            imageId.trim() &&
+        if (imageId && imageId.trim()) {
             this.fetchContent({
                 articleImageLN10: {
                     source: 'relatedImageSource',
@@ -85,6 +87,7 @@ class ArticleFeature {
                     }
                 }
             });
+        }
 
         this.fetchContent({
             navigationTreeSourceLN10: {
@@ -104,7 +107,11 @@ class ArticleFeature {
     render() {
         const { navigationTreeSourceLN10 } = this.state || {};
         const isVideoLoopEnabled =
-            get(navigationTreeSourceLN10, 'Termicas.mostrar_videoloop', 'false') === 'true';
+            get(
+                navigationTreeSourceLN10,
+                'Termicas.mostrar_videoloop',
+                'false'
+            ) === 'true';
 
         try {
             const {
@@ -134,7 +141,6 @@ class ArticleFeature {
             );
 
             articleSourceNotaRender.isVideoLoopEnabled = isVideoLoopEnabled;
-
 
             const { customFields = {} } = propsRender;
             const {

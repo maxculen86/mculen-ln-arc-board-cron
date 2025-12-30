@@ -3,6 +3,23 @@ import { useState, useEffect } from 'react';
 import { transformListGroups } from '../_helpers';
 
 const URL_BASE = `${API_QUERYLY}/json.aspx?queryly_key=${API_KEY_QUERYLY}&extendeddatafields=category,creator,subtype,counter_time,guid,creator,imageresizer,promo_image,counter_time,section,subtype,video_jw`;
+const TRACKING_URL_BASE = `https://data.queryly.com/track.aspx?queryly_key=${API_KEY_QUERYLY}`;
+
+const trackKeywordSearch = keyword => {
+    if (!keyword || keyword.trim() === '') return;
+
+    try {
+        const trackingUrl = `${TRACKING_URL_BASE}&query=${encodeURIComponent(keyword)}&suggest=${encodeURIComponent(keyword)}&target=`;
+
+        fetch(trackingUrl, { keepalive: true, mode: 'no-cors' }).catch(
+            error => {
+                console.error('Error queryly: tracking keyword search:', error);
+            }
+        );
+    } catch (error) {
+        console.error('Error queryly: constructing tracking URL:', error);
+    }
+};
 
 function useFetchSearchResults({
     queryUrl,
@@ -21,6 +38,10 @@ function useFetchSearchResults({
             sortParam
         ) => {
             try {
+                if (numberPage === 0) {
+                    trackKeywordSearch(query);
+                }
+
                 const response = await fetch(
                     `${URL_BASE}&query=${query}&sort=${sortParam}&batchsize=24&showfaceted=${withFilterBox}${appliedFilters}&endindex=${numberPage}`
                 );

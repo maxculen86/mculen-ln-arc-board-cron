@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { useIdleTask } from '@ln/utility-hooks';
@@ -55,6 +55,22 @@ function BaseLayout({ children }) {
     useIdleTask(() => {
         import('./fonts-deferred.scss');
     });
+
+    useEffect(() => {
+        const handleUCLReady = async () => {
+            try {
+                await window.UCL.GoogleOneTap();
+            } catch (error) {
+                console.error('Error inicializando Google One Tap:', error);
+            }
+        };
+
+        window.addEventListener('ucl-ready', handleUCLReady);
+
+        return () => {
+            window.removeEventListener('ucl-ready', handleUCLReady);
+        };
+    }, []);
 
     return (
         <AuthInitializer website="foodit">

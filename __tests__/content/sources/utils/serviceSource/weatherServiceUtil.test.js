@@ -19,8 +19,6 @@ import {
     validateMinTemperature
 } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
-const mockResponse = Promise.resolve(mockHome);
-
 const {
     getUri,
     request: weatherRequest,
@@ -30,11 +28,27 @@ const {
     getTemplates
 } = weather;
 
-jest.mock('request-promise-native', () => {
-    return {
-        __esModule: true,
-        default: () => mockResponse
-    };
+const mockFetchResponse = {
+    ok: true,
+    json: () => Promise.resolve(mockHome)
+};
+
+const originalFetch = global.fetch;
+const originalAbortController = global.AbortController;
+
+beforeEach(() => {
+    global.fetch = jest.fn(() => Promise.resolve(mockFetchResponse));
+    global.AbortController = jest.fn(() => ({
+        abort: jest.fn(),
+        signal: {
+            aborted: false
+        }
+    }));
+});
+
+afterAll(() => {
+    global.fetch = originalFetch;
+    global.AbortController = originalAbortController;
 });
 
 describe('Test getUri function', () => {
@@ -68,11 +82,11 @@ describe('Test getUri function', () => {
 });
 
 describe('Tests weather request', () => {
-    it('Should return data from the request', () => {
+    it('Should return data from the request', async () => {
         const queryObj = { service: 'clima' };
         const req = { queryData: queryObj, auth: {} };
 
-        expect(weatherRequest(req)).toStrictEqual(mockResponse);
+        await expect(weatherRequest(req)).resolves.toStrictEqual(mockHome);
     });
 });
 
@@ -98,8 +112,7 @@ describe('Tests resolve function', () => {
                     'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal, Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
                 headline: 'Clima de hoy en Argentina',
                 latestNewsTitle: 'Últimas noticias del clima',
-                title:
-                    'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION'
+                title: 'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION'
             },
             serviceType: 'detalle-clima'
         });

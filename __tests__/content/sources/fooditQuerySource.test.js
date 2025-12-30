@@ -1,11 +1,11 @@
-import nodeFetch from 'node-fetch';
 import logger from '../../../components/private/common/utils/logger';
+import { handleHttpError } from '../../../components/private/common/utils/handleHttpError';
 import fooditQuerylySource, {
     resolve
 } from '../../../content/sources/fooditQuerylySource';
 
-jest.mock('node-fetch');
 jest.mock('../../../components/private/common/utils/logger');
+jest.mock('../../../components/private/common/utils/handleHttpError');
 
 jest.mock('fusion:environment', () => {
     return {
@@ -15,6 +15,12 @@ jest.mock('fusion:environment', () => {
 });
 
 describe('fooditQuerylySource', () => {
+    beforeEach(() => {
+        global.fetch = jest.fn();
+        handleHttpError.mockImplementation(() => {});
+        jest.clearAllMocks();
+    });
+
     afterEach(() => {
         jest.clearAllMocks();
     });
@@ -66,7 +72,7 @@ describe('fooditQuerylySource', () => {
         it('should throw an error if "query" is not defined', () => {
             const invalidQuery = {};
 
-            expect(() => fooditQuerylySource.fetch(invalidQuery)).toThrowError(
+            expect(() => resolve(invalidQuery)).toThrowError(
                 'Debe definir un query (termino de busqueda) para realizar la consulta - Queryly Source Foodit'
             );
         });
@@ -85,8 +91,9 @@ describe('fooditQuerylySource', () => {
                 }
             };
 
-            nodeFetch.mockResolvedValueOnce({
+            global.fetch.mockResolvedValueOnce({
                 ok: true,
+                status: 200,
                 json: async () => mockResponse
             });
 
@@ -102,6 +109,14 @@ describe('fooditQuerylySource', () => {
 
             const result = await fooditQuerylySource.fetch(query);
 
+            expect(global.fetch).toHaveBeenCalledWith(
+                expect.stringContaining('query=pollo'),
+                expect.objectContaining({
+                    method: 'GET',
+                    signal: expect.any(AbortSignal)
+                })
+            );
+
             expect(result).toEqual({
                 articles: mockResponse.items,
                 total: mockResponse.metadata.total,
@@ -115,17 +130,68 @@ describe('fooditQuerylySource', () => {
 
         it('should log an error if fetch fails', async () => {
             const mockError = new Error('Fetch failed');
-            nodeFetch.mockRejectedValueOnce(mockError);
+            global.fetch.mockRejectedValueOnce(mockError);
 
             const query = {
                 query: 'pollo',
                 'arc-site': 'foodit'
             };
 
-            await fooditQuerylySource.fetch(query);
+            const result = await fooditQuerylySource.fetch(query);
+
+            expect(result).toEqual({});
 
             expect(logger.push).toHaveBeenCalledWith(
                 mockError,
+                {
+                    source: 'content/sources/fooditQuerylySource'
+                },
+                'foodit'
+            );
+        });
+
+        it('should handle request timeout (AbortError)', async () => {
+            const abortError = new Error('The operation was aborted');
+            abortError.name = 'AbortError';
+
+            global.fetch.mockRejectedValueOnce(abortError);
+
+            const query = {
+                query: 'pollo',
+                'arc-site': 'foodit'
+            };
+
+            const result = await fooditQuerylySource.fetch(query);
+
+            expect(result).toEqual({});
+
+            expect(logger.push).toHaveBeenCalledWith(
+                'Request timed out',
+                {
+                    source: 'content/sources/fooditQuerylySource',
+                    url: expect.stringContaining('query=pollo')
+                },
+                'foodit'
+            );
+        });
+
+        it('should handle HTTP errors and return empty object', async () => {
+            global.fetch.mockResolvedValueOnce({
+                ok: false,
+                status: 500
+            });
+
+            const query = {
+                query: 'pollo',
+                'arc-site': 'foodit'
+            };
+
+            const result = await fooditQuerylySource.fetch(query);
+
+            expect(result).toEqual({});
+
+            expect(logger.push).toHaveBeenCalledWith(
+                expect.any(Error),
                 {
                     source: 'content/sources/fooditQuerylySource'
                 },

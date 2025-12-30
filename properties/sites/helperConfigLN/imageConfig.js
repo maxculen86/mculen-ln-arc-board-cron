@@ -1990,6 +1990,33 @@ export default {
                 }
             }
         },
+        'vertical-single-centered': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 629,
+                        height: 944,
+                        minScreenWidth: 1280,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 595,
+                        height: 893,
+                        minScreenWidth: 768,
+                        proportion: '2:3',
+                        useFullSize: true
+                    },
+                    {
+                        width: 767,
+                        height: 1151,
+                        maxScreenWidth: 767,
+                        proportion: '2:3',
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
         default: [
             {
                 width: 1033,

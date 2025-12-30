@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import DrawerContainer from '../DrawerContainer/foodit';
+import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { useDrawer } from '@ln/common-ui-drawer';
-import { DRAWER } from '../DrawerContainer/constants';
 import { Select } from '@ln/common-ui-select';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
+import { DRAWER } from '../DrawerContainer/constants';
+import DrawerContainer from '../DrawerContainer/foodit';
 
-const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
-    if (!summaryList.length) return <></>;
+function DrawerRecetario({ onItemSelected, summaryList = [] }) {
+    if (!summaryList.length) return null;
 
     const [selectedId, setSelectedId] = useState('');
     const [selectedQuantity, setSelectedQuantity] = useState(null);
@@ -24,6 +25,11 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
         toggleDrawer();
         if (onItemSelected)
             onItemSelected({ id: selectedId, quantity: selectedQuantity });
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     };
 
     return (
@@ -49,6 +55,8 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
                         value={{ id, quantity }}
                         label={text}
                         quantity={quantity}
+                        // TODO FRONT: Para evitar el disable de la regla de eslint se debera modificar la librería Select (common) para soportar children sin romper los estilos actuales del ItemCard.
+                        // eslint-disable-next-line react/no-unstable-nested-components
                         as={props => (
                             <Itemcard
                                 type="button"
@@ -71,6 +79,17 @@ const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
             </Button>
         </DrawerContainer>
     );
+}
+
+DrawerRecetario.propTypes = {
+    onItemSelected: PropTypes.func.isRequired,
+    summaryList: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            label: PropTypes.string,
+            quantity: PropTypes.number
+        })
+    ).isRequired
 };
 
 export default DrawerRecetario;

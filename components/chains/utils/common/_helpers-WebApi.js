@@ -30,8 +30,7 @@ export const LAYOUTS = {
     FOODIT_1_GRID: 'foodit_1_grid',
     FOODIT_3_GRID: 'foodit_3_grid',
     LOGO_3_GRID: 'logo_3_grid',
-    FOCAL_LEFT_VIDEO_VERTICAL: 'left-focal-video-vertical',
-
+    FOCAL_LEFT_VIDEO_VERTICAL: 'left-focal-video-vertical'
 };
 
 export const VERTICALS = [

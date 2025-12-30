@@ -1,47 +1,96 @@
 import trasformBookmarkContent, {
-    getHeightOfUrl
+    buildBookmarkResizedImageUrl
 } from '../../../../../../components/private/common/utils/bookmark/trasformBookmarkContent';
 import responseApiBookmark from '../../../../../../__mocks__/data/bookmark/responseApiBookmark.json';
-import responseTransformBookmarkContent from '../../../../../../__mocks__/data/bookmark/responseTransformBookmarkContent.json';
 
-jest.mock('fusion:environment', () => {
-    return {
-        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
-    };
-});
+jest.mock('fusion:environment', () => ({
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
+}));
 
-describe('Tests transformBookmarkContent', () => {
-    test('Return test when data exists', () => {
-        expect(trasformBookmarkContent(responseApiBookmark)).toStrictEqual(
-            responseTransformBookmarkContent
-        );
+describe('trasformBookmarkContent', () => {
+    test('Return transformed data when data exists', () => {
+        const result = trasformBookmarkContent(responseApiBookmark);
+
+        expect(Array.isArray(result)).toBe(true);
+        expect(result.length).toBeGreaterThan(0);
+
+        const first = result[0];
+        expect(first).toHaveProperty('_id');
+        expect(first).toHaveProperty('headlines.basic');
+        expect(first).toHaveProperty('promo_items.basic');
+
+        const img = first.promo_items.basic;
+
+        expect(img).toHaveProperty('type', 'image');
+        expect(img).toHaveProperty('width', 150);
+        expect(img).toHaveProperty('height', 100);
+        expect(typeof img.url).toBe('string');
+        expect(img.url.length).toBeGreaterThan(0);
+
+        const url = new URL(img.url);
+        expect(url.searchParams.get('width')).toBe('150');
+        expect(url.searchParams.get('height')).toBe('100');
     });
 
-    test('Return test when data not defined', () => {
+    test('Return empty array when data not defined', () => {
         expect(trasformBookmarkContent()).toStrictEqual([]);
     });
 
-    test('Return test when receiving a data type other than an array', () => {
+    test('Return empty array when receiving a data type other than an array', () => {
         expect(trasformBookmarkContent({})).toStrictEqual([]);
     });
 });
 
-describe('Tests getHeightOfUrl', () => {
-    const url =
-        'https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg';
-
-    test('Test with correct url', () => {
-        expect(getHeightOfUrl(url)).toStrictEqual(234);
+describe('buildBookmarkResizedImageUrl', () => {
+    test('should return empty string when rawUrl is empty', () => {
+        expect(buildBookmarkResizedImageUrl('')).toBe('');
     });
 
-    test('Test when url is undefined, should return a zero', () => {
-        expect(getHeightOfUrl()).toStrictEqual(0);
+    test('should return empty string when rawUrl is undefined', () => {
+        expect(buildBookmarkResizedImageUrl(undefined)).toBe('');
     });
 
-    test('Test when the url has no measures, should return a zero', () => {
-        const url =
-            'https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TFbIRQlTk=/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg';
+    test('should keep /resizer/v2/ and overwrite width/height, preserving other params', () => {
+        const rawUrl =
+            'https://sandbox-resizer.glanacion.com/resizer/v2/el-diputado-nacional-german-FUOVF3J6WFEXRODLRDBCYAN5CM.jpeg' +
+            '?auth=abc123&width=768&quality=70&smart=false';
 
-        expect(getHeightOfUrl(url)).toStrictEqual(0);
+        const result = buildBookmarkResizedImageUrl(rawUrl);
+        const url = new URL(result);
+
+        expect(url.origin).toBe('https://sandbox-resizer.glanacion.com');
+        expect(url.pathname).toContain('/resizer/v2/');
+        expect(url.searchParams.get('auth')).toBe('abc123');
+        expect(url.searchParams.get('quality')).toBe('70');
+        expect(url.searchParams.get('smart')).toBe('false');
+
+        expect(url.searchParams.get('width')).toBe('150');
+        expect(url.searchParams.get('height')).toBe('100');
+    });
+
+    test('should replace /resizer/{{param}}/ with /resizer/v2/ and set width/height', () => {
+        const rawUrl =
+            'https://sandbox-resizer.glanacion.com/resizer/{{param}}/el-diputado-nacional-german.jpeg?auth=abc123&quality=70';
+
+        const result = buildBookmarkResizedImageUrl(rawUrl);
+        const url = new URL(result);
+
+        expect(url.pathname).toContain('/resizer/v2/');
+        expect(url.searchParams.get('auth')).toBe('abc123');
+        expect(url.searchParams.get('quality')).toBe('70');
+        expect(url.searchParams.get('width')).toBe('150');
+        expect(url.searchParams.get('height')).toBe('100');
+    });
+
+    test('should add height if it was missing and overwrite width if present', () => {
+        const rawUrl =
+            'https://sandbox-resizer.glanacion.com/resizer/v2/image.jpg?auth=abc123&width=999';
+
+        const result = buildBookmarkResizedImageUrl(rawUrl);
+        const url = new URL(result);
+
+        expect(url.searchParams.get('auth')).toBe('abc123');
+        expect(url.searchParams.get('width')).toBe('150');
+        expect(url.searchParams.get('height')).toBe('100');
     });
 });

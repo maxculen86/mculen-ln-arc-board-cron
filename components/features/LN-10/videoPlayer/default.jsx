@@ -64,7 +64,7 @@ function LN10VideoPlayer({
 
     const videoConfig = {
         videoId,
-        mediaId,
+        mediaId: id,
         playerId: 'tMVdYMxO',
         title,
         withAutoplay: true,
@@ -80,7 +80,7 @@ function LN10VideoPlayer({
             <div className="video-container">
                 <VideoCommonJw
                     videoId={videoId}
-                    mediaId={mediaId}
+                    mediaId={id}
                     videoConfig={videoConfig}
                     extraOpts={extraOpts}
                     videoData={videoData}

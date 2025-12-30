@@ -119,7 +119,11 @@ function Foodit({
                     deployment={deployment}
                     arcSite={arcSite}
                 />
-                <GetCriticalCss Resource={Resource} />
+                <GetCriticalCss
+                    Resource={Resource}
+                    layout={layout}
+                    globalContent={globalContent}
+                />
                 <Scripts location="head" />
                 <BuildComments
                     _id={_id}

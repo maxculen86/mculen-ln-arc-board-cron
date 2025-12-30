@@ -1,9 +1,9 @@
 import Consumer from 'fusion:consumer';
 import { SITE_LANACION } from 'fusion:environment';
-import nodeFetch from 'node-fetch';
 import transformv1 from '../../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform';
 import get from '../../../private/common/utils/get';
 import homev2 from '../../../private/LN/api/v2/mobile/home';
+import { handleHttpError } from '../../../private/common/utils/handleHttpError'
 
 const resolve = query => {
     const { rootPath, website, ticksCache, versionDeploy } = query;
@@ -25,7 +25,11 @@ const getContentPage = async (query, cookie) => {
         };
     }
 
-    return nodeFetch(resolve(query), opt);
+    const response = await global.fetch(resolve(query), opt);
+
+    handleHttpError(response);
+
+    return response;
 };
 
 class HomeUpdate {
@@ -41,7 +45,7 @@ class HomeUpdate {
         this.versionDeploy = get(this.query, 'versionDeploy', null);
         this.versionDeploy =
             this.regexVersionDeploy.exec(this.versionDeploy) &&
-            this.regexVersionDeploy.exec(this.versionDeploy).length > 0
+                this.regexVersionDeploy.exec(this.versionDeploy).length > 0
                 ? this.regexVersionDeploy.exec(this.versionDeploy)[0]
                 : null;
 

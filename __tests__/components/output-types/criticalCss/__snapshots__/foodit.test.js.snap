@@ -1,11 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GetCriticalCss Foodit should maintain expected structure 1`] = `
+exports[`GetCriticalCss - Critical Tests for Production Regression Prevention should maintain expected HTML structure 1`] = `
 <DocumentFragment>
   <style
     id="critical-css"
   >
-    .foodit-test { color: #ff6b35; }
+    .test-css { color: red; }
+  </style>
+</DocumentFragment>
+`;
+
+exports[`GetCriticalCss - Critical Tests for Production Regression Prevention should maintain structure with Tailwind enabled 1`] = `
+<DocumentFragment>
+  <style
+    id="critical-css"
+  >
+    .test-css { color: red; }
+  </style>
+  <style
+    id="critical-css-tailwind"
+  >
+    .test-css { color: red; }
   </style>
 </DocumentFragment>
 `;

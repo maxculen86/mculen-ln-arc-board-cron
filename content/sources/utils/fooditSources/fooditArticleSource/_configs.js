@@ -2,6 +2,13 @@ import convertVideoArcToJw from '../../articleSourceNota/cachedCalls/convertVide
 import get from '../../../../../components/private/common/utils/get';
 import { addForwardSlashInParagraphsLinks } from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import { compose } from '../../../../../components/private/common/utils/functional';
+import {
+    setOtherChar,
+    createReplaceClassForMark,
+    setBoldText,
+    setItalicText,
+    deleteTagsForTitle
+} from '../../common/textTransformHelpers';
 
 import {
     addHttpsInterstitialLink,
@@ -31,23 +38,9 @@ export const configPromoItems = {
         convertVideoArcToJw(element, arcSite, cachedCall)
 };
 
-export const setOtherChar = (text = '') =>
-    text ? text.replace(/&lt;/g, '<').replace(/&gt;/g, '>') : '';
-
-export const replaceClassForMark = text =>
-    text
-        ? text.replace(/hl_(yellow|pink|purple|orange|green)/g, 'hl_underline')
-        : '';
-
-export const setBoldText = ({ content, withSponsoredLink } = {}) => ({
-    text: content ? content.replace(/(?:<|<(\/))b(?:>)/g, '<$1strong>') : '',
-    withSponsoredLink
-});
-
-export const setItalicText = ({ text, withSponsoredLink } = {}) => ({
-    content: text ? text.replace(/(?:<|<(\/))i(?:>)/g, '<$1em>') : '',
-    withSponsoredLink
-});
+export const replaceClassForMark = createReplaceClassForMark(
+    'yellow|pink|purple|orange|green'
+);
 
 export const addHttpsLinkInParagraphs = content => {
     if (typeof content === 'string') {
@@ -104,9 +97,6 @@ export const formatElementText = (elementText = {}) => {
         newValue: ''
     });
 };
-
-export const deleteTagsForTitle = text =>
-    text ? text.replace(/(<|<\/)(em|strong)>/g, '') : '';
 
 export const addAttribute = ({ attributes, text = '' }) => {
     if (Array.isArray(attributes) && attributes.length && text) {
