@@ -1,4 +1,3 @@
-import 'node-fetch';
 import 'regenerator-runtime/runtime';
 import pageHomeMain from '../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
 import page from '../../../../../content/sources/utils/pageSource/index';
