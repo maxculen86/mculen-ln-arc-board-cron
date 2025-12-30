@@ -34,10 +34,18 @@ const getFeatureName = featureType => {
 export const validateChain = (childrenProps, layout, isInOpening) => {
     const isLeftFocal = layout === FOCAL_LEFT;
     const isLeftFocalVideo = layout === FOCAL_LEFT_VIDEO;
+
+    const filteredChildrenProps = isLeftFocalVideo
+        ? childrenProps.filter(
+              ({ collection, type }) =>
+                  !(collection === COLLECTION_FEATURES && type === LN_TIMELINE)
+          )
+        : childrenProps;
+
     const minimumChildren = setQuantityByLayout({ layout });
 
     const childrenArticles =
-        childrenProps.filter(
+        filteredChildrenProps.filter(
             child =>
                 child.collection === COLLECTION_FEATURES &&
                 child.type === LN10_ARTICLE
@@ -50,7 +58,7 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
     const allowedFeatures = getAllowedFeatures(layout);
     const allowedFeaturesText = allowedFeatures.map(getFeatureName).join(', ');
 
-    const videoPlayers = childrenProps.filter(
+    const videoPlayers = filteredChildrenProps.filter(
         ({ collection, type }) =>
             collection === COLLECTION_FEATURES && type === LN_VIDEOPLAYER
     );
@@ -65,23 +73,13 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
             message: 'La chain debe estar dentro de la sección Apertura'
         },
         {
-            validation:
-                isLeftFocalVideo &&
-                childrenProps.find(
-                    ({ collection, type }) =>
-                        collection === COLLECTION_FEATURES &&
-                        type === LN_TIMELINE
-                ),
-            message: 'Esta diagramación no permite el feature LN Timeline'
-        },
-        {
             validation: isLeftFocalVideo && videoPlayers.length > 1,
             message: 'Solo se permite un feature del tipo LN10 VideoPlayer'
         },
         {
             validation:
                 isLeftFocal &&
-                !childrenProps.find(
+                !filteredChildrenProps.find(
                     ({ collection, type }) =>
                         collection === COLLECTION_FEATURES &&
                         type === LN_TIMELINE
@@ -91,7 +89,7 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
         {
             validation:
                 isLeftFocalVideo &&
-                !childrenProps.find(
+                !filteredChildrenProps.find(
                     ({ collection, type }) =>
                         collection === COLLECTION_FEATURES &&
                         type === LN_VIDEOPLAYER
@@ -107,7 +105,7 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
             }`
         },
         {
-            validation: childrenProps.some(
+            validation: filteredChildrenProps.some(
                 ({ collection, type }) =>
                     !(
                         collection === COLLECTION_FEATURES &&

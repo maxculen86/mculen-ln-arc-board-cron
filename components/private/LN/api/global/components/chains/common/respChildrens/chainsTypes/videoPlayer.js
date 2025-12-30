@@ -2,6 +2,7 @@ import { setSlicedChildren } from '../../../../../../../../../chains/utils/commo
 import { validateChildrensApi } from '../../../../common/utils/_helpers';
 
 const LN_VIDEOPLAYER = 'LN-10/videoPlayer';
+const LN10_ARTICLE = 'LN-10/article';
 
 export const respChildrens = props => {
     try {
@@ -18,11 +19,11 @@ export const respChildrens = props => {
             article => article?.type && article.type === LN_VIDEOPLAYER
         );
 
-        const otherFeatures = children.filter(
-            article => article?.type !== LN_VIDEOPLAYER
+        const articleFeatures = children.filter(
+            article => article?.type === LN10_ARTICLE
         );
 
-        const orderedArticles = [videoFeature, ...otherFeatures];
+        const orderedArticles = [videoFeature, ...articleFeatures];
 
         const articles = setSlicedChildren({
             config: { layout },
