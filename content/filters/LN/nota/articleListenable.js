@@ -328,7 +328,12 @@ const galleryEmbed = `
         }
         height
         width
+        id
+        poster
+        mp4
+        type
     }
+    videoPosition
 `;
 
 const customPowerUps = `
