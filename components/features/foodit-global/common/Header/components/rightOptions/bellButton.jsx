@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
-import PropTypes from 'fusion:prop-types';
 import {
     getPropsBellEvents,
     getPropsBellFoodit,
@@ -50,7 +49,3 @@ export function BellButton({ className = '' }) {
     );
 }
 export default BellButton;
-
-BellButton.propTypes = {
-    className: PropTypes.string.isRequired
-};

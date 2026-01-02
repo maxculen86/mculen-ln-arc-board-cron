@@ -1,9 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect, useState } from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { SITE_FOODIT } from 'fusion:environment';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import SpeechRecognition, {
     useSpeechRecognition
@@ -189,11 +187,3 @@ export function Search({ className, ...r }) {
         </div>
     );
 }
-
-Search.propTypes = {
-    className: PropTypes.string
-};
-
-Search.defaultProps = {
-    className: ''
-};

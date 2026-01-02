@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { useIdleTask } from '@ln/utility-hooks';
 import { useAppContext } from 'fusion:context';
@@ -105,9 +104,5 @@ function BaseLayout({ children }) {
         </AuthInitializer>
     );
 }
-
-BaseLayout.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default BaseLayout;

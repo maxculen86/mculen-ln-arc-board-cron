@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Logo } from '@ln/foodit-ui-logo';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
@@ -92,8 +91,5 @@ function HeaderFoodit({ layout, layoutsName }) {
         </>
     );
 }
-HeaderFoodit.propTypes = {
-    layout: PropTypes.string.isRequired,
-    layoutsName: PropTypes.object.isRequired
-};
+
 export default HeaderFoodit;
