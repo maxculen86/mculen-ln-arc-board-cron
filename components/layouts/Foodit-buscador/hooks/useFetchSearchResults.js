@@ -21,6 +21,25 @@ const trackKeywordSearch = keyword => {
     }
 };
 
+export const trackResultClick = ({ query, target }) => {
+    if (!query || !target) return;
+
+    try {
+        const trackingUrl = `${TRACKING_URL_BASE}&query=${encodeURIComponent(query)}&suggest=${encodeURIComponent(query)}&target=${encodeURIComponent(target)}`;
+
+        fetch(trackingUrl, { keepalive: true, mode: 'no-cors' }).catch(
+            error => {
+                console.error('Error queryly: tracking result click:', error);
+            }
+        );
+    } catch (error) {
+        console.error(
+            'Error queryly: constructing result tracking URL:',
+            error
+        );
+    }
+};
+
 function useFetchSearchResults({
     queryUrl,
     filters,
