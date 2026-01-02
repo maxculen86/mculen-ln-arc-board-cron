@@ -1,5 +1,5 @@
 import sentToApps from '../../../../../../../../components/private/LN/api/common/elements/label/sentToApps';
-import { LIVEBLOG_EDITORIAL } from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import { LIVEBLOG_EDITORIAL, HTMLLIBRE, RECETA, VIDEOAL100 } from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('components - private - LN - api - common - elements - label - sendToApps', () => {
     describe('sentToApps function test', () => {
@@ -69,4 +69,40 @@ describe('components - private - LN - api - common - elements - label - sendToAp
             expect(result).toBe(false);
         });
     });
+
+    describe('Hardcoded webview subtypes', () => {
+        const HARDCODED_SUBTYPES = [
+            { name: 'LIVEBLOG_EDITORIAL', value: LIVEBLOG_EDITORIAL },
+            { name: 'HTMLLIBRE', value: HTMLLIBRE },
+            { name: 'RECETA', value: RECETA },
+            { name: 'VIDEOAL100', value: VIDEOAL100 }
+        ];
+
+        test.each(HARDCODED_SUBTYPES)(
+            'sentToApps should return false for subtype $name even if enviar_a_apps is Si',
+            subtype => {
+                const element = {
+                    subtype: subtype.value,
+                    label: {
+                        enviar_a_apps: { text: 'Si' }
+                    }
+                };
+
+                expect(sentToApps(element)).toBe(false);
+            }
+        );
+
+        test.each(HARDCODED_SUBTYPES)(
+            'sentToApps should return false for subtype $name when enviar_a_apps is empty',
+            subtype => {
+                const element = {
+                    subtype: subtype.value,
+                    label: {}
+                };
+
+                expect(sentToApps(element)).toBe(false);
+            }
+        );
+    });
+
 });
