@@ -133,20 +133,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Carlos Pagni"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Carlos Pagni"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Carlos Pagni
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Carlos Pagni
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -218,20 +222,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Celina Chatruc"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Celina Chatruc"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Celina Chatruc
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Celina Chatruc
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -269,20 +277,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Incidentes frente al hotel donde convocó a militantes 
                     </h3>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Mariela Arias"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Mariela Arias"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Mariela Arias
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Mariela Arias
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -459,20 +471,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Carlos Pagni"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Carlos Pagni"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Carlos Pagni
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Carlos Pagni
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -544,20 +560,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Celina Chatruc"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Celina Chatruc"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Celina Chatruc
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Celina Chatruc
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -595,20 +615,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Incidentes frente al hotel donde convocó a militantes 
                     </h3>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Mariela Arias"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Mariela Arias"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Mariela Arias
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Mariela Arias
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -756,20 +780,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Carlos Pagni"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Carlos Pagni"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Carlos Pagni
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Carlos Pagni
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -841,20 +869,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Celina Chatruc"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Celina Chatruc"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Celina Chatruc
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Celina Chatruc
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -892,20 +924,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Incidentes frente al hotel donde convocó a militantes 
                     </h3>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Mariela Arias"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Mariela Arias"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Mariela Arias
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Mariela Arias
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -1053,20 +1089,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Carlos Pagni"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Carlos Pagni"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Carlos Pagni
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Carlos Pagni
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -1138,20 +1178,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Celina Chatruc"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Celina Chatruc"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Celina Chatruc
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Celina Chatruc
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -1299,20 +1343,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Carlos Pagni"
+                      class="flex flex-column gap-4"
                     >
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Carlos Pagni"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Carlos Pagni
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Carlos Pagni
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>

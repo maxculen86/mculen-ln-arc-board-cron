@@ -72,12 +72,14 @@ export function getBookmarkContent(globalContent) {
         ...(basicSubheadline && { bajada: basicSubheadline }),
         autores,
         enviarApps,
-        fechaActualizacion: `${Object.values(dateAndTimeUtil(displayDate)).join(
-            ' • '
-        )}`,
-        fecha: `${Object.values(dateAndTimeUtil(firstPublishDate)).join(
-            ' • '
-        )}`,
+        fechaActualizacion: (() => {
+            const { date, time } = dateAndTimeUtil(displayDate);
+            return [date, time].join(' • ');
+        })(),
+        fecha: (() => {
+            const { date, time } = dateAndTimeUtil(firstPublishDate);
+            return [date, time].join(' • ');
+        })(),
         ...(Object.keys(imageApertura).length && {
             imagen: {
                 absoluteUrl

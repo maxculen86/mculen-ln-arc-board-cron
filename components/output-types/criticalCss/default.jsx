@@ -1,13 +1,19 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 import config from '../../../properties/sites/la-nacion-ar';
 
 const {
-    layoutsName: { Acumulado, Deportes, HomeLN10, LiveBlog, FotoAl100 }
+    layoutsName: {
+        Acumulado,
+        Deportes,
+        HomeLN10,
+        LiveBlog,
+        AcumuladoV2,
+        FotoAl100
+    }
 } = config;
 export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
@@ -19,6 +25,7 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
 
     const listOfAllowedSection = [
         { pageLayout: Acumulado },
+        { pageLayout: AcumuladoV2 },
         { pageLayout: Deportes },
         { pageLayout: HomeLN10 },
         { pageLayout: LiveBlog },
@@ -64,10 +71,3 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         </>
     );
 }
-
-GetCriticalCss.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired,
-    globalContent: PropTypes.shape({}).isRequired
-};

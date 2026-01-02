@@ -26,8 +26,8 @@ export const formatDisplayDate = (rawDate, isUltimasNoticias = false) => {
         ? addHoursAndFormat(3, rawDate)
         : rawDate;
 
-    const { date } = dateAndTimeUtil(adjustedDate);
-    return date;
+    const { date, isoDate } = dateAndTimeUtil(adjustedDate);
+    return { date, isoDate };
 };
 
 const imagePosition = {
@@ -54,7 +54,10 @@ export const getCardPropsFromArticle = (
     const badgeTypes = badgeText && 'negative';
     const href = get(article, 'website_url', '');
     const rawDate = get(article, 'display_date', '');
-    const displayDate = formatDisplayDate(rawDate, isUltimasNoticias);
+    const { date: displayDate, isoDate } = formatDisplayDate(
+        rawDate,
+        isUltimasNoticias
+    );
     const tags = get(article, 'taxonomy.tags', []);
     const finalTags = isUltimasNoticias ? tags : tags?.slice(0, 1);
     const mediaData = transformImageData({
@@ -69,7 +72,8 @@ export const getCardPropsFromArticle = (
             : `${name}_`
     );
     const hasAuthors = sectionName !== 'SeguiLeyendo';
-    const authors = hasAuthors && getAuthorsAsString(article);
+
+    const authors = hasAuthors && getAuthorsAsString(article, true);
 
     return {
         key,
@@ -79,9 +83,10 @@ export const getCardPropsFromArticle = (
         badgeTypes,
         href,
         displayDate,
+        isoDate,
         tags: finalTags,
         imagePosition,
         mediaData,
-        authors
+        marquee: authors
     };
 };

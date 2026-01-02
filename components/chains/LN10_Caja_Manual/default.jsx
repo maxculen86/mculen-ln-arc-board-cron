@@ -24,6 +24,9 @@ import getComponent from '../utils/getComponent';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import { processLayoutItems } from '../utils/processLayoutItems';
 
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
+
 const {
     BN_6_GRID_MAS_TIMELINE,
     BN_PLAYER_1_MAS_3,

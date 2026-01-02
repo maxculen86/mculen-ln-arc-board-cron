@@ -14,39 +14,45 @@ export const size = {
     T1Focal100: 'T1Focal100'
 };
 
+export const diagramationExceptions = [
+    'left-focal',
+    'left-focal-without-timeline',
+    'center-focal'
+];
+
+const createImagePosition = (mobile, tablet, desktop) => ({
+    mobile,
+    tablet,
+    desktop
+});
+
+const img = {
+    bottom: 'img-bottom',
+    top: 'img-top',
+    right: 'img-right',
+    left: 'img-left',
+    none: 'img-none'
+};
+
+export const imagePositions = {
+    top: createImagePosition(img.top, img.top, img.top),
+    topBottom: createImagePosition(img.top, img.bottom, img.bottom),
+    topRight: createImagePosition(img.top, img.right, img.right),
+    topLeft: createImagePosition(img.top, img.left, img.left),
+    topNone: createImagePosition(img.top, img.none, img.none),
+    topDesktopRight: createImagePosition(img.top, img.top, img.right),
+    topDesktopNone: createImagePosition(img.top, img.top, img.none),
+    topRightLeft: createImagePosition(img.top, img.right, img.left),
+    rightNone: createImagePosition(img.right, img.none, img.right)
+};
+
 const CENTER_TEXT_CLASS = '--txt-center';
 
-const diagramationRules = diagramation => {
-    const img = {
-        bottom: 'img-bottom',
-        top: 'img-top',
-        right: 'img-right',
-        left: 'img-left',
-        none: 'img-none'
-    };
-
+const diagramationRules = (diagramation, options = []) => {
     const tag = {
         h1: 'h1',
         h2: 'h2',
         h3: 'h3'
-    };
-
-    const createImagePosition = (mobile, tablet, desktop) => ({
-        mobile,
-        tablet,
-        desktop
-    });
-
-    const imagePositions = {
-        top: createImagePosition(img.top, img.top, img.top),
-        topBottom: createImagePosition(img.top, img.bottom, img.bottom),
-        topRight: createImagePosition(img.top, img.right, img.right),
-        topLeft: createImagePosition(img.top, img.left, img.left),
-        topNone: createImagePosition(img.top, img.none, img.none),
-        topDesktopRight: createImagePosition(img.top, img.top, img.right),
-        topDesktopNone: createImagePosition(img.top, img.top, img.none),
-        topRightLeft: createImagePosition(img.top, img.right, img.left),
-        rightNone: createImagePosition(img.right, img.none, img.right)
     };
 
     const variantsDisabledByType = {
@@ -683,13 +689,17 @@ const diagramationRules = diagramation => {
 
     diagramations['bn-4-8'] = diagramations.bnGrilla4;
 
+    const diagramationArr = diagramations[diagramation];
+
+    if (options?.length) {
+        const diagramationCustom = diagramationArr.map((config, index) => ({
+            ...config,
+            ...options[index]
+        }));
+        return diagramationCustom;
+    }
+
     return diagramations[diagramation];
 };
-
-export const diagramationExceptions = [
-    'left-focal',
-    'left-focal-without-timeline',
-    'center-focal'
-];
 
 export default diagramationRules;

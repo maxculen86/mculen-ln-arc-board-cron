@@ -1,13 +1,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Title from '../../private/LN/acumulado/acumuladoTitle';
-import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import Static from 'fusion:static';
+import Consumer from 'fusion:consumer';
+import Title from '../../private/LN/acumulado/acumuladoTitle';
+import get from '../../private/common/utils/get';
 
-const TitleFeature = props => {
+function TitleFeature(props) {
     const { id: featureId = '' } = props;
-    const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
+    const { acumuladoColor, acumuladoGeneral } = get(
+        props,
+        'globalContent',
+        {}
+    );
     const {
         hidesectionslist = 'false',
         hierarchy_navigation: hierarchyManual
@@ -27,7 +32,7 @@ const TitleFeature = props => {
     );
 
     return <Static id={featureId}>{Component}</Static>;
-};
+}
 
 TitleFeature.label = 'LN-Acumulado-Titulo';
 
@@ -49,4 +54,4 @@ TitleFeature.defaultProps = {
     }
 };
 
-export default TitleFeature;
+export default Consumer(TitleFeature);

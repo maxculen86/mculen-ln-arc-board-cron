@@ -1,22 +1,29 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { cx } from '@ln/ds-cva';
 import dateAndTimeUtil from './utils/dateAndTimeUtil';
 import { formatTimelineTime } from '../../features/common/timezone/utils/timezoneConversion';
 import '../../../resources/dist/css/ln/components/com-hour.css';
 
 function ComHour(props) {
-    const { display_date: displayDate, labelEdicionImpresa, size } = props;
+    const { displayDate, labelEdicionImpresa, size = '--twoxs' } = props;
+
     const { text: textEdicionImpresa } = labelEdicionImpresa || {};
     const adjustedTime = formatTimelineTime(displayDate);
     const { time: fallbackTime } = dateAndTimeUtil(displayDate);
     const time = adjustedTime || fallbackTime;
-    return textEdicionImpresa !== 'Impresa' ? (
-        <time className={`com-hour ${size || '--twoxs'}`}>{time}</time>
-    ) : null;
+
+    if (textEdicionImpresa === 'Impresa') return null;
+
+    return (
+        <time className={cx('com-hour', size)} dateTime={time}>
+            {time}
+        </time>
+    );
 }
 
 ComHour.propTypes = {
-    display_date: PropTypes.string.isRequired,
+    displayDate: PropTypes.string.isRequired,
     labelEdicionImpresa: PropTypes.string,
     size: PropTypes.string
 };
