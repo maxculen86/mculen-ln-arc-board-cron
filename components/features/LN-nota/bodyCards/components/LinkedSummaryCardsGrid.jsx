@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import get from '../../../../private/common/utils/get';
 import {
@@ -30,15 +29,13 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
     if (!cards.length) return null;
 
     const gridCardSmall = cx(
-        gridColumns === 4 && 'grid-col-3_min1023',
-        gridColumns === 3 && 'grid-col-4_min1023'
+        gridColumns === 4 && 'grid-cols-16_lg',
+        gridColumns === 3 && 'grid-cols-12_lg',
+        'grid grid-cols-8 row-gap-16 grid-cols-12_m gap-32_m'
     );
 
     return (
-        <div
-            data-testid="cards-grid"
-            className="grid grid-cols-8 grid-cols-12_m mt-80 mb-40 row-gap-16 mb-20_m row-gap-24_m gap-32_lg mr-auto_lg ml-auto_lg"
-        >
+        <div data-testid="cards-grid" className={gridCardSmall}>
             {cards.map((card, index) => {
                 const normalizedCard = createCardWithDefaults(card, index);
                 const cardId = get(
@@ -54,38 +51,11 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
                         data-testid="card-small"
                         onCardClick={() => scrollToCard(cardId)}
                         variant="collapsed"
-                        className={gridCardSmall}
                     />
                 );
             })}
         </div>
     );
 }
-
-LinkedSummaryCardsGrid.arcType = 'custom-cards-grid';
-LinkedSummaryCardsGrid.propTypes = {
-    cards: PropTypes.arrayOf(
-        PropTypes.shape({
-            embed: PropTypes.shape({
-                config: PropTypes.shape({
-                    cardNumber: PropTypes.oneOfType([
-                        PropTypes.string,
-                        PropTypes.number
-                    ]),
-                    title: PropTypes.string,
-                    description: PropTypes.string,
-                    buttonText: PropTypes.string,
-                    cardId: PropTypes.string,
-                    cardColor: PropTypes.string
-                })
-            })
-        })
-    ),
-    gridColumns: PropTypes.number.isRequired
-};
-
-LinkedSummaryCardsGrid.defaultProps = {
-    cards: []
-};
 
 export default LinkedSummaryCardsGrid;

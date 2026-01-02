@@ -12,7 +12,8 @@ const {
         HomeLN10,
         LiveBlog,
         AcumuladoV2,
-        FotoAl100
+        FotoAl100,
+        Cards
     }
 } = config;
 export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
@@ -29,7 +30,8 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         { pageLayout: Deportes },
         { pageLayout: HomeLN10 },
         { pageLayout: LiveBlog },
-        { pageLayout: FotoAl100 }
+        { pageLayout: FotoAl100 },
+        { pageLayout: Cards }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

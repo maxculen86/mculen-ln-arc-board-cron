@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import dateAndTimeUtil, {
     addHoursAndFormat
 } from '../../../../private/common/utils/dateAndTimeUtil';
@@ -11,12 +10,15 @@ function OpeningMeta({ children, data }) {
     const { time } = dateAndTimeUtil(addHoursAndFormat(3, publishDate));
 
     return (
-        <div className="flex flex-column ai-center" id="openingMeta">
-            <ul className="com-date flex jc-start ai-center --bullet-list_12 pb-0">
+        <div
+            className="flex items-center flex-col [&_.vertical]:border-l-0 [&_.vertical]:border-t-0 [&_.vertical]:border-b-0 [&_.vertical]:border-neutral-light-100"
+            id="openingMeta"
+        >
+            <ul className="com-date text-label-md flex justify-start items-center --bullet-list_4 pb-0">
                 {[date, time].map(item => (
                     <li
                         key={item}
-                        className="flex ai-center text-neutral-light-600"
+                        className="flex items-center text-neutral-light-600"
                     >
                         <time>{item}</time>
                     </li>
@@ -26,26 +28,5 @@ function OpeningMeta({ children, data }) {
         </div>
     );
 }
-
-OpeningMeta.propTypes = {
-    data: PropTypes.shape({
-        publishDate: PropTypes.string,
-        authors: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string
-            })
-        ),
-        label: PropTypes.shape({
-            basic: PropTypes.shape({
-                text: PropTypes.string
-            })
-        })
-    }),
-    children: PropTypes.node.isRequired
-};
-
-OpeningMeta.defaultProps = {
-    data: {}
-};
 
 export default OpeningMeta;
