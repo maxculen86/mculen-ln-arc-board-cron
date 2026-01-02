@@ -741,7 +741,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <b
             class="--font-bold"
           >
-            Protegido por reCAPTCHA: 
+            Protegido por reCAPTCHA:
+             
           </b>
           <span
             class="--inline-block"
