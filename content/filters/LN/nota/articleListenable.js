@@ -331,6 +331,15 @@ const galleryEmbed = `
     }
 `;
 
+const openingStorytelling = `
+subtype
+    embed {
+        config {
+            diagram
+        }   
+    }
+`;
+
 const customPowerUps = `
     subtype
     embed {
@@ -506,13 +515,18 @@ export default `
             caption
             alt_text
         }
+        custom_storytelling_opening {
+        ${openingStorytelling}
+        }
         glossary {          
             ${customGlossary}
         }
-        storytelling {
+       Storytelling {
             _id
-            ${video}
-            ${customVideoJw}
+            ${image}
+            auth {
+                1
+            }
         }
         storytelling_mobile {
             _id
