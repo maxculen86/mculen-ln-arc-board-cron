@@ -778,9 +778,10 @@
     }
     #body-top-notas-card{
         .--capital::first-letter{
-            font-size: 72px;
+            font-size: 108px;
             font-variation-settings: "wght" 70;
             font-weight: lighter;
+            margin-top: 44px;
         }
     }
 }
@@ -789,18 +790,18 @@
     .cuerpo__nota{
         .com-paragraph{
             font-size: 20px;
-            line-height: 32px;
+            line-height: 30px;
+            letter-spacing: -0.1px;
         }
-    }
-}
-
-@media (min-width: 1280px) {
-    #body-top-notas-card{
-        .--capital::first-letter{
-            font-size: 108px;
-            margin-top: 41px;
-            font-variation-settings: "wght" 70;
-            font-weight: lighter;
+        .linked-card-content{
+            .placeholder{
+                width: 100%;
+                margin-left: 0;
+            }
+            .mod-video{
+                width: 100%;
+                margin-left: 0;
+            }
         }
     }
 }

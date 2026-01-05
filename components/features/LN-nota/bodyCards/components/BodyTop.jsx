@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BreadcrumbArticle from '../../breadcrumbArticle';
 
 function BodyTop({ children }) {
@@ -36,16 +35,12 @@ function BodyTop({ children }) {
         <div
             data-testid="body-top"
             id="body-top-notas-card"
-            className="grid grid-row-1 grid-col-1 grid-col-3-11_m grid-col-4-10_md grid-col-5-13_lg"
+            className="grid-row-1 grid-col-1 max-w-550 mt-0 mb-0 mr-auto ml-auto grid-col-2-12_m max-w-635_m grid-col-5-13_lg"
         >
-            <BreadcrumbArticle className="mb-40" />
+            <BreadcrumbArticle className="mb-32" />
             {processChildren}
         </div>
     );
 }
-
-BodyTop.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default BodyTop;

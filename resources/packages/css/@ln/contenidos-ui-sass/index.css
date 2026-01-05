@@ -403,6 +403,7 @@ a {
   --yellow-subscribe: #ffff24;
   --yellow-secondary: #f2f20d;
   --neutral-700: #4c4c4c;
+  --border-base-dark: #191919;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -1261,6 +1262,10 @@ a {
   background: var(--cards-nota);
 }
 
+.bg-border-base-dark {
+  background: var(--border-base-dark);
+}
+
 .bg-panal-de-letras__hover:hover {
   background: var(--panal-de-letras);
 }
@@ -1539,6 +1544,10 @@ a {
   }
 }
 @media (min-width: 80rem) {
+  .text-8_lg {
+    font-size: 0.5rem;
+    line-height: 130%;
+  }
   .text-12_lg {
     font-size: 0.75rem;
     line-height: 100%;
@@ -1563,6 +1572,9 @@ a {
 }
 .prumo-semibold {
   --prumo-font-variation: 130;
+}
+.prumo-bold {
+  --prumo-font-variation: 150;
 }
 .prumo-extra {
   --prumo-font-variation: 170;
@@ -1633,6 +1645,11 @@ a {
   }
 }
 @media (min-width: 80rem) {
+  .prumo.text-8_lg {
+    font-size: 0.5rem;
+    line-height: 130%;
+    --prumo-letter-spacing: -0.16px;
+  }
   .prumo.text-36_lg {
     font-size: 2.25rem;
     line-height: 110%;
@@ -1864,11 +1881,11 @@ strong:not(.--font-primary),
   line-height: 125%;
 }
 
-.leading-130 {
+.leading-130.leading-130 {
   line-height: 130%;
 }
 
-.leading-150 {
+.leading-150.leading-150 {
   line-height: 150%;
 }
 
@@ -1880,20 +1897,13 @@ strong:not(.--font-primary),
   line-height: 116%;
 }
 
-.text-12px {
-  font-size: 0.75rem;
-}
-
 @media (min-width: 64rem) {
-  .text-8px_lg {
-    font-size: 0.5rem;
-  }
-  .leading-130_l {
+  .leading-130_l.leading-130_l {
     line-height: 130%;
   }
 }
 @media (min-width: 48rem) {
-  .leading-110_md {
+  .leading-110_md.leading-110_md {
     line-height: 110%;
   }
 }
@@ -1981,6 +1991,10 @@ strong:not(.--font-primary),
   margin-top: -1rem;
 }
 
+.mt-0 {
+  margin-top: 0rem;
+}
+
 .mt-4 {
   margin-top: 0.25rem;
 }
@@ -2021,6 +2035,10 @@ strong:not(.--font-primary),
   margin-top: 5rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .-ml-16 {
   margin-left: -1rem;
 }
@@ -2039,6 +2057,10 @@ strong:not(.--font-primary),
 
 .ml-8 {
   margin-left: 0.5rem;
+}
+
+.mr-auto {
+  margin-right: auto;
 }
 
 .-mr-16 {
@@ -2099,6 +2121,10 @@ strong:not(.--font-primary),
 
 .my-16 {
   margin-block: 1rem;
+}
+
+.my-80 {
+  margin-block: 5rem;
 }
 
 .p-0 {
@@ -2191,6 +2217,14 @@ strong:not(.--font-primary),
 
 .pt-40 {
   padding-top: 2.5rem;
+}
+
+.pt-48 {
+  padding-top: 3rem;
+}
+
+.pt-52 {
+  padding-top: 3.25rem;
 }
 
 .pt-65 {
@@ -2354,11 +2388,17 @@ strong:not(.--font-primary),
 }
 
 @media (min-width: 32rem) {
+  .mt-40_min512 {
+    margin-top: 2.5rem;
+  }
   .pl-20_min512 {
     padding-left: 1.25rem;
   }
   .pt-80_min512 {
     padding-top: 5rem;
+  }
+  .pt-86_min512 {
+    padding-top: 5.375rem;
   }
   .px-16_min512 {
     padding-inline: 1rem;
@@ -2445,6 +2485,9 @@ strong:not(.--font-primary),
   .p-40_m {
     padding: 2.5rem;
   }
+  .p-64_m {
+    padding: 4rem;
+  }
   .py-8_m {
     padding-block: 0.5rem;
   }
@@ -2522,6 +2565,12 @@ strong:not(.--font-primary),
   }
   .pt-32_m {
     padding-top: 2rem;
+  }
+  .pt-64_m {
+    padding-top: 4rem;
+  }
+  .pt-80_m {
+    padding-top: 5rem;
   }
   .pt-102_m {
     padding-top: 6.375rem;
@@ -2631,6 +2680,9 @@ strong:not(.--font-primary),
   .pt-89_l {
     padding-top: 5.5625rem;
   }
+  .pt-94_l {
+    padding-top: 5.875rem;
+  }
   .pt-112_l {
     padding-top: 7rem;
   }
@@ -2642,6 +2694,9 @@ strong:not(.--font-primary),
   }
   .px-16_l {
     padding-inline: 1rem;
+  }
+  .px-20_l {
+    padding-inline: 1.25rem;
   }
   .pr-32_l {
     padding-right: 2rem;
@@ -3344,34 +3399,61 @@ strong:not(.--font-primary),
   max-width: 31.9375rem;
 }
 
+.max-w-550.max-w-550 {
+  max-width: 34.375rem;
+}
+
 .max-w-1366.max-w-1366 {
   max-width: 85.375rem;
 }
 
 @media (min-width: 48rem) {
+  .max-w-100_m.max-w-100_m {
+    max-width: 100%;
+  }
   .max-w-100px_m.max-w-100px_m {
     max-width: 6.25rem;
   }
   .max-w-597_m.max-w-597_m {
     max-width: 37.3125rem;
   }
+  .max-w-635_m.max-w-635_m {
+    max-width: 39.6875rem;
+  }
+  .max-w-835_m.max-w-835_m {
+    max-width: 52.1875rem;
+  }
 }
 @media (min-width: 48rem) {
   .max-w-620_md.max-w-620_md {
     max-width: 38.75rem;
+  }
+  .max-w-596_md.max-w-596_md {
+    max-width: 37.25rem;
   }
 }
 @media (min-width: 64rem) {
   .max-w-152_l.max-w-152_l {
     max-width: 9.5rem;
   }
+  .max-w-635_l.max-w-635_l {
+    max-width: 39.6875rem;
+  }
   .max-w-100_l.max-w-100_l {
     max-width: 100%;
+  }
+  .max-w-963_l.max-w-963_l {
+    max-width: 60.1875rem;
   }
 }
 @media (min-width: 80rem) {
   .max-w-890_lg.max-w-890_lg {
     max-width: 55.625rem;
+  }
+}
+@media (min-width: 83.75rem) {
+  .max-w-635_xl.max-w-635_xl {
+    max-width: 39.6875rem;
   }
 }
 .min-w-20.min-w-20 {
@@ -3412,12 +3494,36 @@ strong:not(.--font-primary),
   min-width: max-content;
 }
 
+@media (max-width: 47.994rem) {
+  .min-w-550_max767.min-w-550_max767 {
+    min-width: 34.375rem;
+  }
+}
 @media (min-width: 48rem) {
+  .min-w-100_md.min-w-100_md {
+    min-width: 100%;
+  }
   .min-w-200_md.min-w-200_md {
     min-width: 12.5rem;
   }
   .min-w-344_md.min-w-344_md {
     min-width: 21.5rem;
+  }
+  .min-w-635_md.min-w-635_md {
+    min-width: 39.6875rem;
+  }
+}
+@media (max-width: 63.938rem) {
+  .min-w-635_max1023.min-w-635_max1023 {
+    min-width: 39.6875rem;
+  }
+}
+@media (min-width: 64rem) {
+  .min-w-592_l.min-w-592_l {
+    min-width: 37rem;
+  }
+  .min-w-963_l.min-w-963_l {
+    min-width: 60.1875rem;
   }
 }
 .h-100.h-100 {
@@ -3779,6 +3885,16 @@ strong:not(.--font-primary),
     height: 100dvh;
   }
 }
+@media (max-width: 360px) {
+  .max-w-325 {
+    max-width: 325px;
+  }
+}
+@media (min-width: 1366px) {
+  .w-300_min1366 {
+    width: 300px;
+  }
+}
 .shadow-card-games {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.0588235294);
 }
@@ -3807,11 +3923,19 @@ strong:not(.--font-primary),
   box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.06);
 }
 
+.shadow-card-template {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+
 @media (min-width: 48rem) {
   .shadow-post-md {
     box-shadow: 0px 16px 32px 0px rgba(16, 16, 16, 0.08);
   }
 }
+.shadow-card-template__hover:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .text-ellipsis-1 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4254,6 +4378,9 @@ strong:not(.--font-primary),
   }
   .grid-col-3-11_m {
     grid-column: 3/11;
+  }
+  .grid-col-4_m {
+    grid-column: span 4;
   }
 }
 @media (min-width: 79rem) {

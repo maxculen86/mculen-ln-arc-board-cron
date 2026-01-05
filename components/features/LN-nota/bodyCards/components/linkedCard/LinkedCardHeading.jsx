@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { useLinkedCardContext } from '../../context/LinkedCardContext';
 import { cardsNumberVariant, cardsTitleVariant } from '../styles';
@@ -9,13 +8,12 @@ function LinkedCardHeading({ number, title }) {
     if (!number && !title) return null;
 
     return (
-        <>
+        <span data-tw className="flex flex-column ai-center gap-16 gap-24_m">
             {number && (
                 <Text
                     as="span"
                     className={cardsNumberVariant({ variant })}
                     style={{
-                        lineHeight: variant === 'collapsed' && '110%',
                         color: cardColor
                     }}
                 >
@@ -27,16 +25,8 @@ function LinkedCardHeading({ number, title }) {
                     {title}
                 </Text>
             )}
-        </>
+        </span>
     );
 }
 
-LinkedCardHeading.propTypes = {
-    number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    title: PropTypes.string.isRequired
-};
-
-LinkedCardHeading.defaultProps = {
-    number: null
-};
 export default LinkedCardHeading;

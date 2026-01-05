@@ -1,22 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function NotaBody({ children }) {
     return (
         <section className="nota-cards__body">
             <div className="lay-container">
-                <div className="cuerpo__nota">{children}</div>
+                <div className="cuerpo__nota mb-80 pt-24 pt-86_min512 pt-80_m pt-94_l px-20_l px-0_min1366">
+                    {children}
+                </div>
             </div>
         </section>
     );
 }
-
-NotaBody.propTypes = {
-    children: PropTypes.node
-};
-
-NotaBody.defaultProps = {
-    children: null
-};
 
 export default NotaBody;
