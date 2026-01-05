@@ -28,6 +28,10 @@ window.IntersectionObserver = jest.fn(() => ({
     observe,
     unobserve
 }));
+window.SpeechRecognition = jest.fn(() => ({
+    start: jest.fn(),
+    stop: jest.fn()
+}));
 
 jest.mock('fusion:context', Component => {
     return function (Component) {
@@ -97,8 +101,8 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             />
         );
 
-        expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(2);
-        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
+        expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(1);
+        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(1);
         expect(container).toMatchSnapshot();
     });
 
@@ -715,7 +719,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         );
 
         expect(screen.getAllByText('HO')).toHaveLength(1);
-        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(1);
     });
 
     it('The logo should render as an "h1" tag on the homepage.', () => {

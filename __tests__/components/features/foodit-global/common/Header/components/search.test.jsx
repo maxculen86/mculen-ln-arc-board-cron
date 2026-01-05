@@ -12,7 +12,7 @@ describe('Components - features - foodit-global - common - header - components -
         const inputElement = getByPlaceholderText('¿Qué querés cocinar hoy?');
         expect(inputElement).toBeInTheDocument();
 
-        const buttonElement = getByTitle('Buscar');
+        const buttonElement = getByTitle('audio');
         expect(buttonElement).toBeInTheDocument();
     });
 
@@ -38,15 +38,16 @@ describe('Components - features - foodit-global - common - header - components -
             'https://foodit-lanacion.com.ar/buscador/?query=searching%20'
         );
     });
-    it('button "Buscar" as Ancle should be a correctly URL', () => {
+    it('button "Buscar" as Anchor should be a correctly URL', () => {
         const { getByPlaceholderText, getByTitle } = render(<Search />);
 
         const inputElement = getByPlaceholderText('¿Qué querés cocinar hoy?');
-        const buttonElementAsAncle = getByTitle('Buscar');
 
         fireEvent.change(inputElement, { target: { value: 'searching' } });
 
-        expect(buttonElementAsAncle).toHaveAttribute(
+        const buttonElementAsAnchor = getByTitle('Buscar');
+
+        expect(buttonElementAsAnchor).toHaveAttribute(
             'href',
             'https://foodit-lanacion.com.ar/buscador/?query=searching%20'
         );

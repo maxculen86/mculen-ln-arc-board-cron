@@ -3,7 +3,7 @@
 exports[`Components - Features - foodit-global - Common - HeaderFoodit should return buttons login and button suscribed when the user is unlogged 1`] = `
 <div>
   <div
-    class="common-header-container z-15 w-100 fixed top-0 print-hide mb-12 mb-40_lg"
+    class="common-header-container z-15 w-100 sticky top-0 print-hide mb-12 mb-40_lg"
   >
     <header
       class="common-header flex flex-column w-100"
@@ -15,13 +15,13 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
           class="content bg-positive py-16 border border-bottom border-thin border-light-100"
         >
           <div
-            class="container grid gap-16 gap-32_lg"
+            class="container grid gap-16 gap-32_lg column-gap-0 column-gap-32_lg flex ai-center"
           >
             <div
-              class="left-options flex flex jc-start ai-center lg-none"
+              class="left-options flex flex jc-start ai-center gap-16 gap-24_md"
             >
               <button
-                class="button text-light-800"
+                class="button text-light-800 lg-none"
                 data-test-id="button-menu-foodit"
                 title="Menu"
               >
@@ -34,10 +34,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   />
                 </i>
               </button>
-            </div>
-            <div
-              class="center-options flex jc-center ai-center"
-            >
               <a
                 class="link flex"
                 data-test-id="header-link-inicio"
@@ -57,7 +53,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="flex gap-8 ai-center"
                   >
                     <svg
-                      class="logo-foodit --enabled h-32 h-40_md h-56_lg"
+                      class="logo-foodit --enabled h-bowl_max389 h-bowl_max767 h-40_md h-56_lg"
                       fill="none"
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +113,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       </clippath>
                     </svg>
                     <svg
-                      class="logo-foodit-text h-20 h-24_md h-28_lg"
+                      class="logo-foodit-text h-text_max389 h-text_max767 h-24_md h-28_lg"
                       fill="none"
                       height="24"
                       variant="row"
@@ -184,13 +180,13 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               </a>
             </div>
             <div
-              class="right-options flex jc-end ai-center gap-16 gap-24_md"
+              class="right-options flex h-32 h-auto_lg jc-end ai-center gap-16 gap-24_md"
             >
               <div
                 class="relative w-max"
               >
                 <button
-                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
                   data-button="buttonSubscribeText"
                   data-event="subscription_start"
                   data-interaction="dataLayerInteraction"
@@ -206,7 +202,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </button>
               </div>
               <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                 data-test-id="button-login"
                 data-variant="link"
                 title="INICIÁ SESIÓN"
@@ -217,40 +213,44 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   INICIÁ SESIÓN
                 </span>
               </button>
-              <button
-                class="button notification-drawer-button --icon-only"
-                data-test-id="campanita-notifications-drawer"
-                title="Abrir Notificaciones"
+              <div
+                class="lg-only"
               >
-                <i
-                  class="icon"
+                <button
+                  class="button notification-drawer-button --icon-only"
+                  data-test-id="campanita-notifications-drawer"
+                  title="Abrir Notificaciones"
                 >
-                  <svg
-                    fill="none"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <i
+                    class="icon"
                   >
-                    <path
-                      d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7Zm-2 0v-7a6 6 0 1 0-12 0v7h12Zm-9 4h6v2H9v-2Z"
-                      fill="#333333"
-                    />
-                  </svg>
-                </i>
-                <div
-                  class="notification-drawer-tooltip"
-                  data-position="bottom-right"
-                  data-visible="true"
-                  role="tooltip"
-                >
-                  <p
-                    class="text"
+                    <svg
+                      fill="none"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7Zm-2 0v-7a6 6 0 1 0-12 0v7h12Zm-9 4h6v2H9v-2Z"
+                        fill="#333333"
+                      />
+                    </svg>
+                  </i>
+                  <div
+                    class="notification-drawer-tooltip"
+                    data-position="bottom-right"
+                    data-visible="true"
+                    role="tooltip"
                   >
-                    Aquí encontrarás todas nuestras notificaciones
-                  </p>
-                </div>
-              </button>
+                    <p
+                      class="text"
+                    >
+                      Aquí encontrarás todas nuestras notificaciones
+                    </p>
+                  </div>
+                </button>
+              </div>
             </div>
             <div
               class="search-container flex"
@@ -259,10 +259,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 class="foodit-search w-100 as-center"
               >
                 <div
-                  class="flex ai-center jc-between h-44 border border-all border-thin border-light-100 bg-light-1 rounded-4 pl-16"
+                  class="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search"
                 >
                   <div
-                    class="m-auto w-100"
+                    class="m-auto w-100 relative"
                   >
                     <input
                       class="text-light-600 text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide"
@@ -273,25 +273,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     />
                   </div>
                   <div
-                    class="flex border border-left border-thin border-light-100 h-100"
+                    class="flex h-100 ai-center"
                   >
-                    <a
+                    <button
                       class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
                       data-test-id="button-header-search"
                       data-variant="link"
-                      href="undefined/buscador/?query=%20"
-                      target="_self"
-                      title="Buscar"
+                      title="audio"
                     >
                       <i
                         class="icon --icon-24"
                       >
                         <mock-icon
-                          critical="true"
-                          name="search"
+                          fill=""
+                          name="audio"
                         />
                       </i>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1472,45 +1470,6 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
           </div>
         </div>
       </div>
-      <div
-        class="sub-header container py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 bg-light-1 lg-none"
-      >
-        <div
-          class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
-        >
-          <div
-            class="relative w-max"
-          >
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
-              data-button="buttonSubscribeText"
-              data-event="subscription_start"
-              data-interaction="dataLayerInteraction"
-              data-testid="button-suscribe"
-              data-variant="accent"
-              title="SUSCRIBITE GRATIS"
-            >
-              <span
-                class="roboto-bold"
-              >
-                SUSCRIBITE GRATIS
-              </span>
-            </button>
-          </div>
-          <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-            data-test-id="button-login"
-            data-variant="link"
-            title="INICIÁ SESIÓN"
-          >
-            <span
-              class="roboto-regular"
-            >
-              INICIÁ SESIÓN
-            </span>
-          </button>
-        </div>
-      </div>
     </header>
   </div>
   <div
@@ -1555,10 +1514,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
           class="foodit-search w-100 as-center"
         >
           <div
-            class="flex ai-center jc-between h-44 border border-all border-thin border-light-100 bg-light-1 rounded-4 pl-16"
+            class="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search"
           >
             <div
-              class="m-auto w-100"
+              class="m-auto w-100 relative"
             >
               <input
                 class="text-light-600 text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide"
@@ -1569,25 +1528,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               />
             </div>
             <div
-              class="flex border border-left border-thin border-light-100 h-100"
+              class="flex h-100 ai-center"
             >
-              <a
+              <button
                 class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
                 data-test-id="button-header-search"
                 data-variant="link"
-                href="undefined/buscador/?query=%20"
-                target="_self"
-                title="Buscar"
+                title="audio"
               >
                 <i
                   class="icon --icon-24"
                 >
                   <mock-icon
-                    critical="true"
-                    name="search"
+                    fill=""
+                    name="audio"
                   />
                 </i>
-              </a>
+              </button>
             </div>
           </div>
         </div>

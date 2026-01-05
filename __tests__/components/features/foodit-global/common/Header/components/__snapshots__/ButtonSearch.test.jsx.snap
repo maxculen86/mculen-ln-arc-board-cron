@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match snapshot if inputValue has value 1`] = `
+<div>
+  <div
+    class="flex h-100 ai-center"
+  >
+    <a
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-12 p-8 mr-16"
+      data-test-id="button-header-search"
+      data-variant="primary"
+      href="/buscador/?query=pollo"
+      style="padding: 8px;"
+      target="_self"
+      title="Buscar"
+    >
+      <i
+        class="icon --icon-16"
+      >
+        <span>
+          search
+        </span>
+      </i>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`match snapshot if inputValue is empty 1`] = `
+<div>
+  <div
+    class="flex h-100 ai-center"
+  >
+    <button
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+      data-test-id="button-header-search"
+      data-variant="link"
+      title="audio"
+    >
+      <i
+        class="icon --icon-24"
+      >
+        <span>
+          audio
+        </span>
+      </i>
+    </button>
+  </div>
+</div>
+`;
