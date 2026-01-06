@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLiveblogAuthors } from './hook/useLiveblogAuthors';
 import { scrollToFirstPostOf } from '../../../_helpers/getUniqueAuthorsFromPosts';
-import ScrollArea from '../../../../../features/ui-ln/scrollArea/default';
+import ScrollArea from '../../../../../features/ui/ln/scrollArea/default';
 import AuthorButton from './authorButton';
 
 function AuthorBox({ ...r }) {

@@ -1,8 +1,7 @@
 import React, { useRef, memo } from 'react';
-import PropTypes from 'prop-types';
 import { useHandlePlayVideoCarrusel, useObserverMobAndTab } from './hooks';
 import { getClassNamesMedia } from './helpers';
-import Image from '../../ui-ln/image/default';
+import Image from '../../ui/ln/image/default';
 
 function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
     const videoRef = useRef(null);
@@ -39,12 +38,5 @@ function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
         </>
     );
 }
-
-Video.propTypes = {
-    src: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    isPlaying: PropTypes.bool.isRequired,
-    setIsPlaying: PropTypes.func.isRequired
-};
 
 export default memo(Video);

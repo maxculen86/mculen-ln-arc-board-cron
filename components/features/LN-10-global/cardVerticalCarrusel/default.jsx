@@ -1,6 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import Video from './video';
 import { secondsToMinutes } from './helpers';
@@ -9,8 +8,8 @@ import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEvent
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import { registeredIdsSetAndInteractions } from '../../../chains/LN10_Caja_Carrusel/components/helpers';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import CardVertical from '../../ui-ln/card/default';
-import Icon from '../../ui-ln/icon/default';
+import CardVertical from '../../ui/ln/card/default';
+import Icon from '../../ui/ln/icon/default';
 
 function CardVerticalContainer({
     title = '',
@@ -20,7 +19,7 @@ function CardVerticalContainer({
     duration = 0,
     cardPosition,
     videoId,
-    layoutType,
+    layoutType = '',
     titleJwPlayer,
     ...viewabilityData
 }) {
@@ -123,26 +122,5 @@ function CardVerticalContainer({
         </div>
     );
 }
-
-CardVerticalContainer.propTypes = {
-    title: PropTypes.string,
-    src: PropTypes.string,
-    badgeText: PropTypes.string,
-    poster: PropTypes.string,
-    duration: PropTypes.number,
-    cardPosition: PropTypes.number.isRequired,
-    videoId: PropTypes.string.isRequired,
-    layoutType: PropTypes.string,
-    titleJwPlayer: PropTypes.string.isRequired
-};
-
-CardVerticalContainer.defaultProps = {
-    title: '',
-    src: '',
-    badgeText: '',
-    poster: '',
-    duration: 0,
-    layoutType: ''
-};
 
 export default CardVerticalContainer;
