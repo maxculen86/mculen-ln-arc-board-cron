@@ -18,7 +18,7 @@ import {
 import getViewabilityRoof from '../utils/getViewabilityRoof';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
 import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
-import MediaScroller from '../../features/ui-ln/mediaScroller/default';
+import MediaScroller from '../../features/ui/ln/mediaScroller/default';
 
 function CajaCarrusel(props) {
     const {

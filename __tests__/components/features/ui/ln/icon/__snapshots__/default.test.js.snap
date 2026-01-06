@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui - ln - icon Snapshots should maintain expected DOM structure with custom props 1`] = `
+<DocumentFragment>
+  <i
+    class="test-class"
+    data-path="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg"
+    data-size="32"
+    data-testid="ds-icon"
+  >
+    <svg>
+      <use
+        href="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg#icon"
+      />
+    </svg>
+  </i>
+</DocumentFragment>
+`;
+
+exports[`components - features - ui - ln - icon Snapshots should maintain expected DOM structure with default props 1`] = `
+<DocumentFragment>
+  <i
+    data-path="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg"
+    data-size="24"
+    data-testid="ds-icon"
+  >
+    <svg>
+      <use
+        href="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg#icon"
+      />
+    </svg>
+  </i>
+</DocumentFragment>
+`;
