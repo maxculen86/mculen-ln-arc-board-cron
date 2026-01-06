@@ -37,10 +37,12 @@ function LinkCanonicalAndAlternate(props = {}) {
     };
     const cleanedPath = getCleanedPath(requestUri);
 
+    const contentCanonicalId = !mustUseSiteUrl && canonicalIdChecker(_id);
+    const defaultCanonicalId = cleanedPath === '/' ? '' : `/${section}`;
+
     const canonicalId = requestUri?.includes('/chefs-protagonistas')
         ? cleanedPath
-        : (!mustUseSiteUrl && canonicalIdChecker(_id)) ||
-          (cleanedPath === '/' ? '' : `/${section}`);
+        : contentCanonicalId || defaultCanonicalId;
 
     const canonicalSlash = addInitialSlash(canonicalId) ?? '';
 
