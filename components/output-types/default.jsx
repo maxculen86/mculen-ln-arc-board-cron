@@ -120,7 +120,8 @@ function Default(props) {
         renderables,
         sitePropertiesScripts: siteProperties?.scripts,
         globalContent,
-        globalContentConfig
+        globalContentConfig,
+        layout
     });
 
     const metaDescription = getMetaDescriptionDefault(
