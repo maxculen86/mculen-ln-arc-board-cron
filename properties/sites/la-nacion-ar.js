@@ -49,6 +49,7 @@ export default {
         HomeLN10: 'LN10-Home_Main',
         Noticia: 'LN-nota-noticia',
         StoryTelling: 'LN-nota-storytelling',
+        StoryTellingV2: 'LN-nota-storytelling-v2',
         Video: 'LN-nota-video',
         HtmlLibre: 'LN-nota-html-libre',
         Infografia: 'LN-nota-infografia',
