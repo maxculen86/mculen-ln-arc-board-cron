@@ -1,21 +1,21 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
 
-export const validateCarruselChildren = ({ children = [], childProps }) => {
+export const validateCarruselChildren = ({
+    children = [],
+    childProps,
+    allowedChildren = [],
+    isHorizontal = false
+}) => {
     const rules = [
         {
             validation: children.length < 5,
-            message: `Advertencia. Se requiere la carga de ${5 - children.length} items de carrusel.`
+            message: `Advertencia. Se requiere la carga de ${5 - children.length} items de carrusel${isHorizontal ? ' horizontal' : ''}.`
         },
         {
             validation: childProps.some(
-                ({ type }) =>
-                    ![
-                        'LN-10/itemCarrusel',
-                        'LN-common/bannerRefactor'
-                    ].includes(type)
+                ({ type }) => !allowedChildren.includes(type)
             ),
-            message:
-                'La Chain LN10 Caja Carrusel sólo admite features del tipo LN10 Item Carrusel'
+            message: `La Chain ${isHorizontal ? 'LN10 Caja Carrusel Horizontal' : 'LN10 Caja Carrusel'} sólo admite features del tipo ${allowedChildren[0]}`
         }
     ];
 
