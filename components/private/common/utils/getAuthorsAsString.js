@@ -1,7 +1,7 @@
 import get from './get';
 import isExternalDistributor from './isExternalDistributor';
 
-const getAuthorsAsString = (article, withoutPrefix) => {
+const getAuthorsAsString = (article, isHomeLN10) => {
     const name = article?.distributor?.name || '';
     const category = article?.distributor?.category || '';
     const authors = get(article, 'credits.by', []);
@@ -15,10 +15,10 @@ const getAuthorsAsString = (article, withoutPrefix) => {
         return `${prevVal}, ${authorName}`;
     }, '');
 
-    if (withoutPrefix && isExternalDistributor(name, category, authorId))
+    if (isHomeLN10 && isExternalDistributor(name, category, authorId))
         return name;
 
-    if (withoutPrefix) return authorsConcat;
+    if (isHomeLN10) return authorsConcat;
 
     return authorFiltered.length > 0 && authorsConcat.trim()
         ? `Por ${authorsConcat}`

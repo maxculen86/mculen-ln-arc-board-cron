@@ -3,6 +3,7 @@ import { CONTENT_BASE } from 'fusion:environment';
 import getRequest from './getRequest';
 import { hasFutureDisplayDate } from '../../../components/private/common/utils/dateAndTimeUtil';
 import logger from '../../../components/private/common/utils/logger';
+import diagramationRules from '../../../components/private/common/utils/diagramationRules';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../../components/private/common/utils/get';
 
@@ -12,8 +13,9 @@ export const isNotRecommend = article => {
     return recomendar.text === 'No';
 };
 
-export const filterArticlesTypeStory = (articles = []) =>
-    articles.filter(article => article.type === 'story');
+export const filterArticlesTypeStory = (articles = []) => {
+    return articles.filter(article => article.type === 'story');
+};
 
 export const getArticlesToShow = (
     notesQuantity,
@@ -81,7 +83,8 @@ export const filterArticlesInCollection = async ({
         return logger.push(
             error,
             {
-                source: 'content/source/collectionsSource/filterArticlesInCollection',
+                source:
+                    'content/source/collectionsSource/filterArticlesInCollection',
                 url: idCollectionsInPage
             },
             website,
@@ -90,11 +93,19 @@ export const filterArticlesInCollection = async ({
     }
 };
 
-// TODO: Eliminar funcion una vez que se haya migrado por completo los acumulados a LN10
-export const getImageConfig = (diagramation, isFocal, position) =>
-    (diagramation &&
-        get(
-            siteConfig,
-            `cajaTemaConfig.${diagramation}.articles[${position}].imageConfig`
-        )) ||
-    (isFocal && position === 0 && 'l');
+export const getImageConfig = (diagramation, isFocal, position) => {
+    const configChainLN10 = diagramationRules(diagramation);
+
+    if (configChainLN10) {
+        return get(configChainLN10[position], 'imageConfig', '');
+    }
+
+    return (
+        (diagramation &&
+            get(
+                siteConfig,
+                `cajaTemaConfig.${diagramation}.articles[${position}].imageConfig`
+            )) ||
+        (isFocal && position === 0 && 'l')
+    );
+};

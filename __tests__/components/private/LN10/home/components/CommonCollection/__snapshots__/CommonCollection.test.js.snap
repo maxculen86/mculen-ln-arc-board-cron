@@ -88,24 +88,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Carlos Pagni"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Carlos Pagni"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Carlos Pagni
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Carlos Pagni
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -177,24 +173,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Celina Chatruc"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Celina Chatruc"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Celina Chatruc
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Celina Chatruc
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -253,24 +245,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Francisco Jueguen"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Francisco Jueguen"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Francisco Jueguen
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Francisco Jueguen
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -329,24 +317,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Redacción - BBC News Mundo"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Redacción - BBC News Mundo"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Redacción - BBC News Mundo
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Redacción - BBC News Mundo
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -405,24 +389,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por José Luis Domínguez"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por José Luis Domínguez"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        José Luis Domínguez
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      José Luis Domínguez
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -481,24 +461,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Test noticia en ARC
               </h2>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Tomás Girón"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Tomás Girón"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Tomás Girón
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Tomás Girón
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>
@@ -593,24 +569,20 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Incidentes frente al hotel donde convocó a militantes 
               </h3>
               <div
-                class="flex flex-column gap-4"
+                class="marquee-container flex ai-center"
+                title="Por Mariela Arias"
               >
                 <div
-                  class="marquee-container flex ai-center"
-                  title="Por Mariela Arias"
+                  class="marquee-text flex --font-2xs w-100 flex-column"
                 >
-                  <div
-                    class="marquee-text flex --font-2xs w-100 flex-column"
+                  <span
+                    class="text ln-text marquee"
                   >
-                    <span
-                      class="text ln-text marquee"
-                    >
-                      Por 
-                      <strong>
-                        Mariela Arias
-                      </strong>
-                    </span>
-                  </div>
+                    Por 
+                    <strong>
+                      Mariela Arias
+                    </strong>
+                  </span>
                 </div>
               </div>
             </section>

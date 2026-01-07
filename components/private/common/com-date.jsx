@@ -1,17 +1,20 @@
 import React from 'react';
-import { cx } from '@ln/ds-cva';
-import dateAndTimeUtil from './utils/dateAndTimeUtil';
-
+import PropTypes from 'fusion:prop-types';
+import dateAndTimeUtil from '../common/utils/dateAndTimeUtil';
 import '../../../resources/dist/css/ln/components/com-date.css';
 
-function ComDate({ displayDate, size = '--twoxs' }) {
-    const { date, isoDate } = dateAndTimeUtil(displayDate);
+const ComDate = ({ display_date, size }) => {
+    const { date } = dateAndTimeUtil(display_date);
 
     return (
-        <time className={cx('com-date', size)} dateTime={isoDate}>
+        <time className={`com-date ${size || '--twoxs'}`} dateTime={`${date}`}>
             {date}
         </time>
     );
-}
+};
+
+ComDate.propTypes = {
+    display_date: PropTypes.string.isRequired
+};
 
 export default ComDate;

@@ -25,19 +25,17 @@ const getDataChainCollection = ({
             elem =>
                 (get(elem, 'collection') === 'layouts' &&
                     get(elem, 'type') === layoutsName.Home) ||
-                get(elem, 'type') === layoutsName.HomeLN10 ||
-                get(elem, 'type') === layoutsName.AcumuladoV2
+                get(elem, 'type') === layoutsName.HomeLN10
         ) &&
             layout) ||
         '';
 
-    const articlesFromCollectionSiteService =
-        getArticlesFromMyCurrentCollection(
-            collectionsInPage,
-            idCollection,
-            Number(initialPosition) - 1,
-            notesQuantity
-        );
+    const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
+        collectionsInPage,
+        idCollection,
+        Number(initialPosition) - 1,
+        notesQuantity
+    );
 
     const isInSiteService = articlesFromCollectionSiteService.length > 0;
 

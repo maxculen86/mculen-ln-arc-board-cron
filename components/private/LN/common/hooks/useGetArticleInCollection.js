@@ -14,8 +14,7 @@ const useGetArticleInCollection = ({
     filterRepetead = false,
     layout = '',
     website = 'la-nacion-ar',
-    staticMode = false,
-    imagesConfigByCollections = ''
+    staticMode = false
 }) => {
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
@@ -32,8 +31,7 @@ const useGetArticleInCollection = ({
             notesQuantity,
             imageConfig: 'm',
             isFocal: layout && layout.includes('focal'),
-            diagramation,
-            imagesConfigByCollections
+            diagramation
         },
         filter:
             (diagramation &&

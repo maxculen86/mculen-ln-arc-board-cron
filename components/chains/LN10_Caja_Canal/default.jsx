@@ -20,7 +20,6 @@ import CommonCollection from '../../private/LN10/home/components/CommonCollectio
 import { useRoofData } from '../utils/_helpers';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
-import getImageConfigByCollections from '../utils/getImageConfigByCollections';
 
 function CajaCanal(props) {
     const {
@@ -75,8 +74,6 @@ function CajaCanal(props) {
 
     const rules = diagramationRules(layout) || [];
 
-    const imagesConfigByCollections = getImageConfigByCollections(rules);
-
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
               notesQuantity: rules.length || notesQuantity,
@@ -89,8 +86,7 @@ function CajaCanal(props) {
               filterRepetead: !isInSiteService,
               layout,
               website,
-              staticMode: isHome,
-              imagesConfigByCollections
+              staticMode: isHome
           })
         : [];
 

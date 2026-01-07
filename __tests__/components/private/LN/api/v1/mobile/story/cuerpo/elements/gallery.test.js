@@ -37,7 +37,6 @@ describe('Test de la galeria en el cuerpo de una nota', () => {
     test('Test Fecha del articulo dateAndTimeUtil', () => {
         expect(dateAndTimeUtil(ArticleGallery.publish_date)).toEqual({
             date: '27 de abril de 2020',
-            isoDate: '2020-04-27',
             time: '17:32'
         });
     });

@@ -4,9 +4,6 @@ import { articleCustomFields } from './_helper';
 import useArticleFeature from './hooks/useArticleFeature';
 import getArticleRenderer from './utils/getArticleRenderer';
 
-import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
-
 function ArticleFeature({ id: featureId, customFields, searchableField }) {
     const data = useArticleFeature(featureId, customFields, searchableField);
     return getArticleRenderer(data);

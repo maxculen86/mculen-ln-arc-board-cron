@@ -36,7 +36,6 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
     it('Test Fecha del articulo dateAndTimeUtil', () => {
         expect(dateAndTimeUtil('2021-02-18T17:34:00.624Z')).toEqual({
             date: '18 de febrero de 2021',
-            isoDate: '2021-02-18',
             time: '11:34'
         });
     });

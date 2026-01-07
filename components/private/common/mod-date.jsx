@@ -29,11 +29,11 @@ function ModDate({
         <div className={containerClasses}>
             <ul className="mod-date flex jc-start ai-center --bullet-list_12 w-100">
                 <li className="flex ai-center">
-                    <ComDate displayDate={displayDate} />
+                    <ComDate display_date={displayDate} />
                 </li>
                 <li className="mod-date-hour flex ai-center">
                     <ComHour
-                        displayDate={displayDate}
+                        display_date={displayDate}
                         labelEdicionImpresa={labelEdicionImpresa}
                     />
                 </li>

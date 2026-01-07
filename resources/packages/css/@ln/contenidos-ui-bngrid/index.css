@@ -597,7 +597,7 @@
   }
 }
 @media (min-width: 48rem) {
-  [class*=-img-right] .ln-bngrid.--bn_2_grid .grid .grid-item > article a .media-container {
+  .ln-bngrid.--bn_2_grid .grid .grid-item > article a .media-container {
     max-width: 50%;
   }
 }
