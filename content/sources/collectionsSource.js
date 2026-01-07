@@ -96,11 +96,6 @@ const transform = async (data, siteProps, cachedCall) => {
     const contentElements = get(data, 'content_elements', []);
     const isFocal = get(siteProps, 'isFocal', null);
     const diagramation = get(siteProps, 'diagramation');
-    const imagesConfigByCollections = get(
-        siteProps,
-        'imagesConfigByCollections',
-        ''
-    ).split(',');
 
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
@@ -117,9 +112,11 @@ const transform = async (data, siteProps, cachedCall) => {
                 const newData = await getAllImagesAuth(elem, cachedCall);
                 Object.assign(elem, newData);
 
-                const imageConfig =
-                    imagesConfigByCollections[index] ||
-                    getImageConfig(diagramation, isFocal, index);
+                const imageConfig = getImageConfig(
+                    diagramation,
+                    isFocal,
+                    index
+                );
                 const {
                     presets: {
                         promo_items: presetsPromoItemsCustom,
@@ -206,8 +203,7 @@ export default {
         filterFutureDisplayDate: 'bool',
         notesQuantity: 'text',
         isFocal: 'bool',
-        params: 'text',
-        imagesConfigByCollections: 'text'
+        params: 'text'
     },
     ttl: 120
 };

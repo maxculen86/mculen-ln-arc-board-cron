@@ -117,7 +117,6 @@ describe('Test de index en JSON de nota', () => {
         const resp = JMQ44OZHHBC5ZJ5TXTSIIPZMTI;
         expect(dateAndTimeUtil(resp.display_date)).toEqual({
             date: '29 de septiembre de 2020',
-            isoDate: '2020-09-29',
             time: '06:09'
         });
     });

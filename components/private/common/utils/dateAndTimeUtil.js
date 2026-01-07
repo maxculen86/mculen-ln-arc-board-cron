@@ -32,8 +32,6 @@ export function addHours(hours, originalDate) {
     return dateInJS;
 }
 
-export const formatToISOString = date => date.toISOString().split('T')[0];
-
 export function convertToFormat(dateInJS) {
     return `${dateInJS.getFullYear().toString().padStart(4, '0')}-${(
         dateInJS.getMonth() + 1
@@ -128,8 +126,7 @@ export function formatYearMontDayDate(originalDate) {
 export default function dateAndTimeUtil(displayDate) {
     return {
         date: formatDate(new Date(displayDate)),
-        time: formatDateHoursAndMint(new Date(displayDate)),
-        isoDate: formatToISOString(new Date(displayDate))
+        time: formatDateHoursAndMint(new Date(displayDate))
     };
 }
 
@@ -172,6 +169,8 @@ export function differenceInMinutes(firstDate, secondDate) {
 
 export const substractDays = (date, days) =>
     new Date(date.setDate(date.getDate() - days));
+
+export const formatToISOString = date => date.toISOString().split('T')[0];
 
 export function restMinutes(date, minutes) {
     return new Date(date.getTime() - minutes * 60000);

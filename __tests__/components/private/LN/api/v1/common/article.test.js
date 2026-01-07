@@ -181,7 +181,6 @@ describe('Test de index en Json', () => {
             dateAndTimeUtil(articlesRanking.content_elements[0].display_date)
         ).toEqual({
             date: '30 de julio de 2020',
-            isoDate: '2020-07-30',
             time: '07:17'
         });
     });

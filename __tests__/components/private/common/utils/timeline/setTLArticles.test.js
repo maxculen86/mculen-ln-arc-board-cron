@@ -81,12 +81,14 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
 
     it('works in regular case', () => {
         const articles = setTLArticles(...Object.values(globalMock));
+        const labels = articles.map(article => article.label);
 
         articles.forEach((article, index) => {
             const {
                 _id: mockId,
                 display_date: mockDisplayDate,
                 website_url: mockWebsiteUrl,
+                articleData,
                 headlines,
                 content_restrictions
             } = articlesMock[index];
@@ -96,7 +98,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
             expect(article.artPosition).toEqual(`0${index + 1}`);
             expect(article.key).toEqual(mockId);
             expect(article.titleText).toEqual(mockTtitle);
-            expect(article.hour.props.displayDate).toEqual(mockDisplayDate);
+            expect(article.hour.props.display_date).toEqual(mockDisplayDate);
             expect(article.link).toEqual(mockWebsiteUrl);
             expect(article.articleData._id).toEqual(mockId);
             expect(

@@ -128,8 +128,7 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
             );
             jest.spyOn(dateUtil, 'default').mockReturnValue({
                 date: '21 de julio de 2025',
-                time: '10:30',
-                isoDate: '2025-07-21'
+                time: '10:30'
             });
 
             const result = formatDisplayDate(mockDate, true);
@@ -139,10 +138,7 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
                 mockDate
             );
             expect(dateUtil.default).toHaveBeenCalledWith(adjustedDate);
-            expect(result).toStrictEqual({
-                date: '21 de julio de 2025',
-                isoDate: '2025-07-21'
-            });
+            expect(result).toBe('21 de julio de 2025');
         });
 
         it('bypasses addHoursAndFormat when isUltimasNoticias is false', () => {
@@ -150,17 +146,13 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
 
             jest.spyOn(dateUtil, 'default').mockReturnValue({
                 date: '15 de julio de 2025',
-                time: '10:30',
-                isoDate: '2025-07-15'
+                time: '10:30'
             });
 
             const result = formatDisplayDate(mockDate, false);
 
             expect(dateUtil.default).toHaveBeenCalledWith(mockDate);
-            expect(result).toStrictEqual({
-                date: '15 de julio de 2025',
-                isoDate: '2025-07-15'
-            });
+            expect(result).toBe('15 de julio de 2025');
         });
     });
 
@@ -216,7 +208,6 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
 
             expect(result).toEqual({
                 key: 'MXD55U4ZUBE5JLAN5YG2K53XYQ',
-                isoDate: '2025-07-10',
                 title: 'Prueba Liveblog Editorial',
                 lead: '',
                 badgeText: 'EN VIVO',
@@ -240,7 +231,7 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
                     type: 'image',
                     sources: []
                 },
-                marquee: 'Por Florencia Fernández Blanco y Federico Pagani'
+                authors: 'Por Florencia Fernández Blanco y Federico Pagani'
             });
         });
     });

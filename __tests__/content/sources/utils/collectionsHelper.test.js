@@ -172,6 +172,16 @@ describe('collectionsHelper - filterArticlesTypeStory', () => {
 });
 
 describe('collectionsHelper -  getImageConfig', () => {
+    test('should return "bombaHorizontal" with the diagramation of ln10 "horizontal"', () => {
+        expect(getImageConfig('horizontal', false, 0)).toStrictEqual(
+            'bombaHorizontal'
+        );
+    });
+
+    test('should return "T1" with the diagramation of ln10 "left-focal"', () => {
+        expect(getImageConfig('left-focal', false, 0)).toStrictEqual('T1');
+    });
+
     test('should return "featuredFocalIzquierdo" with the diagramation of ln9 "focalLeft3"', () => {
         expect(getImageConfig('focalLeft3', false, 0)).toStrictEqual(
             'featuredFocalIzquierdo'
@@ -192,5 +202,11 @@ describe('collectionsHelper -  getImageConfig', () => {
 
     test('should return falsy when the all props is not defined', () => {
         expect(getImageConfig()).toBeFalsy();
+    });
+
+    test('should return a empty string when the position is not defiend in LN10', () => {
+        expect(getImageConfig('center-focal', false, undefined)).toStrictEqual(
+            ''
+        );
     });
 });

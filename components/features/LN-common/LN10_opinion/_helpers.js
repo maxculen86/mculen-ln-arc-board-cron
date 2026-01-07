@@ -12,7 +12,6 @@ import getCardConfig, {
 import { getDataAttributesForViewability } from '../../LN-10/article/_helper';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import get from '../../../private/common/utils/get';
-import getImageConfigByCollections from '../../../chains/utils/getImageConfigByCollections';
 
 const ajusCollection = 'Ajuste Collection';
 
@@ -29,8 +28,6 @@ export const getDataOpinion = ({
     website,
     isHome
 }) => {
-    const imagesConfigByCollections = getImageConfigByCollections(rules);
-
     const articlesOpinion = !isInSiteService
         ? getArticleInCollection({
               notesQuantity: rules.length || notesQuantity,
@@ -43,8 +40,7 @@ export const getDataOpinion = ({
               filterRepetead: !isInSiteService,
               layout,
               website,
-              staticMode: isHome,
-              imagesConfigByCollections
+              staticMode: isHome
           })
         : [];
 
@@ -60,8 +56,7 @@ export const getDataOpinion = ({
               filterRepetead: !isInSiteService,
               layout,
               website,
-              staticMode: isHome,
-              imagesConfigByCollections
+              staticMode: isHome
           })
         : [];
     return {

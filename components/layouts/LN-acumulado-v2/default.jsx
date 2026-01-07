@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import AnexoDefault from '../../features/LN-common/anexo/default';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
@@ -8,8 +7,6 @@ import { BaseLayout } from '../../features/LN-10-global/common/baseLayout/defaul
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 import GlobalProvider from '../../private/common/context/globalContext';
 import { getLayoutClassNames } from './_helpers';
-
-import '../../../resources/dist/css/ln/pages/acumulado.css';
 
 function LNAcumuladoV2Layout(props) {
     const {
@@ -36,6 +33,7 @@ function LNAcumuladoV2Layout(props) {
     const anexoInferiorConfig = getConfigForAnexo(
         acumuladoGeneral.anexoinferior || ''
     );
+
     const { classNameWrapper, classNameMain, backgroundCategory } =
         getLayoutClassNames({ globalContent, requestUri, layout });
 
@@ -121,4 +119,4 @@ LNAcumuladoV2Layout.propTypes = {
 
 LNAcumuladoV2Layout.sections = pageBuilderSections;
 
-export default Consumer(LNAcumuladoV2Layout);
+export default LNAcumuladoV2Layout;

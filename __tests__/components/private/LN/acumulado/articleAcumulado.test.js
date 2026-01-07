@@ -61,7 +61,7 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
 
     it('Validar que la hora en ComHour se muestre bien', () => {
         const { container } = render(
-            <ComHour displayDate="2020-06-02T15:28:04.694Z" />
+            <ComHour display_date="2020-06-02T15:28:04.694Z" />
         );
         expect(container.firstChild.textContent).toBe('12:28');
     });
