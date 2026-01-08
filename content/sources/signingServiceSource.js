@@ -63,8 +63,7 @@ const fetch = async ({ imageId }) => {
 
         handleHttpError(response);
 
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         logger.push(
             error,

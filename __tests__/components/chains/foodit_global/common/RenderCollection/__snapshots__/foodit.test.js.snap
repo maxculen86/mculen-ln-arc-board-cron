@@ -44,7 +44,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -150,7 +150,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -256,7 +256,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -346,7 +346,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Acompañá las patas de pollo con zucchinis"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -452,7 +452,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Pie de foto"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -558,7 +558,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Acompañá las patas de pollo con zucchinis"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -664,7 +664,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Hamburguesa de carne vacuna (Pixabay)"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -754,7 +754,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Subtitle"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -844,7 +844,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt=""
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -950,7 +950,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt=""
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1056,7 +1056,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt=""
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1167,7 +1167,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
               />
               <img
                 alt="Provoleta con vegetales"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -1335,7 +1335,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1446,7 +1446,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1557,7 +1557,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1652,7 +1652,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Acompañá las patas de pollo con zucchinis"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1763,7 +1763,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Pie de foto"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1874,7 +1874,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Acompañá las patas de pollo con zucchinis"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1985,7 +1985,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Hamburguesa de carne vacuna (Pixabay)"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2080,7 +2080,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Subtitle"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2175,7 +2175,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt=""
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2286,7 +2286,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt=""
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2397,7 +2397,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt=""
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -2513,7 +2513,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                     />
                     <img
                       alt="Provoleta con vegetales"
-                      class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                      class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"

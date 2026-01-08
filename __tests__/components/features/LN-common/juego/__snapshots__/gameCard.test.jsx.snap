@@ -19,7 +19,7 @@ exports[`Component - Features - LN Common - juego - GameCard should match the sn
       >
         <img
           alt="Criptograma"
-          class="image flex w-100 h-100 flex ai-center h-64 w-64 --cover"
+          class="image w-100 h-100 flex ai-center h-64 w-64 flex --cover"
           decoding="async"
           fetchpriority="low"
           loading="lazy"

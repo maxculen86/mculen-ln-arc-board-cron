@@ -2,8 +2,6 @@ import pageBuilderValidator from '../../../private/common/utils/pageBuilderValid
 import { setQuantityByLayout } from '../../utils/common/_helpers-WebApi';
 import get from '../../../private/common/utils/get';
 import { validateStyle } from '../../utils/checkValidationStyle';
-import { assignPropsToChildren } from '../../LN10_Caja_Collection/common/_helper-WebApi';
-import { reorderArticlesWithTimeline } from '../../utils/reorderArticlesWithTimeline';
 
 const LN_COMMON_ARTICLE = 'LN-10/article';
 const COLLECTION_FEATURES = 'features';
@@ -161,36 +159,6 @@ const validateCajaManual = ({
         ...bnPlayerRules,
         ...rules
     ]);
-};
-
-export const reorderArticlesWithVideo = (articles = [], childProps = []) => {
-    const articlesWithProps = assignPropsToChildren(articles, childProps);
-
-    const videoFeature = articlesWithProps.find(
-        article => article.type === LN_VIDEOPLAYER
-    );
-
-    const otherFeatures = articlesWithProps.filter(
-        article => article.type !== LN_VIDEOPLAYER
-    );
-
-    const orderedArticles = videoFeature
-        ? [videoFeature, ...otherFeatures]
-        : articlesWithProps;
-
-    return orderedArticles.map(article => article.nodo);
-};
-
-export const getOrderedArticles = ({
-    nodeList,
-    childProps,
-    isGrid6MasTimeline,
-    isBnPlayer
-}) => {
-    if (isGrid6MasTimeline)
-        return reorderArticlesWithTimeline(nodeList, childProps);
-    if (isBnPlayer) return reorderArticlesWithVideo(nodeList, childProps);
-    return nodeList;
 };
 
 export default validateCajaManual;

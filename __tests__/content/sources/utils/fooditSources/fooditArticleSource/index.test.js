@@ -11,16 +11,18 @@ import {
 import getProperties from 'fusion:properties';
 import {
     transformElementText,
-    setOtherChar,
     replaceClassForMark,
-    setBoldText,
-    setItalicText,
     transformLinks,
     addAttribute,
-    deleteTagsForTitle,
     configCallbackContentElements,
     configPromoItems
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource/_configs';
+import {
+    setOtherChar,
+    setBoldText,
+    setItalicText,
+    deleteTagsForTitle
+} from '../../../../../../content/sources/utils/common/textTransformHelpers';
 import {
     filterSections,
     transformAuthors,

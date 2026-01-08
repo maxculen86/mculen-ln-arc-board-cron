@@ -1,0 +1,5 @@
+/* Estilo momentaneo hasta remover foodit-ui-sass que utiliza misma nomenclatura de variable --spacing */
+
+[data-tw] {
+    --spacing: 1px !important;
+}

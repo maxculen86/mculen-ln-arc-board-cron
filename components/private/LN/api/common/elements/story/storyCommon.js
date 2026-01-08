@@ -12,6 +12,7 @@ import {
     isExcludedSubtype
 } from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
 import getOpeningMode from '../label/openingMode';
+import { getDomainCLL } from '../domain';
 
 export const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -41,17 +42,19 @@ export const storyHeadline = (dataNota, type) => {
     const { date: formatDislplayDate, time: formatDislplayTime } =
         dateAndTimeUtil(displayDate);
 
+    const updateTimeText = !isPrintEdition ? ` • ${formatDislplayTime}` : '';
+    const publishTimeText = !isPrintEdition ? ` • ${formatUpdateTime}` : '';
+
     return {
-        fechaActualizacion: `${formatDislplayDate}${!isPrintEdition ? ` • ${formatDislplayTime}` : ''
-            }`,
-        fecha: `${formatPublishDate}${!isPrintEdition ? ` • ${formatUpdateTime}` : ''
-            }`
+        fechaActualizacion: `${formatDislplayDate}${updateTimeText}`,
+        fecha: `${formatPublishDate}${publishTimeText}`
     };
 };
 
 export const storyCommon = (dataNota, cuerpo) => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
-    const hasTable = Array.isArray(dataNota.content_elements) &&
+    const hasTable =
+        Array.isArray(dataNota.content_elements) &&
         dataNota.content_elements.some(el => el.type === 'table');
     const {
         _id: id,
@@ -88,9 +91,14 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const subtype = get(dataNota, 'subtype', '');
 
+    const domain = getDomainCLL(dataNota);
+
     const resp = {
         id,
-        template: template === '6' || template === '5' || template === '13' ? '1' : template,
+        template:
+            template === '6' || template === '5' || template === '13'
+                ? '1'
+                : template,
         url,
         readingTime:
             readingMinutes !== 0 && !isExcludedSubtype(subtype)
@@ -109,7 +117,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         trust: !isTrust,
         metadata: Metadata(dataNota),
         ia: getIa(dataNota, subtype),
-        openingMode: hasTable ? 'NativeBrowser' : openingMode
+        openingMode: hasTable ? 'NativeBrowser' : openingMode,
+        ...(domain && { domain })
     };
 
     switch (dataNota.subtype) {

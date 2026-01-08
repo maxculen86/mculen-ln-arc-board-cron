@@ -115,7 +115,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -187,7 +187,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -441,7 +441,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -513,7 +513,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -738,7 +738,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -810,7 +810,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -1035,7 +1035,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -1107,7 +1107,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -1281,7 +1281,7 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                       />
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -1480,7 +1480,7 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
                     >
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"
@@ -1530,7 +1530,7 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
                     >
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"
@@ -1656,7 +1656,7 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
                     >
                       <img
                         alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                        class="image flex w-100 h-100 --cover"
+                        class="image w-100 h-100 flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"

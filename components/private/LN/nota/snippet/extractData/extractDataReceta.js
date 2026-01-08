@@ -25,54 +25,84 @@ const nutritionInfo = [
     { name: 'Calorías', property: 'calories' }
 ];
 
+const processIngredients = (powerUpElement, ingredients) => {
+    const embedConfigTypeList = 'embed.config.typeList';
+    if (get(powerUpElement, embedConfigTypeList, '') === 'ingredientes') {
+        ingredients.push(...powerUpElement.embed.config.items);
+    }
+};
+
+const processInstructions = (powerUpElement, instructions) => {
+    const embedConfigTypeList = 'embed.config.typeList';
+    if (get(powerUpElement, embedConfigTypeList, '') === 'preparacion') {
+        const sectionName =
+            powerUpElement.embed.config.titleList !== ''
+                ? powerUpElement.embed.config.titleList
+                : 'Preparación de la receta';
+
+        instructions.push({
+            '@type': 'HowToSection',
+            name: sectionName,
+            itemListElement: powerUpElement.embed.config.items.map(item => ({
+                '@type': 'HowToStep',
+                text: item
+            }))
+        });
+    }
+};
+
+const processNutritionItems = (powerUpElement, nutritionItems) => {
+    if (get(powerUpElement, 'subtype', '') === 'custom-nutrition') {
+        nutritionItems.push(...powerUpElement.rows);
+    }
+};
+
+const buildNutritionObject = nutritionItems => {
+    const nutrition = {};
+
+    nutritionItems.forEach(item => {
+        const value = `${item[1].content}`;
+        const itemName = item[0].content;
+
+        const matchedInfo = nutritionInfo.find(i => i.name === itemName);
+        if (matchedInfo) {
+            nutrition[matchedInfo.property] = value;
+        }
+    });
+
+    return nutrition;
+};
+
 export const extractDataFromContentElements = contentElements => {
     const instructions = [];
-    const embedConfigTypeList = 'embed.config.typeList';
     const ingredients = [];
     const nutritionItems = [];
-    const nutrition = {};
-    let newProperty;
 
-    if (contentElements) {
-        const element = contentElements.find(
-            e => e.subtype === 'power-up-receta'
-        );
-
-        if (element) {
-            element.powerUp.forEach(e => {
-                if (get(e, `${embedConfigTypeList}`, '') === 'ingredientes') {
-                    ingredients.push(...e.embed.config.items);
-                }
-
-                if (get(e, `${embedConfigTypeList}`, '') === 'preparacion') {
-                    instructions.push({
-                        '@type': 'HowToSection',
-                        name:
-                            e.embed.config.titleList !== ''
-                                ? e.embed.config.titleList
-                                : 'Preparación de la receta',
-                        itemListElement: e.embed.config.items.map(item => ({
-                            '@type': 'HowToStep',
-                            text: item
-                        }))
-                    });
-                }
-
-                if (get(e, 'subtype', '') === 'custom-nutrition') {
-                    nutritionItems.push(...e.rows);
-                }
-
-                nutritionItems.forEach(item => {
-                    newProperty = `${item[1].content}`;
-                    nutritionInfo.forEach(i => {
-                        if (item[0].content === i.name) {
-                            nutrition[i.property] = newProperty;
-                        }
-                    });
-                });
-            });
-        }
+    if (!contentElements) {
+        return {
+            ingredients,
+            instructions,
+            nutrition: {}
+        };
     }
+
+    const element = contentElements.find(e => e.subtype === 'power-up-receta');
+
+    if (!element) {
+        return {
+            ingredients,
+            instructions,
+            nutrition: {}
+        };
+    }
+
+    element.powerUp.forEach(powerUpElement => {
+        processIngredients(powerUpElement, ingredients);
+        processInstructions(powerUpElement, instructions);
+        processNutritionItems(powerUpElement, nutritionItems);
+    });
+
+    const nutrition = buildNutritionObject(nutritionItems);
 
     return {
         ingredients,

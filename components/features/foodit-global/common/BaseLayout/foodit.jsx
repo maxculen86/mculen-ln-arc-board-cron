@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import Static from 'fusion:static';
 import { useIdleTask } from '@ln/utility-hooks';
 import { useAppContext } from 'fusion:context';
@@ -21,7 +20,6 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
-import { getMainPaddingClass } from './helper';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -33,16 +31,12 @@ function BaseLayout({ children }) {
 
     const { layoutsName } = siteProperties || {};
 
-    const classNameMain = cx(
-        'container flex flex-column gap-40',
-        getMainPaddingClass(layout, layoutsName),
-        {
-            'pb-64': ![
-                layoutsName.FooditRecipePaywall,
-                layoutsName.FooditNotePaywall
-            ].includes(layout)
-        }
-    );
+    const classNameMain = cx('container flex flex-column gap-40', {
+        'pb-64': ![
+            layoutsName.FooditRecipePaywall,
+            layoutsName.FooditNotePaywall
+        ].includes(layout)
+    });
 
     const wrapperClass = cx('wrapper overflow-x-clip roboto', {
         '--non-subscriber': !isSubscribed(SUBSCRIBED_HELPER.FOODIT)
@@ -55,6 +49,22 @@ function BaseLayout({ children }) {
     useIdleTask(() => {
         import('./fonts-deferred.scss');
     });
+
+    useEffect(() => {
+        const handleUCLReady = async () => {
+            try {
+                await window.UCL.GoogleOneTap();
+            } catch (error) {
+                console.error('Error inicializando Google One Tap:', error);
+            }
+        };
+
+        window.addEventListener('ucl-ready', handleUCLReady);
+
+        return () => {
+            window.removeEventListener('ucl-ready', handleUCLReady);
+        };
+    }, []);
 
     return (
         <AuthInitializer website="foodit">
@@ -94,9 +104,5 @@ function BaseLayout({ children }) {
         </AuthInitializer>
     );
 }
-
-BaseLayout.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default BaseLayout;

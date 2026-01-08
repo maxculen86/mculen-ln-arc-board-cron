@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import getProperties from 'fusion:properties';
-import { CLL_HTMLTFREE_DOMAIN } from 'fusion:environment';
+import { CLL_HTMLFREE_DOMAIN } from 'fusion:environment';
 import get from '../../../../components/private/common/utils/get';
 import Redirect from '../redirect';
 import validateExclusiveAccess from '../validateExclusiveAccess';
@@ -99,15 +99,15 @@ export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const redirectUrl = get(response, 'redirect_url', '');
     const websiteUrl = get(response, 'website_url');
     const paywallEnabled = get(query, 'paywallEnabled', '');
-
+    const isApi = get(query, 'isApi', false);
     const isExternalApiRedirect = checkIfExternalRedirect(
         typeResponse,
         redirectUrl,
         query
     );
 
-    if (subtype === HTMLLIBRECLL && websiteUrl) {
-        throw new Redirect(`${CLL_HTMLTFREE_DOMAIN}${websiteUrl}`, 301);
+    if (subtype === HTMLLIBRECLL && websiteUrl && !isApi) {
+        throw new Redirect(`${CLL_HTMLFREE_DOMAIN}${websiteUrl}`, 301);
     }
     if (isExternalApiRedirect) return redirectUrl;
 
@@ -427,11 +427,18 @@ export const transform = async (response, query, cachedCall) => {
         })
     };
 
+    const withSponsoredLink = validateSponsoredLink(result);
+    const articlePath = get(response, 'website_url', '');
+    const baseOrigin = get(siteProperties, 'host', '');
+
     const aditionalProps = {
         siteProperties,
         cachedCall,
         subtype,
         arcSite,
+        withSponsoredLink,
+        articlePath,
+        baseOrigin,
         glossary:
             !notShowGlossary && isValidSectionIA(sections)
                 ? get(
@@ -474,7 +481,7 @@ export const transform = async (response, query, cachedCall) => {
 
     return {
         ...result,
-        withSponsoredLink: validateSponsoredLink(result),
+        withSponsoredLink,
         isListenable: isNoteListenable(result),
         withFirmaDistributor: firmaDistributorValidation(
             sections,
@@ -598,6 +605,18 @@ export const buildGalleryEmbedData = async ({
         width: get(img, 'width', 0),
         resized_urls: get(img, 'resized_urls', [])
     }));
+
+    const video = get(element, 'embed.config.video', {});
+    const videoPosition = Number(get(element, 'embed.config.videoPosition', 0));
+
+    const hasVideo =
+        Boolean(get(video, 'mp4', '')) &&
+        videoPosition > 0 &&
+        videoPosition <= images.length;
+
+    if (hasVideo) {
+        images[videoPosition - 1] = { ...video, type: 'video' };
+    }
 
     return {
         ...element,

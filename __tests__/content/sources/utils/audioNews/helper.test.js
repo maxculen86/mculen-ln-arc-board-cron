@@ -1,4 +1,6 @@
-import isNoteListenable, { isNoteListenableForApps } from '../../../../../content/sources/utils/audioNews/helper';
+import isNoteListenable, {
+    isNoteListenableForApps
+} from '../../../../../content/sources/utils/audioNews/helper';
 import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource.json';
 import {
     isAudioGenerated,
@@ -422,7 +424,7 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
                     embed: { config: { audio_status: 6 } }
                 }
             },
-            label: { republicar_audio: { text: 'No mostrar audio' } },
+            label: { republicar_audio: { text: 'No mostrar audio' } }
         };
 
         const result = isNoteListenableForApps(data);
@@ -436,7 +438,7 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
                     embed: { config: { audio_status: 7 } }
                 }
             },
-            label: { republicar_audio: { text: 'Mostrar audio' } },
+            label: { republicar_audio: { text: 'Mostrar audio' } }
         };
 
         const result = isNoteListenableForApps(data);
@@ -461,7 +463,7 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
     it('Collection-like item: no word_count, no content_elements, no promo_items — validate using date/source/subtype (should be true)', () => {
         const data = {
             source: { system: 'composer' },
-            subtype: 'collection',
+            subtype: '1',
             first_publish_date: '20250101'
         };
 
@@ -494,7 +496,6 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
         expect(result).toBe(false);
     });
 });
-
 
 describe('Test - isAudioGenerated', () => {
     const AUDIO_STATUS = {

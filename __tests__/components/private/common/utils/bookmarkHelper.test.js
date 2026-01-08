@@ -105,13 +105,8 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                 enviarApps,
                 fechaActualizacion,
                 fecha,
-                imagen: { absoluteUrl, parametros }
+                imagen: { absoluteUrl }
             } = dataForApi;
-
-            parametros.map(size => {
-                expect(size.alto).toBeDefined(); // Verifica que la propiedad 'alto' esté definida
-                expect(typeof size.alto).toBe('number'); // Verifica que 'alto' sea un número
-            });
 
             expect(id).toBe(notaExample._id);
             expect(templateId).toBe(Number(notaExample.subtype));
@@ -129,12 +124,9 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(enviarApps).toBe(true);
             expect(fecha).toBe('12 de mayo de 2020 • 08:24');
             expect(fechaActualizacion).toBe('10 de noviembre de 2021 • 07:44');
-            expect(parametros.length).toBe(
-                notaExample.promo_items.basic.resized_urls.length
-            );
 
             expect(absoluteUrl).toBe(
-                'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
+                'https://resizer.glanacion.com/resizer/v2/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
             );
         });
     });

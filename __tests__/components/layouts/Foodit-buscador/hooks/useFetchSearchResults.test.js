@@ -76,7 +76,7 @@ describe('Tests - hooks - foodit-buscador - useFetchSearchResults', () => {
         await waitFor(() => expect(result.current.data.loading).toBe(false));
 
         expect(console.error).toHaveBeenCalledWith(
-            'Error fetching search results:',
+            'Error queryly: tracking keyword search:',
             expect.any(Error)
         );
     });

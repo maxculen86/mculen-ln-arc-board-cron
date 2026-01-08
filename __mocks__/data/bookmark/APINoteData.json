@@ -37,39 +37,7 @@
         "fechaActualizacion": "10 de noviembre de 2021 • 07:44",
         "fecha": "12 de mayo de 2020 • 08:24",
         "imagen": {
-            "absoluteUrl": "https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
-            "parametros": [
-                {
-                    "alto": 586,
-                    "media": 879,
-                    "ancho": 879,
-                    "firma": "tzRJy6gGzKNkzpAEDUSO8TtRq4g=/879x586/filters:quality(80)"
-                },
-                {
-                    "alto": 746,
-                    "media": 1200,
-                    "ancho": 1200,
-                    "firma": "61A1IlzRCwXWWeTdf5yYMiNFSWY=/1200x746/filters:quality(80)"
-                },
-                {
-                    "alto": 512,
-                    "media": 768,
-                    "ancho": 768,
-                    "firma": "42B-DPd_xROEBwFTK5q6yyBh0r8=/768x512/filters:quality(80)"
-                },
-                {
-                    "alto": 234,
-                    "media": 351,
-                    "ancho": 351,
-                    "firma": "jTn847PBblqM3bVoLo1ERL1VKA8=/351x234/filters:quality(80)"
-                },
-                {
-                    "alto": 206,
-                    "media": 309,
-                    "ancho": 309,
-                    "firma": "DbdLaJqvFwNkhRfpEJZ0ZL5vlCI=/309x206/filters:quality(80)"
-                }
-            ]
+            "absoluteUrl": "https://resizer.glanacion.com/resizer/v2/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg"  
         }
     }
 }

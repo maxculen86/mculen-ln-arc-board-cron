@@ -6,7 +6,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
 import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
-import { setCustomFields, getReorderedChildren } from './_helper';
+import { setCustomFields } from './_helper';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import {
     getCommonProps,
@@ -17,16 +17,13 @@ import {
     setWrappedChildren,
     setStaticDynamically
 } from '../utils/_helpers';
+import { processLayoutItems } from '../utils/processLayoutItems';
 import setRender from '../utils/setRender';
-import {
-    setSlicedChildren,
-    setQuantityByLayout,
-    LAYOUTS
-} from '../utils/common/_helpers-WebApi';
+import { setQuantityByLayout, LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
 
-const { FOCAL_LEFT } = LAYOUTS;
+const { FOCAL_LEFT, FOCAL_LEFT_VIDEO } = LAYOUTS;
 
 function CajaApertura(props) {
     const {
@@ -63,17 +60,14 @@ function CajaApertura(props) {
     const features = setFilteredRenderables(renderables, children);
     const featuredChildren = setWrappedChildren(features, children) || [];
 
-    const slicedChildrenInitial = setSlicedChildren({
-        children: featuredChildren,
-        config: {
-            layout,
-            countTimeline: layout === FOCAL_LEFT
-        }
-    });
-
-    const [slicedChildren, setUpdateChildrens] = useState(
-        slicedChildrenInitial
+    const slicedChildren = processLayoutItems(
+        featuredChildren,
+        childProps,
+        layout,
+        layout === FOCAL_LEFT || layout === FOCAL_LEFT_VIDEO
     );
+
+    const [currentChildren, setUpdateChildrens] = useState(slicedChildren);
 
     useEffect(() => {
         if (isAdmin) {
@@ -85,9 +79,8 @@ function CajaApertura(props) {
                 setQuantityByLayout
             });
         }
-    }, [children]);
+    }, [children, layout]);
 
-    // TODO testear dynamic banners en esta chain
     const { bannerMob = undefined } =
         getDynamicBanners({
             renderables,
@@ -109,11 +102,7 @@ function CajaApertura(props) {
                         {...viewabilityData}
                         focalType={layout}
                     >
-                        {getReorderedChildren(
-                            layout,
-                            slicedChildren,
-                            childProps
-                        )}
+                        {currentChildren}
                     </Opening>
                     {bannerMob}
                 </>

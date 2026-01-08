@@ -8,7 +8,8 @@ import { getAuthorData } from './signatureHelper';
 import {
     VIDEO,
     LIVEBLOG_EDITORIAL,
-    VIDEO_VERTICAL
+    VIDEO_VERTICAL,
+    CARDS
 } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function SignatureWithAuthors({
@@ -39,6 +40,7 @@ function SignatureWithAuthors({
 
     const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO, VIDEO_VERTICAL];
     const subtypesWithoutMB = [VIDEO_VERTICAL];
+    const isNotaCards = [CARDS].includes(subtype);
 
     const shouldHaveMB =
         position === place.Top &&
@@ -49,15 +51,17 @@ function SignatureWithAuthors({
         negativeSubtypes.includes(subtype) && position === place.Top;
 
     const wrapperClasses = cx(
-        'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start',
+        'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start w-full',
         {
             'mb-16': shouldHaveMB,
-            'mb-32': !isNotaFooter && position === place.Bottom
+            'mb-32': !isNotaFooter && !isNotaCards && position === place.Bottom
         }
     );
 
     return (
-        <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
+        <div
+            className={cx('flex flex-wrap', !withAuthorRole && 'w-100 w-full')}
+        >
             <div className={wrapperClasses}>
                 <Author
                     key={author?.name}

@@ -1,11 +1,11 @@
-@import 'tailwindcss' important;
-
+@import 'tailwindcss' important source(none);
 @import '@ln/theme-base';
-/* Agregar import correspondiente cuando se defina */
-/* @import '@ln/theme-foodit'; */
+@import '@ln/theme-foodit';
+@import './overrides.css';
 
-@source '../../../../node_modules/@ln/ds-**/*.{js,jsx,ts,tsx}';
-
-[data-tw] {
-    --spacing: 1px !important;
-}
+/* Source a incluir en el mapeo de clases utilizadas */
+@source '../../../../../node_modules/@ln/ds-**/*.{js,jsx,ts,tsx}';
+/* Layouts */
+@source '../../../../../components/layouts/Foodit-*/**/*.{js,jsx,ts,tsx}';
+/* Features FACADE */
+@source '../../../../../components/features/ui-foodit/**/foodit.{js,jsx,ts,tsx}';

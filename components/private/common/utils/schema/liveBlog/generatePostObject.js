@@ -113,36 +113,52 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     let postTitle = '';
     let currentPostHasBodyText = false;
     let currentPostSocialName = null;
+
+    const updateCurrentPostFromElement = elem => {
+        const { type = '', subtype = '' } = elem;
+
+        if (isCustomLiveblog(elem)) {
+            post = {};
+            description = [];
+            postTitle = get(elem, 'embed.config.title', '').trim();
+            currentPostHasBodyText = false;
+            currentPostSocialName = null;
+            authorsName = buildPostAuthor(elem);
+        }
+
+        if (type === 'oembed_response' && socialMediaNames[subtype]) {
+            currentPostSocialName = socialMediaNames[subtype];
+        }
+
+        if (type === 'list' && elem.items) {
+            description.push(concatenateBullets(elem.items).join('; '));
+            currentPostHasBodyText = true;
+        }
+
+        if (type === 'text' && elem.content) {
+            description.push(elem.content);
+            currentPostHasBodyText = true;
+        }
+    };
+
+    const buildFinalPost = () => {
+        const finalContent =
+            !currentPostHasBodyText && currentPostSocialName
+                ? getSocialMediaDescription(currentPostSocialName)
+                : description.join(' ');
+
+        return {
+            ...post,
+            content: finalContent,
+            title: postTitle,
+            author: authorsName
+        };
+    };
+
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i, slicedArray) => {
-            const { type = '', subtype = '' } = elem;
-
-            if (isCustomLiveblog(elem)) {
-                post = {};
-                description = [];
-                postTitle = get(elem, 'embed.config.title', '').trim();
-                currentPostHasBodyText = false;
-                currentPostSocialName = null;
-                authorsName = buildPostAuthor(elem);
-            }
-
-            if (type === 'oembed_response') {
-                const name = socialMediaNames[subtype];
-                if (name) {
-                    currentPostSocialName = name;
-                }
-            }
-
-            if (type === 'list' && elem.items) {
-                description.push(concatenateBullets(elem.items).join('; '));
-                currentPostHasBodyText = true;
-            }
-
-            if (type === 'text' && elem.content) {
-                description.push(elem.content);
-                currentPostHasBodyText = true;
-            }
+            updateCurrentPostFromElement(elem);
 
             Object.assign(post, {
                 ...(isCustomLiveblog(elem) &&
@@ -155,16 +171,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 (slicedArray[i + 1] && isCustomLiveblog(slicedArray[i + 1])) ||
                 i + 1 === slicedArray.length
             ) {
-                const finalContent =
-                    !currentPostHasBodyText && currentPostSocialName
-                        ? getSocialMediaDescription(currentPostSocialName)
-                        : description.join(' ');
-                post = {
-                    ...post,
-                    content: finalContent,
-                    title: postTitle,
-                    author: authorsName
-                };
+                post = buildFinalPost();
                 acc.push(post);
             }
 

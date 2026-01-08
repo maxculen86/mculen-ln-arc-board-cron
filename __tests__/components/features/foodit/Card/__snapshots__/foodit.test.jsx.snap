@@ -31,7 +31,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               />
               <img
                 alt="Receta para comer mas rico con ...POLLITO 2"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="high"
                 loading="eager"
@@ -158,7 +158,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               />
               <img
                 alt="Receta para comer mas rico con ...POLLITO 2"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="high"
                 loading="eager"
@@ -285,7 +285,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               />
               <img
                 alt="Ficha nota FOODIT"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -399,7 +399,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               />
               <img
                 alt="Receta para comer mas rico con ...POLLITO 2"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -518,7 +518,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               />
               <img
                 alt="Receta para comer mas rico con ...POLLITO 2"
-                class="image flex object-cover card-image ratio-3-2 w-100 --cover"
+                class="image object-cover card-image ratio-3-2 w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"

@@ -1429,7 +1429,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="Esto es un epígrafe de la imagen"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -1722,7 +1722,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -1759,7 +1759,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >
@@ -1870,7 +1870,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -1917,7 +1917,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -1959,7 +1959,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -2025,7 +2025,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -2072,7 +2072,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -2114,7 +2114,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -2175,7 +2175,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="2000"
@@ -2222,7 +2222,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="Coloccini"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="283"
@@ -2274,7 +2274,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="Restricted 2nd image"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1536"
@@ -2321,7 +2321,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1112"
@@ -2715,7 +2715,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
           >
             <img
               alt="Más de dos millones de personas coparon las playas de Río para recibir el 2014"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -4846,7 +4846,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="Esto es un epígrafe de la imagen"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -5139,7 +5139,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -5176,7 +5176,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >
@@ -5287,7 +5287,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5334,7 +5334,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5376,7 +5376,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5442,7 +5442,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5489,7 +5489,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5531,7 +5531,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -5592,7 +5592,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="2000"
@@ -5639,7 +5639,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="Coloccini"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="283"
@@ -5691,7 +5691,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="Restricted 2nd image"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1536"
@@ -5738,7 +5738,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1112"
@@ -6132,7 +6132,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
           >
             <img
               alt="Más de dos millones de personas coparon las playas de Río para recibir el 2014"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -8263,7 +8263,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="Esto es un epígrafe de la imagen"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -8556,7 +8556,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"
@@ -8593,7 +8593,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     <a
       class="com-link break-word"
       data-mrf-recirculation="n_link_parrafo"
-      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352/"
       target="_self"
       title="LINK"
     >
@@ -8704,7 +8704,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -8751,7 +8751,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -8793,7 +8793,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -8859,7 +8859,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -8906,7 +8906,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -8948,7 +8948,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="leyenda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="980"
@@ -9009,7 +9009,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="2000"
@@ -9056,7 +9056,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="Coloccini"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="283"
@@ -9108,7 +9108,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="Restricted 2nd image"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1536"
@@ -9155,7 +9155,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt=""
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="1112"
@@ -9549,7 +9549,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
           >
             <img
               alt="Más de dos millones de personas coparon las playas de Río para recibir el 2014"
-              class="image flex com-image --cover"
+              class="image com-image flex --cover"
               decoding="async"
               fetchpriority="low"
               height="640"

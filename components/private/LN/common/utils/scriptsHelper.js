@@ -32,6 +32,7 @@ import FundingChoices from '../../../common/scriptManager/scriptFundingChoices';
 import get from '../../../common/utils/get';
 import MetaRobots from '../../../common/scriptManager/MetaRobots';
 import TikTokPixel from '../../../common/scriptManager/TikTokPixel';
+import GoogleOneTap from '../../../common/scriptManager/GoogleOneTap';
 
 const scriptList = [
     {
@@ -50,7 +51,11 @@ const scriptList = [
         component: { name: 'Permutive', function: Permutive },
         feature: 'none'
     },
-    { component: { name: 'GTM', function: GTM }, feature: 'none' },
+    {
+        component: { name: 'GTM', function: GTM },
+        feature: 'none',
+        excludedLayouts: ['Error']
+    },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     {
         component: { name: 'ComscoreFoodit', function: ComscoreFoodit },
@@ -117,7 +122,11 @@ const scriptList = [
         },
         feature: 'none'
     },
-    { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
+    {
+        component: { name: 'Marfeel', function: Marfeel },
+        feature: 'none',
+        excludedLayouts: ['Error']
+    },
     {
         component: { name: 'Observable', function: Observable },
         feature: 'none'
@@ -152,6 +161,10 @@ const scriptList = [
     {
         component: { name: 'TikTokPixel', function: TikTokPixel },
         feature: 'none'
+    },
+    {
+        component: { name: 'GoogleOneTap', function: GoogleOneTap },
+        feature: 'none'
     }
 ];
 
@@ -161,36 +174,46 @@ const getPageBuilderFeatures = _renderables =>
 const isGPTAndDisabled = (script, bannersDisabled) =>
     bannersDisabled && script.component.name === 'GooglePublisherTag';
 
-const getScriptsFilterFunction = (scripts, bannersDisabled) => features => {
-    const filteredScripts = scripts
-        .filter(
-            script =>
-                (script.feature === 'none' ||
-                    features.find(feature =>
-                        script.feature.includes(feature.type)
-                    ) !== undefined) &&
-                !isGPTAndDisabled(script, bannersDisabled)
-        )
-        .map(element => element.component)
-        .reduce(
-            (accumulator, value) => ({
-                ...accumulator,
-                [value.name]: value.function
-            }),
-            {}
-        );
+export const shouldExcludeByLayout = (script, layout) =>
+    !!script.excludedLayouts?.includes(layout);
 
-    if (bannersDisabled) {
-        filteredScripts.MetaRobots = MetaRobots;
-    }
+const getScriptsFilterFunction =
+    (scripts, bannersDisabled, layout) => features => {
+        const filteredScripts = scripts
+            .filter(script => {
+                if (shouldExcludeByLayout(script, layout)) return false;
+                return (
+                    (script.feature === 'none' ||
+                        features.find(feature =>
+                            script.feature.includes(feature.type)
+                        ) !== undefined) &&
+                    !isGPTAndDisabled(script, bannersDisabled)
+                );
+            })
+            .map(element => element.component)
+            .reduce(
+                (accumulator, value) => ({
+                    ...accumulator,
+                    [value.name]: value.function
+                }),
+                {}
+            );
 
-    return filteredScripts;
-};
+        if (bannersDisabled) {
+            filteredScripts.MetaRobots = MetaRobots;
+        }
 
-export const getScriptsToLoad = (bannersDisabled, renderables = []) =>
+        return filteredScripts;
+    };
+
+export const getScriptsToLoad = (
+    bannersDisabled,
+    renderables = [],
+    layout = ''
+) =>
     pipe(
         getPageBuilderFeatures,
-        getScriptsFilterFunction(scriptList, bannersDisabled)
+        getScriptsFilterFunction(scriptList, bannersDisabled, layout)
     )(renderables);
 
 const buildScriptComponent = ({
@@ -198,14 +221,15 @@ const buildScriptComponent = ({
     sitePropertiesScripts = [],
     globalContent = {},
     globalContentConfig = {},
-    isArcPreview = false
+    isArcPreview = false,
+    layout = ''
 }) => {
     const bannersDisabled = /tests-bannerdisabled\//.test(
         get(globalContentConfig, 'query.url', '')
     );
 
     return ScriptManager(
-        getScriptsToLoad(bannersDisabled, renderables),
+        getScriptsToLoad(bannersDisabled, renderables, layout),
         sitePropertiesScripts,
         globalContent,
         isArcPreview

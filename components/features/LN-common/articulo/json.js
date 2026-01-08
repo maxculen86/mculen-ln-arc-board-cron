@@ -9,7 +9,7 @@ class ArticleFeature {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { noteId, imageId, video },
+            customFields: { noteId, imageId },
             id: featureId,
             arcSite
         } = props;
@@ -28,19 +28,7 @@ class ArticleFeature {
                 cajaTemaConfig
             }).imageConfig;
         }
-        video &&
-            video.trim() &&
-            this.fetchContent({
-                articleVideo: {
-                    source: 'videoSource',
-                    query: {
-                        id: video && video.trim(),
-                        website: 'la-nacion-ar'
-                    }
-                }
-            });
-
-        noteId &&
+        if (noteId) {
             this.fetchContent({
                 articleSourceNota: {
                     source: 'articleSourceNota',
@@ -53,9 +41,9 @@ class ArticleFeature {
                     }
                 }
             });
+        }
 
-        imageId &&
-            imageId.trim() &&
+        if (imageId && imageId.trim()) {
             this.fetchContent({
                 articleImage: {
                     source: 'relatedImageSource',
@@ -69,19 +57,19 @@ class ArticleFeature {
                     }
                 }
             });
+        }
     }
 
     render() {
         try {
-            const { articleSourceNota, articleImage, articleVideo } =
-                this.state || {};
+            const { articleSourceNota, articleImage } = this.state || {};
             if (!articleSourceNota) {
                 return null;
             }
             return renderProps(
                 articleSourceNota,
                 articleImage,
-                articleVideo,
+                null,
                 this.props
             );
         } catch (err) {

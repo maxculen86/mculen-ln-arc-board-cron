@@ -30,7 +30,13 @@ export const galleryGridVariant = cva('grid gap-[16px]', {
                 md:[&>*:not(:first-child)]:col-start-2
             `,
             'vertical-two': '[&>img]:aspect-[2/3] md:grid-cols-2',
-            'vertical-three': '[&>img]:aspect-[2/3] md:grid-cols-3'
+            'vertical-three': '[&>img]:aspect-[2/3] md:grid-cols-3',
+            'vertical-single-centered': `
+                [&>img]:aspect-[2/3]
+                md:grid-cols-12 md:[&>*]:col-span-6 md:[&>*]:col-start-4 md:[&>*]:max-w-[482px] md:[&>*]:mx-auto
+                lg:[&>*]:max-w-[615px]
+                xl:[grid-template-columns:repeat(14,minmax(0,1fr))] xl:[&>*]:col-span-8 xl:[&>*]:col-start-4 xl:[&>*]:max-w-[629px]
+            `
         }
     }
 });

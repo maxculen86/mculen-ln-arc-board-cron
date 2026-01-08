@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import NewsLetters from '../../../../../components/features/LN-nota/newsletter/default.jsx';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -13,6 +13,12 @@ jest.mock('fusion:consumer', Component => {
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
+
+jest.mock('../../../../../components/common/LazyLoad/LazyLoad', () => {
+    return function LazyLoad({ children }) {
+        return <>{children}</>;
+    };
+});
 
 global.fetch = jest.fn();
 fetch.mockResolvedValue({
@@ -27,6 +33,13 @@ global.MutationObserver = class {
     constructor(callback) {}
     disconnect() {}
     observe(element, initObject) {}
+};
+
+global.IntersectionObserver = class {
+    constructor(callback) {}
+    disconnect() {}
+    observe(element, initObject) {}
+    unobserve(element) {}
 };
 const props = {
     section: 'economia',

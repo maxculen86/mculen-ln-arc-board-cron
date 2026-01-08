@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
@@ -8,9 +7,10 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 function ScrollToTopButton({ onClick }) {
     return (
         <div
-            className="grid jc-end sticky z-10 grid-col-8 grid-row-3 top-calc-100svh-125_md grid-col-12_m grid-col-11_md grid-col-15_lg"
+            className="grid js-end sticky z-10 grid-col-8 grid-row-3 top-calc-100svh-125_md grid-col-12_m grid-col-11_md grid-col-15_lg"
             style={{
-                top: 'calc(100svh - 110px)'
+                top: 'calc(100svh - 110px)',
+                maxWidth: '40px'
             }}
         >
             <div className="h-40 w-40 w-60_md h-60_md">
@@ -35,9 +35,5 @@ function ScrollToTopButton({ onClick }) {
         </div>
     );
 }
-
-ScrollToTopButton.propTypes = {
-    onClick: PropTypes.func.isRequired
-};
 
 export default ScrollToTopButton;

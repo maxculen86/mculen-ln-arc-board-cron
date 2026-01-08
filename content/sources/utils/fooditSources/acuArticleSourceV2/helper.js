@@ -3,7 +3,7 @@ import get from '../../../../../components/private/common/utils/get';
 import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../../components/private/common/utils/image/resizer/addResizerUrls';
 
-export const transformFooditAcu = async (response, cachedCall, query = {}) => {
+export const transformFooditAcu = async (response, query, cachedCall) => {
     const { content_elements: contentElements = [] } = response;
 
     const transformedElements = await Promise.all(

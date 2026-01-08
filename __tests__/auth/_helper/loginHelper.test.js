@@ -1,5 +1,4 @@
 import initializeAuth, {
-    _UserClientLibs,
     setMultiplyCookies,
     setupCookies,
     getAuthTokens
@@ -75,7 +74,9 @@ jest.mock('fusion:environment', () => ({
             trackSessionAcrossSubdomains: true,
             defaultPrivacyLevel: 'mask-user-input'
         }
-    }
+    },
+    API_INGRESAR: 'https://mock-api.com',
+    GOOGLE_ONE_TAP: 'mock-google-client-id'
 }));
 
 describe('Tests functions loginHelper', () => {
@@ -87,7 +88,7 @@ describe('Tests functions loginHelper', () => {
             jest.clearAllMocks();
         });
 
-        test('should set cookies for userData', () => {
+        it('should set cookies for userData', () => {
             const userData = {
                 UsuarioDetalleGuid: 'guid123',
                 UsuarioDetalleNick: 'nick123'
@@ -114,7 +115,7 @@ describe('Tests functions loginHelper', () => {
             );
         });
 
-        test('should not set cookies for non-string values', () => {
+        it('should not set cookies for non-string values', () => {
             const userData = {
                 UsuarioDetalleGuid: 12345
             };
@@ -136,7 +137,7 @@ describe('Tests functions loginHelper', () => {
             jest.clearAllMocks();
         });
 
-        test('should set multiple cookies and call setupCookies', () => {
+        it('should set multiple cookies and call setupCookies', () => {
             const userData = { id: 1, name: 'John Doe' };
             const newToken = 'newToken123';
             const dataUser = {
@@ -199,7 +200,8 @@ describe('Tests functions loginHelper', () => {
                 keyDatadog: expect.any(String),
                 serviceDatadog: expect.any(String),
                 siteId: 1,
-                environment: expect.any(String)
+                environment: expect.any(String),
+                googleIdClient: expect.any(String)
             });
             expect(GetIdTokenValidatedAsync).toHaveBeenCalled();
             expect(BuildBearerAccessTokenAsync).toHaveBeenCalled();
@@ -210,14 +212,32 @@ describe('Tests functions loginHelper', () => {
             });
         });
 
-        it('should not initialize if cookie does not exist', async () => {
+        it('should initialize UCL but not set tokens if cookie does not exist', async () => {
             getCookie.mockReturnValue(null);
+            const RefreshAsync = jest.fn();
+            init.mockReturnValue({
+                BuildBearerAccessTokenAsync: jest.fn(),
+                GetIdTokenValidatedAsync: jest.fn(),
+                RefreshAsync
+            });
 
-            await initializeAuth({ setTokens: mockSetTokens });
+            await initializeAuth({
+                setTokens: mockSetTokens,
+                website: 'la-nacion-ar'
+            });
 
             expect(getCookie).toHaveBeenCalledWith('token');
-            expect(init).not.toHaveBeenCalled();
+            expect(init).toHaveBeenCalledWith({
+                keyDatadog: 'mockClientTokenLogs',
+                serviceDatadog: 'mockService',
+                siteId: 1,
+                environment: 'test',
+                googleIdClient: 'mock-google-client-id'
+            });
             expect(mockSetTokens).not.toHaveBeenCalled();
+            expect(consoleErrorMock).toHaveBeenCalledWith(
+                'No token found, UCL ready for Google One Tap login'
+            );
         });
 
         it('should handle errors gracefully', async () => {
@@ -229,7 +249,7 @@ describe('Tests functions loginHelper', () => {
             await initializeAuth({ setTokens: mockSetTokens });
 
             expect(consoleErrorMock).toHaveBeenCalledWith(
-                'Error occurred while executing token rotation',
+                'Error occurred while executing UCL initialization',
                 expect.any(Error)
             );
 
@@ -252,7 +272,7 @@ describe('Tests functions loginHelper', () => {
             delete window.UCL;
         });
 
-        test('should return tokens correctly when UCL is available', async () => {
+        it('should return tokens correctly when UCL is available', async () => {
             window.UCL = {
                 GetIdTokenValidatedAsync: jest
                     .fn()
@@ -269,7 +289,7 @@ describe('Tests functions loginHelper', () => {
             });
         });
 
-        test('should return undefined if window.UCL is not defined', async () => {
+        it('should return undefined if window.UCL is not defined', async () => {
             const result = await getAuthTokens();
             expect(result).toEqual({
                 token: undefined,
@@ -277,7 +297,7 @@ describe('Tests functions loginHelper', () => {
             });
         });
 
-        test('should return undefined if the methods are not defined in UCL', async () => {
+        it('should return undefined if the methods are not defined in UCL', async () => {
             window.UCL = {};
 
             const result = await getAuthTokens();

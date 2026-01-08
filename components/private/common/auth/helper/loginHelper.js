@@ -1,4 +1,8 @@
-import { API_INGRESAR, DATADOG_CONFIG } from 'fusion:environment';
+import {
+    API_INGRESAR,
+    DATADOG_CONFIG,
+    GOOGLE_ONE_TAP
+} from 'fusion:environment';
 import { init } from '@ln/user.client.libs';
 import get from '../../utils/get';
 import handleCookie from '../../../LN/common/utils/handleCookie';
@@ -129,26 +133,24 @@ export const setUserData = async (token, accessToken, RefreshAsync) => {
 
 const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
     try {
+        const datadogConfig = get(DATADOG_CONFIG, website, {});
+        const keyDatadog = get(datadogConfig, 'clientTokenLogs', '');
+        const serviceDatadog = get(datadogConfig, 'service', 'lanacion-arc');
+        const environment = get(datadogConfig, 'env', 'prod');
+        const siteId = siteIds[website];
+
+        const methodsUCL =
+            init({
+                keyDatadog,
+                serviceDatadog,
+                siteId,
+                environment,
+                googleIdClient: GOOGLE_ONE_TAP
+            }) || {};
+
+        window.UCL = methodsUCL;
+
         if (getCookie('token')) {
-            const datadogConfig = get(DATADOG_CONFIG, website, {});
-            const keyDatadog = get(datadogConfig, 'clientTokenLogs', '');
-            const serviceDatadog = get(
-                datadogConfig,
-                'service',
-                'lanacion-arc'
-            );
-            const environment = get(datadogConfig, 'env', 'prod');
-            const siteId = siteIds[website];
-
-            const methodsUCL =
-                init({
-                    keyDatadog,
-                    serviceDatadog,
-                    siteId,
-                    environment
-                }) || {};
-            window.UCL = methodsUCL;
-
             const {
                 BuildBearerAccessTokenAsync,
                 GetIdTokenValidatedAsync,
@@ -163,9 +165,14 @@ const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
                 token,
                 accessToken
             });
+        } else {
+            console.error('No token found, UCL ready for Google One Tap login');
         }
     } catch (error) {
-        console.error('Error occurred while executing token rotation', error);
+        console.error(
+            'Error occurred while executing UCL initialization',
+            error
+        );
     }
 };
 

@@ -31,7 +31,8 @@ export const getConfigClassName = (
     }),
     videoContainer: cx([
         'mod-video',
-        variant === 'vertical' && 'flex flex-column ai-center bg-black'
+        variant === 'vertical' &&
+            'flex flex-column ai-center bg-neutral-light-50'
     ]),
     videoPlayer: videoPlayerVariant({
         variant,

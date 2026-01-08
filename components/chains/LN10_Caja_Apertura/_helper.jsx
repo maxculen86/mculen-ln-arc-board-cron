@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import PropTypes from 'fusion:prop-types';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
-import { reorderArticlesWithTimeline } from '../utils/reorderArticlesWithTimeline';
-import { reorderArticlesWithVideoPlayer } from '../utils/reorderArticlesWithVideoPlayer';
 
 const {
     FOCAL_LEFT,
@@ -46,14 +44,4 @@ export const setCustomFields = () => {
         layout: PropTypes.oneOf(labelsKeys).tag(CUSTOM_FIELDS_CONFIG.layout),
         hideCaja: PropTypes.boolean.tag(CUSTOM_FIELDS_CONFIG.hideCaja)
     });
-};
-
-export const getReorderedChildren = (layout, slicedChildren, childProps) => {
-    if (layout === FOCAL_LEFT) {
-        return reorderArticlesWithTimeline(slicedChildren, childProps);
-    }
-    if (layout === FOCAL_LEFT_VIDEO) {
-        return reorderArticlesWithVideoPlayer(slicedChildren, childProps);
-    }
-    return slicedChildren;
 };

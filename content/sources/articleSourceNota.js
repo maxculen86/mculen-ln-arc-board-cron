@@ -45,7 +45,6 @@ const fetch = (query, { cachedCall } = {}) => {
             );
             handleHttpError(response);
             const data = await response.json();
-
             const externalApiRedirectUrl = setRedirect({
                 response: data,
                 query: queryAux,
@@ -94,7 +93,8 @@ export default {
         checkExclusiveAccess: 'bool',
         isAdmin: 'bool',
         uri: 'text',
-        ticks: 'text'
+        ticks: 'text',
+        isApi: 'bool'
     },
     filter,
     ttl: 120
