@@ -135,7 +135,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultGetCajaManual = getCajaManual.render();
         console.log(resultCajaManual);
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(resultCajaManual.information).toMatchObject({
             layout: 'bn_1_3_grid',
@@ -163,7 +163,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(result).toBeNull();
     });
@@ -182,7 +182,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(result.information.hideCaja).toBe(false);
     });
@@ -199,7 +199,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         };
         resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(console.warn).toHaveBeenCalledTimes(1);
         expect(console.warn.mock.calls[0][0]).toBe(
@@ -217,7 +217,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         };
         const result = resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(result.Message).toBe('Error');
         expect(result.Success).toBe(false);
@@ -245,7 +245,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultCajaManual = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(resultCajaManual.information).toMatchObject({
             layout: 'bnFondo',
@@ -299,7 +299,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         const resultCajaManual = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
-            ['props', 'renderResponse', 'state'].sort()
+            ['props', 'state'].sort()
         );
         expect(resultCajaManual.information).toMatchObject({
             layout: 'bn_player_horizontal',

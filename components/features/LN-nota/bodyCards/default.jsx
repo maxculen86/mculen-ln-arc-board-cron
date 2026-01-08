@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
+import { cx } from '@ln/cva';
 import useViewportSize from '../../../private/common/hooks/useViewportSize';
 import BaseBodyWrapper from '../body/_children/BaseBodyWrapper';
 import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
@@ -89,6 +90,13 @@ function BodyCards() {
         }
     }, [googleTagConfigs]);
 
+    const gridColumns = getGridColumns(cardsGrid.length);
+
+    const gridCardSmall = cx(
+        gridColumns === 3 && 'grid-col-3-15_lg',
+        'grid-col-1 grid-row-2 mt-80'
+    );
+
     return (
         <BaseBodyWrapper
             contentElements={contentElements}
@@ -96,7 +104,7 @@ function BodyCards() {
             noteId={_id}
             onRegisterScrollTrigger={registerScrollTracking}
         >
-            <div className="mb-120 grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
+            <div className="grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
                 <BodyTop>
                     {leadingElements?.length > 0 &&
                         BuildBody({
@@ -106,21 +114,18 @@ function BodyCards() {
                             supportedTypesOverride: supportedTypesCards
                         })}
                 </BodyTop>
-                <div
-                    ref={gridRef}
-                    className="pt-8 grid grid-col-1 grid-row-2 grid-col-3-15_lg"
-                >
+                <div className={gridCardSmall} ref={gridRef}>
                     {cardsGrid.length > 0 && (
                         <LinkedSummaryCardsGrid
                             cards={cardsGrid}
-                            gridColumns={getGridColumns(cardsGrid.length)}
+                            gridColumns={gridColumns}
                         />
                     )}
                 </div>
                 <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
-                <span className="block grid-row-4 grid-col-1 h-1 bg-muted w-100 mb-80 grid-col-3-11_m grid-col-5-13_lg" />
+                <div className="grid-col-1 grid-row-4 bg-muted h-1 max-w-550 w-100 ml-auto mr-auto mt-20 mb-80 grid-col-2-12_m max-w-635_m grid-col-5-13_lg" />
                 <div className="grid-row-5 grid-col-1">
-                    <div className="grid grid-cols-8 row-gap-80 grid-cols-12_m row-gap-120_m grid-cols-16_lg">
+                    <div className="grid row-gap-80 row-gap-120_m">
                         {cardsWithBanners}
                     </div>
                 </div>

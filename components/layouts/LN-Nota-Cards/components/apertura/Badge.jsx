@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
@@ -28,7 +27,7 @@ function CardsBadge({ badge, badgeText, isSubscriber, logoData }) {
         badgeText && {
             key: 'badgeText',
             component: (
-                <Text font="prumo" className="flex text-center uppercase">
+                <Text className="prumo prumo-slab prumo-bold leading-[130%] text-18 uppercase">
                     {badgeText}
                 </Text>
             )
@@ -73,12 +72,5 @@ function CardsBadge({ badge, badgeText, isSubscriber, logoData }) {
         </div>
     );
 }
-
-CardsBadge.propTypes = {
-    badge: PropTypes.string.isRequired,
-    badgeText: PropTypes.string.isRequired,
-    isSubscriber: PropTypes.bool.isRequired,
-    logoData: PropTypes.shape({}).isRequired
-};
 
 export default CardsBadge;

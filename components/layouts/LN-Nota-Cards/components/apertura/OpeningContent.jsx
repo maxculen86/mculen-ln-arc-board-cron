@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import CardsBadge from './Badge';
 
@@ -18,49 +17,43 @@ function OpeningContent({ data }) {
     };
 
     return (
-        <div className="flex flex-column ai-center max-w-597_m mr-auto_m ml-auto_m max-w-100_l">
-            <CardsBadge {...badgeProps} />
-            <div className="text-center text-neutral-light-800">
-                {title && (
-                    <Text
-                        as="h1"
-                        className="prumo prumo-extra prumo-slab text-40 tracking--232 text-52_md text-68_lg"
-                    >
-                        {title}
-                    </Text>
-                )}
-
-                {secondaryTitle && (
-                    <Text
-                        as="h2"
-                        className="prumo prumo-light prumo-slab text-40 tracking--232 text-52_md text-68_lg"
-                    >
-                        {secondaryTitle}
+        <>
+            <div>
+                <CardsBadge {...badgeProps} />
+            </div>
+            <div className="max-w-[550px] flex gap-2 flex-col justify-center items-center text-neutral-light-800 md:max-w-[835px] lg:max-w-[963px] lg:min-w-[963px]">
+                <div className="text-center">
+                    {title && (
+                        <Text
+                            as="h1"
+                            className="prumo prumo-extra prumo-slab text-display-md tracking-tight leading-none"
+                        >
+                            {title}
+                        </Text>
+                    )}
+                    {secondaryTitle && (
+                        <Text
+                            as="h2"
+                            className="prumo prumo-slab text-display-md max-[360px]:max-w-[325px]"
+                        >
+                            {secondaryTitle}
+                        </Text>
+                    )}
+                </div>
+                {subtitle && (
+                    <Text className="prumo text-center text-subheading-lg">
+                        {subtitle}
                     </Text>
                 )}
             </div>
-            {subtitle && (
-                <Text
-                    className="prumo text-20 text-center mt-8 prumo-book text-24_md text-28_lg max-w-890_lg"
-                    style={{ letterSpacing: '-0.64px', lineHeight: '125%' }}
-                >
-                    {subtitle}
-                </Text>
-            )}
-            <div
-                className="block w-122 h-1 mt-20 mb-20"
-                style={{ backgroundColor: 'var(--neutral-light-700)' }}
-            />
-        </div>
+            <div>
+                <div
+                    className="block w-80 h-1"
+                    style={{ backgroundColor: 'var(--neutral-light-700)' }}
+                />
+            </div>
+        </>
     );
 }
-
-OpeningContent.propTypes = {
-    data: PropTypes.shape({})
-};
-
-OpeningContent.defaultProps = {
-    data: {}
-};
 
 export default OpeningContent;

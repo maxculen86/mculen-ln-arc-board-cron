@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import PropTypes from 'prop-types';
 import get from '../../../../private/common/utils/get';
 import { normalizeCardColor } from '../_utils/linkedSummaryCardsHelper';
 import LinkedCard from './linkedCard/LinkedCard';
@@ -16,9 +15,7 @@ const LinkedSummaryCardSmall = memo(({ data, onCardClick, variant, ...r }) => {
     return (
         <LinkedCard variant={variant} cardColor={cardColor} {...r}>
             <LinkedCard.Container>
-                <LinkedCard.Header>
-                    <LinkedCard.Heading title={title} number={cardNumber} />
-                </LinkedCard.Header>
+                <LinkedCard.Heading title={title} number={cardNumber} />
                 {description && (
                     <LinkedCard.Description>
                         {description}
@@ -33,29 +30,4 @@ const LinkedSummaryCardSmall = memo(({ data, onCardClick, variant, ...r }) => {
         </LinkedCard>
     );
 });
-
-LinkedSummaryCardSmall.propTypes = {
-    data: PropTypes.shape({
-        embed: PropTypes.shape({
-            config: PropTypes.shape({
-                cardNumber: PropTypes.oneOfType([
-                    PropTypes.string,
-                    PropTypes.number
-                ]),
-                title: PropTypes.string,
-                description: PropTypes.string,
-                buttonText: PropTypes.string,
-                cardId: PropTypes.string,
-                cardColor: PropTypes.string
-            })
-        })
-    }).isRequired,
-    onCardClick: PropTypes.func,
-    variant: PropTypes.string.isRequired
-};
-
-LinkedSummaryCardSmall.defaultProps = {
-    onCardClick: undefined
-};
-
 export default LinkedSummaryCardSmall;
