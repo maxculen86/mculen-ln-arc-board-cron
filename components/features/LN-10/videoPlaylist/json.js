@@ -52,7 +52,7 @@ class VideoPlaylistFeature {
             return null;
         }
 
-        const videos = playlist.map(item => {
+        return playlist.map(item => {
             const {
                 title,
                 mediaid,
@@ -60,18 +60,16 @@ class VideoPlaylistFeature {
                 duration: fullVideoDuration,
                 posterVideo: previewVideoUrl
             } = item;
-            const fullVideoUrl = videoJWM3u8(item.sources);
+
             return {
                 id: mediaid,
                 title,
                 posterUrl,
-                fullVideoUrl,
+                fullVideoUrl: videoJWM3u8(item.sources),
                 previewVideoUrl,
                 fullVideoDuration
             };
         });
-
-        return videos;
     }
 }
 

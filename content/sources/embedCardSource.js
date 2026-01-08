@@ -35,7 +35,7 @@ const transformImages = async (data, cachedCall) => {
                 cachedCall
             );
 
-            const resizedUrl = resizeImgUrl({
+            return resizeImgUrl({
                 arcImage: {
                     url: imageUrl,
                     auth: { 1: get(signingResponse, 'hash') },
@@ -43,8 +43,6 @@ const transformImages = async (data, cachedCall) => {
                 },
                 defaultResizeWithSmart: imagePreset
             });
-
-            return resizedUrl;
         } catch (error) {
             logger.push(error, {
                 source: 'content/sources/embedCardSource.js - transformImages',
