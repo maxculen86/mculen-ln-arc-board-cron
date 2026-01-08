@@ -1,7 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import GlobalProvider from '../../private/common/context/globalContext';
-import Opinion from './components/opinion';
+import Opinion from './components/Opinion';
 import BaseLayout from '../../features/LN/common/baseLayout/default';
 
 function LnNotaOpinion({ children }) {
@@ -14,14 +14,7 @@ function LnNotaOpinion({ children }) {
     );
 }
 
-const pageBuilderSections = [
-    'Pre-Título',
-    'Título',
-    'Apertura',
-    'Cuerpo',
-    'Bottom',
-    'Bottom-Tercera'
-];
+const pageBuilderSections = ['Apertura', 'Cuerpo', 'Bottom', 'Bottom-Tercera'];
 
 LnNotaOpinion.sections = pageBuilderSections;
 
