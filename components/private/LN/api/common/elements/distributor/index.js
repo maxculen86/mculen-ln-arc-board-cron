@@ -14,7 +14,7 @@ const getDistributor = (article, isHome = true) => {
 
     const { name, category, subcategory = undefined, mode } = distributor;
 
-    if (mode && mode === 'custom') {
+    if ((mode && mode === 'custom') || name === 'lanacionar') {
         return undefined;
     }
 
