@@ -606,6 +606,18 @@ export const buildGalleryEmbedData = async ({
         resized_urls: get(img, 'resized_urls', [])
     }));
 
+    const video = get(element, 'embed.config.video', {});
+    const videoPosition = Number(get(element, 'embed.config.videoPosition', 0));
+
+    const hasVideo =
+        Boolean(get(video, 'mp4', '')) &&
+        videoPosition > 0 &&
+        videoPosition <= images.length;
+
+    if (hasVideo) {
+        images[videoPosition - 1] = { ...video, type: 'video' };
+    }
+
     return {
         ...element,
         embed: {

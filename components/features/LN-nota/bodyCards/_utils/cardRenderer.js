@@ -25,15 +25,14 @@ export const renderExpandedCard = (
     const cardNumber = get(firstCard, 'embed.config.cardNumber', '');
 
     return (
-        <div key={cardId} id={`card-ampliada-${cardId}`}>
+        <div
+            key={cardId}
+            id={`card-ampliada-${cardId}`}
+            className="flex flex-column gap-16 ai-center max-w-550 max-w-596_md gap-24_m max-w-635_l max-w-592_lg max-w-635_xl"
+        >
             <LinkedCard variant={variant} cardColor={cardColor}>
                 <LinkedCard.Container>
-                    <LinkedCard.Header>
-                        <LinkedCard.Heading
-                            title={titleCard}
-                            number={cardNumber}
-                        />
-                    </LinkedCard.Header>
+                    <LinkedCard.Heading title={titleCard} number={cardNumber} />
                     <LinkedCard.Content>
                         {BuildBody({
                             outputType,

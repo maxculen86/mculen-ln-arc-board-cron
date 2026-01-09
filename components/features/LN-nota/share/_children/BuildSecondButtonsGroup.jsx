@@ -145,7 +145,7 @@ function BuildSecondButtonsGroup({
                                         color: 'var(--neutral-700)',
                                         fontWeight: '400'
                                     }}
-                                    className="tracking--032 capitalize text-12px leading-150 uppercase_l leading-130_l text-8px_lg -mt-2_l"
+                                    className="tracking--032 capitalize text-12 leading-150 uppercase_l leading-130_l text-8_lg -mt-2_l"
                                 >
                                     {label}
                                 </Text>

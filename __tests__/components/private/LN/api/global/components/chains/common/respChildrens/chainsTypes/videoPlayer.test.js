@@ -190,10 +190,6 @@ describe('respChildrens videoPlayer', () => {
                     type: 'LN-10/article'
                 },
                 {
-                    _id: 'ERT22',
-                    type: 'LN-10/timeline'
-                },
-                {
                     _id: 'ERT23',
                     type: 'LN-10/article'
                 },

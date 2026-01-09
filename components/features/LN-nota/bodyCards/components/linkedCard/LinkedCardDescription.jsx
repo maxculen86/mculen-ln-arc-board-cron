@@ -1,17 +1,12 @@
 import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
-import PropTypes from 'prop-types';
 
 function LinkedCardDescription({ children }) {
     return (
-        <Text font="georgia" className="text-14 text-16_md text-center mb-16">
+        <Text className="text-18 prumo prumo-slab prumo-light leading-130 text-20_md">
             {children}
         </Text>
     );
 }
-
-LinkedCardDescription.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default LinkedCardDescription;
