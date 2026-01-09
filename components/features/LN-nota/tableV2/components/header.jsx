@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cellVariants } from '../styles';
 import stripHtml from '../../../../private/common/utils/stripHtml';
 
@@ -31,19 +30,5 @@ function TableHeader({ header = [] }) {
         </thead>
     );
 }
-
-TableHeader.propTypes = {
-    header: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            content: PropTypes.string,
-            type: PropTypes.string
-        })
-    )
-};
-
-TableHeader.defaultProps = {
-    header: []
-};
 
 export default TableHeader;
