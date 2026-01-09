@@ -3,7 +3,7 @@ import { scheduleTask } from '../utils/scheduleTask';
 import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 import get from '../utils/get';
 
-export const handleClickAudioNews = (
+export const handleClickAudioNews = ({
     onOpenAudioPlayer,
     globalContent,
     globalContentConfig,
@@ -12,7 +12,7 @@ export const handleClickAudioNews = (
     subscription,
     token,
     openBarrier
-) => {
+} = {}) => {
     if (subscription && token) {
         onOpenAudioPlayer();
         scheduleTask(() => closeTooltipIAAuthor());
