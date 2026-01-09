@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Components - outputType - helper - CssLinksLn10 When isLN10 is false and arcSite is "la-nacion-ar", should return <CssLinks> arc component 1`] = `
-<div>
-  &lt;link href="/pf/dist/components/output-types/default.css"
-        id="fusion-output-type-styles" rel="stylesheet" type="text/css"/&gt;
-</div>
-`;

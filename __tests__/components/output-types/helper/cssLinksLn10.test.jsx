@@ -2,56 +2,89 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CssLinksLn10 from '../../../../components/output-types/Helper/cssLinksLn10';
-import Context from 'fusion:context';
-
-jest.mock('fusion:context', Component => {
-    return function(Component) {
-        return props => <Component {...props} />;
-    };
-});
+import config from '../../../../properties/sites/la-nacion-ar';
 
 describe('Components - outputType - helper - CssLinksLn10', () => {
-    const deployment = arg => arg;
-    const CssLinks = () => {
-        return `<link href="/pf/dist/components/output-types/default.css"
-        id="fusion-output-type-styles" rel="stylesheet" type="text/css"/>`;
-    };
-    Context.useAppContext = jest.fn(() => ({
-        deployment,
-        contextPath: '/pf',
-        arcSite: arcSite
-    }));
+    const CssLinks = () => (
+        <link
+            href="/pf/dist/components/output-types/default.css"
+            id="fusion-output-type-styles"
+            rel="stylesheet"
+            type="text/css"
+        />
+    );
 
-    const setting = {
-        deployment: deployment,
-        contextPath: '/pf',
-        arcSite: 'la-nacion-ar'
+    const mockGlobalContent = {
+        _id: '/test-section',
+        taxonomy: {
+            primary_section: {
+                _id: '/test-section'
+            }
+        }
     };
-    test('When isLN10 is false and arcSite is "la-nacion-ar", should return <CssLinks> arc component', () => {
+
+    const {
+        layoutsName: { HomeLN10, NotaOpinion }
+    } = config;
+
+    it('should return null when layout is HomeLN10 (excluded layout)', () => {
         const { container } = render(
             <CssLinksLn10
                 CssLinks={CssLinks}
-                isLN10={false}
-                deployment={setting.deployment}
-                contextPath={setting.contextPath}
-                arcSite={setting.arcSite}
-            />
-        );
-
-        expect(container).toMatchSnapshot();
-    });
-
-    test('When isLN10 is true and arcSite is "la-nacion-ar", should return a fragment', () => {
-        const { container } = render(
-            <CssLinksLn10
-                CssLinks={setting.CssLinks}
-                isLN10={true}
-                deployment={setting.deployment}
-                arcSite={setting.arcSite}
-                contextPath={setting.contextPath}
+                globalContent={mockGlobalContent}
+                layout={HomeLN10}
             />
         );
 
         expect(container).toBeEmptyDOMElement();
+    });
+
+    it('should return null when layout is NotaOpinion (excluded layout)', () => {
+        const { container } = render(
+            <CssLinksLn10
+                CssLinks={CssLinks}
+                globalContent={mockGlobalContent}
+                layout={NotaOpinion}
+            />
+        );
+
+        expect(container).toBeEmptyDOMElement();
+    });
+
+    it('should return <CssLinks> when layout is neither HomeLN10 nor NotaOpinion', () => {
+        const { container } = render(
+            <CssLinksLn10
+                CssLinks={CssLinks}
+                globalContent={mockGlobalContent}
+                layout="OtherLayout"
+            />
+        );
+
+        expect(container.querySelector('link')).toBeInTheDocument();
+        expect(container.querySelector('link')).toHaveAttribute(
+            'id',
+            'fusion-output-type-styles'
+        );
+    });
+
+    it('should return <CssLinks> with different globalContent and allowed layout', () => {
+        const differentGlobalContent = {
+            _id: '/another-section',
+            taxonomy: {
+                primary_section: {
+                    _id: '/another-section'
+                }
+            }
+        };
+
+        const { container } = render(
+            <CssLinksLn10
+                CssLinks={CssLinks}
+                globalContent={differentGlobalContent}
+                layout="CustomLayout"
+            />
+        );
+
+        expect(container.querySelector('link')).toBeInTheDocument();
     });
 });

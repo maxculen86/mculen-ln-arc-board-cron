@@ -4,13 +4,13 @@ exports[`components - features - ui - ln - icon Snapshots should maintain expect
 <DocumentFragment>
   <i
     class="test-class"
-    data-path="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg"
+    data-path="https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-color.svg"
     data-size="32"
     data-testid="ds-icon"
   >
     <svg>
       <use
-        href="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg#icon"
+        href="https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-color.svg#icon"
       />
     </svg>
   </i>
@@ -20,13 +20,13 @@ exports[`components - features - ui - ln - icon Snapshots should maintain expect
 exports[`components - features - ui - ln - icon Snapshots should maintain expected DOM structure with default props 1`] = `
 <DocumentFragment>
   <i
-    data-path="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg"
+    data-path="https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-default.svg"
     data-size="24"
     data-testid="ds-icon"
   >
     <svg>
       <use
-        href="https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg#icon"
+        href="https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-default.svg#icon"
       />
     </svg>
   </i>

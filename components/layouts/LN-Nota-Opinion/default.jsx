@@ -2,11 +2,14 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import Opinion from './components/opinion';
+import BaseLayout from '../../features/LN/common/baseLayout/default';
 
 function LnNotaOpinion({ children }) {
     return (
         <GlobalProvider>
-            <Opinion>{children}</Opinion>
+            <BaseLayout>
+                <Opinion>{children}</Opinion>
+            </BaseLayout>
         </GlobalProvider>
     );
 }

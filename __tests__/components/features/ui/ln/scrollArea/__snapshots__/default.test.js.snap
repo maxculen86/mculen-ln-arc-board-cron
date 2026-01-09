@@ -27,7 +27,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-start"
       >
         <svg
-          data-testid="icon-arrowLeft"
+          data-testid="icon-arrow-left"
           height="16"
           width="16"
         />
@@ -37,7 +37,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-end"
       >
         <svg
-          data-testid="icon-arrowRight"
+          data-testid="icon-arrow-right"
           height="16"
           width="16"
         />
@@ -74,7 +74,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-start"
       >
         <svg
-          data-testid="icon-arrowLeft"
+          data-testid="icon-arrow-left"
           height="16"
           width="16"
         />
@@ -84,7 +84,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-end"
       >
         <svg
-          data-testid="icon-arrowRight"
+          data-testid="icon-arrow-right"
           height="16"
           width="16"
         />
@@ -121,7 +121,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-start"
       >
         <svg
-          data-testid="icon-arrowLeft"
+          data-testid="icon-arrow-left"
           height="16"
           width="16"
         />
@@ -131,7 +131,7 @@ exports[`components - features - ui - ln - scrollArea - default should match sna
         data-testid="scrollarea-arrow-end"
       >
         <svg
-          data-testid="icon-arrowRight"
+          data-testid="icon-arrow-right"
           height="16"
           width="16"
         />
