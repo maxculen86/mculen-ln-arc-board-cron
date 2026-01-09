@@ -51,7 +51,7 @@ export function AudioButton({
     } = useDisclosure(false);
 
     const handleClickAudioButton = () => {
-        handleClickAudioNews(
+        handleClickAudioNews({
             onOpenAudioPlayer,
             globalContent,
             globalContentConfig,
@@ -60,7 +60,7 @@ export function AudioButton({
             subscription,
             token,
             openBarrier
-        );
+        });
     };
 
     const { text, iconColor } = getTextAndIconColor(isSummary, variant);
