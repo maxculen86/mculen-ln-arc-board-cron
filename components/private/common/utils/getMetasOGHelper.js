@@ -164,7 +164,8 @@ export const getData = ({
     contextPath,
     deployment,
     section,
-    metaDescription
+    metaDescription,
+    layout
 }) => {
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
@@ -193,7 +194,9 @@ export const getData = ({
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
 
-    const url = canonicalUrl || _id;
+    const contentUrl = canonicalUrl || _id;
+
+    const url = layout === 'LN-mapa-del-sitio' ? '/mapa-del-sitio' : contentUrl;
 
     const description = getDescription({
         isArticle,
