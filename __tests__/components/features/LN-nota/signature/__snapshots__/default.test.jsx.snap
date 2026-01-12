@@ -3,13 +3,13 @@
 exports[`components - feature - LN-nota - signature - default renders with author signature 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
+    class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-wrap w-100 w-full"
+      class="flex flex-wrap w-100"
     >
       <div
-        class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start w-full mb-16"
+        class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100"
       >
         <div
           class="flex inline-flex ai-center gap-12"
@@ -66,7 +66,7 @@ exports[`components - feature - LN-nota - signature - default renders with autho
 exports[`components - feature - LN-nota - signature - default renders with distributor signature 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
+    class="signature flex flex-column container-center-100 brand-color"
   >
     <div
       class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start"
@@ -87,7 +87,7 @@ exports[`components - feature - LN-nota - signature - default renders with distr
 exports[`components - feature - LN-nota - signature - default renders without signature when no authors or distributor 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
+    class="signature flex flex-column container-center-100 brand-color"
   >
     <div
       class="flex flex-column brand-color"
@@ -103,13 +103,13 @@ exports[`components - feature - LN-nota - signature - default renders without si
 exports[`components - feature - LN-nota - signature - default should not render custom voice when there are multiple authors 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-column container-center-100 brand-color signature mb-16 mb-24_m"
+    class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-wrap w-100 w-full"
+      class="flex flex-wrap w-100"
     >
       <div
-        class="flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start w-full mb-16"
+        class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100"
       >
         <div
           class="flex inline-flex ai-center gap-12"
