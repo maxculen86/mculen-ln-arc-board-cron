@@ -25,14 +25,14 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
         it('should return URL with JWT token if token exists', async () => {
             getAuthTokens.mockResolvedValueOnce({ token: TOKEN });
             getToken.mockReturnValueOnce(TOKEN);
-            const finalUrl = await generateUrlWithToken(BASE_URL);
+            const finalUrl = await generateUrlWithToken(BASE_URL, true, false);
             expect(finalUrl).toBe(FINAL_URL_WITH_TOKEN);
         });
 
         it('should return original URL if token does not exist', async () => {
             getAuthTokens.mockResolvedValueOnce({ token: null });
             getToken.mockReturnValueOnce(null);
-            const finalUrl = await generateUrlWithToken(BASE_URL);
+            const finalUrl = await generateUrlWithToken(BASE_URL, true, false);
             expect(finalUrl).toBe(BASE_URL);
         });
     });
@@ -57,7 +57,7 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
             getAuthTokens.mockResolvedValueOnce({ token: TOKEN });
             getToken.mockReturnValueOnce(TOKEN);
             const id = 'f0fXG4p6pSpK2s8';
-            await handleIframeProps(id, BASE_URL, true);
+            await handleIframeProps(id, BASE_URL, true, false);
             expect(document.getElementById).toHaveBeenCalledWith(`anexo-${id}`);
             expect(
                 iframeMock.parentElement.classList.remove
@@ -65,23 +65,59 @@ describe('features - LN-common - anexo - helpers - iframeHelper', () => {
             expect(iframeMock.src).toBe(FINAL_URL_WITH_TOKEN);
         });
 
-        it('should set iframe src with original URL if not a game', async () => {
-            const id = 'f0f0raOK8mKx1sc';
-            const nonGameUrl =
-                'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/';
-            await handleIframeProps(id, nonGameUrl, false);
-            expect(document.getElementById).toHaveBeenCalledWith(`anexo-${id}`);
-            expect(
-                iframeMock.parentElement.classList.remove
-            ).toHaveBeenCalledWith('skeleton-box');
-            expect(iframeMock.src).toBe(nonGameUrl);
+        it('should append Access Token for game URLs when requested', async () => {
+            getAuthTokens.mockResolvedValueOnce({
+                token: TOKEN,
+                accessToken: 'Bearer ACCESS_TOKEN_XYZ'
+            });
+            getToken.mockReturnValueOnce(TOKEN);
+            const id = 'game-id-123';
+            await handleIframeProps(id, BASE_URL, true, true);
+
+            expect(iframeMock.src).toContain('jwt=' + TOKEN);
+            expect(iframeMock.src).toContain('access=ACCESS_TOKEN_XYZ');
+        });
+
+        it('should allow Access Token for ANY URL if requested', async () => {
+            getAuthTokens.mockResolvedValueOnce({
+                token: TOKEN,
+                accessToken: 'Bearer ACCESS_TOKEN_XYZ'
+            });
+            getToken.mockReturnValueOnce(TOKEN);
+
+            const id = 'any-domain-id';
+            const anyUrl = 'https://any-domain.com/anexo-test/';
+
+            await handleIframeProps(id, anyUrl, true, true);
+
+            expect(iframeMock.src).toContain('jwt=' + TOKEN);
+            expect(iframeMock.src).toContain('access=ACCESS_TOKEN_XYZ');
         });
 
         it('should handle missing iframe element gracefully', async () => {
             document.getElementById = jest.fn(() => null);
             const id = 'f0fXG4p6pSpK2s8';
-            await handleIframeProps(id, BASE_URL, true);
+            await handleIframeProps(id, BASE_URL, true, false);
             expect(document.getElementById).toHaveBeenCalledWith(`anexo-${id}`);
+        });
+        it('should wait and append Access Token if initially missing (Retry Logic)', async () => {
+            getAuthTokens.mockResolvedValueOnce({
+                token: TOKEN,
+                accessToken: null
+            });
+            getAuthTokens.mockResolvedValueOnce({
+                token: TOKEN,
+                accessToken: 'Bearer DELAYED_ACCESS_TOKEN'
+            });
+
+            getToken.mockReturnValue(TOKEN);
+
+            const id = 'game-id-retry';
+            await handleIframeProps(id, BASE_URL, true, true);
+
+            expect(iframeMock.src).toContain('jwt=' + TOKEN);
+            expect(iframeMock.src).toContain('access=DELAYED_ACCESS_TOKEN');
+            expect(getAuthTokens).toHaveBeenCalledTimes(2);
         });
     });
 });
