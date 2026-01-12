@@ -35,9 +35,14 @@ class CarouselChain {
             return null;
         }
         const children = this.props.children.filter(child => child !== null);
+        const allowedChildren = [
+            'LN-10/itemCarrusel',
+            'LN-common/bannerRefactor'
+        ];
         const error = validateCarruselChildren({
             children,
-            childProps: this.childProps
+            childProps: this.childProps,
+            allowedChildren
         });
         if (
             error ||

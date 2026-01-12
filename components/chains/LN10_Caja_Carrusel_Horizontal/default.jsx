@@ -1,26 +1,27 @@
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { validateCarruselChildren } from '../utils/validateCarruselChildren';
-import { useRoofData } from '../utils/_helpers';
-import setCarouselCustomfields from '../utils/setCarouselCustomfields';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import CajaCarruselProvider from './components/cajaCarruselContext';
-import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
-import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
-import MediaScrollerContainer from './components/mediaScroller/mediaScroller';
-import { shouldHideCarrusel, transformNodes } from './components/helpers';
 import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import { useRoofData } from '../utils/_helpers';
+import { validateCarruselChildren } from '../utils/validateCarruselChildren';
+import {
+    shouldHideCarrusel,
+    transformNodes
+} from '../LN10_Caja_Carrusel/components/helpers';
+import setCarouselCustomfields from '../utils/setCarouselCustomfields';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import hideParentNode from '../../features/private-global/common/utils/hideParentNode';
-import '../../../resources/packages/css/@ln/common-ui-mediascroller/index.css';
+import CajaCarruselProvider from '../LN10_Caja_Carrusel/components/cajaCarruselContext';
+import MediaScrollerContainer from '../LN10_Caja_Carrusel/components/mediaScroller/mediaScroller';
+import MediaScrollerExpandedWrapper from '../LN10_Caja_Carrusel/components/mediaScrollerExpanded/wrapper';
 import MediaScroller from '../../features/ui/ln/mediaScroller/default';
+import MediaScrollerExpanded from '../LN10_Caja_Carrusel/components/mediaScrollerExpanded/mediaScrollerExpanded';
 
-function CajaCarrusel(props) {
+function CajaCarruselHorizontal(props) {
     const {
         siteProperties: { layoutsName = {} },
         layout,
@@ -38,7 +39,7 @@ function CajaCarrusel(props) {
 
     const isHome = layout === layoutsName.HomeLN10;
 
-    const allowedChildren = ['LN-10/itemCarrusel', 'LN-common/bannerRefactor'];
+    const allowedChildren = ['LN-10/itemCarruselHorizontal'];
 
     const divRefInCarrusel = useRef(null);
 
@@ -54,7 +55,7 @@ function CajaCarrusel(props) {
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
-        'carrusel',
+        'carrusel-horizontal',
         position,
         '',
         positionInsideSection,
@@ -66,7 +67,8 @@ function CajaCarrusel(props) {
     const error = validateCarruselChildren({
         children,
         childProps,
-        allowedChildren
+        allowedChildren,
+        isHorizontal: true
     });
 
     const { error: hasError, hide } = shouldHideCarrusel({
@@ -99,7 +101,7 @@ function CajaCarrusel(props) {
         if (!isAdmin) {
             hideParentNode(divRefInCarrusel, 'DIV');
         }
-    }, [divRefInCarrusel?.current]);
+    }, divRefInCarrusel?.current);
 
     const nodes = transformNodes({
         children,
@@ -107,17 +109,6 @@ function CajaCarrusel(props) {
         childProps,
         bannerRef: divRefInCarrusel
     });
-
-    const nodesByExpanded = useMemo(
-        () =>
-            transformNodes({
-                children,
-                isAdmin,
-                childProps,
-                isExpanded: true
-            }),
-        []
-    );
 
     return (
         <CajaCarruselProvider>
@@ -134,10 +125,9 @@ function CajaCarrusel(props) {
                             </MediaScroller.Item>
                         ))}
                     </MediaScrollerContainer>
+
                     <MediaScrollerExpandedWrapper>
-                        <MediaScrollerExpanded
-                            listVideoData={nodesByExpanded}
-                        />
+                        <MediaScrollerExpanded listVideoData={nodes} />
                     </MediaScrollerExpandedWrapper>
                 </section>
             </div>
@@ -145,22 +135,12 @@ function CajaCarrusel(props) {
     );
 }
 
-CajaCarrusel.label = 'LN10 Caja Carrusel';
+CajaCarruselHorizontal.label = 'LN10 Caja Carrusel Horizontal';
 
-CajaCarrusel.lazy = true;
+CajaCarruselHorizontal.lazy = true;
 
-CajaCarrusel.propTypes = {
-    children: PropTypes.isRequired,
-    childProps: PropTypes.isRequired,
-    customFields: setCarouselCustomfields().isRequired,
-    chainId: PropTypes.string.isRequired,
-    renderables: PropTypes.array.isRequired,
-    siteProperties: PropTypes.shape({
-        layoutsName: PropTypes.shape({
-            Home: PropTypes.string
-        })
-    }).isRequired,
-    layout: PropTypes.string.isRequired
+CajaCarruselHorizontal.propTypes = {
+    customFields: setCarouselCustomfields().isRequired
 };
 
-export default Consumer(CajaCarrusel);
+export default Consumer(CajaCarruselHorizontal);
