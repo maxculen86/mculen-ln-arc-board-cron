@@ -8,6 +8,225 @@ exports[`components - features - LN - common - baseLayout Snapshots should maint
     <div
       class="overflow-x-clip min-h-dvh flex flex-col text-base-default font-secondary"
     >
+      <div>
+        <div
+          class="bg-neutral-50 w-full h-48 flex items-center hidden lg:flex"
+        >
+          <div
+            class="container-fluid flex items-center gap-24 h-24 overflow-auto"
+          >
+            <div
+              class="ds-scrollarea relative flex overflow-hidden"
+            >
+              <div
+                class="ds-scrollarea-content flex overflow-x-auto overflow-y-hidden flex-row scrollbar-hidden"
+              >
+                <ul
+                  class="flex gap-24"
+                >
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://club.lanacion.com.ar/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="Ir a CLUB LN"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 24px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-club"
+                          />
+                        </svg>
+                      </i>
+                      CLUB LN
+                    </a>
+                  </li>
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://lnmas.lanacion.com.ar/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="LN+ EN VIVO"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 24px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-lnmas"
+                          />
+                        </svg>
+                      </i>
+                      EN VIVO
+                    </a>
+                  </li>
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://foodit.lanacion.com.ar/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="Ir a FOODIT"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 18px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-foodit"
+                          />
+                        </svg>
+                      </i>
+                      FOODIT
+                    </a>
+                  </li>
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://canchallena.lanacion.com.ar/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="Ir a CANCHALLENA"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 12px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-canchallena"
+                          />
+                        </svg>
+                      </i>
+                      CANCHALLENA
+                    </a>
+                  </li>
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://bonvivir.com/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="Ir a BONVIVIR"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 12px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-bonvivir"
+                          />
+                        </svg>
+                      </i>
+                      BONVIVIR
+                    </a>
+                  </li>
+                  <li
+                    class="flex"
+                  >
+                    <a
+                      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-base-default hover:text-base-light data-[active="true"]:text-base-dark data-[disabled="true"]:text-base-lighten uppercase text-label-sm font-regular min-w-max"
+                      data-active="false"
+                      data-disabled="false"
+                      data-event="e_linkclick"
+                      href="https://masmusica.lanacion.com.ar/"
+                      rel="noopener noreferrer nofollow"
+                      style="--ds-icon-size: 12px;"
+                      target="_blank"
+                      title="Ir a LN 104.9 + Música"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top"
+                        data-has-wrapper="false"
+                        role="presentation"
+                        style="width: 20px; height: 24px;"
+                      >
+                        <svg
+                          fill="currentColor"
+                        >
+                          <use
+                            href="/pf/resources/images/sprites/sprite-lanacion-default.svg#logo-lnradio"
+                          />
+                        </svg>
+                      </i>
+                      LN 104.9 + Música
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script
+          defer=""
+          id="script-pre-header-event"
+          src="/pf/resources/js/LN/preHeaderEventsScript.min.js"
+        />
+      </div>
       <header
         class="w-full flex justify-center items-center p-16 border-b border-thin border-muted"
       >

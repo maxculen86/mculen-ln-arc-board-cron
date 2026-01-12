@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon as CommonIcon } from '@ln/ds-common-icon';
 import { useAppContext } from 'fusion:context';
-import { generateIconPath } from './helpers';
+import generateIconPath from './helpers';
 
 /**
  * @typedef {import('@ln/ds-common-icon').IconProps} IconProps

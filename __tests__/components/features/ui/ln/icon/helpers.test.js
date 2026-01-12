@@ -1,4 +1,4 @@
-import { generateIconPath } from '../../../../../../components/features/ui/ln/icon/helpers';
+import generateIconPath from '../../../../../../components/features/ui/ln/icon/helpers';
 
 describe('generateIconPath Helper', () => {
     const mockDeployment = jest.fn(path => `https://cdn.test.com${path}`);

@@ -1,6 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import BaseLayout from '../../../../../../components/features/LN/common/baseLayout/default';
+import Context from 'fusion:context';
+
+Context.useAppContext = jest.fn(() => ({
+    deployment: arg => arg,
+    contextPath: '/pf'
+}));
 
 describe('components - features - LN - common - baseLayout', () => {
     describe('Render', () => {
