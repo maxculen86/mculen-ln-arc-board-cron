@@ -109,6 +109,7 @@
         "@ln/ds-common-image": "1.2.4",
         "@ln/ds-common-link": "1.2.4",
         "@ln/ds-common-mediascroller": "1.6.7",
+        "@ln/ds-common-preheader": "0.0.2",
         "@ln/ds-common-progress": "1.2.3",
         "@ln/ds-common-range": "1.2.4",
         "@ln/ds-common-scrollarea": "0.0.2",

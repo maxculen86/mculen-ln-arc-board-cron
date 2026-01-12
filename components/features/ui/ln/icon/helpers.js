@@ -6,12 +6,10 @@
  * @param {function(string): string} params.deployment
  * @returns {string}
  */
-export function generateIconPath({
-    type = 'default',
-    contextPath,
-    deployment
-}) {
+function generateIconPath({ type = 'default', contextPath, deployment }) {
     const fileName = `sprite-lanacion-${type}.svg`;
     const path = `${contextPath}/resources/images/sprites/${fileName}`;
     return deployment(path);
 }
+
+export default generateIconPath;

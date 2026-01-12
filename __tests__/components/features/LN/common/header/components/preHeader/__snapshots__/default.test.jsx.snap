@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - common - header - components - preHeader Snapshots should match snapshot with default structure 1`] = `
+<DocumentFragment>
+  <div
+    data-id="pre-header"
+    data-testid="static-component"
+  >
+    <div
+      class="hidden lg:flex"
+      data-testid="common-preheader"
+    >
+      <div
+        data-testid="weather-component"
+      >
+        Weather
+      </div>
+      <div
+        data-testid="brands-component"
+      >
+        Brands
+      </div>
+    </div>
+    <script
+      data-testid="preheader-events-script"
+      type="text/javascript"
+    />
+  </div>
+</DocumentFragment>
+`;
