@@ -11,7 +11,7 @@ export function generateIconPath({
     contextPath,
     deployment
 }) {
-    const fileName = `la-nacion-ar-sprite-${type}.svg`;
-    const path = `${contextPath}/resources/images/${fileName}`;
+    const fileName = `sprite-lanacion-${type}.svg`;
+    const path = `${contextPath}/resources/images/sprites/${fileName}`;
     return deployment(path);
 }

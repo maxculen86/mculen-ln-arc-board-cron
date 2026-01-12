@@ -34,14 +34,14 @@ function ScrollArea({
                     className="p-8 text-black-default"
                     {...arrowProps?.start}
                 >
-                    <Icon name="arrowLeft" size={16} />
+                    <Icon name="arrow-left" size={16} />
                 </Scrollarea.Arrow>
                 <Scrollarea.Arrow
                     direction="end"
                     className="p-8 text-black-default"
                     {...arrowProps?.end}
                 >
-                    <Icon name="arrowRight" size={16} />
+                    <Icon name="arrow-right" size={16} />
                 </Scrollarea.Arrow>
             </div>
             <Scrollarea.Gradient gradientColor="var(--color-white-default)" />

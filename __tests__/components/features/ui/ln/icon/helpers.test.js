@@ -17,10 +17,10 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                '/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
             expect(result).toBe(
-                'https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                'https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
 
@@ -32,10 +32,10 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/pf/resources/images/la-nacion-ar-sprite-color.svg'
+                '/pf/resources/images/sprites/sprite-lanacion-color.svg'
             );
             expect(result).toBe(
-                'https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg'
+                'https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-color.svg'
             );
         });
 
@@ -46,10 +46,10 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                '/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
             expect(result).toBe(
-                'https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                'https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
     });
@@ -65,7 +65,7 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/custom-context/resources/images/la-nacion-ar-sprite-default.svg'
+                '/custom-context/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
 
@@ -77,7 +77,7 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/resources/images/la-nacion-ar-sprite-default.svg'
+                '/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
     });
@@ -94,10 +94,10 @@ describe('generateIconPath Helper', () => {
 
             expect(mockDeploymentSpy).toHaveBeenCalledTimes(1);
             expect(mockDeploymentSpy).toHaveBeenCalledWith(
-                '/test/resources/images/la-nacion-ar-sprite-color.svg'
+                '/test/resources/images/sprites/sprite-lanacion-color.svg'
             );
             expect(result).toBe(
-                'processed-/test/resources/images/la-nacion-ar-sprite-color.svg'
+                'processed-/test/resources/images/sprites/sprite-lanacion-color.svg'
             );
         });
 
@@ -112,7 +112,7 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(result).toBe(
-                'https://custom-cdn.com/app/resources/images/la-nacion-ar-sprite-default.svg?v=123'
+                'https://custom-cdn.com/app/resources/images/sprites/sprite-lanacion-default.svg?v=123'
             );
         });
     });
@@ -128,7 +128,7 @@ describe('generateIconPath Helper', () => {
             });
 
             expect(mockDeployment).toHaveBeenCalledWith(
-                '/app-test_v2/resources/images/la-nacion-ar-sprite-default.svg'
+                '/app-test_v2/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
     });

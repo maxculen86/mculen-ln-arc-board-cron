@@ -36,7 +36,7 @@ describe('components - features - ui - ln - icon', () => {
 
             expect(icon).toHaveAttribute(
                 'data-path',
-                'https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                'https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
 
@@ -46,7 +46,7 @@ describe('components - features - ui - ln - icon', () => {
 
             expect(icon).toHaveAttribute(
                 'data-path',
-                'https://cdn.test.com/pf/resources/images/la-nacion-ar-sprite-color.svg'
+                'https://cdn.test.com/pf/resources/images/sprites/sprite-lanacion-color.svg'
             );
         });
 
@@ -70,7 +70,7 @@ describe('components - features - ui - ln - icon', () => {
             render(<Icon type="default" />);
 
             expect(mockAppContext.deployment).toHaveBeenCalledWith(
-                '/pf/resources/images/la-nacion-ar-sprite-default.svg'
+                '/pf/resources/images/sprites/sprite-lanacion-default.svg'
             );
         });
     });

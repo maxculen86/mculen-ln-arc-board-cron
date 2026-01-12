@@ -1,11 +1,12 @@
 import React from 'react';
-import { BaseLayout } from '../../../features/LN-10-global/common/baseLayout/default';
 
-function Opinion({ children }) {
+function Opinion({ children, ...props }) {
+    // TODO: construir template, dejamos esto a modo mock
     return (
-        <BaseLayout>
-            <main id="content">{children}</main>
-        </BaseLayout>
+        <div {...props}>
+            <h1 className="mb-24 text-56">probando H1</h1>
+            <div>{children}</div>
+        </div>
     );
 }
 

@@ -25,7 +25,7 @@ function MediaScroller({ children, className, ...props }) {
                 variant="outline"
                 className="bg-white-default"
             >
-                <Icon name="arrowLeft" size={16} />
+                <Icon name="arrow-left" size={16} />
             </CommonMediaScroller.Prev>
             <CommonMediaScroller.Next
                 isIconOnly
@@ -36,7 +36,7 @@ function MediaScroller({ children, className, ...props }) {
                 variant="outline"
                 className="bg-white-default"
             >
-                <Icon name="arrowRight" size={16} />
+                <Icon name="arrow-right" size={16} />
             </CommonMediaScroller.Next>
             <CommonMediaScroller.Progress className="rounded-[var(--radius-range)]" />
         </CommonMediaScroller>

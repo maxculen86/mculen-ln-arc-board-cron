@@ -96,8 +96,8 @@ describe('components - features - ui - ln - scrollArea - default', () => {
         expect(endArrow).toBeInTheDocument();
         expect(endArrow).toHaveClass('p-8 text-black-default');
 
-        const leftIcon = screen.getByTestId('icon-arrowLeft');
-        const rightIcon = screen.getByTestId('icon-arrowRight');
+        const leftIcon = screen.getByTestId('icon-arrow-left');
+        const rightIcon = screen.getByTestId('icon-arrow-right');
 
         expect(leftIcon).toBeInTheDocument();
         expect(leftIcon).toHaveAttribute('width', '16');
