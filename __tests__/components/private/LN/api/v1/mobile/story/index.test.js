@@ -96,7 +96,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.paywallStatus).toBe('premium');
         expect(resp.fechaActualizacion).toBe('24 de abril de 2020 • 08:35');
         expect(resp.fecha).toBe('24 de abril de 2020 • 08:35');
-        expect(resp.enviarApps).toBe(true);
+        expect(resp.enviarApps).toBe(false);
     });
 
     it('Contenido de nota es null', () => {

@@ -36,9 +36,8 @@ describe('LinkedSummaryCardSmall', () => {
                 variant="collapsed"
             />
         );
-        const card = screen.getByTestId('linked-card');
-        const coloredElement = card.querySelector('span');
-        expect(coloredElement).toHaveStyle('color: rgb(0, 0, 0)');
+        const cardNumber = screen.getByText('1');
+        expect(cardNumber).toHaveStyle('color: rgb(0, 0, 0)');
     });
 
     it('renders the provided content', () => {

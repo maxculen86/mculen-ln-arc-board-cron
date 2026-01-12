@@ -259,9 +259,10 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 container: 'content-media cursor-pointer',
                 mediaContainer:
                     'media-container relative w-100 mod-media pb-32',
-                videoContainer: 'mod-video flex flex-column ai-center bg-black',
+                videoContainer:
+                    'mod-video flex flex-column ai-center bg-neutral-light-50',
                 videoPlayer:
-                    'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 w-320',
+                    'video-player ratio-9-16 flex jc-center ai-center w-100 h-100 w-320',
                 facade: 'com-image',
                 facadeContainer: 'w-100 ratio-9-16',
                 captionClasses: 'w-100'
@@ -274,9 +275,10 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(result).toEqual({
                 container: 'content-media cursor-pointer',
                 mediaContainer: 'media-container relative w-100',
-                videoContainer: 'mod-video flex flex-column ai-center bg-black',
+                videoContainer:
+                    'mod-video flex flex-column ai-center bg-neutral-light-50',
                 videoPlayer:
-                    'video-player w-100 ratio-9-16 flex jc-center ai-center h-640 h-478_md h-652_lg',
+                    'video-player ratio-9-16 flex jc-center ai-center w-100 h-100 h-478_md h-652_lg',
                 facade: 'com-image',
                 facadeContainer: 'w-100 ratio-9-16',
                 captionClasses: 'w-100'

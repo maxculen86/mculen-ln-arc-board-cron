@@ -27,7 +27,7 @@ exports[`features - LaNacion - Acumulado - columnista should render columnist co
               >
                 <img
                   alt="Joaquín Morales Solá"
-                  class="image flex com-image --cover"
+                  class="image com-image flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   height="80"

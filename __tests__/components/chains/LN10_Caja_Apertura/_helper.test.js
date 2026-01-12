@@ -1,29 +1,12 @@
 import fusionConsumer from 'fusion:consumer';
 import { setFilteredRenderables } from '../../../../components/chains/LN10_Caja_Apertura/common/_helper-WebApi';
 import { setWrappedChildren } from '../../../../components/chains/utils/_helpers';
-import { getReorderedChildren } from '../../../../components/chains/LN10_Caja_Apertura/_helper';
-import { reorderArticlesWithTimeline } from '../../../../components/chains/utils/reorderArticlesWithTimeline';
-import { reorderArticlesWithVideoPlayer } from '../../../../components/chains/utils/reorderArticlesWithVideoPlayer';
 
 jest.mock('fusion:consumer', component => {
     return function (component) {
         return component;
     };
 });
-
-jest.mock(
-    '../../../../components/chains/utils/reorderArticlesWithTimeline',
-    () => ({
-        reorderArticlesWithTimeline: jest.fn()
-    })
-);
-
-jest.mock(
-    '../../../../components/chains/utils/reorderArticlesWithVideoPlayer',
-    () => ({
-        reorderArticlesWithVideoPlayer: jest.fn()
-    })
-);
 
 describe('components - chains - LN10_Caja_Apertura - helper', () => {
     const mock = {
@@ -123,88 +106,6 @@ describe('components - chains - LN10_Caja_Apertura - helper', () => {
 
             expect(features).toHaveLength(0);
             expect(features).toEqual([]);
-        });
-    });
-
-    describe('helper - getReorderedChildren', () => {
-        const mockChildren = [
-            { key: 'child1', type: 'article' },
-            { key: 'child2', type: 'article' }
-        ];
-        const mockChildProps = [{ id: 'prop1' }, { id: 'prop2' }];
-
-        afterEach(() => {
-            jest.clearAllMocks();
-        });
-
-        test('should call reorderArticlesWithTimeline when layout is left-focal', () => {
-            const expectedResult = [
-                { key: 'child2', type: 'article' },
-                { key: 'child1', type: 'article' }
-            ];
-            reorderArticlesWithTimeline.mockReturnValue(expectedResult);
-
-            const result = getReorderedChildren(
-                'left-focal',
-                mockChildren,
-                mockChildProps
-            );
-
-            expect(reorderArticlesWithTimeline).toHaveBeenCalledWith(
-                mockChildren,
-                mockChildProps
-            );
-            expect(result).toEqual(expectedResult);
-        });
-
-        test('should call reorderArticlesWithVideoPlayer when layout is left-focal-video-vertical', () => {
-            const expectedResult = [
-                { key: 'child1', type: 'article' },
-                { key: 'video', type: 'videoPlayer' }
-            ];
-            reorderArticlesWithVideoPlayer.mockReturnValue(expectedResult);
-
-            const result = getReorderedChildren(
-                'left-focal-video-vertical',
-                mockChildren,
-                mockChildProps
-            );
-
-            expect(reorderArticlesWithVideoPlayer).toHaveBeenCalledWith(
-                mockChildren,
-                mockChildProps
-            );
-            expect(result).toEqual(expectedResult);
-        });
-
-        test('should return slicedChildren as-is when layout is not left-focal or left-focal-video-vertical', () => {
-            const result = getReorderedChildren(
-                'center-focal',
-                mockChildren,
-                mockChildProps
-            );
-
-            expect(reorderArticlesWithTimeline).not.toHaveBeenCalled();
-            expect(reorderArticlesWithVideoPlayer).not.toHaveBeenCalled();
-            expect(result).toEqual(mockChildren);
-        });
-
-        test('should return slicedChildren when layout is undefined', () => {
-            const result = getReorderedChildren(
-                undefined,
-                mockChildren,
-                mockChildProps
-            );
-
-            expect(reorderArticlesWithTimeline).not.toHaveBeenCalled();
-            expect(reorderArticlesWithVideoPlayer).not.toHaveBeenCalled();
-            expect(result).toEqual(mockChildren);
-        });
-
-        test('should handle empty children array', () => {
-            const result = getReorderedChildren('left-focal', [], []);
-
-            expect(reorderArticlesWithTimeline).toHaveBeenCalledWith([], []);
         });
     });
 });

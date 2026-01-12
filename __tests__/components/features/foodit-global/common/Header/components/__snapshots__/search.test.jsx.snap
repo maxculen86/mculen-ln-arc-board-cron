@@ -6,10 +6,10 @@ exports[`Components - features - foodit-global - common - header - components - 
     class="foodit-search w-100 as-center"
   >
     <div
-      class="flex ai-center jc-between h-44 border border-all border-thin border-light-100 bg-light-1 rounded-4 pl-16"
+      class="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search"
     >
       <div
-        class="m-auto w-100"
+        class="m-auto w-100 relative"
       >
         <input
           class="text-light-600 text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide"
@@ -20,25 +20,23 @@ exports[`Components - features - foodit-global - common - header - components - 
         />
       </div>
       <div
-        class="flex border border-left border-thin border-light-100 h-100"
+        class="flex h-100 ai-center"
       >
-        <a
+        <button
           class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
           data-test-id="button-header-search"
           data-variant="link"
-          href="https://foodit-lanacion.com.ar/buscador/?query=%20"
-          target="_self"
-          title="Buscar"
+          title="audio"
         >
           <i
             class="icon --icon-24"
           >
             <mock-icon
-              critical="true"
-              name="search"
+              fill=""
+              name="audio"
             />
           </i>
-        </a>
+        </button>
       </div>
     </div>
   </div>

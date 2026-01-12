@@ -5,6 +5,7 @@ import {
     displayUnicBanner,
     hideBanner
 } from '../../../../private/LN/common/utils/bannerHelper';
+import get from '../../../../private/common/utils/get';
 
 function useHandlerBanner({ listVideoData, currentIndex, isMobile = false }) {
     const [isBannerViewed, setIsBannerViewed] = useState(false);
@@ -13,14 +14,14 @@ function useHandlerBanner({ listVideoData, currentIndex, isMobile = false }) {
         const nextPosition = isShowBack
             ? currentPosition - 1
             : currentPosition + 1;
-        const { isBanner = false } = listVideoData[nextPosition] || {};
+        const isBanner = get(listVideoData[nextPosition], 'isBanner', false);
         if (isBanner && !isBannerViewed && !isMobile) {
             setIsBannerViewed(true);
         }
     }
 
     useEffect(() => {
-        const { isBanner = false } = listVideoData[currentIndex] || {};
+        const isBanner = get(listVideoData[currentIndex], 'isBanner', false);
         if (isMobile && isBanner) {
             setIsBannerViewed(true);
         }
@@ -57,7 +58,7 @@ function useHandlerBanner({ listVideoData, currentIndex, isMobile = false }) {
 
         if (isBannerViewed && banner) {
             try {
-                const { opt_div: optDiv } = banner || {};
+                const optDiv = get(banner, 'opt_div');
                 displayUnicBanner({ ...banner, slotId: optDiv });
             } catch (error) {
                 console.error('Error al cargar el banner:', error);

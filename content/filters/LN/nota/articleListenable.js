@@ -328,6 +328,20 @@ const galleryEmbed = `
         }
         height
         width
+        id
+        poster
+        mp4
+        type
+    }
+    videoPosition
+`;
+
+const openingStorytelling = `
+subtype
+    embed {
+        config {
+            diagram
+        }   
     }
 `;
 
@@ -506,13 +520,18 @@ export default `
             caption
             alt_text
         }
+        custom_storytelling_opening {
+        ${openingStorytelling}
+        }
         glossary {          
             ${customGlossary}
         }
-        storytelling {
+       Storytelling {
             _id
-            ${video}
-            ${customVideoJw}
+            ${image}
+            auth {
+                1
+            }
         }
         storytelling_mobile {
             _id

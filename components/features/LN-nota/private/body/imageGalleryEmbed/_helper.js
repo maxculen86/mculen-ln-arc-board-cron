@@ -24,10 +24,15 @@ export const extractGalleryEmbedData = (element = {}) => {
     };
 };
 
-export const getAspectRatioClass = diagram =>
-    cx({
-        'aspect-[2/3]':
-            diagram === 'vertical-two' || diagram === 'vertical-three',
-        'aspect-[3/2]':
-            diagram !== 'vertical-two' && diagram !== 'vertical-three'
+export const getAspectRatioClass = diagram => {
+    const isVertical = [
+        'vertical-two',
+        'vertical-three',
+        'vertical-single-centered'
+    ].includes(diagram);
+
+    return cx({
+        'aspect-[2/3]': isVertical,
+        'aspect-[3/2]': !isVertical
     });
+};

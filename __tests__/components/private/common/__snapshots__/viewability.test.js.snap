@@ -57,7 +57,7 @@ exports[`Viewability Evento productClick del script viewability should test view
                     >
                       <img
                         alt="Prueba Newsletter de propiedades"
-                        class="image flex com-image --cover"
+                        class="image com-image flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"
@@ -117,7 +117,7 @@ exports[`Viewability Evento productClick del script viewability should test view
                     >
                       <img
                         alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
-                        class="image flex com-image --cover"
+                        class="image com-image flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"
@@ -177,7 +177,7 @@ exports[`Viewability Evento productClick del script viewability should test view
                     >
                       <img
                         alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
-                        class="image flex com-image --cover"
+                        class="image com-image flex --cover"
                         decoding="async"
                         fetchpriority="low"
                         height="513"

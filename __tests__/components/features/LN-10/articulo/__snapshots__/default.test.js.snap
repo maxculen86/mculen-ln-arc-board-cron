@@ -25,10 +25,11 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
         >
           <img
-            class="image flex w-100 h-100 none --cover"
+            class="image w-100 h-100 none --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
+            style="display: none;"
           />
         </figure>
       </section>

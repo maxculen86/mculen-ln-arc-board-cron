@@ -5,7 +5,10 @@ import ScriptManager, {
     ERRORS
 } from '../../../../../components/private/common/scriptManager';
 import renderables from '../../../../../__mocks__/data/renderables/data1';
-import { getScriptsToLoad } from '../../../../../components/private/LN/common/utils/scriptsHelper';
+import {
+    getScriptsToLoad,
+    shouldExcludeByLayout
+} from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
 describe('ScriptManager ...', () => {
     it('... es una function', () => {
@@ -230,5 +233,23 @@ describe('getScriptsToLoad', () => {
             'GoogleOneTap',
             'MetaRobots'
         ]);
+    });
+});
+
+describe('shouldExcludeByLayout', () => {
+    it('returns true if layout is included', () => {
+        expect(
+            shouldExcludeByLayout({ excludedLayouts: ['Error'] }, 'Error')
+        ).toBe(true);
+    });
+
+    it('returns false if excludedLayouts missing', () => {
+        expect(shouldExcludeByLayout({}, 'Error')).toBe(false);
+    });
+
+    it('returns false if layout not in list', () => {
+        expect(
+            shouldExcludeByLayout({ excludedLayouts: ['Error'] }, 'home')
+        ).toBe(false);
     });
 });

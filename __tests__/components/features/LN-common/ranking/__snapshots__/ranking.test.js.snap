@@ -45,7 +45,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               >
                 <img
                   alt="La medida que tomó una provincia contra los supermercados de Federico Braun"
-                  class="image flex absolute w-100 h-100 --cover"
+                  class="image absolute w-100 h-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -88,7 +88,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               >
                 <img
                   alt="Un mensaje que sacudió el ambiente y la reacción de Biden a las palabras de Fernández"
-                  class="image flex absolute w-100 h-100 --cover"
+                  class="image absolute w-100 h-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -131,7 +131,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               >
                 <img
                   alt="La respuesta de la ministra de Mujeres a la limitación del lenguaje inclusivo en las escuelas porteñas"
-                  class="image flex absolute w-100 h-100 --cover"
+                  class="image absolute w-100 h-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -174,7 +174,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               >
                 <img
                   alt="Carrió trató a Milei de "genocida" y el economista le contestó"
-                  class="image flex absolute w-100 h-100 --cover"
+                  class="image absolute w-100 h-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"

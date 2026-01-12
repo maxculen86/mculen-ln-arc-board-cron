@@ -15,6 +15,7 @@ const config = {
         'LN-nota-receta': NotaDataLayer,
         'LN-nota-noticia': NotaDataLayer,
         'LN-nota-storytelling': NotaDataLayer,
+        'LN-nota-storytelling-v2': NotaDataLayer,
         'LN-nota-infografia': NotaDataLayer,
         'LN-nota-html-libre': NotaDataLayer,
         'LN-nota-foto-al-100': NotaDataLayer,

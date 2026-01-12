@@ -69,12 +69,14 @@ export const renderElement = (
     globalContent,
     elements,
     counter,
-    createComponentProps
+    createComponentProps,
+    bodyComponents
 ) => {
     const { nodeType, Component } = processElement(
         element,
         outputType,
-        subtype
+        subtype,
+        bodyComponents
     );
 
     if (!Component) return null;
@@ -86,7 +88,6 @@ export const renderElement = (
         currentIndex,
         outputType,
         {
-            useCapitalIndex: elementProps.capitalIndex !== undefined,
             capitalIndex: elementProps.capitalIndex,
             processElementProps: true
         }

@@ -1,5 +1,4 @@
 import React, { createContext } from 'react';
-import PropTypes from 'prop-types';
 import useFilterManager from '../hooks/useFilterManager';
 import get from '../../../private/common/utils/get';
 import EmptyState from '../../../features/foodit-global/common/emptyState/foodit';
@@ -25,7 +24,3 @@ export default function QuerylyContext({ children }) {
         </SearchContext.Provider>
     );
 }
-
-QuerylyContext.propTypes = {
-    children: PropTypes.node.isRequired
-};

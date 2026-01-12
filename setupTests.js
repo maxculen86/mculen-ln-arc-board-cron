@@ -4,7 +4,7 @@ jest.mock(
 );
 
 jest.mock(
-    './components/features/ui-ln/icon/default.jsx',
+    './components/features/ui/ln/icon/default.jsx',
     () => 'mock-ds-common-icon'
 );
 

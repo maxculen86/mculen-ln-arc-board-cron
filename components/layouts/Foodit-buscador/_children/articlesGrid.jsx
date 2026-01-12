@@ -16,6 +16,7 @@ import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/c
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import DrawerBuscador from './drawerBuscador';
 import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { trackResultClick } from '../hooks/useFetchSearchResults';
 
 export default function ArticlesGrid() {
     const {
@@ -177,7 +178,12 @@ export default function ArticlesGrid() {
                             alt={title}
                             title={title}
                             sources={[]}
-                            linksProps={{ href: link, title }}
+                            linksProps={{
+                                href: link,
+                                title,
+                                onClick: () =>
+                                    trackResultClick({ query, target: link })
+                            }}
                             variant={getVariantBySubtype(subtype)}
                         />
                     )

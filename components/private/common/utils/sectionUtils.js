@@ -125,6 +125,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const { logoName, path, isExternal } = getLogoData(sections);
     const color = !(
         layout === layoutsName.StoryTelling ||
+        layout === layoutsName.StoryTellingV2 ||
         layout === layoutsName.FotoAl100 ||
         (layout === layoutsName.Video && logoName === 'futuria')
     );

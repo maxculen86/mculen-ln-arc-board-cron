@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import TableHeader from './components/header';
 import TableRow from './components/row';
@@ -47,35 +46,5 @@ function TableV2({ data = {}, classnames = {} }) {
 }
 
 TableV2.arcType = 'table';
-TableV2.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        header: PropTypes.arrayOf(
-            PropTypes.shape({
-                content: PropTypes.string,
-                type: PropTypes.string
-            })
-        ),
-        rows: PropTypes.arrayOf(
-            PropTypes.arrayOf(
-                PropTypes.shape({
-                    content: PropTypes.string,
-                    type: PropTypes.string
-                })
-            )
-        ).isRequired
-    }).isRequired,
-    classnames: PropTypes.shape({
-        container: PropTypes.string,
-        header: PropTypes.string,
-        headerCell: PropTypes.string,
-        body: PropTypes.string,
-        bodyCell: PropTypes.string
-    })
-};
-
-TableV2.defaultProps = {
-    classnames: {}
-};
 
 export default TableV2;

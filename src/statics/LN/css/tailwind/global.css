@@ -12,6 +12,6 @@
 @source '../../../../../components/layouts/LN*/**/*.{js,jsx,ts,tsx}';
 
 @source '../../../../../components/features/LN*/**/*.{js,jsx,ts,tsx}';
-@source '../../../../../components/features/ui-ln/**/default.{js,jsx,ts,tsx}';
+@source '../../../../../components/features/ui/ln/**/default.{js,jsx,ts,tsx}';
 
 @source '../../../../../components/chains/LN*/**/*.{js,jsx,ts,tsx}';

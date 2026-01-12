@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
-import LinkedCardHeader from './LinkedCardHeader';
 import LinkedCardButton from './LinkedCardButton';
 import LinkedCardContainer from './LinkedCardContainer';
 import { cardVariant } from '../styles';
@@ -23,15 +21,8 @@ function LinkedCard({ children, variant, cardColor, className }) {
         </LinkedCardProvider>
     );
 }
-LinkedCard.propTypes = {
-    children: PropTypes.node.isRequired,
-    variant: PropTypes.string.isRequired,
-    cardColor: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired
-};
 
 LinkedCard.Container = LinkedCardContainer;
-LinkedCard.Header = LinkedCardHeader;
 LinkedCard.Heading = LinkedCardHeading;
 LinkedCard.Description = LinkedCardDescription;
 LinkedCard.Button = LinkedCardButton;

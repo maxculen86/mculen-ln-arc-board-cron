@@ -24,7 +24,7 @@ exports[`components - private - LN - nota - cuerpo Matches snapshot 1`] = `
               >
                 <img
                   alt="Epigrafe"
-                  class="image flex com-image --cover"
+                  class="image com-image flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   height="230"
@@ -73,7 +73,7 @@ exports[`components - private - LN - nota - cuerpo Matches snapshot 1`] = `
             >
               <img
                 alt="Epigrafe"
-                class="image flex com-image --cover"
+                class="image com-image flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 height="230"

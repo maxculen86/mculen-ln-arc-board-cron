@@ -187,6 +187,10 @@ const diagramationRules = diagramation => {
             setArticleSettings(standardCardDefaults, {
                 titleTag: tag.h2,
                 subheadTag: tag.h3
+            }),
+            setArticleSettings(standardCardDefaults, {
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             })
         ],
         'center-focal': [

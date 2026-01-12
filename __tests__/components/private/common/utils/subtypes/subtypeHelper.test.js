@@ -72,6 +72,16 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
             ).toStrictEqual(subtypeInfografia);
         });
 
+        it("Should return '3' when the subtype arrives with the value 'Opinion' or '3'", () => {
+            const subtypeOpinion = '3';
+            expect(translateStringFromSubitypeToID('Opinion')).toStrictEqual(
+                subtypeOpinion
+            );
+            expect(
+                translateStringFromSubitypeToID(subtypeOpinion)
+            ).toStrictEqual(subtypeOpinion);
+        });
+
         it("Should return '5' when the subtype arrives with the value 'Video' or '5'", () => {
             const subtypeVideo = '5';
             expect(translateStringFromSubitypeToID('Video')).toStrictEqual(

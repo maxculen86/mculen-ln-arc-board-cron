@@ -11,7 +11,6 @@ import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
-import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import featureArticleCustomsFields, {
     getImage
 } from '../../../private/LN/common/utils/articuloHelper';
@@ -24,7 +23,7 @@ import useTermica from '../../../private/common/hooks/useTermica';
 function ArticleFeature({
     id: featureId,
     customFields,
-    customFields: { noteId: id, imageId, video: videoId, mobileImageId },
+    customFields: { noteId: id, imageId, mobileImageId },
     isBomba = false
 }) {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
@@ -58,20 +57,6 @@ function ArticleFeature({
 
     const isEager = isImageEager(id, renderables);
 
-    const videoBackground =
-        useContent({
-            source: checkForId(videoId) ? 'videoSource' : null,
-            staticMode: isSSR(),
-            query: {
-                id: checkForId(videoId),
-                website: 'la-nacion-ar',
-                imageConfig,
-                isInApertura: false,
-                isAdmin
-            },
-            filter: filterVideo
-        }) || null;
-
     const image = getImage({
         imageId,
         imageConfig,
@@ -94,10 +79,10 @@ function ArticleFeature({
         id,
         article,
         image,
-        videoBackground,
+        null,
         layout,
         imageId,
-        videoId,
+        null,
         mobileImage,
         mobileImageId
     );
@@ -135,7 +120,7 @@ function ArticleFeature({
                     boxPosition={boxPosition}
                     layout={layout}
                     isAdmin={isAdmin}
-                    videoBackground={videoBackground}
+                    videoBackground={null}
                     isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
@@ -158,7 +143,6 @@ ArticleFeature.propTypes = {
         ...(featureArticleCustomsFields('articuloGeneral') || {}),
         noteId: PropTypes.string,
         imageId: PropTypes.string,
-        video: PropTypes.string,
         mobileImageId: PropTypes.string
     }),
     searchableField: PropTypes.shape({

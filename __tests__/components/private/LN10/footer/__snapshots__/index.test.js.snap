@@ -19,7 +19,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       >
         <img
           alt="App store"
-          class="image flex w-100 --cover"
+          class="image w-100 flex --cover"
           decoding="async"
           fetchpriority="low"
           loading="lazy"
@@ -682,7 +682,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               >
                 <img
                   alt="App store"
-                  class="image flex w-100 --cover"
+                  class="image w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -705,7 +705,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               >
                 <img
                   alt="App store"
-                  class="image flex w-100 --cover"
+                  class="image w-100 flex --cover"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -741,7 +741,8 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
           <b
             class="--font-bold"
           >
-            Protegido por reCAPTCHA: 
+            Protegido por reCAPTCHA:
+             
           </b>
           <span
             class="--inline-block"
@@ -783,7 +784,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <img
                 alt="App store"
-                class="image flex w-100 --cover"
+                class="image w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
@@ -808,7 +809,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <img
                 alt="App store"
-                class="image flex w-100 --cover"
+                class="image w-100 flex --cover"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"

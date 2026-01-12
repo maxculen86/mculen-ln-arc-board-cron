@@ -4,6 +4,36 @@ import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/ds-cva';
 import ImageGrid from './ImageGrid';
 
+const renderGalleryMediaItem = (element, { caption, aspectRatio }) => {
+    const isVideo = element?.type === 'video';
+
+    if (isVideo) {
+        return (
+            <video
+                src={element?.mp4}
+                poster={element?.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className={cx(
+                    'w-full h-full object-contain bg-neutral-light-50',
+                    aspectRatio
+                )}
+            />
+        );
+    }
+
+    return (
+        <ImageGrid
+            key={element.url}
+            image={element}
+            alt={caption}
+            aspectRatio={aspectRatio}
+        />
+    );
+};
+
 function ImageGallery({
     galleryImages,
     caption,
@@ -23,14 +53,12 @@ function ImageGallery({
             <div className={embedItemClass}>
                 <div data-tw>
                     <div className={gridClass}>
-                        {galleryImages.map(image => (
-                            <ImageGrid
-                                key={image.url}
-                                image={image}
-                                alt={caption}
-                                aspectRatio={aspectRatio}
-                            />
-                        ))}
+                        {galleryImages.map(element =>
+                            renderGalleryMediaItem(element, {
+                                caption,
+                                aspectRatio
+                            })
+                        )}
                     </div>
                 </div>
                 <div className="px-16 py-8 text-center_m">
@@ -48,14 +76,23 @@ function ImageGallery({
 
 export default ImageGallery;
 
+const imageShape = PropTypes.shape({
+    url: PropTypes.string,
+    height: PropTypes.number,
+    width: PropTypes.number,
+    resized_urls: PropTypes.array
+});
+
+const videoShape = PropTypes.shape({
+    type: PropTypes.oneOf(['video']).isRequired,
+    id: PropTypes.string,
+    mp4: PropTypes.string.isRequired,
+    poster: PropTypes.string
+});
+
 ImageGallery.propTypes = {
     galleryImages: PropTypes.arrayOf(
-        PropTypes.shape({
-            url: PropTypes.string,
-            height: PropTypes.number,
-            width: PropTypes.number,
-            resized_urls: PropTypes.array
-        })
+        PropTypes.oneOfType([imageShape, videoShape])
     ).isRequired,
     caption: PropTypes.string.isRequired,
     gridClass: PropTypes.string.isRequired,

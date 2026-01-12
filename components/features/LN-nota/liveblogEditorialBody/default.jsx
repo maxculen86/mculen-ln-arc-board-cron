@@ -12,10 +12,8 @@ import {
 } from '../../../layouts/helpers/groupingUtils';
 import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components/body/LiveBlogBody';
 import BuildBody from '../body/_children/_buildBody';
-import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
-import useScrollDispatcher, {
-    registerScrollTrigger
-} from '../../LN-common/hooks/useScrollDispatcher';
+import BaseBodyWrapper from '../body/_children/BaseBodyWrapper';
+import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
 
 function BodyLiveblogEditorial() {
     const { globalContent, outputType, _id } = useAppContext();
@@ -29,19 +27,6 @@ function BodyLiveblogEditorial() {
         groupByMarkers(contentElements, 'custom-liveblog', 'liveblog')
     );
 
-    useLazyEmbeds({
-        contentElements,
-        outputType,
-        bodyOrigin: 'Body Liveblog Editorial',
-        noteId: _id,
-        selector: 'body-liveblog-editorial'
-    });
-
-    useScrollDispatcher({
-        startSelector: 'h1', // titulo
-        endSelector: '#fin-de-nota'
-    });
-
     useEffect(() => {
         const hashWidthId = window.location.hash;
         const id = hashWidthId.slice(1);
@@ -53,7 +38,9 @@ function BodyLiveblogEditorial() {
                 block: 'center'
             });
         }
+    }, []);
 
+    const registerScrollTracking = () => {
         registerScrollTrigger({
             id: 'scroll-body-GA',
             type: 'percentage',
@@ -69,50 +56,62 @@ function BodyLiveblogEditorial() {
                 }
             }
         });
-    }, []);
+    };
 
     return (
-        <>
-            <LiveBlogBody.Pre>
-                <BuildBody
-                    groupedElements={preLiveblog}
-                    outputType={outputType}
-                    globalContent={globalContent}
-                    supportedTypesOverride={supportedTypesLiveblog}
-                    useCapitalIndex={false}
-                    useBanners={false}
-                    useCounter={false}
-                />
-            </LiveBlogBody.Pre>
-            <LiveBlogBody.Posts>
-                {posts.map((grupo, index) => {
-                    const showTopDivider = shouldShowTopDivider(index, posts);
-                    const showBottomDivider = !grupo.isPinned;
-                    const postData = getPostRenderData(grupo);
-                    const { visibleItems } = postData;
-                    return (
-                        <Fragment key={grupo?.id}>
-                            {showTopDivider && <LiveBlogBody.Divider />}
+        <BaseBodyWrapper
+            contentElements={contentElements}
+            outputType={outputType}
+            noteId={_id}
+            selector="body-liveblog-editorial"
+            bodyOrigin="Body Liveblog Editorial"
+            onRegisterScrollTrigger={registerScrollTracking}
+        >
+            <>
+                <LiveBlogBody.Pre>
+                    <BuildBody
+                        groupedElements={preLiveblog}
+                        outputType={outputType}
+                        globalContent={globalContent}
+                        supportedTypesOverride={supportedTypesLiveblog}
+                        useCapitalIndex={false}
+                        useBanners={false}
+                        useCounter={false}
+                    />
+                </LiveBlogBody.Pre>
+                <LiveBlogBody.Posts>
+                    {posts.map((grupo, index) => {
+                        const showTopDivider = shouldShowTopDivider(
+                            index,
+                            posts
+                        );
+                        const showBottomDivider = !grupo.isPinned;
+                        const postData = getPostRenderData(grupo);
+                        const { visibleItems } = postData;
+                        return (
+                            <Fragment key={grupo?.id}>
+                                {showTopDivider && <LiveBlogBody.Divider />}
 
-                            <LiveBlogBody.Post {...postData}>
-                                <BuildBody
-                                    groupedElements={visibleItems}
-                                    outputType={outputType}
-                                    globalContent={globalContent}
-                                    supportedTypesOverride={
-                                        supportedTypesLiveblog
-                                    }
-                                    useCapitalIndex={false}
-                                    useBanners={false}
-                                    useCounter={false}
-                                />
-                            </LiveBlogBody.Post>
-                            {showBottomDivider && <LiveBlogBody.Divider />}
-                        </Fragment>
-                    );
-                })}
-            </LiveBlogBody.Posts>
-        </>
+                                <LiveBlogBody.Post {...postData}>
+                                    <BuildBody
+                                        groupedElements={visibleItems}
+                                        outputType={outputType}
+                                        globalContent={globalContent}
+                                        supportedTypesOverride={
+                                            supportedTypesLiveblog
+                                        }
+                                        useCapitalIndex={false}
+                                        useBanners={false}
+                                        useCounter={false}
+                                    />
+                                </LiveBlogBody.Post>
+                                {showBottomDivider && <LiveBlogBody.Divider />}
+                            </Fragment>
+                        );
+                    })}
+                </LiveBlogBody.Posts>
+            </>
+        </BaseBodyWrapper>
     );
 }
 
