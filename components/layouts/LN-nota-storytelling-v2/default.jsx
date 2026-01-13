@@ -1,12 +1,13 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import Opening from './components/opening';
 
-function lnNotaStorytellingV2({ children }) {
+function lnNotaStorytellingV2({ children, globalContent }) {
     return (
         <div>
             <div>
-                {/* Apertura */}
                 {children[0]}
+                <Opening globalContent={globalContent} />
             </div>
             <div>
                 {/* Cuerpo */}
