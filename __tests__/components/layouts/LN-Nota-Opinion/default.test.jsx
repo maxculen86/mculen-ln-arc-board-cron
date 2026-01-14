@@ -76,7 +76,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../components/layouts/LN-Nota-Opinion/components/opinion.jsx',
+    '../../../../components/layouts/LN-Nota-Opinion/components/Opinion.jsx',
     () => ({
         __esModule: true,
         default: ({ children }) => <div data-testid="opinion">{children}</div>
@@ -143,8 +143,6 @@ describe('LnNotaOpinion', () => {
 
     it('exposes correct pageBuilder sections', () => {
         expect(LnNotaOpinion.sections).toEqual([
-            'Pre-Título',
-            'Título',
             'Apertura',
             'Cuerpo',
             'Bottom',
