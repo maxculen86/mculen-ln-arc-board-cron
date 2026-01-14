@@ -107,3 +107,22 @@ export const processUriParams = (requestUri, siteUrl = '') => {
         }
     };
 };
+
+export const ejesMapping = {
+    'aprende-en-la-cocina': {
+        title: 'Aprendé en la cocina',
+        contentType: 'aprende_en_la_cocina'
+    },
+    'cocina-facil-y-rapido': {
+        title: 'Cociná fácil y rápido',
+        contentType: 'cocina_facil_y_rapido'
+    },
+    'cocina-a-tu-medida': {
+        title: 'Cociná a tu medida',
+        contentType: 'cocina_a_tu_medida'
+    },
+    recetas: {
+        title: 'Todas las recetas',
+        contentType: 'recetas'
+    }
+};
