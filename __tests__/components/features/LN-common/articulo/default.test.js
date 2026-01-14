@@ -7,8 +7,6 @@ jest.mock(
     () => 'mock-component'
 );
 
-//TODO: Take a mock and test the component well along with its functionalities
-
 describe('Feature - LN-Common - articulo - <ArticleFeature />', () => {
     it('Should render the component with the props', () => {
         const noteId = 'TXQ62BPYN5AEFKLPRNM66WS63I';
