@@ -1,16 +1,5 @@
-/**
- * Global mock for a fusion:consumer when running
- * unit tests of anything using a consumer HOC.
- *
- * In order to use this mock you must do
- * `import Consumer from 'fusion:consumer';`
- * at the top of your unit test file, this will
- * trigger jest to mock the Consumer import below
- * */
-
-//TODO: ESTE MOCK NO FUNCIONA CUANDO SON COMPONENTES FUNCIONALES, REVISARLO
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         class element extends component {
             constructor(props) {
                 super(props);
@@ -27,7 +16,9 @@ jest.mock('fusion:consumer', component => {
                 switch (sourceName) {
                     case 'rankingArticlesSource':
                     case 'acuArticlesSource':
-                        return require(`./data/articleCollections/${query.sectionId}`);
+                        return require(
+                            `./data/articleCollections/${query.sectionId}`
+                        );
                     case 'articleSource':
                         return require(`./data/articles/${query.id}`);
                         break;

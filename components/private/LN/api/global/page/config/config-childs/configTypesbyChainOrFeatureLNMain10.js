@@ -54,7 +54,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-acumulado/anexoIframe',
             'ln-10/timeline'
         ],
-        10: ['LN10_Caja_Carrusel'],
+        10: ['LN10_Caja_Carrusel', 'LN10_Caja_Carrusel_Horizontal'],
         11: ['foodit'],
         12: ['LN10_Caja_Segmentada']
     };

@@ -18,7 +18,6 @@ const googleTagProductPremiumId = isSuscriptor ? googleTagUserCookie : '0';
 
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(() => {
-    // initialize
     googletag.pubads().disableInitialLoad();
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
@@ -36,6 +35,4 @@ googletag.cmd.push(() => {
     googletag
         .pubads()
         .setTargeting('ProductoPremiumId', googleTagProductPremiumId);
-
-    // googletag.pubads().set('page_url', newTags[3]);
 });

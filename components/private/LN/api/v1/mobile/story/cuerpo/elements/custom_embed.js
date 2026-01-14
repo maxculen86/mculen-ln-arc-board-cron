@@ -74,16 +74,11 @@ const customEmbed = (nodo, dataNota) => {
         selected.forEach((img, index) => {
             const mapped = {
                 _t: 'image',
-                url: img.url,
+                url: img.url
             };
 
-            if (caption) {
-                if (total === 1) {
-                    mapped.epigraph = caption;
-                }
-                else if (index === total - 1) {
-                    mapped.epigraph = caption;
-                }
+            if (caption && (total === 1 || index === total - 1)) {
+                mapped.epigraph = caption;
             }
 
             res.push(mapped);
@@ -91,8 +86,6 @@ const customEmbed = (nodo, dataNota) => {
 
         return res;
     }
-
-
 
     if (title) {
         const objTitle = {

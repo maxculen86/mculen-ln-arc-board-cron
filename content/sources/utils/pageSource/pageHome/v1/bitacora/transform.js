@@ -108,10 +108,16 @@ const normalizeCarousel = elem => ({
     }))
 });
 
+const CAROUSEL_ALIASES = [
+    'ln10_caja_carrusel',
+    'ln10_caja_carrusel_horizontal'
+];
+
 const normalizeElement = elem => {
-    const isCarousel = elem.sectionAliasMobile === 'ln10_caja_carrusel';
+    const isCarousel = CAROUSEL_ALIASES.includes(elem.sectionAliasMobile);
     return isCarousel ? normalizeCarousel(elem) : elem;
 };
+
 
 const createNotasArray = (elem, boxType) => {
     const notasArray = [];
@@ -253,10 +259,15 @@ const transform = async (dataPage, query) => {
             const acceptedTypes = [0, 7, 10, 11, 12];
             if (!acceptedTypes.includes(elem.type)) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
-            const boxType =
-                elem.sectionAliasMobile === 'ln10_caja_carrusel'
-                    ? BoxType.Videos
-                    : BoxType.Notas;
+
+            const VIDEO_BOX_ALIASES = [
+                'ln10_caja_carrusel',
+                'ln10_caja_carrusel_horizontal'
+            ];
+
+            const boxType = VIDEO_BOX_ALIASES.includes(elem.sectionAliasMobile)
+                ? BoxType.Videos
+                : BoxType.Notas;
             cajaCount = createBoxAndNotas(
                 normalizeElement(elem),
                 cajaCount,

@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { Icon } from '@ln/common-ui-icon';
+import { cx } from '@ln/ds-cva';
 import { cellVariants } from '../styles';
 import stripHtml from '../../../../private/common/utils/stripHtml';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 function TableRow({ row = [], rowIndex, headerLength }) {
     return (
@@ -23,31 +25,31 @@ function TableRow({ row = [], rowIndex, headerLength }) {
                     aria-label={stripHtml({ html: column.content }) || 'Fila'}
                 >
                     <div
-                        // eslint-disable-next-line react/no-danger
-                        dangerouslySetInnerHTML={{
-                            __html: column.content
-                        }}
-                    />
+                        className={cx(
+                            Boolean(column.iconSprite) &&
+                                'flex ai-center jc-center'
+                        )}
+                        style={column.color && { color: column.color }}
+                    >
+                        {column.iconSprite && (
+                            <Icon size={column.iconSize || 20}>
+                                <IconSprite
+                                    name={column.iconSprite}
+                                    fill={column.iconFill || 'currentColor'}
+                                />
+                            </Icon>
+                        )}
+                        <div
+                            // eslint-disable-next-line react/no-danger
+                            dangerouslySetInnerHTML={{
+                                __html: column.content
+                            }}
+                        />
+                    </div>
                 </td>
             ))}
         </tr>
     );
 }
-
-TableRow.propTypes = {
-    row: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            content: PropTypes.string,
-            type: PropTypes.string
-        })
-    ),
-    rowIndex: PropTypes.number.isRequired,
-    headerLength: PropTypes.number.isRequired
-};
-
-TableRow.defaultProps = {
-    row: []
-};
 
 export default TableRow;

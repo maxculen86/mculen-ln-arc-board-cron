@@ -174,11 +174,9 @@ function Default(props) {
                     globalContent={globalContent}
                 />
                 <CssLinksLn10
-                    deployment={deployment}
                     CssLinks={CssLinks}
-                    isLN10={layoutsName.HomeLN10 === layout}
-                    arcSite={arcSite}
-                    contextPath={contextPath}
+                    globalContent={globalContent}
+                    layout={layout}
                 />
                 <Libs />
                 <TagsLoadingList

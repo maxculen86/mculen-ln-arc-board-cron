@@ -6,6 +6,7 @@ export const layoutsListWithPageview = [
     'LN-nota-receta',
     'LN-nota-noticia',
     'LN-nota-storytelling',
+    'LN-nota-storytelling-v2',
     'LN-nota-infografia',
     'LN-nota-html-libre',
     'LN-nota-foto-al-100',

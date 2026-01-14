@@ -128,6 +128,17 @@ describe('API elements distributor tests', () => {
             expect(distributor).toBeUndefined();
         });
 
+        it('returns undefined if distributor name is lanacionar', () => {
+            const article = {
+                distributor: {
+                    name: 'lanacionar'
+                }
+            };
+
+            const distributor = getDistributor(article);
+
+            expect(distributor).toBeUndefined();
+        });
 
         it('returns undefined if category is other and author is not guest and not is for home', () => {
             const article = {

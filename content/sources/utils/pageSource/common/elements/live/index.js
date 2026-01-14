@@ -59,9 +59,7 @@ export const setLiveByConfig = async (elementsPage, layoutPage) => {
             liveConfig.element.sectionAliasMobile
         );
 
-        if (firstIndexBottom !== -1) {
-            filteredArray.splice(lastIndexUpper, 0, ...enVivoItems);
-        } else if (lastIndexUpper !== -1) {
+        if (firstIndexBottom !== -1 || lastIndexUpper !== -1) {
             filteredArray.splice(lastIndexUpper, 0, ...enVivoItems);
         }
 

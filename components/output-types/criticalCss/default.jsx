@@ -6,8 +6,17 @@ import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 import config from '../../../properties/sites/la-nacion-ar';
 
 const {
-    layoutsName: { Acumulado, Deportes, HomeLN10, LiveBlog, FotoAl100, Cards }
+    layoutsName: {
+        Acumulado,
+        Deportes,
+        HomeLN10,
+        LiveBlog,
+        FotoAl100,
+        Cards,
+        NotaOpinion
+    }
 } = config;
+
 export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
         return null;
@@ -22,7 +31,8 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         { pageLayout: HomeLN10 },
         { pageLayout: LiveBlog },
         { pageLayout: FotoAl100 },
-        { pageLayout: Cards }
+        { pageLayout: Cards },
+        { pageLayout: NotaOpinion }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

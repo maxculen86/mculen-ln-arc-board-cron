@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
@@ -36,9 +35,12 @@ function Parallax({ data = {} }) {
         subtype
     });
 
-    const imageUrl = imagesResized[imagesResized.length - 1].resizedUrl || url;
+    if (!imageId || !imagesResized || (!title && !paragraph)) return null;
 
-    if (!imageId || (!title && !paragraph)) return null;
+    const imageUrl =
+        (Array.isArray(imagesResized) &&
+            imagesResized[imagesResized.length - 1]?.resizedUrl) ||
+        url;
 
     return (
         <div className="container-parallax">
@@ -80,35 +82,5 @@ function Parallax({ data = {} }) {
     );
 }
 Parallax.arcType = 'custom-parallax';
-Parallax.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        subtype: PropTypes.string.isRequired,
-        embed: PropTypes.shape({
-            config: PropTypes.shape({
-                imageId: PropTypes.shape({
-                    id: PropTypes.string,
-                    url: PropTypes.string,
-                    width: PropTypes.number,
-                    height: PropTypes.number,
-                    focalPoint: PropTypes.arrayOf(PropTypes.number),
-                    caption: PropTypes.string,
-                    resized_urls: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            resizedUrl: PropTypes.string,
-                            option: PropTypes.shape({
-                                width: PropTypes.number,
-                                height: PropTypes.number
-                            })
-                        })
-                    )
-                }).isRequired,
-                title: PropTypes.string,
-                paragraph: PropTypes.string
-            }).isRequired
-        }).isRequired
-    }).isRequired
-};
 
 export default Parallax;

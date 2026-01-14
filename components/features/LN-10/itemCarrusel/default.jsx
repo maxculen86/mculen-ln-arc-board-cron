@@ -20,7 +20,8 @@ function itemCarrusel({
     id: featureId,
     customFields: { video: videoId, title, chapita },
     renderables,
-    layout
+    layout,
+    variant = ''
 }) {
     const { layoutsName = {} } = siteConfig || {};
 
@@ -77,6 +78,24 @@ function itemCarrusel({
                     message={error.message}
                 />
             </article>
+        );
+    }
+
+    if (variant === 'horizontal') {
+        return (
+            <CardVerticalContainer
+                data-feature-id={featureId}
+                title={title}
+                titleJwPlayer={videoData?.title}
+                badgeText={chapita}
+                poster={videoData?.poster}
+                src={videoData?.posterVideo}
+                duration={videoData?.duration}
+                cardPosition={cardPosition}
+                videoId={sanitizedVideoId}
+                layoutType={getLayoutType(layout)}
+                {...extraOpts}
+            />
         );
     }
 

@@ -57,18 +57,7 @@ jest.mock(
         };
     }
 );
-/* jest.mock(
-    '../../../../components/private/LN/api/global/components/chains/LN10/getCajaManual',
-    () => {
-        return {
-            __esModule: true,
-            default: (props, typeChain) => {
-                return {};
-            }
-        };
-    }
-);
- */
+
 describe('components - chains - LN10_Caja_Manual - json', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -119,7 +108,6 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         customFields.imageId = 'AAAAAABBBBBB';
         props.customFields = customFields;
 
-        // Mock fetchContent in exteded class
         const getCajaManual = Object.getPrototypeOf(LN10CajaManual.prototype);
         getCajaManual.fetchContent = jest.fn();
         const cajaManual = LN10CajaManual;
@@ -231,7 +219,6 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         customFields.chainStyle = 'red';
         props.customFields = customFields;
 
-        // Mock fetchContent in exteded class
         const getCajaManual = Object.getPrototypeOf(LN10CajaManual.prototype);
         getCajaManual.fetchContent = jest.fn();
         const cajaManual = LN10CajaManual;
@@ -285,7 +272,6 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
             }
         ];
 
-        // Mock fetchContent in exteded class
         const getCajaManual = Object.getPrototypeOf(LN10CajaManual.prototype);
         getCajaManual.fetchContent = jest.fn();
         const cajaManual = LN10CajaManual;

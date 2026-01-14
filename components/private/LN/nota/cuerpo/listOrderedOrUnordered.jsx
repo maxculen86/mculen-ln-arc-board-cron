@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import hasRenderableItems from '../../../../features/LN/common/list/utils/hasRenderableItems';
 
 function ListOrderedOrUnordered({ data }) {
     const [classList] = useState(
@@ -21,7 +21,8 @@ function ListOrderedOrUnordered({ data }) {
         );
     };
 
-    if (!data.items.some(e => e.type === 'text')) {
+    if (!hasRenderableItems(data?.items)) {
+        // Disabled because static rendering does not support null handling
         // eslint-disable-next-line react/jsx-no-useless-fragment
         return <></>;
     }
@@ -49,13 +50,5 @@ function ListOrderedOrUnordered({ data }) {
 
 ListOrderedOrUnordered.arcType = 'list';
 ListOrderedOrUnordered.isStatic = true;
-
-ListOrderedOrUnordered.propTypes = {
-    data: PropTypes.shape({
-        list_type: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf.isRequired,
-        type: PropTypes.string.isRequired
-    }).isRequired
-};
 
 export default ListOrderedOrUnordered;

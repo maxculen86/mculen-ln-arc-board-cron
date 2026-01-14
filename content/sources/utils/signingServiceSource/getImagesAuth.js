@@ -132,195 +132,204 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
     return result;
 };
 
-export const getAllImagesAuth = async (data, cachedCall) => {
-    const promoItems = get(data, 'promo_items', {});
-    if (missingPromoItemImgAuth({ dataPromoItem: promoItems })) {
-        const {
-            basicHash,
-            storytellingMobileHash,
-            storytellingHash,
-            videoHash,
-            videoBasicHash,
-            videoJwHash
-        } = await getPromoItemsAuth(promoItems, cachedCall);
+const processImageElement = async (element, index, data, cachedCall) => {
+    const { hash } = await signingServiceCachedCall(
+        get(element, '_id'),
+        cachedCall
+    );
+    if (hash) {
+        Object.assign(data.content_elements[index], {
+            auth: { 1: hash }
+        });
+    }
+};
 
-        if (basicHash) {
-            Object.assign(data.promo_items.basic, {
-                auth: { 1: basicHash }
-            });
-        }
+const processVideoElement = async (element, index, data, cachedCall) => {
+    const { hash: videoHash } = await signingServiceCachedCall(
+        get(element, 'promo_items.basic.url'),
+        cachedCall
+    );
+    if (videoHash) {
+        Object.assign(data.content_elements[index].promo_items.basic, {
+            auth: { 1: videoHash }
+        });
+    }
+};
 
-        if (storytellingMobileHash) {
-            Object.assign(data.promo_items.storytelling_mobile, {
-                auth: { 1: storytellingMobileHash }
-            });
-        }
-
-        if (storytellingHash) {
-            Object.assign(data.promo_items.storytelling.promo_items.basic, {
-                auth: { 1: storytellingHash }
-            });
-        }
-
-        if (videoHash) {
-            Object.assign(
-                data.promo_items.apertura_multimedia.promo_items.basic,
-                {
-                    auth: { 1: videoHash }
-                }
+const processGalleryImages = async (
+    galleryElements,
+    elementIndex,
+    data,
+    cachedCall
+) => {
+    for (const [galleryIndex, galleryElement] of galleryElements.entries()) {
+        if (
+            get(galleryElement, 'type') === 'image' &&
+            !get(galleryElement, 'auth.1')
+        ) {
+            const { hash: imageGalleryHash } = await signingServiceCachedCall(
+                get(galleryElement, '_id'),
+                cachedCall
             );
-        }
 
-        if (videoBasicHash) {
-            Object.assign(data.promo_items.basic.promo_items.basic, {
-                auth: { 1: videoBasicHash }
-            });
-        }
-        if (videoJwHash) {
-            Object.assign(data.promo_items.video_jw, {
-                auth: { 1: videoJwHash }
-            });
+            if (imageGalleryHash) {
+                Object.assign(
+                    data.content_elements[elementIndex].content_elements[
+                        galleryIndex
+                    ],
+                    {
+                        auth: { 1: imageGalleryHash }
+                    }
+                );
+            }
         }
     }
+};
+
+const processGalleryElement = async (element, index, data, cachedCall) => {
+    const {
+        basicHash: basicGalleryHash,
+        storytellingHash: storytellingGalleryHash
+    } = await getPromoItemsAuth(get(element, 'promo_items'), cachedCall);
+
+    if (basicGalleryHash) {
+        Object.assign(data.content_elements[index].promo_items.basic, {
+            auth: { 1: basicGalleryHash }
+        });
+    }
+
+    if (storytellingGalleryHash) {
+        Object.assign(
+            data.content_elements[index].promo_items.storytelling_mobile,
+            {
+                auth: { 1: storytellingGalleryHash }
+            }
+        );
+    }
+
+    const galleryElements = get(element, 'content_elements', []);
+    await processGalleryImages(galleryElements, index, data, cachedCall);
+};
+
+const processVideoJwElement = async (element, index, data, cachedCall) => {
+    const image = get(element, 'embed.config.videoJw.playlist[0].image');
+    const { hash: videoJwHash } = await signingServiceCachedCall(
+        image,
+        cachedCall
+    );
+    if (videoJwHash) {
+        Object.assign(data.content_elements[index], {
+            auth: { 1: videoJwHash }
+        });
+    }
+};
+
+const processContentElement = async (element, index, data, cachedCall) => {
+    const elementType = get(element, 'type');
+    const elementSubtype = get(element, 'subtype');
+
+    if (elementType === 'image' && !get(element, 'auth.1')) {
+        await processImageElement(element, index, data, cachedCall);
+    }
+
+    if (elementType === 'video' && !get(element, 'promo_items.basic.auth.1')) {
+        await processVideoElement(element, index, data, cachedCall);
+    }
+
+    if (elementType === 'gallery') {
+        await processGalleryElement(element, index, data, cachedCall);
+    }
+
+    if (elementSubtype === 'video_jw' && !get(element, 'auth.1')) {
+        await processVideoJwElement(element, index, data, cachedCall);
+    }
+};
+
+const processContentElements = async (data, cachedCall) => {
     const contentElements = get(data, 'content_elements', []);
 
     if (
-        missingContentElementImgAuth({
-            dataContentElements: contentElements
-        })
+        !missingContentElementImgAuth({ dataContentElements: contentElements })
     ) {
-        for (const [index, element] of contentElements.entries()) {
-            if (get(element, 'type') === 'image' && !get(element, 'auth.1')) {
-                const { hash } = await signingServiceCachedCall(
-                    get(element, '_id'),
-                    cachedCall
-                );
-                if (hash) {
-                    Object.assign(data.content_elements[index], {
-                        auth: { 1: hash }
-                    });
-                }
-            }
-            if (
-                get(element, 'type') === 'video' &&
-                !get(element, 'promo_items.basic.auth.1')
-            ) {
-                const { hash: videoHash } = await signingServiceCachedCall(
-                    get(element, 'promo_items.basic.url'),
-                    cachedCall
-                );
-                if (videoHash) {
-                    Object.assign(
-                        data.content_elements[index].promo_items.basic,
-                        {
-                            auth: { 1: videoHash }
-                        }
-                    );
-                }
-            }
-            if (get(element, 'type') === 'gallery') {
-                const {
-                    basicHash: basicGalleryHash,
-                    storytellingHash: storytellingGalleryHash
-                } = await getPromoItemsAuth(
-                    get(element, 'promo_items'),
-                    cachedCall
-                );
-                if (basicGalleryHash) {
-                    Object.assign(
-                        data.content_elements[index].promo_items.basic,
-                        {
-                            auth: { 1: basicGalleryHash }
-                        }
-                    );
-                }
-
-                if (storytellingGalleryHash) {
-                    Object.assign(
-                        data.content_elements[index].promo_items
-                            .storytelling_mobile,
-                        {
-                            auth: { 1: storytellingGalleryHash }
-                        }
-                    );
-                }
-
-                const galleryElements = get(element, 'content_elements', []);
-                // eslint-disable-next-line
-                for (const [
-                    galleryIndex,
-                    galleryElement
-                ] of galleryElements.entries()) {
-                    if (
-                        get(galleryElement, 'type') === 'image' &&
-                        !get(galleryElement, 'auth.1')
-                    ) {
-                        const { hash: imageGalleryHash } =
-                            await signingServiceCachedCall(
-                                get(galleryElement, '_id'),
-                                cachedCall
-                            );
-
-                        if (imageGalleryHash) {
-                            Object.assign(
-                                data.content_elements[index].content_elements[
-                                    galleryIndex
-                                ],
-                                {
-                                    auth: { 1: imageGalleryHash }
-                                }
-                            );
-                        }
-                    }
-                }
-            }
-            if (
-                get(element, 'subtype') === 'video_jw' &&
-                !get(element, 'auth.1')
-            ) {
-                const image = get(
-                    element,
-                    'embed.config.videoJw.playlist[0].image'
-                );
-                const { hash: videoJwHash } = await signingServiceCachedCall(
-                    image,
-                    cachedCall
-                );
-                if (videoJwHash) {
-                    Object.assign(data.content_elements[index], {
-                        auth: { 1: videoJwHash }
-                    });
-                }
-            }
-        }
+        return;
     }
+
+    for (const [index, element] of contentElements.entries()) {
+        await processContentElement(element, index, data, cachedCall);
+    }
+};
+
+const processCredits = async (data, cachedCall) => {
     const credits = get(data, 'credits.by', []);
 
-    if (
-        missingCreditsImgAuth({
-            dataCredits: credits
-        })
-    ) {
-        for (const [index, credit] of credits.entries()) {
-            const creditImageUrl = get(credit, 'image.url', '');
-            if (
-                !isEmptyString(creditImageUrl) &&
-                !get(credit, 'image.auth.1')
-            ) {
-                const { hash: creditHash } = await signingServiceCachedCall(
-                    creditImageUrl,
-                    cachedCall
-                );
+    if (!missingCreditsImgAuth({ dataCredits: credits })) {
+        return;
+    }
 
-                if (creditHash) {
-                    Object.assign(data.credits.by[index].image, {
-                        auth: { 1: creditHash }
-                    });
-                }
+    for (const [index, credit] of credits.entries()) {
+        const creditImageUrl = get(credit, 'image.url', '');
+        if (!isEmptyString(creditImageUrl) && !get(credit, 'image.auth.1')) {
+            const { hash: creditHash } = await signingServiceCachedCall(
+                creditImageUrl,
+                cachedCall
+            );
+
+            if (creditHash) {
+                Object.assign(data.credits.by[index].image, {
+                    auth: { 1: creditHash }
+                });
             }
         }
     }
+};
 
+const assignPromoItemsHashes = (data, hashes) => {
+    const {
+        basicHash,
+        storytellingMobileHash,
+        storytellingHash,
+        videoHash,
+        videoBasicHash,
+        videoJwHash
+    } = hashes;
+
+    if (basicHash) {
+        Object.assign(data.promo_items.basic, { auth: { 1: basicHash } });
+    }
+    if (storytellingMobileHash) {
+        Object.assign(data.promo_items.storytelling_mobile, {
+            auth: { 1: storytellingMobileHash }
+        });
+    }
+    if (storytellingHash) {
+        Object.assign(data.promo_items.storytelling.promo_items.basic, {
+            auth: { 1: storytellingHash }
+        });
+    }
+    if (videoHash) {
+        Object.assign(data.promo_items.apertura_multimedia.promo_items.basic, {
+            auth: { 1: videoHash }
+        });
+    }
+    if (videoBasicHash) {
+        Object.assign(data.promo_items.basic.promo_items.basic, {
+            auth: { 1: videoBasicHash }
+        });
+    }
+    if (videoJwHash) {
+        Object.assign(data.promo_items.video_jw, { auth: { 1: videoJwHash } });
+    }
+};
+
+const processPromoItems = async (data, cachedCall) => {
+    const promoItems = get(data, 'promo_items', {});
+    if (missingPromoItemImgAuth({ dataPromoItem: promoItems })) {
+        const hashes = await getPromoItemsAuth(promoItems, cachedCall);
+        assignPromoItemsHashes(data, hashes);
+    }
+};
+
+const processRootImageAuth = async (data, cachedCall) => {
     if (
         get(data, '_id') &&
         get(data, 'type') === 'image' &&
@@ -331,11 +340,16 @@ export const getAllImagesAuth = async (data, cachedCall) => {
             cachedCall
         );
         if (hash) {
-            Object.assign(data, {
-                auth: { 1: hash }
-            });
+            Object.assign(data, { auth: { 1: hash } });
         }
     }
+};
+
+export const getAllImagesAuth = async (data, cachedCall) => {
+    await processPromoItems(data, cachedCall);
+    await processContentElements(data, cachedCall);
+    await processCredits(data, cachedCall);
+    await processRootImageAuth(data, cachedCall);
 
     return data;
 };

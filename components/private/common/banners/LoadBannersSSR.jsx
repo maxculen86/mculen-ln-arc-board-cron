@@ -1,7 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
@@ -20,25 +17,24 @@ function onlyUnique(value, index, self) {
 const getBannersInDOM = device => {
     const banners = document.querySelectorAll(`div[data-device="${device}"]`);
     const bannersToLoad = [];
-    banners &&
-        banners.forEach(divBanner => {
-            bannersToLoad.push({
-                adUnitPath: divBanner.dataset.adUnitPath,
-                size: JSON.parse(divBanner.dataset.size),
-                opt_div: divBanner.id,
-                sizemap: JSON.parse(divBanner.dataset.sizemap),
-                prebidEnabled: divBanner.dataset.prebidEnabled === 'true',
-                targeting: JSON.parse(divBanner.dataset.targeting),
-                slotGroup: divBanner.dataset.slotGroup,
-                hideForSubscriptor: divBanner.dataset.subscription === 'true',
-                withoutHide: divBanner.dataset.withoutHide === 'true',
-                customTargeting: getCustomTargeting({ bannerId: divBanner.id })
-            });
+    banners?.forEach(divBanner => {
+        bannersToLoad.push({
+            adUnitPath: divBanner.dataset.adUnitPath,
+            size: JSON.parse(divBanner.dataset.size),
+            opt_div: divBanner.id,
+            sizemap: JSON.parse(divBanner.dataset.sizemap),
+            prebidEnabled: divBanner.dataset.prebidEnabled === 'true',
+            targeting: JSON.parse(divBanner.dataset.targeting),
+            slotGroup: divBanner.dataset.slotGroup,
+            hideForSubscriptor: divBanner.dataset.subscription === 'true',
+            withoutHide: divBanner.dataset.withoutHide === 'true',
+            customTargeting: getCustomTargeting({ bannerId: divBanner.id })
         });
+    });
     return bannersToLoad;
 };
 
-function LoadBannersSSR({ blocksBanners }) {
+function LoadBannersSSR({ blocksBanners = [] }) {
     const {
         renderables = [],
         outputType,
@@ -131,7 +127,7 @@ function LoadBannersSSR({ blocksBanners }) {
                 ) {
                     googleCmdPushed = true;
 
-                    console.log(
+                    console.info(
                         '🚀 ~ file: LoadBannersSSR.jsx finalSlostsConfigured',
                         bannersWithSettings,
                         finalBannersToLoad
@@ -158,17 +154,7 @@ function LoadBannersSSR({ blocksBanners }) {
         bannersDisabled
     ]);
 
-    return <div className="hlp-none">Cargando banners ...</div>;
+    return <div className="hlp-none hidden">Cargando banners ...</div>;
 }
-
-LoadBannersSSR.propTypes = {
-    blocksBanners: PropTypes.arrayOf(
-        PropTypes.shape({
-            slotGroup: PropTypes.string
-        })
-    )
-};
-
-LoadBannersSSR.defaultProps = { blocksBanners: [] };
 
 export default LoadBannersSSR;

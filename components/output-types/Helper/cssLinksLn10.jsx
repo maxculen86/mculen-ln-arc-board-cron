@@ -1,13 +1,27 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import CssLinksByArcSite from './cssLinksByArcSite';
+import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
+import config from '../../../properties/sites/la-nacion-ar';
 
-const CssLinksLn10 = props => {
-    const { CssLinks, isLN10, arcSite } = props;
-    if (arcSite === 'la-nacion-ar' && isLN10) return <></>;
-    if (arcSite !== 'la-nacion-ar') {
-        return <CssLinksByArcSite />;
-    }
+function CssLinksLn10(props) {
+    const { CssLinks, globalContent, layout } = props;
+
+    const {
+        layoutsName: { NotaOpinion, HomeLN10 }
+    } = config;
+
+    const excludedLayouts = [
+        { pageLayout: NotaOpinion },
+        { pageLayout: HomeLN10 }
+    ];
+
+    const shouldExcludeCssLinks = isAllowedSection({
+        globalContent,
+        listOfAllowedSection: excludedLayouts,
+        layout
+    });
+
+    if (shouldExcludeCssLinks) return null;
+
     return <CssLinks />;
-};
+}
 export default CssLinksLn10;

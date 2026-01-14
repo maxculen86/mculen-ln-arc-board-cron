@@ -18,6 +18,7 @@ const config = {
         'LN-nota-noticia': NoticiaSnippet,
         'LN-nota-infografia': NoticiaSnippet,
         'LN-nota-storytelling': NoticiaSnippet,
+        'LN-nota-storytelling-v2': NoticiaSnippet,
         'LN-nota-foto-al-100': NoticiaSnippet,
         'LN-nota-html-libre': NoticiaSnippet,
         'LN-acumulado': SnippetAcumulado,

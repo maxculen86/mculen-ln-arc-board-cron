@@ -1,5 +1,6 @@
 export const NOTICIA = '1';
 export const INFOGRAFIA = '2';
+export const OPINION = '3';
 export const STORYTELLING = '4';
 export const NOTA_CERRADA = 'note-paywall';
 export const VIDEO = '5';
@@ -21,6 +22,7 @@ export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
 export const Subtypes = [
     { id: '1', nombre: 'Noticia' },
     { id: '2', nombre: 'Infografia' },
+    { id: '3', nombre: 'Opinion' },
     { id: '5', nombre: 'Video' },
     { id: '6', nombre: 'LiveBlog' },
     { id: '7', nombre: 'Receta' },
@@ -40,6 +42,7 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
     const dictionarySubtypes = {
         Noticia: NOTICIA,
         Infografia: INFOGRAFIA,
+        Opinion: OPINION,
         Video: VIDEO,
         LiveBlog: LIVEBLOG,
         Receta: RECETA,
