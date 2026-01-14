@@ -10,7 +10,7 @@ import { validateProps } from '../../../private/LN/api/global/components/feature
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
 import validateVideoPlayerNota from './common/_helper-WebApi';
 
-class videoPlayerNotaFeature {
+class VideoPlayerNotaFeature {
     constructor(props) {
         this.state = {};
         this.jwVideoId = undefined;
@@ -123,4 +123,4 @@ class videoPlayerNotaFeature {
     }
 }
 
-export default Consumer(videoPlayerNotaFeature);
+export default Consumer(VideoPlayerNotaFeature);
