@@ -31,7 +31,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-acumulado/titulo',
             'LN-acumulado/anexoIframe'
         ],
-        10: ['LN10_Caja_Carrusel']
+        10: ['LN10_Caja_Carrusel', 'LN10_Caja_Carrusel_Horizontal'],
     };
     let defaultType = 9; // For discard box
     Object.keys(boxTypeContainer).some(typeIndexBox => {
