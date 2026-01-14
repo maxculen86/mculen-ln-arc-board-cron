@@ -10,8 +10,8 @@ const generateVideoJW = stream => ({
 export const videoJWCommon = streams => {
     const orderedStreams = streams
         ? streams
-              .filter(v => v.type === 'video/mp4')
-              .sort((a, b) => (a.width < b.width ? 1 : -1))
+            .filter(v => v.type === 'video/mp4')
+            .sort((a, b) => (a.width < b.width ? 1 : -1))
         : [];
     if (orderedStreams.length === 0) return null;
 
@@ -55,11 +55,21 @@ export const videoJWHomeMobile = streams => {
     }
 };
 
-export const videoJWM3u8 = streams => {
+export const videoJWM3u8 = (streams, variant) => {
     if (!streams) return null;
-    const objVideo = streams.find(
+
+    if (variant === 'horizontal') {
+
+        const preferred = streams
+            .filter(v => v.type === 'video/mp4' && v.width >= 569)
+            .sort((a, b) => b.width - a.width);
+        return preferred ? preferred.file : null;
+
+    }
+
+    const m3u8 = streams.find(
         v => v.type === 'application/vnd.apple.mpegurl'
     );
 
-    return objVideo && objVideo.file;
+    return m3u8?.file || null;
 };
