@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
-/* React */
 import React from 'react';
-import PropTypes from 'prop-types';
+import ensureIframeLazyLoading from '../../../../features/LN/common/oEmbed/helpers/ensureIframeLazyLoading';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
 const trim = (string = '') => string.replace(/\s{2,}/g, ' ');
@@ -14,16 +13,6 @@ const getModifier = subtype => {
         default:
             return `--${subtype}`;
     }
-};
-
-const addPropertyLoading = ({ subtype, tagHtml = '' }) => {
-    const embeds = ['youtube', 'dailymotion', 'vimeo'];
-    const element =
-        tagHtml.includes('iframe') && embeds.includes(subtype)
-            ? tagHtml.replace(' ', ' loading="lazy" ')
-            : tagHtml;
-
-    return { __html: element };
 };
 
 function RawHTML({
@@ -40,7 +29,7 @@ function RawHTML({
             className={trim(
                 `com-embed ${classes} ${modifier} container-center-100`
             )}
-            dangerouslySetInnerHTML={addPropertyLoading({
+            dangerouslySetInnerHTML={ensureIframeLazyLoading({
                 subtype,
                 tagHtml: html
             })}
@@ -51,15 +40,5 @@ function RawHTML({
 RawHTML.arcType = 'oembed_response';
 RawHTML.outputType = 'default';
 RawHTML.isStatic = true;
-
-RawHTML.propTypes = {
-    data: PropTypes.shape({
-        raw_oembed: PropTypes.shape({
-            html: PropTypes.string
-        }),
-        classes: PropTypes.string,
-        subtype: PropTypes.string
-    }).isRequired
-};
 
 export default RawHTML;
