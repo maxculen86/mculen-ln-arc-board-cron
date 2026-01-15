@@ -4,11 +4,11 @@ import React from 'react';
 import { criticalCssPathsBySite } from './helpers';
 import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 import get from '../../private/common/utils/get';
-// import config from '../../../properties/sites/foodit';
+import config from '../../../properties/sites/foodit';
 
-// const {
-//     layoutsName: { FooditHome }
-// } = config;
+const {
+    layoutsName: { FooditHome }
+} = config;
 
 // TODO: Borrar comentarios y agregar pages a la constante listOfAllowedSection cuales se quiera agregar tailwindcss. Por ej: { pageLayout: FooditHome }
 
@@ -16,9 +16,7 @@ export function GetCriticalCss({ layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
         return null;
     }
-    const listOfAllowedSection = [
-        /* { pageLayout: FooditHome } */
-    ];
+    const listOfAllowedSection = [{ pageLayout: FooditHome }];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,
         listOfAllowedSection,

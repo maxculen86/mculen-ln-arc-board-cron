@@ -1,0 +1,41 @@
+import React from 'react';
+import { Dialog } from '@ln/common-ui-dialog';
+
+import '../../../../resources/packages/css/@ln/common-ui-dialog/index.css';
+import { useCajaCarruselContext } from '../cajaCarruselContext';
+
+function MediaScrollerExpandedWrapper({ children }) {
+    const { isOpenMediaScrollerExpanded, onCloseMediaScrollerExpanded } =
+        useCajaCarruselContext();
+
+    /* TODO: Revisar si foodit utilizar el evento */
+    /*     useEffect(() => {
+        const eventName = isOpenMediaScrollerExpanded
+            ? 'pauseTimeout'
+            : 'resumeTimeout';
+
+        window?.LN?.observable?.publish?.(eventName);
+    }, [isOpenMediaScrollerExpanded]); */
+
+    if (!isOpenMediaScrollerExpanded) {
+        return null;
+    }
+
+    return (
+        <Dialog
+            isOpen={isOpenMediaScrollerExpanded}
+            onClose={onCloseMediaScrollerExpanded}
+            position="full"
+            classnames={{
+                base: 'w-100 h-100dvh bg-light-900',
+                wrapper: 'flex w-100 h-100'
+            }}
+            overlay
+            closeOnClickOutside
+        >
+            {children}
+        </Dialog>
+    );
+}
+
+export default MediaScrollerExpandedWrapper;

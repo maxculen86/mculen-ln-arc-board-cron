@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JwVideoPlayer should match snapshot, div with id for build video 1`] = `
+<div>
+  <div
+    id="test-video-id"
+  />
+</div>
+`;
+
+exports[`JwVideoPlayer should match snapshot, with placeholder 1`] = `
+<div>
+  <div
+    class="placeholder-jwplayer flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center bg-black"
+  />
+</div>
+`;
