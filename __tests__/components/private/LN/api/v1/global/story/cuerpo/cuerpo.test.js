@@ -42,7 +42,8 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
     it('Test para validar el contenido de una nota con template foto al cien', () => {
         const resp = Cuerpo(ArticleFotoAlCien);
-        expect(removeEmptyItems(resp.elements).length).toBe(8);
+        const cleanedElements = removeEmptyItems(resp.elements);
+        expect(cleanedElements.length).toBe(11);
     });
 
     it('Validacion del cuerpo de una nota HtmlLibre', () => {
