@@ -3,6 +3,14 @@ import { render, screen } from '@testing-library/react';
 import BaseLayout from '../../../../../../components/features/LN/common/baseLayout/default';
 import Context from 'fusion:context';
 
+jest.mock(
+    '../../../../../../components/features/LN/common/header/default',
+    () =>
+        function MockHeader() {
+            return <div data-testid="mock-header" />;
+        }
+);
+
 Context.useAppContext = jest.fn(() => ({
     deployment: arg => arg,
     contextPath: '/pf'

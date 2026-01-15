@@ -42,18 +42,20 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
 
     return (
         <>
-            <Resource path={stylePath} encoding="utf8">
-                {({ data }) =>
-                    data ? (
-                        <style
-                            id="critical-css"
-                            dangerouslySetInnerHTML={{
-                                __html: data
-                            }}
-                        />
-                    ) : null
-                }
-            </Resource>
+            {Boolean(stylePath) && (
+                <Resource path={stylePath} encoding="utf8">
+                    {({ data }) =>
+                        data ? (
+                            <style
+                                id="critical-css"
+                                dangerouslySetInnerHTML={{
+                                    __html: data
+                                }}
+                            />
+                        ) : null
+                    }
+                </Resource>
+            )}
             {shouldLoadTailwidcss && (
                 <Resource
                     path="resources/dist/css/ln/tailwind/global.css"

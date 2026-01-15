@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui - ln - divider - default should match snapshot with custom props 1`] = `
+<DocumentFragment>
+  <hr
+    class="custom-divider"
+    data-color="primary"
+    data-direction="vertical"
+    data-testid="common-divider"
+  />
+</DocumentFragment>
+`;
+
+exports[`components - features - ui - ln - divider - default should match snapshot with default props 1`] = `
+<DocumentFragment>
+  <hr
+    data-color="muted"
+    data-direction="horizontal"
+    data-testid="common-divider"
+  />
+</DocumentFragment>
+`;
