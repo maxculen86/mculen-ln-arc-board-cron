@@ -21,7 +21,7 @@ async function LN10Home(props) {
     const response = Array.isArray(resultHome)
         ? {
               ...resultHome[0],
-              metadata: { ...resultHome[0].metadata, outputType: 'jsonv2' }
+              metadata: { ...resultHome[0].metadata, outputType: 'jsonv3' }
           }
         : null;
 
