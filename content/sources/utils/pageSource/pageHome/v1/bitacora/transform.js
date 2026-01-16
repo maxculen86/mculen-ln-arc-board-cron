@@ -39,7 +39,8 @@ const diagramationFromLayout = layout => {
     return diagramation[layout] ?? layout;
 };
 
-const createBox = ({ id,
+const createBox = ({
+    id,
     visible,
     feature,
     layout,
@@ -51,7 +52,7 @@ const createBox = ({ id,
 ) => {
     const base = {
         id_caja: id,
-        visible: visible || true,
+        visible,
         feature,
         diagramacion_caja: diagramationFromLayout(layout),
         item_category: itemCategory,
@@ -127,15 +128,15 @@ const createNotasArray = (elem, boxType) => {
     elem.articles.forEach(article => {
         if (specialBox[article.sectionAliasMobile]) {
             const notas = createNotasArray(article, boxType);
-            const box = createBox(
-                specialBox[article.sectionAliasMobile],
-                article.information?.hideCaja,
-                getFeature(elem.sectionAliasMobile),
-                article.information?.layout,
-                notas.notasArray,
-                boxType,
-                article.information?.viewabilityRoof
-            );
+            const box = createBox({
+                id: specialBox[article.sectionAliasMobile],
+                visible: !article.information?.hideCaja,
+                feature: getFeature(elem.sectionAliasMobile),
+                layout: article.information?.layout,
+                notas: notas.notasArray,
+                type: boxType,
+                itemCategory: article.information?.viewabilityRoof
+            });
             resp.specialBox = box;
             return;
         }

@@ -83,8 +83,7 @@ describe('apiAcumuladoTagsV2 utils', () => {
         it('should return the correct size from the query when size parameter exists', () => {
             const query = { params: 'size:100' };
             const result = getSizeParamFromQuery(query);
-
-            expect(result).toBe(100);
+            expect(result).toEqual(100);
         });
 
         it('should return the default size when size parameter does not exist', () => {
