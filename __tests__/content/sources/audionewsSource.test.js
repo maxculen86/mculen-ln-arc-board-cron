@@ -24,7 +24,7 @@ import audionewsSource from '../../../content/sources/audionewsSource';
 
 describe('Audionews content sources Unit Tests', () => {
     beforeEach(() => {
-        jest.spyOn(console, 'warn').mockImplementation(() => {});
+        jest.spyOn(console, 'warn').mockImplementation(() => { });
     });
 
     const { fetch: fetchContent } = audionewsSource;
@@ -60,14 +60,12 @@ describe('Audionews content sources Unit Tests', () => {
             })
             .then(done);
     });
-    it('Should reject by has not field id', async () => {
+    it('Should return empty object when has not field id', async () => {
         const query = {};
 
-        try {
-            audionewsSource.fetch(query);
-        } catch (err) {
-            expect(err.message).toBe('El campo id es obligatorio');
-        }
+        const result = await audionewsSource.fetch(query);
+
+        expect(result).toEqual({});
     });
 
     it('Should return empty object and warn when status is 404', async () => {
@@ -75,7 +73,7 @@ describe('Audionews content sources Unit Tests', () => {
 
         const warnSpy = jest
             .spyOn(console, 'warn')
-            .mockImplementation(() => {});
+            .mockImplementation(() => { });
 
         global.fetch = jest.fn(() =>
             Promise.resolve({

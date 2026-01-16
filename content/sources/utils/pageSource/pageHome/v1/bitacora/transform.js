@@ -39,7 +39,7 @@ const diagramationFromLayout = layout => {
     return diagramation[layout] ?? layout;
 };
 
-const createBox = (
+const createBox = ({
     id,
     visible,
     feature,
@@ -47,27 +47,19 @@ const createBox = (
     notas,
     type,
     itemCategory = 'N/A',
-    videos = undefined
+    videos = undefined }
+
 ) => {
-    if (videos) {
-        return {
-            id_caja: id,
-            visible: visible || true,
-            feature,
-            diagramacion_caja: diagramationFromLayout(layout),
-            item_category: itemCategory,
-            [type]: notas,
-            videos
-        };
-    }
-    return {
+    const base = {
         id_caja: id,
-        visible: visible || true,
+        visible,
         feature,
         diagramacion_caja: diagramationFromLayout(layout),
         item_category: itemCategory,
         [type]: notas
     };
+
+    return videos ? { ...base, videos } : base;
 };
 const getFeature = sectionAliasMobile => {
     let infoEntry = infoLNMainLN10[sectionAliasMobile];
@@ -136,15 +128,15 @@ const createNotasArray = (elem, boxType) => {
     elem.articles.forEach(article => {
         if (specialBox[article.sectionAliasMobile]) {
             const notas = createNotasArray(article, boxType);
-            const box = createBox(
-                specialBox[article.sectionAliasMobile],
-                article.information?.hideCaja,
-                getFeature(elem.sectionAliasMobile),
-                article.information?.layout,
-                notas.notasArray,
-                boxType,
-                article.information?.viewabilityRoof
-            );
+            const box = createBox({
+                id: specialBox[article.sectionAliasMobile],
+                visible: !article.information?.hideCaja,
+                feature: getFeature(elem.sectionAliasMobile),
+                layout: article.information?.layout,
+                notas: notas.notasArray,
+                type: boxType,
+                itemCategory: article.information?.viewabilityRoof
+            });
             resp.specialBox = box;
             return;
         }
@@ -199,15 +191,17 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 )
             ];
         }
-        const caja = createBox(
-            boxId,
-            hideCaja,
-            getFeature(sectionAliasMobile),
+        const caja = createBox({
+            id: boxId,
+            visible: !hideCaja,
+            feature: getFeature(sectionAliasMobile),
             layout,
-            notas.notasArray,
-            boxType,
-            information.viewabilityRoof,
+            notas: notas.notasArray,
+            type: boxType,
+            itemCategory: information?.viewabilityRoof,
             videos
+        }
+
         );
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);

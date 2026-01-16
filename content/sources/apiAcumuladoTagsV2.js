@@ -9,7 +9,7 @@ export const getSizeParamFromQuery = query => {
     const regexForSizeParam = /size:(\d+)/;
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
     if (matchForSize) {
-        return matchForSize.length > 1 ? matchForSize[1] : 30;
+        return matchForSize.length > 1 ? Number(matchForSize[1]) : 30;
     }
     return 30;
 };
