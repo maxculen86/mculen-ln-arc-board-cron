@@ -6,7 +6,8 @@ export const processElement = (
     element,
     outputType,
     subtype,
-    bodyComponents
+    bodyComponents,
+    ruleConditions
 ) => {
     const processedElement = element.subtype
         ? transformEmbedScript(element)
@@ -20,7 +21,8 @@ export const processElement = (
         element: processedElement,
         outputType,
         subtype,
-        bodyComponents
+        bodyComponents,
+        ruleConditions
     });
 
     return { processedElement, nodeType, Component };
