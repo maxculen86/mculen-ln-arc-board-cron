@@ -39,28 +39,17 @@ const diagramationFromLayout = layout => {
     return diagramation[layout] ?? layout;
 };
 
-const createBox = (
-    id,
+const createBox = ({ id,
     visible,
     feature,
     layout,
     notas,
     type,
     itemCategory = 'N/A',
-    videos = undefined
+    videos = undefined }
+
 ) => {
-    if (videos) {
-        return {
-            id_caja: id,
-            visible: visible || true,
-            feature,
-            diagramacion_caja: diagramationFromLayout(layout),
-            item_category: itemCategory,
-            [type]: notas,
-            videos
-        };
-    }
-    return {
+    const base = {
         id_caja: id,
         visible: visible || true,
         feature,
@@ -68,6 +57,8 @@ const createBox = (
         item_category: itemCategory,
         [type]: notas
     };
+
+    return videos ? { ...base, videos } : base;
 };
 const getFeature = sectionAliasMobile => {
     let infoEntry = infoLNMainLN10[sectionAliasMobile];
@@ -199,15 +190,17 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 )
             ];
         }
-        const caja = createBox(
-            boxId,
-            hideCaja,
-            getFeature(sectionAliasMobile),
+        const caja = createBox({
+            id: boxId,
+            visible: !hideCaja,
+            feature: getFeature(sectionAliasMobile),
             layout,
-            notas.notasArray,
-            boxType,
-            information.viewabilityRoof,
+            notas: notas.notasArray,
+            type: boxType,
+            itemCategory: information?.viewabilityRoof,
             videos
+        }
+
         );
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);

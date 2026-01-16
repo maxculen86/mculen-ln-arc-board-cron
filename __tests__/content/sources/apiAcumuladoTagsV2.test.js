@@ -84,7 +84,7 @@ describe('apiAcumuladoTagsV2 utils', () => {
             const query = { params: 'size:100' };
             const result = getSizeParamFromQuery(query);
 
-            expect(result).toBe('100');
+            expect(result).toBe(100);
         });
 
         it('should return the default size when size parameter does not exist', () => {
@@ -119,7 +119,7 @@ describe('apiAcumuladoTagsV2 utils', () => {
             const query = { params: 'size:45' };
             const result = getSizeParamFromQuery(query);
 
-            expect(result).toBe('45');
+            expect(result).toBe(45);
         });
 
         it('should return the default size when the regex does not match anything in params', () => {

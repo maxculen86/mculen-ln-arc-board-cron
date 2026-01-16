@@ -1,23 +1,16 @@
-7;
-
-import * as fusionConsumer from 'fusion:consumer';
 import * as LayoutLNMainHome from '../../../../components/private/LN/api/global/page';
-import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
-import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';
-import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1';
-import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2';
 import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 import propsAperturaTimeline from '../../../../__mocks__/data/renderables/dataAperturaTimeline.json';
 
 jest.mock('.../../../../../../components/private/LN/api/v1/mobile/home', () => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
