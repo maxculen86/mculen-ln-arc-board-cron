@@ -1,31 +1,29 @@
-// TODO ELIMINAR UNA VEZ SE CAMBIEN A VIDEOPLAYER NUEVO
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import { cx } from '@ln/cva';
-import { Facade } from './utils/facade';
-import VideoPlayerSnippet from '../scriptManager/snippetVideo';
-import get from '../utils/get';
+import VideoFacade from './component/VideoFacade';
 import {
     extractVideoData,
     calculateDisplayVariant,
     buildPlaylistConfig,
     buildVideoConfig,
-    shouldShowFigureCaption as shouldShowCaption,
-    getCaptionBgClass,
+    shouldShowFigureCaption,
     getConfigClassName
-} from '../../../features/LN/common/video/utils/videoDataUtils';
-import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
-import getSourcesJw from '../../LN/common/utils/getSourcesJw';
-import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
+} from './utils/videoDataUtils';
+
+import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
+import getSourcesJw from '../../../../private/LN/common/utils/getSourcesJw';
+import get from '../../../../private/common/utils/get';
+import VideoPlayerSnippet from '../../../../private/common/scriptManager/snippetVideo';
 import {
     STORYTELLING,
     VIDEO,
     LIVEBLOG_EDITORIAL,
     VIDEOAL100,
     VIDEO_VERTICAL
-} from '../utils/subtypes/subtypeHelper';
-import config from '../../../../properties/sites/la-nacion-ar';
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
+import config from '../../../../../properties/sites/la-nacion-ar';
 
 const { layoutsName = {} } = config || {};
 
@@ -37,15 +35,15 @@ const SUBTYPES_WITHOUT_CAPTION = [
     VIDEO_VERTICAL
 ];
 
-const videoPlayerJW = ({
+function VideoPlayer({
     data,
     parrafo,
     tituloNota,
-    hasAutoplay,
-    mediaContainerClassesProps,
-    videoContainerClassesProps,
-    isOpening
-}) => {
+    hasAutoplay = false,
+    mediaContainerClassesProps = '',
+    videoContainerClassesProps = '',
+    isOpening = false
+}) {
     const videoData = extractVideoData(data);
     const {
         playerId,
@@ -55,39 +53,47 @@ const videoPlayerJW = ({
         epigraphTitle,
         mediaId,
         sources,
+        images,
+        fallbackImage,
         firstVideo
     } = videoData;
-
     const { arcSite, deployment, contextPath, globalContent, layout } =
         useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
         get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaId;
-
-    const bgClass = getCaptionBgClass(subtype);
-
-    const shouldShowFigureCaption = shouldShowCaption({
-        isPromoItemVideo,
-        subtype,
-        subtypesWithoutCaption: SUBTYPES_WITHOUT_CAPTION
-    });
-
     const variant = calculateDisplayVariant({
         isOpening,
         subtype,
         playerId
     });
 
+    const isNotaVideo = layout === layoutsName.Video;
     const {
         container,
         mediaContainer,
         videoContainer,
         videoPlayer,
         facade,
-        facadeContainer,
-        captionClasses
-    } = getConfigClassName(variant, layout === layoutsName.Video, isOpening);
+        facadeContainer
+    } = getConfigClassName(variant, isNotaVideo, isOpening);
+    const tagsUrl = urlForPrerollAds();
+    const playlistConfig = buildPlaylistConfig(playlist, mediaId, sources);
+    const videoConfig = buildVideoConfig({
+        title,
+        mediaId,
+        playerId,
+        playlist: playlistConfig,
+        hasAutoplay,
+        tagsUrl,
+        arcSite
+    });
+    const showCaption = shouldShowFigureCaption({
+        isPromoItemVideo,
+        subtype,
+        subtypesWithoutCaption: SUBTYPES_WITHOUT_CAPTION
+    });
 
     const minStream =
         firstVideo && getSourcesJw(get(firstVideo, 'sources', []));
@@ -96,26 +102,11 @@ const videoPlayerJW = ({
         videoContainer,
         videoContainerClassesProps
     );
-
     const mediaContainerClassName = cx(
         mediaContainer,
         mediaContainerClassesProps
     );
-
-    const captionFigureClasses = cx(captionClasses, bgClass);
-    const tagsUrl = urlForPrerollAds();
-
-    const playlistForConfig = buildPlaylistConfig(playlist, mediaId, sources);
-
-    const videoConfig = buildVideoConfig({
-        title,
-        mediaId,
-        playerId,
-        playlist: playlistForConfig,
-        hasAutoplay,
-        tagsUrl,
-        arcSite
-    });
+    const isOpeningVideo = subtype === VIDEO || isPromoItemVideo;
 
     return (
         <>
@@ -137,24 +128,25 @@ const videoPlayerJW = ({
                                 data-video-id-jw={mediaId}
                                 data-config={JSON.stringify(videoConfig)}
                             >
-                                <Facade
-                                    id={mediaId}
-                                    playlist={playlist}
+                                <VideoFacade
+                                    mediaId={mediaId}
+                                    images={images}
+                                    fallbackSrc={fallbackImage}
+                                    alt={title}
                                     className={facade}
-                                    containerClasses={facadeContainer}
-                                    title={title}
-                                    subtype={subtype}
-                                    openingVideo={
-                                        subtype === VIDEO || isPromoItemVideo
+                                    containerClassName={facadeContainer}
+                                    loading={isOpeningVideo ? 'eager' : 'lazy'}
+                                    fetchPriority={
+                                        isOpeningVideo ? 'high' : 'low'
                                     }
+                                    subtype={subtype}
                                 />
                                 <div id={mediaId} />
                             </div>
-                            {shouldShowFigureCaption && (
-                                <FigureCaption
-                                    epigraphTitle={epigraphTitle}
-                                    className={captionFigureClasses}
-                                />
+                            {showCaption && ( // TODO APLICAR NUEVOS ESTILOS
+                                <figcaption>
+                                    <span>{epigraphTitle}</span>
+                                </figcaption>
                             )}
                         </figure>
                         <VideoPlayerSnippet
@@ -168,8 +160,8 @@ const videoPlayerJW = ({
             </Static>
         </>
     );
-};
+}
 
-videoPlayerJW.arcType = 'video_jw';
+VideoPlayer.arcType = 'video_jw';
 
-export default videoPlayerJW;
+export default VideoPlayer;
