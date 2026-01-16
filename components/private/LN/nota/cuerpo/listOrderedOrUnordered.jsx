@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react';
-import hasRenderableItems from '../../../../features/LN/common/list/utils/hasRenderableItems';
+import hasRenderableItems from '../../../../features/LN/common/list/helpers/hasRenderableItems';
 
 function ListOrderedOrUnordered({ data }) {
     const [classList] = useState(

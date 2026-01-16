@@ -15,7 +15,7 @@ const getModifier = subtype => {
     }
 };
 
-function RawHTML({
+function OEmbed({
     data: {
         classes = '',
         raw_oembed: { html = '' },
@@ -37,8 +37,8 @@ function RawHTML({
     );
 }
 
-RawHTML.arcType = 'oembed_response';
-RawHTML.outputType = 'default';
-RawHTML.isStatic = true;
+OEmbed.arcType = 'oembed_response';
+OEmbed.outputType = 'default';
+OEmbed.isStatic = true;
 
-export default RawHTML;
+export default OEmbed;

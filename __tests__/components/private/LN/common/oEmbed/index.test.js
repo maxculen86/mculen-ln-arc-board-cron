@@ -1,14 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import RawHTML from '../../../../../../components/private/LN/common/rawHTML';
+import OEmbed from '../../../../../../components/private/LN/common/oEmbed';
 
-describe('RawHTML', () => {
+describe('OEmbed', () => {
     const data = {
         _id: 'PLTUN6HWXFEXZI2HW4Z47EAVN4',
         raw_oembed: {
             height: 380,
-            html:
-                '<iframe width="300" height="380" allowtransparency="true" frameborder="0" allow="encrypted-media" title="Spotify Embed: The New Abnormal" src="https://open.spotify.com/embed/album/2xkZV2Hl1Omi8rk2D7t5lN"></iframe>',
+            html: '<iframe width="300" height="380" allowtransparency="true" frameborder="0" allow="encrypted-media" title="Spotify Embed: The New Abnormal" src="https://open.spotify.com/embed/album/2xkZV2Hl1Omi8rk2D7t5lN"></iframe>',
             type: 'spotify',
             width: 300
         },
@@ -17,7 +16,7 @@ describe('RawHTML', () => {
     };
 
     it('Matches snapshot', () => {
-        const { container } = render(<RawHTML data={data} />);
+        const { container } = render(<OEmbed data={data} />);
         expect(
             container.firstChild.classList.contains('--spotify')
         ).toBeTruthy();
@@ -32,8 +31,7 @@ describe('RawHTML', () => {
                 subtype: 'youtube',
                 raw_oembed: {
                     ...data.raw_oembed,
-                    html:
-                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/hC8CH0Z3L54?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="FKJ & Masego - Tadow"></iframe>'
+                    html: '<iframe width="560" height="315" src="https://www.youtube.com/embed/hC8CH0Z3L54?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="FKJ & Masego - Tadow"></iframe>'
                 }
             },
             {
@@ -41,8 +39,7 @@ describe('RawHTML', () => {
                 subtype: 'vimeo',
                 raw_oembed: {
                     ...data.raw_oembed,
-                    html:
-                        '<iframe src="https://player.vimeo.com/video/747666103?h=2c819739d8&amp;app_id=122963" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Electrolux &amp;mdash; Break the pattern"></iframe>'
+                    html: '<iframe src="https://player.vimeo.com/video/747666103?h=2c819739d8&amp;app_id=122963" width="426" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Electrolux &amp;mdash; Break the pattern"></iframe>'
                 }
             },
             {
@@ -50,8 +47,7 @@ describe('RawHTML', () => {
                 subtype: 'dailymotion',
                 raw_oembed: {
                     ...data.raw_oembed,
-                    html:
-                        '<iframe frameborder="0" width="480" height="269" src="https://www.dailymotion.com/embed/video/x589c8d?pubtool=oembed" allowfullscreen allow="autoplay"></iframe>'
+                    html: '<iframe frameborder="0" width="480" height="269" src="https://www.dailymotion.com/embed/video/x589c8d?pubtool=oembed" allowfullscreen allow="autoplay"></iframe>'
                 }
             }
         ];
@@ -59,7 +55,7 @@ describe('RawHTML', () => {
         test.each(cases)(
             'should contain the loading attribute in lazy',
             props => {
-                const { container } = render(<RawHTML data={props} />);
+                const { container } = render(<OEmbed data={props} />);
 
                 expect(container.querySelector('[loading=lazy]')).toBeTruthy();
             }
@@ -73,8 +69,7 @@ describe('RawHTML', () => {
                 subtype: 'facebook-post',
                 raw_oembed: {
                     ...data.raw_oembed,
-                    html:
-                        '<div id="fb-root"></div>\n\x3Cscript async="1" defer="…/">Wednesday, June 3, 2020</a></blockquote></div>'
+                    html: '<div id="fb-root"></div>\n\x3Cscript async="1" defer="…/">Wednesday, June 3, 2020</a></blockquote></div>'
                 }
             },
             {
@@ -82,8 +77,7 @@ describe('RawHTML', () => {
                 subtype: 'facebook-video',
                 raw_oembed: {
                     ...data.raw_oembed,
-                    html:
-                        '<div id="fb-root"></div>\n\x3Cscript async="1" defer="…/">Wednesday, June 3, 2020</a></blockquote></div>'
+                    html: '<div id="fb-root"></div>\n\x3Cscript async="1" defer="…/">Wednesday, June 3, 2020</a></blockquote></div>'
                 }
             }
         ];
@@ -91,7 +85,7 @@ describe('RawHTML', () => {
         test.each(cases)(
             'Should contain the modifier class --facebook',
             props => {
-                const { container } = render(<RawHTML data={props} />);
+                const { container } = render(<OEmbed data={props} />);
 
                 expect(
                     container.firstChild.classList.contains('--facebook')

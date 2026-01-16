@@ -2,9 +2,22 @@ import { defaultRuleConditions } from '../../../LN-nota/body/_utils/_bodyRules';
 import { DEFAULT_BODY_COMPONENTS } from '../../../LN-nota/body/_utils/_bodyElementRules';
 import Text from '../../common/text/default';
 import List from '../../common/list/default';
+import RawHtml from '../../common/rawHtml/default';
+import Image from '../../common/image/default';
+import OEmbed from '../../common/oEmbed/default';
+import Divider from '../../common/divider/default';
+import VideoPlayer from '../../common/video/default';
 
 // TODO: A medida que se vayan creando los nuevos componentes DS, agregarlos aca
-const DS_DEFAULT_BODY_COMPONENTS = [Text, List];
+const DS_DEFAULT_BODY_COMPONENTS = [
+    Text,
+    List,
+    RawHtml,
+    Image,
+    OEmbed,
+    Divider,
+    VideoPlayer
+];
 
 const BASE_BODY_CONFIG = {
     allowedArcTypes: [
