@@ -23,7 +23,7 @@ export function useObserverItems({ containerRef, setCurrentIndex }) {
         }
 
         return () => observer.disconnect();
-    }, [containerRef?.current]);
+    }, [containerRef]);
 }
 
 export function useHandleBack({ containerRef, showBack, isMobile }) {
@@ -70,7 +70,7 @@ export function useScrollTo({ containerRef, isMobile, currentIndex }) {
         containerRef?.current?.scrollTo({
             ...scrollOptions
         });
-    }, [containerRef?.current, isMobile]);
+    }, [containerRef, isMobile]);
 }
 
 export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
@@ -79,5 +79,5 @@ export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
             '--_video-width',
             `${containerRef?.current?.firstChild?.offsetWidth}px`
         );
-    }, [containerRef?.current, viewportWidth, isMobile]);
+    }, [containerRef, viewportWidth, isMobile]);
 }

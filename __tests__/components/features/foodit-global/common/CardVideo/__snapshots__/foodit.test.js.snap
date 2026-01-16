@@ -15,11 +15,15 @@ exports[`CardCarouselVideo should match snapshot 1`] = `
       <div
         class="flex jc-center ai-center relative overflow-hidden ratio-9-16 -z-1 w-full h-full"
       >
-        <img
-          alt="Poster"
-          class="poster-visible"
-          src="https://example.com/a.jpg"
-        />
+        <div
+          class="foodit-placeholder poster-visible"
+        >
+          <img
+            alt="Poster"
+            class="poster-visible"
+            src="https://example.com/a.jpg"
+          />
+        </div>
         <video
           class="video-hidden"
           loop=""

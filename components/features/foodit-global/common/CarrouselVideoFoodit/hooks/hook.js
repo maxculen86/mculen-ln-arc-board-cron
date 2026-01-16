@@ -46,5 +46,5 @@ export function useObserverMobAndTab({ videoRef, setIsPlaying }) {
                 observer?.current?.unobserve(videoElement);
             }
         };
-    }, [videoRef?.current, setIsPlaying]);
+    }, [videoRef, setIsPlaying]);
 }

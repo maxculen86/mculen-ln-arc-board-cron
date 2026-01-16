@@ -14,6 +14,13 @@ const actionTypes = {
 };
 
 const reducer = (state, action) => {
+    if (
+        action.type === actionTypes.SET_CURRENT_INDEX &&
+        (typeof action.payload !== 'number' || action.payload < 0)
+    ) {
+        return state;
+    }
+
     const actions = {
         [actionTypes.SET_CURRENT_INDEX]: {
             ...state,

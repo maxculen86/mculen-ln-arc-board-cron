@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useWindowSize } from '@ln/hooks';
-import PropTypes from 'fusion:prop-types';
 import {
     useHandleBack,
     useHandleNext,
@@ -38,8 +37,7 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
 
     useObserverItems({
         containerRef,
-        setCurrentIndex,
-        currentIndex
+        setCurrentIndex
     });
 
     const handleNextCallback = useHandleNext({
@@ -187,15 +185,3 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
         </div>
     );
 }
-
-MediaScrollerExpanded.propTypes = {
-    listVideoData: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            title: PropTypes.string,
-            author: PropTypes.string,
-            counterVideo: PropTypes.number,
-            node: PropTypes.node
-        })
-    ).isRequired
-};

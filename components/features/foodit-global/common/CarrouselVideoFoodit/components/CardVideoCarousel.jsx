@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Icon } from '@ln/common-ui-icon';
-import { Image } from '@ln/common-ui-image';
+import { Image } from '@ln/foodit-ui-image';
 import { Text } from '@ln/common-ui-text';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
@@ -49,6 +49,8 @@ function CardCarouselVideo({
         setCurrentIndex(cardPosition);
     }, [onOpenMediaScrollerExpanded, setCurrentIndex, cardPosition]);
 
+    const videoSrc = cardData?.video?.src;
+
     return (
         <article className="cursor-pointer">
             <div
@@ -69,23 +71,24 @@ function CardCarouselVideo({
             >
                 <div className="flex jc-center ai-center relative overflow-hidden ratio-9-16 -z-1 w-full h-full">
                     <Image
-                        src={cardData.image.src}
-                        alt={cardData.image.alt}
+                        src={cardData?.image?.src}
+                        alt={cardData?.image?.alt || 'Imagen poster de video'}
                         className={classNamePoster}
                     />
 
-                    <video
-                        ref={videoRef}
-                        src={cardData.video.src}
-                        playsInline
-                        loop
-                        muted
-                        preload="metadata"
-                        autoPlay={false}
-                        className={classNameVideo}
-                    />
+                    {videoSrc && (
+                        <video
+                            ref={videoRef}
+                            src={videoSrc}
+                            playsInline
+                            loop
+                            muted
+                            preload="metadata"
+                            autoPlay={false}
+                            className={classNameVideo}
+                        />
+                    )}
                 </div>
-
                 <div className="text-neutral-light-1 absolute inset-x-0 bottom-0 z-5 h-[55%] px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 flex flex-col items-center justify-end gap-16 text-center bg-gradient-video-card">
                     {badge && <Badge>{badge}</Badge>}
 
