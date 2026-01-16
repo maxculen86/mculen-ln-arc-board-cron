@@ -2,6 +2,7 @@
 import React from 'react';
 import ensureIframeLazyLoading from './helpers/ensureIframeLazyLoading';
 
+// TODO para front: realizar ajustes de estilos según diseño
 function OEmbed({ data = {} }) {
     const { raw_oembed: rawOembed = {}, subtype } = data;
     const { html = '' } = rawOembed;

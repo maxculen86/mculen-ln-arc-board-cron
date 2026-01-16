@@ -7,7 +7,7 @@ import ListOrderedOrUnordered from '../../../../private/LN/nota/cuerpo/listOrder
 import Image from '../../../../private/LN/nota/cuerpo/image';
 import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
-import RawHTML from '../../../../private/LN/common/rawHTML';
+import OEmbed from '../../../../private/LN/common/oEmbed';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
@@ -34,7 +34,7 @@ export const DEFAULT_BODY_COMPONENTS = [
     Image,
     Video,
     VideoJW,
-    RawHTML,
+    OEmbed,
     Interstitial,
     Html,
     TableV2,
