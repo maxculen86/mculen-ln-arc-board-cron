@@ -15,7 +15,7 @@ import get from '../../../private/common/utils/get';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from './hook/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
-import { VIDEO_VERTICAL } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { signatureClasses } from './styles';
 
 function SignatureFeature(props) {
     const {
@@ -81,17 +81,7 @@ function SignatureFeature(props) {
         />
     );
 
-    const subtypesWithoutMB = [VIDEO_VERTICAL];
-
-    const shouldHaveMB =
-        position === place.Top && !subtypesWithoutMB.includes(subtype);
-
-    const classNameContainer = cx(
-        'flex flex-column container-center-100 brand-color',
-        'signature',
-        shouldHaveMB && 'mb-16 mb-24_m',
-        subtype === VIDEO_VERTICAL && 'mb-16_md'
-    );
+    const classNameContainer = signatureClasses(position, subtype);
 
     return (
         <SignatureContextProvider>
