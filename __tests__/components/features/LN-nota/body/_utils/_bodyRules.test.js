@@ -102,4 +102,33 @@ describe('_utils/_bodyRules.js', () => {
             expect(component).toEqual(bodyRules.custom_embed);
         });
     });
+
+    describe('custom ruleConditions', () => {
+        it('should use ruleConditions when provided', () => {
+            const customRule = jest.fn();
+            const attr = {
+                subtype: STORYTELLING,
+                componentElement: { arcType: 'canchallena' },
+                subtypeElement: 'canchallena',
+                type: 'custom_embed',
+                ruleConditions: [{ check: () => true, rule: customRule }]
+            };
+
+            const selectedRule = selectRule(attr);
+            expect(selectedRule).toEqual(customRule);
+        });
+
+        it('should fallback to type rule when ruleConditions is empty', () => {
+            const attr = {
+                subtype: STORYTELLING,
+                componentElement: { arcType: 'blockquote' },
+                subtypeElement: 'blockquote',
+                type: 'quote',
+                ruleConditions: []
+            };
+
+            const selectedRule = selectRule(attr);
+            expect(selectedRule).toEqual(bodyRules.quote);
+        });
+    });
 });
