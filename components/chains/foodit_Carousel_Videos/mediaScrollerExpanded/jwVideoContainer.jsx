@@ -105,17 +105,24 @@ export const JwVideoContainer = forwardRef(
         const playerId = 'OSRCuuxn';
 
         useEffect(() => {
+            let isMounted = true;
             const isLoadedScript = isScriptLoaded(playerId);
 
             if (!isLoadedScript) {
                 loadJWPlayerScript(playerId, () => {
-                    setIsLoadedScriptJw(true);
+                    if (isMounted) {
+                        setIsLoadedScriptJw(true);
+                    }
                 });
             }
 
             if (isLoadedScript) {
                 setIsLoadedScriptJw(true);
             }
+
+            return () => {
+                isMounted = false;
+            };
         }, []);
 
         useEffect(() => {

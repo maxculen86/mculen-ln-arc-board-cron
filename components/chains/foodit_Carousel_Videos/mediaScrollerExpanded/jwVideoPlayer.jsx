@@ -14,42 +14,50 @@ function JwVideoPlayer({
     const [loading, setLoading] = useState(true);
     const playerRef = useRef(null);
     const handleNextRef = useRef(handleNextCallback);
+    const videoIdRef = useRef(videoId);
+    const titleRef = useRef(title);
+
+    const isInView = currentIndex === index;
+    const canCreatePlayer = !loading && isLoadedScriptJw;
+    const playerId = `${videoId}-${index}`;
+
+    videoIdRef.current = videoId;
+    titleRef.current = title;
 
     useEffect(() => {
         handleNextRef.current = handleNextCallback;
     }, [handleNextCallback]);
-
-    const isInView = currentIndex === index;
-    const shouldInstanceVideo = !loading && isInView && isLoadedScriptJw;
 
     useEffect(() => {
         if (isInView) setLoading(false);
     }, [isInView]);
 
     useEffect(() => {
-        if (!playerRef.current && shouldInstanceVideo && window?.jwplayer) {
-            const playerInstance = window.jwplayer(videoId);
-            playerRef.current = playerInstance?.setup({
-                file: `https://cdn.jwplayer.com/videos/${videoId}.mp4`,
-                image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
-                width: '100%',
-                allowFullscreen: false,
-                mute: true,
-                autostart: true
+        if (playerRef.current || !canCreatePlayer || !window?.jwplayer) {
+            return undefined;
+        }
+
+        const playerInstance = window.jwplayer(playerId);
+        playerRef.current = playerInstance?.setup({
+            file: `https://cdn.jwplayer.com/videos/${videoId}.mp4`,
+            image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
+            width: '100%',
+            allowFullscreen: false,
+            mute: true,
+            autostart: isInView
+        });
+
+        if (playerRef.current) {
+            playerRef.current.on('play', () => {
+                handleEventVideoView({
+                    videoIdObserved: videoIdRef.current,
+                    videoTitle: titleRef.current
+                });
             });
 
-            if (playerRef.current) {
-                playerRef.current.on('play', () => {
-                    handleEventVideoView({
-                        videoIdObserved: videoId,
-                        videoTitle: title
-                    });
-                });
-
-                playerRef.current.on('complete', () => {
-                    handleNextRef.current();
-                });
-            }
+            playerRef.current.on('complete', () => {
+                handleNextRef.current();
+            });
         }
 
         return () => {
@@ -62,19 +70,21 @@ function JwVideoPlayer({
                 }
             }
         };
-    }, [shouldInstanceVideo, videoId, isLoadedScriptJw]);
+    }, [canCreatePlayer, videoId]);
 
     useEffect(() => {
-        if (playerRef.current) {
-            if (isInView) {
-                playerRef.current.play();
-            } else {
-                playerRef.current.pause();
-            }
+        if (!playerRef.current) {
+            return;
+        }
+
+        if (isInView) {
+            playerRef.current.play();
+        } else {
+            playerRef.current.pause();
         }
     }, [isInView]);
 
-    if (shouldInstanceVideo) return <div id={videoId} />;
+    if (canCreatePlayer) return <div id={playerId} />;
 
     return (
         <div className="placeholder-jwplayer flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center bg-black" />

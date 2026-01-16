@@ -3,7 +3,7 @@
 exports[`JwVideoPlayer should match snapshot, div with id for build video 1`] = `
 <div>
   <div
-    id="test-video-id"
+    id="test-video-id-0"
   />
 </div>
 `;

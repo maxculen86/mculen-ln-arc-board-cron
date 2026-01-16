@@ -17,6 +17,10 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
     const { currentIndex, setCurrentIndex } = useCajaCarruselContext();
     const containerRef = useRef(null);
     const carouselWrapperRef = useRef(null);
+    const currentIndexRef = useRef(currentIndex);
+    const isMobileRef = useRef(false);
+    const handleBackRef = useRef(null);
+    const handleNextRef = useRef(null);
 
     const { width: viewportWidth } = useWindowSize();
     const isMobile = viewportWidth < 768;
@@ -67,39 +71,55 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
     });
 
     useEffect(() => {
+        currentIndexRef.current = currentIndex;
+    }, [currentIndex]);
+
+    useEffect(() => {
+        isMobileRef.current = isMobile;
+    }, [isMobile]);
+
+    useEffect(() => {
+        handleBackRef.current = handleBackCallback;
+        handleNextRef.current = handleNextCallback;
+    }, [handleBackCallback, handleNextCallback]);
+
+    useEffect(() => {
         const handleKeyDown = event => {
             if (!carouselWrapperRef.current?.contains(document.activeElement)) {
                 return;
             }
 
+            const index = currentIndexRef.current;
+            const mobile = isMobileRef.current;
+
             switch (event.key) {
                 case 'ArrowLeft':
-                    if (currentIndex > 0) {
+                    if (index > 0) {
                         event.preventDefault();
-                        handleBackCallback();
+                        handleBackRef.current?.();
                     }
                     break;
                 case 'ArrowRight':
-                    if (currentIndex < listVideoData.length - 1) {
+                    if (index < listVideoData.length - 1) {
                         event.preventDefault();
-                        handleNextCallback();
+                        handleNextRef.current?.();
                     }
                     break;
                 case 'ArrowUp':
-                    if (currentIndex > 0 && isMobile) {
+                    if (index > 0 && mobile) {
                         event.preventDefault();
-                        handleBackCallback();
+                        handleBackRef.current?.();
                     }
                     break;
                 case 'ArrowDown':
-                    if (currentIndex < listVideoData.length - 1 && isMobile) {
+                    if (index < listVideoData.length - 1 && mobile) {
                         event.preventDefault();
-                        handleNextCallback();
+                        handleNextRef.current?.();
                     }
                     break;
                 case 'Home':
                     event.preventDefault();
-                    if (isMobile) {
+                    if (mobile) {
                         containerRef.current?.scrollTo({
                             top: 0,
                             behavior: 'smooth'
@@ -113,7 +133,7 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
                     break;
                 case 'End':
                     event.preventDefault();
-                    if (isMobile) {
+                    if (mobile) {
                         containerRef.current?.scrollTo({
                             top: containerRef.current.scrollHeight,
                             behavior: 'smooth'
@@ -132,14 +152,7 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [
-        currentIndex,
-        listVideoData.length,
-        isMobile,
-        handleBackCallback,
-        handleNextCallback,
-        containerRef
-    ]);
+    }, [listVideoData.length]);
 
     return (
         <div

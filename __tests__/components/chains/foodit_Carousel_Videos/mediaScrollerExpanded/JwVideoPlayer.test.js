@@ -72,8 +72,8 @@ describe('JwVideoPlayer', () => {
     it('should initialize JW Player with correct config when in view', () => {
         const { container } = render(<JwVideoPlayer {...defaultProps} />);
 
-        expect(container.querySelector('#test-video-id')).toBeInTheDocument();
-        expect(window.jwplayer).toHaveBeenCalledWith('test-video-id');
+        expect(container.querySelector('#test-video-id-0')).toBeInTheDocument();
+        expect(window.jwplayer).toHaveBeenCalledWith('test-video-id-0');
         expect(mockSetup).toHaveBeenCalledWith(
             expect.objectContaining({
                 file: 'https://cdn.jwplayer.com/videos/test-video-id.mp4',
