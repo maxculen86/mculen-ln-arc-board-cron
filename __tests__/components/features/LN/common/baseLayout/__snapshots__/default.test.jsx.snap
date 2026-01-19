@@ -20,18 +20,11 @@ exports[`components - features - LN - common - baseLayout Snapshots should maint
         </div>
       </main>
       <div
-        class="--no-app"
-      >
-        <footer
-          class="w-full flex justify-center items-center p-16 mt-auto border-t border-thin border-muted"
-        >
-          <span
-            class="text-32"
-          >
-            FooterLN
-          </span>
-        </footer>
-      </div>
+        data-testid="mock-footer"
+      />
+      <div
+        data-testid="mock-navbar"
+      />
       <div
         class="none"
       />
@@ -40,6 +33,9 @@ exports[`components - features - LN - common - baseLayout Snapshots should maint
       >
         Cargando banners ...
       </div>
+      <div
+        data-testid="mock-drawer-sections"
+      />
     </div>
   </div>
 </DocumentFragment>
