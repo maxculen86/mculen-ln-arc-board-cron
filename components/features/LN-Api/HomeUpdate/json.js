@@ -79,7 +79,7 @@ class HomeUpdate {
                 this.queryParams
             );
 
-            const resultHome = await homev2(
+            const resultHome = homev2(
                 resultPageTransform,
                 this.queryParams
             );
