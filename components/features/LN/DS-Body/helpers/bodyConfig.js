@@ -7,6 +7,7 @@ import Image from '../../common/image/default';
 import OEmbed from '../../common/oEmbed/default';
 import Divider from '../../common/divider/default';
 import VideoPlayer from '../../common/video/default';
+import BlockQuote from '../../common/blockquote/default';
 
 // TODO: A medida que se vayan creando los nuevos componentes DS, agregarlos aca
 const DS_DEFAULT_BODY_COMPONENTS = [
@@ -16,7 +17,8 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     Image,
     OEmbed,
     Divider,
-    VideoPlayer
+    VideoPlayer,
+    BlockQuote
 ];
 
 const BASE_BODY_CONFIG = {
