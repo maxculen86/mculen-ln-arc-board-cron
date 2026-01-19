@@ -37,6 +37,7 @@ window.addEventListener('load', function () {
         let currentTitle = title || '';
         let currentId = mediaId || '';
         let skipPlayForSeek = false;
+        let wasPaused = false;
 
         const setInstancePlayer = () =>
             loadJWPlayerScript(playerId, () => {
@@ -67,6 +68,7 @@ window.addEventListener('load', function () {
                             currentId = newId;
                             skipPlayForSeek = false;
                             initialMode = null;
+                            wasPaused = false;
                         }
                     });
                     trackingCleanupByMediaId.set(mediaId, cleanupTracking);
@@ -74,6 +76,18 @@ window.addEventListener('load', function () {
                     instance.on('play', (e = {}) => {
                         if (skipPlayForSeek) {
                             skipPlayForSeek = false;
+                            return;
+                        }
+
+                        if (wasPaused) {
+                            wasPaused = false;
+                            addEventToDataLayerV2({
+                                event: 'videoResume',
+                                rest: {
+                                    videoName: currentTitle,
+                                    videoID: currentId
+                                }
+                            });
                             return;
                         }
 
@@ -116,9 +130,10 @@ window.addEventListener('load', function () {
                         }
                     });
 
-                    instance.on('pause', () =>
-                        handleVideoStop(articleElement, videoState)
-                    );
+                    instance.on('pause', () => {
+                        wasPaused = true;
+                        handleVideoStop(articleElement, videoState);
+                    });
                     instance.on('complete', () =>
                         handleVideoStop(articleElement, videoState)
                     );
