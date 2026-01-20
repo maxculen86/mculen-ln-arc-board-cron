@@ -7,7 +7,7 @@ exports[`components - features - LN - common - header - components - preHeader S
     data-testid="static-component"
   >
     <div
-      class="hidden lg:flex"
+      class="max-lg:hidden flex"
       data-testid="common-preheader"
     >
       <div

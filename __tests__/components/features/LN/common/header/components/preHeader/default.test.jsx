@@ -65,7 +65,7 @@ describe('components - features - LN - common - header - components - preHeader'
 
             const commonPreHeader = getByTestId('common-preheader');
             expect(commonPreHeader).toBeInTheDocument();
-            expect(commonPreHeader).toHaveClass('hidden lg:flex');
+            expect(commonPreHeader).toHaveClass('max-lg:hidden flex');
 
             expect(getByTestId('weather-component')).toBeInTheDocument();
             expect(getByTestId('brands-component')).toBeInTheDocument();
