@@ -3,38 +3,37 @@ import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEvent
 import get from '../../../private/common/utils/get';
 import { hasValidationFailed } from '../../LN10_Caja_Segmentada/_helpers';
 
-export const registeredIdsSetAndInteractions = new Set();
+let lastTrackedId = '';
+
+export const resetTracking = () => {
+    lastTrackedId = '';
+};
 
 const normalizeVideoId = videoId =>
     typeof videoId === 'string' ? videoId.trim() : videoId;
 
 export const handleEventSwipeVideo = ({
     videoIdObserved = '',
-    videoTitle = ''
+    videoTitle = '',
+    origin = ''
 }) => {
-    if (
-        !registeredIdsSetAndInteractions ||
-        registeredIdsSetAndInteractions.has(videoIdObserved)
-    ) {
+    if (!videoIdObserved || videoIdObserved === lastTrackedId) {
         return;
     }
 
-    registeredIdsSetAndInteractions.add(videoIdObserved);
+    lastTrackedId = videoIdObserved;
 
-    if (registeredIdsSetAndInteractions.size > 2) {
-        addEventToDataLayerV2({
-            event: 'video_view',
-            contentType: 'video_story',
-            origin: 'video_story',
-            rest: {
-                page_title: videoTitle,
-                id_video: videoIdObserved
-            }
-        });
-    }
+    addEventToDataLayerV2({
+        event: 'video_view',
+        contentType: 'video_story',
+        rest: {
+            page_title: videoTitle,
+            id_video: videoIdObserved,
+            origin
+        }
+    });
 };
 
-// TODO: Utilizar components/private/LN/common/utils/dynamicallyLoadScript.js, agregando mejora que pueda ser async y que use getElementsByTagName
 export const isScriptLoaded = id => {
     const scripts = Array.from(document.getElementsByTagName('script'));
     return scripts.some(script =>
@@ -47,7 +46,8 @@ export const transformNodes = ({
     isAdmin,
     childProps = [],
     isExpanded = false,
-    bannerRef
+    bannerRef,
+    layoutType = ''
 }) => {
     let counterVideos = 0;
     return childProps.reduce((acc, properties, index) => {
@@ -60,15 +60,15 @@ export const transformNodes = ({
 
         const newChildren = {
             id: isBanner ? null : videoId,
+            key: isBanner ? `banner-${index}` : videoId || `video-${index}`,
             title: isBanner ? null : title,
             type,
             counterVideo: counterVideos,
             isBanner,
+            origin: layoutType,
             node:
                 !isAdmin &&
                 !isExpanded &&
-                // Evitamos renderizar el nodo del banner en el carrusel para evitar el llamado al adserver cuando el banner aun no es visible.
-                // Se manda un div con una referencia para respetar la misma posición de cada item del carrusel
                 type === 'LN-common/bannerRefactor' ? (
                     <div ref={bannerRef} id="bannerRoot" />
                 ) : (

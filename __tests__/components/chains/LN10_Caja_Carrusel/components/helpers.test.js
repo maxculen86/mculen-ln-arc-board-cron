@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     handleEventSwipeVideo,
-    registeredIdsSetAndInteractions,
+    resetTracking,
     transformNodes,
     getAdsConfigVideoJw,
     shouldHideCarrusel
@@ -21,13 +21,11 @@ jest.mock('../../../../../components/chains/LN10_Caja_Segmentada/_helpers');
 describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
     describe('handleEventSwipeVideo', () => {
         beforeEach(() => {
-            global.registeredIdsSetAndInteractions = new Set();
+            resetTracking();
             jest.clearAllMocks();
         });
 
         it('adds a new video event to the data layer if not already registered', () => {
-            registeredIdsSetAndInteractions.add('clickEventRegistered'); // coming from the click to avoid event duplication
-            registeredIdsSetAndInteractions.add('video1'); // coming from the click, video view
             const videoIdObserved = 'video2';
             const videoTitle = 'Sample Video Title';
 
@@ -36,10 +34,10 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
             expect(addEventToDataLayerV2).toHaveBeenCalledWith({
                 contentType: 'video_story',
                 event: 'video_view',
-                origin: 'video_story',
                 rest: {
                     page_title: videoTitle,
-                    id_video: videoIdObserved
+                    id_video: videoIdObserved,
+                    origin: ''
                 }
             });
         });
@@ -48,19 +46,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
             const videoIdObserved = 'video123';
             const videoTitle = 'Sample Video Title';
 
-            registeredIdsSetAndInteractions.add(videoIdObserved);
-
             handleEventSwipeVideo({ videoIdObserved, videoTitle });
-
-            expect(addEventToDataLayerV2).not.toHaveBeenCalled();
-        });
-
-        it('does not add the event if registeredId is undefined or not initialized', () => {
-            global.registeredId = undefined;
-
-            const videoIdObserved = 'video123';
-            const videoTitle = 'Sample Video Title';
-
+            jest.clearAllMocks();
             handleEventSwipeVideo({ videoIdObserved, videoTitle });
 
             expect(addEventToDataLayerV2).not.toHaveBeenCalled();
