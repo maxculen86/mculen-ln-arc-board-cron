@@ -8,6 +8,8 @@ import OEmbed from '../../common/oEmbed/default';
 import Divider from '../../common/divider/default';
 import VideoPlayer from '../../common/video/default';
 import BlockQuote from '../../common/blockquote/default';
+import PullQuote from '../../common/pullquote/default';
+import Interstitial from '../../common/interstitial/default';
 
 // TODO: A medida que se vayan creando los nuevos componentes DS, agregarlos aca
 const DS_DEFAULT_BODY_COMPONENTS = [
@@ -18,7 +20,9 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     OEmbed,
     Divider,
     VideoPlayer,
-    BlockQuote
+    BlockQuote,
+    PullQuote,
+    Interstitial
 ];
 
 const BASE_BODY_CONFIG = {
@@ -35,7 +39,8 @@ const BASE_BODY_CONFIG = {
         'blockquote',
         'table',
         'divider',
-        'list'
+        'list',
+        'pullquote'
     ],
     allowedCustomSubtypes: ['gallery-embed', 'video_jw']
 };
