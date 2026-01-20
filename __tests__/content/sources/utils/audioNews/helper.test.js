@@ -460,7 +460,7 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
         expect(result).toBe(true);
     });
 
-    it('Collection-like item: no word_count, no content_elements, no promo_items — validate using date/source/subtype (should be true)', () => {
+    it('Collection-like item: no audio generated and no wordCount -> should return false', () => {
         const data = {
             source: { system: 'composer' },
             subtype: '1',
@@ -468,10 +468,10 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
         };
 
         const result = isNoteListenableForApps(data);
-        expect(result).toBe(true);
+        expect(result).toBe(false);
     });
 
-    it('Collection-like item with disabled subtype should return false even si faltan word_count (respeta disableSubtypes)', () => {
+    it('Collection-like item without audio and without wordCount should return false (even if subtype is disabled)', () => {
         const data = {
             source: { system: 'composer' },
             subtype: '7',

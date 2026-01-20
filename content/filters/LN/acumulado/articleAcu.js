@@ -37,6 +37,17 @@ export default `
                     }
                 }
             }
+            audio_nota  {
+                embed {
+                    config {
+                        audio_id
+                        audio_status
+                        audio_url
+                        audio_summary_url
+                        voice
+                    }
+                }
+            }  
         }
         taxonomy {
             tags {
@@ -134,6 +145,11 @@ export default `
                 }
             }
         }
+        planning {
+            story_length {
+                word_count_actual
+            }
+        }   
     }
     next
     count

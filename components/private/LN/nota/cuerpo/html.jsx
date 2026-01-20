@@ -15,7 +15,7 @@ function Html(props) {
     ) : (
         <div
             id={`anexo-${idMedia}`}
-            className="com-embed --html"
+            className="com-embed --html container-center-100"
             dangerouslySetInnerHTML={{
                 __html: content
             }}

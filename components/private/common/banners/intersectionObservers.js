@@ -7,6 +7,8 @@ export const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
     const banners = filterBanners(bannersLazy);
 
+    let interSectionObserver;
+
     const callback = entries => {
         entries.forEach(entry => {
             banners.forEach(banner => {
@@ -21,7 +23,7 @@ export const createBannersIntersectionObserver = () => {
         });
     };
 
-    const interSectionObserver = new IntersectionObserver(callback, {
+    interSectionObserver = new IntersectionObserver(callback, {
         rootMargin:
             device === 'mobile' ? '0px 0px 200px 0px' : '0px 0px 300px 0px'
     });
@@ -32,6 +34,7 @@ export const createBannersIntersectionObserver = () => {
 };
 
 export const createDifferVideosObserver = () => {
+    const { device } = getViewport();
     const lazyVideos = [].slice.call(
         document.querySelectorAll('video.ln-video')
     );
@@ -44,13 +47,16 @@ export const createDifferVideosObserver = () => {
                     lazyVideo.src = lazyVideo.dataset.src;
                 }
                 lazyVideo.play();
-            } else {
+            } else if (!video.isIntersecting && !lazyVideo.paused) {
                 lazyVideo.pause();
             }
         });
     };
 
-    const lazyVideoObserver = new IntersectionObserver(videosCallback);
+    const lazyVideoObserver = new IntersectionObserver(videosCallback, {
+        rootMargin: device === 'mobile' ? '150px 0px' : '250px 0px',
+        threshold: 0
+    });
 
     lazyVideos.forEach(lazyVideo => {
         lazyVideoObserver.observe(lazyVideo);
