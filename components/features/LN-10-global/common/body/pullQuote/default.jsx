@@ -1,6 +1,5 @@
 import React from 'react';
 import { cx } from '@ln/cva';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
@@ -55,23 +54,5 @@ function PullQuote({ data, className, ...r }) {
 
 PullQuote.arcType = 'pullquote';
 PullQuote.isStatic = true;
-
-PullQuote.propTypes = {
-    data: PropTypes.shape({
-        citation: PropTypes.shape({
-            content: PropTypes.string
-        }),
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                content: PropTypes.string
-            })
-        )
-    }).isRequired,
-    className: PropTypes.string
-};
-
-PullQuote.defaultProps = {
-    className: ''
-};
 
 export default PullQuote;
