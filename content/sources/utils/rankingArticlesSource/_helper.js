@@ -62,7 +62,7 @@ export const resolveUri = key => {
 
     const requestUri = `${CONTENT_BASE_PROD}/content/v4/search/published`;
     const includeFields =
-        '_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,headlines.web,subheadlines,canonical_url,body,related_content,website_url,label,first_publish_date,display_date,source.system,label.republicar_audio, taxonomy.primary_section';
+        '_id,subtype,promo_items.basic,promo_items.audio_nota.embed.config.audio_status,headlines.basic,headlines.mobile,headlines.web,subheadlines,canonical_url,body,related_content,website_url,label,first_publish_date,display_date,source.system,label.republicar_audio, taxonomy.primary_section,planning';
     const uriParams = [
         `website=${arcSite}`,
         `size=${stories.length}`,
