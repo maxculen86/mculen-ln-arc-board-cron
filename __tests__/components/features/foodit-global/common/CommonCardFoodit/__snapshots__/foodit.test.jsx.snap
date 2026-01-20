@@ -391,7 +391,6 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
           sources=""
         >
           <source
-            src="https://example.com/video-file.mp4"
             type="video/mp4"
           />
         </video>

@@ -17,7 +17,7 @@ export const Article = article => {
     const newArticle = article;
     const tipo =
         get(newArticle, 'additionalProperties.variant', 'regular') || 'regular';
-
+    const outputType = get(newArticle, 'additionalProperties.outputType', null);
     const Component = articleComponents[tipo];
 
     newArticle.additionalProperties = {
@@ -29,6 +29,7 @@ export const Article = article => {
             ...get(newArticle, 'additionalProperties.diseno', null),
             typeCard: tipo
         },
+        outputType,
         ...Component(newArticle)
     };
 
