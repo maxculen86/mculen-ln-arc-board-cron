@@ -107,7 +107,7 @@ function CardVerticalContainer({
                         <div className="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100">
                             <div className="h-20 w-20 flex ai-center jc-center">
                                 <Icon
-                                    name="mediaPlay"
+                                    name="play-filled"
                                     size={20}
                                     className="custom-class"
                                 />

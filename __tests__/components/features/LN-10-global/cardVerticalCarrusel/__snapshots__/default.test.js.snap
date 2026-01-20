@@ -48,7 +48,7 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
           >
             <mock-ds-common-icon
               classname="custom-class"
-              name="mediaPlay"
+              name="play-filled"
               size="20"
             />
           </div>
@@ -106,7 +106,7 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
           >
             <mock-ds-common-icon
               classname="custom-class"
-              name="mediaPlay"
+              name="play-filled"
               size="20"
             />
           </div>
