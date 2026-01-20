@@ -4,11 +4,12 @@ import transform from '../../../content/sources/utils/pageSource/pageHome/v1/mob
 import getPageElements from '../../private/LN/api/global/page';
 import pageBuilderSections from '../config/LN10-PageBuilder.config.json';
 
-const LN10Home = async props => {
+async function LN10Home(props) {
+    const { children, renderables, arcSite } = props;
     const propsHome = {
-        children: props.children,
-        renderables: props.renderables,
-        arcSite: props.arcSite,
+        children,
+        renderables,
+        arcSite,
         layout: 'LN10-Home_Main'
     };
     const pageElements = getPageElements(propsHome);
@@ -17,9 +18,15 @@ const LN10Home = async props => {
         information: pageElements.information
     };
     const resultHome = home(await transform(pageElements, params), params);
+    const response = Array.isArray(resultHome)
+        ? {
+              ...resultHome[0],
+              metadata: { ...resultHome[0].metadata, outputType: 'jsonv2' }
+          }
+        : null;
 
-    return Array.isArray(resultHome) ? resultHome[0] : null;
-};
+    return response;
+}
 
 LN10Home.sections = pageBuilderSections;
 

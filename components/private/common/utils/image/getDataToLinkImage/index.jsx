@@ -3,7 +3,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 // TODO: REFACTOR ES-LINT RULES
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from '../../get';
 import {
     LinkImagePreload,
@@ -26,6 +25,14 @@ import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls, getResizerUrlJw } from './_helper';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 import { shouldPreloadForSubtype } from '../../subtypes/subtypeHelper';
+import getOpeningResizedUrls from '../../../../../layouts/LN-nota-storytelling-v2/helpers/getOpeningResizedUrls';
+import siteProperties from '../../../../../../properties/sites/la-nacion-ar';
+
+const STORYTELLING_V2_LAYOUT = get(
+    siteProperties,
+    'layoutsName.StoryTellingV2',
+    ''
+);
 
 function GetDataToLinkImage({
     data = {},
@@ -56,7 +63,10 @@ function GetDataToLinkImage({
         Nota: () => {
             if (!shouldPreloadForSubtype(subtype)) return <></>;
 
-            const resizedUrls = getResizedUrls(subtype, promoItems, basic);
+            const resizedUrls =
+                layout === STORYTELLING_V2_LAYOUT
+                    ? getOpeningResizedUrls(promoItems)
+                    : getResizedUrls(subtype, promoItems, basic);
 
             return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
@@ -166,26 +176,5 @@ function GetDataToLinkImage({
             sectionData[sectionAsComponent]()) || <></>
     );
 }
-
-GetDataToLinkImage.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        name: PropTypes.string,
-        subtype: PropTypes.string,
-        promo_items: PropTypes.object,
-        canonical_url: PropTypes.string,
-        wikiSourceData: PropTypes.object,
-        isWiki: PropTypes.bool,
-        node_type: PropTypes.string,
-        image: PropTypes.shape({
-            url: PropTypes.string
-        })
-    }).isRequired,
-    section: PropTypes.string.isRequired,
-    renderables: PropTypes.arrayOf(PropTypes.object).isRequired,
-    arcSite: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    layout: PropTypes.string.isRequired
-};
 
 export default GetDataToLinkImage;

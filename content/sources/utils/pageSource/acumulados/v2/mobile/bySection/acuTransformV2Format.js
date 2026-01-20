@@ -1,18 +1,17 @@
-const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
-    const specialSectionTItle =
-        sectionSlug === '/ultimas-noticias'
-            ? 'Últimas noticias'
-            : sectionSlug === '/suscriptores'
-            ? 'Suscriptores'
-            : null;
+/* eslint-disable no-param-reassign */
+const SECTION_TITLES = {
+    '/ultimas-noticias': 'Últimas noticias',
+    '/suscriptores': 'Suscriptores'
+};
 
-    const title = specialSectionTItle
-        ? specialSectionTItle
-        : transformedAcu[0].titulo;
+const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
+    const specialSectionTitle = SECTION_TITLES[sectionSlug] ?? null;
+
+    const title = specialSectionTitle || transformedAcu[0].titulo;
 
     const metadata = {
         paginate: paginationValue,
-        title: title,
+        title,
         banners: transformedAcu[0].banners,
         total: transformedAcu[0].acumuladoTotal,
         category: {

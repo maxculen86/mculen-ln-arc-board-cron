@@ -7,6 +7,7 @@ import PageViewDataLayer from '../../features/foodit-global/common/dataLayer/pag
 import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPageVIew';
 import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
 import ChefsPageView from '../../features/foodit-global/common/dataLayer/chefsPageView';
+import EjesHomePageView from '../../features/foodit-global/common/dataLayer/ejesHomePageView';
 import DataLayerOrigin from '../../features/foodit-global/common/dataLayer/origin';
 
 const config = {
@@ -14,6 +15,7 @@ const config = {
         'LN-nota-receta': NotaDataLayer,
         'LN-nota-noticia': NotaDataLayer,
         'LN-nota-storytelling': NotaDataLayer,
+        'LN-nota-storytelling-v2': NotaDataLayer,
         'LN-nota-infografia': NotaDataLayer,
         'LN-nota-html-libre': NotaDataLayer,
         'LN-nota-foto-al-100': NotaDataLayer,
@@ -34,7 +36,8 @@ const config = {
         'Foodit-recetario': AutogestionPageView,
         'Foodit-acumulado': AcusPageView,
         'Foodit-buscador': AcusPageView,
-        'Foodit-acumulado-chef': ChefsPageView
+        'Foodit-acumulado-chef': ChefsPageView,
+        'Foodit-subcategorias': EjesHomePageView
     }
 };
 

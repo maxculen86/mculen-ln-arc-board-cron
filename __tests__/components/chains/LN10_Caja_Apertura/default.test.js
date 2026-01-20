@@ -15,7 +15,7 @@ jest.mock(
 );
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -26,8 +26,6 @@ jest.mock(
 );
 
 describe('components - chains - LN10_Caja_Apertura - helper', () => {
-    // Context.useAppContext = jest.fn(() => ({}));
-
     const articleFeature = <ArticleFeature id="noteId" />;
 
     const getProps = (layout, children, isAdmin = true) => ({

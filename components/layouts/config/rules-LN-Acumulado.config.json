@@ -2,7 +2,9 @@
     "Pre-Apertura": {
         "quantity": 1,
         "operatorToUse": "!==",
-        "types": ["LN-common/bannerRefactor"],
+        "types": [
+            "LN-common/bannerRefactor"
+        ],
         "position": 2
     },
     "Apertura": {
@@ -17,7 +19,8 @@
             "LN-common/navigationList",
             "LN-common/anexo",
             "LN-acumulado/apertura",
-            "LN10_Caja_Carrusel"
+            "LN10_Caja_Carrusel",
+            "LN10_Caja_Carrusel_Horizontal"
         ],
         "position": 4
     },
@@ -34,14 +37,18 @@
             "LN-acumulado/grillaNotas",
             "LN-common/navigationList",
             "LN-common/techo",
-            "LN10_Caja_Carrusel"
+            "LN10_Caja_Carrusel",
+            "LN10_Caja_Carrusel_Horizontal"
         ],
         "position": 6
     },
     "Aside": {
         "quantity": 5,
         "operatorToUse": "<=",
-        "types": ["LN-common/ranking", "LN-common/bannerRefactor"],
+        "types": [
+            "LN-common/ranking",
+            "LN-common/bannerRefactor"
+        ],
         "position": 7
     }
 }

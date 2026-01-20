@@ -23,7 +23,7 @@ import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
 import { selectRule } from './_bodyRules';
 import TableV2 from '../../tableV2/default';
 
-const bodyComponents = [
+const defaultBodyComponents = [
     Paragraph,
     PullQuote,
     BlockQuote,
@@ -47,11 +47,15 @@ const bodyComponents = [
     imageGalleryEmbed
 ];
 
-export const bodyElementRules = (props = {}) => {
-    const { element = {}, subtype } = props;
-    const { type, subtype: subtypeElement, content } = element;
+const resolveBodyComponents = bodyComponents =>
+    Array.isArray(bodyComponents) ? bodyComponents : defaultBodyComponents;
 
-    const selectedComponent = bodyComponents.find(componentElement => {
+export const bodyElementRules = (props = {}) => {
+    const { element = {}, subtype, bodyComponents } = props;
+    const { type, subtype: subtypeElement, content } = element;
+    const components = resolveBodyComponents(bodyComponents);
+
+    const selectedComponent = components.find(componentElement => {
         const componentSelected = selectRule({
             subtype,
             type,

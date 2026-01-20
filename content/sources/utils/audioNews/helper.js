@@ -84,14 +84,10 @@ const isListenable = (data, isForWeb = true) => {
         return false;
     }
 
-    if (isForWeb) {
-        return (
-            passesCommonRules(props, true) &&
-            passesWebLabelRules(labelAudioNews, textAudioNews)
-        );
-    }
-
-    return passesCommonRules(props, false);
+    return (
+        passesCommonRules(props, true) &&
+        passesWebLabelRules(labelAudioNews, textAudioNews)
+    );
 };
 
 export const isNoteListenableForApps = data => {
@@ -105,11 +101,10 @@ export const isNoteListenableForApps = data => {
         wordCount &&
         Number(wordCount) >= 100 &&
         !disableSubtypesForApps.includes(subtype)
-    ) {
+    )
         return true;
-    }
 
-    return isListenable(data, false);
+    return false;
 };
 
 export const isCustomVoice = data =>

@@ -1,0 +1,54 @@
+{
+    "links": [
+        {
+            "label": "CLUB LN",
+            "href": "https://club.lanacion.com.ar/",
+            "logo": {
+                "width": 24,
+                "name": "logo-club"
+            }
+        },
+        {
+            "label": "EN VIVO",
+            "title": "LN+ EN VIVO",
+            "href": "https://lnmas.lanacion.com.ar/",
+            "logo": {
+                "width": 24,
+                "name": "logo-lnmas"
+            }
+        },
+        {
+            "label": "FOODIT",
+            "href": "https://foodit.lanacion.com.ar/",
+            "logo": {
+                "width": 18,
+                "name": "logo-foodit"
+            }
+        },
+        {
+            "label": "CANCHALLENA",
+            "href": "https://canchallena.lanacion.com.ar/",
+            "logo": {
+                "width": 12,
+                "name": "logo-canchallena"
+            }
+        },
+
+        {
+            "label": "BONVIVIR",
+            "href": "https://bonvivir.com/",
+            "logo": {
+                "width": 12,
+                "name": "logo-bonvivir"
+            }
+        },
+        {
+            "label": "LN 104.9 + Música",
+            "href": "https://masmusica.lanacion.com.ar/",
+            "logo": {
+                "width": 20,
+                "name": "logo-lnradio"
+            }
+        }
+    ]
+}

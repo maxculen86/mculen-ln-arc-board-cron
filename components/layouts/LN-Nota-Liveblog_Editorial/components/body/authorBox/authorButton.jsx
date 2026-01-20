@@ -1,8 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import Avatar from '../../../../../features/ui-ln/avatar/default';
+import Avatar from '../../../../../features/ui/ln/avatar/default';
 
-function AuthorButton({ id, image, name, firstName, lastName, onClick }) {
+function AuthorButton({
+    id,
+    image = {},
+    name,
+    firstName = '',
+    lastName = '',
+    onClick
+}) {
     if (!id || !name) return null;
 
     return (
@@ -44,21 +50,3 @@ function AuthorButton({ id, image, name, firstName, lastName, onClick }) {
 }
 
 export default AuthorButton;
-
-AuthorButton.propTypes = {
-    id: PropTypes.string.isRequired,
-    image: PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-    }),
-    name: PropTypes.string.isRequired,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    onClick: PropTypes.func.isRequired
-};
-
-AuthorButton.defaultProps = {
-    image: {},
-    firstName: '',
-    lastName: ''
-};

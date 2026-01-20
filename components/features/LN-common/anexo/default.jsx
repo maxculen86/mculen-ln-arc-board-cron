@@ -104,7 +104,17 @@ export const getComponentFromConfig = (
                         id={anexoId}
                         title={anexoId}
                         data-src={!_props.isAdmin ? url : undefined}
-                        src={_props.isAdmin ? url : undefined}
+                        src={
+                            url &&
+                            (_props.isAdmin ||
+                                (!get(_props, 'customFields.addIdToken') &&
+                                    !get(
+                                        _props,
+                                        'customFields.addAccessToken'
+                                    )))
+                                ? url
+                                : undefined
+                        }
                         frameBorder="0"
                         width="100%"
                         height="100%"
@@ -154,7 +164,8 @@ function AnexoFeature(props) {
 
     const {
         url,
-        addToken,
+        addIdToken,
+        addAccessToken,
         heightDesktop,
         heightTablet,
         heightMobile,
@@ -242,8 +253,8 @@ function AnexoFeature(props) {
     const anexoId = `anexo-responsive-${id}`;
 
     useEffect(() => {
-        handleIframeProps(id, url, addToken);
-    }, [id, comp]);
+        handleIframeProps(id, url, addIdToken, addAccessToken);
+    }, [id, url, addIdToken, addAccessToken, comp]);
 
     const iframeURLContent = (
         <>
@@ -277,7 +288,6 @@ function AnexoFeature(props) {
 AnexoFeature.label = 'LN Anexo';
 
 AnexoFeature.propTypes = {
-    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         url: PropTypes.url.tag({
             label: 'Url',
@@ -285,11 +295,16 @@ AnexoFeature.propTypes = {
             description: 'Ingrese aquí la URL del anexo',
             defaultValue: ''
         }),
-        addToken: PropTypes.boolean.tag({
+        addIdToken: PropTypes.bool.tag({
             label: 'Necesita token de usuario',
             group: adjustByURL,
-            description:
-                'Marque si el contenido requiere un token JWT en la URL',
+            description: 'Incluir ID token del usuario en la URL',
+            defaultValue: false
+        }),
+        addAccessToken: PropTypes.bool.tag({
+            label: 'Necesita producto premium',
+            group: adjustByURL,
+            description: 'Incluir access token (productos premium) en la URL',
             defaultValue: false
         }),
         hideByUrl: PropTypes.bool.tag({
@@ -310,7 +325,7 @@ AnexoFeature.propTypes = {
             description: 'Ingrese aquí el VIVO YOUTUBE del anexo',
             defaultValue: ''
         }),
-        videoComercial: PropTypes.boolean.tag({
+        videoComercial: PropTypes.bool.tag({
             label: 'Video Comercial',
             description: 'Marque para desactivar carga diferida',
             group: adjustByVivoYoutube,
@@ -365,7 +380,7 @@ AnexoFeature.propTypes = {
             defaultValue: '',
             group: 'Techo'
         }),
-        hideTitle: PropTypes.boolean.tag({
+        hideTitle: PropTypes.bool.tag({
             name: 'Ocultar techo',
             description: 'Marque para ocultar el techo',
             defaultValue: true,
@@ -407,7 +422,7 @@ AnexoFeature.propTypes = {
                 'Marque para que el anexo ocupe el ancho completo en mobile',
             defaultValue: false
         }),
-        shouldSchedule: PropTypes.boolean.tag({
+        shouldSchedule: PropTypes.bool.tag({
             name: 'Activar Calendarización',
             description:
                 'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',

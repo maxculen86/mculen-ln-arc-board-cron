@@ -2,7 +2,12 @@ import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { transformEmbedScript } from '../_utils/_embedHelper';
 import get from '../../../../private/common/utils/get';
 
-export const processElement = (element, outputType, subtype) => {
+export const processElement = (
+    element,
+    outputType,
+    subtype,
+    bodyComponents
+) => {
     const processedElement = element.subtype
         ? transformEmbedScript(element)
         : element;
@@ -14,7 +19,8 @@ export const processElement = (element, outputType, subtype) => {
     const Component = bodyElementRules({
         element: processedElement,
         outputType,
-        subtype
+        subtype,
+        bodyComponents
     });
 
     return { processedElement, nodeType, Component };

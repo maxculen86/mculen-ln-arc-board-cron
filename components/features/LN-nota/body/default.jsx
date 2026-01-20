@@ -1,32 +1,18 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import groupBannerConfig from './_utils/_groupBannerConfig';
 import buildBodyCustomFields from './_utils/_buildBodyCustomFields';
 import BuildBody from './_children/_buildBody';
-import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
-import useScrollDispatcher, {
-    registerScrollTrigger
-} from '../../LN-common/hooks/useScrollDispatcher';
+import BaseBodyWrapper from './_children/BaseBodyWrapper';
+import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
+
 function body({ customFields }) {
     const { outputType, globalContent = {} } = useAppContext();
     const banners = groupBannerConfig(customFields);
     const { _id, content_elements: contentElements } = globalContent;
 
-    useLazyEmbeds({
-        contentElements,
-        outputType,
-        bodyOrigin: 'Body default',
-        noteId: _id,
-        selector: 'cuerpo__nota'
-    });
-
-    useScrollDispatcher({
-        startSelector: 'h1', //titulo
-        endSelector: '#fin-de-nota'
-    });
-
-    useEffect(() => {
+    const registerScrollTracking = () => {
         registerScrollTrigger({
             id: 'scroll-body-GA',
             type: 'percentage',
@@ -42,13 +28,22 @@ function body({ customFields }) {
                 }
             }
         });
-    }, []);
+    };
 
-    return BuildBody({
-        banners,
-        outputType,
-        globalContent
-    });
+    return (
+        <BaseBodyWrapper
+            contentElements={contentElements}
+            outputType={outputType}
+            noteId={_id}
+            onRegisterScrollTrigger={registerScrollTracking}
+        >
+            {BuildBody({
+                banners,
+                outputType,
+                globalContent
+            })}
+        </BaseBodyWrapper>
+    );
 }
 
 body.label = 'LN-Nota-Body';

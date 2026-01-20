@@ -1,7 +1,7 @@
 import { cva } from '@ln/cva';
 
 export const wrapperPostVariant = cva(
-    '-ml-16 -mr-16 ml-0_m mr-0_m liveBlog_post',
+    '-ml-16 -mr-16 ml-0_m mr-0_m liveBlog_post min-w-0 max-w-100vw',
     {
         variants: {
             isPinned: {

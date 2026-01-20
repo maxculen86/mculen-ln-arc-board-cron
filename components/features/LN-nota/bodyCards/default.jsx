@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/cva';
-import useLazyEmbeds from '../../LN-common/hooks/useLazyEmbeds';
 import useViewportSize from '../../../private/common/hooks/useViewportSize';
-import useScrollDispatcher, {
-    registerScrollTrigger
-} from '../../LN-common/hooks/useScrollDispatcher';
+import BaseBodyWrapper from '../body/_children/BaseBodyWrapper';
+import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
 import {
     groupByMarkers,
     getContentBeforeMarkers
@@ -61,27 +59,14 @@ function BodyCards() {
 
     const leadingElements = processElementsWithImageProps(rawLeadingElements);
 
-    useLazyEmbeds({
-        contentElements,
-        outputType,
-        bodyOrigin: 'Body default',
-        noteId: _id,
-        selector: 'cuerpo__nota'
-    });
-
-    useScrollDispatcher({ startSelector: 'h1', endSelector: '#fin-de-nota' });
-
-    useEffect(
-        () =>
-            registerScrollTrigger({
-                id: 'scroll-body-GA',
-                type: 'percentage',
-                threshold: 10,
-                thresholdStep: 10,
-                callback: scrollCallback
-            }),
-        []
-    );
+    const registerScrollTracking = () =>
+        registerScrollTrigger({
+            id: 'scroll-body-GA',
+            type: 'percentage',
+            threshold: 10,
+            thresholdStep: 10,
+            callback: scrollCallback
+        });
 
     const renderConfig = useMemo(
         () => createRenderConfig(renderExpandedCard, outputType),
@@ -113,32 +98,39 @@ function BodyCards() {
     );
 
     return (
-        <div className="grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
-            <BodyTop>
-                {leadingElements?.length > 0 &&
-                    BuildBody({
-                        outputType,
-                        globalContent,
-                        groupedElements: leadingElements,
-                        supportedTypesOverride: supportedTypesCards
-                    })}
-            </BodyTop>
-            <div className={gridCardSmall} ref={gridRef}>
-                {cardsGrid.length > 0 && (
-                    <LinkedSummaryCardsGrid
-                        cards={cardsGrid}
-                        gridColumns={gridColumns}
-                    />
-                )}
-            </div>
-            <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
-            <div className="grid-col-1 grid-row-4 bg-muted h-1 max-w-550 w-100 ml-auto mr-auto mt-20 mb-80 grid-col-2-12_m max-w-635_m grid-col-5-13_lg" />
-            <div className="grid-row-5 grid-col-1">
-                <div className="grid row-gap-80 row-gap-120_m">
-                    {cardsWithBanners}
+        <BaseBodyWrapper
+            contentElements={contentElements}
+            outputType={outputType}
+            noteId={_id}
+            onRegisterScrollTrigger={registerScrollTracking}
+        >
+            <div className="grid grid-cols-8 grid-cols-12_m grid-cols-16_lg">
+                <BodyTop>
+                    {leadingElements?.length > 0 &&
+                        BuildBody({
+                            outputType,
+                            globalContent,
+                            groupedElements: leadingElements,
+                            supportedTypesOverride: supportedTypesCards
+                        })}
+                </BodyTop>
+                <div className={gridCardSmall} ref={gridRef}>
+                    {cardsGrid.length > 0 && (
+                        <LinkedSummaryCardsGrid
+                            cards={cardsGrid}
+                            gridColumns={gridColumns}
+                        />
+                    )}
+                </div>
+                <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
+                <div className="grid-col-1 grid-row-4 bg-muted h-1 max-w-550 w-100 ml-auto mr-auto mt-20 mb-80 grid-col-2-12_m max-w-635_m grid-col-5-13_lg" />
+                <div className="grid-row-5 grid-col-1">
+                    <div className="grid row-gap-80 row-gap-120_m">
+                        {cardsWithBanners}
+                    </div>
                 </div>
             </div>
-        </div>
+        </BaseBodyWrapper>
     );
 }
 

@@ -37,7 +37,7 @@ class Podcast {
 
             const episodes = globalContent.slice(startIndex, endIndex);
 
-            const response = {
+            return {
                 totalEpisodes: globalContent.length,
                 episodesPerPage: size,
                 totalPages: Math.ceil(globalContent.length / size),
@@ -46,7 +46,7 @@ class Podcast {
                 episodes: episodes || []
             };
 
-            return response;
+
         } catch (err) {
             return { success: false, message: err.message };
         }
