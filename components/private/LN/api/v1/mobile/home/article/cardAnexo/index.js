@@ -3,87 +3,97 @@ import get from '../../../../../../../common/utils/get';
 import trimIfNotEmpty from '../../../../../../../common/utils/trimIfNotEmpty';
 import cleanHtmlAttributes from '../../../../../../../common/utils/cleanHtmlAttributes';
 
-const validateYoutubeUrl = url => {
-    const isYoutubeUrlRegex =
-        /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-    if (url.match(isYoutubeUrlRegex)) {
-        return url.match(isYoutubeUrlRegex)[1];
-    }
-    return false;
+
+const YOUTUBE_REGEX =
+    /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})(?:\S+)?$/;
+
+const getYoutubeVideoId = url => {
+    const match = url?.match(YOUTUBE_REGEX);
+    return match ? match[1] : null;
+};
+const isYoutubeUrl = url =>
+    Boolean(getYoutubeVideoId(url));
+
+const parseHeight = value =>
+    value ? parseInt(value, 10) : null;
+
+const build = (src, url, alto) => [
+    { src, ...(url && { url }), ...(alto && { alto }) }
+];
+
+const EXCLUDED_URLS = [
+    'https://carrousel.lanacion.com.ar/web_stories/',
+    'https://especialess3.lanacion.com.ar/ComercialLN/carrousel/'
+];
+
+const isExcludedUrl = url =>
+    EXCLUDED_URLS.some(excluded => url?.includes(excluded));
+
+const fromUrl = (url, alto) => {
+    if (!url || !alto) return null;
+    if (isExcludedUrl(url)) return null;
+
+    return build(url, url, alto);
 };
 
-function excludeAnexo(url) {
-    const excludedUrls = [
-        'https://carrousel.lanacion.com.ar/web_stories/',
-        'https://especialess3.lanacion.com.ar/ComercialLN/carrousel/'
-    ];
-    return excludedUrls.some(excludedUrl => url.includes(excludedUrl));
-}
+const fromIframe = (html, iframe) => {
+    if (!iframe) return null;
+
+    const src = iframe.getAttribute('src');
+    const height = parseHeight(iframe.getAttribute('height'));
+    const heightMobile = parseHeight(
+        iframe.getAttribute('height-mobile')
+    );
+
+    const hasHeight = height || heightMobile;
+    const isYoutube = isYoutubeUrl(src);
+
+    if (!hasHeight && !isYoutube) return null;
+
+    return build(
+        html,
+        src,
+        heightMobile ?? height ?? 300
+    );
+};
+
+const fromDiv = (html, div) => {
+    if (!div) return null;
+
+    const height = parseHeight(div.getAttribute('height'));
+    const heightMobile = parseHeight(
+        div.getAttribute('height-mobile')
+    );
+
+    if (!height && !heightMobile) return null;
+
+    return build(html, null, heightMobile ?? height);
+};
+
+const fromHtml = html => {
+    if (!html) return null;
+
+    const root = parse(html);
+
+    return (
+        fromIframe(html, root.querySelector('iframe')) ||
+        fromDiv(html, root.querySelector('div'))
+    );
+};
+
+
 
 export function CardAnexo([articleData]) {
-    const alto = get(articleData, 'alto', null);
-    const url = trimIfNotEmpty(get(articleData, 'url', null));
-    const html = cleanHtmlAttributes(get(articleData, 'html', null));
+    const url = trimIfNotEmpty(get(articleData, 'url'));
+    const alto = get(articleData, 'alto');
+    const html = cleanHtmlAttributes(get(articleData, 'html'));
 
-    if (url && alto && !excludeAnexo(url)) return [{ src: url, url, alto }];
-
-    if (html) {
-        const root = parse(html);
-        const { structure } = root;
-        const isIframe = structure.includes('iframe');
-        const isDiv = structure.includes('div');
-
-        if (isIframe || isDiv) {
-            const element = isIframe
-                ? root.querySelector('iframe')
-                : root.querySelector('div');
-
-            if (!element) return null;
-
-            const srcAtributte = element.getAttribute('src');
-            const heightAttribute = element.getAttribute('height') ?? null;
-            const heightMobileAttribute =
-                element.getAttribute('height-mobile') ?? null;
-
-            const height = heightAttribute
-                ? parseInt(heightAttribute, 10)
-                : null;
-            const heightMobile = heightMobileAttribute
-                ? parseInt(heightMobileAttribute, 10)
-                : null;
-
-            if (isIframe) {
-                if (
-                    !heightAttribute &&
-                    !heightMobileAttribute &&
-                    !validateYoutubeUrl(srcAtributte)
-                ) {
-                    return null;
-                }
-
-                return [
-                    {
-                        src: html,
-                        url: trimIfNotEmpty(srcAtributte),
-                        alto: heightMobile ?? height ?? 300
-                    }
-                ];
-            }
-
-            if (isDiv) {
-                if (!heightAttribute && !heightMobileAttribute) return null;
-
-                return [
-                    {
-                        src: html,
-                        alto: heightMobile ?? height
-                    }
-                ];
-            }
-        }
-    }
-
-    return null;
+    return (
+        fromUrl(url, alto) ||
+        fromHtml(html) ||
+        null
+    );
 }
+
 
 export default CardAnexo;
