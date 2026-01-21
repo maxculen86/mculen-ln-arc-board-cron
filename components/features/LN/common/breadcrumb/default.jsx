@@ -1,6 +1,6 @@
 import React from 'react';
 import Static from 'fusion:static';
-import BreadcrumbBase from './BreadcrumbBase';
+import { BreadcrumbBase } from './BreadcrumbBase';
 import BreadcrumbSchema from './BreadcrumbSchema';
 import buildBreadcrumbSections from './helpers/buildBreadcrumbSections';
 
