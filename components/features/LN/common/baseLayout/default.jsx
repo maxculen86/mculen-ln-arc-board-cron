@@ -5,6 +5,7 @@ import ToastsContainer from '../../../ui/ln/toastsContainer/default';
 import InitControlGroup from '../../../../layouts/helpers/initCtrlGrp';
 import LoadBannersSSR from '../../../../private/common/banners/LoadBannersSSR';
 import DrawerSections from '../drawerSections/default';
+import Navbar from '../navBar/default';
 
 // TODO: Implementar Navbar y PwaModal con DS.
 // import { Navbar } from '../navbar/default';
@@ -23,10 +24,8 @@ function BaseLayout({ children, ...props }) {
                     {children}
                 </main>
                 <Footer />
-                {/* <Navbar /> */}
-
+                <Navbar />
                 {/* <PwaModal /> */}
-
                 <InitControlGroup />
                 <LoadBannersSSR />
 

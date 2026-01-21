@@ -11,6 +11,30 @@ jest.mock(
         }
 );
 
+jest.mock(
+    '../../../../../../components/features/LN/common/navBar/default',
+    () =>
+        function MockNavbar() {
+            return <div data-testid="mock-navbar" />;
+        }
+);
+
+jest.mock(
+    '../../../../../../components/features/LN/common/footer/default',
+    () =>
+        function MockFooter() {
+            return <div data-testid="mock-footer" />;
+        }
+);
+
+jest.mock(
+    '../../../../../../components/features/LN/common/drawerSections/default',
+    () =>
+        function MockDrawerSections() {
+            return <div data-testid="mock-drawer-sections" />;
+        }
+);
+
 Context.useAppContext = jest.fn(() => ({
     deployment: arg => arg,
     contextPath: '/pf'
