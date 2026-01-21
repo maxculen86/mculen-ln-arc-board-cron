@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import { Divider } from '@ln/ds-common-divider';
 import Opening from './apertura/Opening';
 
 function Opinion({ children }) {
@@ -21,7 +22,9 @@ function Opinion({ children }) {
                                 JOAQUÍN MORALES SOLÁ
                             </span>
                         </div>
-                        <hr className="mt-1 flex w-64 border-bottom-1 border-muted md:col-span-12 lg:col-span-16" />
+                        <div className="mt-1 w-64 md:col-span-12 lg:col-span-16">
+                            <Divider />
+                        </div>
                         <div className="flex flex-col items-center gap-8 md:col-span-10 md:col-start-2 lg:col-span-16 max-w-636">
                             <Opening.Title
                                 content={globalContent.headlines.basic}
@@ -35,8 +38,8 @@ function Opinion({ children }) {
                         </div>
                     </div>
                     <div className="w-full md:grid md:justify-items-center md:grid-cols-12 md:gap-x-24 lg:grid-cols-16 lg:gap-x-31">
-                        <figure className="max-w-750 flex flex-col md:col-span-12 lg:col-start-4 lg:col-span-10">
-                            <div className="border-1 border-muted aspect-[3/2] -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none">
+                        <figure className="w-full max-w-750 flex flex-col md:col-span-12 lg:col-start-4 lg:col-span-10">
+                            <div className="border-1 border-muted aspect-3/2 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none">
                                 inserte foto aqui
                             </div>
                             <figcaption className="py-8">
