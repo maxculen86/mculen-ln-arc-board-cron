@@ -3,7 +3,6 @@ import get from '../../../../../../../common/utils/get';
 import trimIfNotEmpty from '../../../../../../../common/utils/trimIfNotEmpty';
 import cleanHtmlAttributes from '../../../../../../../common/utils/cleanHtmlAttributes';
 
-
 const YOUTUBE_REGEX =
     /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})(?:\S+)?$/;
 
@@ -11,11 +10,9 @@ const getYoutubeVideoId = url => {
     const match = url?.match(YOUTUBE_REGEX);
     return match ? match[1] : null;
 };
-const isYoutubeUrl = url =>
-    Boolean(getYoutubeVideoId(url));
+const isYoutubeUrl = url => Boolean(getYoutubeVideoId(url));
 
-const parseHeight = value =>
-    value ? parseInt(value, 10) : null;
+const parseHeight = value => (value ? parseInt(value, 10) : null);
 
 const build = (src, url, alto) => [
     { src, ...(url && { url }), ...(alto && { alto }) }
@@ -41,29 +38,21 @@ const fromIframe = (html, iframe) => {
 
     const src = iframe.getAttribute('src');
     const height = parseHeight(iframe.getAttribute('height'));
-    const heightMobile = parseHeight(
-        iframe.getAttribute('height-mobile')
-    );
+    const heightMobile = parseHeight(iframe.getAttribute('height-mobile'));
 
     const hasHeight = height || heightMobile;
     const isYoutube = isYoutubeUrl(src);
 
     if (!hasHeight && !isYoutube) return null;
 
-    return build(
-        html,
-        src,
-        heightMobile ?? height ?? 300
-    );
+    return build(html, src, heightMobile ?? height ?? 300);
 };
 
 const fromDiv = (html, div) => {
     if (!div) return null;
 
     const height = parseHeight(div.getAttribute('height'));
-    const heightMobile = parseHeight(
-        div.getAttribute('height-mobile')
-    );
+    const heightMobile = parseHeight(div.getAttribute('height-mobile'));
 
     if (!height && !heightMobile) return null;
 
@@ -81,19 +70,12 @@ const fromHtml = html => {
     );
 };
 
-
-
 export function CardAnexo([articleData]) {
     const url = trimIfNotEmpty(get(articleData, 'url'));
     const alto = get(articleData, 'alto');
     const html = cleanHtmlAttributes(get(articleData, 'html'));
 
-    return (
-        fromUrl(url, alto) ||
-        fromHtml(html) ||
-        null
-    );
+    return fromUrl(url, alto) || fromHtml(html) || null;
 }
-
 
 export default CardAnexo;

@@ -14,11 +14,12 @@ export const checkIfValid = (name, children, paramSectionValidation = null) => {
             ? sectionsValidation
             : paramSectionValidation;
 
-    const childrenWithoutHide = children.filter(child =>
-        get(child, 'props.customFields.hideCaja', false) !== true &&
-        (get(child, 'props.customFields.hideByUrl', false) !== true ||
-            get(child, 'props.customFields.hideByHtml', false) !== true) &&
-        get(child, 'props.customFields.hideFeature', false) !== true
+    const childrenWithoutHide = children.filter(
+        child =>
+            get(child, 'props.customFields.hideCaja', false) !== true &&
+            (get(child, 'props.customFields.hideByUrl', false) !== true ||
+                get(child, 'props.customFields.hideByHtml', false) !== true) &&
+            get(child, 'props.customFields.hideFeature', false) !== true
     );
 
     const sectionRule = sectionToValidate[name] || {};
@@ -43,4 +44,3 @@ export const checkIfValid = (name, children, paramSectionValidation = null) => {
     };
     return response;
 };
-

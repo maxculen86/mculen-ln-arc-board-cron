@@ -60,8 +60,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     information: {
                         hideCaja: false,
                         title: 'abc',
-                        url:
-                            'https://www.cotodigital3.com.ar/sitios/cdigi/?utm_source=lanacion&utm_medium=display&utm_campaign=ofertas'
+                        url: 'https://www.cotodigital3.com.ar/sitios/cdigi/?utm_source=lanacion&utm_medium=display&utm_campaign=ofertas'
                     }
                 }
             ];
@@ -202,7 +201,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
 
         test('Ok timeline without articles', () => {
             const propsAperturaTimelineNoArticles = propsAperturaTimeline;
-            propsAperturaTimelineNoArticles.children[3][0].articles[0].articles = [];
+            propsAperturaTimelineNoArticles.children[3][0].articles[0].articles =
+                [];
             const homeData = LayoutLNMainHome.default(
                 propsAperturaTimelineNoArticles
             );

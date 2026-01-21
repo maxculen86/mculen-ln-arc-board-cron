@@ -24,7 +24,7 @@ import audionewsSource from '../../../content/sources/audionewsSource';
 
 describe('Audionews content sources Unit Tests', () => {
     beforeEach(() => {
-        jest.spyOn(console, 'warn').mockImplementation(() => { });
+        jest.spyOn(console, 'warn').mockImplementation(() => {});
     });
 
     const { fetch: fetchContent } = audionewsSource;
@@ -73,7 +73,7 @@ describe('Audionews content sources Unit Tests', () => {
 
         const warnSpy = jest
             .spyOn(console, 'warn')
-            .mockImplementation(() => { });
+            .mockImplementation(() => {});
 
         global.fetch = jest.fn(() =>
             Promise.resolve({

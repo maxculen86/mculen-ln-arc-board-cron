@@ -3,7 +3,7 @@ import { SITE_LANACION } from 'fusion:environment';
 import transformv1 from '../../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform';
 import get from '../../../private/common/utils/get';
 import homev2 from '../../../private/LN/api/v2/mobile/home';
-import { handleHttpError } from '../../../private/common/utils/handleHttpError'
+import { handleHttpError } from '../../../private/common/utils/handleHttpError';
 
 const resolve = query => {
     const { rootPath, website, ticksCache, versionDeploy } = query;
@@ -45,7 +45,7 @@ class HomeUpdate {
         this.versionDeploy = get(this.query, 'versionDeploy', null);
         this.versionDeploy =
             this.regexVersionDeploy.exec(this.versionDeploy) &&
-                this.regexVersionDeploy.exec(this.versionDeploy).length > 0
+            this.regexVersionDeploy.exec(this.versionDeploy).length > 0
                 ? this.regexVersionDeploy.exec(this.versionDeploy)[0]
                 : null;
 
@@ -79,10 +79,7 @@ class HomeUpdate {
                 this.queryParams
             );
 
-            const resultHome = homev2(
-                resultPageTransform,
-                this.queryParams
-            );
+            const resultHome = homev2(resultPageTransform, this.queryParams);
 
             let hashContentVersion = '';
 

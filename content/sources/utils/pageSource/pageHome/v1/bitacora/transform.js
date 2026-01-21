@@ -34,7 +34,7 @@ const BoxType = {
 const diagramationFromLayout = layout => {
     const diagramation = {
         'left-focal-without-timeline': 'apertura_left-focal-without-timeline',
-        'left-focal-video-vertical': 'apertura_left-focal-with-video',
+        'left-focal-video-vertical': 'apertura_left-focal-with-video'
     };
     return diagramation[layout] ?? layout;
 };
@@ -47,9 +47,8 @@ const createBox = ({
     notas,
     type,
     itemCategory = 'N/A',
-    videos = undefined }
-
-) => {
+    videos = undefined
+}) => {
     const base = {
         id_caja: id,
         visible,
@@ -109,7 +108,6 @@ const normalizeElement = elem => {
     const isCarousel = CAROUSEL_ALIASES.includes(elem.sectionAliasMobile);
     return isCarousel ? normalizeCarousel(elem) : elem;
 };
-
 
 const createNotasArray = (elem, boxType) => {
     const notasArray = [];
@@ -179,8 +177,13 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 ? 'enVivo'
                 : informationLayout;
 
-        if ((elem.sectionAliasMobile === 'bnplayer' || elem.sectionAliasMobile === 'apertura') && elem.video) {
-            const videoPosition = information?.layout === 'left-focal-video-vertical' ? 6 : 1;
+        if (
+            (elem.sectionAliasMobile === 'bnplayer' ||
+                elem.sectionAliasMobile === 'apertura') &&
+            elem.video
+        ) {
+            const videoPosition =
+                information?.layout === 'left-focal-video-vertical' ? 6 : 1;
             videos = [
                 createVideo(
                     {
@@ -200,9 +203,7 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
             type: boxType,
             itemCategory: information?.viewabilityRoof,
             videos
-        }
-
-        );
+        });
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);
         if (!isSpecialBox) cajaCount += 1;
