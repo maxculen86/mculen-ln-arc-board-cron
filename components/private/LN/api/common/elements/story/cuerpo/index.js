@@ -54,7 +54,14 @@ const getStoryElementBySubtype = storyBodyElements => {
             custom_embed: CustomEmbed,
             table: Table
         },
-        8: { text: Text, custom_embed: CustomEmbed, image: Image, table: Table },
+        8: {
+            text: Text,
+            header: Header,
+            custom_embed: CustomEmbed,
+            image: Image,
+            table: Table,
+            raw_html: Html
+        }
     };
 };
 const getElementsUnique = contentElements =>
@@ -128,22 +135,22 @@ const storyBody = (dataNota, storyBodyElements) => {
     }[subtype];
     return templates
         ? {
-            idsElements,
-            elements: templates(
-                contentElements,
-                elementBySubtype[subtype],
-                _id
-            )
-        }
+              idsElements,
+              elements: templates(
+                  contentElements,
+                  elementBySubtype[subtype],
+                  _id
+              )
+          }
         : {
-            idsElements,
-            elements: defaultCuerpo(
-                contentElements,
-                elementBySubtype[1],
-                _id,
-                dataNota
-            )
-        };
+              idsElements,
+              elements: defaultCuerpo(
+                  contentElements,
+                  elementBySubtype[1],
+                  _id,
+                  dataNota
+              )
+          };
 };
 
 export default storyBody;

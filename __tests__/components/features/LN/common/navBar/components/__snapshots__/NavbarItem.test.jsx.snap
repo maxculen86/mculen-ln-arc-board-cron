@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - button with onClick 1`] = `
+<button
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  data-active="false"
+  data-disabled="false"
+  style="--ds-icon-size: 12px;"
+  type="button"
+>
+  <mock-ds-common-icon
+    name="fuction"
+    size="20"
+  />
+  Secciones
+</button>
+`;
+
+exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - link with href 1`] = `
+<a
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-primary-default hover:text-primary-light data-[active="true"]:text-primary-dark data-[disabled="true"]:text-primary-lighten text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  data-active="false"
+  data-disabled="false"
+  href="https://www.lanacion.com.ar/"
+  style="--ds-icon-size: 12px;"
+  target="_self"
+>
+  <mock-ds-common-icon
+    name="home"
+    size="20"
+  />
+  Inicio
+</a>
+`;
+
+exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - link with target blank 1`] = `
+<a
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  data-active="false"
+  data-disabled="false"
+  href="https://www.foodit.com.ar/"
+  rel="noopener noreferrer nofollow"
+  style="--ds-icon-size: 12px;"
+  target="_blank"
+>
+  <mock-ds-common-icon
+    name="logo-foodit"
+    size="20"
+  />
+  Foodit
+</a>
+`;

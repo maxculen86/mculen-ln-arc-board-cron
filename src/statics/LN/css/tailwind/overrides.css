@@ -8,3 +8,8 @@
     min-width: unset;
     width: revert-layer;
 }
+
+/* TODO: Quitar cuando se termine la migracion al DS */
+body:has([data-tw] .disable-body-scroll) {
+    overflow: hidden;
+}

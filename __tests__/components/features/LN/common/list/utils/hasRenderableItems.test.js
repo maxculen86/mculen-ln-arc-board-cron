@@ -1,4 +1,4 @@
-import hasRenderableItems from '../../../../../../../components/features/LN/common/list/utils/hasRenderableItems';
+import hasRenderableItems from '../../../../../../../components/features/LN/common/list/helpers/hasRenderableItems';
 import {
     createTextItem,
     createNonTextItem,

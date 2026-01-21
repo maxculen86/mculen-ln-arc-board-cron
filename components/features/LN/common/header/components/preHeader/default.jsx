@@ -9,7 +9,7 @@ import PreHeaderEventsScript from '../../../../../../private/common/scriptManage
 function PreHeader() {
     return (
         <Static id="pre-header">
-            <CommonPreHeader containerClassName="hidden lg:flex">
+            <CommonPreHeader containerClassName="max-lg:hidden flex">
                 <Weather />
                 <Brands />
             </CommonPreHeader>

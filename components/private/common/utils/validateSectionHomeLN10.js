@@ -24,11 +24,23 @@ export const checkIfValid = (name, children, paramSectionValidation = null) => {
 
     const sectionRule = sectionToValidate[name] || {};
 
-    if (childrenWithoutHide.length > sectionRule.max)
-        return `supera la cantidad de elementos permitidos (${sectionRule.max})`;
+    if (childrenWithoutHide.length > sectionRule.max) {
+        return {
+            isValid: false,
+            message: `supera la cantidad de elementos permitidos (${sectionRule.max})`
+        };
+    }
 
-    if (childrenWithoutHide.length < sectionRule.min)
-        return `debe tener al menos ${sectionRule.min + 1} elementos`;
+    if (childrenWithoutHide.length < sectionRule.min) {
+        return {
+            isValid: false,
+            message: `debe tener al menos ${sectionRule.min + 1} elementos`
+        };
+    }
 
-    return true;
+    const response = {
+        isValid: true,
+        message: null
+    };
+    return response;
 };

@@ -103,15 +103,18 @@ function CommonCardFoodit({
                     sources={sources}
                     loading={loading}
                     fetchPriority={fetchPriority}
-                    src={src}
-                    {...(mediaVariant === 'video' && {
-                        dataSrc: src,
-                        poster,
-                        muted: true,
-                        loop: true,
-                        playsInline: true,
-                        autoPlay: true
-                    })}
+                    {...(mediaVariant === 'video'
+                        ? {
+                              dataSrc: src,
+                              poster,
+                              muted: true,
+                              loop: true,
+                              playsInline: true,
+                              autoPlay: true
+                          }
+                        : {
+                              src
+                          })}
                 />
                 {showIconVideo && <Card.BadgeIcon />}
                 {tag && <Card.Badge>{tag}</Card.Badge>}

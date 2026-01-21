@@ -70,13 +70,15 @@ export const renderElement = (
     elements,
     counter,
     createComponentProps,
-    bodyComponents
+    bodyComponents,
+    ruleConditions
 ) => {
     const { nodeType, Component } = processElement(
         element,
         outputType,
         subtype,
-        bodyComponents
+        bodyComponents,
+        ruleConditions
     );
 
     if (!Component) return null;

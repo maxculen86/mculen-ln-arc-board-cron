@@ -9,7 +9,8 @@ const BuildBody = ({
     groupedElements,
     supportedTypesOverride,
     useCapitalIndex = true,
-    bodyComponents
+    bodyComponents,
+    ruleConditions
 }) => {
     const elements = groupedElements || globalContent.content_elements;
     const finalSupportedTypes = supportedTypesOverride || supportedTypes;
@@ -35,7 +36,8 @@ const BuildBody = ({
             elements,
             counter,
             createComponentProps,
-            bodyComponents
+            bodyComponents,
+            ruleConditions
         );
 
         if (

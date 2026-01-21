@@ -1,6 +1,11 @@
 import get from './get';
 import isExternalDistributor from './isExternalDistributor';
 
+export const startsWithIorHiRAE = name => {
+    if (!name) return false;
+    return /^hi[^aeo]|^i[^aeo]/i.test(name);
+};
+
 const getAuthorsAsString = (article, isHomeLN10) => {
     const name = article?.distributor?.name || '';
     const category = article?.distributor?.category || '';
@@ -9,9 +14,14 @@ const getAuthorsAsString = (article, isHomeLN10) => {
     const authorFiltered = authors.filter(auth => auth.type === 'author');
     const authorsConcat = authorFiltered.reduce((prevVal, currVal, idx) => {
         const authorName = get(currVal, 'name', '').trim();
+
         if (idx === 0) return authorName;
-        if (idx === authors.length - 1 && authorName)
-            return `${prevVal} y ${authorName}`;
+
+        if (idx === authors.length - 1 && authorName) {
+            const connector = startsWithIorHiRAE(authorName) ? 'e' : 'y';
+            return `${prevVal} ${connector} ${authorName}`;
+        }
+
         return `${prevVal}, ${authorName}`;
     }, '');
 

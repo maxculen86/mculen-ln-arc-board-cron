@@ -16,21 +16,20 @@ const sectionHelper = (
     isAdmin
 ) => {
     const sectionChildren = findSectionChildren(renderables, position);
-    const message = checkIfValid(name, sectionChildren);
+    const { isValid, message } = checkIfValid(name, sectionChildren);
 
     if (outputType === 'json') return 'TODO';
-    const component =
-        message === true ? (
-            section
-        ) : (
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección ${name} ${message}`}
-            />
-        );
-    if (isAdmin && message !== false) return component;
-    return message === true ? component : null;
+    const component = isValid ? (
+        section
+    ) : (
+        <PageBuilderMessage
+            id="LN-Home-error"
+            type="warning"
+            message={`La sección ${name} ${message}`}
+        />
+    );
+    if (isAdmin) return component;
+    return isValid ? component : null;
 };
 
 export default sectionHelper;
