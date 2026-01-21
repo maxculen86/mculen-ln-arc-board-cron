@@ -1,7 +1,7 @@
 import {
     createDynamicBannerConfig,
     validateBannerConfig
-} from 'layouts/LN-Nota-Cards/utils/dynamicBannerHelper';
+} from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
 
 describe('Dynamic Banner Helper', () => {
     const mockGlobalContent = {
