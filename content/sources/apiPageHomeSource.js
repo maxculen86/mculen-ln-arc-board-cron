@@ -141,7 +141,12 @@ const fetch = async (query, { cachedCall } = {}) => {
             cookie: get(query, 'useCookie', null),
         });
 
-        const keyCachedCall = `ApiPageHome${alias}`;
+        let ticksCache = get(query, 'ticks', null);
+        ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
+        const prefixTicksCache =
+            ticksCache === '' ? '' : '_' + ticksCache;
+
+        const keyCachedCall = `ApiPageHome${alias}${prefixTicksCache}`;
 
         resultPage = await fetchPage({ useCachedCall, cachedCall, key: keyCachedCall, queryParams, executionSteps });
 
@@ -157,6 +162,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             ...information,
             homeFetchDate,
             keyCachedCall,
+            ticksCache,
             apiPageHomeSourceFetchDate,
         };
 
