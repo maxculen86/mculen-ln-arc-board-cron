@@ -50,15 +50,21 @@ function Opinion({ children }) {
                     />
                 </div>
             </Opinion.Opening>
-            {/* ---- PRE-CUERPO ---- */}
-            <Opinion.PreBody>
-                <PreBody.Breadcrumb
-                    globalContent={globalContent}
-                    siteProperties={siteProperties}
-                />
-            </Opinion.PreBody>
-            {/* ---- CUERPO ---- */}
-            {children[2]}
+            {/* ---- Wrapper con grilla y ancho maximo ---- */}
+            <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full">
+                <div className="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635 relative left-1/2 -translate-x-1/2 flex flex-col gap-24">
+                    {/* ---- PRE-CUERPO ---- */}
+                    <Opinion.PreBody>
+                        <PreBody.Breadcrumb
+                            globalContent={globalContent}
+                            siteProperties={siteProperties}
+                        />
+                    </Opinion.PreBody>
+                    {/* ---- CUERPO ---- */}
+                    {children[2]}
+                </div>
+            </div>
+
             {/* ---- BOTTOM ---- */}
             {children[3]}
             {/* ---- BOTTOM-TERCERA ---- */}

@@ -1,22 +1,13 @@
 import React from 'react';
-import Text from '../text/default';
+import BlockQuoteUI from '../../../ui/ln/blockQuote/default';
 
-// TODO para front: realizar ajustes de estilos segun diseño
 function BlockQuote({ data }) {
     const { subtype, content_elements: contentElements = [] } = data ?? {};
-    const firstElement = contentElements?.[0]?.content;
+    const content = contentElements?.[0]?.content;
 
-    if (subtype !== 'blockquote' || !firstElement) return null;
+    if (subtype !== 'blockquote') return null;
 
-    return (
-        <>
-            <hr />
-            <blockquote>
-                <Text data={{ content: firstElement }} />
-            </blockquote>
-            <hr />
-        </>
-    );
+    return <BlockQuoteUI content={content} />;
 }
 
 BlockQuote.arcType = 'blockquote';
