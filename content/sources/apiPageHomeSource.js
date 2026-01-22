@@ -138,7 +138,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             ticks: get(query, 'ticks', null),
             website: get(query, 'website', null),
             versionDeploy,
-            cookie: get(query, 'cookie', null),
+            cookie: get(query, 'useCookie', null),
         });
 
         const keyCachedCall = `ApiPageHome${alias}`;
