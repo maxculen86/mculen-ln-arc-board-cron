@@ -7,6 +7,43 @@ import { setRankingByLayout } from '../../../common/elements/ranking/index';
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 import { setLiveLayout } from '../../../common/elements/live';
 
+
+const validateData = (elements, layoutPage) => {
+    if (!elements || !layoutPage) {
+        throw new Error('Missing data Layout');
+    }
+};
+
+const applySyncLayout = (fnByLayout, layoutPage, elements) => {
+    if (!fnByLayout?.[layoutPage]) return elements;
+
+    const result = fnByLayout[layoutPage](elements, layoutPage);
+
+    return Array.isArray(result) && result.length > 0
+        ? result
+        : elements;
+};
+const applyAsyncLayout = async (fnByLayout, layoutPage, elements) => {
+    if (!fnByLayout?.[layoutPage]) return elements;
+
+    const result = await fnByLayout[layoutPage](elements, layoutPage);
+
+    return Array.isArray(result) && result.length > 0
+        ? result
+        : elements;
+};
+
+
+const filterSections = elements =>
+    Array.isArray(elements)
+        ? elements.filter(
+            elem =>
+                (elem && elem.type < 9) ||
+                elem.type === 10 ||
+                elem.type === 12
+        )
+        : elements;
+
 const transform = async (dataPage, query) => {
     const {
         information: { layoutPage } = {},
@@ -14,70 +51,41 @@ const transform = async (dataPage, query) => {
     } = dataPage;
 
     try {
-        let elementsPageHome = elementsPage;
-
-        if (!elementsPageHome || !layoutPage) {
-            throw new Error('Missing data Layout');
-        }
+        validateData(elementsPage, layoutPage);
 
         // Divide Section by Layout configured in features
-        elementsPageHome = divideSectionsByDiagramation(
-            elementsPageHome,
+        let elements = divideSectionsByDiagramation(
+            elementsPage,
             configToDividebyDiagramation(layoutPage)
         );
         // Returns boxes that type not >= 9, for discard
-        elementsPageHome =
-            (Array.isArray(elementsPageHome) &&
-                elementsPageHome.filter(
-                    elem =>
-                        (elem && elem.type < 9) ||
-                        elem.type === 10 ||
-                        elem.type === 12
-                )) ||
-            elementsPageHome;
-
+        elements = filterSections(elements);
         // Add Component Title set file /pageSource/common/elements/titles/config/configTitlePositionbySection.js
-        elementsPageHome =
-            (setTitleByLayout[layoutPage] &&
-                setTitleByLayout[layoutPage](elementsPageHome, layoutPage)) ||
-            elementsPageHome;
-
+        elements = applySyncLayout(setTitleByLayout, layoutPage, elements);
         // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
-        elementsPageHome =
-            (setBannerByLayout[layoutPage] &&
-                setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
-            elementsPageHome;
-
+        elements = applySyncLayout(setBannerByLayout, layoutPage, elements);
         // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
-        elementsPageHome =
-            (setDolarByLayout[layoutPage] &&
-                (await setDolarByLayout[layoutPage](
-                    elementsPageHome,
-                    layoutPage
-                ))) ||
-            elementsPageHome;
-
+        elements = await applyAsyncLayout(setDolarByLayout, layoutPage, elements);
         // Add Component live set file /pageSource/common/elements/live/config/configLivePositionbySection.js
-        elementsPageHome =
-            (setLiveLayout[layoutPage] &&
-                (await setLiveLayout[layoutPage](
-                    elementsPageHome,
-                    layoutPage
-                ))) ||
-            elementsPageHome;
-        // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
-        const propsRanking = {
-            website: query && query.website,
-            layoutPage,
-            globalContent: {},
-            elementsPage: elementsPageHome
-        };
-        elementsPageHome =
-            (setRankingByLayout[layoutPage] &&
-                (await setRankingByLayout[layoutPage](propsRanking))) ||
-            elementsPageHome;
+        elements = await applyAsyncLayout(setLiveLayout, layoutPage, elements);
 
-        return elementsPageHome;
+
+
+        // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
+        if (setRankingByLayout?.[layoutPage]) {
+            const rankingResult = await setRankingByLayout[layoutPage]({
+                website: query?.website,
+                layoutPage,
+                globalContent: {},
+                elementsPage: elements
+            });
+
+            if (Array.isArray(rankingResult) && rankingResult.length > 0) {
+                elements = rankingResult;
+            }
+        }
+
+        return elements;
     } catch (error) {
         // eslint-disable-next-line no-console
         throw new BackendLnError(
