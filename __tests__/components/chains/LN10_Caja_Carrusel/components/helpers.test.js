@@ -129,8 +129,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
             expect(result[0].node.type).toBe(MockChild);
         });
 
-        it('limits the number of nodes to 10', () => {
-            const childProps = Array.from({ length: 12 }, (_, i) => ({
+        it('limits the number of nodes to 20', () => {
+            const childProps = Array.from({ length: 22 }, (_, i) => ({
                 type: 'LN-10/itemCarrusel',
                 customFields: { video: `v${i}`, title: `t${i}` }
             }));
@@ -142,7 +142,7 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 isExpanded: false,
                 bannerRef: { current: null }
             });
-            expect(result.length).toBe(10);
+            expect(result.length).toBe(20);
         });
 
         it('uses default values ​​if data is missing', () => {

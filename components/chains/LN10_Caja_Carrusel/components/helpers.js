@@ -76,7 +76,7 @@ export const transformNodes = ({
                 )
         };
 
-        if (acc.length < 10) {
+        if (acc.length < 20) {
             acc.push(newChildren);
         }
 
