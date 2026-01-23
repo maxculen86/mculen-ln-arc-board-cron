@@ -221,6 +221,20 @@
             }
         }
     }
+    &.videos {
+        #content {
+            @media (min-width: px(1024)) {
+                .--top {
+                    padding-top: px(128);
+                }
+            }
+        }
+        @media (max-width: px(1023)) {
+            .common-header {
+                background-color: rgb(0, 22, 49);
+            }
+        }
+    }
     &.living {
         .com-breadcrumb .com-link {
             color: $living;

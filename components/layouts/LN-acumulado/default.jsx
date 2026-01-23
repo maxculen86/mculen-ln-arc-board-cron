@@ -117,7 +117,8 @@ function LNAcumuladoLayout(props) {
 
     const listOfAllowedSection = [
         { section: '/revista-hola', pageLayout: 'LN-acumulado' },
-        { section: '/revista-lugares', pageLayout: 'LN-acumulado' }
+        { section: '/revista-lugares', pageLayout: 'LN-acumulado' },
+        { section: '/videos', pageLayout: 'LN-acumulado' }
     ];
     const classNameMain = classNames({
         '--header-fixed-margin': !isAllowedSection({
