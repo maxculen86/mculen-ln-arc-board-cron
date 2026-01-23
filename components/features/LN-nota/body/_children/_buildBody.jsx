@@ -1,6 +1,10 @@
 import { supportedTypes } from '../_utils/_bodyRules';
 import { createComponentProps } from '../_utils/buildBodyCommon';
-import { renderElement, createElementProps } from '../_utils/renderHelpers';
+import {
+    renderElement,
+    createElementProps,
+    hasBodyBanners
+} from '../_utils/renderHelpers';
 
 const BuildBody = ({
     banners,
@@ -10,7 +14,10 @@ const BuildBody = ({
     supportedTypesOverride,
     useCapitalIndex = true,
     bodyComponents,
-    ruleConditions
+    ruleConditions,
+    dynamicBanners,
+    currentDevice,
+    onDynamicBannersGoogletagConfig
 }) => {
     const elements = groupedElements || globalContent.content_elements;
     const finalSupportedTypes = supportedTypesOverride || supportedTypes;
@@ -37,12 +44,15 @@ const BuildBody = ({
             counter,
             createComponentProps,
             bodyComponents,
-            ruleConditions
+            ruleConditions,
+            dynamicBanners,
+            currentDevice,
+            onDynamicBannersGoogletagConfig
         );
 
         if (
             renderedElement &&
-            banners &&
+            hasBodyBanners(banners, dynamicBanners) &&
             finalSupportedTypes.includes(element.type)
         ) {
             counter.current += 1;

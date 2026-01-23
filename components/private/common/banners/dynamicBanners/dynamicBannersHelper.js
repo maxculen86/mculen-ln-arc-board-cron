@@ -1,9 +1,10 @@
 import React from 'react';
-import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
-import { suffixDevice } from '../../../private/LN/common/utils/bannerHelper';
+import DivBannerSSR from '../DivBannerSSR';
+import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
 
 export const MAX_DYNAMIC_BANNERS = 5;
 export const BANNER_INSERT_INTERVAL = 4;
+export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
 const DYNAMIC_BANNER_CONFIG = {
     dfpId: 133919216,
@@ -94,6 +95,33 @@ export const createDynamicBannerConfig = (
     };
 };
 
+export const mapBannerConfigToGoogleTagConfig = bannerConfiguration => {
+    const {
+        slotId,
+        slotGroup,
+        dfpId,
+        slotName,
+        targeting,
+        dimensions,
+        withoutHide,
+        bidding,
+        hideForSubscriptor
+    } = bannerConfiguration;
+
+    return {
+        adUnitPath: `/${dfpId}/${slotName}`,
+        size: dimensions,
+        opt_div: slotId,
+        sizemap: [],
+        prebidEnabled: bidding?.prebid?.enabled || false,
+        targeting,
+        slotGroup,
+        hideForSubscriptor,
+        withoutHide,
+        customTargeting: {}
+    };
+};
+
 export const renderDynamicBanner = (
     globalContent,
     device,
@@ -109,6 +137,67 @@ export const renderDynamicBanner = (
     if (!bannerConfiguration) return null;
 
     return <DivBannerSSR key={key} bannerConfiguration={bannerConfiguration} />;
+};
+
+export const buildGoogleTagBannerConfig = (
+    device,
+    bannerIndex,
+    globalContent
+) => {
+    const bannerConfiguration = createDynamicBannerConfig(
+        globalContent,
+        device,
+        bannerIndex
+    );
+
+    if (!bannerConfiguration) return null;
+
+    return mapBannerConfigToGoogleTagConfig(bannerConfiguration);
+};
+
+export const getDynamicBannersWithGPTConfigsForIndex = ({
+    globalContent,
+    currentDevice,
+    bannerIndex,
+    keyIndex
+}) => {
+    if (!globalContent || !bannerIndex) return null;
+
+    const resolvedKeyIndex = keyIndex ?? bannerIndex;
+    const bannerDivs = [];
+    let googleTagConfig = null;
+
+    SUPPORTED_DEVICES.forEach(device => {
+        const bannerKey = `dynamic-banner-${device}-${bannerIndex}-${resolvedKeyIndex}`;
+        const bannerConfiguration = createDynamicBannerConfig(
+            globalContent,
+            device,
+            bannerIndex
+        );
+
+        if (!bannerConfiguration) return;
+
+        const bannerDiv = (
+            <DivBannerSSR
+                key={bannerKey}
+                bannerConfiguration={bannerConfiguration}
+            />
+        );
+
+        bannerDivs.push(bannerDiv);
+
+        if (device === currentDevice) {
+            googleTagConfig =
+                mapBannerConfigToGoogleTagConfig(bannerConfiguration);
+        }
+    });
+
+    if (bannerDivs.length === 0) return null;
+
+    return {
+        bannerDivs,
+        googleTagConfig
+    };
 };
 
 export const validateBannerConfig = config => {
@@ -127,11 +216,4 @@ export const validateBannerConfig = config => {
     return requiredFields.every(
         field => config[field] !== undefined && config[field] !== null
     );
-};
-
-export default {
-    createDynamicBannerConfig,
-    renderDynamicBanner,
-    validateBannerConfig,
-    shouldInsertBanner
 };

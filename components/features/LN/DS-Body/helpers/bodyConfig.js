@@ -42,7 +42,8 @@ const BASE_BODY_CONFIG = {
         'list',
         'pullquote'
     ],
-    allowedCustomSubtypes: ['gallery-embed', 'video_jw']
+    allowedCustomSubtypes: ['gallery-embed', 'video_jw'],
+    dynamicBanners: { enabled: true }
 };
 
 function buildBodyConfig(extraAllowed = {}) {
@@ -54,7 +55,9 @@ function buildBodyConfig(extraAllowed = {}) {
         allowedCustomSubtypes: [
             ...BASE_BODY_CONFIG.allowedCustomSubtypes,
             ...(extraAllowed.allowedCustomSubtypes || [])
-        ]
+        ],
+        dynamicBanners:
+            extraAllowed.dynamicBanners ?? BASE_BODY_CONFIG.dynamicBanners
     };
 }
 
@@ -96,7 +99,8 @@ const BODY_CONFIGS_BY_LAYOUT = {
         ),
         ruleConditions: buildCustomRuleConditions(
             STORYTELLING_V2_BODY_CONFIG.allowedCustomSubtypes
-        )
+        ),
+        dynamicBanners: STORYTELLING_V2_BODY_CONFIG.dynamicBanners
     },
     'LN-Nota-Opinion': {
         bodyComponents: buildCustomBodyComponents(
@@ -104,7 +108,8 @@ const BODY_CONFIGS_BY_LAYOUT = {
         ),
         ruleConditions: buildCustomRuleConditions(
             OPINION_BODY_CONFIG.allowedCustomSubtypes
-        )
+        ),
+        dynamicBanners: OPINION_BODY_CONFIG.dynamicBanners
     }
 };
 
@@ -113,7 +118,8 @@ function getBodyConfigForLayout(layout) {
 
     return {
         bodyComponents: config.bodyComponents || DEFAULT_BODY_COMPONENTS,
-        ruleConditions: config.ruleConditions || defaultRuleConditions
+        ruleConditions: config.ruleConditions || defaultRuleConditions,
+        dynamicBanners: config.dynamicBanners
     };
 }
 
