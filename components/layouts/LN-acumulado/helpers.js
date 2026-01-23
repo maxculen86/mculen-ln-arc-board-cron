@@ -11,6 +11,7 @@ export const revistas = [
 ];
 
 export const SECTIONS_URI_MAP = {
+    '/videos': 'videos',
     '/autos': 'autos',
     '/deportes': 'deportes',
     '/economia': 'economia',
