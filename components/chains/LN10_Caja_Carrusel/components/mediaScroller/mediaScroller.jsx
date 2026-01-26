@@ -12,6 +12,7 @@ function MediaScrollerContainer({ children, roofData }) {
                 <MediaScroller
                     elementsToScroll="visible"
                     responsive={{ base: { gap: '16px', width: '280px' } }}
+                    className="z-1"
                 >
                     {children}
                 </MediaScroller>

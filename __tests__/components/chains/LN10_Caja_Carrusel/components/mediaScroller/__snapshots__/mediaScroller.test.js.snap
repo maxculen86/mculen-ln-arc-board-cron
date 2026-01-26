@@ -31,7 +31,7 @@ exports[`components - chains - LN10_Caja_Carrusel - components - mediaScroller -
       data-tw="true"
     >
       <div
-        class="ds-mediascroller relative flex flex-col gap-16 gap-32"
+        class="ds-mediascroller relative flex flex-col gap-16 gap-32 z-1"
         style="--scroller-is-fixed: 1; --scroller-fixed-width: 280px; --scroller-gap: 16px;"
       >
         <div
