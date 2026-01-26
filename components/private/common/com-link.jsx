@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import generateProps from './utils/GetPropsForComLink';
+import generateProps from '../../features/LN/common/link/_helpers';
 
 function ComLink(props) {
     const {
@@ -27,8 +26,8 @@ function ComLink(props) {
     const EXTRA_CLASS = classBuilder(classCondition);
     // TODO: Evaluar si debe retornar un span cuando el componente no recibe link
     // TODO: Definir si el link debe ser una propiedad obligatoria
-    const _props = generateProps(
-        link,
+    const _props = generateProps({
+        url: link,
         dataEvent,
         dataSection,
         rel,
@@ -38,38 +37,17 @@ function ComLink(props) {
         isString,
         children,
         style,
-        SIZE_CLASS,
-        EXTRA_CLASS,
+        sizeClass: SIZE_CLASS,
+        extraClass: EXTRA_CLASS,
         withSponsoredLink,
         marfeelTrack,
         bodyLinkType
-    );
+    });
 
     const tag = link ? 'a' : 'span';
 
     return React.createElement(tag, { ..._props });
 }
-
-ComLink.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.string,
-        PropTypes.node
-    ]).isRequired,
-    link: PropTypes.string,
-    textname: PropTypes.string,
-    title: PropTypes.string,
-    target: PropTypes.string,
-    classCondition: PropTypes.string,
-    size: PropTypes.string,
-    style: PropTypes.string,
-    dataSection: PropTypes.string,
-    dataEvent: PropTypes.string,
-    rel: PropTypes.string,
-    marfeelTrack: PropTypes.bool,
-    bodyLinkType: PropTypes.string,
-    withSponsoredLink: PropTypes.bool
-};
 
 ComLink.defaultProps = {
     textname: '',
