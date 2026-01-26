@@ -21,7 +21,8 @@ import {
     VIDEO,
     LIVEBLOG_EDITORIAL,
     VIDEOAL100,
-    VIDEO_VERTICAL
+    VIDEO_VERTICAL,
+    OPINION
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import config from '../../../../../properties/sites/la-nacion-ar';
 
@@ -32,7 +33,8 @@ const SUBTYPES_WITHOUT_CAPTION = [
     VIDEO,
     LIVEBLOG_EDITORIAL,
     VIDEOAL100,
-    VIDEO_VERTICAL
+    VIDEO_VERTICAL,
+    OPINION
 ];
 
 function VideoPlayer({

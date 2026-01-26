@@ -9,6 +9,7 @@ import get from '../../private/common/utils/get';
 import MediaImage from '../../features/LN-10-global/common/mediaImage/default';
 import VideoPlayerJW from '../../private/common/videoPlayerJw';
 import MediaIframe from '../LN-Nota-Liveblog_Editorial/components/apertura/MediaIframe';
+import { getMediaType } from '../helpers/mediaHelper';
 
 export const getMediaData = (promoItems = {}) => {
     const {
@@ -36,9 +37,6 @@ export const getMediaData = (promoItems = {}) => {
 
     return replaceUrlResizerToWWW(mediaData);
 };
-
-const getMediaType = (type, subtype) =>
-    type === 'raw_html' ? 'iframe' : type || subtype;
 
 const prepareImageData = mediaData => {
     const wwwImage = replaceUrlResizerToWWW(mediaData);

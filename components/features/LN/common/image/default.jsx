@@ -3,7 +3,7 @@ import { getEpigrafe } from '../../../../private/LN/common/utils/mediaHelper';
 import { getImageData } from './_helpers/getImageData';
 import ImageMedia from '../../../ui/ln/image/default';
 
-function Image({ data }) {
+function Image({ data, showCaption = true }) {
     const { caption, credit } = getEpigrafe(data);
     const { src, width, height, alt, pictureSources } = getImageData(data);
 
@@ -16,8 +16,12 @@ function Image({ data }) {
                 src={src}
                 sources={pictureSources}
             />
-            <div>{caption}</div>
-            <div>{credit}</div>
+            {showCaption && (
+                <>
+                    <div>{caption}</div>
+                    <div>{credit}</div>
+                </>
+            )}
         </>
     );
 }
