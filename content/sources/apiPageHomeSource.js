@@ -15,10 +15,12 @@ function splitObjectForLogging(obj, maxSize = 20000) {
 }
 
 const resolveVersions = (query) => {
+    const version = get(query, 'versionUri', 1);
     const rawDeploy = get(query, 'versionDeploy', null);
     const match = String(rawDeploy).match(/\d+/);
 
     return {
+        version,
         versionDeploy: match ? match[0] : null,
         useCachedCall: get(query, 'useCachedCall', 'true') !== 'false',
     };
