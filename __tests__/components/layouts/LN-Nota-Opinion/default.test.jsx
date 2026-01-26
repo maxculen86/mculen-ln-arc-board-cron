@@ -152,6 +152,7 @@ describe('LnNotaOpinion', () => {
     it('exposes correct pageBuilder sections', () => {
         expect(LnNotaOpinion.sections).toEqual([
             'Apertura',
+            'Pre-Cuerpo',
             'Cuerpo',
             'Bottom',
             'Bottom-Tercera'
