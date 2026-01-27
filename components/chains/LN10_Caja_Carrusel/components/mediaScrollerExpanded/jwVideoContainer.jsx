@@ -1,5 +1,4 @@
 import React, { forwardRef, useEffect, useState, memo } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { cx } from '@ln/cva';
@@ -61,12 +60,16 @@ const JwVideoContainer = forwardRef(
                 style={{ willChange: 'transform, scroll-position' }}
             >
                 {listVideoData.map(
-                    ({ id, title, isBanner, node, counterVideo }, index) => (
+                    (
+                        { id, title, isBanner, node, counterVideo, origin },
+                        index
+                    ) => (
                         <li
                             key={id}
                             data-scroller-index={index}
                             data-scroller-id={id}
                             data-title={title}
+                            data-origin={origin}
                             className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
                         >
                             <div className="flex h-100 w-100 ratio-9-16 relative py-16_m">
@@ -102,6 +105,7 @@ const JwVideoContainer = forwardRef(
                                         counterVideo={counterVideo}
                                         handleNextCallback={handleNextCallback}
                                         isLoadedScriptJw={isLoadedScriptJw}
+                                        origin={origin}
                                     />
                                 )}
 
@@ -131,11 +135,5 @@ const JwVideoContainer = forwardRef(
         );
     }
 );
-
-JwVideoContainer.propTypes = {
-    handleNextCallback: PropTypes.func.isRequired,
-    isLastVideo: PropTypes.bool.isRequired,
-    listVideoData: PropTypes.arrayOf().isRequired
-};
 
 export default memo(JwVideoContainer);

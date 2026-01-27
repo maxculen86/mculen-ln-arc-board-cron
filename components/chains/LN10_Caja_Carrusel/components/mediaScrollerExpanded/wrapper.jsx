@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+
 import { Dialog } from '@ln/common-ui-dialog';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 
@@ -38,9 +38,5 @@ function MediaScrollerExpandedWrapper({ children }) {
         </Dialog>
     );
 }
-
-MediaScrollerExpandedWrapper.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default MediaScrollerExpandedWrapper;
