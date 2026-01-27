@@ -11,14 +11,17 @@ import addRelatedImage from '../../common/utils/addRelatedImage';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import {
     extractDataFromPromoItems,
-    urlShema
+    urlSchema
 } from '../../common/utils/extractDataFromPromoItems';
 import {
     createISODate,
     getModifiedDate,
     getPublishDate
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
-import { LIVEBLOG_EDITORIAL } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    LIVEBLOG_EDITORIAL,
+    OPINION
+} from '../../../common/utils/subtypes/subtypeHelper';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -112,6 +115,20 @@ export const getTrustProject = trust => data => sponsored => {
     }
 };
 
+const SUBTYPE_CONFIG = {
+    [OPINION]: {
+        schemaType: 'OpinionNewsArticle',
+        articleSection: 'Opinión',
+        distributorAuthorType: 'Person',
+        distributorAuthorName: 'Redacción LA NACION',
+        includeSchemaId: false,
+        cssSelector: ''
+    },
+    [LIVEBLOG_EDITORIAL]: {
+        cssSelector: '.liveblog-editorial'
+    }
+};
+
 function SnippetNoticia({
     siteProperties,
     globalContent,
@@ -137,21 +154,18 @@ function SnippetNoticia({
     } = globalContent;
 
     const { name: distributorName } = distributor;
-
     const { promo_items: promoItems } = addRelatedImage(globalContent);
-
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600x60.jpg'
     );
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-1200x800.jpg'
     );
-
     const { name } = primarySection;
-
+    const subtypeConfig = SUBTYPE_CONFIG[subtype] || {};
     const distributorAuthor = {
-        '@type': 'Organization',
-        name: distributorName
+        '@type': subtypeConfig.distributorAuthorType || 'Organization',
+        name: subtypeConfig.distributorAuthorName || distributorName
     };
 
     const { authors } = extracDataFromCredits(by, { snippet: true });
@@ -170,10 +184,14 @@ function SnippetNoticia({
     const dateModifiedISO = createISODate(
         getModifiedDate(lastUpdatedDate, displayDate)
     );
+    const isAccessibleForFree =
+        contentCode === 'abierta' || contentCode === 'comun';
+    const cssSelector = subtypeConfig.cssSelector ?? '.nota';
+    const includeSchemaId = subtypeConfig.includeSchemaId ?? true;
 
     let data = {
-        '@context': urlShema,
-        '@type': 'NewsArticle',
+        '@context': urlSchema,
+        '@type': subtypeConfig.schemaType || 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         ...(articleBody && { articleBody }),
         url: `${SITE_LANACION}${canonicalUrl}`,
@@ -181,15 +199,12 @@ function SnippetNoticia({
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
         mainEntityOfPage: addForwardSlash(`${SITE_LANACION}${canonicalUrl}`),
-        articleSection: `${name}`,
-        isAccessibleForFree:
-            contentCode === 'abierta' || contentCode === 'comun',
+        articleSection: subtypeConfig.articleSection || name,
+        isAccessibleForFree,
         hasPart: {
             '@type': 'WebPageElement',
-            isAccessibleForFree:
-                contentCode === 'abierta' || contentCode === 'comun',
-            cssSelector:
-                subtype === LIVEBLOG_EDITORIAL ? '.liveblog-editorial' : '.nota'
+            isAccessibleForFree,
+            ...(cssSelector && { cssSelector })
         },
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],
@@ -204,7 +219,7 @@ function SnippetNoticia({
             name: `${siteProperties.title || ''}`,
             url: `${SITE_LANACION || ''}`,
             logo: {
-                '@context': urlShema,
+                '@context': urlSchema,
                 '@type': 'ImageObject',
                 url: `${LOGO_LN}`,
                 height: 60,
@@ -296,7 +311,10 @@ function SnippetNoticia({
 
     return (
         (type === 'story' && (
-            <SnippetRender id="Schema_NewsArticle" data={data} />
+            <SnippetRender
+                {...(includeSchemaId && { id: 'Schema_NewsArticle' })}
+                data={data}
+            />
         )) ||
         null
     );

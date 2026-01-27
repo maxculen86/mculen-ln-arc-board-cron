@@ -6,7 +6,7 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import {
     extractDataFromPromoItems,
-    urlShema
+    urlSchema
 } from '../../common/utils/extractDataFromPromoItems';
 import addRelatedImage from '../../common/utils/addRelatedImage';
 import {
@@ -63,14 +63,14 @@ function SnippetLiveblog(props) {
     const authorsArray = shouldShow ? authors : [];
 
     const data = {
-        '@context': urlShema,
+        '@context': urlSchema,
         '@type': 'LiveBlogPosting',
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
             url: `${SITE_LANACION || ''}`,
             logo: {
-                '@context': urlShema,
+                '@context': urlSchema,
                 '@type': 'ImageObject',
                 url: `${PLACEHOLDER}`,
                 height: 60,

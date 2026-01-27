@@ -2,7 +2,7 @@ import { adjustImageDimensions } from './adjustImageDimensions';
 import getBiggestImage from './getBiggestImage';
 import { updateResizedUrl } from './updateResizedUrl';
 
-export const urlShema = 'https://schema.org';
+export const urlSchema = 'https://schema.org';
 
 export const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
@@ -10,7 +10,7 @@ export const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const isImage = basic && type === 'image';
     let thumbnailUrl = PLACEHOLDER;
     let image = {
-        '@context': urlShema,
+        '@context': urlSchema,
         '@type': 'ImageObject',
         url: PLACEHOLDER,
         height: '800',
@@ -27,11 +27,11 @@ export const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
-            '@context': urlShema,
+            '@context': urlSchema,
             '@type': 'ImageObject',
             url: newResizedUrl ? `${newResizedUrl}` : `${pathImagen}`,
-            height: newHeight ? newHeight : height,
-            width: newWidth ? newWidth : width
+            height: newHeight || height,
+            width: newWidth || width
         };
     }
 

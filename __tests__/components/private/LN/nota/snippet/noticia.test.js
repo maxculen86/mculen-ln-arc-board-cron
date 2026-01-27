@@ -18,7 +18,10 @@ const mockGlobalContent = {
     canonical_url: '/news-test',
     type: 'story',
     headlines: { basic: 'Test title' },
-    taxonomy: { primary_section: { name: 'Test section' }, tags: [] },
+    taxonomy: {
+        primary_section: { name: 'Test section' },
+        tags: []
+    },
     credits: { by: [] },
     created_date: '2023-01-01T00:00:00Z',
     first_publish_date: '2023-01-02T00:00:00Z',
@@ -36,108 +39,130 @@ const mockContextPath = '/pf';
 const mockDeployment = value => value;
 
 describe('SnippetNoticia', () => {
-    it('should render a script with JSON-LD if the type is "story"', () => {
-        const { container } = render(
-            <SnippetNoticia
-                siteProperties={mockSiteProperties}
-                globalContent={mockGlobalContent}
-                contextPath={mockContextPath}
-                deployment={mockDeployment}
-            />
-        );
+    describe('default subtype (NewsArticle)', () => {
+        it('should render a NewsArticle JSON-LD script when type is "story"', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={mockGlobalContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
 
-        expect(container.firstChild).toBeInstanceOf(HTMLScriptElement);
-        expect(container.firstChild).toHaveAttribute(
-            'type',
-            'application/ld+json'
-        );
+            const script = container.querySelector('script');
+            expect(script).toBeInstanceOf(HTMLScriptElement);
+            expect(script).toHaveAttribute('type', 'application/ld+json');
+            expect(script).toHaveAttribute('id', 'Schema_NewsArticle');
 
-        const jsonData = JSON.parse(
-            container.querySelector('script').innerHTML
-        );
-
-        expect(jsonData).toMatchSnapshot();
-        expect(jsonData).toMatchObject({
-            '@context': 'https://schema.org',
-            '@type': 'NewsArticle',
-            headline: 'Test title',
-            url: 'https://www.lanacion.com.ar/news-test',
-            dateCreated: '2023-01-01T00:00:00.000Z',
-            datePublished: '2023-01-02T00:00:00.000Z',
-            dateModified: '2023-01-04T00:00:00.000Z',
-            mainEntityOfPage: 'https://www.lanacion.com.ar/news-test/',
-            articleSection: 'Test section',
-            isAccessibleForFree: true,
-            hasPart: {
-                '@type': 'WebPageElement',
-                isAccessibleForFree: true,
-                cssSelector: '.nota'
-            },
-            isPartOf: {
-                '@type': ['CreativeWork', 'Product'],
-                name: 'Acceso Digital Monthly Test',
-                productID: 'lanacion.com.ar:acceso_digital'
-            },
-            author: { '@type': 'Organization', name: 'LA NACION' },
-            creator: [],
-            keywords: [],
-            publisher: {
-                '@type': 'Organization',
-                name: 'LA NACION',
-                url: 'https://www.lanacion.com.ar',
-                logo: {
-                    '@context': 'https://schema.org',
-                    '@type': 'ImageObject',
-                    url: 'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600x60.jpg',
-                    height: 60,
-                    width: 600
-                }
-            },
-            thumbnailUrl:
-                'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg',
-            image: {
+            const jsonData = JSON.parse(script.innerHTML);
+            expect(jsonData).toMatchSnapshot();
+            expect(jsonData).toMatchObject({
                 '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url: 'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg',
-                height: '800',
-                width: '1200'
-            },
-            publishingPrinciples:
-                'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
+                '@type': 'NewsArticle',
+                headline: 'Test title',
+                url: 'https://www.lanacion.com.ar/news-test',
+                articleSection: 'Test section',
+                isAccessibleForFree: true,
+                hasPart: {
+                    '@type': 'WebPageElement',
+                    isAccessibleForFree: true,
+                    cssSelector: '.nota'
+                },
+                author: {
+                    '@type': 'Organization',
+                    name: 'LA NACION'
+                },
+                creator: [],
+                keywords: [],
+                publishingPrinciples:
+                    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
+            });
         });
     });
 
-    it('Dates must comply with ISO 8601 standard', () => {
-        const { container } = render(
-            <SnippetNoticia
-                siteProperties={mockSiteProperties}
-                globalContent={mockGlobalContent}
-                contextPath={mockContextPath}
-                deployment={mockDeployment}
-            />
-        );
+    describe('OPINION subtype', () => {
+        const mockOpinionContent = {
+            ...mockGlobalContent,
+            subtype: '3'
+        };
 
-        const jsonData = JSON.parse(
-            container.querySelector('script').innerHTML
-        );
+        it('should render OpinionNewsArticle schema for OPINION subtype', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={mockOpinionContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
 
-        expect(jsonData.dateCreated).toMatch(ISO_DATE_REGEX);
-        expect(jsonData.datePublished).toMatch(ISO_DATE_REGEX);
-        expect(jsonData.dateModified).toMatch(ISO_DATE_REGEX);
+            const script = container.querySelector('script');
+            const jsonData = JSON.parse(script.innerHTML);
+
+            expect(jsonData).toMatchObject({
+                '@type': 'OpinionNewsArticle',
+                articleSection: 'Opinión',
+                author: {
+                    '@type': 'Person',
+                    name: 'Redacción LA NACION'
+                }
+            });
+        });
+
+        it('should NOT include Schema_NewsArticle id for OPINION subtype', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={mockOpinionContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const script = container.querySelector('script');
+            expect(script).not.toHaveAttribute('id');
+        });
     });
 
-    it('should not render anything if the type is not "story"', () => {
-        const globalContentCopy = { ...mockGlobalContent, type: 'video' };
+    describe('dates format', () => {
+        it('dates must comply with ISO 8601 standard', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={mockGlobalContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
 
-        const { container } = render(
-            <SnippetNoticia
-                siteProperties={mockSiteProperties}
-                globalContent={globalContentCopy}
-                contextPath={mockContextPath}
-                deployment={mockDeployment}
-            />
-        );
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
 
-        expect(container).toBeEmptyDOMElement();
+            expect(jsonData.dateCreated).toMatch(ISO_DATE_REGEX);
+            expect(jsonData.datePublished).toMatch(ISO_DATE_REGEX);
+            expect(jsonData.dateModified).toMatch(ISO_DATE_REGEX);
+        });
+    });
+
+    describe('non story content', () => {
+        it('should not render anything if the type is not "story"', () => {
+            const globalContentCopy = {
+                ...mockGlobalContent,
+                type: 'video'
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={globalContentCopy}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            expect(container).toBeEmptyDOMElement();
+        });
     });
 });
