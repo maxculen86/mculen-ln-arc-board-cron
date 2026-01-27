@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import classNames from 'classnames';
+import { cx } from '@ln/ds-cva';
 import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -105,7 +105,7 @@ function LNAcumuladoLayout(props) {
         ? '--opening'
         : '';
 
-    const classNameWrapper = classNames(
+    const classNameWrapper = cx(
         'wrapper',
         '--top-fixed',
         'acumulado',
@@ -120,7 +120,7 @@ function LNAcumuladoLayout(props) {
         { section: '/revista-lugares', pageLayout: 'LN-acumulado' },
         { section: '/videos', pageLayout: 'LN-acumulado' }
     ];
-    const classNameMain = classNames({
+    const classNameMain = cx({
         '--header-fixed-margin': !isAllowedSection({
             globalContent,
             listOfAllowedSection,
@@ -168,7 +168,11 @@ function LNAcumuladoLayout(props) {
                                 ) : null}
                             </div>
                         </div>
-                        <div className="lay">
+                        <div
+                            className={cx('lay', {
+                                'mt--118': OPENING_CLASS
+                            })}
+                        >
                             {/* APERTURA: CAJA DE DOS COLUMNAS */}
                             {apertura}
                             {/* LISTA DE TAGS */}
