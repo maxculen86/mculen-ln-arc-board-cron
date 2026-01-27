@@ -1,8 +1,8 @@
 import React from 'react';
+import DividerComponent from '../../../ui/ln/divider/default';
 
-// TODO para front: realizar ajustes de estilos según diseño
 function Divider() {
-    return <div />;
+    return <DividerComponent />;
 }
 
 Divider.arcType = 'divider';

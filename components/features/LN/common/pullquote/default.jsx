@@ -1,26 +1,13 @@
 import React from 'react';
-import Icon from '../../../ui/ln/icon/default';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import PullQuoteUI from '../../../ui/ln/pullQuote/default';
 
-// TODO para front: realizar ajustes de estilos según diseño.
-function PullQuote({ data = {}, ...restProps }) {
+function PullQuote({ data = {}, className }) {
     const { citation = {}, content_elements: contentElements = [] } = data;
     const author = citation?.content ?? '';
-    const firstElement = contentElements?.[0]?.content;
-
-    if (!firstElement) return null;
+    const content = contentElements?.[0]?.content;
 
     return (
-        <section {...restProps}>
-            <Icon size={24}>
-                <IconSprite name="quote" />
-            </Icon>
-            <span
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: `${firstElement}&rdquo;` }}
-            />
-            {author && <h3>— {author}</h3>}
-        </section>
+        <PullQuoteUI content={content} author={author} className={className} />
     );
 }
 

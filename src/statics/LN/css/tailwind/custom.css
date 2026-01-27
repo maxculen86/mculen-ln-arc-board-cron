@@ -3,19 +3,13 @@
     --shadow-center: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
 }
 
-/* Custom Header spacing */
-.ds-header {
-    --header-outer-spacing: 2fr;
-    @media (max-width: 1279px) {
-        --center-options-grid-column: left-start / center-end;
-    }
-}
 /* Header sticky animation */
 @keyframes fadeOutDown {
     0% {
         opacity: 1;
         transform: translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: translateY(-100%);
@@ -27,6 +21,7 @@
         opacity: 0;
         transform: translateY(-100%);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);

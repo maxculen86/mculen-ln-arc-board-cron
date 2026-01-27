@@ -1,102 +1,158 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import PullQuote from '../../../../../../components/features/LN/common/pullquote/default';
 
-jest.mock('../../../../../../components/features/ui/ln/icon/default', () => ({
-    __esModule: true,
-    default: ({ children, ...props }) => (
-        <span data-testid="icon" {...props}>
-            {children}
-        </span>
-    )
-}));
-
+// Mock del componente UI
+const mockPullQuoteUI = jest.fn(() => null);
 jest.mock(
-    '../../../../../../components/features/private-global/common/iconSprite/IconSprite.jsx',
+    '../../../../../../components/features/ui/ln/pullQuote/default',
     () => ({
         __esModule: true,
-        default: ({ name }) => <span data-testid="icon-sprite">{name}</span>
+        default: props => {
+            mockPullQuoteUI(props);
+            return (
+                <div
+                    data-testid="pullquote-ui"
+                    data-props={JSON.stringify(props)}
+                />
+            );
+        }
     })
 );
 
-describe('PullQuote', () => {
-    it('does not render when data is not provided', () => {
-        const { container } = render(<PullQuote />);
-        expect(container.firstChild).toBeNull();
+describe('PullQuote Container', () => {
+    beforeEach(() => {
+        mockPullQuoteUI.mockClear();
     });
 
-    it('does not render when content_elements is empty', () => {
-        const { container } = render(
-            <PullQuote data={{ content_elements: [] }} />
-        );
-        expect(container.firstChild).toBeNull();
+    describe('Data transformation', () => {
+        it('passes null content when data is not provided', () => {
+            render(<PullQuote />);
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: undefined,
+                    author: ''
+                })
+            );
+        });
+
+        it('passes null content when content_elements is empty', () => {
+            render(<PullQuote data={{ content_elements: [] }} />);
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: undefined,
+                    author: ''
+                })
+            );
+        });
+
+        it('passes null content when first content element has no content', () => {
+            render(<PullQuote data={{ content_elements: [{}] }} />);
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: undefined,
+                    author: ''
+                })
+            );
+        });
+
+        it('extracts content from first content_element', () => {
+            render(
+                <PullQuote
+                    data={{
+                        content_elements: [{ content: 'This is a pull quote' }]
+                    }}
+                />
+            );
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: 'This is a pull quote',
+                    author: ''
+                })
+            );
+        });
+
+        it('extracts author from citation.content', () => {
+            render(
+                <PullQuote
+                    data={{
+                        citation: { content: 'Author Name' },
+                        content_elements: [{ content: 'Quote text' }]
+                    }}
+                />
+            );
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: 'Quote text',
+                    author: 'Author Name'
+                })
+            );
+        });
+
+        it('passes empty string as author when citation is empty object', () => {
+            render(
+                <PullQuote
+                    data={{
+                        citation: {},
+                        content_elements: [{ content: 'Quote text' }]
+                    }}
+                />
+            );
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: 'Quote text',
+                    author: ''
+                })
+            );
+        });
+
+        it('passes empty string as author when citation is not provided', () => {
+            render(
+                <PullQuote
+                    data={{
+                        content_elements: [{ content: 'Quote text' }]
+                    }}
+                />
+            );
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    content: 'Quote text',
+                    author: ''
+                })
+            );
+        });
     });
 
-    it('does not render when first content element has no content', () => {
-        const { container } = render(
-            <PullQuote data={{ content_elements: [{}] }} />
-        );
-        expect(container.firstChild).toBeNull();
+    describe('Props forwarding', () => {
+        it('forwards className to UI component', () => {
+            render(
+                <PullQuote
+                    data={{
+                        content_elements: [{ content: 'Quote text' }]
+                    }}
+                    className="custom-class"
+                />
+            );
+
+            expect(mockPullQuoteUI).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    className: 'custom-class'
+                })
+            );
+        });
     });
 
-    it('renders quote content with closing quote entity', () => {
-        render(
-            <PullQuote
-                data={{
-                    content_elements: [{ content: 'This is a pull quote' }]
-                }}
-            />
-        );
-
-        expect(screen.getByText(/This is a pull quote”/)).toBeInTheDocument();
-
-        expect(screen.getByTestId('icon')).toBeInTheDocument();
-        expect(screen.getByTestId('icon-sprite')).toHaveTextContent('quote');
-    });
-
-    it('renders author when citation content is provided', () => {
-        render(
-            <PullQuote
-                data={{
-                    citation: { content: 'Author Name' },
-                    content_elements: [{ content: 'Quote text' }]
-                }}
-            />
-        );
-
-        expect(screen.getByText('— Author Name')).toBeInTheDocument();
-    });
-
-    it('does not render author when citation content is empty', () => {
-        render(
-            <PullQuote
-                data={{
-                    citation: {},
-                    content_elements: [{ content: 'Quote text' }]
-                }}
-            />
-        );
-
-        expect(screen.queryByText(/^—/)).not.toBeInTheDocument();
-    });
-
-    it('forwards additional props to the section element', () => {
-        render(
-            <PullQuote
-                data={{
-                    content_elements: [{ content: 'Quote text' }]
-                }}
-                data-testid="wrapper"
-                className="custom-class"
-            />
-        );
-
-        const wrapper = screen.getByTestId('wrapper');
-        expect(wrapper).toHaveClass('custom-class');
-    });
-
-    it('exposes static component properties', () => {
-        expect(PullQuote.arcType).toBe('pullquote');
-        expect(PullQuote.isStatic).toBe(true);
+    describe('Static properties', () => {
+        it('exposes static component properties', () => {
+            expect(PullQuote.arcType).toBe('pullquote');
+            expect(PullQuote.isStatic).toBe(true);
+        });
     });
 });

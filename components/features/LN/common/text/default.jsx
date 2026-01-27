@@ -1,24 +1,13 @@
 import React from 'react';
-import TextUI from '../../../ui/ln/text/default';
+import Paragraph from '../../../ui/ln/paragraph/default';
 
-const isLetter = (text = '') => text.match(/^[A-Za-z]/);
-
-function Text({
-    data = {},
-    capital = false,
-    size = '--s',
-    classCondition = ''
-} = {}) {
+function Text({ data = {}, capital = false, className = '' } = {}) {
     const { content = '' } = data;
 
     if (content === '<br/>') return null;
+
     return (
-        <TextUI
-            content={content}
-            size={size}
-            classCondition={classCondition}
-            capital={capital && isLetter(content) ? '--capital' : ''}
-        />
+        <Paragraph content={content} capital={capital} className={className} />
     );
 }
 
