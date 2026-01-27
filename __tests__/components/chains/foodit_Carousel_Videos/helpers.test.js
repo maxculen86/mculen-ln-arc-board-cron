@@ -29,7 +29,7 @@ describe('foodit_Carousel_Videos helpers', () => {
                 contentType: 'video_story',
                 origin: 'home',
                 rest: {
-                    page_title: videoTitle,
+                    video_title: videoTitle,
                     id_video: videoIdObserved
                 }
             });

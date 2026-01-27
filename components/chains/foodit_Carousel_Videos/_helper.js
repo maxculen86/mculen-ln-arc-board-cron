@@ -61,7 +61,7 @@ export const handleEventVideoView = ({
         contentType: 'video_story',
         origin: 'home',
         rest: {
-            page_title: videoTitle,
+            video_title: videoTitle,
             id_video: videoIdObserved
         }
     });
