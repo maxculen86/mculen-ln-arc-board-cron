@@ -16,8 +16,8 @@ export const typeAcumRules = {
         withSubhead: true,
         titleSize: '--l',
         titleWeight: '--font-medium',
-        withCategory: true,
-        withTags: true
+        withCategory: false,
+        withTags: false
     },
     Timeline: {
         withSubhead: false,
