@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getConfigClassName, isHeaderNegative } from './_helper';
 import { getTypeOfDevice } from '@ln/hooks';
+import { getConfigClassName, isHeaderNegative } from './_helper';
 
 export const useHeaderVariants = ({
     layout = '',
@@ -19,56 +19,13 @@ export const useHeaderVariants = ({
         intersectingSentinel: true
     });
 
-    useEffect(() => {
-        const typeOfDevice = getTypeOfDevice({
-            breakpoints: { mobile: 768, tablet: 1024 }
-        });
-
-        if (typeOfDevice === 'mobile' || typeOfDevice === 'tablet') return;
-
-        const headerSentinel = document.querySelector('.header-sentinel');
-        if (!headerSentinel) return;
-
-        const interSectionObserver = createIntersectionObserver(headerSentinel);
-
-        return () => {
-            if (interSectionObserver) {
-                interSectionObserver.unobserve(headerSentinel);
-            }
-        };
-    }, []);
-
-    const createIntersectionObserver = headerSentinel => {
-        if (!headerSentinel) return null;
-        const interSectionObserver = new IntersectionObserver(handleVariants);
-        interSectionObserver.observe(headerSentinel);
-        return interSectionObserver;
-    };
-
-    const handleVariants = entries => {
-        const wrapperHome = document.querySelector('.wrapper.homepage');
-        const sectionsWithoutToggleNegative = [
-            '/revista-lugares',
-            '/revista-hola'
-        ];
-        const toggleNegative = !sectionsWithoutToggleNegative.includes(section);
-
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                updateVariantsOnIntersect(wrapperHome);
-            } else {
-                updateVariantsOnExit(wrapperHome, toggleNegative);
-            }
-        });
-    };
-
     const updateVariantsOnIntersect = wrapperHome => {
         setVariants(prev => ({
             sticky: isHome ? false : prev.sticky,
             negative: isHome ? false : negative,
             intersectingSentinel: true
         }));
-        wrapperHome && wrapperHome.classList.remove('--top-fixed');
+        wrapperHome?.classList.remove('--top-fixed');
     };
 
     const updateVariantsOnExit = (wrapperHome, toggleNegative) => {
@@ -84,8 +41,53 @@ export const useHeaderVariants = ({
                 intersectingSentinel: false
             };
         });
-        wrapperHome && wrapperHome.classList.add('--top-fixed');
+        wrapperHome?.classList.add('--top-fixed');
     };
+
+    const handleVariants = entries => {
+        const wrapperHome = document.querySelector('.wrapper.homepage');
+        const sectionsWithoutToggleNegative = [
+            '/revista-lugares',
+            '/revista-hola',
+            '/videos'
+        ];
+        const toggleNegative = !sectionsWithoutToggleNegative.includes(section);
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                updateVariantsOnIntersect(wrapperHome);
+            } else {
+                updateVariantsOnExit(wrapperHome, toggleNegative);
+            }
+        });
+    };
+
+    const createIntersectionObserver = headerSentinel => {
+        if (!headerSentinel) return null;
+        const interSectionObserver = new IntersectionObserver(handleVariants);
+        interSectionObserver.observe(headerSentinel);
+        return interSectionObserver;
+    };
+
+    useEffect(() => {
+        const typeOfDevice = getTypeOfDevice({
+            breakpoints: { mobile: 768, tablet: 1024 }
+        });
+
+        if (typeOfDevice === 'mobile' || typeOfDevice === 'tablet')
+            return undefined;
+
+        const headerSentinel = document.querySelector('.header-sentinel');
+        if (!headerSentinel) return undefined;
+
+        const interSectionObserver = createIntersectionObserver(headerSentinel);
+
+        return () => {
+            if (interSectionObserver) {
+                interSectionObserver.unobserve(headerSentinel);
+            }
+        };
+    }, []);
 
     return {
         ...variants,

@@ -44,7 +44,8 @@ export const isHeaderNegative = ({
         layoutsName.VideoAl100,
         layoutsName.Cards,
         '/revista-hola',
-        '/revista-lugares'
+        '/revista-lugares',
+        '/videos'
     ];
 
     return validationBy.some(validation => validations.includes(validation));
