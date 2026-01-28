@@ -154,7 +154,6 @@
                 margin-bottom: 0;
             }
             .--opening {
-                margin-top: px(-118);
                 .mod-figure {
                     background: $neutral-white; //para el hover de la imagen
                 }
@@ -218,6 +217,20 @@
                 z-index: 1;
                 position: relative;
                 background-color: $hola;
+            }
+        }
+    }
+    &.videos {
+        #content {
+            @media (min-width: px(1024)) {
+                .--top {
+                    padding-top: px(128);
+                }
+            }
+        }
+        @media (max-width: px(1023)) {
+            .common-header {
+                background-color: rgb(0, 22, 49);
             }
         }
     }
