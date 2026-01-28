@@ -14,13 +14,13 @@ describe('Opening', () => {
         expect(screen.getByText('Child content')).toBeInTheDocument();
     });
 
-    it('should expose Breadcrumb as a static property', () => {
-        expect(Opening.Breadcrumb).toBeDefined();
-        expect(typeof Opening.Breadcrumb).toBe('function');
-    });
-
     it('should expose Title as a static property', () => {
         expect(Opening.Title).toBeDefined();
         expect(typeof Opening.Title).toBe('function');
+    });
+
+    it('should expose Subtitle as a static property', () => {
+        expect(Opening.Subtitle).toBeDefined();
+        expect(typeof Opening.Subtitle).toBe('function');
     });
 });

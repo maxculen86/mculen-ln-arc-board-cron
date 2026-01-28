@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JwVideoContainer should match snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    aria-label="Carrusel de videos"
+    aria-roledescription="carrusel"
+    class="scroll-y-auto scroll-y-none_md scroll-x-auto_md hide-scrollbar bg-black scroll-snap-block-mandatory overscroll-bahavior-y-container scroll-snap-inline-mandatory_md w-100vw w-100_md h-100dvh grid_md grid-auto-flow-columm grid-auto-columns-100"
+    role="region"
+    style="will-change: transform, scroll-position;"
+  >
+    <li
+      aria-current="true"
+      aria-label="1 de 3: Video 1"
+      aria-roledescription="slide"
+      class="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
+      data-scroller-index="0"
+      role="group"
+    >
+      <div
+        class="flex h-100 w-100 ratio-9-16 relative py-16_md"
+      >
+        <div
+          class="w-100 absolute top-0 left-0 z-10 bg-gradient-video-expanded bg-none_md py-8 mt-16_md"
+        >
+          <button
+            aria-label="Cerrar carrusel de videos y volver a la página anterior"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 py-8 px-16 text-neutral-light-1 relative_md left--104_md"
+            data-variant="custom"
+            title="Cerrar"
+          >
+            <i
+              class="icon --icon-16"
+            >
+              <span />
+            </i>
+            <span
+              class="uppercase"
+              style="font-size: 14px;"
+            >
+              Volver
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="jw-video-player-video1"
+        />
+        <div
+          class="text-neutral-light-1 flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
+          style="animation: float-up 1.5s infinite;"
+        >
+          <i
+            aria-hidden="true"
+            class="icon rotate-180 --icon-20"
+          >
+            <span />
+          </i>
+          <span
+            class="text roboto roboto-bold"
+          >
+            Desliza hacia arriba para continuar
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      aria-label="2 de 3: Video 2"
+      aria-roledescription="slide"
+      class="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
+      data-scroller-index="1"
+      role="group"
+    >
+      <div
+        class="flex h-100 w-100 ratio-9-16 relative py-16_md"
+      >
+        <div
+          class="w-100 absolute top-0 left-0 z-10 bg-gradient-video-expanded bg-none_md py-8 mt-16_md"
+        >
+          <button
+            aria-label="Cerrar carrusel de videos y volver a la página anterior"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 py-8 px-16 text-neutral-light-1 relative_md left--104_md"
+            data-variant="custom"
+            title="Cerrar"
+          >
+            <i
+              class="icon --icon-16"
+            >
+              <span />
+            </i>
+            <span
+              class="uppercase"
+              style="font-size: 14px;"
+            >
+              Volver
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="jw-video-player-video2"
+        />
+        <div
+          class="text-neutral-light-1 flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
+          style="animation: float-up 1.5s infinite;"
+        >
+          <i
+            aria-hidden="true"
+            class="icon rotate-180 --icon-20"
+          >
+            <span />
+          </i>
+          <span
+            class="text roboto roboto-bold"
+          >
+            Desliza hacia arriba para continuar
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      aria-label="3 de 3: Video 3"
+      aria-roledescription="slide"
+      class="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
+      data-scroller-index="2"
+      role="group"
+    >
+      <div
+        class="flex h-100 w-100 ratio-9-16 relative py-16_md"
+      >
+        <div
+          class="w-100 absolute top-0 left-0 z-10 bg-gradient-video-expanded bg-none_md py-8 mt-16_md"
+        >
+          <button
+            aria-label="Cerrar carrusel de videos y volver a la página anterior"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 py-8 px-16 text-neutral-light-1 relative_md left--104_md"
+            data-variant="custom"
+            title="Cerrar"
+          >
+            <i
+              class="icon --icon-16"
+            >
+              <span />
+            </i>
+            <span
+              class="uppercase"
+              style="font-size: 14px;"
+            >
+              Volver
+            </span>
+          </button>
+        </div>
+        <div
+          data-testid="jw-video-player-video3"
+        />
+        <div
+          class="text-neutral-light-1 flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
+          style="animation: float-up 1.5s infinite;"
+        >
+          <i
+            aria-hidden="true"
+            class="icon rotate-180 --icon-20"
+          >
+            <span />
+          </i>
+          <span
+            class="text roboto roboto-bold"
+          >
+            Desliza hacia arriba para continuar
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

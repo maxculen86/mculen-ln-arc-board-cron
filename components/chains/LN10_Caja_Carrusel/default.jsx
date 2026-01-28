@@ -101,12 +101,22 @@ function CajaCarrusel(props) {
         }
     }, [divRefInCarrusel?.current]);
 
-    const nodes = transformNodes({
-        children,
-        isAdmin,
-        childProps,
-        bannerRef: divRefInCarrusel
-    });
+    const normalizedLayout = useMemo(() => {
+        if (isHome) return 'home';
+        return 'acu';
+    }, [isHome]);
+
+    const nodes = useMemo(
+        () =>
+            transformNodes({
+                children,
+                isAdmin,
+                childProps,
+                bannerRef: divRefInCarrusel,
+                layoutType: normalizedLayout
+            }),
+        [children, isAdmin, childProps, normalizedLayout]
+    );
 
     const nodesByExpanded = useMemo(
         () =>
@@ -114,9 +124,10 @@ function CajaCarrusel(props) {
                 children,
                 isAdmin,
                 childProps,
-                isExpanded: true
+                isExpanded: true,
+                layoutType: normalizedLayout
             }),
-        []
+        [children, isAdmin, childProps, normalizedLayout]
     );
 
     return (

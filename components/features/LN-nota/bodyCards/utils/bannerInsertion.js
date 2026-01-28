@@ -1,50 +1,10 @@
 import React from 'react';
 import {
+    buildGoogleTagBannerConfig,
     renderDynamicBanner,
-    shouldInsertBanner,
-    createDynamicBannerConfig
-} from '../../../../layouts/LN-Nota-Cards/utils/dynamicBannerHelper';
-
-const SUPPORTED_DEVICES = ['desktop', 'mobile'];
-
-export const buildGoogleTagBannerConfig = (
-    device,
-    bannerIndex,
-    globalContent
-) => {
-    const bannerConfiguration = createDynamicBannerConfig(
-        globalContent,
-        device,
-        bannerIndex
-    );
-
-    if (!bannerConfiguration) return null;
-
-    const {
-        slotId,
-        slotGroup,
-        dfpId,
-        slotName,
-        targeting,
-        dimensions,
-        withoutHide,
-        bidding,
-        hideForSubscriptor
-    } = bannerConfiguration;
-
-    return {
-        adUnitPath: `/${dfpId}/${slotName}`,
-        size: dimensions,
-        opt_div: slotId,
-        sizemap: [],
-        prebidEnabled: bidding?.prebid?.enabled || false,
-        targeting,
-        slotGroup,
-        hideForSubscriptor,
-        withoutHide,
-        customTargeting: {}
-    };
-};
+    SUPPORTED_DEVICES,
+    shouldInsertBanner
+} from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
 
 export const createBannerElement = (
     globalContent,
@@ -160,6 +120,5 @@ export default {
     createRenderConfig,
     shouldInsertBanner,
     createBannerElement,
-    createCardElement,
-    buildGoogleTagBannerConfig
+    createCardElement
 };

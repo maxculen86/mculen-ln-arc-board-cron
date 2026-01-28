@@ -1,3 +1,4 @@
+// TODO MIGRAR UNA VEZ EL COMPONENTE videoPlayerJw DEJE DE USARSE
 import { cx } from '@ln/cva';
 import {
     isInDatalayerEvent,
@@ -93,6 +94,7 @@ export const handleVideoEventsScript = (
     let currentId = idVideo;
     let firstPlay = true;
     let skipPlayForSeek = false;
+    let wasPaused = false;
 
     registerJwVideoControlsTracking({
         player,
@@ -106,6 +108,7 @@ export const handleVideoEventsScript = (
             currentId = newId;
             firstPlay = true;
             skipPlayForSeek = false;
+            wasPaused = false;
         }
     });
 
@@ -117,6 +120,16 @@ export const handleVideoEventsScript = (
     player.on('play', (e = {}) => {
         if (skipPlayForSeek) {
             skipPlayForSeek = false;
+            return;
+        }
+
+        if (wasPaused) {
+            wasPaused = false;
+            addEventToDataLayerV2({
+                event: 'videoResume',
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`
+            });
             return;
         }
 
@@ -139,6 +152,7 @@ export const handleVideoEventsScript = (
     });
 
     player.on('pause', () => {
+        wasPaused = true;
         addEventToDataLayerV2({
             event: 'videoPause',
             videoName: `${currentTitle}`,

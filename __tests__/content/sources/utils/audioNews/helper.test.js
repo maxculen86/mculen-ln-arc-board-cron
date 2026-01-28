@@ -471,7 +471,6 @@ describe('isNoteListenableForApps (actualizado según nuevos requisitos)', () =>
         expect(result).toBe(false);
     });
 
-
     it('Collection-like item without audio and without wordCount should return false (even if subtype is disabled)', () => {
         const data = {
             source: { system: 'composer' },

@@ -128,6 +128,14 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../components/features/LN/common/navBar/default.jsx',
+    () => ({
+        __esModule: true,
+        default: () => <div data-testid="navbar" />
+    })
+);
+
 describe('LnNotaOpinion', () => {
     it('renders children wrapped with GlobalProvider and Opinion', () => {
         render(
@@ -144,6 +152,7 @@ describe('LnNotaOpinion', () => {
     it('exposes correct pageBuilder sections', () => {
         expect(LnNotaOpinion.sections).toEqual([
             'Apertura',
+            'Pre-Cuerpo',
             'Cuerpo',
             'Bottom',
             'Bottom-Tercera'

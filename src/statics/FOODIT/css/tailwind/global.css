@@ -8,4 +8,7 @@
 /* Layouts */
 @source '../../../../../components/layouts/Foodit-*/**/*.{js,jsx,ts,tsx}';
 /* Features FACADE */
-@source '../../../../../components/features/ui/foodit/**/foodit.{js,jsx,ts,tsx}';
+@source '../../../../../components/features/ui-foodit/**/foodit.{js,jsx,ts,tsx}';
+/* Features */
+@source '../../../../../components/features/foodit*/**/*.{js,jsx,ts,tsx}';
+@source '../../../../../components/features/foodit*/**/**/*.{js,jsx,ts,tsx}';

@@ -1,3 +1,4 @@
+// TODO ELIMINAR UNA VEZ SE CAMBIEN A VIDEOPLAYER NUEVO
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
@@ -6,10 +7,14 @@ import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import {
+    extractVideoData,
+    calculateDisplayVariant,
+    buildPlaylistConfig,
+    buildVideoConfig,
+    shouldShowFigureCaption as shouldShowCaption,
     getCaptionBgClass,
-    getConfigClassName,
-    getVerticalPlayer
-} from './utils/helperJw';
+    getConfigClassName
+} from '../../../features/LN/common/video/utils/videoDataUtils';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import getSourcesJw from '../../LN/common/utils/getSourcesJw';
 import FigureCaption from '../../../features/LN-10-global/common/figCaption/default';
@@ -24,6 +29,14 @@ import config from '../../../../properties/sites/la-nacion-ar';
 
 const { layoutsName = {} } = config || {};
 
+const SUBTYPES_WITHOUT_CAPTION = [
+    STORYTELLING,
+    VIDEO,
+    LIVEBLOG_EDITORIAL,
+    VIDEOAL100,
+    VIDEO_VERTICAL
+];
+
 const videoPlayerJW = ({
     data,
     parrafo,
@@ -33,54 +46,38 @@ const videoPlayerJW = ({
     videoContainerClassesProps,
     isOpening
 }) => {
+    const videoData = extractVideoData(data);
     const {
-        embed: {
-            config: {
-                idPlayer,
-                videoJw: {
-                    title = '',
-                    description = '',
-                    playlist = [],
-                    epigraphTitle = ''
-                } = {}
-            } = {}
-        } = {}
-    } = data;
+        playerId,
+        title,
+        description,
+        playlist,
+        epigraphTitle,
+        mediaId,
+        sources,
+        firstVideo
+    } = videoData;
 
-    const player = idPlayer || 'ih0086X3';
-    const [video] = playlist || [];
-    const { mediaid = '', sources = [] } = video || {};
     const { arcSite, deployment, contextPath, globalContent, layout } =
         useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
-        get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaid;
-    const isSubtypeWithoutFigureCaption = [
-        STORYTELLING,
-        VIDEO,
-        LIVEBLOG_EDITORIAL,
-        VIDEOAL100,
-        VIDEO_VERTICAL
-    ].includes(subtype);
+        get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaId;
 
     const bgClass = getCaptionBgClass(subtype);
 
-    const shouldShowFigureCaption =
-        !isPromoItemVideo || !isSubtypeWithoutFigureCaption;
+    const shouldShowFigureCaption = shouldShowCaption({
+        isPromoItemVideo,
+        subtype,
+        subtypesWithoutCaption: SUBTYPES_WITHOUT_CAPTION
+    });
 
-    const videoOrientation = getVerticalPlayer(idPlayer)
-        ? 'vertical'
-        : 'horizontal';
-
-    const getVariant = () => {
-        if (isOpening) {
-            if (subtype === VIDEO_VERTICAL && videoOrientation === 'vertical')
-                return 'vertical';
-            return 'horizontal';
-        }
-        return videoOrientation;
-    };
+    const variant = calculateDisplayVariant({
+        isOpening,
+        subtype,
+        playerId
+    });
 
     const {
         container,
@@ -90,13 +87,10 @@ const videoPlayerJW = ({
         facade,
         facadeContainer,
         captionClasses
-    } = getConfigClassName(
-        getVariant(),
-        layout === layoutsName.Video,
-        isOpening
-    );
+    } = getConfigClassName(variant, layout === layoutsName.Video, isOpening);
 
-    const minStream = video && getSourcesJw(get(video, 'sources', []));
+    const minStream =
+        firstVideo && getSourcesJw(get(firstVideo, 'sources', []));
 
     const videoContainerClassName = cx(
         videoContainer,
@@ -111,23 +105,17 @@ const videoPlayerJW = ({
     const captionFigureClasses = cx(captionClasses, bgClass);
     const tagsUrl = urlForPrerollAds();
 
-    const playlistForConfig = (
-        playlist?.length ? playlist : [{ mediaid, sources }]
-    ).map(({ mediaid: itemMediaId, sources: itemSources = [] }) => ({
-        mediaid: itemMediaId,
-        sources: itemSources
-    }));
+    const playlistForConfig = buildPlaylistConfig(playlist, mediaId, sources);
 
-    const videoConfig = {
+    const videoConfig = buildVideoConfig({
         title,
-        mediaId: mediaid,
-        playerId: player,
+        mediaId,
+        playerId,
         playlist: playlistForConfig,
-        hasAutoplay: Boolean(hasAutoplay),
-        autostart: true,
+        hasAutoplay,
         tagsUrl,
         arcSite
-    };
+    });
 
     return (
         <>
@@ -139,18 +127,18 @@ const videoPlayerJW = ({
                     )}
                 />
             </Static>
-            <Static id={mediaid}>
+            <Static id={mediaId}>
                 <div className={container}>
                     <section className={mediaContainerClassName}>
                         <figure className={videoContainerClassName}>
                             <div
                                 className={videoPlayer}
                                 data-has-jwplayer="true"
-                                data-video-id-jw={mediaid}
+                                data-video-id-jw={mediaId}
                                 data-config={JSON.stringify(videoConfig)}
                             >
                                 <Facade
-                                    id={mediaid}
+                                    id={mediaId}
                                     playlist={playlist}
                                     className={facade}
                                     containerClasses={facadeContainer}
@@ -160,7 +148,7 @@ const videoPlayerJW = ({
                                         subtype === VIDEO || isPromoItemVideo
                                     }
                                 />
-                                <div id={mediaid} />
+                                <div id={mediaId} />
                             </div>
                             {shouldShowFigureCaption && (
                                 <FigureCaption
@@ -172,7 +160,7 @@ const videoPlayerJW = ({
                         <VideoPlayerSnippet
                             paragraph={parrafo || description}
                             noteTitle={tituloNota}
-                            mediaData={video}
+                            mediaData={firstVideo}
                             minStream={{ url: get(minStream, 'file', '') }}
                         />
                     </section>

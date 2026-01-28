@@ -1,12 +1,14 @@
 import get from '../../../../../../common/utils/get';
-import AperturaReceta from './aperturaReceta';
+import { STORYTELLING } from '../../../../../../common/utils/subtypes/subtypeHelper';
 import {
     authorCommon as Author,
     distributorOrAuthorSignature
 } from '../../author';
-import { getFeaturedTag } from '../../tag';
-import { volanta } from '../../label/volanta';
+import { getPrincipalCategory } from '../../category';
 import getDistributor from '../../distributor';
+import { volanta as getVolanta } from '../../label/volanta';
+import { getFeaturedTag } from '../../tag';
+import AperturaReceta from './aperturaReceta';
 
 // For to set Image Basic to BookMark when PromoItems is Html regularly
 export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
@@ -18,17 +20,19 @@ export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
 };
 
 export const storyTitleAndResume = article => {
-    const {
-        headlines: { basic: titulo, mobile: tituloMobile }
-    } = article;
-    if (!titulo) {
-        throw new Error('Titulo de la nota es null o undefined');
-    }
+    const titulo = get(article, 'headlines.basic', null);
+    const tituloMobile = get(article, 'headlines.mobile', null);
+    const tituloNative = get(article, 'headlines.native', null);
+    const subtype = get(article, 'subtype', null);
+
+    if (!titulo) throw new Error('Titulo de la nota es null o undefined');
 
     const bajada = get(article, 'subheadlines.basic', null);
+
     return {
         titulo: titulo || tituloMobile,
         tituloMobile,
+        ...(subtype === STORYTELLING && tituloNative && { tituloNative }),
         bajada
     };
 };
@@ -59,44 +63,77 @@ export const promoItemArticle = article => {
     return promoItem;
 };
 
-export const apertura = article => {
+const getAuthors = article =>
+    get(article, 'credits.by', []).filter(a => a.type === 'author');
+
+const patchReceta = article => {
     const recetaPromoItem = get(article, 'promo_items.receta', null);
-    const authors = get(article, 'credits.by', null);
-    const authorsFixed = authors && authors.filter(a => a.type === 'author');
-
-    const resp = {
-        ...storyTitleAndResume(article),
-        distributor: getDistributor(article, false)
-    };
-
-    if (
+    const isDetalleReceta =
         article.subtype === '7' &&
-        recetaPromoItem &&
-        recetaPromoItem.subtype === 'custom-detalle-receta'
-    ) {
-        resp.receta = AperturaReceta(recetaPromoItem);
-    }
+        recetaPromoItem?.subtype === 'custom-detalle-receta';
 
-    if (authorsFixed && authorsFixed.length > 0) {
-        const articleAuthors = authorsFixed.map(a => Author(a));
-        resp.autores = articleAuthors;
-        resp.authors = articleAuthors;
-        resp.marquesina = distributorOrAuthorSignature(
-            resp.distributor,
-            articleAuthors
-        );
-    }
-
-    const tagDestacado = getFeaturedTag(article);
-    if (tagDestacado) {
-        resp.tagDestacado = tagDestacado;
-    }
-
-    const flyer = volanta(article);
-    if (flyer) {
-        resp.volanta = flyer;
-    }
-
-    return resp;
+    return isDetalleReceta ? { receta: AperturaReceta(recetaPromoItem) } : {};
 };
+
+const patchAutores = (article, distributor) => {
+    const authorsFixed = getAuthors(article);
+    if (!authorsFixed.length) return {};
+
+    const articleAuthors = authorsFixed.map(Author);
+    return {
+        autores: articleAuthors,
+        authors: articleAuthors,
+        marquesina: distributorOrAuthorSignature(distributor, articleAuthors)
+    };
+};
+
+const patchTagDestacado = article => {
+    const tagDestacado = getFeaturedTag(article);
+    return tagDestacado ? { tagDestacado } : {};
+};
+
+const patchVolanta = article => {
+    const volanta = getVolanta(article);
+    return volanta ? { volanta } : {};
+};
+
+const patchBrand = article => {
+    const {
+        taxonomy: { primary_section: primarySection }
+    } = article;
+    const category = primarySection && getPrincipalCategory(primarySection);
+    let brand = category?.slug;
+    const aFondo = false; // TODO resolver como identificamos la nota A FONDO se deja logica implementada
+    if (aFondo) brand = '/a-fondo';
+    return brand ? { brand } : {};
+};
+
+const patchDiagram = article => {
+    const diagram = get(
+        article,
+        'promo_items.custom_storytelling_opening.embed.config.diagram',
+        null
+    );
+
+    return diagram ? { diagram } : {};
+};
+
+const patchStorytelling = article =>
+    get(article, 'subtype', null) === STORYTELLING
+        ? { ...patchBrand(article), ...patchDiagram(article) }
+        : {};
+
+export const apertura = article => {
+    const distributor = getDistributor(article, false);
+    return {
+        ...storyTitleAndResume(article),
+        distributor,
+        ...patchReceta(article),
+        ...patchAutores(article, distributor),
+        ...patchTagDestacado(article),
+        ...patchVolanta(article),
+        ...patchStorytelling(article)
+    };
+};
+
 export default apertura;

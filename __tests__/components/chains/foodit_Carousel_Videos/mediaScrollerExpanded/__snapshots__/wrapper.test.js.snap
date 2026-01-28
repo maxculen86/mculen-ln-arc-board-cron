@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaScrollerExpandedWrapper should match snapshot 1`] = `
+<div>
+  <div
+    data-mock-classnames-base="w-100 h-100dvh bg-light-900"
+    data-mock-classnames-wrapper="flex w-100 h-100"
+    data-mock-close-on-click-outside="true"
+    data-mock-isopen="true"
+    data-mock-overlay="true"
+    data-mock-position="full"
+    data-testid="mock-dialog"
+  >
+    <div>
+      Test Content
+    </div>
+  </div>
+</div>
+`;

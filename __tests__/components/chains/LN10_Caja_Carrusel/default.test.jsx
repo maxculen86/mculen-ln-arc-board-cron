@@ -134,11 +134,11 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         });
     });
 
-    it('limits the number of children to 10 in the carousel', () => {
-        const manyChildren = Array.from({ length: 15 }, (_, i) => (
+    it('limits the number of children to 20 in the carousel', () => {
+        const manyChildren = Array.from({ length: 25 }, (_, i) => (
             <div key={i}>Child {i + 1}</div>
         ));
-        const childProps = Array.from({ length: 15 }, (_, i) => ({
+        const childProps = Array.from({ length: 25 }, (_, i) => ({
             ...childPropBase,
             id: `f0fT3DeljGTD3Xg${i}`
         }));
@@ -151,6 +151,6 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
             />
         );
 
-        expect(screen.getAllByText(/child/i)).toHaveLength(10);
+        expect(screen.getAllByText(/child/i)).toHaveLength(20);
     });
 });

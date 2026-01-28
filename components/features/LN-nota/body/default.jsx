@@ -5,30 +5,12 @@ import groupBannerConfig from './_utils/_groupBannerConfig';
 import buildBodyCustomFields from './_utils/_buildBodyCustomFields';
 import BuildBody from './_children/_buildBody';
 import BaseBodyWrapper from './_children/BaseBodyWrapper';
-import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
+import registerScrollTracking from '../../LN/DS-Body/helpers/registerScrollTracking';
 
 function body({ customFields }) {
     const { outputType, globalContent = {} } = useAppContext();
     const banners = groupBannerConfig(customFields);
     const { _id, content_elements: contentElements } = globalContent;
-
-    const registerScrollTracking = () => {
-        registerScrollTrigger({
-            id: 'scroll-body-GA',
-            type: 'percentage',
-            threshold: 10,
-            thresholdStep: 10,
-            callback: percent => {
-                if (window.dataLayer) {
-                    window.dataLayer.push({
-                        event: 'scroll_tracking_nota',
-                        scroll_percent: percent,
-                        content_type: 'nota'
-                    });
-                }
-            }
-        });
-    };
 
     return (
         <BaseBodyWrapper

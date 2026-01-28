@@ -1,0 +1,52 @@
+/* Custom Components */
+@layer components {
+
+    /* Paragraph */
+    .ds-custom-paragraph mark {
+        background-color: transparent;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: #ffff24;
+        text-decoration-thickness: 2px;
+        color: inherit;
+    }
+
+    .ds-custom-paragraph a {
+        color: var(--color-primary-default);
+
+        &:hover {
+            color: var(--color-primary-light);
+        }
+    }
+
+    /* Editorial drop cap */
+    @media (min-width: 768px) {
+        .editorial-drop-cap::first-letter {
+            font-family: var(--font-primary);
+            font-variation-settings: var(--font-w-bold);
+            text-transform: uppercase;
+            float: left;
+            font-size: 104px;
+            line-height: 80%;
+            letter-spacing: -0.4px;
+            margin-top: 14px;
+            margin-right: 8px;
+            margin-bottom: -20px;
+        }
+    }
+
+    /* Interstitial custom styles */
+    .ds-custom-interstitial {
+        white-space: normal !important;
+        line-height: normal !important;
+    }
+}
+
+/* Custom Header spacing */
+.ds-header {
+    --header-outer-spacing: 2fr;
+
+    @media (max-width: 1279px) {
+        --center-options-grid-column: left-start / center-end;
+    }
+}

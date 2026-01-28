@@ -90,7 +90,7 @@ describe('Test apetura con videoJW', () => {
         expect(console.error).toHaveBeenCalledTimes(0);
     });
 
-    it('Test keys expected', () => {
+    test('Test keys expected', () => {
         const newArticle = { ...article };
         newArticle.label = {
             ...article.label,
@@ -102,7 +102,159 @@ describe('Test apetura con videoJW', () => {
         };
         const resp = aperturaArticle(newArticle);
         expect(Object.keys(resp).sort()).toEqual(
-            ['bajada', 'titulo', 'tituloMobile', 'video', 'volanta', 'distributor'].sort()
+            [
+                'bajada',
+                'titulo',
+                'tituloMobile',
+                'video',
+                'volanta',
+                'distributor'
+            ].sort()
         );
+    });
+});
+
+describe('Test apetura StoryTelling', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+        jest.spyOn(console, 'error');
+        // @ts-ignore jest.spyOn adds this functionallity
+        console.error.mockImplementation(() => null);
+    });
+
+    afterEach(() => {
+        // @ts-ignore jest.spyOn adds this functionallity
+        console.error.mockRestore();
+    });
+
+    test('Should return correctly values in apertura', () => {
+        const newArticle = {
+            ...article,
+            subtype: '4',
+            promo_items: {
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'image-panoramic'
+                        }
+                    }
+                }
+            },
+            headlines: {
+                basic: 'basic headlines',
+                mobile: 'mobile headlines',
+                native: 'native headlines'
+            }
+        };
+        const resp = aperturaArticle(newArticle);
+        expect(Object.keys(resp).sort()).toEqual(
+            [
+                'bajada',
+                'titulo',
+                'tituloMobile',
+                'tituloNative',
+                'distributor',
+                'diagram',
+                'brand'
+            ].sort()
+        );
+        expect(resp.diagram).toBe('image-panoramic');
+        expect(resp.brand).toBe('/deportes');
+        expect(resp.tituloNative).toBe('native headlines');
+        expect(resp.tituloMobile).toBe('mobile headlines');
+        expect(resp.titulo).toBe('basic headlines');
+    });
+
+    test('Should return correctly values in apertura whitout native title', () => {
+        const newArticle = {
+            ...article,
+            subtype: '4',
+            promo_items: {
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'image-panoramic'
+                        }
+                    }
+                }
+            },
+            headlines: {
+                basic: 'basic headlines',
+                mobile: 'mobile headlines'
+            }
+        };
+        const resp = aperturaArticle(newArticle);
+        expect(Object.keys(resp).sort()).toEqual(
+            [
+                'bajada',
+                'titulo',
+                'tituloMobile',
+                ,
+                'distributor',
+                'diagram',
+                'brand'
+            ].sort()
+        );
+        expect(resp.diagram).toBe('image-panoramic');
+        expect(resp.brand).toBe('/deportes');
+        expect(resp.tituloMobile).toBe('mobile headlines');
+        expect(resp.titulo).toBe('basic headlines');
+    });
+
+    test('Should return correct values in apertura for storytelling articles when promo_items embed is missing', () => {
+        const newArticle = {
+            ...article,
+            subtype: '4',
+            headlines: {
+                basic: 'basic headlines',
+                mobile: 'mobile headlines'
+            }
+        };
+        const resp = aperturaArticle(newArticle);
+        expect(Object.keys(resp).sort()).toEqual(
+            ['bajada', 'titulo', 'tituloMobile', 'distributor', 'brand'].sort()
+        );
+        expect(resp.brand).toBe('/deportes');
+        expect(resp.tituloMobile).toBe('mobile headlines');
+        expect(resp.titulo).toBe('basic headlines');
+    });
+
+    test('Should return correctly values in apertura "a fondo"', () => {
+        const newArticle = {
+            ...article,
+            subtype: '4',
+            promo_items: {
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'image-panoramic'
+                        }
+                    }
+                }
+            },
+            headlines: {
+                basic: 'basic headlines',
+                mobile: 'mobile headlines',
+                native: 'native headlines'
+            }
+        };
+        const resp = aperturaArticle(newArticle);
+        expect(Object.keys(resp).sort()).toEqual(
+            [
+                'bajada',
+                'titulo',
+                'tituloMobile',
+                'tituloNative',
+                'distributor',
+                'diagram',
+                'brand'
+            ].sort()
+        );
+        expect(resp.diagram).toBe('image-panoramic');
+        // expect(resp.brand).toBe('/a-fondo'); // TODO Ajustar cuando se defina bien la lógica de a fondo
+        expect(resp.tituloNative).toBe('native headlines');
+        expect(resp.tituloMobile).toBe('mobile headlines');
+        expect(resp.titulo).toBe('basic headlines');
     });
 });

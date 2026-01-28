@@ -1,5 +1,6 @@
+// TODO ELIMINAR UNA VEZ SE CAMBIEN A VIDEOPLAYER NUEVO
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { cx } from '@ln/cva';
 import { transformImages } from './helperJw';
@@ -58,48 +59,3 @@ export function Facade({
         </div>
     );
 }
-
-Facade.propTypes = {
-    id: PropTypes.string.isRequired,
-    playlist: PropTypes.arrayOf(
-        PropTypes.shape({
-            description: PropTypes.string,
-            duration: PropTypes.string,
-            image: PropTypes.string,
-            images: PropTypes.arrayOf(
-                PropTypes.shape({
-                    src: PropTypes.string,
-                    type: PropTypes.string,
-                    width: PropTypes.number
-                })
-            ),
-            link: PropTypes.string,
-            mediaid: PropTypes.string,
-            pubdate: PropTypes.string,
-            sources: PropTypes.arrayOf(
-                PropTypes.shape({
-                    bitrate: PropTypes.number,
-                    file: PropTypes.string,
-                    filesize: PropTypes.number,
-                    framerate: PropTypes.number,
-                    height: PropTypes.number,
-                    label: PropTypes.string,
-                    type: PropTypes.string,
-                    width: PropTypes.number
-                })
-            ),
-            title: PropTypes.string,
-            tracks: PropTypes.arrayOf(
-                PropTypes.shape({
-                    file: PropTypes.string,
-                    kind: PropTypes.string
-                })
-            )
-        })
-    ).isRequired,
-    className: PropTypes.string.isRequired,
-    containerClasses: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtype: PropTypes.string.isRequired,
-    openingVideo: PropTypes.bool.isRequired
-};

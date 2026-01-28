@@ -1,5 +1,4 @@
 import { SITE_LANACION } from 'fusion:environment';
-import homev1 from '../../components/private/LN/api/v1/mobile/home';
 import homev2 from '../../components/private/LN/api/v2/mobile/home';
 import get from '../../components/private/common/utils/get';
 import pages from './utils/pageSource/index';
@@ -15,216 +14,185 @@ function splitObjectForLogging(obj, maxSize = 20000) {
     return parts;
 }
 
-// Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
-const fetch = async (query, { cachedCall } = {}) => {
-    let resultPage = {};
-    const executionSteps = [];
-    let queryParams = {};
-    const configPages = {
-        home: {
-            aliasPage: '/homepage',
-            transformPage: { 1: transformv1, 2: transformv1 },
-            transformHome: { 1: homev1, 2: homev2 }
-        },
-        bitacora: {
-            aliasPage: '/homepage',
-            transformPage: { 1: transformBitacorav1 }
-        },
-        bitacoraLN10: {
-            aliasPage: '/homepage-ln10',
-            transformPage: { 1: transformBitacorav1 }
-        },
-        homeLN: {
-            aliasPage: '/homepage-LN10',
-            transformPage: { 1: transformv1, 2: transformv1 },
-            transformHome: { 1: homev1, 2: homev2 }
-        },
-        homeLN10: {
-            aliasPage: '/homepage-ln10',
-            transformPage: { 1: transformv1, 2: transformv1 },
-            transformHome: { 1: homev1, 2: homev2 }
-        },
-        sports: {
-            aliasPage: '/deportes',
-            transformPage: { 1: transformv1, 2: transformv1 },
-            transformHome: { 1: homev1, 2: homev2 }
-        },
-        default: {
-            transformPage: { 1: transformv1, 2: transformv1 },
-            transformHome: { 1: homev1, 2: homev2 }
-        }
+const resolveVersions = (query) => {
+    const version = get(query, 'versionUri', 1);
+    const rawDeploy = get(query, 'versionDeploy', null);
+    const match = String(rawDeploy).match(/\d+/);
+
+    return {
+        version,
+        versionDeploy: match ? match[0] : null,
+        useCachedCall: get(query, 'useCachedCall', 'true') !== 'false',
     };
+};
 
-    try {
-        const regexVersionDeploy = /[0-9]+/;
-        let versionDeploy = get(query, 'versionDeploy', null);
-        versionDeploy =
-            regexVersionDeploy.exec(versionDeploy) &&
-            regexVersionDeploy.exec(versionDeploy).length > 0
-                ? regexVersionDeploy.exec(versionDeploy)[0]
-                : null;
+const resolveTicks = (query) => {
+    const raw = get(query, 'ticks', null);
+    return raw ? raw.replace('/', '') : '';
+};
 
-        const version = get(query, 'versionUri', 1);
-        const cookie = get(query, 'useCookie', null);
-        const alias = get(query, 'namePage', 'home');
-        const useCachedCall = get(query, 'useCachedCall', 'true') !== 'false';
-        let configItemPage = configPages[alias];
-        if (!configItemPage) {
-            configItemPage = configPages.default;
-            configItemPage.aliasPage = '/'.concat(alias);
-        }
-        const { aliasPage } = configItemPage;
+const configPages = {
+    home: {
+        aliasPage: '/homepage',
+        transformPage: transformv1,
+        transformHome: homev2,
+    },
+    bitacora: {
+        aliasPage: '/homepage',
+        transformPage: transformBitacorav1,
+    },
+    default: {
+        transformPage: transformv1,
+        transformHome: homev2,
+    },
+};
 
-        let ticksCache = get(query, 'ticks', null);
-        ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
-        const prefixTicksCache =
-            ticksCache === '' ? '' : '_'.concat(ticksCache);
+const resolvePageConfig = (alias) => {
+    if (configPages[alias]) return configPages[alias];
+    return { ...configPages.default, aliasPage: `/${alias}` };
+};
 
-        const keyCachedCall = `ApiPageHome${alias}`.concat(prefixTicksCache);
-        const website = get(query, 'website', null);
-        if (!SITE_LANACION) {
-            throw new Error('Variable SITE_LANACION missing');
-        }
-        // Para asegurarse la prueba local colocar en rootPath:
-        // `http://172.17.0.1${aliasPages[alias]}` o en el .env SITE_LANACION=http://172.17.0.1
+const buildQueryParams = ({ aliasPage, ticksCache, website, versionDeploy, cookie }) => {
+    if (!SITE_LANACION) throw new Error('Variable SITE_LANACION missing');
 
-        queryParams = {
-            rootPath:
-                aliasPage === '/homepage' || aliasPage === '/bitacora'
-                    ? `${SITE_LANACION}/`
-                    : `${SITE_LANACION}${aliasPage}`,
-            ticksCache,
-            website,
-            isPage: true,
-            versionDeploy,
-            cookie
-        };
+    return {
+        rootPath:
+            aliasPage === '/homepage' || aliasPage === '/bitacora'
+                ? `${SITE_LANACION}/`
+                : `${SITE_LANACION}${aliasPage}`,
+        ticksCache,
+        website,
+        isPage: true,
+        versionDeploy,
+        cookie,
+    };
+};
 
-        const apiPageHomeSourceFetchDate = new Date();
+const fetchPage = async ({ useCachedCall, cachedCall, key, queryParams, executionSteps }) => {
+    executionSteps.push(`execute page fetch - query: ${JSON.stringify(queryParams)}`);
 
-        executionSteps.push(
-            `execute page fetch - query: ${JSON.stringify(queryParams)}`
+    if (!useCachedCall) {
+        console.warn(
+            JSON.stringify({
+                name: 'BackendLnWarn',
+                customType: 'apiPageHomeSource',
+                log_details: { message: 'se ejecuto el fetch sin cachedCall' },
+            })
         );
+        return pages.fetch(queryParams);
+    }
 
-        if (useCachedCall) {
-            executionSteps.push(
-                `execute page fetch with cachedCall - query: ${JSON.stringify(queryParams)}`
-            );
-            resultPage = await cachedCall(keyCachedCall, pages.fetch, {
-                query: queryParams,
-                ttl: 120,
-                independent: true
-            });
-        } else {
-            executionSteps.push(
-                `execute page fetch without cachedCall - query: ${JSON.stringify(queryParams)}`
-            );
+    executionSteps.push(
+        `execute page fetch with cachedCall - query: ${JSON.stringify(queryParams)}`
+    );
 
+    return cachedCall(key, pages.fetch, {
+        query: queryParams,
+        ttl: 120,
+        independent: true,
+    });
+};
+
+const handlePageHomeError = (error, resultPage, executionSteps, queryParams = {}) => {
+    const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`;
+
+    if (resultPage) {
+        const parts = splitObjectForLogging(resultPage);
+        parts.forEach((part, idx) => {
             console.warn(
                 JSON.stringify({
                     name: 'BackendLnWarn',
-                    customType: 'apiPageHomeSource',
+                    customType: 'apiPageHomeSourceError',
                     log_details: {
-                        message: 'se ejecuto el fetch sin cachedCall'
-                    }
+                        logId: guid,
+                        part: `${idx + 1}/${parts.length}`,
+                        page: part,
+                    },
                 })
             );
+        });
+    }
 
-            resultPage = await pages.fetch(queryParams);
-        }
+    console.error(
+        JSON.stringify({
+            name: 'BackendLnError',
+            customErrorType: 'BackendLnError',
+            customType: 'apiPageHomeSourceError',
+            log_details: {
+                logId: guid,
+                executionSteps,
+                message: `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(
+                    queryParams
+                )} errorMsj: ${error.message}`,
+            },
+        })
+    );
+
+    throw new Error(
+        `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(
+            queryParams
+        )} errorMsj: ${error.message}`
+    );
+};
+
+const fetch = async (query, { cachedCall } = {}) => {
+    const executionSteps = [];
+    let resultPage;
+    let queryParams;
+
+    try {
+        const { versionDeploy, useCachedCall } = resolveVersions(query);
+        const alias = get(query, 'namePage', 'home');
+        const configItemPage = resolvePageConfig(alias);
+        const ticksCache = resolveTicks(query);
+
+        queryParams = buildQueryParams({
+            aliasPage: configItemPage.aliasPage,
+            ticksCache,
+            website: get(query, 'website', null),
+            versionDeploy,
+            cookie: get(query, 'useCookie', null),
+        });
+
+        const keyCachedCall = `ApiPageHome${alias}${ticksCache ? `_${ticksCache}` : ''
+            }`;
+
+        resultPage = await fetchPage({
+            useCachedCall,
+            cachedCall,
+            key: keyCachedCall,
+            queryParams,
+            executionSteps,
+        });
 
         if (!resultPage) {
-            executionSteps.push(`Fetch Home page - Not found page`);
+            executionSteps.push('Fetch Home page - Not found page');
             throw new Error('Not found page');
         }
 
-        executionSteps.push(`Fetch Home page Ok`);
-
+        const apiPageHomeSourceFetchDate = new Date();
         const { information, homeFetchDate } = resultPage;
+
         queryParams.information = {
             ...information,
             homeFetchDate,
             keyCachedCall,
-            apiPageHomeSourceFetchDate
+            ticksCache,
+            apiPageHomeSourceFetchDate,
         };
-        executionSteps.push(`Set queryParams: ${JSON.stringify(queryParams)}`);
 
-        // Para revisar la data transformada que viene del Layout
-        // return resultPage;
-        if (
-            !configItemPage.transformPage ||
-            !configItemPage.transformPage[version]
-        ) {
-            return resultPage;
+        const transformedPage = configItemPage.transformPage
+            ? await configItemPage.transformPage(resultPage, queryParams)
+            : resultPage;
+
+        if (!configItemPage.transformHome) {
+            return transformedPage;
         }
 
-        executionSteps.push(
-            `execute transformPage - query: ${JSON.stringify(queryParams)}`
-        );
-
-        const resultPageTransform = await configItemPage.transformPage[version](
-            resultPage,
-            queryParams
-        );
-
-        executionSteps.push(`resultPageTransform page Ok`);
-        // Para revisar la data formateada con la informacion de todas la secciones
-        // return resultPageTransform;
-
-        if (
-            !configItemPage.transformHome ||
-            !configItemPage.transformHome[version]
-        ) {
-            return resultPageTransform;
-        }
-
-        // Para ver el resultado final de la home
-        executionSteps.push(
-            `execute transformHome - query: ${JSON.stringify(queryParams)}`
-        );
-        const resultHome = configItemPage.transformHome[version](
-            resultPageTransform,
-            queryParams
-        );
-        executionSteps.push(`execute resultHome Ok `);
-
-        return Array.isArray(resultHome) ? resultHome[0] : {};
+        const home = configItemPage.transformHome(transformedPage, queryParams);
+        return Array.isArray(home) ? home[0] : home;
     } catch (error) {
-        // eslint-disable-next-line no-console
-        const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`;
-
-        if (typeof resultPage !== 'undefined' && resultPage !== null) {
-            const parts = splitObjectForLogging(resultPage);
-            parts.forEach((part, idx) => {
-                console.warn(
-                    JSON.stringify({
-                        name: 'BackendLnWarn',
-                        customType: 'apiPageHomeSourceError',
-                        log_details: {
-                            logId: guid,
-                            part: `${idx + 1}/${parts.length}`,
-                            page: part
-                        }
-                    })
-                );
-            });
-        }
-
-        console.error(
-            JSON.stringify({
-                name: 'BackendLnError',
-                customErrorType: 'BackendLnError',
-                customType: 'apiPageHomeSourceError',
-                log_details: {
-                    logId: guid,
-                    executionSteps,
-                    message: `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(queryParams)} errorMsj: ${error.message}`
-                }
-            })
-        );
-        throw new Error(
-            `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(queryParams)} errorMsj: ${error.message}`
-        );
+        handlePageHomeError(error, resultPage, executionSteps, queryParams);
     }
 };
 
@@ -237,7 +205,7 @@ export default {
         ticks: 'text',
         versionDeploy: 'text',
         useCookie: 'text',
-        useCachedCall: 'boolean'
+        useCachedCall: 'boolean',
     },
-    ttl: 120
+    ttl: 120,
 };

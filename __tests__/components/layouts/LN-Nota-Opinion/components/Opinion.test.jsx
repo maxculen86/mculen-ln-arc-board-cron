@@ -7,11 +7,16 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('Opinion', () => {
     it('renders children inside BaseLayout and main content', () => {
         useAppContext.mockReturnValue({
             globalContent: {
                 headlines: { basic: '' },
+                subheadlines: { basic: '' },
                 taxonomy: {
                     primary_section: { name: '', path: '' }
                 }
@@ -23,7 +28,11 @@ describe('Opinion', () => {
         });
         render(
             <Opinion>
-                <p>Opinion text</p>
+                <div /> {/* children[0] */}
+                <div /> {/* children[1] */}
+                <p>Opinion text</p> {/* children[2] → CUERPO */}
+                <div /> {/* children[3] */}
+                <div /> {/* children[4] */}
             </Opinion>
         );
 

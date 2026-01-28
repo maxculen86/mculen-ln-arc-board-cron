@@ -1,22 +1,15 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import '../../../../../resources/dist/css/ln/components/com-embed.css';
 import HtmlPym from '../../../../private/LN/nota/cuerpo/htmlPym';
+import hasIframeWithPYM from '../../../LN/common/utils/hasIframeWithPYM';
+import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
-const hasIframeWithPYM = (domParser, content) => {
-    if (!domParser && !domParser.parseFromString) return false;
-    return domParser
-        .parseFromString(content, 'text/html')
-        .querySelectorAll('iframe.pym').length;
-};
-
-const Html = ({ data }) => {
+function Html({ data }) {
     const { content, _id: idMedia } = data || {};
-    const domParser = typeof DOMParser === 'function' && new DOMParser();
 
     if (!content) return null;
 
-    return hasIframeWithPYM(domParser, content) ? (
+    return hasIframeWithPYM(content) ? (
         <HtmlPym data={data} />
     ) : (
         <div
@@ -27,6 +20,6 @@ const Html = ({ data }) => {
             }}
         />
     );
-};
+}
 
 export default Html;

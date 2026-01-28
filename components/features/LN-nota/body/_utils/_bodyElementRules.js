@@ -7,7 +7,7 @@ import ListOrderedOrUnordered from '../../../../private/LN/nota/cuerpo/listOrder
 import Image from '../../../../private/LN/nota/cuerpo/image';
 import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
-import RawHTML from '../../../../private/LN/common/rawHTML';
+import OEmbed from '../../../../private/LN/common/oEmbed';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
@@ -23,7 +23,7 @@ import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
 import { selectRule } from './_bodyRules';
 import TableV2 from '../../tableV2/default';
 
-const defaultBodyComponents = [
+export const DEFAULT_BODY_COMPONENTS = [
     Paragraph,
     PullQuote,
     BlockQuote,
@@ -34,7 +34,7 @@ const defaultBodyComponents = [
     Image,
     Video,
     VideoJW,
-    RawHTML,
+    OEmbed,
     Interstitial,
     Html,
     TableV2,
@@ -48,10 +48,10 @@ const defaultBodyComponents = [
 ];
 
 const resolveBodyComponents = bodyComponents =>
-    Array.isArray(bodyComponents) ? bodyComponents : defaultBodyComponents;
+    Array.isArray(bodyComponents) ? bodyComponents : DEFAULT_BODY_COMPONENTS;
 
 export const bodyElementRules = (props = {}) => {
-    const { element = {}, subtype, bodyComponents } = props;
+    const { element = {}, subtype, bodyComponents, ruleConditions } = props;
     const { type, subtype: subtypeElement, content } = element;
     const components = resolveBodyComponents(bodyComponents);
 
@@ -60,7 +60,8 @@ export const bodyElementRules = (props = {}) => {
             subtype,
             type,
             subtypeElement,
-            componentElement
+            componentElement,
+            ruleConditions
         });
         return componentSelected({
             subtype,

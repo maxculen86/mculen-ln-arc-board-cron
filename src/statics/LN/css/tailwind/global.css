@@ -3,6 +3,7 @@
 @import '@ln/theme-lanacion';
 
 @import './custom.css';
+@import './components.css';
 @import './overrides.css';
 
 /* Source a incluir en el mapeo de clases utilizadas */
