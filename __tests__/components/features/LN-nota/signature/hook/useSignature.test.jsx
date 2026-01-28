@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import get from '../../../../../../components/private/common/utils/get';
-import { useSignature } from '../../../../../../components/features/LN-nota/signature/hook/useSignature';
+import { useSignature } from '../../../../../../components/features/LN/DS-Signature/hooks/useSignature';
 import {
     filterByAuthor,
     getPropsBuilder,

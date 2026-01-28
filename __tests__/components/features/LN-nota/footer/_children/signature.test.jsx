@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Signature from '../../../../../../components/features/LN-nota/footer/_children/signature';
-import { useSignature } from '../../../../../../components/features/LN-nota/signature/hook/useSignature';
+import { useSignature } from '../../../../../../components/features/LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../../../components/private/common/audioNews/helpers';
 
 jest.mock(
-    '../../../../../../components/features/LN-nota/signature/hook/useSignature',
+    '../../../../../../components/features/LN/DS-Signature/hooks/useSignature',
     () => ({
         useSignature: jest.fn()
     })
