@@ -96,7 +96,7 @@ export const storyCommon = (dataNota, cuerpo) => {
     const resp = {
         id,
         template:
-            template === '6' || template === '5' || template === '13'
+            template === '6' || template === '13'
                 ? '1'
                 : template,
         url,
