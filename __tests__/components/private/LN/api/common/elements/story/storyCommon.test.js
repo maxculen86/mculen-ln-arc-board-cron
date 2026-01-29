@@ -1,4 +1,7 @@
-import { getPaywallStatus, storyCommon } from '../../../../../../../../components/private/LN/api/common/elements/story/storyCommon';
+import {
+    getPaywallStatus,
+    storyCommon
+} from '../../../../../../../../components/private/LN/api/common/elements/story/storyCommon';
 
 const baseNota = {
     _id: 'ABC123',
@@ -38,30 +41,64 @@ describe('storyCommon', () => {
     });
 
     it('should return template "1" for subtype "13"', () => {
-        const input = { _id: 'id', subtype: '13', website_url: 'url', taxonomy: { primary_section: {} } };
+        const input = {
+            _id: 'id',
+            subtype: '13',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
         const result = storyCommon(input, []);
         expect(result.template).toBe('1');
     });
 
+    it('should return template "1" for subtype "6"', () => {
+        const input = {
+            _id: 'id',
+            subtype: '6',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
+        const result = storyCommon(input, []);
+        expect(result.template).toBe('1');
+    });
     it('should return template unchanged for other subtypes', () => {
-        const input = { _id: 'id', subtype: '7', website_url: 'url', taxonomy: { primary_section: {} } };
+        const input = {
+            _id: 'id',
+            subtype: '7',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
         const result = storyCommon(input, []);
         expect(result.template).toBe('7');
     });
 
     it('should return template undefined if subtype is missing', () => {
-        const input = { _id: 'id', website_url: 'url', taxonomy: { primary_section: {} } };
+        const input = {
+            _id: 'id',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
         const result = storyCommon(input, []);
         expect(result.template).toBeUndefined();
     });
     it('should return template as is for unknown subtype', () => {
-        const input = { _id: 'id', subtype: 'unknown', website_url: 'url', taxonomy: { primary_section: {} } };
+        const input = {
+            _id: 'id',
+            subtype: 'unknown',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
         const result = storyCommon(input, []);
         expect(result.template).toBe('unknown');
     });
 
     it('should always return an object with id and template', () => {
-        const input = { _id: 'id', subtype: '13', website_url: 'url', taxonomy: { primary_section: {} } };
+        const input = {
+            _id: 'id',
+            subtype: '13',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
         const result = storyCommon(input, []);
         expect(result).toHaveProperty('id');
         expect(result).toHaveProperty('template');
@@ -106,7 +143,9 @@ describe('storyCommon', () => {
             }
         };
 
-        const result = storyCommon(notaSubtype16, [{ type: 'text', content: 'body content' }]);
+        const result = storyCommon(notaSubtype16, [
+            { type: 'text', content: 'body content' }
+        ]);
         expect(result.contenido).toBeUndefined();
         expect(result.HTML).toBeUndefined();
     });
