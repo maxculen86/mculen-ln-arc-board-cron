@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SignatureWithAuthors from '../../signature/signatureWithAuthors';
 import SignatureWithDistributor from '../../signature/signatureWithDistributor';
-import { useSignature } from '../../signature/hook/useSignature';
+import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
 
 function Signature({ globalContent, isNotaFooter }) {
