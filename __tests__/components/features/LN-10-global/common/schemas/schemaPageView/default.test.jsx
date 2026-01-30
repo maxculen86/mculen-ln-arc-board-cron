@@ -172,4 +172,33 @@ describe('SchemaPageview', () => {
         const scriptTag = document.getElementById('pageview');
         expect(scriptTag).toBeNull();
     });
+
+    it('render a schema with pagetype "nota" when layout is "LN-Nota-Opinion"', () => {
+        const globalContent = {
+            _id: 'nota-opinion-1',
+            subtype: '3',
+            isListenable: false,
+            content_restrictions: { content_code: 'comun' }
+        };
+
+        render(
+            <SchemaPageview
+                globalContent={globalContent}
+                layout="LN-Nota-Opinion"
+            />
+        );
+
+        const scriptTag = document.getElementById('pageview');
+        const json = JSON.parse(scriptTag.innerHTML);
+
+        expect(json).toEqual({
+            pagetype: 'nota',
+            valor: 'comun',
+            subtype: '3',
+            nota_id: 'nota-opinion-1',
+            isListenable: 'no',
+            lectura: '0',
+            palabras: 100
+        });
+    });
 });
