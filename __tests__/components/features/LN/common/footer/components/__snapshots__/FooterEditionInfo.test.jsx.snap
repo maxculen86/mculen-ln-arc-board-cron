@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterEditionInfo should match snapshot 1`] = `
+<div
+  class="flex flex-col md:flex-row gap-32"
+>
+  <div
+    class="flex-1 min-w-0 flex flex-col lg:flex-row gap-32"
+  >
+    <p
+      class="flex-1 min-w-0 flex flex-col gap-8"
+    >
+      <span
+        class="text-center md:text-left text-label-lg leading-[100%]"
+      >
+        <b
+          class="font-bold text-body-sm leading-[110%] tracking-[-0.3px]"
+        >
+          Director:
+        </b>
+         
+        Fernán Saguier.
+      </span>
+      <span
+        class="text-center md:text-left text-label-lg leading-[100%]"
+      >
+        ISSN (lanacion.com.ar) 2469-0597
+      </span>
+    </p>
+    <p
+      class="flex-1 min-w-0 flex flex-col gap-8"
+    >
+      <span
+        class="text-center md:text-left text-label-lg leading-[100%]"
+      >
+        <b
+          class="font-bold text-body-sm leading-[110%] tracking-[-0.3px]"
+        >
+          Fecha de Edición:
+        </b>
+         
+        30 de enero de 2026
+      </span>
+      <span
+        class="text-center md:text-left text-label-lg leading-[100%]"
+      >
+        <b
+          class="font-bold text-body-sm leading-[110%] tracking-[-0.3px]"
+        >
+          Número de Edición:
+        </b>
+         
+        10000
+      </span>
+    </p>
+  </div>
+  <div
+    class="flex-1 min-w-0 flex flex-col lg:flex-row gap-32"
+  >
+    <p
+      class="flex-1 min-w-0 text-center md:text-left text-label-lg leading-[100%]"
+    >
+      <b
+        class="font-bold text-body-sm leading-[110%] tracking-[-0.3px]"
+      >
+        Propietario:
+      </b>
+       
+      S.A. LA NACION - Zepita 3251, Cda. de Bs. As. C1285ABG | Tel. 54 11 5500-1800
+    </p>
+    <p
+      class="flex-1 min-w-0 text-center md:text-left text-label-lg leading-[100%]"
+    >
+      <b
+        class="font-bold text-body-sm leading-[110%] tracking-[-0.3px]"
+      >
+        Oficinas:
+      </b>
+       
+      Av. del Libertador 101, Vte. López, Prov. de Bs. As. Arg. - B1638BEA | Tel. 54 11 6090-5000
+    </p>
+  </div>
+</div>
+`;

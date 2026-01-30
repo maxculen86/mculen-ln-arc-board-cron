@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterLinkColumn should match snapshot 1`] = `
+<div
+  class="flex flex-col flex-1 min-w-0 max-md:hidden gap-16"
+>
+  <p
+    class="text-small-lg leading-[130%] font-bold"
+  >
+    Secciones
+  </p>
+  <ul
+    class="contents"
+  >
+    <li
+      class="flex"
+    >
+      <a
+        class=""
+        color="secondary"
+        href="https://www.lanacion.com.ar/economia/"
+        target="_self"
+        title="Ir a Economía"
+      >
+        <span
+          class="text-label-md leading-[100%] font-normal"
+        >
+          Economía
+        </span>
+      </a>
+    </li>
+    <li
+      class="flex"
+    >
+      <a
+        class=""
+        color="secondary"
+        href="https://www.lanacion.com.ar/deportes/"
+        target="_self"
+        title="Ir a Deportes"
+      >
+        <span
+          class="text-label-md leading-[100%] font-normal"
+        >
+          Deportes
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

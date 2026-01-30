@@ -105,6 +105,7 @@
         "@ln/ds-common-button": "1.5.4",
         "@ln/ds-common-divider": "1.2.0",
         "@ln/ds-common-drawer": "1.2.0",
+        "@ln/ds-common-footer": "1.2.7",
         "@ln/ds-common-header": "2.0.0",
         "@ln/ds-common-icon": "1.2.1",
         "@ln/ds-common-image": "1.2.4",
