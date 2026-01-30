@@ -81,7 +81,7 @@ function SignatureFeature(props) {
         />
     );
 
-    const classNameContainer = signatureClasses(position, subtype);
+    const classNameContainer = signatureClasses({ position, subtype });
 
     return (
         <SignatureContextProvider>
