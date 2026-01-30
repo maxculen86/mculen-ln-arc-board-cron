@@ -1,6 +1,7 @@
 import get from '../../../../../../common/utils/get';
 import { authorCommon as Author } from '../../../../common/elements/author';
 import getDistributor from '../../../../common/elements/distributor';
+import { getZocaloAppsProps } from '../../../../../../../features/LN-nota/infoBox/helper';
 
 const EXCLUDED_DISTRIBUTORS = ['lanacionar', 'LA NACION'];
 const buildFooter = article => {
@@ -27,6 +28,12 @@ const buildFooter = article => {
         );
     }
     if (!isTrust) footer.push({ _t: 'trust' });
+
+    const path = get(article, 'taxonomy.primary_section.path', null);
+    const zocalo = getZocaloAppsProps(path);
+    if (zocalo) {
+        footer.push({ ...zocalo });
+    }
 
     return footer.length > 0 ? footer : null;
 };
