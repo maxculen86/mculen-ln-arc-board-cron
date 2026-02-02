@@ -14,6 +14,7 @@ import get from '../private/common/utils/get';
 import FooditSchemas from '../features/foodit-global/schemas/foodit';
 import { FontPreload } from './fontPreload/foodit';
 import { GetCriticalCss } from './criticalCss/foodit';
+import Syndication from '../private/common/syndication';
 
 function Foodit({
     children,
@@ -30,7 +31,8 @@ function Foodit({
     isAdmin,
     template,
     requestUri = '',
-    Resource
+    Resource,
+    outputType
 } = {}) {
     const {
         node_type: nodeType,
@@ -38,7 +40,9 @@ function Foodit({
         _id,
         canonical_url: canonicalUrl = '',
         headlines: { mobile, basic } = {},
-        site = {}
+        site = {},
+        syndication,
+        subtype
     } = globalContent;
     const { layoutsName = {}, scripts: sitePropertiesScripts = [] } =
         siteProperties || {};
@@ -123,6 +127,13 @@ function Foodit({
                     Resource={Resource}
                     layout={layout}
                     globalContent={globalContent}
+                />
+                <Syndication
+                    type={type}
+                    arcSite={arcSite}
+                    subtype={subtype}
+                    syndication={syndication}
+                    outputType={outputType}
                 />
                 <Scripts location="head" />
                 <BuildComments
