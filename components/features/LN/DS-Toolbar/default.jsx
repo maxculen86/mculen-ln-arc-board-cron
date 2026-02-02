@@ -10,7 +10,7 @@ import {
 } from '../../../private/common/auth/helper/loginHelper';
 import { useAudioPlayer } from '../../../private/common/audioNews/hooks/useAudioPlayer';
 import { SignatureContextProvider } from '../../../private/common/audioNews/hooks/SignatureContext';
-import { useSignature } from '../../LN-nota/signature/hook/useSignature';
+import { useSignature } from '../DS-Signature/hooks/useSignature';
 import useShare from '../../LN-nota/share/hooks/useShare';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';

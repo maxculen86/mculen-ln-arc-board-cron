@@ -7,14 +7,16 @@ exports[`FooterCopyright should match snapshot 1`] = `
   <p
     class="text-center md:text-left text-body-sm leading-[110%] tracking-[-0.3px]"
   >
-    © Copyright 2023 SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
+    © Copyright 
+    2026
+     SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
     <br />
     Queda prohibida la reproducción total o parcial del presente diario.
   </p>
   <div
     class="flex gap-12 flex-col md:flex-row items-center md:justify-between"
   >
-    <p
+    <div
       class="flex flex-col gap-8 md:flex-row md:flex-wrap justify-start items-center lg:flex-[1_0_0]"
     >
       <b
@@ -50,7 +52,7 @@ exports[`FooterCopyright should match snapshot 1`] = `
           </span>
         </a>
       </div>
-    </p>
+    </div>
     <div
       class="flex flex-col md:flex-row justify-center lg:justify-end lg:flex-[1_0_0] items-center flex gap-8"
     >

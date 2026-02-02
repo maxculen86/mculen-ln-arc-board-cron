@@ -1,10 +1,5 @@
 import React from 'react';
-import { getFooterIcons } from '../../../../../../../components/features/LN/common/footer/helpers/icons';
-
-jest.mock(
-    '../../../../../../../components/features/private-global/common/iconSprite/IconSprite',
-    () => jest.fn(() => <div>IconSprite</div>)
-);
+import { getFooterImages } from '../../../../../../../components/features/LN/common/footer/helpers/images';
 
 jest.mock('../../../../../../../components/features/ui/ln/image/default', () =>
     jest.fn(() => <img alt="test" />)
@@ -15,21 +10,17 @@ jest.mock(
     () => jest.fn(() => () => asset => `/assets/${asset}`)
 );
 
-describe('getFooterIcons', () => {
+describe('getFooterImages', () => {
     const mockContextPath = '/pf';
     const mockDeployment = jest.fn(url => url);
 
-    it('should return an object with all footer icons', () => {
-        const icons = getFooterIcons(mockContextPath, mockDeployment);
+    it('should return an object with all footer images', () => {
+        const images = getFooterImages(mockContextPath, mockDeployment);
 
-        expect(icons).toHaveProperty('laNacion');
-        expect(icons).toHaveProperty('facebook');
-        expect(icons).toHaveProperty('twitter');
-        expect(icons).toHaveProperty('instagram');
-        expect(icons).toHaveProperty('rss');
-        expect(icons).toHaveProperty('storesAndroid');
-        expect(icons).toHaveProperty('storesIos');
-        expect(icons).toHaveProperty('gdaXs');
-        expect(icons).toHaveProperty('dataFiscal');
+        expect(images).toHaveProperty('laNacion');
+        expect(images).toHaveProperty('storesAndroid');
+        expect(images).toHaveProperty('storesIos');
+        expect(images).toHaveProperty('gdaXs');
+        expect(images).toHaveProperty('dataFiscal');
     });
 });

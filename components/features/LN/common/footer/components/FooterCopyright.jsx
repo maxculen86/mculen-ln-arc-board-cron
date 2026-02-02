@@ -2,23 +2,20 @@ import React from 'react';
 import Link from '../../../../ui/ln/link/default';
 import Icon from '../../../../ui/ln/icon/default';
 
-export function FooterCopyright({ footerIcons }) {
+export function FooterCopyright({ footerImages, year }) {
     return (
         <div className="flex flex-col gap-10">
-            {/* Copyright Text */}
             <p className="text-center md:text-left text-body-sm leading-[110%] tracking-[-0.3px]">
-                © Copyright 2023 SA LA NACION | Todos los derechos reservados.
-                Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA
-                (renovación) RL-2023-95334553-APN-DNDA#MJ.
+                © Copyright {year} SA LA NACION | Todos los derechos
+                reservados. Dirección Nacional del Derecho de Autor DNDA -
+                EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
                 <br />
                 Queda prohibida la reproducción total o parcial del presente
                 diario.
             </p>
 
-            {/* Legal Links and Membership */}
             <div className="flex gap-12 flex-col md:flex-row items-center md:justify-between">
-                {/* reCAPTCHA Info with Terms & Privacy */}
-                <p className="flex flex-col gap-8 md:flex-row md:flex-wrap justify-start items-center lg:flex-[1_0_0]">
+                <div className="flex flex-col gap-8 md:flex-row md:flex-wrap justify-start items-center lg:flex-[1_0_0]">
                     <b className="text-body-sm leading-[110%] tracking-[-0.3px] font-bold">
                         Protegido por re CAPTCHA:{' '}
                     </b>
@@ -41,9 +38,8 @@ export function FooterCopyright({ footerIcons }) {
                             </span>
                         </Link>
                     </div>
-                </p>
+                </div>
 
-                {/* Membership Icons */}
                 <div className="flex flex-col md:flex-row justify-center lg:justify-end lg:flex-[1_0_0] items-center flex gap-8">
                     <p className="md:order-2 text-body-sm leading-[110%] text-center tracking-[-0.3px]">
                         Miembro de GDA. Grupo de Diarios América
@@ -56,7 +52,7 @@ export function FooterCopyright({ footerIcons }) {
                             className="md:order-1"
                         >
                             <Icon width={37} size="auto">
-                                {footerIcons?.gdaXs}
+                                {footerImages?.gdaXs}
                             </Icon>
                         </Link>
                         <Link
@@ -66,7 +62,7 @@ export function FooterCopyright({ footerIcons }) {
                             className="md:order-3"
                         >
                             <Icon width={28} size="auto">
-                                {footerIcons?.dataFiscal}
+                                {footerImages?.dataFiscal}
                             </Icon>
                         </Link>
                     </div>

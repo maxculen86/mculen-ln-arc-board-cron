@@ -68,10 +68,10 @@ exports[`FooterLinksSection should match snapshot 1`] = `
             title="Seguirnos en Facebook"
           >
             <div
+              fill="#333"
+              name="facebook"
               size="24"
-            >
-              facebook-icon
-            </div>
+            />
           </a>
         </li>
         <li
@@ -83,40 +83,10 @@ exports[`FooterLinksSection should match snapshot 1`] = `
             title="Seguirnos en X"
           >
             <div
+              fill="#333"
+              name="x"
               size="24"
-            >
-              twitter-icon
-            </div>
-          </a>
-        </li>
-        <li
-          class="flex"
-        >
-          <a
-            href="https://www.instagram.com/lanacioncom/"
-            target="_blank"
-            title="Seguirnos en Instagram"
-          >
-            <div
-              size="24"
-            >
-              instagram-icon
-            </div>
-          </a>
-        </li>
-        <li
-          class="flex"
-        >
-          <a
-            href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
-            target="_blank"
-            title="Seguirnos en RSS"
-          >
-            <div
-              size="24"
-            >
-              rss-icon
-            </div>
+            />
           </a>
         </li>
       </ul>

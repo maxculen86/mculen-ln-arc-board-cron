@@ -29,7 +29,7 @@ jest.mock(
 );
 
 describe('FooterLinksSection', () => {
-    const mockFooterData = {
+    const mockLinksData = {
         secciones: {
             left: [{ id: 'economia', text: 'Economía', href: '/economia/' }],
             right: [{ id: 'politica', text: 'Política', href: '/politica/' }]
@@ -41,11 +41,16 @@ describe('FooterLinksSection', () => {
         masInformacion: [{ id: 'info1', text: 'Info 1', href: '/info1/' }]
     };
 
-    const mockFooterIcons = {
-        facebook: 'facebook-icon',
-        twitter: 'twitter-icon',
-        instagram: 'instagram-icon',
-        rss: 'rss-icon',
+    const mockSocialNetworksData = [
+        {
+            title: 'Facebook',
+            href: 'https://www.facebook.com/lanacion',
+            name: 'facebook'
+        },
+        { title: 'X', href: 'https://x.com/LANACION/', name: 'x' }
+    ];
+
+    const mockFooterImages = {
         storesAndroid: 'android-icon',
         storesIos: 'ios-icon'
     };
@@ -53,8 +58,9 @@ describe('FooterLinksSection', () => {
     it('should render social networks and app download sections', () => {
         render(
             <FooterLinksSection
-                footerData={mockFooterData}
-                footerIcons={mockFooterIcons}
+                linksData={mockLinksData}
+                socialNetworksData={mockSocialNetworksData}
+                footerImages={mockFooterImages}
             />
         );
 
@@ -66,8 +72,9 @@ describe('FooterLinksSection', () => {
     it('should match snapshot', () => {
         const { container } = render(
             <FooterLinksSection
-                footerData={mockFooterData}
-                footerIcons={mockFooterIcons}
+                linksData={mockLinksData}
+                socialNetworksData={mockSocialNetworksData}
+                footerImages={mockFooterImages}
             />
         );
         expect(container.firstChild).toMatchSnapshot();

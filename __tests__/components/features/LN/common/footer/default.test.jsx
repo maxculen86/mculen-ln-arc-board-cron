@@ -37,14 +37,10 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/features/LN/common/footer/helpers/icons',
+    '../../../../../../components/features/LN/common/footer/helpers/images',
     () => ({
-        getFooterIcons: jest.fn(() => ({
+        getFooterImages: jest.fn(() => ({
             laNacion: 'la-nacion-icon',
-            facebook: 'facebook-icon',
-            twitter: 'twitter-icon',
-            instagram: 'instagram-icon',
-            rss: 'rss-icon',
             storesAndroid: 'android-icon',
             storesIos: 'ios-icon',
             gdaXs: 'gda-icon',

@@ -3,46 +3,28 @@ import Link from '../../../../ui/ln/link/default';
 import Icon from '../../../../ui/ln/icon/default';
 import { FooterLinkColumn } from './FooterLinkColumn';
 
-export function FooterLinksSection({ footerData, footerIcons }) {
-    const socialNetworks = [
-        {
-            title: 'Facebook',
-            href: 'https://www.facebook.com/lanacion',
-            icon: footerIcons?.facebook
-        },
-        {
-            title: 'X',
-            href: 'https://x.com/LANACION/',
-            icon: footerIcons?.twitter
-        },
-        {
-            title: 'Instagram',
-            href: 'https://www.instagram.com/lanacioncom/',
-            icon: footerIcons?.instagram
-        },
-        {
-            title: 'RSS',
-            href: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml',
-            icon: footerIcons?.rss
-        }
-    ];
+export function FooterLinksSection({
+    linksData,
+    footerImages,
+    socialNetworksData
+}) {
     return (
         <div className="flex justify-center gap-32">
             <FooterLinkColumn
                 title="Secciones"
-                items={footerData.secciones.left}
+                items={linksData.secciones.left}
             />
             <FooterLinkColumn
-                items={footerData.secciones.right}
+                items={linksData.secciones.right}
                 firstItemMargin="lg:mt-34"
             />
-            <FooterLinkColumn title="Revistas" items={footerData.revistas} />
+            <FooterLinkColumn title="Revistas" items={linksData.revistas} />
             <FooterLinkColumn
-                items={footerData.productos}
+                items={linksData.productos}
                 firstItemMargin="xl:mt-34"
             />
             <FooterLinkColumn
-                items={footerData.masInformacion}
+                items={linksData.masInformacion}
                 firstItemMargin="xl:mt-34"
             />
             <div className="flex flex-col justify-center md:justify-start gap-16 items-stretch">
@@ -51,14 +33,14 @@ export function FooterLinksSection({ footerData, footerIcons }) {
                         Redes sociales
                     </p>
                     <ul className="flex gap-24 justify-center md:grid md:grid-cols-2 lg:flex">
-                        {socialNetworks.map(({ title, href, icon }) => (
+                        {socialNetworksData.map(({ title, href, name }) => (
                             <li className="flex" key={title}>
                                 <Link
                                     title={`Seguirnos en ${title}`}
                                     href={href}
                                     target="_blank"
                                 >
-                                    <Icon size={24}>{icon}</Icon>
+                                    <Icon size={24} name={name} fill="#333" />
                                 </Link>
                             </li>
                         ))}
@@ -74,13 +56,13 @@ export function FooterLinksSection({ footerData, footerIcons }) {
                             {
                                 title: 'Google Play',
                                 href: 'https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419&pli=1',
-                                icon: footerIcons?.storesAndroid,
+                                icon: footerImages?.storesAndroid,
                                 width: 100
                             },
                             {
                                 title: 'App Store',
                                 href: 'https://apps.apple.com/ar/app/la-nacion/id410689702',
-                                icon: footerIcons?.storesIos,
+                                icon: footerImages?.storesIos,
                                 width: 100
                             }
                         ].map(({ title, href, icon, width }) => (

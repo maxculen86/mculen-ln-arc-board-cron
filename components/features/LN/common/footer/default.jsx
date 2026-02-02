@@ -4,13 +4,14 @@ import Footer from '../../../ui/ln/footer/default';
 import Divider from '../../../ui/ln/divider/default';
 import Link from '../../../ui/ln/link/default';
 import Icon from '../../../ui/ln/icon/default';
-import footerData from './data/data.json';
-import { getFooterIcons } from './helpers/icons';
+import linksData from './data/linksData.json';
+import socialNetworksData from './data/socialNetworksData.json';
+import { getFooterImages } from './helpers/images';
 import { getEditionDetails } from './helpers/utils';
-import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 import { FooterLinksSection } from './components/FooterLinksSection';
 import { FooterEditionInfo } from './components/FooterEditionInfo';
 import { FooterCopyright } from './components/FooterCopyright';
+import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 
 export function FooterBase() {
     const { contextPath, deployment, layout } = useAppContext();
@@ -18,7 +19,7 @@ export function FooterBase() {
     const editionDetails = getEditionDetails();
 
     const isHome = layout === layoutsName.HomeLN10;
-    const footerIcons = getFooterIcons(contextPath, deployment);
+    const footerImages = getFooterImages(contextPath, deployment);
 
     return (
         <div data-tw>
@@ -30,19 +31,23 @@ export function FooterBase() {
                         href="https://www.lanacion.com.ar/"
                     >
                         <Icon width={228} height={24} size="auto">
-                            {footerIcons?.laNacion}
+                            {footerImages?.laNacion}
                         </Icon>
                     </Link>
                     <Divider className="bg-neutral-200" color="custom" />
                 </div>
                 <FooterLinksSection
-                    footerData={footerData}
-                    footerIcons={footerIcons}
+                    linksData={linksData}
+                    socialNetworksData={socialNetworksData}
+                    footerImages={footerImages}
                 />
                 {isHome && (
                     <FooterEditionInfo editionDetails={editionDetails} />
                 )}
-                <FooterCopyright footerIcons={footerIcons} />
+                <FooterCopyright
+                    footerImages={footerImages}
+                    year={editionDetails.edDate.year}
+                />
                 <Divider className="bg-neutral-200" color="custom" />
             </Footer>
         </div>

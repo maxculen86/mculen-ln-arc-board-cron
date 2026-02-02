@@ -15,16 +15,19 @@ jest.mock(
 );
 
 describe('FooterCopyright', () => {
-    const mockFooterIcons = {
+    const mockFooterImages = {
         gdaXs: 'gda-icon',
         dataFiscal: 'data-fiscal-icon'
     };
+    const mockYear = '2026';
 
     it('should render copyright text and links', () => {
-        render(<FooterCopyright footerIcons={mockFooterIcons} />);
+        render(
+            <FooterCopyright footerImages={mockFooterImages} year={mockYear} />
+        );
 
         expect(
-            screen.getByText(/© Copyright 2023 SA LA NACION/i)
+            screen.getByText(/© Copyright.*SA LA NACION/i)
         ).toBeInTheDocument();
         expect(screen.getByTitle('Ir a Condiciones')).toBeInTheDocument();
         expect(screen.getByTitle('GDA')).toBeInTheDocument();
@@ -32,7 +35,7 @@ describe('FooterCopyright', () => {
 
     it('should match snapshot', () => {
         const { container } = render(
-            <FooterCopyright footerIcons={mockFooterIcons} />
+            <FooterCopyright footerImages={mockFooterImages} year={mockYear} />
         );
         expect(container.firstChild).toMatchSnapshot();
     });

@@ -1,9 +1,8 @@
 import React from 'react';
-import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import Image from '../../../../ui/ln/image/default';
 import getAssetsPath from '../../../../../private/common/utils/getAssetsPath';
 
-export const getFooterIcons = (contextPath, deployment) => {
+export const getFooterImages = (contextPath, deployment) => {
     const url = asset => getAssetsPath(contextPath)(deployment)(asset);
 
     return {
@@ -15,10 +14,6 @@ export const getFooterIcons = (contextPath, deployment) => {
                 hidePlaceholder
             />
         ),
-        facebook: <IconSprite name="facebook" fill="#333" />,
-        twitter: <IconSprite name="twitter" fill="#333" />,
-        instagram: <IconSprite name="instagram" fill="#333" />,
-        rss: <IconSprite name="rss" fill="#333" />,
         storesAndroid: (
             <Image
                 src={url('android-store.webp')}
