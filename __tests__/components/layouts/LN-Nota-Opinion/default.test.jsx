@@ -95,6 +95,7 @@ jest.mock(
     '../../../../components/features/LN/common/footer/default.jsx',
     () => ({
         __esModule: true,
+        FooterBase: () => <div data-testid="footer">Footer</div>,
         default: () => <div data-testid="footer">Footer</div>
     })
 );

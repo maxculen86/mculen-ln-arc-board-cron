@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../header/default';
-import Footer from '../footer/default';
+import { FooterBase } from '../footer/default';
 import ToastsContainer from '../../../ui/ln/toastsContainer/default';
 import InitControlGroup from '../../../../layouts/helpers/initCtrlGrp';
 import LoadBannersSSR from '../../../../private/common/banners/LoadBannersSSR';
@@ -23,7 +23,7 @@ function BaseLayout({ children, ...props }) {
                 >
                     {children}
                 </main>
-                <Footer />
+                <FooterBase />
                 <Navbar />
                 {/* <PwaModal /> */}
                 <InitControlGroup />
