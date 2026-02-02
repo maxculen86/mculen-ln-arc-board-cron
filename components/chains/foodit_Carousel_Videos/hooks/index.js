@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
     useEffect(() => {
@@ -62,15 +62,45 @@ export function useHandleNext({ containerRef, showNext, isMobile }) {
     }, [containerRef, showNext, isMobile]);
 }
 
-export function useScrollTo({ containerRef, isMobile, currentIndex }) {
+export function useScrollTo({ containerRef, isMobile, currentIndex, isOpen }) {
+    const initialIndexRef = useRef(currentIndex);
+    const hasScrolledRef = useRef(false);
+    const prevIsOpenRef = useRef(false);
+
     useEffect(() => {
-        const scrollOptions = isMobile
-            ? { top: containerRef.current.offsetHeight * currentIndex }
-            : { left: containerRef.current.offsetWidth * currentIndex };
-        containerRef?.current?.scrollTo({
-            ...scrollOptions
-        });
-    }, [containerRef, isMobile]);
+        if (isOpen && !prevIsOpenRef.current) {
+            initialIndexRef.current = currentIndex;
+            hasScrolledRef.current = false;
+        }
+        prevIsOpenRef.current = isOpen;
+    }, [isOpen, currentIndex]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const el = containerRef?.current;
+        if (!el || hasScrolledRef.current) return;
+
+        const waitForDimensions = () => {
+            const height = el.offsetHeight;
+            const width = el.offsetWidth;
+
+            if (height === 0 && width === 0) {
+                requestAnimationFrame(waitForDimensions);
+                return;
+            }
+
+            const index = initialIndexRef.current;
+            const scrollOptions = isMobile
+                ? { top: height * index }
+                : { left: width * index };
+
+            el.scrollTo(scrollOptions);
+            hasScrolledRef.current = true;
+        };
+
+        waitForDimensions();
+    }, [isMobile, isOpen]);
 }
 
 export function useUpdateVideoWidth({ containerRef, viewportWidth, isMobile }) {
