@@ -1,4 +1,4 @@
-import generateProps from '../../../../../components/private/common/utils/GetPropsForComLink';
+import generateProps from '../../../../../components/features/LN/common/link/_helpers';
 
 const link = 'https://www.facebook.com/';
 const dataEvent = undefined;
@@ -23,8 +23,7 @@ const children = {
                 classCondition: ' com-logo la-nacion --xs',
                 width: '50',
                 height: '50',
-                src:
-                    'https://arc-static.glanacion.com/pf/resources/images/logo-lanacion.svg?d=%24LATEST',
+                src: 'https://arc-static.glanacion.com/pf/resources/images/logo-lanacion.svg?d=%24LATEST',
                 alt: 'LA NACION',
                 amp: '',
                 svg: true,
@@ -46,20 +45,20 @@ const SIZE_CLASS = '';
 const EXTRA_CLASS = ' mod-image';
 
 describe('Check props from generateProps', () => {
-    const props = generateProps(
-        link,
+    const props = generateProps({
+        url: link,
         dataEvent,
         dataSection,
         rel,
         target,
         title,
-        textName,
+        textname: textName,
         isString,
         children,
         style,
-        SIZE_CLASS,
-        EXTRA_CLASS
-    );
+        sizeClass: SIZE_CLASS,
+        extraClass: EXTRA_CLASS
+    });
 
     it('Check props generated', () => {
         expect(props.href).toBe('https://www.facebook.com/');
