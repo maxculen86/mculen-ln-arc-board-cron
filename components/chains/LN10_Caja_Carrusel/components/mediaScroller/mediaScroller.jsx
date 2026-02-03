@@ -2,8 +2,13 @@ import React, { useRef } from 'react';
 import BuildRoof from '../../../utils/_BuildRoof/default';
 import MediaScroller from '../../../../features/ui/ln/mediaScroller/default';
 
-function MediaScrollerContainer({ children, roofData }) {
+function MediaScrollerContainer({ children, roofData, responsive }) {
     const containerRef = useRef(null);
+
+    const responsiveData = {
+        base: { gap: '16px', width: '280px' },
+        ...responsive
+    };
 
     return (
         <div ref={containerRef} className="mb-32">
@@ -11,7 +16,7 @@ function MediaScrollerContainer({ children, roofData }) {
             <div data-tw>
                 <MediaScroller
                     elementsToScroll="visible"
-                    responsive={{ base: { gap: '16px', width: '280px' } }}
+                    responsive={responsiveData}
                     className="z-1"
                 >
                     {children}

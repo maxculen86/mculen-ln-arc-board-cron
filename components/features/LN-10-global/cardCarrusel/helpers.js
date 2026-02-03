@@ -1,4 +1,5 @@
 import { cx } from '@ln/cva';
+import { cva } from '@ln/ds-cva';
 
 export function secondsToMinutes(seconds) {
     if (typeof seconds !== 'number' || seconds < 0) return '';
@@ -24,3 +25,16 @@ export const getClassNamesMedia = isPlaying => {
 
     return { classNamePoster, classNameVideo };
 };
+
+export const cardVideoClassNames = cva(['card-carousel', 'cursor-pointer'], {
+    variants: {
+        withTitle: {
+            true: 'bg-gradient-accent',
+            false: 'bg-gradient-accent-sm'
+        },
+        variant: {
+            vertical: ['card-vertical-carousel'],
+            horizontal: ['card-horizontal-carousel']
+        }
+    }
+});

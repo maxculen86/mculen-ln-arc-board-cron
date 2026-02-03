@@ -1,27 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { cx } from '@ln/cva';
+import { videoShareClasses } from '../styles';
 
-function VideoShare({ className, children }) {
+// TODO MICHI: cambiar variant por context
+function VideoShare({ className, children, variant }) {
     return (
-        <div
-            className={cx(
-                'ratio-9-16 h-100dvh w-100 w-fit_md js-center flex relative py-16_m',
-                className
-            )}
-        >
+        <div className={videoShareClasses({ variant, className })}>
             {children}
         </div>
     );
 }
-
-VideoShare.propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string
-};
-
-VideoShare.defaultProps = {
-    className: ''
-};
 
 export default VideoShare;

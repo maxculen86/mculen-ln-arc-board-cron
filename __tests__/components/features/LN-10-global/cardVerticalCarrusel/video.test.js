@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Video from '../../../../../components/features/LN-10-global/cardVerticalCarrusel/video';
+import Video from '../../../../../components/features/LN-10-global/cardCarrusel/video';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -13,7 +13,7 @@ window.IntersectionObserver = jest.fn(() => ({
     disconnect
 }));
 
-describe('components - features - LN-10-global - cardVerticalCarrusel - video', () => {
+describe('components - features - LN-10-global - cardCarrusel - video', () => {
     const defaultProps = {
         src: 'video.mp4',
         poster: 'poster.jpg',
