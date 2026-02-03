@@ -6,13 +6,10 @@ function CssLinksLn10(props) {
     const { CssLinks, globalContent, layout } = props;
 
     const {
-        layoutsName: { NotaOpinion, HomeLN10 }
+        layoutsName: { HomeLN10 }
     } = config;
 
-    const excludedLayouts = [
-        { pageLayout: NotaOpinion },
-        { pageLayout: HomeLN10 }
-    ];
+    const excludedLayouts = [{ pageLayout: HomeLN10 }];
 
     const shouldExcludeCssLinks = isAllowedSection({
         globalContent,

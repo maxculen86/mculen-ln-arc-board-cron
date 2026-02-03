@@ -8,19 +8,22 @@ const defaultVariants = {
 
 // TODO: ajustar o quitar clases de variante negativa cuando este dark-theme implementado en el DS.
 
-export const wrapperHeaderVariants = cva('z-20', {
-    variants: {
-        position: {
-            default: '',
-            sticky: 'sticky top-0'
+export const wrapperHeaderVariants = cva(
+    'z-20 text-base-default font-secondary',
+    {
+        variants: {
+            position: {
+                default: '',
+                sticky: 'sticky top-0'
+            },
+            appearance: {
+                light: 'bg-primary-foreground',
+                dark: ''
+            }
         },
-        appearance: {
-            light: 'bg-primary-foreground',
-            dark: ''
-        }
-    },
-    defaultVariants
-});
+        defaultVariants
+    }
+);
 
 export const wrapperMainHeaderVariants = cva('', {
     variants: {

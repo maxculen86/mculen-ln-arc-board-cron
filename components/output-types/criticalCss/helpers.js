@@ -9,7 +9,6 @@ export const criticalCssPathsBySite = {
     'la-nacion-ar': {
         [layoutsNameLN.HomeLN10]:
             'resources/dist/css/ln/pages/ln10-home-critical.css',
-        [layoutsNameLN.NotaOpinion]: '',
         default: 'resources/dist/css/ln/pages/critical-internas.css'
     },
     foodit: {
