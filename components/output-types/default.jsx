@@ -254,6 +254,7 @@ function Default(props) {
                     subtype={subtype}
                     syndication={syndication}
                     outputType={outputType}
+                    nodeType={_nodeType}
                 />
                 <Schemas section={_nodeType} />
                 <Favicon />
