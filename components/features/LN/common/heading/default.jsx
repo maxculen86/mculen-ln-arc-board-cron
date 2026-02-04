@@ -1,24 +1,28 @@
 import React from 'react';
+import get from '../../../../private/common/utils/get';
 import parse from '../../../../private/common/utils/parseHelper';
-import generateProps from '../link/_helpers';
 import { getHeadingConfig } from './_helpers';
 import HeadingView from './View';
 
 function Heading({ data }) {
-    const { level, content, link } = data;
+    const level = get(data, 'level');
+    const content = get(data, 'content');
+
+    if (typeof content !== 'string' || !content) return null;
 
     const config = getHeadingConfig(level);
     const parsedContent = <span>{parse(content)}</span>;
-    const linkProps = link ? generateProps({ href: link }) : null;
 
     return (
         <HeadingView
             tag={config.tag || 'h4'}
             className={config.classCondition}
             content={parsedContent}
-            linkProps={linkProps}
         />
     );
 }
+
+Heading.arcType = 'header';
+Heading.isStatic = true;
 
 export default Heading;
