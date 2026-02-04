@@ -4,37 +4,16 @@ import Syndication from '../../../../components/private/common/syndication';
 
 describe('Components - private - common - Syndication', () => {
     describe('early returns', () => {
-        it('returns null when arcSite is set, not "la-nacion-ar", and subtype is falsy', () => {
+        it('returns null when subtype is falsy', () => {
             const { container } = render(
-                <Syndication
-                    arcSite="other-site"
-                    subtype=""
-                    outputType="default"
-                    type="story"
-                />
+                <Syndication subtype="" type="story" />
             );
             expect(container.firstChild).toBeNull();
         });
 
-        it('returns null when outputType is not "default"', () => {
+        it('returns null when type is not "story"', () => {
             const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="amp"
-                    type="story"
-                />
-            );
-            expect(container.firstChild).toBeNull();
-        });
-
-        it('returns null when type is not "story" and nodeType is not "home" or "acumulado"', () => {
-            const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
-                    type="video"
-                    nodeType="section"
-                />
+                <Syndication subtype="1" type="video" nodeType="section" />
             );
             expect(container.firstChild).toBeNull();
         });
@@ -43,12 +22,7 @@ describe('Components - private - common - Syndication', () => {
     describe('home and acumulado nodeTypes', () => {
         it('returns meta with max-image-preview:standard for nodeType "home"', () => {
             const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
-                    nodeType="home"
-                    type="other"
-                />
+                <Syndication subtype="1" type="story" nodeType="home" />
             );
             const meta = container.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
@@ -60,12 +34,7 @@ describe('Components - private - common - Syndication', () => {
 
         it('returns meta with max-image-preview:standard for nodeType "acumulado"', () => {
             const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
-                    nodeType="acumulado"
-                    type="other"
-                />
+                <Syndication subtype="1" type="story" nodeType="acumulado" />
             );
             const meta = container.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
@@ -80,8 +49,6 @@ describe('Components - private - common - Syndication', () => {
         it('returns noindex meta when subtype is not "7", syndication exists, and search is falsy', () => {
             const { container } = render(
                 <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
                     type="story"
                     subtype="1"
                     syndication={{ search: false }}
@@ -98,8 +65,6 @@ describe('Components - private - common - Syndication', () => {
         it('returns max-image-preview:large meta when subtype is "7"', () => {
             const { container } = render(
                 <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
                     type="story"
                     subtype="7"
                     syndication={{ search: false }}
@@ -113,8 +78,6 @@ describe('Components - private - common - Syndication', () => {
         it('returns max-image-preview:large meta when search is truthy', () => {
             const { container } = render(
                 <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
                     type="story"
                     subtype="1"
                     syndication={{ search: true }}
@@ -127,61 +90,11 @@ describe('Components - private - common - Syndication', () => {
 
         it('returns max-image-preview:large meta when syndication is undefined', () => {
             const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    outputType="default"
-                    type="story"
-                    subtype="1"
-                    syndication={undefined}
-                />
+                <Syndication type="story" subtype="1" syndication={undefined} />
             );
             const meta = container.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute('content', 'max-image-preview:large');
-        });
-    });
-
-    describe('arcSite edge cases', () => {
-        it('renders when arcSite is "la-nacion-ar" regardless of subtype', () => {
-            const { container } = render(
-                <Syndication
-                    arcSite="la-nacion-ar"
-                    subtype=""
-                    outputType="default"
-                    type="story"
-                    syndication={{ search: true }}
-                />
-            );
-            const meta = container.querySelector('meta[name="robots"]');
-            expect(meta).toBeInTheDocument();
-        });
-
-        it('renders when subtype is provided even if arcSite is different', () => {
-            const { container } = render(
-                <Syndication
-                    arcSite="other-site"
-                    subtype="1"
-                    outputType="default"
-                    type="story"
-                    syndication={{ search: true }}
-                />
-            );
-            const meta = container.querySelector('meta[name="robots"]');
-            expect(meta).toBeInTheDocument();
-        });
-
-        it('renders when arcSite is falsy', () => {
-            const { container } = render(
-                <Syndication
-                    arcSite=""
-                    subtype=""
-                    outputType="default"
-                    type="story"
-                    syndication={{ search: true }}
-                />
-            );
-            const meta = container.querySelector('meta[name="robots"]');
-            expect(meta).toBeInTheDocument();
         });
     });
 });
