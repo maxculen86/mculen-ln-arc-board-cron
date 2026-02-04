@@ -14,7 +14,13 @@ function LnNotaOpinion({ children }) {
     );
 }
 
-const pageBuilderSections = ['Apertura', 'Cuerpo', 'Bottom', 'Bottom-Tercera'];
+const pageBuilderSections = [
+    'Apertura',
+    'Pre-Cuerpo',
+    'Cuerpo',
+    'Bottom',
+    'Bottom-Tercera'
+];
 
 LnNotaOpinion.sections = pageBuilderSections;
 

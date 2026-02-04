@@ -1,5 +1,4 @@
-import { useCallback, useEffect } from 'react';
-import { handleEventSwipeVideo } from '../helpers';
+import { useEffect, useCallback } from 'react';
 import { markProgrammaticMute } from '../../../../private/common/utils/videoPlayerHelper';
 
 export function useObserverItems({ containerRef, setCurrentIndex }) {
@@ -12,18 +11,6 @@ export function useObserverItems({ containerRef, setCurrentIndex }) {
                             entry.target.getAttribute('data-scroller-index')
                         );
                         setCurrentIndex(index);
-
-                        const videoIdObserved =
-                            entry.target.getAttribute('data-scroller-id');
-
-                        const videoTitle =
-                            entry.target.getAttribute('data-title');
-                        if (videoIdObserved && videoTitle) {
-                            handleEventSwipeVideo({
-                                videoIdObserved,
-                                videoTitle
-                            });
-                        }
                     }
                 });
             },
@@ -65,15 +52,10 @@ export function useHandleNext({
                 behavior: 'smooth'
             });
         }
-    }, [containerRef?.current, showNext, isMobile, currentIndex]);
+    }, [containerRef?.current, showNext, isMobile, callback, currentIndex]);
 }
 
-export function useHandleBack({
-    containerRef,
-    showBack,
-    callback,
-    currentIndex
-}) {
+export function useHandleBack({ containerRef, showBack, callback }) {
     return useCallback(() => {
         if (showBack) {
             callback();
@@ -82,7 +64,7 @@ export function useHandleBack({
                 behavior: 'smooth'
             });
         }
-    }, [containerRef?.current, showBack, currentIndex]);
+    }, [containerRef?.current, showBack, callback]);
 }
 
 export function useScrollTo({ containerRef, isMobile, currentIndex }) {

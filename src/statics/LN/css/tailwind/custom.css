@@ -1,3 +1,43 @@
 @theme inline {
     --shadow-down-lg: 0px 16px 32px 0px #10101014;
+    --shadow-center: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Header sticky animation */
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Custom classes for avoid conflicts with DS [until-390-none, --mobile-none]*/
+.until-390-none {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.--mobile-none {
+    @media (max-width: 767px) {
+        display: none;
+    }
 }

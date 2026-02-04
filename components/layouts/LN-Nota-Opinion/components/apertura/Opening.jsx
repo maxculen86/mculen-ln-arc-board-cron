@@ -1,17 +1,14 @@
 import React from 'react';
 import Title from '../../../../features/LN/common/title/default';
-import Breadcrumb from '../../../../features/LN/common/breadcrumb/default';
+import Subtitle from '../../../../features/LN/common/subtitle/default';
+import Media from './Media';
 
-// TODO para front: realizar ajustes de estilos segun diseño
-function Opening({ children }) {
-    return (
-        <div className="pt-65 -mt-65 pt-118_m -mt-87_m mt-0_l pt-112_l">
-            {children}
-        </div>
-    );
+function Opening({ children, className }) {
+    return <div className={className}>{children}</div>;
 }
 
-Opening.Breadcrumb = Breadcrumb;
 Opening.Title = Title;
+Opening.Subtitle = Subtitle;
+Opening.Media = Media;
 
 export default Opening;

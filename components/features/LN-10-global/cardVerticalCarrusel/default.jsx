@@ -4,9 +4,7 @@ import { cx } from '@ln/cva';
 import Video from './video';
 import { secondsToMinutes } from './helpers';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
-import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
-import { registeredIdsSetAndInteractions } from '../../../chains/LN10_Caja_Carrusel/components/helpers';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import CardVertical from '../../ui/ln/card/default';
 import Icon from '../../ui/ln/icon/default';
@@ -19,7 +17,7 @@ function CardVerticalContainer({
     duration = 0,
     cardPosition,
     videoId,
-    layoutType = '',
+    layoutType,
     titleJwPlayer,
     ...viewabilityData
 }) {
@@ -42,21 +40,14 @@ function CardVerticalContainer({
 
     const isDesktop = !isSSR() && window?.innerWidth > 1279;
 
-    const handleClickCard = useCallback(event => {
-        onOpenMediaScrollerExpanded();
-        setCurrentIndex(cardPosition);
-        registeredIdsSetAndInteractions.add('clickEventRegistered');
-        addEventToDataLayerV2({
-            event: 'video_view',
-            contentType: 'video_story',
-            origin: layoutType,
-            rest: {
-                page_title: titleJwPlayer,
-                id_video: videoId
-            }
-        });
-        handleProductClick(event);
-    }, []);
+    const handleClickCard = useCallback(
+        event => {
+            onOpenMediaScrollerExpanded();
+            setCurrentIndex(cardPosition);
+            handleProductClick(event);
+        },
+        [cardPosition, onOpenMediaScrollerExpanded, setCurrentIndex]
+    );
 
     const handleMouseEnter = useCallback(() => {
         if (isDesktop) {

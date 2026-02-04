@@ -1,8 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import hasRenderableItems from './utils/hasRenderableItems';
+import hasRenderableItems from './helpers/hasRenderableItems';
 
-// TODO para desarrollo: una vez implementado el body de nota subtipo opinion, incluir el componente dentro del bodyElementRules
 // TODO para front: realizar ajustes de estilos segun diseño
 function List({ data }) {
     if (!hasRenderableItems(data?.items)) {

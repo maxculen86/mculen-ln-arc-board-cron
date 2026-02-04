@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCarouselVideo should match snapshot 1`] = `
+<DocumentFragment>
+  <article
+    class="cursor-pointer"
+  >
+    <div
+      aria-label="Abrir video en pantalla completa"
+      class="relative w-full ratio-9-16 overflow-hidden border border-light-200"
+      data-testid="card-carousel-video"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="flex jc-center ai-center relative overflow-hidden ratio-9-16 -z-1 w-full h-full"
+      >
+        <div
+          class="foodit-placeholder poster-visible"
+        >
+          <img
+            alt="Poster"
+            class="poster-visible"
+            src="https://example.com/a.jpg"
+          />
+        </div>
+        <video
+          class="video-hidden"
+          loop=""
+          playsinline=""
+          preload="metadata"
+          src="https://example.com/a.mp4"
+        />
+      </div>
+      <div
+        class="text-neutral-light-1 absolute inset-x-0 bottom-0 z-5 h-[55%] px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 flex flex-col items-center justify-end gap-16 text-center bg-gradient-video-card"
+      >
+        <span>
+          Fácil
+        </span>
+        <span
+          class="prumo prumo-semibold text-24 font-primary font-normal"
+        >
+          Título
+        </span>
+        <span
+          class="roboto text-14 font-secondary font-normal"
+        >
+          Por Autor
+        </span>
+        <div
+          class="roboto text-14 flex justify-center"
+        >
+          <span
+            size="20"
+          >
+            <i
+              data-testid="icon-sprite"
+              name="play-filled"
+            />
+          </span>
+          <span>
+            2:00
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
+</DocumentFragment>
+`;

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, memo } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, memo, useCallback } from 'react';
+
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useWindowSize } from '@ln/hooks';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
-import { registeredIdsSetAndInteractions } from '../helpers';
+import { resetTracking } from '../helpers';
 import JwVideoContainer from './jwVideoContainer';
 import {
     useHandleBack,
@@ -38,23 +38,29 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
         currentIndex
     });
 
+    const handleNextSuccess = useCallback(() => {
+        handleBannerViewed({ currentPosition: currentIndex });
+    }, [handleBannerViewed, currentIndex]);
+
     const handleNextCallback = useHandleNext({
         containerRef,
         showNext,
         isMobile,
         currentIndex,
-        callback: () => handleBannerViewed({ currentPosition: currentIndex })
+        callback: handleNextSuccess
     });
+
+    const handleBackSuccess = useCallback(() => {
+        handleBannerViewed({
+            currentPosition: currentIndex,
+            isShowBack: true
+        });
+    }, [handleBannerViewed, currentIndex]);
 
     const handleBackCallback = useHandleBack({
         containerRef,
         showBack,
-        currentIndex,
-        callback: () =>
-            handleBannerViewed({
-                currentPosition: currentIndex,
-                isShowBack: true
-            })
+        callback: handleBackSuccess
     });
 
     useUpdateVideoWidth({
@@ -71,7 +77,7 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
 
     useEffect(
         () => () => {
-            registeredIdsSetAndInteractions.clear();
+            resetTracking();
         },
         []
     );
@@ -121,9 +127,5 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
         </div>
     );
 }
-
-MediaScrollerExpanded.propTypes = {
-    listVideoData: PropTypes.arrayOf().isRequired
-};
 
 export default memo(MediaScrollerExpanded);

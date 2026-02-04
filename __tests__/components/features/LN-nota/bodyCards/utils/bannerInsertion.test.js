@@ -3,24 +3,22 @@ import {
     insertBannersIntoCards,
     createRenderConfig,
     createBannerElement,
-    createCardElement,
-    buildGoogleTagBannerConfig
+    createCardElement
 } from 'features/LN-nota/bodyCards/utils/bannerInsertion';
-import { shouldInsertBanner } from 'layouts/LN-Nota-Cards/utils/dynamicBannerHelper';
+import {
+    shouldInsertBanner,
+    buildGoogleTagBannerConfig
+} from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
 
 // Test constants
 const DESKTOP_DEVICE = 'desktop';
 const MOBILE_DEVICE = 'mobile';
 
-jest.mock('layouts/LN-Nota-Cards/utils/dynamicBannerHelper', () => ({
-    renderDynamicBanner: jest.fn(),
-    MAX_DYNAMIC_BANNERS: 5,
-    BANNER_INSERT_INTERVAL: 4,
-    shouldInsertBanner: jest.fn(
-        (itemIndex, bannerIndex) =>
-            (itemIndex + 1) % 4 === 0 && itemIndex >= 0 && bannerIndex <= 5
-    ),
-    createDynamicBannerConfig: jest.fn(() => ({
+jest.mock('private/common/banners/dynamicBanners/dynamicBannersHelper', () => {
+    const actual = jest.requireActual(
+        'private/common/banners/dynamicBanners/dynamicBannersHelper'
+    );
+    const createDynamicBannerConfig = jest.fn(() => ({
         slotId: 'test_slot',
         slotGroup: 'nota',
         dfpId: '133919216',
@@ -30,8 +28,32 @@ jest.mock('layouts/LN-Nota-Cards/utils/dynamicBannerHelper', () => ({
         withoutHide: true,
         bidding: { prebid: { enabled: true } },
         hideForSubscriptor: false
-    }))
-}));
+    }));
+
+    return {
+        ...actual,
+        renderDynamicBanner: jest.fn(),
+        MAX_DYNAMIC_BANNERS: 5,
+        BANNER_INSERT_INTERVAL: 4,
+        SUPPORTED_DEVICES: ['desktop', 'mobile'],
+        shouldInsertBanner: jest.fn(
+            (itemIndex, bannerIndex) =>
+                (itemIndex + 1) % 4 === 0 && itemIndex >= 0 && bannerIndex <= 5
+        ),
+        createDynamicBannerConfig,
+        buildGoogleTagBannerConfig: (device, bannerIndex, globalContent) => {
+            const bannerConfiguration = createDynamicBannerConfig(
+                globalContent,
+                device,
+                bannerIndex
+            );
+
+            return bannerConfiguration
+                ? actual.mapBannerConfigToGoogleTagConfig(bannerConfiguration)
+                : null;
+        }
+    };
+});
 
 describe('Banner Insertion Utilities', () => {
     const mockGlobalContent = { _id: 'test-content' };
@@ -118,7 +140,7 @@ describe('Banner Insertion Utilities', () => {
         it('should return null when createDynamicBannerConfig returns null', () => {
             const {
                 createDynamicBannerConfig
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             createDynamicBannerConfig.mockReturnValueOnce(null);
 
             const result = buildGoogleTagBannerConfig(
@@ -133,7 +155,7 @@ describe('Banner Insertion Utilities', () => {
         it('should handle missing bidding config gracefully', () => {
             const {
                 createDynamicBannerConfig
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             createDynamicBannerConfig.mockReturnValueOnce({
                 slotId: 'test_slot',
                 slotGroup: 'nota',
@@ -182,7 +204,7 @@ describe('Banner Insertion Utilities', () => {
         it('should create banner element with correct props and key', () => {
             const {
                 renderDynamicBanner
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(<div>Mock Banner</div>);
 
             const bannerResult = createBannerElement(
@@ -208,7 +230,7 @@ describe('Banner Insertion Utilities', () => {
         it('should return null when banner render function returns null', () => {
             const {
                 renderDynamicBanner
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(null);
 
             const bannerElement = createBannerElement(
@@ -225,7 +247,7 @@ describe('Banner Insertion Utilities', () => {
             const {
                 renderDynamicBanner,
                 createDynamicBannerConfig
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(<div>Mock Banner</div>);
             createDynamicBannerConfig.mockReturnValueOnce(null);
 
@@ -288,7 +310,7 @@ describe('Banner Insertion Utilities', () => {
         it('should insert two banners at fourth and eighth card positions', () => {
             const {
                 renderDynamicBanner
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(<div>Mock Banner</div>);
 
             const result = insertBannersIntoCards(
@@ -361,7 +383,7 @@ describe('Banner Insertion Utilities', () => {
         it('should only include Google Tag configs for current device', () => {
             const {
                 renderDynamicBanner
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(<div>Mock Banner</div>);
 
             const EIGHT_CARD_GROUPS = Array.from({ length: 8 }, (_, i) => ({
@@ -407,7 +429,7 @@ describe('Banner Insertion Utilities', () => {
         it('should return empty Google Tag configs when current device not in supported devices', () => {
             const {
                 renderDynamicBanner
-            } = require('layouts/LN-Nota-Cards/utils/dynamicBannerHelper');
+            } = require('private/common/banners/dynamicBanners/dynamicBannersHelper');
             renderDynamicBanner.mockReturnValue(<div>Mock Banner</div>);
 
             const EIGHT_CARD_GROUPS = Array.from({ length: 8 }, (_, i) => ({

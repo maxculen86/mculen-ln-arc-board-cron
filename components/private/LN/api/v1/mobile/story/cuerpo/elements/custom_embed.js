@@ -5,6 +5,18 @@ import header from './header';
 import image from './image';
 import videoJW from './videoJW';
 
+const VALID_SUBTYPES = [
+    'custom-parallax',
+    'custom-liveblog',
+    'custom-video-jw',
+    'video_jw',
+    'custom-how-to',
+    'canchallena',
+    'gallery-embed'
+];
+
+const VIDEO_SUBTYPES = ['custom-video-jw', 'video_jw'];
+
 const getTime = time => {
     if (time) {
         const timeSplit = time.split(':');
@@ -16,90 +28,67 @@ const getTime = time => {
     return null;
 };
 
-// eslint-disable-next-line no-unused-vars
-const customEmbed = (nodo, dataNota) => {
-    if (
-        !nodo ||
-        ![
-            'custom-parallax',
-            'custom-liveblog',
-            'custom-video-jw',
-            'video_jw',
-            'custom-how-to',
-            'canchallena',
-            'gallery-embed'
-        ].includes(nodo.subtype)
-    )
-        return null;
+const isValidSubtype = nodo => nodo && VALID_SUBTYPES.includes(nodo.subtype);
 
-    const res = [];
+const handleVideo = nodo => {
+    const videoJWElement = get(nodo, 'embed.config.videoJw', null);
+    return [videoJW(videoJWElement)];
+};
 
-    if (nodo.subtype === 'custom-video-jw' || nodo.subtype === 'video_jw') {
-        const videoJWElement = get(nodo, 'embed.config.videoJw', null);
-        res.push(videoJW(videoJWElement));
-        return res;
-    }
+const handleCanchallena = nodo => {
+    const id = get(nodo, '_id');
+    const content = buildEmbedCll(nodo);
 
-    if (nodo.subtype === 'canchallena') {
-        const id = get(nodo, '_id');
-        const content = buildEmbedCll(nodo);
-        if (content) return html({ _id: id, content, type: 'raw_html' });
+    return content ? html({ _id: id, content, type: 'raw_html' }) : null;
+};
 
-        return null;
-    }
-
-    const time = getTime(get(nodo, 'embed.config.time', null));
+const handleHowTo = nodo => {
     const title = get(nodo, 'embed.config.title', '') ?? '';
     const step = get(nodo, 'embed.config.step', '') ?? '';
 
-    if (nodo.subtype === 'custom-how-to') {
-        const objTitle = {
+    return [
+        {
             _t: 'header',
             level: 1,
             value: `${step} - ${title}`
+        }
+    ];
+};
+
+const handleGallery = nodo => {
+    const images = get(nodo, 'embed.config.galleryImages', []);
+    const caption = get(nodo, 'embed.config.caption', '');
+    const count = get(nodo, 'embed.config.count', 0);
+
+    const selected = images.slice(0, count);
+    const total = selected.length;
+
+    return selected.map((img, index) => {
+        const mapped = {
+            _t: 'image',
+            url: img.url
         };
-        res.push(objTitle);
-        return res;
-    }
 
-    if (nodo.subtype === 'gallery-embed') {
-        const allImages = get(nodo, 'embed.config.galleryImages', []);
-        const caption = get(nodo, 'embed.config.caption', '');
-        const count = get(nodo, 'embed.config.count', 0);
+        if (caption && (total === 1 || index === total - 1)) {
+            mapped.epigraph = caption;
+        }
 
-        const selected = allImages.slice(0, count);
+        return mapped;
+    });
+};
 
-        const total = selected.length;
+const buildDefaultContent = nodo => {
+    const res = [];
 
-        selected.forEach((img, index) => {
-            const mapped = {
-                _t: 'image',
-                url: img.url
-            };
-
-            if (caption && (total === 1 || index === total - 1)) {
-                mapped.epigraph = caption;
-            }
-
-            res.push(mapped);
-        });
-
-        return res;
-    }
+    const time = getTime(get(nodo, 'embed.config.time', null));
+    const title = get(nodo, 'embed.config.title', '') ?? '';
 
     if (title) {
         const objTitle = {
             type: 'header',
-            content: title
+            level: nodo.subtype === 'custom-liveblog' ? 1 : 2,
+            content: time ? `${time} ${title}` : title
         };
-        if (nodo.subtype === 'custom-liveblog') {
-            objTitle.level = 1;
-            if (time) {
-                objTitle.content = time.concat(' '.concat(title));
-            }
-        } else {
-            objTitle.level = 2;
-        }
         res.push(header(objTitle));
     }
 
@@ -108,14 +97,30 @@ const customEmbed = (nodo, dataNota) => {
         res.push(image(imageElement));
     }
 
-    const paragraphElement = get(nodo, 'embed.config.paragraph', null);
-    if (paragraphElement) {
-        res.push({ _t: 'text', valor: paragraphElement });
+    const paragraph = get(nodo, 'embed.config.paragraph', null);
+    if (paragraph) {
+        res.push({ _t: 'text', valor: paragraph });
     }
 
-    if (res.length === 0) return null;
+    return res.length ? res : null;
+};
 
-    return res;
+const embedHandlers = {
+    canchallena: handleCanchallena,
+    'custom-how-to': handleHowTo,
+    'gallery-embed': handleGallery
+};
+
+const customEmbed = nodo => {
+    if (!isValidSubtype(nodo)) return null;
+
+    if (VIDEO_SUBTYPES.includes(nodo.subtype)) {
+        return handleVideo(nodo);
+    }
+
+    return embedHandlers[nodo.subtype]
+        ? embedHandlers[nodo.subtype](nodo)
+        : buildDefaultContent(nodo);
 };
 
 export default customEmbed;

@@ -3,6 +3,38 @@ import { render, screen } from '@testing-library/react';
 import BaseLayout from '../../../../../../components/features/LN/common/baseLayout/default';
 import Context from 'fusion:context';
 
+jest.mock(
+    '../../../../../../components/features/LN/common/header/default',
+    () =>
+        function MockHeader() {
+            return <div data-testid="mock-header" />;
+        }
+);
+
+jest.mock(
+    '../../../../../../components/features/LN/common/navBar/default',
+    () =>
+        function MockNavbar() {
+            return <div data-testid="mock-navbar" />;
+        }
+);
+
+jest.mock(
+    '../../../../../../components/features/LN/common/footer/default',
+    () =>
+        function MockFooter() {
+            return <div data-testid="mock-footer" />;
+        }
+);
+
+jest.mock(
+    '../../../../../../components/features/LN/common/drawerSections/default',
+    () =>
+        function MockDrawerSections() {
+            return <div data-testid="mock-drawer-sections" />;
+        }
+);
+
 Context.useAppContext = jest.fn(() => ({
     deployment: arg => arg,
     contextPath: '/pf'

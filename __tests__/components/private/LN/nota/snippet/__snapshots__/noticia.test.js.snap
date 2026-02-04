@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SnippetNoticia should render a script with JSON-LD if the type is "story" 1`] = `
+exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticle JSON-LD script when type is "story" 1`] = `
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",

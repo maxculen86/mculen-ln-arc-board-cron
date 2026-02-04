@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, memo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import { useVideoJwCustomSettings } from '../hooks';
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
 import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/helperJw';
-import { getAdsConfigVideoJw } from '../helpers';
+import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
 import {
     registerJwVideoControlsTracking,
     markProgrammaticMute
@@ -16,7 +15,8 @@ function JwVideoPlayer({
     index,
     counterVideo,
     handleNextCallback,
-    isLoadedScriptJw
+    isLoadedScriptJw,
+    origin = ''
 }) {
     const { currentIndex } = useCajaCarruselContext();
 
@@ -54,6 +54,13 @@ function JwVideoPlayer({
                 playerRef.current.on('complete', () => {
                     handleNextCallback();
                 });
+                playerRef.current.on('play', () => {
+                    handleEventSwipeVideo({
+                        videoIdObserved: videoId,
+                        videoTitle: title,
+                        origin
+                    });
+                });
             }
 
             controlsCleanupRef.current?.();
@@ -63,7 +70,7 @@ function JwVideoPlayer({
                 defaultId: videoId
             });
         }
-    }, [shouldInstanceVideo, isLoadedScriptJw]);
+    }, [shouldInstanceVideo, isLoadedScriptJw, handleNextCallback]);
 
     useVideoJwCustomSettings({
         isInView,
@@ -85,14 +92,5 @@ function JwVideoPlayer({
         <div className="placeholder-jwplayer flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center bg-black" />
     );
 }
-
-JwVideoPlayer.propTypes = {
-    videoId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
-    handleNextCallback: PropTypes.func.isRequired,
-    isLoadedScriptJw: PropTypes.bool.isRequired,
-    counterVideo: PropTypes.number.isRequired
-};
 
 export default memo(JwVideoPlayer);

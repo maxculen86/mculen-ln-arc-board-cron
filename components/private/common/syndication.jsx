@@ -1,12 +1,12 @@
+/* eslint-disable*/
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Syndication = ({ type, subtype, syndication, arcSite, outputType }) => {
+function Syndication({ type, subtype, syndication }) {
     const { external_distribution: externalDistribution, search } =
         syndication || {};
 
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
-    if (outputType !== 'default') return null;
+    if (!subtype) return null;
     if (type !== 'story') return null;
 
     return subtype !== '7' &&
@@ -20,12 +20,10 @@ const Syndication = ({ type, subtype, syndication, arcSite, outputType }) => {
     ) : (
         <meta name="robots" content="max-image-preview:large" />
     );
-};
+}
 
 Syndication.propTypes = {
-    arcSite: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
     subtype: PropTypes.string.isRequired,
     syndication: PropTypes.shape({
         external_distribution: PropTypes.bool,

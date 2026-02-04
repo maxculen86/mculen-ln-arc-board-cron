@@ -41,3 +41,6 @@ export const getImageSettings = ({ isFirstCard, diagramation = '' }) => {
 
     return 'cardCoverDefault';
 };
+
+export const isTagId = id =>
+    id && typeof id === 'string' && id.startsWith('/tema/');

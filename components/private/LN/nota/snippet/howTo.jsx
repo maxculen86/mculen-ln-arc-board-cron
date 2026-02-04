@@ -6,7 +6,7 @@ import get from '../../../common/utils/get';
 import addRelatedImage from '../../common/utils/addRelatedImage';
 import {
     extractDataFromPromoItems,
-    urlShema
+    urlSchema
 } from '../../common/utils/extractDataFromPromoItems';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import removeHtmlTags from '../../../common/utils/removeHtmlTags';
@@ -67,7 +67,7 @@ function SnippetHowTo({ globalContent }) {
     });
 
     const data = {
-        '@context': urlShema,
+        '@context': urlSchema,
         '@type': 'HowTo',
         name: noteTitle,
         ...(noteDescription && { description: noteDescription }),

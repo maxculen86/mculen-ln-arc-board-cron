@@ -2,13 +2,15 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Breadcrumb from '../../../../../../components/features/LN/common/breadcrumb/default';
 import buildBreadcrumbSections from '../../../../../../components/features/LN/common/breadcrumb/helpers/buildBreadcrumbSections';
-import BreadcrumbBase from '../../../../../../components/features/LN/common/breadcrumb/BreadcrumbBase';
+import { BreadcrumbBase } from '../../../../../../components/features/LN/common/breadcrumb/BreadcrumbBase';
 import BreadcrumbSchema from '../../../../../../components/features/LN/common/breadcrumb/BreadcrumbSchema';
 
 jest.mock('fusion:static', () => ({ children }) => <>{children}</>);
 jest.mock(
     '../../../../../../components/features/LN/common/breadcrumb/BreadcrumbBase',
-    () => jest.fn(() => null)
+    () => ({
+        BreadcrumbBase: jest.fn(() => null)
+    })
 );
 jest.mock(
     '../../../../../../components/features/LN/common/breadcrumb/BreadcrumbSchema',

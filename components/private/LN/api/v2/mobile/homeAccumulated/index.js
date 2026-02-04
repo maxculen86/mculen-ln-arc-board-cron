@@ -3,7 +3,7 @@ import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { Article as ArticleLN10 } from '../../../v1/mobile/home/article/index';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
 import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
-import { CardAnexo as CardAnexoLN10 } from '../../../v1/mobile/home/article/cardAnexo/index';
+import { CardAnexo as CardAnexoLN10 } from '../home/article/cardAnexo/index';
 import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
 import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
@@ -24,7 +24,7 @@ const FunctionsBoxContentsByLayout = {
     },
     'LN-acumulado': {
         article: Article,
-        anexo: CardAnexoLN
+        anexo: CardAnexoLN10
     },
     default: {
         article: Article,
@@ -43,6 +43,7 @@ const validateInfoBox = information => {
     }
     return informationValid;
 };
+
 const addListenableFlagForArticles = articles =>
     articles.map(x => ({
         ...x,
@@ -57,7 +58,6 @@ const index = (
 ) => {
     const layoutPage = get(paramsFromPage, 'information.layoutPage', 'null');
     const typeSection = configInfoSectionsByLayout(layoutPage);
-
     if (!layoutPage || !typeSection) {
         // eslint-disable-next-line no-console
         console.warn(
@@ -68,6 +68,14 @@ const index = (
 
         return null;
     }
+
+    const articleFn =
+        get(FunctionsBoxContentsByLayout, `${layoutPage}.article`, null) ??
+        get(FunctionsBoxContentsByLayout, `default.article`, null);
+
+    const anexoFn =
+        get(FunctionsBoxContentsByLayout, `${layoutPage}.anexo`, null) ??
+        get(FunctionsBoxContentsByLayout, `default.anexo`, null);
 
     const ArticlesbyBox = children.reduce((result, f) => {
         const { information, sectionAliasMobile } = f;
@@ -89,49 +97,25 @@ const index = (
             sectionBox.articles = addListenableFlagForArticles(f.articles);
         }
 
-        const boxInfo = attachBanners(box, sectionAliasMobile, banners);
-
         const type = Number(sectionBox.type);
-        switch (type) {
-            case 0:
-                {
-                    const articleFn =
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `${layoutPage}.article`,
-                            null
-                        ) ||
-                        get(
-                            FunctionsBoxContentsByLayout,
-                            `default.article`,
-                            null
-                        );
-                    result.push(
-                        boxTypeByLayout(layoutPage, type)(
-                            sectionBox,
-                            boxInfo,
-                            articleFn,
-                            paramsFromPage
-                        )
-                    );
-                }
-                break;
-            case 1:
-                result.push(
-                    boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
-                );
-                break;
-            case 10:
-                result.push(
-                    boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
-                );
-                break;
+        const boxTypeHandler = boxTypeByLayout(layoutPage, type);
+        const boxInfo = attachBanners(box, sectionAliasMobile, banners);
+        const handlerArticle = () =>
+            boxTypeHandler(sectionBox, boxInfo, articleFn, paramsFromPage);
 
-            default:
-                // eslint-disable-next-line no-console
-                console.log('to discard');
-                break;
-        }
+        const handlerAnexo = () => boxTypeHandler(sectionBox, boxInfo, anexoFn);
+
+        const handlerCarrusel = () => boxTypeHandler(sectionBox, boxInfo);
+
+        const mapHandlers = {
+            0: handlerArticle,
+            2: handlerAnexo,
+            10: handlerCarrusel
+        };
+
+        const handler = mapHandlers[type];
+
+        if (handler) result.push(handler());
 
         return result;
     }, []);

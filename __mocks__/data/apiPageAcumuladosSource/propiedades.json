@@ -1,0 +1,3325 @@
+[
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fccnDygyMt7Ey"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Banner-Megatop"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fYeCCC84I9356"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Sticky-Mobile"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/breadcrumb",
+        "information": {
+            "nameFeature": "LN-acumulado/breadcrumb",
+            "idRender": "f0f0UW90G9tZ1RJ"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Breadcrumb/Titulo"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/titulo",
+        "information": {
+            "nameFeature": "LN-acumulado/titulo",
+            "idRender": "f0fqWKkXYy8s1Kx"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Breadcrumb/Titulo"
+    },
+    {
+        "type": 2,
+        "sectionAliasMobile": "ln-common/anexo",
+        "information": {
+            "hideCaja": false,
+            "layout": "grilla1",
+            "nameFeature": "LN-common/anexo",
+            "idRender": "f0fRoB59qCY25Yn"
+        },
+        "articles": [
+            {
+                "url": "https://lnpropiedades.lanacion.com.ar/servicios/recomendados",
+                "alto": 422,
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Apertura"
+    },
+    {
+        "type": 0,
+        "sectionAliasMobile": "ln_caja_collection",
+        "information": {
+            "idCollection": "ORVCDUQEZZFBLA4HLL23VBD2LY",
+            "layout": "focalLeft3",
+            "initialPosition": 1,
+            "url": "",
+            "imageId": "",
+            "title": "",
+            "hideTitle": true,
+            "typeChain": null,
+            "nameChain": "Ln_Caja_Collection",
+            "idRender": "c0f1lBJIp2WU4aY"
+        },
+        "articles": [
+            {
+                "_id": "QICSVM56MJHD7DFQGVLGLX3W44",
+                "credits": {
+                    "by": [
+                        {
+                            "_id": "candela-contreras",
+                            "additional_properties": {
+                                "original": {
+                                    "image": "https://author-service-images-prod-us-east-1.publishing.aws.arc.pub/lanacionar/1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg"
+                                }
+                            },
+                            "image": {
+                                "resized_urls": [
+                                    {
+                                        "option": {
+                                            "height": 80,
+                                            "media": "(min-width: 320px)",
+                                            "width": 80
+                                        },
+                                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg?auth=40f66be5973ef5c6e20e5b70b53e9747dbbc47f300fa62059279be655cb30f97&width=80&quality=70&smart=false"
+                                    }
+                                ],
+                                "url": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg?auth=40f66be5973ef5c6e20e5b70b53e9747dbbc47f300fa62059279be655cb30f97&width=768&quality=70&smart=false"
+                            },
+                            "name": "Candela Contreras",
+                            "slug": "",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-09T16:29:18.679Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Las respuestas a 10 preguntas claves que develan qué pasará con las propiedades en 2026",
+                    "mobile": "Las respuestas a 10 preguntas claves que develan qué pasará con las propiedades en 2026"
+                },
+                "label": {
+                    "chapita": {
+                        "display": true,
+                        "text": ""
+                    },
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "¿Compro o espero?"
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "basic": {
+                        "auth": {
+                            "1": "ae865b91bb462687a7050f083d81fd6890f4098631abf7f6808aa1dc4c4fb4c2"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/-LSFWV4KN6FETTEDEZVK7MRJN7A.jpg?auth=ae865b91bb462687a7050f083d81fd6890f4098631abf7f6808aa1dc4c4fb4c2&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "zonas en el barrio de Núñez, para una nota de Propiedades",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/-LSFWV4KN6FETTEDEZVK7MRJN7A.jpg?auth=ae865b91bb462687a7050f083d81fd6890f4098631abf7f6808aa1dc4c4fb4c2&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-09T16:29:18.679Z",
+                "subheadlines": {
+                    "basic": ""
+                },
+                "subtype": "9",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "a-fondo-tid57485",
+                            "text": "A Fondo"
+                        },
+                        {
+                            "slug": "propiedades-tid46876",
+                            "text": "Propiedades"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/las-respuestas-a-10-preguntas-claves-que-develan-que-pasara-con-las-propiedades-en-2026-nid08012026/",
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "FYL7MJUDVBHKJAL2BMNVS7Z7U4",
+                "credits": {
+                    "by": [
+                        {
+                            "_id": "candela-contreras",
+                            "additional_properties": {
+                                "original": {
+                                    "image": "https://author-service-images-prod-us-east-1.publishing.aws.arc.pub/lanacionar/1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg"
+                                }
+                            },
+                            "image": {
+                                "resized_urls": [
+                                    {
+                                        "option": {
+                                            "height": 80,
+                                            "media": "(min-width: 320px)",
+                                            "width": 80
+                                        },
+                                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg?auth=40f66be5973ef5c6e20e5b70b53e9747dbbc47f300fa62059279be655cb30f97&width=80&quality=70&smart=false"
+                                    }
+                                ],
+                                "url": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F1ba0c3a2-757e-48c1-8042-06f582a9aeea.jpeg?auth=40f66be5973ef5c6e20e5b70b53e9747dbbc47f300fa62059279be655cb30f97&width=768&quality=70&smart=false"
+                            },
+                            "name": "Candela Contreras",
+                            "slug": "",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-09T11:53:21.29Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Créditos hipotecarios: el dato que sorprendió pero no alcanza para anticipar una reactivación",
+                    "mobile": "El dato que sorprendió pero no alcanza para anticipar una reactivación"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Créditos hipotecarios."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "d4b240050fa43d021aab2e7c2b125e0fcceec617512b2eec37f8f830dcb836d3"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/a-pesar-de-que-el-futuro-de-los-creditos-HBJWSC3MGJCHPPXYUPRVTXIPYA.jpg?auth=d4b240050fa43d021aab2e7c2b125e0fcceec617512b2eec37f8f830dcb836d3&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "Businessman,Receives,Money,And,Brown,Envelope,Proposed,In,File,-",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/a-pesar-de-que-el-futuro-de-los-creditos-HBJWSC3MGJCHPPXYUPRVTXIPYA.jpg?auth=d4b240050fa43d021aab2e7c2b125e0fcceec617512b2eec37f8f830dcb836d3&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-09T11:53:21.290Z",
+                "subheadlines": {
+                    "basic": "Luego del boom UVA en 2018, comenzó un periodo en el que prácticamente no se desembolsaron préstamos a largo plazo hasta el 2024, pero se enfrió a  finales del 2025"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "creditos-hipotecarios-tid56286",
+                            "text": "Créditos hipotecarios"
+                        },
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/creditos-hipotecarios-el-dato-que-sorprendio-pero-no-alcanza-para-anticipar-una-reactivacion-nid08012026/",
+                "additionalProperties": {
+                    "originPosition": "T2",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "5T6IRC534ZDDLPU5JKNYNXTFRY",
+                "credits": {
+                    "by": [
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "author_type": ""
+                                }
+                            },
+                            "name": "Soledad Balayan",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-08T11:06:45.627Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Una experta en propiedades revela las 8 razones por las que no logras vender tu casa ",
+                    "mobile": "Una experta en propiedades revela las 8 razones por las que no logras vender tu casa "
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "\"Algunas no podés imaginarlas\"."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/el-ano-se-perfila-con-buenas-perspectivas-en-el-KMSHU2V22VE2XP4WUSFY27JOUI.JPG?auth=fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/el-ano-se-perfila-con-buenas-perspectivas-en-el-KMSHU2V22VE2XP4WUSFY27JOUI.JPG?auth=fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-08T11:06:45.627Z",
+                "subheadlines": {
+                    "basic": "Los signos positivos del mercado no alcanzan para asegurar la venta de un inmueble; cuáles son las otras variables "
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "compraventa",
+                            "text": "Compraventa"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/una-especialista-en-propiedades-revela-las-8-razones-por-las-que-no-logras-vender-tu-casa-nid02012026/",
+                "additionalProperties": {
+                    "originPosition": "T3",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Apertura"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fWUBuukyvt2FJ"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Apertura"
+    },
+    {
+        "type": 2,
+        "sectionAliasMobile": "ln-common/anexo",
+        "information": {
+            "hideCaja": false,
+            "layout": "grilla1",
+            "nameFeature": "LN-common/anexo",
+            "idRender": "f0fgFdlZr9qObj"
+        },
+        "articles": [
+            {
+                "url": "https://widgets-partners.lanacion.com.ar/map-widget",
+                "alto": 400,
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0f3pG3vPhBrJT"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 0,
+        "sectionAliasMobile": "ln_caja_collection",
+        "information": {
+            "layout": "grilla6",
+            "backgroundColor": "default",
+            "initialPosition": 1,
+            "hideTitle": false,
+            "idCollection": "UPEBRBC7TBEUFKI2RQIV6GUHMY",
+            "title": "Actualidad",
+            "typeChain": null,
+            "nameChain": "Ln_Caja_Collection",
+            "idRender": "c0fGMxEhrxDN27a"
+        },
+        "articles": [
+            {
+                "_id": "7RBGHQRKVVDDFPHG3XL4VIHU2I",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-10T01:49:22.96Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "La decisión de Trump que podría cambiar los negocios inmobiliarios en Estados Unidos",
+                    "mobile": "La decisión de Trump que podría cambiar los negocios inmobiliarios en Estados Unidos"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Tomó dos medidas."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "20e1b5456b29964d4d390e4c03fc52543575d39d97f3d409e6a6d0c5e7a508a4"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/donald-trump-planea-multiples-reformas-de-JRKIVDVIQVFYRBYJDD5LCCYW7A.jpg?auth=20e1b5456b29964d4d390e4c03fc52543575d39d97f3d409e6a6d0c5e7a508a4&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/donald-trump-planea-multiples-reformas-de-JRKIVDVIQVFYRBYJDD5LCCYW7A.jpg?auth=20e1b5456b29964d4d390e4c03fc52543575d39d97f3d409e6a6d0c5e7a508a4&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-10T01:49:22.960Z",
+                "subheadlines": {
+                    "basic": "Uno de los grandes problemas que atraviesa al país norteamericano tiene que ver con el acceso a la vivienda"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "donald-trump-tid51550",
+                            "text": "Donald Trump"
+                        },
+                        {
+                            "slug": "estados-unidos-tid473",
+                            "text": "Estados Unidos"
+                        },
+                        {
+                            "slug": "creditos-hipotecarios-tid56286",
+                            "text": "Créditos hipotecarios"
+                        },
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/trump-busca-intervenir-el-mercado-inmobiliario-en-estados-unidos-nid09012026/",
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "523SW7T2PNHL5MLCSQRFZIBSFY",
+                "credits": {
+                    "by": [
+                        {
+                            "_id": "ManuelaVinales",
+                            "additional_properties": {
+                                "original": {
+                                    "image": "https://author-service-images-prod-us-east-1.publishing.aws.arc.pub/lanacionar/bfbe68ee-47ab-4464-84d6-da3550fc0d9c.jpg"
+                                }
+                            },
+                            "image": {
+                                "resized_urls": [
+                                    {
+                                        "option": {
+                                            "height": 80,
+                                            "media": "(min-width: 320px)",
+                                            "width": 80
+                                        },
+                                        "resizedUrl": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2Fbfbe68ee-47ab-4464-84d6-da3550fc0d9c.jpg?auth=d2fae654c4ecfea7d1804d31bfa49c9a4033a4dbd90bffdf95ce83d7b97d1b8d&width=80&quality=70&smart=false"
+                                    }
+                                ],
+                                "url": "https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2Fbfbe68ee-47ab-4464-84d6-da3550fc0d9c.jpg?auth=d2fae654c4ecfea7d1804d31bfa49c9a4033a4dbd90bffdf95ce83d7b97d1b8d&width=768&quality=70&smart=false"
+                            },
+                            "name": "Manuela Viñales",
+                            "slug": "",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-09T16:11:17.881Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Costa Esmeralda: los precios de los alquileres que quedan en enero y qué renta deja la inversión en una casa ",
+                    "mobile": "Los precios de los alquileres que quedan en enero y qué renta deja la inversión en una casa "
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Costa Esmeralda."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "3e79a7798a192f5eebb82efa54bd083adcf944223fca4ef1730908d17e0c8b62"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/costa-esmeralda-es-un-desarrollo-con-16-barrios-76247S4QSJGRHCIYJVE2HEKTTI.jpg?auth=3e79a7798a192f5eebb82efa54bd083adcf944223fca4ef1730908d17e0c8b62&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/costa-esmeralda-es-un-desarrollo-con-16-barrios-76247S4QSJGRHCIYJVE2HEKTTI.jpg?auth=3e79a7798a192f5eebb82efa54bd083adcf944223fca4ef1730908d17e0c8b62&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-09T16:11:17.881Z",
+                "subheadlines": {
+                    "basic": "El desarrollo que tiene 3200 metros de playa está a 11 km de Pinamar "
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "costa-esmeralda-tid57009",
+                            "text": "Costa Esmeralda"
+                        },
+                        {
+                            "slug": "costa-argentina-tid58839",
+                            "text": "Costa argentina"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/costa-esmeralda-los-precios-de-los-alquileres-que-quedan-en-enero-y-que-renta-deja-la-inversion-en-nid08012026/",
+                "additionalProperties": {
+                    "originPosition": "T2",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "D77YFXGMRJDL7H7IEELQPA6T7A",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-13T16:39:43.731Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Créditos hipotecarios: cuánto hay que ganar para comprar un departamento en enero 2026",
+                    "mobile": "Cuánto tengo que cobrar para poder comprar un departamento"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Créditos hipotecarios."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/la-suba-del-dolar-encarecio-los-inmuebles-medidos-KMSHU2V22VE2XP4WUSFY27JOUI.JPG?auth=fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/la-suba-del-dolar-encarecio-los-inmuebles-medidos-KMSHU2V22VE2XP4WUSFY27JOUI.JPG?auth=fc1e65310ebe38be6e0524af86342588955ebad312c27937199d0f1cece85da3&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-13T16:39:43.731Z",
+                "subheadlines": {
+                    "basic": "Los ingresos requeridos varían dependiendo del banco y del plazo solicite el préstamo pero hay un mínimo con el que se debe contar"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "creditos-hipotecarios-tid56286",
+                            "text": "Créditos hipotecarios"
+                        },
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "dolares",
+                            "text": "Dólares"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/creditos-hipotecarios-cuanto-hay-que-ganar-para-comprar-un-departamento-en-enero-2026-nid09012026/",
+                "additionalProperties": {
+                    "originPosition": "T3",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "QUYZS733KNFHRKPPGECW5H3XIM",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-07T15:57:43.449Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "¿Cuánto cuesta una casa cápsula china?",
+                    "mobile": "Estos son los precios de las casa capsulas que se importan de China"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Se instalan en pocas horas."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "f93dfebf8901443d415bd79880163e7730cb44e0f66feda807831e19c522fc32"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/la-casa-prefabricada-tipo-capsula-se-instala-en-SFWXUEMO6VFJBA5WZLOF2ESWQU.jpg?auth=f93dfebf8901443d415bd79880163e7730cb44e0f66feda807831e19c522fc32&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/la-casa-prefabricada-tipo-capsula-se-instala-en-SFWXUEMO6VFJBA5WZLOF2ESWQU.jpg?auth=f93dfebf8901443d415bd79880163e7730cb44e0f66feda807831e19c522fc32&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-21T19:12:05.573Z",
+                "subheadlines": {
+                    "basic": "Con valores que pueden variar entre los US$39.000 y los USS80.000, parte de su atractivo radica en que se montan en pocas horas"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Propiedades",
+                        "path": "/propiedades"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/cuanto-cuesta-una-casa-capsula-china-nid07012026/",
+                "additionalProperties": {
+                    "originPosition": "T4",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "LTXB5EJNGFG75LZQ4WM7OAP2DM",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-12T22:38:34.511Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "¿Cuánto cuesta remodelar un baño en enero 2026, según cada presupuesto?",
+                    "mobile": "Esto es lo que cuesta remodelar el baño"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Presupuesto."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "7602c6610e5da22ddc69aa90a711665f8620e40f3935a9bc4b1db23dad0f7bae"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/el-bano-es-uno-de-los-ambientes-mas-caros-para-UG573TM67FGYDN243G66HPQWIY.JPG?auth=7602c6610e5da22ddc69aa90a711665f8620e40f3935a9bc4b1db23dad0f7bae&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/el-bano-es-uno-de-los-ambientes-mas-caros-para-UG573TM67FGYDN243G66HPQWIY.JPG?auth=7602c6610e5da22ddc69aa90a711665f8620e40f3935a9bc4b1db23dad0f7bae&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-12T22:38:34.511Z",
+                "subheadlines": {
+                    "basic": "Los costos de refacción continúan en alza, pero los expertos recomiendan realizar las remodelaciones ahora porque se espera que la suba continúe"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/construccion-y-diseno",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Construcción y Diseño",
+                        "path": "/propiedades/construccion-y-diseno"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/construccion-y-diseno",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Construcción y Diseño",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/construccion-y-diseno",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "banos-tid50058",
+                            "text": "Baños"
+                        },
+                        {
+                            "slug": "arquitectura-tid55718",
+                            "text": "Arquitectura"
+                        },
+                        {
+                            "slug": "diseno-interior",
+                            "text": "Diseño interior"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/construccion-y-diseno/cuanto-cuesta-remodelar-un-bano-en-enero-2026-segun-cada-presupuesto-nid06012026/",
+                "additionalProperties": {
+                    "originPosition": "T5",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "BWYV3L2WM5DIJPYGW7PSFTYI7Y",
+                "credits": {
+                    "by": [
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "author_type": ""
+                                }
+                            },
+                            "name": "Ana González",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-07T20:53:41.653Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Lo que viene en el mercado inmobiliario de oficinas",
+                    "mobile": "Lo que hay que saber antes de salir a alquilar"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Oficinas:"
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "dea720c370fb0442a97b8f565617caec900d584591e2a3d98726087d5eac0031"
+                        },
+                        "height": 513,
+                        "owner": {},
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/las-torres-de-oficinas-conforman-el-perfil-de-las-GOLLAVWWRZFSTBUMRZSU6KS4ME.jpg?auth=dea720c370fb0442a97b8f565617caec900d584591e2a3d98726087d5eac0031&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "Las torres de oficinas, protagonistas en Catalinas Norte",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/las-torres-de-oficinas-conforman-el-perfil-de-las-GOLLAVWWRZFSTBUMRZSU6KS4ME.jpg?auth=dea720c370fb0442a97b8f565617caec900d584591e2a3d98726087d5eac0031&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-07T20:53:41.653Z",
+                "subheadlines": {
+                    "basic": "Señales de reactivación, nuevas dinámicas y un cambio de clima en el real estate corporativo"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/inmuebles-comerciales",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Inmuebles Comerciales",
+                        "path": "/propiedades/inmuebles-comerciales"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/inmuebles-comerciales",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Inmuebles Comerciales",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/inmuebles-comerciales",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "caba-tid50414",
+                            "text": "C.A.B.A."
+                        },
+                        {
+                            "slug": "inversiones-tid68765",
+                            "text": "Inversiones"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/inmuebles-comerciales/lo-que-viene-en-el-mercado-inmobiliario-de-oficinas-nid06012026/",
+                "additionalProperties": {
+                    "originPosition": "T6",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 0,
+        "sectionAliasMobile": "ln_caja_manual",
+        "information": {
+            "idCollection": "",
+            "layout": "grilla1",
+            "initialPosition": 1,
+            "url": "",
+            "imageId": "",
+            "title": "A FONDO",
+            "hideTitle": false,
+            "typeChain": null,
+            "nameChain": "Ln_Caja_Manual",
+            "idRender": "c0fYBBoxVz7oboS"
+        },
+        "articles": [
+            {
+                "_id": "FHQL4AJZT5GHNMV5DR27DMFNXI",
+                "category": "Propiedades",
+                "checkoutEnabled": "",
+                "content_elements": [],
+                "content_restrictions": {
+                    "content_code": "abierta"
+                },
+                "credits": {
+                    "by": []
+                },
+                "description": {
+                    "basic": ""
+                },
+                "distributor": {
+                    "category": "staff",
+                    "mode": "reference_denormalized",
+                    "name": "LA NACION",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967",
+                    "subcategory": ""
+                },
+                "first_publish_date": "2025-04-23T03:01:00Z",
+                "headlines": {
+                    "basic": "Calculadora de créditos hipotecarios. ¿Cuál es la mejor opción para vos?",
+                    "meta_title": "Calculadora de créditos hipotecarios. ¿Cuál es la mejor opción para vos?",
+                    "mobile": "¿Cuál es la mejor opción para vos?",
+                    "native": "",
+                    "web": ""
+                },
+                "isListenable": false,
+                "label": {
+                    "chapita": {
+                        "display": true,
+                        "text": "A Fondo"
+                    },
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "enviar_a_apps": {
+                        "display": true,
+                        "text": "No",
+                        "url": ""
+                    },
+                    "glosario_nota": {
+                        "display": true,
+                        "text": "No"
+                    },
+                    "metarefresh": {
+                        "display": true,
+                        "text": "Si"
+                    },
+                    "mostrar_banners": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "recomendar": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "republicar_audio": {
+                        "display": true,
+                        "text": "Si"
+                    },
+                    "showcase": {
+                        "display": true,
+                        "text": "No"
+                    },
+                    "trust": {
+                        "text": "Noticia"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Calculadora de créditos hipotecarios."
+                    }
+                },
+                "last_updated_date": "2025-04-30T11:56:01.854Z",
+                "paywallEnabled": "",
+                "planning": {
+                    "story_length": {
+                        "word_count_actual": 0
+                    }
+                },
+                "promo_items": {
+                    "basic": {
+                        "_id": "PTP2XDJ5Q5DFPEAWDC6UT5KYDA",
+                        "additional_properties": {
+                            "mime_type": "image/png"
+                        },
+                        "auth": {
+                            "1": "f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead"
+                        },
+                        "caption": "Calculadora creditos hipotecarios",
+                        "created_date": "2025-04-07T19:02:42Z",
+                        "credits": {
+                            "affiliation": []
+                        },
+                        "height": 513,
+                        "originalSizes": {
+                            "height": 533,
+                            "width": 800
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 586,
+                                    "media": "(min-width: 1280px)",
+                                    "minScreenWidth": 1280,
+                                    "width": 880
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=880&height=586&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 397,
+                                    "media": "(min-width: 1024px)",
+                                    "minScreenWidth": 1024,
+                                    "width": 992
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=992&height=397&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 294,
+                                    "media": "(min-width: 768px)",
+                                    "minScreenWidth": 768,
+                                    "width": 736
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=736&height=294&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 590,
+                                    "minScreenWidth": 375,
+                                    "width": 510
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=510&height=590&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 360,
+                                    "width": 320
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=320&height=360&quality=70&smart=true"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/calculadora-creditos-PTP2XDJ5Q5DFPEAWDC6UT5KYDA.png?auth=f4ce5dfc9950d140129fc8afb53c99cc98cfc1aad057f02a28f32820e5bfcead&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2025-04-30T11:56:01.698Z",
+                "related_content": {
+                    "basic": []
+                },
+                "source": {
+                    "system": "composer"
+                },
+                "subheadlines": {
+                    "basic": ""
+                },
+                "subtype": "9",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades",
+                        "_website": "la-nacion-ar",
+                        "additional_properties": {
+                            "original": {
+                                "ancestors": {},
+                                "migration": {
+                                    "id_section_ln9": "6251",
+                                    "migrated_mob": "true"
+                                },
+                                "site": {}
+                            }
+                        },
+                        "name": "Propiedades",
+                        "parent_id": "/",
+                        "path": "/propiedades",
+                        "type": "section"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/data",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "48587",
+                                        "migrated_mob": "false"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "LA NACION Data",
+                            "parent_id": "/",
+                            "path": "/data",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades/inversiones",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Inversiones",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/inversiones",
+                            "type": "section"
+                        }
+                    ],
+                    "sites": [
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "_id": "/propiedades",
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "_id": "/data",
+                                    "migration": {
+                                        "id_section_ln9": "48587",
+                                        "migrated_mob": "false"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "_id": "/propiedades/casas-y-departamentos",
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "_id": "/propiedades/inversiones",
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "description": "A Fondo",
+                            "slug": "a-fondo-tid57485",
+                            "text": "A Fondo"
+                        },
+                        {
+                            "description": "Créditos hipotecarios",
+                            "slug": "creditos-hipotecarios-tid56286",
+                            "text": "Créditos hipotecarios"
+                        },
+                        {
+                            "description": "LA NACION Data",
+                            "slug": "la-nacion-data-tid48587",
+                            "text": "LA NACION Data"
+                        }
+                    ]
+                },
+                "website_url": "/economia/calculadora-de-creditos-hipotecarios-cual-es-la-mejor-opcion-para-vos-nid23042025/",
+                "withFirmaDistributor": false,
+                "withSponsoredLink": false,
+                "additionalProperties": {
+                    "noteId": "FHQL4AJZT5GHNMV5DR27DMFNXI",
+                    "title": "",
+                    "lead": "",
+                    "image": null,
+                    "video": null,
+                    "idRender": "f0fJkqgacf2j5wF",
+                    "originPosition": "T1",
+                    "nameFeature": "LN-common/articulo"
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/anexoiframe",
+        "information": {
+            "nameFeature": "LN-acumulado/anexoIframe",
+            "idRender": "f0fLAXVFKeVA7SS"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fsMzMpdb9rdS"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0f7bsSOJOSo1vN"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 10,
+        "sectionAliasMobile": "ln10_caja_carrusel",
+        "information": {
+            "title": "",
+            "link": "",
+            "logoId": "",
+            "buttonLogo": "",
+            "nameChain": "LN10_Caja_Carrusel",
+            "idRender": "c0f3aSRdBmUx1gh"
+        },
+        "videos": [
+            {
+                "_id": "6ee57ae74616063865af63b1d5ffe536e4a8a787a7d4f56aae4a265d1b1e8836",
+                "title": "Así fue la edición Real Estate en la redacción de LA NACION ",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/B9BjP1LJ/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/0p4o3en2-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/B9BjP1LJ.m3u8",
+                "fullVideoDuration": 64,
+                "badgeStyle": "default",
+                "jwVideoId": "B9BjP1LJ"
+            },
+            {
+                "_id": "966888396ffc13f844f8e92eae558e7ab626a8c0abbd9fa8c4f47cbb2f36c70c",
+                "title": "Décima edición de Real Estate Argentina ",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/XWHrRoRw/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/mtee0rx2-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/XWHrRoRw.m3u8",
+                "fullVideoDuration": 61,
+                "badgeStyle": "default",
+                "jwVideoId": "XWHrRoRw"
+            },
+            {
+                "_id": "9dad3665ffe221e4088d4aa3858aa82ff733ceb8f2f5bd36016f14401be53661",
+                "title": "Real Estate: ¿es momento de comprar?",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/6ftrRqS0/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/dv0l3kjf-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/6ftrRqS0.m3u8",
+                "fullVideoDuration": 62,
+                "badgeStyle": "default",
+                "jwVideoId": "6ftrRqS0"
+            },
+            {
+                "_id": "462f2c0874b02baf0e2d421c294693ecef020ad284f0ec902110f218f8d7049a",
+                "title": "Ping Pong - Real Estate",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/o2MihFap/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/nsoy2ygj-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/o2MihFap.m3u8",
+                "fullVideoDuration": 53,
+                "badgeStyle": "default",
+                "jwVideoId": "o2MihFap"
+            },
+            {
+                "_id": "3e7c2804389fa455ba63e2620f50ed3b7c111d3688b68b2606e7b8410e41a7e4",
+                "title": "Real Estate: ¿los creditos llegaron a su techo? ",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/DrwAcqnl/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/wcknrdfv-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/DrwAcqnl.m3u8",
+                "fullVideoDuration": 45,
+                "badgeStyle": "default",
+                "jwVideoId": "DrwAcqnl"
+            },
+            {
+                "_id": "48391cf57e159a80676eacf9a5e83b2b52e5509100b5477673e3da31102c578e",
+                "title": "Real Estate - Costantini: ¿qué pasará con los costos de construcción? ",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/pE0siPwe/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/o0p4kw4t-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/pE0siPwe.m3u8",
+                "fullVideoDuration": 56,
+                "badgeStyle": "default",
+                "jwVideoId": "pE0siPwe"
+            },
+            {
+                "_id": "2beecfb0035be3b4ed53435f1637acd806d9ce066e7d10da13904dfbd3fa6662",
+                "title": "Real Estate: ¿cuál es el barrio sorpresa para invertir?",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/WsApqUk5/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/5affycry-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/WsApqUk5.m3u8",
+                "fullVideoDuration": 54,
+                "badgeStyle": "default",
+                "jwVideoId": "WsApqUk5"
+            },
+            {
+                "_id": "1ebf1e9b4580b496d0802fba1a88dc185de35e85e1810398c9b46ba078deaf23",
+                "title": "¿Qué fue lo mejor del summit de real estate? ",
+                "posterUrl": "https://cdn.jwplayer.com/v2/media/rSBjQRsz/poster.jpg?width=320",
+                "previewVideoUrl": "https://assets-jpcust.jwpsrv.com/thumbnails/b2ezqyjd-320.mp4",
+                "fullVideoUrl": "https://cdn.jwplayer.com/manifests/rSBjQRsz.m3u8",
+                "fullVideoDuration": 65,
+                "badgeStyle": "default",
+                "jwVideoId": "rSBjQRsz"
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 0,
+        "sectionAliasMobile": "ln_caja_collection",
+        "information": {
+            "layout": "grilla3",
+            "backgroundColor": "default",
+            "initialPosition": 1,
+            "hideTitle": false,
+            "idCollection": "VYLPYX37IRFTBBENBHQQF5CC5I",
+            "title": "Más noticias",
+            "typeChain": null,
+            "nameChain": "Ln_Caja_Collection",
+            "idRender": "c0fAkypwU65l9SF"
+        },
+        "articles": [
+            {
+                "_id": "J6FLNA7A4BG4BJDUZ3GYVY7VM4",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-13T22:43:02.03Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "¿Cuánto cuesta cercar un terreno en enero 2026?",
+                    "mobile": "Cuánto plata cuesta ponerle un cerco a un terreno"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Propiedades."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "3c040c0c079adf04c1693cac5d6db2211d66146ead16c017d7f3e10880a61146"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/terrenos-cercados-puede-ser-con-alambre-o-con-AI75GMACQNACFLWCC6UH7HWSZA.jpg?auth=3c040c0c079adf04c1693cac5d6db2211d66146ead16c017d7f3e10880a61146&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "White,Vinyl,Fence,Surrounding,Private,Property,Grounds,For,Backyard,Protection",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/terrenos-cercados-puede-ser-con-alambre-o-con-AI75GMACQNACFLWCC6UH7HWSZA.jpg?auth=3c040c0c079adf04c1693cac5d6db2211d66146ead16c017d7f3e10880a61146&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-13T22:43:02.030Z",
+                "subheadlines": {
+                    "basic": "La compra de un terreno conlleva la necesidad de colocar un cerco que, en primer lugar, definirá claramente sus límites, pero también otorgará privacidad, intimidad y seguridad"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/construccion-y-diseno",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Construcción y Diseño",
+                        "path": "/propiedades/construccion-y-diseno"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/construccion-y-diseno",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Construcción y Diseño",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/construccion-y-diseno",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "terrenos",
+                            "text": "Terrenos"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/construccion-y-diseno/cuanto-cuesta-cercar-un-terreno-en-enero-2026-nid09012026/",
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "4Y4OUSWSLJAMFA7VNOWIP4GAFU",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-10T10:37:59.111Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "¿Cuánto cuesta una casa contenedor en enero 2026?",
+                    "mobile": "Este es el precio una casa contenedor"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "En pesos o en dólares."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "351359fd77d4a2c6bda4899ee3cdef9ead007fc80887de7f0a7081ce8270d3fb"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/estas-casas-pueden-trasladarse-con-relativa-BSPHY5PFPJAJHOIKF3UZXGZZC4.jpg?auth=351359fd77d4a2c6bda4899ee3cdef9ead007fc80887de7f0a7081ce8270d3fb&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "Mature,Woman,Working,In,Home,Office,In,Container,House,In",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/estas-casas-pueden-trasladarse-con-relativa-BSPHY5PFPJAJHOIKF3UZXGZZC4.jpg?auth=351359fd77d4a2c6bda4899ee3cdef9ead007fc80887de7f0a7081ce8270d3fb&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-16T14:06:33.916Z",
+                "subheadlines": {
+                    "basic": "Se trata de un modelo de casa que está ganando popularidad, es transportable y sustentable porque recicla materiales"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/construccion-y-diseno",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Construcción y Diseño",
+                        "path": "/propiedades/construccion-y-diseno"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/construccion-y-diseno",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Construcción y Diseño",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/construccion-y-diseno",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "sustentabilidad-tid65194",
+                            "text": "sustentabilidad"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/construccion-y-diseno/cuanto-cuesta-una-casa-contenedor-en-enero-2026-nid08012026/",
+                "additionalProperties": {
+                    "originPosition": "T2",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "M3YHOSYXEBDYFLYRVTHLFUR2KQ",
+                "credits": {
+                    "by": [
+                        {
+                            "additional_properties": {
+                                "original": {
+                                    "author_type": ""
+                                }
+                            },
+                            "name": "Esteban Starr",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "display_date": "2026-01-08T20:20:59.925Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "c76b6e1c-d725-4082-9e21-98faf93902f7"
+                },
+                "headlines": {
+                    "basic": "La única isla sin autos y con un caballo por persona",
+                    "mobile": "La única isla sin autos y con un caballo por persona"
+                },
+                "label": {
+                    "chapita": {
+                        "display": true,
+                        "text": "FOTOS"
+                    },
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "\"Hasta los carritos de golf están prohibidos\"."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "09a3ff33c4b99b3df4c3195d5feefaa5444319d26e03ec3c4091c5c5d79532f5"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/es-un-lugar-idilico-coinciden-quienes-lo-U7Y7QI6WBNCZVPAWUHMXWSQUOA.jpg?auth=09a3ff33c4b99b3df4c3195d5feefaa5444319d26e03ec3c4091c5c5d79532f5&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/es-un-lugar-idilico-coinciden-quienes-lo-U7Y7QI6WBNCZVPAWUHMXWSQUOA.jpg?auth=09a3ff33c4b99b3df4c3195d5feefaa5444319d26e03ec3c4091c5c5d79532f5&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-08T20:20:59.925Z",
+                "subheadlines": {
+                    "basic": "En medio de “la capital mundial del automóvil”, hay una isla serena y libre de vehículos, hogar de 600 personas, 600 caballos y una forma de vida antigua."
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "caballos",
+                            "text": "Caballos"
+                        },
+                        {
+                            "slug": "autos-tid48475",
+                            "text": "Autos"
+                        },
+                        {
+                            "slug": "estados-unidos-tid473",
+                            "text": "Estados Unidos"
+                        },
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/la-isla-estadounidense-sin-autos-y-con-un-caballo-por-persona-nid07012026/",
+                "additionalProperties": {
+                    "originPosition": "T3",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fTCqhZuLfYtP"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/anexoiframe",
+        "information": {
+            "nameFeature": "LN-acumulado/anexoIframe",
+            "idRender": "f0fa4UOPsgUx5m"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fUK2iGH8DC62"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 0,
+        "sectionAliasMobile": "ln_caja_collection",
+        "information": {
+            "layout": "grilla3",
+            "backgroundColor": "default",
+            "initialPosition": 1,
+            "hideTitle": false,
+            "idCollection": "TWLXOKM36ZB2DACRHRHRWJJFZQ",
+            "title": "Lo que tenés que saber",
+            "url": "https://www.lanacion.com.ar/tema/lo-que-tenes-que-saber-tid68767/",
+            "typeChain": null,
+            "nameChain": "Ln_Caja_Collection",
+            "idRender": "c0fCLtL697e43eq"
+        },
+        "articles": [
+            {
+                "_id": "P4U43P45UBENVCDZGNNVREADSE",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-04T21:12:47.333Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "¿Conviene alquilar con expensas incluidas? ¿Cada cuánto tiempo se ajustan?",
+                    "mobile": "¿Conviene hacer un contrato de alquiler con expensas incluidas?"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Propietarios e inquilinos."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "265f76e9538c60a764ff4e2b616dc4adbdfec04ce8279702cd0c8b711c7cac04"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/las-expensas-no-son-un-gasto-fijo-tienden-a-UM3FW4JRMBBDHP2KKXPPB7OCAE.jpg?auth=265f76e9538c60a764ff4e2b616dc4adbdfec04ce8279702cd0c8b711c7cac04&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "Entrepreneur working with bills",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/las-expensas-no-son-un-gasto-fijo-tienden-a-UM3FW4JRMBBDHP2KKXPPB7OCAE.jpg?auth=265f76e9538c60a764ff4e2b616dc4adbdfec04ce8279702cd0c8b711c7cac04&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-04T21:12:47.333Z",
+                "subheadlines": {
+                    "basic": "Las expensas no son un gasto fijo, se ajustan todos los meses y, en muchos casos, aumentan incluso por encima de la inflación"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Casas y Departamentos",
+                        "path": "/propiedades/casas-y-departamentos"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/casas-y-departamentos",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Casas y Departamentos",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/casas-y-departamentos",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/casas-y-departamentos/conviene-alquilar-con-expensas-incluidas-cada-cuanto-tiempo-se-ajustan-nid31122025/",
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "56VMNSSDMNABDPKJAGTTEI4UEA",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-05T23:33:54.154Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Reforma sin planos: cómo poner en orden los papeles de una propiedad ",
+                    "mobile": "Cómo poner en orden los papeles de una propiedad sin planos antes de hacer una reforma"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Año nuevo, casa nueva."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "4e9ef487bdd6123a8d3e920b65be5df6ee1614bf53c7e9b263afaf545e07e137"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 513,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/lo-que-hay-que-saber-antes-de-remodelar-una-casa-K3R4DAW35VHPZF3D4JUHTMNKOM.JPG?auth=4e9ef487bdd6123a8d3e920b65be5df6ee1614bf53c7e9b263afaf545e07e137&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "subtitle": "Montpellier,,France,-,24th,March,2023,:,Work,Piece,With",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/lo-que-hay-que-saber-antes-de-remodelar-una-casa-K3R4DAW35VHPZF3D4JUHTMNKOM.JPG?auth=4e9ef487bdd6123a8d3e920b65be5df6ee1614bf53c7e9b263afaf545e07e137&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-16T18:48:51.526Z",
+                "subheadlines": {
+                    "basic": "Todo lo que hay que saber al encarar una reforma en una propiedad sin planos y por qué la consulta con un profesional se vuelve imprescindible"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/construccion-y-diseno",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Construcción y Diseño",
+                        "path": "/propiedades/construccion-y-diseno"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/construccion-y-diseno",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Construcción y Diseño",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/construccion-y-diseno",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "arquitectura-tid55718",
+                            "text": "Arquitectura"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/construccion-y-diseno/reforma-sin-planos-como-poner-en-orden-los-papeles-de-una-propiedad-nid01012026/",
+                "additionalProperties": {
+                    "originPosition": "T2",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "X4WNWNFPDNAHFIB737UD3HGMVE",
+                "credits": {
+                    "by": []
+                },
+                "display_date": "2026-01-05T14:52:13.582Z",
+                "distributor": {
+                    "mode": "reference",
+                    "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+                },
+                "headlines": {
+                    "basic": "Cuánto cuesta construir un lavadero completo ",
+                    "mobile": "Lo que hay que saber para construir un lavadero completo: precios, tendencias e ideas"
+                },
+                "label": {
+                    "recomendar": {
+                        "text": "Si"
+                    },
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Remodelación."
+                    }
+                },
+                "owner": {
+                    "sponsored": false
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "4b9af046f4f2d5095bede8e2a44271d0d9979949460745658bf5e456ac5247e9"
+                        },
+                        "height": 513,
+                        "owner": {
+                            "sponsored": false
+                        },
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 901,
+                                    "media": "(min-width: 768px)",
+                                    "width": 768
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/un-lavadero-con-espacio-suficiente-no-solo-para-VJXHDCVCTZBFTJIJEKPKRWOW4M.JPG?auth=4b9af046f4f2d5095bede8e2a44271d0d9979949460745658bf5e456ac5247e9&width=768&quality=70&smart=false"
+                            }
+                        ],
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/un-lavadero-con-espacio-suficiente-no-solo-para-VJXHDCVCTZBFTJIJEKPKRWOW4M.JPG?auth=4b9af046f4f2d5095bede8e2a44271d0d9979949460745658bf5e456ac5247e9&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "publish_date": "2026-01-05T14:52:13.582Z",
+                "subheadlines": {
+                    "basic": "Una obra que puede llevar hasta un mes y medio y que requiere especial atención a la funcionalidad\n"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/construccion-y-diseno",
+                        "additional_properties": {
+                            "original": {}
+                        },
+                        "name": "Construcción y Diseño",
+                        "path": "/propiedades/construccion-y-diseno"
+                    },
+                    "sections": [
+                        {
+                            "_id": "/propiedades/construccion-y-diseno",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {
+                                        "default": [
+                                            "/propiedades"
+                                        ]
+                                    },
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Construcción y Diseño",
+                            "parent_id": "/propiedades",
+                            "path": "/propiedades/construccion-y-diseno",
+                            "type": "section"
+                        },
+                        {
+                            "_id": "/propiedades",
+                            "_website": "la-nacion-ar",
+                            "additional_properties": {
+                                "original": {
+                                    "ancestors": {},
+                                    "migration": {
+                                        "id_section_ln9": "6251",
+                                        "migrated_mob": "true"
+                                    },
+                                    "site": {}
+                                }
+                            },
+                            "name": "Propiedades",
+                            "parent_id": "/",
+                            "path": "/propiedades",
+                            "type": "section"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "slug": "real-estate-tid65306",
+                            "text": "Real Estate"
+                        },
+                        {
+                            "slug": "lavaderos",
+                            "text": "Lavaderos"
+                        }
+                    ]
+                },
+                "website_url": "/propiedades/construccion-y-diseno/cuanto-cuesta-construir-un-lavadero-completo-nid30122025/",
+                "additionalProperties": {
+                    "originPosition": "T3",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/anexoiframe",
+        "information": {
+            "nameFeature": "LN-acumulado/anexoIframe",
+            "idRender": "f0fmQhPD4j4Rclp"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fDHcUfNZYZ3F"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/techo",
+        "information": {
+            "nameFeature": "LN-common/techo",
+            "idRender": "f0fWAx81W86U1SX"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-acumulado/grillanotas",
+        "information": {
+            "nameFeature": "LN-acumulado/grillaNotas",
+            "idRender": "f0fWh0b8J7wt2VL"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fuPKTVYMli1ol"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Notas"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fqPpFIoXKg1V5"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Aside"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fW4TGGGIzBFd"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Aside"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/ranking",
+        "information": {
+            "hideCaja": false,
+            "title": "Ranking",
+            "nameFeature": "LN-common/ranking",
+            "idRender": "f0f18lbZWBrlpJ"
+        },
+        "articles": [
+            {
+                "_id": "6PD7GDS5XZCQBNLTDZURD3PKSY",
+                "canonical_url": "/propiedades/casas-y-departamentos/zona-norte-donde-conviene-vivir-cerca-del-hipodromo-o-en-el-bajo-nid21012026/",
+                "display_date": "2026-01-22T10:10:01.226Z",
+                "first_publish_date": "2026-01-21T23:49:44.524Z",
+                "headlines": {
+                    "basic": "Zona norte: Dónde conviene vivir cerca del Hipódromo o en el Bajo ",
+                    "mobile": "Dónde conviene vivir cerca del Hipódromo o en el Bajo",
+                    "web": "Zona norte."
+                },
+                "label": {
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": "Zona norte."
+                },
+                "planning": {
+                    "story_length": {
+                        "word_count_actual": 1221
+                    }
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "7efbdc3a0c978b0da5abd83de5ca064877ccb7c826edcb531a618d71fb3e6582"
+                        },
+                        "height": 513,
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 250,
+                                    "minScreenWidth": 375,
+                                    "proportion": "3:2",
+                                    "width": 375
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/muchos-vecinos-de-san-isidro-ya-disfrutan-del-3Q24ZKLOSVEMXDANLEG6WNDZIY.jpg?auth=7efbdc3a0c978b0da5abd83de5ca064877ccb7c826edcb531a618d71fb3e6582&width=375&height=250&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 200,
+                                    "proportion": "3:2",
+                                    "width": 300
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/muchos-vecinos-de-san-isidro-ya-disfrutan-del-3Q24ZKLOSVEMXDANLEG6WNDZIY.jpg?auth=7efbdc3a0c978b0da5abd83de5ca064877ccb7c826edcb531a618d71fb3e6582&width=300&height=200&quality=70&smart=true"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/muchos-vecinos-de-san-isidro-ya-disfrutan-del-3Q24ZKLOSVEMXDANLEG6WNDZIY.jpg?auth=7efbdc3a0c978b0da5abd83de5ca064877ccb7c826edcb531a618d71fb3e6582&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "source": {
+                    "system": "composer"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos"
+                    }
+                },
+                "website_url": "/propiedades/casas-y-departamentos/zona-norte-donde-conviene-vivir-cerca-del-hipodromo-o-en-el-bajo-nid21012026/",
+                "additionalProperties": {
+                    "originPosition": "T1",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "2AJBJBR7SFAAFHTATYDB4TN5IM",
+                "canonical_url": "/propiedades/casas-y-departamentos/que-diferencia-hay-entre-una-cochera-y-un-garaje-nid21012026/",
+                "display_date": "2026-01-22T10:10:29.021Z",
+                "first_publish_date": "2026-01-21T23:50:54.713Z",
+                "headlines": {
+                    "basic": "Qué diferencia hay entre una cochera y un garaje",
+                    "mobile": "Qué diferencia hay entre una cochera y un garaje",
+                    "web": "\"Pocos lo saben\"."
+                },
+                "label": {
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": "\"Pocos lo saben\"."
+                },
+                "planning": {
+                    "story_length": {
+                        "word_count_actual": 565
+                    }
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "5168301a806e180c0d76a77a2aa504bcee369718af2eed485eebf081e2de13f6"
+                        },
+                        "height": 513,
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 250,
+                                    "minScreenWidth": 375,
+                                    "proportion": "3:2",
+                                    "width": 375
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/tener-una-cochera-o-un-garaje-es-cada-vez-un-bien-LAFMOBTUJRDQ7PIJ4JKHNQG62A.jpg?auth=5168301a806e180c0d76a77a2aa504bcee369718af2eed485eebf081e2de13f6&width=375&height=250&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 200,
+                                    "proportion": "3:2",
+                                    "width": 300
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/tener-una-cochera-o-un-garaje-es-cada-vez-un-bien-LAFMOBTUJRDQ7PIJ4JKHNQG62A.jpg?auth=5168301a806e180c0d76a77a2aa504bcee369718af2eed485eebf081e2de13f6&width=300&height=200&quality=70&smart=true"
+                            }
+                        ],
+                        "subtitle": "Buenos,Aires,,Argentina;,December,27,2022:,High,Constrast,Image,Underground",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/tener-una-cochera-o-un-garaje-es-cada-vez-un-bien-LAFMOBTUJRDQ7PIJ4JKHNQG62A.jpg?auth=5168301a806e180c0d76a77a2aa504bcee369718af2eed485eebf081e2de13f6&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "source": {
+                    "system": "composer"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos"
+                    }
+                },
+                "website_url": "/propiedades/casas-y-departamentos/que-diferencia-hay-entre-una-cochera-y-un-garaje-nid21012026/",
+                "additionalProperties": {
+                    "originPosition": "T2",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "URIOBQCCM5G6DLC2OPTDWT3ZRQ",
+                "canonical_url": "/propiedades/casas-y-departamentos/este-castillo-europeo-congelado-en-el-tiempo-que-se-vende-por-mas-de-us1-millon-nid24012026/",
+                "display_date": "2026-01-26T02:09:08.951Z",
+                "first_publish_date": "2026-01-24T20:13:07.19Z",
+                "headlines": {
+                    "basic": "Este castillo europeo “congelado en el tiempo” que se vende por más de US$1 millón",
+                    "mobile": "Este castillo europeo “congelado en el tiempo” que se vende por más de US$1 millón",
+                    "web": "Está en una isla en la que viven solo 40 personas."
+                },
+                "label": {
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": "Está en una isla en la que viven solo 40 personas."
+                },
+                "planning": {
+                    "story_length": {
+                        "word_count_actual": 695
+                    }
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "89008faffbe5c214a89c1cbb11d06c3949999dc7b1363e1deb7c01b0a8805fa6"
+                        },
+                        "height": 513,
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 250,
+                                    "minScreenWidth": 375,
+                                    "proportion": "3:2",
+                                    "width": 375
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/el-castillo-de-kinloch-fue-construido-entre-1897-7Z4VSPTJWZETZNIPLSLSNRU4QI.jpg?auth=89008faffbe5c214a89c1cbb11d06c3949999dc7b1363e1deb7c01b0a8805fa6&width=375&height=250&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 200,
+                                    "proportion": "3:2",
+                                    "width": 300
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/el-castillo-de-kinloch-fue-construido-entre-1897-7Z4VSPTJWZETZNIPLSLSNRU4QI.jpg?auth=89008faffbe5c214a89c1cbb11d06c3949999dc7b1363e1deb7c01b0a8805fa6&width=300&height=200&quality=70&smart=true"
+                            }
+                        ],
+                        "subtitle": "",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/el-castillo-de-kinloch-fue-construido-entre-1897-7Z4VSPTJWZETZNIPLSLSNRU4QI.jpg?auth=89008faffbe5c214a89c1cbb11d06c3949999dc7b1363e1deb7c01b0a8805fa6&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "source": {
+                    "system": "composer"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades/casas-y-departamentos"
+                    }
+                },
+                "website_url": "/propiedades/casas-y-departamentos/este-castillo-europeo-congelado-en-el-tiempo-que-se-vende-por-mas-de-us1-millon-nid24012026/",
+                "additionalProperties": {
+                    "originPosition": "T3",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            },
+            {
+                "_id": "EFPYDAM35RCZNMLX5JY44DMQHQ",
+                "canonical_url": "/propiedades/cuantos-anos-duran-las-piletas-de-fibra-de-vidrio-nid22012026/",
+                "display_date": "2026-01-26T02:01:42.312Z",
+                "first_publish_date": "2026-01-23T00:02:04.987Z",
+                "headlines": {
+                    "basic": "¿Cuántos años duran las piletas de fibra de vidrio?",
+                    "mobile": "Cuánto tiempo duran y de qué depende",
+                    "web": "Piletas de fibra de vidrio. "
+                },
+                "label": {
+                    "republicar_audio": {
+                        "text": "Si"
+                    },
+                    "volanta": "Piletas de fibra de vidrio. "
+                },
+                "planning": {
+                    "story_length": {
+                        "word_count_actual": 582
+                    }
+                },
+                "promo_items": {
+                    "audio_nota": {
+                        "embed": {
+                            "config": {
+                                "audio_status": 7
+                            }
+                        }
+                    },
+                    "basic": {
+                        "auth": {
+                            "1": "7dad570250ba65e8deca268c96ae4fa0a40520dff306c4b97d4803c317302f2b"
+                        },
+                        "height": 513,
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "height": 250,
+                                    "minScreenWidth": 375,
+                                    "proportion": "3:2",
+                                    "width": 375
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/las-piletas-de-fibra-de-vidrio-son-mas-baratas-5LPSVDB4XJHAJMABZ5RZM46CII.jpg?auth=7dad570250ba65e8deca268c96ae4fa0a40520dff306c4b97d4803c317302f2b&width=375&height=250&quality=70&smart=true"
+                            },
+                            {
+                                "option": {
+                                    "height": 200,
+                                    "proportion": "3:2",
+                                    "width": 300
+                                },
+                                "resizedUrl": "https://resizer.glanacion.com/resizer/v2/las-piletas-de-fibra-de-vidrio-son-mas-baratas-5LPSVDB4XJHAJMABZ5RZM46CII.jpg?auth=7dad570250ba65e8deca268c96ae4fa0a40520dff306c4b97d4803c317302f2b&width=300&height=200&quality=70&smart=true"
+                            }
+                        ],
+                        "subtitle": "New,Modern,Fiberglass,Plastic,Swimming,Pool,Entrance,Step,With,Clean",
+                        "type": "image",
+                        "url": "https://resizer.glanacion.com/resizer/v2/las-piletas-de-fibra-de-vidrio-son-mas-baratas-5LPSVDB4XJHAJMABZ5RZM46CII.jpg?auth=7dad570250ba65e8deca268c96ae4fa0a40520dff306c4b97d4803c317302f2b&width=768&quality=70&smart=false",
+                        "width": 768
+                    }
+                },
+                "source": {
+                    "system": "composer"
+                },
+                "subtype": "1",
+                "taxonomy": {
+                    "primary_section": {
+                        "_id": "/propiedades"
+                    }
+                },
+                "website_url": "/propiedades/cuantos-anos-duran-las-piletas-de-fibra-de-vidrio-nid22012026/",
+                "additionalProperties": {
+                    "originPosition": "T4",
+                    "nameFeature": null,
+                    "idRender": null
+                }
+            }
+        ],
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Aside"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fFFYHINc1mV9"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Aside"
+    },
+    {
+        "type": 9,
+        "sectionAliasMobile": "ln-common/bannerrefactor",
+        "information": {
+            "nameFeature": "LN-common/bannerRefactor",
+            "idRender": "f0fthxFn4jb02mS"
+        },
+        "configurations": {
+            "arcSite": "la-nacion-ar"
+        },
+        "sectionWeb": "Aside"
+    }
+]

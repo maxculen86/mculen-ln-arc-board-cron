@@ -34,12 +34,12 @@ const BoxType = {
 const diagramationFromLayout = layout => {
     const diagramation = {
         'left-focal-without-timeline': 'apertura_left-focal-without-timeline',
-        'left-focal-video-vertical': 'apertura_left-focal-with-video',
+        'left-focal-video-vertical': 'apertura_left-focal-with-video'
     };
     return diagramation[layout] ?? layout;
 };
 
-const createBox = (
+const createBox = ({
     id,
     visible,
     feature,
@@ -48,26 +48,17 @@ const createBox = (
     type,
     itemCategory = 'N/A',
     videos = undefined
-) => {
-    if (videos) {
-        return {
-            id_caja: id,
-            visible: visible || true,
-            feature,
-            diagramacion_caja: diagramationFromLayout(layout),
-            item_category: itemCategory,
-            [type]: notas,
-            videos
-        };
-    }
-    return {
+}) => {
+    const base = {
         id_caja: id,
-        visible: visible || true,
+        visible,
         feature,
         diagramacion_caja: diagramationFromLayout(layout),
         item_category: itemCategory,
         [type]: notas
     };
+
+    return videos ? { ...base, videos } : base;
 };
 const getFeature = sectionAliasMobile => {
     let infoEntry = infoLNMainLN10[sectionAliasMobile];
@@ -118,7 +109,6 @@ const normalizeElement = elem => {
     return isCarousel ? normalizeCarousel(elem) : elem;
 };
 
-
 const createNotasArray = (elem, boxType) => {
     const notasArray = [];
     const resp = {};
@@ -136,15 +126,15 @@ const createNotasArray = (elem, boxType) => {
     elem.articles.forEach(article => {
         if (specialBox[article.sectionAliasMobile]) {
             const notas = createNotasArray(article, boxType);
-            const box = createBox(
-                specialBox[article.sectionAliasMobile],
-                article.information?.hideCaja,
-                getFeature(elem.sectionAliasMobile),
-                article.information?.layout,
-                notas.notasArray,
-                boxType,
-                article.information?.viewabilityRoof
-            );
+            const box = createBox({
+                id: specialBox[article.sectionAliasMobile],
+                visible: !article.information?.hideCaja,
+                feature: getFeature(elem.sectionAliasMobile),
+                layout: article.information?.layout,
+                notas: notas.notasArray,
+                type: boxType,
+                itemCategory: article.information?.viewabilityRoof
+            });
             resp.specialBox = box;
             return;
         }
@@ -187,8 +177,13 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 ? 'enVivo'
                 : informationLayout;
 
-        if ((elem.sectionAliasMobile === 'bnplayer' || elem.sectionAliasMobile === 'apertura') && elem.video) {
-            const videoPosition = information?.layout === 'left-focal-video-vertical' ? 6 : 1;
+        if (
+            (elem.sectionAliasMobile === 'bnplayer' ||
+                elem.sectionAliasMobile === 'apertura') &&
+            elem.video
+        ) {
+            const videoPosition =
+                information?.layout === 'left-focal-video-vertical' ? 6 : 1;
             videos = [
                 createVideo(
                     {
@@ -199,16 +194,16 @@ const createBoxAndNotas = (elem, paramCajaCount, cajas, boxType) => {
                 )
             ];
         }
-        const caja = createBox(
-            boxId,
-            hideCaja,
-            getFeature(sectionAliasMobile),
+        const caja = createBox({
+            id: boxId,
+            visible: !hideCaja,
+            feature: getFeature(sectionAliasMobile),
             layout,
-            notas.notasArray,
-            boxType,
-            information.viewabilityRoof,
+            notas: notas.notasArray,
+            type: boxType,
+            itemCategory: information?.viewabilityRoof,
             videos
-        );
+        });
         cajas.push(caja);
         if (notas.specialBox) cajas.push(notas.specialBox);
         if (!isSpecialBox) cajaCount += 1;

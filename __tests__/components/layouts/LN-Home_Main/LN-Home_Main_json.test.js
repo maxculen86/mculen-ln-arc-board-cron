@@ -1,23 +1,16 @@
-7;
-
-import * as fusionConsumer from 'fusion:consumer';
 import * as LayoutLNMainHome from '../../../../components/private/LN/api/global/page';
-import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
-import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';
-import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1';
-import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2';
 import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 import propsAperturaTimeline from '../../../../__mocks__/data/renderables/dataAperturaTimeline.json';
 
 jest.mock('.../../../../../../components/private/LN/api/v1/mobile/home', () => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         return component;
     };
 });
@@ -67,8 +60,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     information: {
                         hideCaja: false,
                         title: 'abc',
-                        url:
-                            'https://www.cotodigital3.com.ar/sitios/cdigi/?utm_source=lanacion&utm_medium=display&utm_campaign=ofertas'
+                        url: 'https://www.cotodigital3.com.ar/sitios/cdigi/?utm_source=lanacion&utm_medium=display&utm_campaign=ofertas'
                     }
                 }
             ];
@@ -209,7 +201,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
 
         test('Ok timeline without articles', () => {
             const propsAperturaTimelineNoArticles = propsAperturaTimeline;
-            propsAperturaTimelineNoArticles.children[3][0].articles[0].articles = [];
+            propsAperturaTimelineNoArticles.children[3][0].articles[0].articles =
+                [];
             const homeData = LayoutLNMainHome.default(
                 propsAperturaTimelineNoArticles
             );

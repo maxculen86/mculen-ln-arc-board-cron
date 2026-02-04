@@ -79,6 +79,7 @@ function BaseLayout({ children }) {
                 <div className="header-sentinel" />
                 <DrawerMyAccount arcSite={arcSite} deployment={deployment} />
                 <main className={classNameMain}>{children}</main>
+
                 <Static id="footer-static">
                     <Footer
                         contextPath={contextPath}

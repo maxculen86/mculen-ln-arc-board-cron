@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Author } from '@ln/contenidos-ui-author';
 import { cx } from '@ln/cva';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
@@ -8,9 +7,9 @@ import { getAuthorData } from './signatureHelper';
 import {
     VIDEO,
     LIVEBLOG_EDITORIAL,
-    VIDEO_VERTICAL,
-    CARDS
+    VIDEO_VERTICAL
 } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { signatureWithAuthorsClasses } from './styles';
 
 function SignatureWithAuthors({
     showVariantIa,
@@ -22,9 +21,9 @@ function SignatureWithAuthors({
     position = 'Bottom',
     showSignatureWithAuthors,
     subtype,
-    isNotaFooter,
+    isNotaFooter = false,
     size = 16,
-    withAuthorRole
+    withAuthorRole = false
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -39,29 +38,19 @@ function SignatureWithAuthors({
     const prefix = position === place.Bottom || hasMultipleAuthors;
 
     const negativeSubtypes = [LIVEBLOG_EDITORIAL, VIDEO, VIDEO_VERTICAL];
-    const subtypesWithoutMB = [VIDEO_VERTICAL];
-    const isNotaCards = [CARDS].includes(subtype);
-
-    const shouldHaveMB =
-        position === place.Top &&
-        !withAuthorRole &&
-        !subtypesWithoutMB.includes(subtype);
 
     const isNegativeSubtype =
         negativeSubtypes.includes(subtype) && position === place.Top;
 
-    const wrapperClasses = cx(
-        'flex flex-column flex-wrap gap-16 w-100 flex-row_m ai-center_m ai-start w-full',
-        {
-            'mb-16': shouldHaveMB,
-            'mb-32': !isNotaFooter && !isNotaCards && position === place.Bottom
-        }
-    );
+    const wrapperClasses = signatureWithAuthorsClasses({
+        position,
+        withAuthorRole,
+        subtype,
+        isNotaFooter
+    });
 
     return (
-        <div
-            className={cx('flex flex-wrap', !withAuthorRole && 'w-100 w-full')}
-        >
+        <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
             <div className={wrapperClasses}>
                 <Author
                     key={author?.name}
@@ -85,26 +74,5 @@ function SignatureWithAuthors({
         </div>
     );
 }
-
-SignatureWithAuthors.propTypes = {
-    showVariantIa: PropTypes.bool.isRequired,
-    author: PropTypes.object.isRequired,
-    authors: PropTypes.array.isRequired,
-    photo: PropTypes.string.isRequired,
-    medio: PropTypes.string.isRequired,
-    audioButton: PropTypes.node.isRequired,
-    position: PropTypes.oneOf([place.Top, place.Bottom]).isRequired,
-    showSignatureWithAuthors: PropTypes.bool.isRequired,
-    subtype: PropTypes.string.isRequired,
-    isNotaFooter: PropTypes.bool,
-    size: PropTypes.number,
-    withAuthorRole: PropTypes.bool
-};
-
-SignatureWithAuthors.defaultProps = {
-    isNotaFooter: false,
-    size: 16,
-    withAuthorRole: false
-};
 
 export default SignatureWithAuthors;
