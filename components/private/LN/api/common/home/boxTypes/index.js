@@ -1,18 +1,8 @@
-import { enumTypeError } from '../../enums/enumTypeError';
-import { BackendLnError } from '../../models/backendLnError';
 import { boxTypesLN } from './LN/index';
 import { boxTypesLN10 } from './LN10/index';
 import { boxTypesLN10v2 } from './LN10v2/index';
 
-const discard = (type, layout) => {
-    console.warn(
-        new BackendLnError(
-            `No box is defined for type '${type}' and layout '${layout}'`,
-            enumTypeError.featureError
-        )
-    );
-    return () => null;
-};
+const discard = () => () => null;
 
 export const boxTypeByLayout = (layoutPage, type) => {
     const boxesTypesByLayout = {
@@ -22,7 +12,7 @@ export const boxTypeByLayout = (layoutPage, type) => {
         'LN-acumulado': boxTypesLN10v2
     };
     const boxType = boxesTypesByLayout[layoutPage] || boxTypesLN;
-    return boxType[type] ?? discard(type, layoutPage);
+    return boxType[type] ?? discard();
 };
 
 export default boxTypeByLayout;
