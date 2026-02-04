@@ -2,17 +2,15 @@
 
 exports[`components - features - LN - common - baseLayout Snapshots should maintain expected DOM structure with children 1`] = `
 <DocumentFragment>
-  <div
-    data-tw="true"
-  >
+  <div>
     <div
-      class="overflow-x-clip min-h-dvh flex flex-col text-base-default font-secondary"
+      class="overflow-x-clip min-h-100dvh flex flex-column --arial"
     >
       <div
         data-testid="mock-header"
       />
       <main
-        class="container-fluid flex flex-col grow gap-24 items-start"
+        class="container-fluid flex flex-column flex-grow-1 gap-24 ai-start"
         id="content"
       >
         <div>

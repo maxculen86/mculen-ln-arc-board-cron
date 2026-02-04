@@ -8,7 +8,7 @@ export const getHeaderValidations = ({
     // Agregar layouts para position default y dark-theme.
     return {
         shouldBePositionDefault: validationBy.some(validation =>
-            [layoutsName.NotaOpinion].includes(validation)
+            [layoutsName.HomeLN10].includes(validation)
         ),
         shouldBeDarkTheme: validationBy.some(validation =>
             [layoutsName.Video].includes(validation)

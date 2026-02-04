@@ -14,7 +14,8 @@ import { JwVideoContainer } from './jwVideoContainer';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 
 export function MediaScrollerExpanded({ listVideoData = [] }) {
-    const { currentIndex, setCurrentIndex } = useCajaCarruselContext();
+    const { currentIndex, setCurrentIndex, isOpenMediaScrollerExpanded } =
+        useCajaCarruselContext();
     const containerRef = useRef(null);
     const carouselWrapperRef = useRef(null);
     const currentIndexRef = useRef(currentIndex);
@@ -67,7 +68,8 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
     useScrollTo({
         containerRef,
         isMobile,
-        currentIndex
+        currentIndex,
+        isOpen: isOpenMediaScrollerExpanded
     });
 
     useEffect(() => {

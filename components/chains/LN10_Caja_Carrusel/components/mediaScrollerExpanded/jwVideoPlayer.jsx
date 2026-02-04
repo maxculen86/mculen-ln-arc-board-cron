@@ -8,6 +8,7 @@ import {
     registerJwVideoControlsTracking,
     markProgrammaticMute
 } from '../../../../private/common/utils/videoPlayerHelper';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function JwVideoPlayer({
     videoId,
@@ -23,6 +24,8 @@ function JwVideoPlayer({
     const [loading, setLoading] = useState(true);
     const playerRef = useRef(null);
     const controlsCleanupRef = useRef(null);
+
+    const sentProgressRef = useRef(new Set());
 
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
@@ -47,13 +50,54 @@ function JwVideoPlayer({
                 })
             });
             if (playerRef.current) {
+                sentProgressRef.current = new Set();
+
                 markProgrammaticMute(playerRef.current);
                 playerRef.current.setMute(
                     window?.localStorage?.getItem('jwplayer.mute') === 'true'
                 );
+
+                playerRef.current.on('time', e => {
+                    const percent = Math.floor(
+                        (e.currentTime / e.duration) * 100
+                    );
+
+                    const percentages = [25, 50, 75];
+
+                    percentages.forEach(percentage => {
+                        if (
+                            percent >= percentage &&
+                            !sentProgressRef.current.has(percentage)
+                        ) {
+                            sentProgressRef.current.add(percentage);
+
+                            addEventToDataLayerV2({
+                                event: String(percentage),
+                                rest: {
+                                    videoID: String(videoId || ''),
+                                    videoName: String(title || '')
+                                }
+                            });
+                        }
+                    });
+                });
+
                 playerRef.current.on('complete', () => {
+                    if (!sentProgressRef.current.has(100)) {
+                        sentProgressRef.current.add(100);
+
+                        addEventToDataLayerV2({
+                            event: '100',
+                            rest: {
+                                videoID: String(videoId || ''),
+                                videoName: String(title || '')
+                            }
+                        });
+                    }
+
                     handleNextCallback();
                 });
+
                 playerRef.current.on('play', () => {
                     handleEventSwipeVideo({
                         videoIdObserved: videoId,
@@ -70,7 +114,16 @@ function JwVideoPlayer({
                 defaultId: videoId
             });
         }
-    }, [shouldInstanceVideo, isLoadedScriptJw, handleNextCallback]);
+    }, [
+        shouldInstanceVideo,
+        isLoadedScriptJw,
+        handleNextCallback,
+        urlAds,
+        videoId,
+        title,
+        origin,
+        counterVideo
+    ]);
 
     useVideoJwCustomSettings({
         isInView,

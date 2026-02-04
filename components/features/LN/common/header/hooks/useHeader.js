@@ -45,6 +45,8 @@ const useHeader = () => {
     const [headerVariants, setHeaderVariants] = useState(defaultVariants);
 
     useEffect(() => {
+        if (!shouldBePositionDefault) return undefined;
+
         const isDesktop = window.innerWidth >= 1279;
 
         if (!isDesktop) return undefined;
@@ -66,9 +68,10 @@ const useHeader = () => {
         return () => {
             observer.disconnect();
         };
-    }, []);
+    }, [shouldBePositionDefault]);
 
     const animation =
+        shouldBePositionDefault &&
         headerVariants.position === HEADER_VARIANTS.POSITION.STICKY
             ? HEADER_VARIANTS.ANIMATION_IN
             : undefined;

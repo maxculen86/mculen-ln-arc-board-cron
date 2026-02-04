@@ -1,23 +1,14 @@
 import React from 'react';
 
-function Syndication({
-    type,
-    subtype,
-    syndication,
-    arcSite,
-    outputType,
-    nodeType
-}) {
+function Syndication({ type, subtype, syndication, nodeType }) {
     const { search } = syndication || {};
 
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return null;
-    if (outputType !== 'default') return null;
+    if (!subtype) return null;
+    if (type !== 'story') return null;
 
     if (nodeType === 'home' || nodeType === 'acumulado') {
         return <meta name="robots" content="max-image-preview:standard" />;
     }
-
-    if (type !== 'story') return null;
 
     const shouldNoIndex =
         subtype !== '7' && syndication !== undefined && !search;
