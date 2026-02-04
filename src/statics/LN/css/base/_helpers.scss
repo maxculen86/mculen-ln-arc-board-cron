@@ -806,6 +806,12 @@
     }
 }
 
+// TODO: Pasar a contenidos-ui-sass 
 .mt--118 {
     margin-top: px(-118);
+}
+.flex_m {
+    @media ($media-m) {
+        display: flex;
+    }
 }

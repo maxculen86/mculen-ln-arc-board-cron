@@ -3,7 +3,7 @@ import { cva } from '@ln/cva';
 const COL_SPAN_8 = 'col-span-8';
 
 export const openingVideoMediaStyles = cva(
-    ['opening-video-container', 'flex flex-column jc-start', COL_SPAN_8],
+    ['opening-video-container', 'flex-column jc-start', COL_SPAN_8],
     {
         variants: {
             variant: {
@@ -16,7 +16,8 @@ export const openingVideoMediaStyles = cva(
                     'ai-center',
                     'h-100',
                     'bg-black',
-                    'mt-16_m mt-0_l'
+                    'mt-16_m mt-0_l',
+                    'flex_m'
                 ],
                 horizontal: [
                     'col-span-12_m col-span-8_l',
@@ -26,7 +27,8 @@ export const openingVideoMediaStyles = cva(
                     'pl-20_l',
                     'mt-24',
                     'mt-0_l',
-                    'h-fit'
+                    'h-fit',
+                    'flex'
                 ]
             }
         }
