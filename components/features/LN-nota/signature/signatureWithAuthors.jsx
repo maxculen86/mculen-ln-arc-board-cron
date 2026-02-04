@@ -21,9 +21,9 @@ function SignatureWithAuthors({
     position = 'Bottom',
     showSignatureWithAuthors,
     subtype,
-    isNotaFooter,
+    isNotaFooter = false,
     size = 16,
-    withAuthorRole
+    withAuthorRole = false
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -42,12 +42,12 @@ function SignatureWithAuthors({
     const isNegativeSubtype =
         negativeSubtypes.includes(subtype) && position === place.Top;
 
-    const wrapperClasses = signatureWithAuthorsClasses(
+    const wrapperClasses = signatureWithAuthorsClasses({
         position,
         withAuthorRole,
         subtype,
         isNotaFooter
-    );
+    });
 
     return (
         <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
