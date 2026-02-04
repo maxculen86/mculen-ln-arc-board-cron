@@ -1,9 +1,8 @@
 import React from 'react';
-import { drawerManager } from '@ln/ds-common-drawer';
 import Button from '../../../../../../ui/ln/button/default';
 import IconSprite from '../../../../../../ui/ln/icon/default';
-import { DRAWERS_ID } from '../../../../utils/constants';
 import { addEventToDataLayerV2 } from '../../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { OBSERVABLE_EVENTS } from '../../../../utils/constants';
 
 function SectionButton() {
     return (
@@ -12,7 +11,12 @@ function SectionButton() {
             variant="ghost"
             color="secondary"
             onClick={() => {
-                drawerManager.show(DRAWERS_ID.SECTIONS);
+                window?.LN?.observable?.publish(
+                    OBSERVABLE_EVENTS.TOGGLE_DESPLEGABLE,
+                    {
+                        show: true
+                    }
+                );
                 addEventToDataLayerV2({
                     event: 'e_linkclick',
                     action: 'header_logo',

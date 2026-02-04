@@ -18,6 +18,7 @@ const pageBuilderSections = [
     'Apertura',
     'Pre-Cuerpo',
     'Cuerpo',
+    'Post-Cuerpo',
     'Bottom',
     'Bottom-Tercera'
 ];

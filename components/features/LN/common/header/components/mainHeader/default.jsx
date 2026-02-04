@@ -2,9 +2,9 @@ import React from 'react';
 import { Header as CommonHeader } from '@ln/ds-common-header';
 import { wrapperMainHeaderVariants } from '../../styles';
 import LeftOptions from './leftOptions/default';
+import { useHeaderContext } from '../../context';
 import RightOptions from './rightOptions/default';
 import CenterOptions from './centerOptions/default';
-import { useHeaderContext } from '../../context';
 
 function MainHeader() {
     const { position, appearance } = useHeaderContext();

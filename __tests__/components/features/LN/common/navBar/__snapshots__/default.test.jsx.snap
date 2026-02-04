@@ -1,97 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - features - LN - common - navBar - default should match snapshot - home layout 1`] = `
-<nav
-  class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+<div
+  data-tw="true"
 >
-  <ul
-    class="flex justify-between w-full max-w-400"
+  <nav
+    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
-    <li
-      class="flex min-w-58 justify-center"
+    <ul
+      class="flex justify-between w-full max-w-400"
     >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-  </ul>
-</nav>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`components - features - LN - common - navBar - default should match snapshot - other layout 1`] = `
-<nav
-  class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+<div
+  data-tw="true"
 >
-  <ul
-    class="flex justify-between w-full max-w-400"
+  <nav
+    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
-    <li
-      class="flex min-w-58 justify-center"
+    <ul
+      class="flex justify-between w-full max-w-400"
     >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-  </ul>
-</nav>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
 exports[`components - features - LN - common - navBar - default should match snapshot - unlogged user 1`] = `
-<nav
-  class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+<div
+  data-tw="true"
 >
-  <ul
-    class="flex justify-between w-full max-w-400"
+  <nav
+    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
-    <li
-      class="flex min-w-58 justify-center"
+    <ul
+      class="flex justify-between w-full max-w-400"
     >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-    <li
-      class="flex min-w-58 justify-center"
-    >
-      <div
-        data-testid="navbar-item"
-      />
-    </li>
-  </ul>
-</nav>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+      <li
+        class="flex min-w-58 justify-center"
+      >
+        <div
+          data-testid="navbar-item"
+        />
+      </li>
+    </ul>
+  </nav>
+</div>
 `;

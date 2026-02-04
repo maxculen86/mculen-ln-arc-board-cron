@@ -1,0 +1,22 @@
+/* Helpers estructurales que complementan el DS, quitar al finalizar la migracion */
+
+.container-fluid {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1366px;
+    padding-inline: 16px;
+    @media (min-width: 768px) {
+        padding-inline: 24px;
+
+    }
+    @media (min-width: 1280px) {
+        padding-inline: 32px;
+    }
+}
+
+
+.col-span-3-center_xl {
+    @media (min-width: 1280px) {
+        grid-column: 3 / -3;
+    }
+}
