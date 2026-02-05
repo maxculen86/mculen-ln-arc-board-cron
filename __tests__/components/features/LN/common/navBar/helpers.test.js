@@ -2,14 +2,7 @@ import {
     getEventData,
     getNavbarItems
 } from '../../../../../../components/features/LN/common/navBar/helpers';
-import { drawerManager } from '@ln/ds-common-drawer';
 import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
-
-jest.mock('@ln/ds-common-drawer', () => ({
-    drawerManager: {
-        show: jest.fn()
-    }
-}));
 
 jest.mock(
     '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
@@ -25,8 +18,24 @@ jest.mock('fusion:environment', () => ({
 }));
 
 describe('components - features - LN - common - navBar - helpers', () => {
+    let mockObservablePublish;
+
     beforeEach(() => {
         jest.clearAllMocks();
+
+        // Mock del patrón observable
+        mockObservablePublish = jest.fn();
+        global.window = {
+            LN: {
+                observable: {
+                    publish: mockObservablePublish
+                }
+            }
+        };
+    });
+
+    afterEach(() => {
+        delete global.window;
     });
 
     describe('getEventData', () => {
@@ -117,8 +126,9 @@ describe('components - features - LN - common - navBar - helpers', () => {
 
                 seccionesItem.onClick();
 
-                expect(drawerManager.show).toHaveBeenCalledWith(
-                    'drawer-sections'
+                expect(mockObservablePublish).toHaveBeenCalledWith(
+                    'toggleDesplegable',
+                    { show: true }
                 );
                 expect(addEventToDataLayerV2).toHaveBeenCalledWith({
                     event: 'e_linkclick',
@@ -257,14 +267,15 @@ describe('components - features - LN - common - navBar - helpers', () => {
         });
 
         describe('Constants validation', () => {
-            it('uses correct DRAWERS_ID constant for sections', () => {
+            it('uses correct OBSERVABLE_EVENTS constant for sections', () => {
                 const items = getNavbarItems({ userType: 'subscribed' });
                 const seccionesItem = items[1];
 
                 seccionesItem.onClick();
 
-                expect(drawerManager.show).toHaveBeenCalledWith(
-                    'drawer-sections'
+                expect(mockObservablePublish).toHaveBeenCalledWith(
+                    'toggleDesplegable',
+                    { show: true }
                 );
             });
         });

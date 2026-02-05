@@ -1,36 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Syndication = ({ type, subtype, syndication, arcSite, outputType }) => {
-    const { external_distribution: externalDistribution, search } =
-        syndication || {};
+function Syndication({ type, subtype, syndication, nodeType }) {
+    const { search } = syndication || {};
 
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
-    if (outputType !== 'default') return null;
+    if (!subtype) return null;
     if (type !== 'story') return null;
 
-    return subtype !== '7' &&
-        syndication !== undefined &&
-        ((!externalDistribution && !search) ||
-            (!search && externalDistribution)) ? (
+    if (nodeType === 'home' || nodeType === 'acumulado') {
+        return <meta name="robots" content="max-image-preview:standard" />;
+    }
+
+    const shouldNoIndex =
+        subtype !== '7' && syndication !== undefined && !search;
+
+    return (
         <meta
             name="robots"
-            content="noindex, follow, max-image-preview:large"
+            content={
+                shouldNoIndex
+                    ? 'noindex, follow, max-image-preview:large'
+                    : 'max-image-preview:large'
+            }
         />
-    ) : (
-        <meta name="robots" content="max-image-preview:large" />
     );
-};
-
-Syndication.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
-    subtype: PropTypes.string.isRequired,
-    syndication: PropTypes.shape({
-        external_distribution: PropTypes.bool,
-        search: PropTypes.bool
-    }).isRequired
-};
+}
 
 export default Syndication;

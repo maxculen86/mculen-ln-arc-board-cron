@@ -1,19 +1,40 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dropdown } from '@ln/contenidos-ui-dropdown';
 import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { toggleScroll } from './_helper';
-import { useHeaderContext } from '../header/context';
 import FirstSection from './firstSection';
 import { menuData } from './menuData';
+import { OBSERVABLE_EVENTS } from '../../LN/common/utils/constants';
 
 export function Desplegable() {
-    const { toggleDesplegable, showMenu } = useHeaderContext();
+    const [showMenu, setShowMenu] = useState(false);
+
+    const { TOGGLE_DESPLEGABLE } = OBSERVABLE_EVENTS;
+
     const { contextPath, deployment } = useAppContext();
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
+
+    useEffect(() => {
+        const handleToggle = args => {
+            if (args?.show !== undefined) {
+                setShowMenu(args.show);
+            } else {
+                setShowMenu(prev => !prev);
+            }
+        };
+
+        window?.LN?.observable?.subscribe(TOGGLE_DESPLEGABLE, handleToggle);
+        return () => {
+            window?.LN?.observable?.unsubscribe(
+                TOGGLE_DESPLEGABLE,
+                handleToggle
+            );
+        };
+    }, []);
 
     toggleScroll(showMenu);
 
@@ -29,7 +50,9 @@ export function Desplegable() {
                     />
                 }
                 data={menuData}
-                callback={toggleDesplegable}
+                callback={() =>
+                    window?.LN?.observable?.publish(TOGGLE_DESPLEGABLE)
+                }
                 className={showMenu ? '--dd-active' : ''}
             />
         </div>

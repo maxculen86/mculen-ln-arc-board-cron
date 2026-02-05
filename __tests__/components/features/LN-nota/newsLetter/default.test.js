@@ -52,7 +52,13 @@ const props = {
 };
 describe('components - features - LN-Nota - newsLetters', () => {
     useAppContext.mockReturnValue({
-        globalContent: {}
+        globalContent: {},
+        layout: 'default-layout',
+        siteProperties: {
+            layoutsName: {
+                NotaOpinion: 'NotaOpinion'
+            }
+        }
     });
     test('Render and snapshot Test', async () => {
         const { container } = render(<NewsLetters {...props} />);

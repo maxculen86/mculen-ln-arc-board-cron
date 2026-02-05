@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import classNames from 'classnames';
+import { cx } from '@ln/ds-cva';
 import {
     getLoginAndRegistrationURLS,
     CLOSED_BY_TERMIC,
@@ -145,7 +145,7 @@ function CommentsViafouraFeature(props) {
         return null;
     }
 
-    const viafouraClassName = classNames('viafoura --no-app', {
+    const viafouraClassName = cx('viafoura w-100 --no-app', {
         'not-comment': messageProps
     });
 

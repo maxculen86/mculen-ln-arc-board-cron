@@ -25,8 +25,10 @@ import {
     buildLinkProps,
     buildTrackingData,
     buildVariant,
-    getTagState
+    getTagState,
+    isTagId
 } from './_helpers';
+import { addForwardSlash } from '../../../private/LN/common/utils/addForwardSlash';
 import useGetImage from './hooks/useGetImage';
 
 function Podcast({ id: featureId, customFields, isAdmin }) {
@@ -45,6 +47,8 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
         ? originalSectionId.slice(0, -1)
         : originalSectionId || '';
 
+    const isTag = isTagId(sectionId);
+
     const parentChain = getChainParentOfFeature(featureId, renderables);
     const cardPosition = getCardPosition(parentChain, featureId);
     const parentLayout = getParentLayout(parentChain);
@@ -58,7 +62,7 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
 
     const { name: sectionTitle = '' } =
         useContent({
-            source: 'sectionSource',
+            source: isTag ? null : 'sectionSource',
             query: {
                 id: addInitialSlash(sectionId),
                 website: arcSite
@@ -73,7 +77,7 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
         'videopodcast'
     );
 
-    const { title } = podcastProperties;
+    const title = isTag ? description : podcastProperties?.title;
     const forSubscriber = subscriber === 'SI';
 
     if (!sectionId && isAdmin) {
@@ -96,7 +100,7 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
 
     const articleData =
         useContent({
-            source: 'lnAcuSource',
+            source: isTag ? null : 'lnAcuSource',
             query: {
                 sectionId,
                 size: 1,
@@ -104,11 +108,16 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
             }
         }) || {};
 
-    const articleLink = get(articleData, 'content_elements[0].website_url', '');
-    const hrefLink = getHrefLink(podcastType, sectionId, articleLink);
+    const articleLink = isTag
+        ? sectionId
+        : get(articleData, 'content_elements[0].website_url', '');
 
-    const tagSate = getTagState({ isNewPodcast, forSubscriber });
-    const { badge, showRibbon, showTag } = tagSate;
+    const hrefLink = isTag
+        ? addForwardSlash(articleLink)
+        : getHrefLink(podcastType, sectionId, articleLink);
+
+    const tagState = getTagState({ isNewPodcast, forSubscriber });
+    const { badge, showRibbon, showTag } = tagState;
     const tagClass = tagVariant({
         badge: !!badge,
         ribbon: !!showRibbon
@@ -161,7 +170,7 @@ function Podcast({ id: featureId, customFields, isAdmin }) {
                 />
                 <CardCover.Text>
                     {title && <CardCover.Title>{title}</CardCover.Title>}
-                    {descriptionData && (
+                    {!isTag && descriptionData && (
                         <CardCover.Description className="text-neutral-dark-1">
                             {descriptionData}
                         </CardCover.Description>

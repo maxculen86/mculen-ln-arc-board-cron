@@ -10,6 +10,7 @@ import useHeader from './hooks/useHeader';
 import useGetUserData from '../../../../private/common/auth/hooks/useGetUserData';
 import { SUBSCRIBED_HELPER } from '../../../../private/common/auth/helper/loginHelper';
 import { wrapperHeaderVariants } from './styles';
+import { Desplegable } from '../../../LN-10-global/desplegable/default';
 
 function Header() {
     const { layout, section, siteProperties } = useAppContext();
@@ -26,21 +27,29 @@ function Header() {
 
     return (
         <>
-            {isHome && <PreHeader />}
-            <HeaderProvider
-                value={{ position, appearance, isHome, ...loginData }}
-            >
-                <CommonHeader
-                    className={wrapperHeaderVariants({ position, appearance })}
-                    style={{
-                        animation
-                    }}
+            <div data-tw style={{ display: 'contents' }}>
+                {isHome && <PreHeader />}
+                <HeaderProvider
+                    value={{ position, appearance, isHome, ...loginData }}
                 >
-                    <MainHeader />
-                    {/* {isHome && <SubHeader />} */}
-                </CommonHeader>
-                <div className="header-sentinel" />
-            </HeaderProvider>
+                    <CommonHeader
+                        className={wrapperHeaderVariants({
+                            position,
+                            appearance
+                        })}
+                        style={{
+                            animation
+                        }}
+                    >
+                        <MainHeader />
+                        {/* {isHome && <SubHeader />} */}
+                    </CommonHeader>
+                    <div className="header-sentinel" />
+                </HeaderProvider>
+            </div>
+
+            {/* TODO: Implementar DrawerSections con DS cuando se defina el diseño/producto. */}
+            <Desplegable />
         </>
     );
 }
