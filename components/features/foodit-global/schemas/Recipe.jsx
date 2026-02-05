@@ -187,6 +187,38 @@ const buildRecipeSchema = data => {
     };
 };
 
+const buildArticleSchema = ({
+    imageUrl,
+    headlines,
+    author,
+    canonicalUrl,
+    displayDate,
+    lastUpdatedDate,
+    deployment,
+    contextPath
+}) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${SITE_FOODIT}${canonicalUrl}`
+    },
+    headline: get(headlines, 'basic', ''),
+    image: [imageUrl],
+    datePublished: displayDate,
+    dateModified: lastUpdatedDate,
+    author: {
+        '@type': 'Person',
+        name: author || 'Redacción de Foodit'
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: 'Foodit',
+        url: `${SITE_FOODIT}/`,
+        logo: fooditSchemaLogo(deployment, contextPath)
+    }
+});
+
 export function RecipeSchema({ globalContent = {}, layout = '' }) {
     const { contextPath, deployment } = useAppContext();
     const {
@@ -195,7 +227,10 @@ export function RecipeSchema({ globalContent = {}, layout = '' }) {
         headlines = {},
         subheadlines = {},
         taxonomy = {},
-        additional_properties: additionalProperties = {}
+        additional_properties: additionalProperties = {},
+        canonical_url: canonicalUrl = '',
+        display_date: displayDate = '',
+        last_updated_date: lastUpdatedDate = ''
     } = globalContent;
 
     const sections = get(taxonomy, 'sections', []);
@@ -231,12 +266,28 @@ export function RecipeSchema({ globalContent = {}, layout = '' }) {
         ...paywallSchema
     };
 
+    const articleSchema = buildArticleSchema({
+        imageUrl,
+        headlines,
+        author,
+        canonicalUrl,
+        displayDate,
+        lastUpdatedDate,
+        deployment,
+        contextPath
+    });
+
     return (
         <>
             <SnippetRender
                 key="schema-Recipe"
                 id="schema-Recipe"
                 data={finalSchema}
+            />
+            <SnippetRender
+                key="schema-Article"
+                id="schema-Article"
+                data={articleSchema}
             />
             <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
         </>
