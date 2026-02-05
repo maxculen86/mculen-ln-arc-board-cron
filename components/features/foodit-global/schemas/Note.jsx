@@ -20,7 +20,8 @@ export function StorytellingSchema({ globalContent = {} }) {
         headlines = {},
         subheadlines = {},
         canonical_url = '',
-        publish_date = ''
+        publish_date = '',
+        last_updated_date = ''
     } = globalContent;
     const author = getFooditAuthor(globalContent);
 
@@ -31,19 +32,20 @@ export function StorytellingSchema({ globalContent = {} }) {
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     const storyTellingSchema = {
-        '@context': 'http://schema.org',
-        '@type': 'NewsArticle',
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
         mainEntityOfPage: {
             '@type': 'WebPage',
             '@id': `${SITE_FOODIT}${canonical_url}`
         },
         headline: `${title} - Foodit`,
-        Image: {
+        image: {
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
             url: resizedUrl
         },
-        datePublished: publish_date?.split('T')[0],
+        datePublished: publish_date,
+        dateModified: last_updated_date,
         author: {
             '@type': 'Person',
             name: author || 'Redacción de Foodit'
