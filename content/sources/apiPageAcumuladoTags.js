@@ -10,7 +10,8 @@ const getParamsFromQuery = query => {
     const { uri = '', website, versionUri } = query;
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
-
+    const versionDeploy = get(query, 'versionDeploy', null);
+    const cookie = get(query, 'cookie', '');
     const slug = get(query, 'slug', '').replace('/', '');
 
     if (!versionUri) {
@@ -23,14 +24,24 @@ const getParamsFromQuery = query => {
         versionUri,
         ticksCache,
         categoryUri,
-        slug
+        slug,
+        cookie,
+        versionDeploy
     };
 };
 
 const fetch = async (query, { cachedCall }) => {
     try {
-        const { uri, website, versionUri, ticksCache, categoryUri, slug } =
-            getParamsFromQuery(query);
+        const {
+            uri,
+            website,
+            versionUri,
+            ticksCache,
+            categoryUri,
+            slug,
+            cookie,
+            versionDeploy
+        } = getParamsFromQuery(query);
 
         const queryParams = {
             rootPath: `${SITE_LANACION}/tema/${slug}`,
@@ -40,7 +51,8 @@ const fetch = async (query, { cachedCall }) => {
             title: slug,
             categoryUri,
             versionUri,
-            cookie: query.cookie
+            cookie,
+            versionDeploy
         };
 
         const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
@@ -89,7 +101,8 @@ export default {
         categoryUri: 'text',
         versionUri: 'text',
         ticks: 'text',
-        cookie: 'text'
+        cookie: 'text',
+        versionDeploy: 'text'
     },
     ttl: 120
 };
