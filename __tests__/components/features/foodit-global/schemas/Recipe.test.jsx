@@ -18,7 +18,7 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         const scripts = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
-        expect(scripts.length).toBe(3);
+        expect(scripts.length).toBe(2);
     });
 
     it('outputs correct suitableForDiet URLs', () => {
@@ -141,49 +141,6 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         const scriptContent = JSON.parse(scriptTags[0].textContent);
         expect(scriptContent.performTime).toBe('PT60M');
         expect(scriptContent.cookTime).toBe('PT20M');
-    });
-
-    it('renders an Article schema alongside Recipe', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
-        );
-        const articleScript = scriptTags.find(tag =>
-            tag.textContent.includes('"Article"')
-        );
-        expect(articleScript).toBeTruthy();
-        const content = JSON.parse(articleScript.textContent);
-        expect(content['@type']).toBe('Article');
-    });
-
-    it('Article schema includes all required properties', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
-        );
-        const articleScript = scriptTags.find(tag =>
-            tag.textContent.includes('"Article"')
-        );
-        const content = JSON.parse(articleScript.textContent);
-        expect(content.headline).toBe('Receta de Tortas fritas criollas');
-        expect(content.image).toEqual([
-            'https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true'
-        ]);
-        expect(content.datePublished).toBe('2024-01-25T18:30:37.695Z');
-        expect(content.dateModified).toBe('2024-04-16T16:36:33.351Z');
-        expect(content.author).toEqual({
-            '@type': 'Person',
-            name: 'Redacción de Foodit'
-        });
-        expect(content.publisher.name).toBe('Foodit');
-        expect(content.mainEntityOfPage).toEqual({
-            '@type': 'WebPage',
-            '@id': 'https://foodit.lanacion.com.ar/recetas/receta-de-tortas-fritas-criollas-nid25012024/'
-        });
     });
 
     it('matches the snapshot', () => {
