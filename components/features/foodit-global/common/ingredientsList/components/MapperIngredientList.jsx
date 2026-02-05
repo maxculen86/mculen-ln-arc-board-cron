@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 import Ingredient from './Ingredient';
 import { groupRecipeIngredients } from '../../shoppingList/groupRecipeIngredients';
 
@@ -19,7 +18,6 @@ function MapperIngredientList({ list = [], isTabIngredients }) {
         <Ingredient
             key={`${keyPrefix}-${item.ingredient || item.name}-${item.unit || ''}`}
             item={item}
-            typeList={item.typeList || ''}
             isTabIngredients={isTabIngredients}
         />
     );
@@ -36,26 +34,5 @@ function MapperIngredientList({ list = [], isTabIngredients }) {
         </ul>
     );
 }
-
-MapperIngredientList.propTypes = {
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            typeList: PropTypes.string.isRequired,
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    amount: PropTypes.string,
-                    unit: PropTypes.string.isRequired,
-                    ingredient: PropTypes.string.isRequired,
-                    abbreviation: PropTypes.string
-                })
-            ).isRequired
-        })
-    ).isRequired,
-    isTabIngredients: PropTypes.bool
-};
-
-MapperIngredientList.defaultProps = {
-    isTabIngredients: false
-};
 
 export default MapperIngredientList;
