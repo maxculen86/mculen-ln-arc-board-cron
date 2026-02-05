@@ -105,41 +105,6 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
 }
   </script>
   <script
-    id="schema-Article"
-    type="application/ld+json"
-  >
-    {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://foodit.lanacion.com.ar/recetas/receta-de-tortas-fritas-criollas-nid25012024/"
-  },
-  "headline": "Receta de Tortas fritas criollas",
-  "image": [
-    "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true"
-  ],
-  "datePublished": "2024-01-25T18:30:37.695Z",
-  "dateModified": "2024-04-16T16:36:33.351Z",
-  "author": {
-    "@type": "Person",
-    "name": "Redacción de Foodit"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Foodit",
-    "url": "https://foodit.lanacion.com.ar/",
-    "logo": {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
-      "height": 112,
-      "width": 112
-    }
-  }
-}
-  </script>
-  <script
     id="breadcrumb-schema"
     type="application/ld+json"
   >
