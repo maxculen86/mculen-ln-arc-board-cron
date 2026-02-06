@@ -104,8 +104,6 @@ export const resolveUri = key => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
-// TODO: testear getQuery con la nueva lógica de layout
-
 export const getQuery = (sectionId, layout) => {
     const daysBySection = {
         [HOT_SECTION]: 2,
