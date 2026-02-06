@@ -86,10 +86,11 @@ function JwVideoPlayer({
         []
     );
 
-    if (shouldInstanceVideo) return <div id={videoId} />;
+    if (shouldInstanceVideo)
+        return <div className="video-instance" id={videoId} />;
 
     return (
-        <div className="placeholder-jwplayer flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center bg-black" />
+        <div className="placeholder-jwplayer flex flex-column w-100 h-100 ratio-9-16 jc-center ai-center bg-black" />
     );
 }
 

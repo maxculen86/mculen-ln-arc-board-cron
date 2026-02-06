@@ -38,6 +38,7 @@ export const getMediaJwData = (data, url) => {
                 type: 'image'
             }
         },
+        variant: url.includes('-h/') ? 'horizontal' : 'vertical',
         type: 'video'
     };
 };

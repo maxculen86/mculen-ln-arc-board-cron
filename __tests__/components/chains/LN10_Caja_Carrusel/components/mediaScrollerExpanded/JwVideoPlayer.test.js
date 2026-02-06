@@ -36,7 +36,7 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoPlayer'
 
         expect(placeholder).toBeInTheDocument();
         expect(placeholder).toHaveClass(
-            'flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center bg-black'
+            'placeholder-jwplayer flex flex-column w-100 h-100 ratio-9-16 jc-center ai-center bg-black'
         );
     });
 

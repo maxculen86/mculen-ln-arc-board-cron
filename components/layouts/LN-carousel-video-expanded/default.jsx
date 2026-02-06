@@ -3,18 +3,21 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import ShareVideo from '../../features/LN-common/shareVideo/default';
 import trackShareView from './_helper';
+import { carouselVideoExpandedClasses } from '../../features/LN-common/shareVideo/styles';
 
 function CarouselVideoExpanded(props) {
     const { globalContent } = props;
-    const { _id: videoId, headlines: { basic } = {} } = globalContent;
+    const { _id: videoId, headlines: { basic } = {}, variant } = globalContent;
 
     useEffect(() => {
         trackShareView(videoId, basic);
     }, [videoId, basic]);
 
     return (
-        <main className="w-100 h-100dvh bg-light-900 flex jc-center ai-center">
-            <ShareVideo videoId={videoId} />
+        <main className="bg-light-900">
+            <div className={carouselVideoExpandedClasses({ variant })}>
+                <ShareVideo videoId={videoId} variant={variant} />
+            </div>
         </main>
     );
 }

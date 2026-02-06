@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components - features - LN-10-global - cardVerticalCarrusel - default should match snapshot 1`] = `
+exports[`components - features - LN-10-global - cardCarrusel - default should match snapshot 1`] = `
 <div>
-  <div
-    data-tw="true"
-  >
+  <div>
     <article
-      class="flex relative overflow-hidden relative ratio-9-16 border border-thin border-neutral-light-200 border-all card-vertical-carousel cursor-pointer bg-gradient-accent"
+      class="flex relative overflow-hidden border-1 border-neutral-200 border-all aspect-9/16 mocked-class"
     >
       <div
-        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1 w-full h-full"
+        class="flex justify-center items-center relative overflow-hidden h-full w-full -z-1"
       >
         <div
           data-testid="video-mock"
@@ -26,37 +24,39 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
         </div>
       </div>
       <div
-        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word w-full"
-        style="gap: 12px;"
+        class="flex flex-col w-full gap-16 absolute bottom-0 breark-word items-center px-16 pb-32 w-full"
       >
         <span
-          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white"
+          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white w-max"
         >
           Test Badge
         </span>
-        <h2
-          class="text prumo prumo-semibold text-light-0 text-24 text-center"
-        >
-           
-          Test Title
-        </h2>
         <div
-          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
+          class="flex flex-col items-center gap-16"
         >
+          <h2
+            class="prumo prumo-semibold text-light-0 text-center text-24"
+          >
+             
+            Test Title
+          </h2>
           <div
-            class="h-20 w-20 flex ai-center jc-center"
+            class="flex items-center gap-8 text-14 leading-0 text-neutral-100 pl-8"
           >
-            <mock-ds-common-icon
-              classname="custom-class"
-              name="play-filled"
-              size="20"
-            />
+            <div
+              class="h-20 w-20 flex items-center justify-center"
+            >
+              <mock-ds-common-icon
+                name="play-filled"
+                size="20"
+              />
+            </div>
+            <time
+              class="pr-8"
+            >
+              02:00
+            </time>
           </div>
-          <time
-            class="pr-8"
-          >
-            02:00
-          </time>
         </div>
       </div>
     </article>
@@ -64,16 +64,14 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
 </div>
 `;
 
-exports[`components - features - LN-10-global - cardVerticalCarrusel - default should match snapshot without title 1`] = `
+exports[`components - features - LN-10-global - cardCarrusel - default should match snapshot without title 1`] = `
 <div>
-  <div
-    data-tw="true"
-  >
+  <div>
     <article
-      class="flex relative overflow-hidden relative ratio-9-16 border border-thin border-neutral-light-200 border-all card-vertical-carousel cursor-pointer bg-gradient-accent-sm"
+      class="flex relative overflow-hidden border-1 border-neutral-200 border-all aspect-9/16 mocked-class"
     >
       <div
-        class="flex jc-center ai-center relative overflow-hidden h-100 w-100 ratio-9-16 -z-1 w-full h-full"
+        class="flex justify-center items-center relative overflow-hidden h-full w-full -z-1"
       >
         <div
           data-testid="video-mock"
@@ -90,31 +88,33 @@ exports[`components - features - LN-10-global - cardVerticalCarrusel - default s
         </div>
       </div>
       <div
-        class="flex flex-column w-100 absolute ai-center bottom-0 gap-16 px-16 pb-32 breark-word w-full"
-        style="gap: 12px;"
+        class="flex flex-col w-full gap-16 absolute bottom-0 breark-word items-center px-16 pb-32 w-full"
       >
         <span
-          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white"
+          class="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white w-max"
         >
           Test Badge
         </span>
         <div
-          class="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100"
+          class="flex flex-col items-center gap-16"
         >
           <div
-            class="h-20 w-20 flex ai-center jc-center"
+            class="flex items-center gap-8 text-14 leading-0 text-neutral-100 pl-8"
           >
-            <mock-ds-common-icon
-              classname="custom-class"
-              name="play-filled"
-              size="20"
-            />
+            <div
+              class="h-20 w-20 flex items-center justify-center"
+            >
+              <mock-ds-common-icon
+                name="play-filled"
+                size="20"
+              />
+            </div>
+            <time
+              class="pr-8"
+            >
+              02:00
+            </time>
           </div>
-          <time
-            class="pr-8"
-          >
-            02:00
-          </time>
         </div>
       </div>
     </article>

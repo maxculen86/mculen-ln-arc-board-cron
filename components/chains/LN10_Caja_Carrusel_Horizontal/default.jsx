@@ -114,7 +114,13 @@ function CajaCarruselHorizontal(props) {
         <CajaCarruselProvider>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
-                    <MediaScrollerContainer roofData={roofData}>
+                    <MediaScrollerContainer
+                        roofData={roofData}
+                        responsive={{
+                            base: { gap: '16px', width: '285px' },
+                            md: { gap: '16px', width: '575px' }
+                        }}
+                    >
                         {nodes.map(child => (
                             <MediaScroller.Item key={child.key}>
                                 {child.isBanner ? (
@@ -127,7 +133,10 @@ function CajaCarruselHorizontal(props) {
                     </MediaScrollerContainer>
 
                     <MediaScrollerExpandedWrapper>
-                        <MediaScrollerExpanded listVideoData={nodes} />
+                        <MediaScrollerExpanded
+                            variant="horizontal"
+                            listVideoData={nodes}
+                        />
                     </MediaScrollerExpandedWrapper>
                 </section>
             </div>

@@ -1,15 +1,15 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
-import { cx } from '@ln/cva';
+import { cx } from '@ln/ds-cva';
 import Video from './video';
-import { secondsToMinutes } from './helpers';
+import { secondsToMinutes, cardVideoClassNames } from './helpers';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import CardVertical from '../../ui/ln/card/default';
 import Icon from '../../ui/ln/icon/default';
+import CardVideo from '../../ui/ln/cardVideo/default';
 
-function CardVerticalContainer({
+function CardCarruselContainer({
     title = '',
     src = '',
     badgeText = '',
@@ -19,6 +19,7 @@ function CardVerticalContainer({
     videoId,
     layoutType,
     titleJwPlayer,
+    variant,
     ...viewabilityData
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -61,57 +62,58 @@ function CardVerticalContainer({
         }
     }, []);
 
-    const _className = cx(
-        'card-vertical-carousel',
-        'cursor-pointer',
-        title ? 'bg-gradient-accent' : 'bg-gradient-accent-sm'
-    );
-
     return (
-        <div ref={containerCardRef} data-tw>
-            <CardVertical
+        <div ref={containerCardRef}>
+            <CardVideo
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleClickCard}
-                className={_className}
+                className={cardVideoClassNames({
+                    variant,
+                    withTitle: Boolean(title)
+                })}
+                variant={variant}
                 {...viewabilityData}
             >
-                <CardVertical.Media className="w-full h-full">
+                <CardVideo.Media>
                     <Video
                         src={src}
                         poster={poster}
                         isPlaying={isPlaying}
                         setIsPlaying={setIsPlaying}
                     />
-                </CardVertical.Media>
-                <CardVertical.Description
-                    className="w-full"
-                    style={{ gap: '12px' }}
-                >
-                    {badgeText && (
-                        <span className="bg-black rounded-16 uppercase z-1 text-[12px] px-8 py-6 text-white">
-                            {badgeText}
-                        </span>
-                    )}
-                    <CardVertical.Title title={title} />
-                    {Boolean(duration) && (
-                        <div className="flex ai-center gap-8 text-14 leading-0 text-neutral-light-100">
-                            <div className="h-20 w-20 flex ai-center jc-center">
-                                <Icon
-                                    name="play-filled"
-                                    size={20}
-                                    className="custom-class"
-                                />
+                </CardVideo.Media>
+                <CardVideo.Description className="w-full">
+                    <CardVideo.Badge>{badgeText}</CardVideo.Badge>
+                    <div
+                        className={cx(
+                            'flex flex-col items-center gap-16',
+                            variant === 'horizontal' &&
+                                'flex-row justify-between w-full md:flex-col md:items-center max-md:mt-auto',
+                            variant === 'vertical' && 'flex-col items-center'
+                        )}
+                    >
+                        <CardVideo.Title title={title} />
+                        {Boolean(duration) && (
+                            <div
+                                className={cx(
+                                    'flex items-center gap-8 text-14 leading-0 text-neutral-100 pl-8',
+                                    variant === 'horizontal' && 'max-md:hidden'
+                                )}
+                            >
+                                <div className="h-20 w-20 flex items-center justify-center">
+                                    <Icon name="play-filled" size={20} />
+                                </div>
+                                <time className="pr-8">
+                                    {secondsToMinutes(duration)}
+                                </time>
                             </div>
-                            <time className="pr-8">
-                                {secondsToMinutes(duration)}
-                            </time>
-                        </div>
-                    )}
-                </CardVertical.Description>
-            </CardVertical>
+                        )}
+                    </div>
+                </CardVideo.Description>
+            </CardVideo>
         </div>
     );
 }
 
-export default CardVerticalContainer;
+export default CardCarruselContainer;

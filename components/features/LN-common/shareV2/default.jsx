@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
@@ -9,8 +8,9 @@ import { shareVideoConfig } from './helper';
 import useShare from '../../LN-nota/share/hooks/useShare';
 import useTooltipVisibility from './hooks/useTooltipVisibility';
 
-function ShareV2({ videoId, className, videoTitle: basic }) {
-    const url = `/carrousel/jwid${videoId}/`;
+function ShareV2({ videoId, className, videoTitle: basic, isHorizontal }) {
+    const variantUrl = isHorizontal ? 'h' : 'v';
+    const url = `/carrousel/jwid${videoId}-${variantUrl}/`;
     const { isTooltipVisible, handleTooltipVisibility } =
         useTooltipVisibility();
 
@@ -21,7 +21,7 @@ function ShareV2({ videoId, className, videoTitle: basic }) {
     });
 
     return (
-        <ShareBar className={className}>
+        <ShareBar isHorizontal={isHorizontal} className={className}>
             {shareVideoConfig.map(item => {
                 const {
                     id,
@@ -70,15 +70,5 @@ function ShareV2({ videoId, className, videoTitle: basic }) {
         </ShareBar>
     );
 }
-
-ShareV2.propTypes = {
-    videoId: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    videoTitle: PropTypes.string.isRequired
-};
-
-ShareV2.defaultProps = {
-    className: ''
-};
 
 export default ShareV2;

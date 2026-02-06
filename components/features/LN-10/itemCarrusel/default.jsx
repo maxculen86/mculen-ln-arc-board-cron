@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { validateItemCarrusel } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import CardVerticalContainer from '../../LN-10-global/cardVerticalCarrusel/default';
+import CardCarruselContainer from '../../LN-10-global/cardCarrusel/default';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import {
     checkForId,
@@ -21,7 +21,7 @@ function itemCarrusel({
     customFields: { video: videoId, title, chapita },
     renderables,
     layout,
-    variant = ''
+    variant = 'vertical'
 }) {
     const { layoutsName = {} } = siteConfig || {};
 
@@ -81,42 +81,22 @@ function itemCarrusel({
         );
     }
 
-    if (variant === 'horizontal') {
-        return (
-            <CardVerticalContainer
-                data-feature-id={featureId}
-                title={title}
-                titleJwPlayer={videoData?.title}
-                badgeText={chapita}
-                poster={videoData?.poster}
-                src={videoData?.posterVideo}
-                duration={videoData?.duration}
-                cardPosition={cardPosition}
-                videoId={sanitizedVideoId}
-                layoutType={getLayoutType(layout)}
-                {...extraOpts}
-            />
-        );
-    }
+    const cardProps = {
+        'data-feature-id': featureId,
+        title,
+        titleJwPlayer: videoData?.title,
+        badgeText: chapita,
+        poster: videoData?.poster,
+        src: videoData?.posterVideo,
+        duration: videoData?.duration,
+        cardPosition,
+        videoId: sanitizedVideoId,
+        layoutType: getLayoutType(layout),
+        variant,
+        ...extraOpts
+    };
 
-    return (
-        !error &&
-        videoData && (
-            <CardVerticalContainer
-                data-feature-id={featureId}
-                title={title}
-                titleJwPlayer={videoData?.title}
-                badgeText={chapita}
-                poster={videoData?.poster}
-                src={videoData?.posterVideo}
-                duration={videoData?.duration}
-                cardPosition={cardPosition}
-                videoId={sanitizedVideoId}
-                layoutType={getLayoutType(layout)}
-                {...extraOpts}
-            />
-        )
-    );
+    return !error && videoData && <CardCarruselContainer {...cardProps} />;
 }
 
 itemCarrusel.label = 'LN10 Item Carrusel';
