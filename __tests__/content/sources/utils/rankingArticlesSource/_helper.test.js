@@ -135,12 +135,34 @@ describe('function => getQuery', () => {
             size: 4
         });
     });
+
+    it('should return size 5 when layout is HomeLN10 (LN10-Home_Main)', () => {
+        const sectionId = 'economia';
+        const layout = 'LN10-Home_Main';
+        const { size } = getQuery(sectionId, layout);
+        expect(size).toBe(5);
+    });
+
+    it('should return size 4 when layout is not HomeLN10', () => {
+        const sectionId = 'economia';
+        const layout = 'LN-Home_Main';
+        const { size } = getQuery(sectionId, layout);
+        expect(size).toBe(4);
+    });
+
+    it('should return size 4 when layout is undefined', () => {
+        const sectionId = 'economia';
+        const { size } = getQuery(sectionId);
+        expect(size).toBe(4);
+    });
+
     describe('from ranking config file', () => {
         const daysBySection = {
             [HOT_SECTION]: 2,
             [COLD_SECTION]: 7,
             [DEFAULT_SECTION]: 1
         };
+
         it('should return the correct data for hot sections', () => {
             const sectionId = 'economia';
             const { endpoint, days, name, size } = getQuery(sectionId);
@@ -152,6 +174,7 @@ describe('function => getQuery', () => {
             expect(name).toBe(sectionConfig.name);
             expect(size).toBe(4);
         });
+
         it('should return the correct data for cold sections', () => {
             const sectionId = 'cultura';
             const { endpoint, days, name, size } = getQuery(sectionId);
@@ -163,6 +186,7 @@ describe('function => getQuery', () => {
             expect(name).toBe(sectionConfig.name);
             expect(size).toBe(4);
         });
+
         it('should return the correct data for home', () => {
             const sectionId = '';
             const { endpoint, days, name, size } = getQuery(sectionId);
@@ -172,6 +196,7 @@ describe('function => getQuery', () => {
             expect(name).toBe('');
             expect(size).toBe(4);
         });
+
         it('should return the correct data for missing sections', () => {
             const sectionId = 'nueva-seccion';
             const { endpoint, days, name, size } = getQuery(sectionId);
@@ -191,6 +216,7 @@ jest.mock('../../../../../content/sources/utils/presets', () => ({
         presetsDefault: {}
     })
 }));
+
 describe('function => transformData', () => {
     it('should transform data array with valid inputs', async () => {
         const mockData = [
@@ -292,6 +318,7 @@ describe('function => transformData', () => {
 
         expect(result[0].website_url).toBe('/canonical');
     });
+
     it('should handle website_url and ignore canonical_url', async () => {
         const mockData = [
             {
