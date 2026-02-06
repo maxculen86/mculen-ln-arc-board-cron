@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useState, memo } from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
-import { cx } from '@ln/cva';
 import { Text } from '@ln/contenidos-ui-text';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
@@ -9,9 +8,10 @@ import JwVideoPlayer from './jwVideoPlayer';
 import ShareV2 from '../../../../features/LN-common/shareV2/default';
 import { isScriptLoaded } from '../helpers';
 import loadJWPlayerScript from '../../../utils/loadJWPlayerScript';
+import { videoContainerExpandedClasses } from './styles';
 
 const JwVideoContainer = forwardRef(
-    ({ handleNextCallback, isLastVideo, listVideoData = [] }, ref) => {
+    ({ handleNextCallback, isLastVideo, listVideoData = [], variant }, ref) => {
         const { onCloseMediaScrollerExpanded } = useCajaCarruselContext();
 
         const [showLeyendSwipeUp, setShowLeyendSwipeUp] = useState(isLastVideo);
@@ -47,16 +47,20 @@ const JwVideoContainer = forwardRef(
 
         if (!listVideoData.length) return null;
 
-        const _className = cx(
-            'scroll-y-auto scroll-y-none_md scroll-x-auto_md hide-scrollbar',
-            'scroll-snap-block-mandatory overscroll-bahavior-y-container scroll-snap-inline-mandatory_md',
-            'w-100vw w-100_md h-100dvh_max767 grid_md grid-auto-flow-columm grid-auto-columns-100'
-        );
+        const {
+            containerClassName,
+            listItemClassName,
+            videoContainerClassName,
+            videoSocialContainerClassName,
+            sharebarClassNames,
+            closeClassNames,
+            swipeClasses
+        } = videoContainerExpandedClasses(variant);
 
         return (
             <ul
                 ref={ref}
-                className={_className}
+                className={containerClassName}
                 style={{ willChange: 'transform, scroll-position' }}
             >
                 {listVideoData.map(
@@ -70,31 +74,34 @@ const JwVideoContainer = forwardRef(
                             data-scroller-id={id}
                             data-title={title}
                             data-origin={origin}
-                            className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
+                            className={listItemClassName}
                         >
-                            <div className="flex h-100 w-100 ratio-9-16 relative py-16_m">
-                                <div className="w-100 absolute top-0 left-0 z-10 bg-gradient-dark bg-none_lg py-8 mt-16_m">
-                                    <Button
-                                        title="Cerrar"
-                                        onClick={onCloseMediaScrollerExpanded}
-                                        className="py-8 px-16 text-white relative_lg left--130_lg"
-                                        variant="custom"
-                                        size="inherit"
-                                        iconOnly
-                                    >
-                                        <Icon size={24}>
-                                            <IconSprite name="arrowLeft" />
-                                        </Icon>
-                                        <span className="text-16">Volver</span>
-                                    </Button>
-                                    {!isBanner && (
-                                        <ShareV2
-                                            videoId={id}
-                                            videoTitle={title}
-                                            className="absolute top-0 right-0 right--55_lg"
-                                        />
-                                    )}
-                                </div>
+                            <div className={videoSocialContainerClassName}>
+                                <Button
+                                    title="Cerrar"
+                                    onClick={onCloseMediaScrollerExpanded}
+                                    className={closeClassNames}
+                                    variant="custom"
+                                    size="inherit"
+                                    iconOnly
+                                >
+                                    <Icon size={24}>
+                                        <IconSprite name="arrowLeft" />
+                                    </Icon>
+                                    <span className="text-16">Volver</span>
+                                </Button>
+                                {!isBanner && (
+                                    <ShareV2
+                                        videoId={id}
+                                        videoTitle={title}
+                                        className={sharebarClassNames}
+                                        {...(variant === 'horizontal' && {
+                                            isHorizontal: true
+                                        })}
+                                    />
+                                )}
+                            </div>
+                            <div className={videoContainerClassName}>
                                 {isBanner ? (
                                     node
                                 ) : (
@@ -108,26 +115,25 @@ const JwVideoContainer = forwardRef(
                                         origin={origin}
                                     />
                                 )}
-
-                                {showLeyendSwipeUp && (
-                                    <div
-                                        className="flex flex-column ai-center w-100 absolute bottom-60 py-8 sm-only"
-                                        style={{
-                                            animation: 'float-up 1.5s infinite'
-                                        }}
-                                    >
-                                        <Icon
-                                            size={20}
-                                            className="rotate-180 text-white"
-                                        >
-                                            <IconSprite name="arrowDown" />
-                                        </Icon>
-                                        <Text className="font-bold text-white">
-                                            Desliza hacia arriba para continuar
-                                        </Text>
-                                    </div>
-                                )}
                             </div>
+                            {showLeyendSwipeUp && (
+                                <div
+                                    className={swipeClasses}
+                                    style={{
+                                        animation: 'float-up 1.5s infinite'
+                                    }}
+                                >
+                                    <Icon
+                                        size={20}
+                                        className="rotate-180 text-white"
+                                    >
+                                        <IconSprite name="arrowDown" />
+                                    </Icon>
+                                    <Text className="font-bold text-white text-wrap">
+                                        Desliza hacia arriba para continuar
+                                    </Text>
+                                </div>
+                            )}
                         </li>
                     )
                 )}

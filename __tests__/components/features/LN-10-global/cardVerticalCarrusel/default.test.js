@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CardVertical from '../../../../../components/features/LN-10-global/cardVerticalCarrusel/default';
-import { secondsToMinutes } from '../../../../../components/features/LN-10-global/cardVerticalCarrusel/helpers';
+import CardCarrusel from '../../../../../components/features/LN-10-global/cardCarrusel/default';
+import { secondsToMinutes } from '../../../../../components/features/LN-10-global/cardCarrusel/helpers';
 import CajaCarruselProvider from '../../../../../components/chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 
 jest.mock(
-    '../../../../../components/features/LN-10-global/cardVerticalCarrusel/video',
+    '../../../../../components/features/LN-10-global/cardCarrusel/video',
     () => ({
         __esModule: true,
         default: jest.fn(({ src, poster, isPlaying }) => (
@@ -20,13 +20,18 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/features/LN-10-global/cardVerticalCarrusel/helpers',
+    '../../../../../components/features/LN-10-global/cardCarrusel/helpers',
     () => ({
-        secondsToMinutes: jest.fn()
+        secondsToMinutes: jest.fn(),
+        cardVideoClassNames: jest.fn(() => 'mocked-class'),
+        getClassNamesMedia: jest.fn(() => ({
+            classNamePoster: 'mocked-poster-class',
+            classNameVideo: 'mocked-video-class'
+        }))
     })
 );
 
-describe('components - features - LN-10-global - cardVerticalCarrusel - default', () => {
+describe('components - features - LN-10-global - cardCarrusel - default', () => {
     const defaultProps = {
         title: 'Test Title',
         titleJwPlayer: 'Test title jw',
@@ -49,7 +54,7 @@ describe('components - features - LN-10-global - cardVerticalCarrusel - default'
     };
 
     it('should renders correctly with given props', () => {
-        renderWithProvider(<CardVertical {...defaultProps} />, {});
+        renderWithProvider(<CardCarrusel {...defaultProps} />, {});
 
         expect(screen.getByText('Test Title')).toBeInTheDocument();
         expect(screen.getByText('Test Badge')).toBeInTheDocument();
@@ -59,26 +64,26 @@ describe('components - features - LN-10-global - cardVerticalCarrusel - default'
 
     it('should not render time when duration is undefined', () => {
         renderWithProvider(
-            <CardVertical {...defaultProps} duration={undefined} />,
+            <CardCarrusel {...defaultProps} duration={undefined} />,
             {}
         );
         expect(screen.queryByText('02:00')).not.toBeInTheDocument();
     });
     it('should not render time when duration is 0', () => {
-        renderWithProvider(<CardVertical {...defaultProps} duration={0} />, {});
+        renderWithProvider(<CardCarrusel {...defaultProps} duration={0} />, {});
         expect(screen.queryByText('02:00')).not.toBeInTheDocument();
     });
 
     it('should match snapshot', () => {
         const { container } = renderWithProvider(
-            <CardVertical {...defaultProps} />,
+            <CardCarrusel {...defaultProps} />,
             {}
         );
         expect(container).toMatchSnapshot();
     });
     it('should match snapshot without title', () => {
         const { container } = renderWithProvider(
-            <CardVertical {...defaultProps} title={undefined} />,
+            <CardCarrusel {...defaultProps} title={undefined} />,
             {}
         );
         expect(container).toMatchSnapshot();

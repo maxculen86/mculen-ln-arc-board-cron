@@ -6,7 +6,7 @@ exports[`Components - features - LN-common - ShareVideo -default should match sn
     data-testid="video-share"
   >
     <div
-      class="w-100 absolute top-0 left-0 z-1 bg-gradient-dark bg-none_lg py-8 mt-16_m"
+      class="share-video w-100 z-1 bg-none_lg absolute top-0 left-0 py-8 mt-16_m bg-gradient-dark"
     >
       <a
         data-testid="video-share-button"
@@ -26,7 +26,7 @@ exports[`Components - features - LN-common - ShareVideo -default should match sn
         </span>
       </a>
       <div
-        class="absolute top-0 right-0 right--55_lg flex flex-column gap-24_lg p-16 w-max"
+        class="absolute top-0 right-0 right--55_lg flex gap-24_lg p-16 w-max flex-column"
       >
         <button
           class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 

@@ -1,25 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import ShareBarButton from './ShareBarButton';
 
-function ShareBar({ children, className }) {
+function ShareBar({ children, className, isHorizontal }) {
     return (
-        <div className={cx(className, 'flex flex-column gap-24_lg p-16 w-max')}>
+        <div
+            className={cx(className, [
+                'flex',
+                'gap-24_lg',
+                'p-16',
+                'w-max',
+                !isHorizontal && 'flex-column'
+            ])}
+        >
             {children}
         </div>
     );
 }
 
 ShareBar.Button = ShareBarButton;
-
-ShareBar.propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string
-};
-
-ShareBar.defaultProps = {
-    className: ''
-};
 
 export default ShareBar;
