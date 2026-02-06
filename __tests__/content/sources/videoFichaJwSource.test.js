@@ -56,7 +56,8 @@ describe('content - sources - videoFichaJwSource - helper', () => {
                         type: 'image'
                     }
                 },
-                type: 'video'
+                type: 'video',
+                variant: 'vertical'
             };
             expect(
                 getMediaJwData(

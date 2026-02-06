@@ -15,13 +15,15 @@ import {
     useUpdateVideoWidth
 } from '../hooks';
 import useHandlerBanner from '../hooks/useHandlerBanner';
+import { mediaScrollerExpandedClasses, arrowsClassNames } from './styles';
 
-function MediaScrollerExpanded({ listVideoData = [] }) {
+function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
     const { currentIndex, setCurrentIndex } = useCajaCarruselContext();
     const containerRef = useRef(null);
 
     const { width: viewportWidth } = useWindowSize();
     const isMobile = viewportWidth < 768;
+    const isTablet = viewportWidth < 1280;
 
     const { handleBannerViewed } = useHandlerBanner({
         listVideoData,
@@ -29,8 +31,14 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
         isMobile
     });
 
-    const showNext = currentIndex < listVideoData.length - 1 && !isMobile;
-    const showBack = currentIndex > 0 && !isMobile;
+    const showNext =
+        variant === 'vertical'
+            ? currentIndex < listVideoData.length - 1 && !isMobile
+            : currentIndex < listVideoData.length - 1 && !isTablet;
+    const showBack =
+        variant === 'vertical'
+            ? currentIndex > 0 && !isMobile
+            : currentIndex > 0 && !isTablet;
 
     useObserverItems({
         containerRef,
@@ -83,14 +91,13 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
     );
 
     return (
-        <div className="flex jc-center ai-center w-100_md">
+        <div className={mediaScrollerExpandedClasses({ variant })}>
             {showBack && (
                 <Button
                     title="Regresar"
                     onClick={handleBackCallback}
-                    className="bg-white absolute top-50 z-1 arrow-left_md"
+                    className={arrowsClassNames({ direction: 'left' })}
                     variant="custom"
-                    style={{ transition: 'none' }}
                     iconOnly
                 >
                     <Icon size={24} color="dark">
@@ -106,14 +113,16 @@ function MediaScrollerExpanded({ listVideoData = [] }) {
                 handleNextCallback={handleNextCallback}
                 isLastVideo={currentIndex < listVideoData.length - 1}
                 listVideoData={listVideoData}
+                variant={variant}
             />
             {showNext && (
                 <Button
                     title="Avanzar"
                     onClick={handleNextCallback}
-                    className="bg-white absolute top-50 z-1 arrow-right_md"
+                    className={arrowsClassNames({
+                        direction: 'right'
+                    })}
                     variant="custom"
-                    style={{ transition: 'none' }}
                     iconOnly
                 >
                     <Icon size={24} color="dark">

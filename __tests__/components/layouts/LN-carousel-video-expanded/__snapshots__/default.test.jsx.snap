@@ -3,11 +3,15 @@
 exports[`components - layouts - CarouselVideoExpanded - default renders correctly 1`] = `
 <DocumentFragment>
   <main
-    class="w-100 h-100dvh bg-light-900 flex jc-center ai-center"
+    class="bg-light-900"
   >
     <div
-      data-testid="share-video"
-    />
+      class="carousel-video-expanded w-100 h-100dvh"
+    >
+      <div
+        data-testid="share-video"
+      />
+    </div>
   </main>
 </DocumentFragment>
 `;

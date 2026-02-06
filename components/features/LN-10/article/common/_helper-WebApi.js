@@ -45,6 +45,7 @@ export const getChainParentOfFeature = (featureId, renderables) => {
         'LN10_Caja_WebStories',
         'Ln_Caja_Manual',
         'LN10_Caja_Carrusel',
+        'LN10_Caja_Carrusel_Horizontal',
         'LN10_Caja_Juegos_v2',
         'LN10_Caja_Podcasts'
     ];

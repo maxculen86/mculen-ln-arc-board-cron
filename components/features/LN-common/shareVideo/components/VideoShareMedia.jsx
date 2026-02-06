@@ -1,9 +1,9 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { useAppContext } from 'fusion:context';
+import { cx } from '@ln/cva';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
@@ -12,8 +12,10 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { useJWPlayer } from '../hooks/useJWPlayer';
 import get from '../../../../private/common/utils/get';
 import { getWWWResizedUrls } from '../../../../private/common/utils/image/getDataToLinkImage/_helper';
+import { buttonShowPlayerClasses, videoShareMediaClasses } from '../styles';
 
-function VideoShareMedia({ id }) {
+// TODO cambiar variant por context
+function VideoShareMedia({ id, variant = 'vertical' }) {
     const { globalContent } = useAppContext();
     const containerRef = useRef(null);
     const [showPlayer, setShowPlayer] = useState(false);
@@ -39,12 +41,12 @@ function VideoShareMedia({ id }) {
     }
 
     return (
-        <div className="flex flex-column w-100 h-100 ratio-6-19 jc-center ai-center">
+        <div className={videoShareMediaClasses({ variant })}>
             <Button
                 onClick={() => setShowPlayer(true)}
                 iconOnly
                 isNegative
-                className="p-0 w-100 h-100"
+                className={buttonShowPlayerClasses({ variant })}
                 size="inherit"
             >
                 <Adaptableimage
@@ -56,7 +58,17 @@ function VideoShareMedia({ id }) {
                     fetchPriority="high"
                 />
                 <div
-                    className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-dark-top"
+                    className={cx(
+                        variant === 'vertical' && [
+                            'absolute',
+                            'top-0',
+                            'left-0',
+                            'right-0',
+                            'bottom-0',
+                            'bg-gradient-dark-top',
+                            'ratio-9-16'
+                        ]
+                    )}
                     aria-hidden="true"
                 />
                 <div className="absolute z-1 opacity-80">
@@ -68,9 +80,5 @@ function VideoShareMedia({ id }) {
         </div>
     );
 }
-
-VideoShareMedia.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default memo(VideoShareMedia);
