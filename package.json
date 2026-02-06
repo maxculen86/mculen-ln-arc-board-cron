@@ -143,7 +143,7 @@
         "@ln/theme-base": "2.0.0",
         "@ln/theme-foodit": "1.0.0",
         "@ln/theme-lanacion": "1.0.0",
-        "@ln/user.client.libs": "7.3.0",
+        "@ln/user.client.libs": "7.6.0",
         "@ln/utility-hooks": "0.0.1",
         "@ln/utils": "0.0.6",
         "@xmldom/xmldom": "0.8.11",
