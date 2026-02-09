@@ -1,10 +1,11 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Opening from './components/opening';
+import BaseLayout from '../../features/LN/common/baseLayout/default';
 
 function lnNotaStorytellingV2({ children, globalContent }) {
     return (
-        <div>
+        <BaseLayout>
             <div>
                 {children[0]}
                 <Opening globalContent={globalContent} />
@@ -21,7 +22,7 @@ function lnNotaStorytellingV2({ children, globalContent }) {
                 {/* Bottom-Tercera */}
                 {children[3]}
             </div>
-        </div>
+        </BaseLayout>
     );
 }
 
