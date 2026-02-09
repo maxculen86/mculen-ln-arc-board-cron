@@ -1,12 +1,28 @@
 import React from 'react';
 import ComTitle from '../../../common/com-title';
 
-import { getHeadingConfig } from '../../../../features/LN/common/heading/_helpers';
+const LEGACY_HEADING_CONFIG = {
+    defaults: {
+        weight: '--font-extra',
+        tag: 'h4',
+        size: '--m'
+    },
+    variantsByLevel: new Map([
+        [1, { tag: 'h2', size: '--xl' }],
+        [2, { tag: 'h3', size: '--l' }],
+        [4, { classCondition: 'underline' }]
+    ])
+};
+
+const getLegacyHeadingConfig = level => ({
+    ...LEGACY_HEADING_CONFIG.defaults,
+    ...LEGACY_HEADING_CONFIG.variantsByLevel.get(level)
+});
 
 function Subtitle({ data }) {
     const { level, content } = data;
 
-    const config = getHeadingConfig(level);
+    const config = getLegacyHeadingConfig(level);
 
     return (
         <ComTitle

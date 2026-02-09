@@ -14,15 +14,16 @@ describe('components - ui - ln - Heading', () => {
         expect(container.querySelector('h3')).toBeInTheDocument();
     });
 
-    it('renders header with link', () => {
-        const dataWithLink = {
-            ...defaultData,
-            link: 'https://example.com'
+    it('renders link that comes embedded in HTML content', () => {
+        const dataWithEmbeddedLink = {
+            level: 1,
+            content:
+                '<a href="https://lanacion.com.ar/" target="_self">Encabezado con enlace</a>'
         };
-        const { getByRole } = render(<Heading data={dataWithLink} />);
+        const { getByRole } = render(<Heading data={dataWithEmbeddedLink} />);
         const link = getByRole('link');
-        expect(link).toHaveAttribute('href', 'https://example.com');
-        expect(link).toHaveTextContent('Test Heading Content');
+        expect(link).toHaveAttribute('href', 'https://lanacion.com.ar/');
+        expect(link).toHaveTextContent('Encabezado con enlace');
     });
 
     it('applies correct class condition from config', () => {
@@ -42,5 +43,25 @@ describe('components - ui - ln - Heading', () => {
         );
         expect(getByText('Hello')).toBeInTheDocument();
         expect(container.querySelector('strong')).toHaveTextContent('World');
+    });
+
+    it('should have arcType header', () => {
+        expect(Heading.arcType).toBe('header');
+    });
+
+    it('should be static component', () => {
+        expect(Heading.isStatic).toBe(true);
+    });
+
+    it('returns null if content is missing', () => {
+        const { container } = render(<Heading data={{ level: 1 }} />);
+        expect(container.firstChild).toBeNull();
+    });
+
+    it('returns null if content is not a string', () => {
+        const { container } = render(
+            <Heading data={{ level: 1, content: 123 }} />
+        );
+        expect(container.firstChild).toBeNull();
     });
 });
