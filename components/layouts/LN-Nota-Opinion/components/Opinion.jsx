@@ -30,11 +30,10 @@ function Opinion({ children }) {
                                 <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
                                     OPINIÓN
                                 </span>
-                                {authorsConcat && (
-                                    <Opening.Authors className="max-w-636">
-                                        {authorsConcat}
-                                    </Opening.Authors>
-                                )}
+                                <Opening.Authors
+                                    className="max-w-636"
+                                    authorsConcat={authorsConcat}
+                                />
                             </div>
                             <div className="mt-1 w-64 md:col-span-12 lg:col-span-16">
                                 <Divider />

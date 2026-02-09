@@ -3,7 +3,7 @@
 exports[`Image component renders correctly and matches snapshot 1`] = `
 <div>
   <div
-    class="aspect-3/2 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
+    class="aspect-3/2 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
   >
     <img
       alt=""

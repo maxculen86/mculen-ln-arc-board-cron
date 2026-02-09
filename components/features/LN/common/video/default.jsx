@@ -88,7 +88,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
                     data-has-jwplayer="true"
                     data-video-id-jw={mediaId}
                     data-config={JSON.stringify(videoConfig)}
-                    className="aspect-16/9 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
+                    className="aspect-16/9 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
                 >
                     <VideoFacade
                         mediaId={mediaId}

@@ -9,7 +9,7 @@ function Image({ data, showCaption = true, fetchPriority, loading }) {
 
     return (
         <>
-            <div className="aspect-3/2 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none">
+            <div className="aspect-3/2 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none">
                 <ImageMedia
                     width={width}
                     alt={alt}

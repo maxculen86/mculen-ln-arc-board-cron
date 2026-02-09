@@ -13,9 +13,8 @@ function VideoFacade({
     subtype = ''
 }) {
     const imageSources = transformImages(images, subtype);
-    // TODO IMPORTAR CLASES DS
     return (
-        <div className="relative" id={`facade-${mediaId}`}>
+        <div className="relative cursor-pointer" id={`facade-${mediaId}`}>
             <PlayButton />
             <Image
                 sources={imageSources.length > 0 ? [imageSources[0]] : []}
