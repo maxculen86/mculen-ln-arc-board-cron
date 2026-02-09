@@ -93,19 +93,15 @@ const isListenable = (data, isForWeb = true) => {
 export const isNoteListenableForApps = data => {
     const { audioStatus, subtype, wordCount } = getCommonProperties(data);
 
-    if (audioStatus !== null && isAudioGenerated(audioStatus)) {
-        return true;
-    }
-
-    if (
-        wordCount &&
-        Number(wordCount) >= 100 &&
-        !disableSubtypesForApps.includes(subtype)
-    )
-        return true;
-
-    return false;
+    return (
+        (audioStatus !== null && isAudioGenerated(audioStatus)) ||
+        (wordCount &&
+            Number(wordCount) >= 100 &&
+            !disableSubtypesForApps.includes(subtype))
+    );
 };
+
+
 
 export const isCustomVoice = data =>
     data?.voice !== undefined && data?.voice != null;
