@@ -114,7 +114,7 @@ describe('components - features - LN - common - video - VideoPlayer', () => {
             />
         );
 
-        const container = document.querySelector('.content-media');
+        const container = document.querySelector('[alt="Test Video Title"]');
         expect(container).toBeInTheDocument();
     });
 
@@ -297,24 +297,6 @@ describe('components - features - LN - common - video - VideoPlayer', () => {
         const configElement = document.querySelector('[data-config]');
         const config = JSON.parse(configElement.getAttribute('data-config'));
         expect(config.hasAutoplay).toBe(true);
-    });
-
-    it('applies custom container classes', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-                mediaContainerClassesProps="custom-media-class"
-                videoContainerClassesProps="custom-video-class"
-            />
-        );
-
-        const mediaContainer = document.querySelector('.custom-media-class');
-        const videoContainer = document.querySelector('.custom-video-class');
-
-        expect(mediaContainer).toBeInTheDocument();
-        expect(videoContainer).toBeInTheDocument();
     });
 
     it('has arcType property set to video_jw', () => {

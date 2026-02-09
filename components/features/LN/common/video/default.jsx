@@ -1,15 +1,12 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
-import { cx } from '@ln/cva';
 import VideoFacade from './component/VideoFacade';
 import {
     extractVideoData,
-    calculateDisplayVariant,
     buildPlaylistConfig,
     buildVideoConfig,
-    shouldShowFigureCaption,
-    getConfigClassName
+    shouldShowFigureCaption
 } from './utils/videoDataUtils';
 
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
@@ -24,9 +21,6 @@ import {
     VIDEO_VERTICAL,
     OPINION
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
-import config from '../../../../../properties/sites/la-nacion-ar';
-
-const { layoutsName = {} } = config || {};
 
 const SUBTYPES_WITHOUT_CAPTION = [
     STORYTELLING,
@@ -37,15 +31,7 @@ const SUBTYPES_WITHOUT_CAPTION = [
     OPINION
 ];
 
-function VideoPlayer({
-    data,
-    parrafo,
-    tituloNota,
-    hasAutoplay = false,
-    mediaContainerClassesProps = '',
-    videoContainerClassesProps = '',
-    isOpening = false
-}) {
+function VideoPlayer({ data, hasAutoplay = false }) {
     const videoData = extractVideoData(data);
     const {
         playerId,
@@ -59,27 +45,12 @@ function VideoPlayer({
         fallbackImage,
         firstVideo
     } = videoData;
-    const { arcSite, deployment, contextPath, globalContent, layout } =
-        useAppContext();
+    const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
     const promoItems = get(globalContent, 'promo_items', {});
     const isPromoItemVideo =
         get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaId;
-    const variant = calculateDisplayVariant({
-        isOpening,
-        subtype,
-        playerId
-    });
 
-    const isNotaVideo = layout === layoutsName.Video;
-    const {
-        container,
-        mediaContainer,
-        videoContainer,
-        videoPlayer,
-        facade,
-        facadeContainer
-    } = getConfigClassName(variant, isNotaVideo, isOpening);
     const tagsUrl = urlForPrerollAds();
     const playlistConfig = buildPlaylistConfig(playlist, mediaId, sources);
     const videoConfig = buildVideoConfig({
@@ -100,14 +71,6 @@ function VideoPlayer({
     const minStream =
         firstVideo && getSourcesJw(get(firstVideo, 'sources', []));
 
-    const videoContainerClassName = cx(
-        videoContainer,
-        videoContainerClassesProps
-    );
-    const mediaContainerClassName = cx(
-        mediaContainer,
-        mediaContainerClassesProps
-    );
     const isOpeningVideo = subtype === VIDEO || isPromoItemVideo;
 
     return (
@@ -121,44 +84,35 @@ function VideoPlayer({
                 />
             </Static>
             <Static id={mediaId}>
-                <div className={container}>
-                    <section className={mediaContainerClassName}>
-                        <figure className={videoContainerClassName}>
-                            <div
-                                className={videoPlayer}
-                                data-has-jwplayer="true"
-                                data-video-id-jw={mediaId}
-                                data-config={JSON.stringify(videoConfig)}
-                            >
-                                <VideoFacade
-                                    mediaId={mediaId}
-                                    images={images}
-                                    fallbackSrc={fallbackImage}
-                                    alt={title}
-                                    className={facade}
-                                    containerClassName={facadeContainer}
-                                    loading={isOpeningVideo ? 'eager' : 'lazy'}
-                                    fetchPriority={
-                                        isOpeningVideo ? 'high' : 'low'
-                                    }
-                                    subtype={subtype}
-                                />
-                                <div id={mediaId} />
-                            </div>
-                            {showCaption && ( // TODO APLICAR NUEVOS ESTILOS
-                                <figcaption>
-                                    <span>{epigraphTitle}</span>
-                                </figcaption>
-                            )}
-                        </figure>
-                        <VideoPlayerSnippet
-                            paragraph={parrafo || description}
-                            noteTitle={tituloNota}
-                            mediaData={firstVideo}
-                            minStream={{ url: get(minStream, 'file', '') }}
-                        />
-                    </section>
+                <div
+                    data-has-jwplayer="true"
+                    data-video-id-jw={mediaId}
+                    data-config={JSON.stringify(videoConfig)}
+                    className="aspect-16/9 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
+                >
+                    <VideoFacade
+                        mediaId={mediaId}
+                        images={images}
+                        fallbackSrc={fallbackImage}
+                        alt={title}
+                        loading={isOpeningVideo ? 'eager' : 'lazy'}
+                        fetchPriority={isOpeningVideo ? 'high' : 'low'}
+                        subtype={subtype}
+                    />
+                    <div id={mediaId} />
                 </div>
+                {showCaption && (
+                    <figcaption className="py-8">
+                        <span className="font-normal text-base-default text-16 text-center leading-[110%] tracking-[-0.3px]">
+                            {epigraphTitle}
+                        </span>
+                    </figcaption>
+                )}
+                <VideoPlayerSnippet
+                    paragraph={description}
+                    mediaData={firstVideo}
+                    minStream={{ url: get(minStream, 'file', '') }}
+                />
             </Static>
         </>
     );

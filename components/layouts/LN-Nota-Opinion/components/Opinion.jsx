@@ -22,7 +22,7 @@ function Opinion({ children }) {
         <>
             {/* ---- APERTURA ---- */}
             {/* Componentes con tailwind - DS */}
-            <div data-tw>
+            <div data-tw className="contents">
                 <Opinion.Opening className="w-full flex flex-col gap-40">
                     <div className="flex flex-col items-center gap-40">
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 md:gap-x-24 lg:grid-cols-16 lg:gap-x-31">
@@ -31,6 +31,7 @@ function Opinion({ children }) {
                                     OPINIÓN
                                 </span>
                                 <Opening.Authors
+                                    className="max-w-636"
                                     authorsConcat={authorsConcat}
                                 />
                             </div>
@@ -67,6 +68,7 @@ function Opinion({ children }) {
                     </div>
                 </div>
             </div>
+
             {/* //TODO: migrar estructura a tailwind cuando se migre la estructura de la nota */}
             {/* ---- Post-Cuerpo ---- */}
             <div className="grid grid-cols-16_xl w-100">
