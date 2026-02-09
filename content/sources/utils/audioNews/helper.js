@@ -95,8 +95,7 @@ export const isNoteListenableForApps = data => {
 
     return (
         (audioStatus !== null && isAudioGenerated(audioStatus)) ||
-        (wordCount &&
-            Number(wordCount) >= 100 &&
+        (Number(wordCount) >= 100 &&
             !disableSubtypesForApps.includes(subtype))
     );
 };
