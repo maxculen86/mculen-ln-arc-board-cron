@@ -5,21 +5,7 @@ import { SITE_LANACION } from 'fusion:environment';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
-const getPrimaryTree = (sections, section, resultSections) => {
-    if (section) {
-        resultSections.push({
-            name: section.name,
-            path: section.path
-        });
-        if (section.parent_id && section.parent_id !== '/') {
-            getPrimaryTree(
-                sections,
-                sections.find(parent => parent._id === section.parent_id),
-                resultSections
-            );
-        }
-    }
-};
+import buildBreadcrumbSections from '../../../../features/LN/common/breadcrumb/helpers/buildBreadcrumbSections';
 
 function BreadcrumbArticle({
     globalContent: { taxonomy: { primary_section, sections } } = {},
@@ -27,15 +13,11 @@ function BreadcrumbArticle({
     className = '',
     ...props
 }) {
-    let allSections = [];
-    if (primary_section) {
-        getPrimaryTree(sections, primary_section, allSections);
-    }
-    allSections.push({
-        name: siteTitle,
-        path: '/'
+    const allSections = buildBreadcrumbSections({
+        sections,
+        primarySection: primary_section,
+        siteTitle
     });
-    allSections = allSections.reverse();
 
     return (
         <>

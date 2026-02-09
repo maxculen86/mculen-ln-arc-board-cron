@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
 import textSelector from '../../common/utils/recetaDictionary';
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
@@ -38,15 +37,19 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
         );
     });
 
-const BreadcrumbBase = props => {
+function BreadcrumbBase(props) {
     const {
-        sections,
+        sections: rawSections = [],
         extraClasses,
         dataSection,
         lastLinked,
         host,
         colorCategory = ''
     } = props;
+
+    const sections = rawSections.filter(
+        section => section.name && section.name.trim() !== ''
+    );
 
     const extraOpts = {};
 
@@ -97,33 +100,6 @@ const BreadcrumbBase = props => {
             {listSections}
         </nav>
     );
-};
-
-BreadcrumbBase.propTypes = {
-    sections: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            name: PropTypes.string,
-            path: PropTypes.string
-        })
-    ).isRequired,
-    extraClasses: PropTypes.string,
-    dataSection: PropTypes.string,
-    colorCategory: PropTypes.string,
-    lastLinked: PropTypes.boolean,
-    host: PropTypes.string.isRequired,
-    tooltip: PropTypes.shape({
-        text: PropTypes.string,
-        label: PropTypes.string
-    })
-};
-
-BreadcrumbBase.defaultProps = {
-    extraClasses: undefined,
-    dataSection: undefined,
-    tooltip: undefined,
-    lastLinked: undefined,
-    colorCategory: ''
-};
+}
 
 export default BreadcrumbBase;
