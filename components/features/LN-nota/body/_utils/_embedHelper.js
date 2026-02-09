@@ -34,7 +34,6 @@ export const embedIntersectionObserver = (
     elementId = 'cuerpo__nota'
 ) => {
     const { device } = getViewport();
-    let interSectionObserver;
 
     const loadScriptWithInitialization = async src => {
         try {
@@ -49,19 +48,20 @@ export const embedIntersectionObserver = (
         }
     };
 
-    const callback = entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                scripts.forEach(loadScriptWithInitialization);
-                interSectionObserver.unobserve(entry.target);
-            }
-        });
-    };
-
-    interSectionObserver = new IntersectionObserver(callback, {
-        rootMargin:
-            device === 'mobile' ? '0px 0px 200px 0px' : '0px 0px 100px 0px'
-    });
+    const interSectionObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    scripts.forEach(loadScriptWithInitialization);
+                    interSectionObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            rootMargin:
+                device === 'mobile' ? '0px 0px 200px 0px' : '0px 0px 100px 0px'
+        }
+    );
 
     const target = document.getElementById(elementId);
 
