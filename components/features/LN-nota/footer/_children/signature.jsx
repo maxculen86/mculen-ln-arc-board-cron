@@ -1,11 +1,14 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import SignatureWithAuthors from '../../signature/signatureWithAuthors';
 import SignatureWithDistributor from '../../signature/signatureWithDistributor';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
 
-function Signature({ globalContent, isNotaFooter }) {
+function Signature({ globalContent, isNotaFooter = false }) {
+    const { layout, siteProperties } = useAppContext();
+    const opinionLayout = siteProperties?.layoutsName?.NotaOpinion;
+    const isOpinionLayout = Boolean(opinionLayout) && layout === opinionLayout;
     const {
         content_elements: contentElements,
         credits: { by: creditsBy },
@@ -28,7 +31,8 @@ function Signature({ globalContent, isNotaFooter }) {
 
     const hasAuthors = author || authors.length > 0;
 
-    if (!showSignatureWithDistributor && !hasAuthors) return null;
+    if (isOpinionLayout || (!showSignatureWithDistributor && !hasAuthors))
+        return null;
 
     return (
         <div className="flex flex-column brand-color">
@@ -49,45 +53,5 @@ function Signature({ globalContent, isNotaFooter }) {
         </div>
     );
 }
-
-Signature.propTypes = {
-    globalContent: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                type: PropTypes.string,
-                additional_properties: PropTypes.shape({
-                    nodeType: PropTypes.string
-                }),
-                content: PropTypes.string
-            })
-        ),
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    image: PropTypes.shape({
-                        url: PropTypes.string
-                    }),
-                    byline: PropTypes.string,
-                    name: PropTypes.string,
-                    slug: PropTypes.string,
-                    type: PropTypes.string,
-                    _id: PropTypes.string
-                })
-            )
-        }),
-        distributor: PropTypes.shape({
-            name: PropTypes.string,
-            mode: PropTypes.string
-        }),
-        withFirmaDistributor: PropTypes.bool,
-        subtype: PropTypes.string
-    }).isRequired,
-    isNotaFooter: PropTypes.bool
-};
-
-Signature.defaultProps = {
-    isNotaFooter: false
-};
 
 export default Signature;

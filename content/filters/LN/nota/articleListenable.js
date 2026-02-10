@@ -605,6 +605,8 @@ export default `
                     bio_page
                     author_type
                     voice
+                    gplus
+                    longBio
                 }
             }
         }
