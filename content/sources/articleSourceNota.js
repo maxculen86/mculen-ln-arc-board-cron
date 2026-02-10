@@ -49,7 +49,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 response: data,
                 query: queryAux,
                 siteUrl: SITE_LANACION,
-                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`
+                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/ln/cerrado?callback=`
             });
             if (
                 externalApiRedirectUrl &&

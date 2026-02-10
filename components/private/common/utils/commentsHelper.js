@@ -19,10 +19,14 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     },
     commenting: {
         loaded: ({ setIsReady, outputType }) => {
-            outputType === 'default' && setIsReady?.(true);
+            if (outputType === 'default') {
+                setIsReady?.(true);
+            }
             if (outputType === 'widgets') {
                 const loader = document.getElementsByClassName('loader');
-                loader && loader[0].classList.add('hlp-none');
+                if (loader) {
+                    loader[0].classList.add('hlp-none');
+                }
             }
         }
     },
@@ -86,7 +90,7 @@ export const getLoginAndRegistrationURLS = () => {
 
     return {
         loginUrl: `${LOGIN_URL}${urlBase64}`,
-        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}&cv=670&fc=744#`
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${urlBase64}&cv=670&fc=744#`
     };
 };
 
