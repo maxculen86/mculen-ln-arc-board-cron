@@ -48,6 +48,7 @@ function LoadBannersSSR({ blocksBanners = [] }) {
             'LN-common/banner',
             'LN-nota/cuerpo',
             'LN-nota/body',
+            'LN/DS-Body',
             'LN-acumulado/grillaNotas',
             'LN-common/bannerRefactor'
         ].includes(e.type)
@@ -68,10 +69,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
                 !bannersDisabled
             ) {
                 const bannersToLoadFromDOM = getBannersInDOM(device);
-
                 const bannersInBody = [];
                 const bannersInGrillaNotas = [];
-
                 const finalBannersToLoad = [...bannersToLoadFromDOM];
 
                 let bannersWithSettings = bannersConfigured.filter(
