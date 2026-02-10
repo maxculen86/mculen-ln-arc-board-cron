@@ -21,14 +21,12 @@ async function LN10Home(props) {
         information: pageElements.information
     };
     const resultHome = home(await transform(pageElements, params), params);
-    const response = Array.isArray(resultHome)
+    return Array.isArray(resultHome)
         ? {
-              ...resultHome[0],
-              metadata: { ...resultHome[0].metadata, outputType: 'jsonv4' }
-          }
+            ...resultHome[0],
+            metadata: { ...resultHome[0].metadata, outputType: 'jsonv4' }
+        }
         : null;
-
-    return response;
 }
 
 LN10Home.sections = pageBuilderSections;

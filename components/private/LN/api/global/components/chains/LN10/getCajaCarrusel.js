@@ -52,7 +52,8 @@ class GetCajaCarrusel {
             isHorizontal: this.config.isHorizontal
         });
 
-        if (
+
+        return (
             error ||
             shouldSkipRender({
                 hideCarousel,
@@ -60,11 +61,8 @@ class GetCajaCarrusel {
                 isHome,
                 shouldSchedule
             })
-        ) {
-            return true;
-        }
+        )
 
-        return false;
     }
 
     renderResponse() {
