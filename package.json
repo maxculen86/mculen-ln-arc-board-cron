@@ -109,6 +109,7 @@
         "@ln/ds-common-icon": "1.2.1",
         "@ln/ds-common-image": "1.2.4",
         "@ln/ds-common-link": "1.2.4",
+        "@ln/ds-common-list": "0.0.3",
         "@ln/ds-common-mediascroller": "1.6.7",
         "@ln/ds-common-popper": "1.4.0",
         "@ln/ds-common-preheader": "0.0.2",

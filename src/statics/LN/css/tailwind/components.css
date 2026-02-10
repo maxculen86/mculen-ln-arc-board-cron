@@ -11,11 +11,12 @@
         color: inherit;
     }
 
-    .ds-custom-paragraph a {
-        color: var(--color-primary-default);
+    .ds-custom-paragraph a,
+    .ds-custom-list-body a {
+        color: var(--color-primary-default) !important;
 
         &:hover {
-            color: var(--color-primary-light);
+            color: var(--color-primary-light) !important;
         }
     }
 
@@ -40,6 +41,7 @@
         white-space: normal !important;
         line-height: normal !important;
     }
+
 }
 
 /* Custom Header spacing */

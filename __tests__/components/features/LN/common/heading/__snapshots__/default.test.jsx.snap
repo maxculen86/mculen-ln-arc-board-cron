@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - ui - ln - Heading Rendering by level renders default level (undefined) as h4 with default structure 1`] = `
+<h4
+  class="font-primary font-w-extrabold text-20"
+>
+  <span>
+    Default Heading
+  </span>
+</h4>
+`;
+
+exports[`components - ui - ln - Heading Rendering by level renders level 1 as h2 with correct structure 1`] = `
+<h2
+  class="font-w-extrabold font-primary text-32"
+>
+  <span>
+    Level 1 Heading
+  </span>
+</h2>
+`;
+
+exports[`components - ui - ln - Heading Rendering by level renders level 2 as h3 with correct structure 1`] = `
+<h3
+  class="font-w-extrabold font-primary text-20 md:text-24"
+>
+  <span>
+    Level 2 Heading
+  </span>
+</h3>
+`;
+
+exports[`components - ui - ln - Heading Rendering by level renders level 3 (default) as h4 with correct structure 1`] = `
+<h4
+  class="font-primary font-w-extrabold text-20"
+>
+  <span>
+    Level 3 Heading
+  </span>
+</h4>
+`;
+
+exports[`components - ui - ln - Heading Rendering by level renders level 4 as h4 with underline 1`] = `
+<h4
+  class="font-w-extrabold font-primary underline"
+>
+  <span>
+    Level 4 Underline
+  </span>
+</h4>
+`;

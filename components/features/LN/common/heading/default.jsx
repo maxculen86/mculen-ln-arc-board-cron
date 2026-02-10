@@ -2,7 +2,6 @@ import React from 'react';
 import get from '../../../../private/common/utils/get';
 import parse from '../../../../private/common/utils/parseHelper';
 import { getHeadingConfig } from './_helpers';
-import HeadingView from './View';
 
 function Heading({ data }) {
     const level = get(data, 'level');
@@ -13,13 +12,11 @@ function Heading({ data }) {
     const config = getHeadingConfig(level);
     const parsedContent = <span>{parse(content)}</span>;
 
-    return (
-        <HeadingView
-            tag={config.tag || 'h4'}
-            className={config.classCondition}
-            content={parsedContent}
-        />
-    );
+    const Tag = config.tag || 'h4';
+
+    if (!content) return null;
+
+    return <Tag className={config.className}>{parsedContent}</Tag>;
 }
 
 Heading.arcType = 'header';
