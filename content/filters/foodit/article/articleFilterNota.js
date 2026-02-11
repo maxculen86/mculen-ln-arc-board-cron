@@ -168,6 +168,9 @@ const labels = `
         info_nutricional{
             text
         }
+        leyenda_imagenes_ia{
+            text
+        }
     }
 `;
 
