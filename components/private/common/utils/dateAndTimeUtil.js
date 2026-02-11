@@ -106,12 +106,8 @@ function formatDateHoursMinAndSecond(originalDate) {
 }
 
 function formatMonthDigits(originalDate) {
-    const mont = originalDate.getMonth() + 1;
-    if (mont < 10) {
-        return `0${mont}`;
-    }
-
-    return mont;
+    const month = originalDate.getMonth() + 1;
+    return month < 10 ? `0${month}` : `${month}`;
 }
 
 export function formatYearMontDayDate(originalDate) {
