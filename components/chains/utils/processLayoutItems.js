@@ -54,14 +54,10 @@ export const processLayoutItems = (
 
             if (specialItem && item === specialItem) return false;
 
-            if (
+            return !(
                 (layout === FOCAL_LEFT || layout === FOCAL_LEFT_VIDEO) &&
                 isSpecialType
-            ) {
-                return false;
-            }
-
-            return true;
+            );
         })
         .map(item => item.nodo);
 
