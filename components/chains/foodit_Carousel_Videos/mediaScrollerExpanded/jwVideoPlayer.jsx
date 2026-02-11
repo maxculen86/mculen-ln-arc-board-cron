@@ -43,7 +43,7 @@ function JwVideoPlayer({
             image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
             width: '100%',
             allowFullscreen: false,
-            mute: true,
+            mute: false,
             autostart: isInView
         });
 

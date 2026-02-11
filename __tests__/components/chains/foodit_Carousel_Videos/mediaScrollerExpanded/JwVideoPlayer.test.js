@@ -77,7 +77,7 @@ describe('JwVideoPlayer', () => {
         expect(mockSetup).toHaveBeenCalledWith(
             expect.objectContaining({
                 file: 'https://cdn.jwplayer.com/videos/test-video-id.mp4',
-                mute: true,
+                mute: false,
                 autostart: true
             })
         );
