@@ -12,7 +12,8 @@ export const useSignatureRules = ({
         distributor,
         withFirmaDistributor,
         subtype
-    } = {}
+    } = {},
+    isOpinionLayout = false
 } = {}) => {
     const creditsBy = get(credits, 'by', []);
     const {
@@ -22,20 +23,33 @@ export const useSignatureRules = ({
         category
     } = distributor || {};
 
-    const { photo, medio, authors } = useSignature({
+    const { photo, medio, authors, dataAuthor } = useSignature({
         creditsBy,
         position,
         contentElements
     });
+    const hasMultipleAuthors = Array.isArray(authors) && authors.length > 1;
+    const gplus = get(dataAuthor, 'gplus', '');
+    const roleByLayout = isOpinionLayout ? gplus : medio;
+    const resolvedRole = hasMultipleAuthors ? null : roleByLayout;
+    const opinionBottomExtras =
+        (!hasMultipleAuthors &&
+            isOpinionLayout &&
+            position === 'Bottom' && {
+                opinionFooterPhoto: get(dataAuthor, 'image'),
+                longBio: get(dataAuthor, 'longBio', ''),
+                socialLinks: get(creditsBy, '[0].social_links', [])
+            }) ||
+        {};
+    const { opinionFooterPhoto, ...opinionExtras } = opinionBottomExtras;
+    const resolvedPhoto = opinionFooterPhoto || photo;
 
     const hasAuthorsInContent = authors.length > 0;
     const authorId = get(creditsBy, '[0]._id', '');
 
-    const distributorAllowedByRules =
+    const shouldShowDistributor =
         (withFirmaDistributor && name !== 'lanacionar') ||
         (isExternalDistributor(name, category, authorId) && position === 'Top');
-    const shouldShowDistributor =
-        distributorAllowedByRules && hasAuthorsInContent;
 
     const authorsText = getAuthorsListText(authors);
     const { author } = shouldShowDistributor
@@ -56,12 +70,14 @@ export const useSignatureRules = ({
             authorsBlob: {
                 authors,
                 authorsText,
-                author
+                author,
+                hasMultipleAuthors
             },
-            photo,
-            medio,
+            photo: resolvedPhoto,
+            role: resolvedRole,
             position,
-            subtype
+            subtype,
+            ...opinionExtras
         }
     };
 };
