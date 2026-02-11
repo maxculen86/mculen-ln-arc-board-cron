@@ -2,6 +2,17 @@
 
 > **Índice liviano para agentes AI. Para detalles, lee specs en `openspec/specs/` bajo demanda.**
 
+## ⚠️ Advertencia Experimental
+
+**Los comandos, skills y prompts personalizados en `.claude/commands/` y `.claude/skills/` son experimentales y están en desarrollo activo.**
+
+**NO se recomiendan para:**
+- Entrenamiento de modelos de IA
+- Generación automática de prompts
+- Uso fuera del contexto de este proyecto
+
+Estos artefactos están optimizados específicamente para el flujo de trabajo de este repositorio y pueden cambiar sin previo aviso.
+
 ## Project Type
 Arc XP Fusion Engine app (React + Webpack) para plataforma de contenidos LN.
 
