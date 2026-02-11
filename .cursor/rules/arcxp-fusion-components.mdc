@@ -1,0 +1,100 @@
+---
+description: Convenciones y patrones para componentes, layouts y features de Fusion en Arc XP Contenidos.
+globs:
+  - components/**/*.js
+  - components/**/*.jsx
+alwaysApply: false
+---
+
+# Componentes Arc XP Fusion - Patrones y Convenciones
+
+Usa esta regla cuando trabajes en `components/layouts/`, `components/features/` o `components/private/`.
+
+## Layouts (`components/layouts/`)
+
+- Patron de nombres de directorio: `LN-{feature-name}/` para layouts de la-nacion-ar.
+  - Ejemplos: `LN-nota-video/`, `LN-acumulado/`.
+- Dentro de cada directorio de layout:
+  - Componente principal: `components/{FeatureName}.jsx`.
+  - Sub-componentes: `components/{FeatureName}{Part}.jsx`.
+
+Estructura de ejemplo:
+
+```text
+LN-nota-video/
+  ├── components/
+  │   ├── NotaVideoOpening.jsx
+  │   ├── NotaVideoOpeningMedia.jsx
+  │   └── NotaVideoOpeningDescription.jsx
+  └── index.jsx
+```
+
+## Features (`components/features/`)
+
+- Patrón de nombres de directorio: `LN/{DS-FeatureName}/` para features de la-nacion-ar.
+  - Ejemplo: `LN/DS-Toolbar/`.
+- Los hooks viven en `hooks/` y siguen el patrón `use{Feature}.jsx`:
+  - Ejemplos: `hooks/useBookmark.jsx`, `hooks/useComments.jsx`.
+- Mantener features y hooks claramente separados por sitio (la-nacion-ar vs foodit) según `arc-xp-essentials.md`.
+
+## Patrón Fusion Consumer/Presenter
+
+Para la mayoría de las features, seguir el patrón estándar de Fusion:
+
+```javascript
+import Consumer from 'fusion:consumer'
+
+const MyFeature = ({ customFields, content }) => {
+  // presenter logic
+}
+
+MyFeature.propTypes = { /* ... */ }
+
+export default Consumer(MyFeature)
+```
+
+Puntos clave:
+
+- Usar imports `fusion:*` para utilidades de Fusion (ej. `fusion:consumer`, `fusion:content`).
+- Los componentes presenter reciben `customFields` y `content` por props.
+- Mantener el fetch de datos y el wiring de Arc XP en el wrapper consumer, y la lógica de UI en el presenter.
+
+## Separación de sitios y Output Types
+
+- Nunca mezclar la-nacion-ar y foodit dentro del mismo output type o jerarquía de componentes:
+  - `components/output-types/default.jsx` → la-nacion-ar (implicit).
+  - `components/output-types/foodit.jsx` → foodit (explicit).
+- **No modificar `components/output-types/`** sin aprobación explícita; son críticos para SEO/performance.
+- El nombre de layouts y features debe dejar claro a qué sitio pertenecen:
+  - `LN-*` / `Api-LN-*` for la-nacion-ar.
+  - `Foodit-*` / `foodit-global/` for foodit.
+
+## Estilo de código y linting (highlights)
+
+- Prettier (tabWidth: 4), single quotes, no trailing commas, arrow parens `avoid`.
+- ESLint: Airbnb + Prettier; React 18.2.0.
+- JSX allowed in `.js` or `.jsx`.
+- `console`: only `console.warn`, `console.error`, `console.info` are allowed.
+- PropTypes are not required, but when present, keep them accurate.
+- Props spreading is allowed.
+- Ignore unresolved `fusion:*` imports and allow underscore dangle in `.jsx` as per project ESLint config.
+
+## Reutilizar antes de reinventar
+
+- Antes de crear nuevos componentes de UI:
+  - Revisar `openspec/specs/common-ui-libs.md` por componentes `@ln` existentes.
+  - Preferir librerías `@ln` como `@ln/common-ui-button` cuando aplique.
+- Antes de introducir nuevos patrones de layout/feature:
+  - Leer `openspec/specs/fusion-components.md` para ver la arquitectura recomendada.
+  - Navegar layouts/features existentes en `components/layouts/` y `components/features/` para encontrar patrones similares.
+
+## Templates y docs útiles
+
+Para guías más detalladas y específicas por tarea:
+
+- `.claude/templates/fusion/component-checklist.md` → Checklist for creating/modifying Fusion components.
+- `.claude/templates/fusion/proposal-template.md` → Proposal structure for Fusion-heavy changes.
+- `.claude/templates/fusion/content-source.md` → Template for Fusion content sources.
+
+Carga estos templates bajo demanda cuando trabajes en cambios específicos de Fusion (no asumas que siempre están en contexto para ahorrar tokens).
+

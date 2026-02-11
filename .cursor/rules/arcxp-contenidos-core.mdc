@@ -1,0 +1,75 @@
+---
+description: Resumen del proyecto Arc XP Contenidos, docs clave y guardrails para agentes de Cursor.
+alwaysApply: true
+---
+
+# Arc XP Contenidos - Contexto principal
+
+Usa esta regla siempre que trabajes en este repositorio. Resume las restricciones más importantes del proyecto y dónde leer las especificaciones detalladas.
+
+## Descripción del proyecto
+
+- Aplicación Arc XP Fusion Engine para la plataforma de contenidos de LN, basada en React + Webpack.
+- La arquitectura y patrones específicos de Fusion están documentados en `openspec/specs/` y `.claude/context/`.
+
+## Documentación clave (leer bajo demanda)
+
+Cuando necesites detalles, lee estas specs en vez de inferir:
+
+- `openspec/specs/fusion-components.md` → Component architecture and consumer/presenter patterns.
+- `openspec/specs/build-system.md` → Build process and Fusion/webpack integration.
+- `openspec/specs/common-ui-libs.md` → Shared `@ln` UI component libraries to reuse before creating new UI.
+- `openspec/specs/styling.md` → Styling architecture (3 approaches) and where CSS lives.
+- `openspec/specs/testing.md` → Jest testing patterns and conventions.
+
+Contexto adicional:
+
+- `CLAUDE.md` → Top-level index for project docs and workflows.
+- `.claude/context/arc-xp-essentials.md` → Critical Arc XP specific guardrails.
+- `.claude/context/project-conventions.md` → Code style, naming, and directory conventions.
+
+## Estructura del proyecto (alto nivel)
+
+Directorios clave:
+
+- `components/layouts/` → Full page layouts (site-specific).
+- `components/features/` → Reusable features.
+- `components/output-types/` → SEO/performance-critical output types.
+- `components/private/` → Internal utilities shared across components.
+- `content/` → Content sources (sources/schemas/filters).
+- `data/` → Data sources (db/dumps/restore).
+- `config/` → Build configuration.
+
+## Guardrails críticos
+
+- **No modificar nunca**:
+  - `.fusion/` (Arc XP managed).
+  - `components/output-types/` (SEO/perf critical, especially `default.jsx` / `foodit.jsx`) without explicit approval.
+  - `node_modules/` or `package-lock.json` directly.
+- **No mezclar sitios** en nombres ni en output-types:
+  - `default.jsx` es la-nacion-ar.
+  - `foodit.jsx` es solo foodit.
+- Mantener componentes de la-nacion-ar y foodit claramente separados por nombres y directorios (ver `arc-xp-essentials.md`).
+
+## Reglas esenciales antes de tocar código
+
+- **Leer antes de modificar**:
+  - Buscar componentes, patrones o helpers existentes antes de crear algo nuevo.
+  - Reutilizar patrones de `components/` y `openspec/specs/` siempre que sea posible.
+- **Preferir primero las librerías @ln**:
+  - Antes de crear nueva UI, revisar `openspec/specs/common-ui-libs.md` por componentes `@ln` existentes.
+- **Seguir los patrones de Fusion**:
+  - Usar el patrón consumer/presenter para features.
+  - Usar imports `fusion:*` para utilidades de Fusion (por ejemplo `fusion:consumer`, `fusion:content`).
+- **Respetar el estilo de código**:
+  - Prettier + ESLint (Airbnb + Prettier); comillas simples, sin trailing commas, indent de 4 espacios en JSX.
+  - Los hooks deben empezar con `use` (ej. `useBookmark`).
+
+## Comandos recomendados para verificar cambios
+
+Cuando cambies código, prioriza **checks pequeños y enfocados** sobre workflows pesados:
+
+- `npm run build-dev` → Clean + webpack + ln:buildjs.
+- Targeted `npm test` invocations where possible instead of the full suite.
+- `npm run watch` or `fusion start` only when needed for manual verification.
+
