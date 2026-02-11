@@ -23,31 +23,36 @@ Sigue siempre las reglas detalladas en `openspec/specs/git-commits.md`. En resum
 
 1. **Detectar rama actual y ramas protegidas**
    - Si la rama actual es `master`, `main`, `develop` o `sandbox`:
-     - Explicar que es una rama protegida.
+     - Advertir que es una rama protegida.
      - Sugerir crear una rama de trabajo (ej. `feat/<slug>`, `fix/<slug>`, `chore/<slug>`).
-     - Proponer 1–2 nombres de rama en base a la descripción del cambio y pedir confirmación.
+     - Proponer 1–2 nombres de rama y pedir confirmación antes de continuar.
 
-2. **Aclarar el alcance del commit**
-   - Preguntar si se debe:
-     - Usar solo lo que ya está en stage.
-     - Agregar todos los cambios del working directory.
-     - O agregar solo ciertos paths/patrones.
-   - No ejecutar `git add` sin una respuesta clara.
-
-3. **Generar mensaje de commit semántico**
-   - Revisar el diff (o un resumen) y proponer 1–2 mensajes en formato:
+2. **Revisar cambios y generar commit semántico**
+   - Ejecutar `git status` y `git diff` para analizar cambios.
+   - Determinar automáticamente:
+     - Si hay staged changes: usar esos.
+     - Si solo hay unstaged changes: agregar los archivos modificados relevantes.
+   - Generar mensaje semántico detallado en formato:
      - `<tipo>(<scope opcional>): <descripción corta>`
-   - Usar tipos como `feat`, `fix`, `chore`, `docs`, `refactor`, `test`.
-   - Explicar brevemente el porqué en el cuerpo si aporta valor.
-   - Pedir a la persona que elija o ajuste el mensaje.
+     - Usar tipos: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`, `perf`.
+     - Agregar cuerpo del commit si el cambio necesita contexto adicional.
 
-4. **Proponer los comandos concretos**
-   - Mostrar el/los comandos que se ejecutarían, por ejemplo:
-     - `git add ...` (si corresponde).
-     - `git commit -m "..."`.
-   - No ejecutar `git commit` sin confirmación explícita de la persona.
+3. **Ejecutar commit directamente**
+   - Ejecutar `git add` de los archivos necesarios (si corresponde).
+   - Ejecutar `git commit` con el mensaje generado usando formato HEREDOC:
+     ```bash
+     git commit -m "$(cat <<'EOF'
+     <tipo>(<scope>): <descripción>
 
-5. **Siguiente paso opcional**
+     <cuerpo opcional con contexto>
+
+     Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+     EOF
+     )"
+     ```
+   - Mostrar el resultado del commit.
+
+4. **Siguiente paso opcional**
    - Si el commit se hace en una rama de feature y todo está bien:
      - Sugerir `git push -u origin <branch>` (primer push) o `git push` si ya existe.
 
@@ -55,7 +60,9 @@ Sigue siempre las reglas detalladas en `openspec/specs/git-commits.md`. En resum
 
 - No modificar `git config`.
 - No usar `git push --force` salvo que la persona lo pida explícitamente y entienda el riesgo.
-- No crear commits en ramas protegidas sin advertirlo y recibir confirmación clara.
-- Tener cuidado de no incluir archivos sensibles (.env, credenciales, dumps de datos) sin confirmación.
-- Siempre mostrar los comandos sugeridos antes de ejecutarlos.
+- **CRÍTICO**: No crear commits en ramas protegidas (master/main/develop/sandbox) sin advertir y recibir confirmación explícita.
+- No incluir archivos sensibles (.env, credenciales, dumps de datos, node_modules) en commits.
+- Excluir archivos no relacionados del commit (usar `git add` selectivo, no `git add .` o `git add -A`).
+- Siempre usar formato HEREDOC para mensajes de commit multi-línea.
+- Incluir co-author de Claude en todos los commits.
 
