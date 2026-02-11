@@ -23,13 +23,10 @@ import {
     subtypesWithHorizontalShare,
     layoutBySubtype,
     shareContainerVariant,
-    hasSticky
+    hasSticky,
+    negativeSubtypes
 } from './_children/helper';
-import {
-    NOTICIA,
-    VIDEO,
-    VIDEO_VERTICAL
-} from '../../../private/common/utils/subtypes/subtypeHelper';
+import { NOTICIA } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -47,7 +44,7 @@ function Share() {
     const isHorizontal = subtypesWithHorizontalShare.includes(subtype);
     const layout = layoutBySubtype[subtype];
 
-    const isNegative = subtype === VIDEO || subtype === VIDEO_VERTICAL;
+    const isNegative = negativeSubtypes.includes(subtype);
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
 
     const isNotaNoticia = subtype === NOTICIA;

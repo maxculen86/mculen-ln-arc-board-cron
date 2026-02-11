@@ -8,7 +8,8 @@ import {
     LIVEBLOG_EDITORIAL,
     VIDEO,
     CARDS,
-    VIDEO_VERTICAL
+    VIDEO_VERTICAL,
+    VIDEO_COMENTARIOS
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
@@ -90,21 +91,26 @@ export const layoutBySubtype = {
     [VIDEO]: 'video',
     [LIVEBLOG_EDITORIAL]: 'liveblogEditorial',
     [CARDS]: 'cards',
-    [VIDEO_VERTICAL]: 'videoVertical'
+    [VIDEO_VERTICAL]: 'videoVertical',
+    [VIDEO_COMENTARIOS]: 'video'
 };
 
 export const subtypesWithHorizontalShare = [
     VIDEO,
     LIVEBLOG_EDITORIAL,
     CARDS,
-    VIDEO_VERTICAL
+    VIDEO_VERTICAL,
+    VIDEO_COMENTARIOS
 ];
+
+export const negativeSubtypes = [VIDEO, VIDEO_VERTICAL, VIDEO_COMENTARIOS];
 
 export const subtypesWithoutSticky = [
     VIDEO,
     LIVEBLOG_EDITORIAL,
     FOTOAL100,
-    CARDS
+    CARDS,
+    VIDEO_COMENTARIOS
 ];
 
 export const hasSticky = subtype => !subtypesWithoutSticky.includes(subtype);

@@ -12,6 +12,7 @@ import dynamicallyLoadScript from '../../../../../components/private/LN/common/u
 import { useValidateComments } from '../../../../../components/private/common/utils/commentsHelper';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
 import getScrollPercent from '../../../../../components/private/LN/common/utils/getScrollPercent';
+import { VIDEO_COMENTARIOS } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:consumer', () => {
     return function (Component) {
@@ -106,6 +107,23 @@ describe('CommentsViafouraFeature', () => {
         setupMocks();
         render(<CommentsViafouraFeature outputType="non-default" />);
         expect(screen.queryByText('Test Message')).not.toBeInTheDocument();
+    });
+    it('loads Viafoura script on mount for VIDEO_COMENTARIOS subtype', async () => {
+        setupMocks();
+
+        render(
+            <CommentsViafouraFeature
+                outputType="default"
+                globalContent={{ subtype: VIDEO_COMENTARIOS }}
+            />
+        );
+
+        await waitFor(() => {
+            expect(dynamicallyLoadScript).toHaveBeenCalledWith(
+                'https://cdn.viafoura.net/vf-v2.js',
+                'body'
+            );
+        });
     });
 
     describe('tracking comments', () => {
