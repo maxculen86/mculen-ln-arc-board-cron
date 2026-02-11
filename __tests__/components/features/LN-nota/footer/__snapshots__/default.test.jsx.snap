@@ -10,7 +10,7 @@ exports[`components - feature - LN-nota - Footer Component renders correctly wit
         class="grid grid-cols-2_m gap-12 py-16 py-12_m"
       >
         <div
-          class="flex flex-column gap-4"
+          class="flex flex-column gap-12"
         >
           <div>
             Signature
