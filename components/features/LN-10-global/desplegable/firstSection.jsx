@@ -7,7 +7,7 @@ import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 function FirstSection() {
     return (
@@ -17,7 +17,7 @@ function FirstSection() {
                     className="flex w-100 cursor-pointer"
                     htmlFor="queryly_toggle"
                     onClick={() =>
-                        addEventToDataLayer({
+                        addEventToDataLayerV2({
                             event: 'e_linkclick',
                             action: 'menu_secciones',
                             category: 'home_ln10',

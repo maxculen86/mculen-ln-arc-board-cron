@@ -1,14 +1,13 @@
 import React from 'react';
 import FirstSection from '../../../../../components/features/LN-10-global/desplegable/firstSection';
 import { render, fireEvent } from '@testing-library/react';
-import addEventToDataLayer from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import '@testing-library/jest-dom';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
-        __esModule: true,
-        default: jest.fn()
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -19,15 +18,16 @@ describe('components - features - LN-10-global - desplegable - search', () => {
         expect(search).toBeInTheDocument();
         expect(search).toHaveAttribute('for', 'queryly_toggle');
     });
-    it('should call the addEventToDataLayer function when the search component is clicked', () => {
+
+    it('should call the addEventToDataLayerV2 function when the search component is clicked', () => {
         const { container } = render(<FirstSection />);
         const search = container.querySelector('label');
         fireEvent.click(search);
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
-            category: 'home_ln10',
-            label: 'buscar',
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'e_linkclick',
             action: 'menu_secciones',
-            event: 'e_linkclick'
+            category: 'home_ln10',
+            label: 'buscar'
         });
     });
 
@@ -35,6 +35,7 @@ describe('components - features - LN-10-global - desplegable - search', () => {
         const { getByText } = render(<FirstSection />);
         expect(getByText('LN 104.9 + Música')).toBeInTheDocument();
     });
+
     it('should match snapshot', () => {
         const { container } = render(<FirstSection />);
         expect(container).toMatchSnapshot();
