@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
-import groupBannerConfig from '../../LN-nota/body/_utils/_groupBannerConfig';
 import BuildBody from '../../LN-nota/body/_children/_buildBody';
 import BaseBodyWrapper from '../../LN-nota/body/_children/BaseBodyWrapper';
 import { getBodyConfigForLayout } from './helpers/bodyConfig';
 import registerScrollTracking from './helpers/registerScrollTracking';
 import useViewportSize from '../../../private/common/hooks/useViewportSize';
-import { queueGoogletagCommand } from '../../../private/LN/common/utils/bannerHelper';
 
-function DsBody({ customFields = {} }) {
+function DsBody() {
     const { outputType, globalContent = {}, layout } = useAppContext();
-    const banners = groupBannerConfig(customFields);
     const { _id, content_elements: contentElements } = globalContent;
     const device = useViewportSize();
 
@@ -19,13 +16,6 @@ function DsBody({ customFields = {} }) {
         ruleConditions: finalRuleConditions,
         dynamicBanners
     } = getBodyConfigForLayout(layout);
-
-    const googleTagConfigs = [];
-    useEffect(() => {
-        if (googleTagConfigs.length > 0) {
-            queueGoogletagCommand(googleTagConfigs);
-        }
-    }, [device]);
 
     return (
         <BaseBodyWrapper
@@ -36,16 +26,12 @@ function DsBody({ customFields = {} }) {
             onRegisterScrollTrigger={registerScrollTracking}
         >
             {BuildBody({
-                banners,
                 outputType,
                 globalContent,
                 bodyComponents: finalBodyComponents,
                 ruleConditions: finalRuleConditions,
                 dynamicBanners,
-                currentDevice: device,
-                onDynamicBannersGoogletagConfig: config => {
-                    if (config) googleTagConfigs.push(config);
-                }
+                currentDevice: device
             })}
         </BaseBodyWrapper>
     );

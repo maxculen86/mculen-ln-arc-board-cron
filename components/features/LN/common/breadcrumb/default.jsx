@@ -25,7 +25,7 @@ function Breadcrumb({
                 host={host}
                 {...props}
             />
-            <BreadcrumbSchema sections={allSections} />
+            <BreadcrumbSchema sections={allSections} host={host} />
         </Static>
     );
 }

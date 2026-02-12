@@ -13,7 +13,7 @@ import SignatureWithAuthors from './signatureWithAuthors';
 import SignatureWithDistributor from './signatureWithDistributor';
 import get from '../../../private/common/utils/get';
 import WithoutSignature from './withoutSignature';
-import { useSignature } from './hook/useSignature';
+import { useSignature } from '../../LN/DS-Signature/hooks/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
 import { signatureClasses } from './styles';
 

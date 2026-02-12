@@ -88,4 +88,127 @@ describe('buildBreadcrumbSections', () => {
             }
         ]);
     });
+    it('should fallback to first section if primarySection is invalid (no _id)', () => {
+        const sections = [
+            {
+                _id: 'fallback-section',
+                name: 'Fallback Section',
+                path: '/fallback'
+            }
+        ];
+
+        const invalidPrimarySection = { type: 'reference' };
+
+        const result = buildBreadcrumbSections({
+            sections,
+            primarySection: invalidPrimarySection,
+            siteTitle: 'LA NACION'
+        });
+
+        expect(result).toEqual([
+            {
+                name: 'LA NACION',
+                path: '/'
+            },
+            {
+                name: 'Fallback Section',
+                path: '/fallback'
+            }
+        ]);
+    });
+    it('should hydrate primarySection from sections list if name is missing but ID exists', () => {
+        const primaryId = 'section-id';
+        const sections = [
+            {
+                _id: primaryId,
+                name: 'Hydrated Section Name',
+                path: '/hydrated-path'
+            }
+        ];
+
+        const incompletePrimarySection = {
+            _id: primaryId,
+            path: '/hydrated-path',
+            name: '' // Missing name
+        };
+
+        const result = buildBreadcrumbSections({
+            sections,
+            primarySection: incompletePrimarySection,
+            siteTitle: 'LA NACION'
+        });
+
+        expect(result).toEqual([
+            {
+                name: 'LA NACION',
+                path: '/'
+            },
+            {
+                name: 'Hydrated Section Name',
+                path: '/hydrated-path'
+            }
+        ]);
+    });
+
+    it('should fallback to first valid section if primarySection is completely invalid (no ID)', () => {
+        const sections = [
+            {
+                _id: 'valid-section',
+                name: 'Fallback Section',
+                path: '/fallback'
+            }
+        ];
+
+        const invalidPrimarySection = { type: 'reference' }; // No _id
+
+        const result = buildBreadcrumbSections({
+            sections,
+            primarySection: invalidPrimarySection,
+            siteTitle: 'LA NACION'
+        });
+
+        expect(result).toEqual([
+            {
+                name: 'LA NACION',
+                path: '/'
+            },
+            {
+                name: 'Fallback Section',
+                path: '/fallback'
+            }
+        ]);
+    });
+    it('should fallback to first valid section (with name) if primarySection is invalid', () => {
+        const sections = [
+            {
+                _id: 'invalid-section',
+                name: '',
+                path: '/invalid'
+            },
+            {
+                _id: 'valid-section',
+                name: 'Valid Section',
+                path: '/valid'
+            }
+        ];
+
+        const invalidPrimarySection = { type: 'reference' };
+
+        const result = buildBreadcrumbSections({
+            sections,
+            primarySection: invalidPrimarySection,
+            siteTitle: 'LA NACION'
+        });
+
+        expect(result).toEqual([
+            {
+                name: 'LA NACION',
+                path: '/'
+            },
+            {
+                name: 'Valid Section',
+                path: '/valid'
+            }
+        ]);
+    });
 });

@@ -1,13 +1,16 @@
+import get from '../../../../../private/common/utils/get';
+
 const getPrimaryTree = (sections, section, resultSections) => {
     if (section) {
         resultSections.push({
-            name: section.name,
-            path: section.path
+            name: get(section, 'name'),
+            path: get(section, 'path')
         });
-        if (section.parent_id && section.parent_id !== '/') {
+        const parentId = get(section, 'parent_id');
+        if (parentId && parentId !== '/') {
             getPrimaryTree(
                 sections,
-                sections.find(({ _id: id }) => id === section.parent_id),
+                sections.find(({ _id: id }) => id === parentId),
                 resultSections
             );
         }

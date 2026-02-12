@@ -1,0 +1,194 @@
+{
+  "secciones": {
+    "left": [
+      {
+        "id": "ultimas-noticias",
+        "text": "Últimas noticias",
+        "href": "/ultimas-noticias/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "economia",
+        "text": "Economía",
+        "href": "/economia/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "sociedad",
+        "text": "Sociedad",
+        "href": "/sociedad/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "deportes",
+        "text": "Deportes",
+        "href": "/deportes/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "espectaculos",
+        "text": "Espectáculos",
+        "href": "/espectaculos/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "ln-mas",
+        "text": "LN+",
+        "href": "https://lnmas.lanacion.com.ar/"
+      }
+    ],
+    "right": [
+      {
+        "id": "politica",
+        "text": "Política",
+        "href": "/politica/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "el-mundo",
+        "text": "El mundo",
+        "href": "/el-mundo/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "opinion",
+        "text": "Opinión",
+        "href": "/opinion/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "lifestyle",
+        "text": "Lifestyle",
+        "href": "/lifestyle/",
+        "type": "SITE_LANACION"
+      },
+      {
+        "id": "edicion-impresa",
+        "text": "Edición impresa",
+        "href": "https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251/"
+      },
+      {
+        "id": "club-la-nacion",
+        "text": "Club LA NACION",
+        "href": "https://club.lanacion.com.ar/"
+      }
+    ]
+  },
+
+  "revistas": [
+    {
+      "id": "ohlala",
+      "text": "OHLALÁ!",
+      "href": "https://www.somosohlala.com/",
+      "target": "_blank"
+    },
+    {
+      "id": "hola",
+      "text": "¡HOLA!",
+      "href": "/revista-hola/",
+      "type": "SITE_LANACION",
+      "target": "_blank"
+    },
+    {
+      "id": "living",
+      "text": "LIVING",
+      "href": "/revista-living/",
+      "type": "SITE_LANACION",
+      "target": "_blank"
+    },
+    {
+      "id": "jardin",
+      "text": "JARDÍN",
+      "href": "/revista-jardin/",
+      "type": "SITE_LANACION",
+      "target": "_blank"
+    },
+    {
+      "id": "lugares",
+      "text": "LUGARES",
+      "href": "/revista-lugares/",
+      "type": "SITE_LANACION",
+      "target": "_blank"
+    },
+    {
+      "id": "rolling-stone",
+      "text": "ROLLING STONE",
+      "href": "https://es.rollingstone.com/arg/",
+      "target": "_blank"
+    }
+  ],
+
+  "productos": [
+    {
+      "id": "canchallena",
+      "text": "Canchallena",
+      "href": "https://canchallena.lanacion.com.ar/",
+      "target": "_blank"
+    },
+    {
+      "id": "foodit",
+      "text": "Foodit",
+      "href": "https://foodit.lanacion.com.ar/",
+      "target": "_blank"
+    },
+    {
+      "id": "bonvivir",
+      "text": "Bonvivir",
+      "href": "https://bonvivir.com/",
+      "target": "_blank"
+    },
+    {
+      "id": "colecciones",
+      "text": "Colecciones",
+      "href": "https://colecciones.lanacion.com.ar/",
+      "target": "_blank"
+    },
+    {
+      "id": "master-periodismo",
+      "text": "Máster en periodismo",
+      "href": "https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327",
+      "target": "_blank"
+    },
+    {
+      "id": "fundacion-ln",
+      "text": "Fundación LA NACION",
+      "href": "https://fundacionlanacion.org.ar/",
+      "target": "_blank"
+    }
+  ],
+
+  "masInformacion": [
+    {
+      "id": "mapa-del-sitio",
+      "text": "Mapa del sitio",
+      "href": "/mapa-del-sitio/",
+      "type": "SITE_LANACION"
+    },
+    {
+      "id": "ayuda",
+      "text": "Ayuda",
+      "href": "https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
+    },
+    {
+      "id": "atencion-al-socio",
+      "text": "Atención al socio",
+      "href": "https://club.lanacion.com.ar/ayuda/"
+    },
+    {
+      "id": "terminos-condiciones",
+      "text": "Términos y condiciones",
+      "href": "https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/"
+    },
+    {
+      "id": "como-anunciar",
+      "text": "¿Cómo anunciar?",
+      "href": "https://www.lanacion.in/"
+    },
+    {
+      "id": "suscribirse-diario-impreso",
+      "text": "Suscribirse al diario impreso",
+      "href": "/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/",
+      "type": "SITIO_SEGURO_REGISTRACION"
+    }
+  ]
+}

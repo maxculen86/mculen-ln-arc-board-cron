@@ -20,13 +20,15 @@ jest.mock(
 
 jest.mock('../../../../../../components/features/ui/ln/image/default', () => ({
     __esModule: true,
-    default: ({ src, alt, width, height, sources }) => (
+    default: ({ src, alt, width, height, sources, loading, fetchPriority }) => (
         <img
             data-testid="image-media"
             src={src}
             alt={alt}
             width={width}
             height={height}
+            loading={loading}
+            fetchpriority={fetchPriority}
             data-sources={JSON.stringify(sources)}
         />
     )
@@ -66,5 +68,39 @@ describe('Image component', () => {
         const { container } = render(<Image data={dataMock} />);
 
         expect(container).toMatchSnapshot();
+    });
+
+    it('does not set loading and fetchPriority when not provided', () => {
+        getImageData.mockReturnValue({
+            src: resizedUrlMock,
+            width: 800,
+            height: 100,
+            alt: '',
+            pictureSources: pictureSourcesMock
+        });
+
+        const { getByTestId } = render(<Image data={dataMock} />);
+
+        const img = getByTestId('image-media');
+        expect(img).not.toHaveAttribute('loading');
+        expect(img).not.toHaveAttribute('fetchpriority');
+    });
+
+    it('sets loading="eager" and fetchPriority="high" when provided', () => {
+        getImageData.mockReturnValue({
+            src: resizedUrlMock,
+            width: 800,
+            height: 100,
+            alt: '',
+            pictureSources: pictureSourcesMock
+        });
+
+        const { getByTestId } = render(
+            <Image data={dataMock} loading="eager" fetchPriority="high" />
+        );
+
+        const img = getByTestId('image-media');
+        expect(img).toHaveAttribute('loading', 'eager');
+        expect(img).toHaveAttribute('fetchpriority', 'high');
     });
 });

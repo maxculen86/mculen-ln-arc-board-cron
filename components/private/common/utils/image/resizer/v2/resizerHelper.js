@@ -94,9 +94,9 @@ export const setCropMethod = ({
 };
 
 export const setHeight = (width, height, proportion) => {
-    const [axisX, axisY] = proportion.split(':');
+    const [axisX, axisY] = proportion.split(':').map(Number);
 
-    return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
+    return axisX > axisY ? Math.round((width / axisX) * axisY) : Number(height);
 };
 
 export const autoHeight = (originalHeight, originalWidth, newWidth) => {

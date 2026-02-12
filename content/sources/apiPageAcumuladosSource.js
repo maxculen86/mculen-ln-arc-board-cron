@@ -14,7 +14,8 @@ const getParamsFromQuery = query => {
     const categoryUri = get(query, 'categoryUri', '')?.replace('/', '');
     const turnOffFlag = get(query, 'apagarApi', '');
     const sectionId = get(query, 'sectionId', null);
-
+    const versionDeploy = get(query, 'versionDeploy', null);
+    const cookie = get(query, 'cookie', '');
     const sectionData = sectionsDataJson?.find(
         e => get(e, 'slug') === sectionId
     );
@@ -32,7 +33,9 @@ const getParamsFromQuery = query => {
         ticksCache,
         categoryUri,
         turnOffFlag,
-        namePage
+        namePage,
+        cookie,
+        versionDeploy
     };
 };
 
@@ -77,8 +80,16 @@ const fetchSectionSource = async (query, cachedCall) => {
 
 const fetch = async (query, { cachedCall }) => {
     try {
-        const { uri, website, versionUri, categoryUri, turnOffFlag, namePage } =
-            getParamsFromQuery(query);
+        const {
+            uri,
+            website,
+            versionUri,
+            categoryUri,
+            turnOffFlag,
+            namePage,
+            cookie,
+            versionDeploy
+        } = getParamsFromQuery(query);
 
         if (turnOffFlag && turnOffFlag === 'true') {
             return {
@@ -93,7 +104,8 @@ const fetch = async (query, { cachedCall }) => {
             uri,
             categoryUri,
             versionUri,
-            cookie: query.cookie
+            cookie,
+            versionDeploy
         };
 
         const [resultPage, fetchSectionSourceResult] = await Promise.all([
@@ -157,7 +169,8 @@ export default {
         versionUri: 'text',
         ticks: 'text',
         cookie: 'text',
-        apagarApi: 'text'
+        apagarApi: 'text',
+        versionDeploy: 'text'
     },
     ttl: 120
 };

@@ -78,7 +78,7 @@ export const configPromoItems = {
         addGalleryData(cachedCall, element, arcSite)
 };
 
-const configCallbackCustomEmbed = {
+export const configCallbackCustomEmbed = {
     'gallery-embed': async ({
         cachedCall,
         element,
@@ -87,7 +87,7 @@ const configCallbackCustomEmbed = {
     } = {}) => {
         if (!isFotoAl100Note) return {};
 
-        return await buildGalleryEmbedData({
+        return buildGalleryEmbedData({
             element,
             cachedCall,
             gallerySource,

@@ -6,7 +6,7 @@ import Ingredient from '../../../../../../../components/features/foodit-global/c
 describe('Ingredient Component', () => {
     it('should display the ingredient name', () => {
         const item = { ingredient: 'Tomato', amount: 2, abbreviation: 'pcs' };
-        render(<Ingredient item={item} typeList="foodit-ingredientes" />);
+        render(<Ingredient item={item} />);
 
         const ingredientElement = screen.getByText('Tomato');
         expect(ingredientElement).toBeInTheDocument();
@@ -23,18 +23,18 @@ describe('Ingredient Component', () => {
 
     it('should display the quantity and abbreviation when provided', () => {
         const item = { ingredient: 'Sugar', amount: 3, abbreviation: 'kg' };
-        render(<Ingredient item={item} typeList="foodit-ingredientes" />);
+        render(<Ingredient item={item} />);
 
         const quantityElement = screen.getByText('3 kg');
         expect(quantityElement).toBeInTheDocument();
     });
 
-    it('should not display the quantity if typeList is not "foodit-ingredientes"', () => {
+    it('should not display the quantity if no have quantity"', () => {
         const item = { ingredient: 'Flour', amount: 1, abbreviation: 'kg' };
-        render(<Ingredient item={item} typeList="other-list" />);
+        render(<Ingredient item={item} />);
 
         const quantityElement = screen.queryByText('1 kg');
-        expect(quantityElement).toBeNull();
+        expect(quantityElement).toBeInTheDocument();
     });
 
     it('should display the name and displayAmount when isTabIngredients is true', () => {

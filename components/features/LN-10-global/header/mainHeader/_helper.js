@@ -6,6 +6,7 @@ import useTermica from '../../../../private/common/hooks/useTermica';
 import get from '../../../../private/common/utils/get';
 import { logout } from '../../../../private/common/auth/helper/loginHelper';
 import handleCookie from '../../../../private/LN/common/utils/handleCookie';
+import { OBSERVABLE_EVENTS } from '../../../LN/common/utils/constants';
 
 const { eraseCookie } = handleCookie();
 
@@ -85,8 +86,8 @@ export const getTermicaValues = propertyNames => {
     }, {});
 };
 
-export const sectionsCallback = (e, toggleDesplegable) => {
-    toggleDesplegable();
+export const sectionsCallback = () => {
+    window?.LN?.observable?.publish(OBSERVABLE_EVENTS.TOGGLE_DESPLEGABLE);
     addEventToDataLayer({
         event: 'e_linkclick',
         action: 'header_logo',

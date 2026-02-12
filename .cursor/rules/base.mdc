@@ -1,0 +1,33 @@
+---
+description: Base context for Arc XP Contenidos (Fusion + OpenSpec)
+alwaysApply: true
+---
+
+# Cursor - Arc XP Contenidos
+
+> Arc XP Fusion (React+Webpack) | Read `openspec/specs/*.md` on demand | See `/AGENTS.md` for details
+
+## Critical Guardrails
+
+**NEVER modify**: `.fusion/`, `components/output-types/` without approval
+**Multi-site**: `default.jsx`=la-nacion-ar, `foodit.jsx`=foodit (keep separated)
+
+## Specs (read on demand)
+- `openspec/specs/fusion-components.md` - Architecture, consumer/presenter
+- `openspec/specs/common-ui-libs.md` - @ln UI libs (check first!)
+- `openspec/specs/styling.md`, `testing.md`, `git-commits.md`
+
+## Commands (Cmd+K)
+**OpenSpec**: `/opsx:new`, `/opsx:continue`, `/opsx:apply`, `/opsx:archive`
+**Fusion**: `/fusion-component`, `/fusion-debug`, `/fusion-update-libs`
+**Git**: `/git-commit`
+
+## Rules Applied
+- `arcxp-fusion-components.mdc` - Component patterns
+- `arcxp-openspec-fusion-workflows.mdc` - Workflow guidance
+- `git-workflows.mdc` - Git conventions
+
+## Behavior
+- Use @ln libs before creating new UI
+- Follow consumer/presenter pattern
+- Test: `npm run build-dev && npm test -- [specific]`

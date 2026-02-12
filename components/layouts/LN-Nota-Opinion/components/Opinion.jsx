@@ -21,54 +21,65 @@ function Opinion({ children }) {
     return (
         <>
             {/* ---- APERTURA ---- */}
-            <Opinion.Opening className="w-full flex flex-col gap-40">
-                <div className="flex flex-col items-center gap-40">
-                    <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 md:gap-x-24 lg:grid-cols-16 lg:gap-x-31">
-                        <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
-                            <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
-                                OPINIÓN
-                            </span>
-                            {/* TODO para front: revisar espaciados cuando una nota no tiene autor */}
-                            <span className="font-primary font-w-medium text-18 text-center leading-[130%]">
-                                {authorsConcat}
-                            </span>
+            {/* Componentes con tailwind - DS */}
+            <div data-tw className="contents">
+                <Opinion.Opening className="w-full flex flex-col gap-40">
+                    <div className="flex flex-col items-center gap-40">
+                        <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 md:gap-x-24 lg:grid-cols-16 lg:gap-x-31">
+                            <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
+                                <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
+                                    OPINIÓN
+                                </span>
+                                <Opening.Authors
+                                    className="max-w-636"
+                                    authorsConcat={authorsConcat}
+                                />
+                            </div>
+                            <div className="mt-1 w-64 md:col-span-12 lg:col-span-16">
+                                <Divider />
+                            </div>
+                            <div className="flex flex-col items-center gap-8 md:col-span-10 md:col-start-2 lg:col-span-16 max-w-636">
+                                <Opening.Title
+                                    content={globalContent.headlines.basic}
+                                />
+                                <Opening.Subtitle
+                                    content={globalContent.subheadlines.basic}
+                                />
+                            </div>
                         </div>
-                        <div className="mt-1 w-64 md:col-span-12 lg:col-span-16">
-                            <Divider />
-                        </div>
-                        <div className="flex flex-col items-center gap-8 md:col-span-10 md:col-start-2 lg:col-span-16 max-w-636">
-                            <Opening.Title
-                                content={globalContent.headlines.basic}
-                            />
-                            <Opening.Subtitle
-                                content={globalContent.subheadlines.basic}
-                            />
-                        </div>
-                    </div>
-                    <Opening.Media
-                        data={{ mediaData, caption: text, attribution }}
-                    />
-                </div>
-            </Opinion.Opening>
-            {/* ---- Wrapper con grilla y ancho maximo ---- */}
-            <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full">
-                <div className="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635 relative left-1/2 -translate-x-1/2 flex flex-col gap-24">
-                    {/* ---- PRE-CUERPO ---- */}
-                    <Opinion.PreBody>
-                        <PreBody.Breadcrumb
-                            globalContent={globalContent}
-                            siteProperties={siteProperties}
+                        <Opening.Media
+                            data={{ mediaData, caption: text, attribution }}
                         />
-                    </Opinion.PreBody>
-                    {/* ---- CUERPO ---- */}
-                    {children[2]}
+                    </div>
+                </Opinion.Opening>
+                {/* ---- Wrapper con grilla y ancho maximo ---- */}
+                <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full">
+                    <div className="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635 relative left-1/2 -translate-x-1/2 flex flex-col gap-24">
+                        {/* ---- PRE-CUERPO ---- */}
+                        <Opinion.PreBody>
+                            {children[1]}
+                            <PreBody.Breadcrumb
+                                globalContent={globalContent}
+                                siteProperties={siteProperties}
+                            />
+                        </Opinion.PreBody>
+                        {/* ---- CUERPO ---- */}
+                        {children[2]}
+                    </div>
                 </div>
             </div>
 
-            {/* ---- BOTTOM ---- */}
-            {children[3]}
-            {/* ---- BOTTOM-TERCERA ---- */}
-            {children[4]}
+            {/* //TODO: migrar estructura a tailwind cuando se migre la estructura de la nota */}
+            {/* ---- Post-Cuerpo ---- */}
+            <div className="grid grid-cols-16_xl w-100">
+                <div className="col-span-3-center_xl">{children[3]}</div>
+            </div>
+            <div className="w-100 flex">
+                {/* ---- BOTTOM ---- */}
+                <div className="w-100 sidebar__main">{children[4]}</div>
+                {/* ---- BOTTOM-TERCERA ---- */}
+                <div className="sidebar__aside">{children[5]}</div>
+            </div>
         </>
     );
 }

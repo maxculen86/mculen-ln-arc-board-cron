@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+.fusion/
+resources/dist/
+dist/
+coverage/
+site-styles/
+
+# IDE
+.idea/
+.vscode/
+.sonarlint/
+
+# Environment & secrets
+.env
+.npmrc-encrypted
+*.log
+
+# Large/generated files
+*.min.js
+*.min.css
+*.map
+
+# Archives
+openspec/changes/archive/
+
+# Test artifacts
+__tests__/**/*.snap
+
+# Documentation that's rarely needed
+*.md.backup

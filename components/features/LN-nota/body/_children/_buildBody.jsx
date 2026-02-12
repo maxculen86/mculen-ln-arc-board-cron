@@ -7,7 +7,7 @@ import {
 } from '../_utils/renderHelpers';
 
 const BuildBody = ({
-    banners,
+    banners = [],
     outputType,
     globalContent = {},
     groupedElements,

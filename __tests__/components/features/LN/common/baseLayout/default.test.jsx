@@ -13,18 +13,22 @@ jest.mock(
 
 jest.mock(
     '../../../../../../components/features/LN/common/navBar/default',
-    () =>
-        function MockNavbar() {
-            return <div data-testid="mock-navbar" />;
-        }
+    () => {
+        const MockNavbar = () => <div data-testid="mock-navbar" />;
+        return { __esModule: true, default: MockNavbar };
+    }
 );
 
 jest.mock(
     '../../../../../../components/features/LN/common/footer/default',
-    () =>
-        function MockFooter() {
-            return <div data-testid="mock-footer" />;
-        }
+    () => {
+        const MockFooter = () => <div data-testid="mock-footer" />;
+        return {
+            __esModule: true,
+            FooterBase: MockFooter,
+            default: MockFooter
+        };
+    }
 );
 
 jest.mock(

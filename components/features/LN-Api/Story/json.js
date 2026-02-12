@@ -4,7 +4,7 @@ import IndexNotaMobileV1 from '../../../private/LN/api/v1/mobile/story';
 import browser from '../../../private/common/utils/browser';
 import dateAndTimeUtil from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
-import { getZocaloAppsProps } from '../../LN-nota/infoBox/helper';
+
 
 class Story {
     constructor(props) {
@@ -77,17 +77,11 @@ class Story {
 
         const { globalContent } = this.props;
 
-        const path = get(globalContent, 'taxonomy.primary_section.path', null);
         const audio = get(
             globalContent,
             'promo_items.audio_nota.embed.config',
             null
         );
-        const zocalo = getZocaloAppsProps(path);
-        let footer = null;
-        if (zocalo) {
-            footer = [{ ...zocalo }];
-        }
 
         const handleExternalStoryRedirection = () => ({
             id: 'N/A',
@@ -107,8 +101,7 @@ class Story {
             return indexNota({
                 ...globalContent,
                 navigationTreeSource,
-                dataAudio: audio || restAudioNewsSource,
-                footer
+                dataAudio: audio || restAudioNewsSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };

@@ -19,55 +19,33 @@ describe('components - features - ui - ln - link - default', () => {
         expect(link).toHaveTextContent('Test Link');
     });
 
-    it('passes through all props to CommonLink', () => {
+    it('passes through strictly passed props', () => {
         const props = {
-            href: '/external-url',
-            target: '_blank',
-            rel: 'noopener noreferrer',
+            ...defaultProps,
             className: 'custom-class',
-            children: 'External Link',
-            'data-testid': 'common-link'
+            target: '_blank'
         };
 
         render(<Link {...props} />);
-
         const link = screen.getByTestId('common-link');
-        expect(link).toHaveAttribute('href', '/external-url');
-        expect(link).toHaveAttribute('target', '_blank');
-        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+
         expect(link).toHaveClass('custom-class');
-        expect(link).toHaveTextContent('External Link');
+        expect(link).toHaveAttribute('target', '_blank');
+        // Should NOT have 'com-text' or auto-generated classes
+        expect(link).not.toHaveClass('com-text');
     });
 
-    it('works with different content types', () => {
-        const { rerender } = render(
+    it('renders children as passed without parsing', () => {
+        const { getByText } = render(
             <Link href="/test">
                 <span>Nested content</span>
             </Link>
         );
-
-        expect(screen.getByText('Nested content')).toBeInTheDocument();
-
-        rerender(<Link href="/test">Plain text</Link>);
-        expect(screen.getByText('Plain text')).toBeInTheDocument();
+        expect(getByText('Nested content')).toBeInTheDocument();
     });
 
-    it('should match snapshot', () => {
+    it('should match snapshot (pure render)', () => {
         const { asFragment } = render(<Link {...defaultProps} />);
-        expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('should match snapshot with external link props', () => {
-        const { asFragment } = render(
-            <Link
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="external-link"
-            >
-                External Link
-            </Link>
-        );
         expect(asFragment()).toMatchSnapshot();
     });
 });

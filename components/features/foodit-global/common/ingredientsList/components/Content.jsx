@@ -1,14 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import Ingredient from './Ingredient';
 
-function IngredientsListContent({
-    bookmarkId,
-    titleList,
-    items = [],
-    typeList
-}) {
+function IngredientsListContent({ bookmarkId, titleList, items = [] }) {
     return (
         <div>
             <div className="flex flex-column gap-8 pt-24">
@@ -19,31 +13,11 @@ function IngredientsListContent({
                     <Ingredient
                         key={`${bookmarkId}-${item.ingredient || ''}`}
                         item={item}
-                        typeList={typeList}
                     />
                 ))}
             </div>
         </div>
     );
 }
-
-IngredientsListContent.propTypes = {
-    bookmarkId: PropTypes.string.isRequired,
-    titleList: PropTypes.string,
-    items: PropTypes.arrayOf(
-        PropTypes.shape({
-            amount: PropTypes.string,
-            unit: PropTypes.string.isRequired,
-            ingredient: PropTypes.string.isRequired,
-            abbreviation: PropTypes.string,
-            fullIngredientString: PropTypes.string
-        })
-    ).isRequired,
-    typeList: PropTypes.string.isRequired
-};
-
-IngredientsListContent.defaultProps = {
-    titleList: ''
-};
 
 export default IngredientsListContent;

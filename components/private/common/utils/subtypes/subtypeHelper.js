@@ -16,6 +16,7 @@ export const HOWTO = '13';
 export const CARDS = '14';
 export const HTMLLIBRECLL = '15';
 export const VIDEO_VERTICAL = '16';
+export const VIDEO_COMENTARIOS = '17';
 
 export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
 
@@ -35,7 +36,8 @@ export const Subtypes = [
     { id: '13', nombre: 'HowTo' },
     { id: '14', nombre: 'Cards' },
     { id: '15', nombre: 'HtmlLibre canchallena' },
-    { id: '16', nombre: 'Video Vertical' }
+    { id: '16', nombre: 'Video Vertical' },
+    { id: '17', nombre: 'Video Comentarios' }
 ];
 
 export const translateStringFromSubitypeToID = (subtype = '') => {
@@ -55,7 +57,8 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
         HowTo: HOWTO,
         Cards: CARDS,
         'HtmlLibre canchallena': HTMLLIBRECLL,
-        VideoVertical: VIDEO_VERTICAL
+        VideoVertical: VIDEO_VERTICAL,
+        VideoComentarios: VIDEO_COMENTARIOS
     };
 
     return dictionarySubtypes[subtype] || subtype;

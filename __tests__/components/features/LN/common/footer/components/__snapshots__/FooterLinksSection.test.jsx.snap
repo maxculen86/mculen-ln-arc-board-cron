@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterLinksSection should match snapshot 1`] = `
+<div
+  class="flex justify-center gap-32"
+>
+  <div
+    data-testid="footer-link-column"
+  >
+    <p>
+      Secciones
+    </p>
+    <span>
+      Economía
+    </span>
+  </div>
+  <div
+    data-testid="footer-link-column"
+  >
+    <span>
+      Política
+    </span>
+  </div>
+  <div
+    data-testid="footer-link-column"
+  >
+    <p>
+      Revistas
+    </p>
+    <span>
+      Revista 1
+    </span>
+  </div>
+  <div
+    data-testid="footer-link-column"
+  >
+    <span>
+      Producto 1
+    </span>
+  </div>
+  <div
+    data-testid="footer-link-column"
+  >
+    <span>
+      Info 1
+    </span>
+  </div>
+  <div
+    class="flex flex-col justify-center md:justify-start gap-16 items-stretch"
+  >
+    <div
+      class="flex flex-col gap-16 items-center"
+    >
+      <p
+        class="text-center text-body-sm leading-[110%] tracking-[-0.3px] font-bold"
+      >
+        Redes sociales
+      </p>
+      <ul
+        class="flex gap-24 justify-center md:grid md:grid-cols-2 lg:flex"
+      >
+        <li
+          class="flex"
+        >
+          <a
+            href="https://www.facebook.com/lanacion"
+            target="_blank"
+            title="Seguirnos en Facebook"
+          >
+            <div
+              fill="#333"
+              name="facebook"
+              size="24"
+            />
+          </a>
+        </li>
+        <li
+          class="flex"
+        >
+          <a
+            href="https://x.com/LANACION/"
+            target="_blank"
+            title="Seguirnos en X"
+          >
+            <div
+              fill="#333"
+              name="x"
+              size="24"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="flex flex-col gap-16 items-center"
+    >
+      <p
+        class="text-center text-body-sm leading-[110%] tracking-[-0.3px] font-bold"
+      >
+        Descargá la app
+      </p>
+      <ul
+        class="flex gap-24 justify-center items-center md:flex-col"
+      >
+        <li
+          class="flex"
+        >
+          <a
+            href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419&pli=1"
+            target="_blank"
+            title="Ir a Google Play"
+          >
+            <div
+              width="100"
+            >
+              android-icon
+            </div>
+          </a>
+        </li>
+        <li
+          class="flex"
+        >
+          <a
+            href="https://apps.apple.com/ar/app/la-nacion/id410689702"
+            target="_blank"
+            title="Ir a App Store"
+          >
+            <div
+              width="100"
+            >
+              ios-icon
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
