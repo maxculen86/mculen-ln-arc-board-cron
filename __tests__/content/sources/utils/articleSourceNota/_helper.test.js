@@ -1095,7 +1095,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 paywallEnabled: '1',
                 meteringVariant: 'D',
                 paywallUrl:
-                    'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/?callback='
+                    'https://suscripciones.lanacion.com.ar/ln/cerrado?callback='
             };
 
             expect(() => setRedirect({ response, query, siteUrl })).toThrow(

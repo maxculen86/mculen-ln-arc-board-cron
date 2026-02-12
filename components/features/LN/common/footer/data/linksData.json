@@ -74,7 +74,6 @@
       }
     ]
   },
-
   "revistas": [
     {
       "id": "ohlala",
@@ -117,7 +116,6 @@
       "target": "_blank"
     }
   ],
-
   "productos": [
     {
       "id": "canchallena",
@@ -156,7 +154,6 @@
       "target": "_blank"
     }
   ],
-
   "masInformacion": [
     {
       "id": "mapa-del-sitio",
@@ -187,7 +184,7 @@
     {
       "id": "suscribirse-diario-impreso",
       "text": "Suscribirse al diario impreso",
-      "href": "/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/",
+      "href": "/ln/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/",
       "type": "SITIO_SEGURO_REGISTRACION"
     }
   ]

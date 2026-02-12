@@ -71,7 +71,7 @@
                     },
                     {
                         "text": "Suscribite",
-                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
+                        "href": "SITIO_SEGURO_REGISTRACION/ln/suscribirme"
                     },
                     {
                         "text": "Acceso a PDF",
@@ -290,7 +290,7 @@
                     },
                     {
                         "text": "Pedí tu tarjeta",
-                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
+                        "href": "SITIO_SEGURO_REGISTRACION/ln/suscribirme"
                     }
                 ]
             }
@@ -388,7 +388,7 @@
                     },
                     {
                         "text": "Suscripciones y promociones",
-                        "href": "SITIO_SEGURO_REGISTRACION/suscribirme"
+                        "href": "SITIO_SEGURO_REGISTRACION/ln/suscribirme"
                     }
                 ]
             }
