@@ -6,7 +6,8 @@ import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/hel
 import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
 import {
     registerJwVideoControlsTracking,
-    markProgrammaticMute
+    markProgrammaticMute,
+    registerVideoResumeTracking
 } from '../../../../private/common/utils/videoPlayerHelper';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -24,6 +25,7 @@ function JwVideoPlayer({
     const [loading, setLoading] = useState(true);
     const playerRef = useRef(null);
     const controlsCleanupRef = useRef(null);
+    const resumeCleanupRef = useRef(null);
 
     const sentProgressRef = useRef(new Set());
 
@@ -113,6 +115,13 @@ function JwVideoPlayer({
                 defaultTitle: title,
                 defaultId: videoId
             });
+
+            resumeCleanupRef.current?.();
+            resumeCleanupRef.current = registerVideoResumeTracking({
+                player: playerRef.current,
+                defaultTitle: title,
+                defaultId: videoId
+            });
         }
     }, [
         shouldInstanceVideo,
@@ -135,6 +144,8 @@ function JwVideoPlayer({
         () => () => {
             controlsCleanupRef.current?.();
             controlsCleanupRef.current = null;
+            resumeCleanupRef.current?.();
+            resumeCleanupRef.current = null;
         },
         []
     );
