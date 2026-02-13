@@ -25,6 +25,18 @@ export const cardsContainerVariant = cva(
     }
 );
 
+export const cardsHeadingVariant = cva('flex flex-column ai-center', {
+    variants: {
+        variant: {
+            collapsed: 'gap-8',
+            expanded: 'gap-16 gap-24_m'
+        }
+    },
+    defaultVariants: {
+        variant: 'collapsed'
+    }
+});
+
 export const cardsNumberVariant = cva(
     'prumo prumo-black prumo-slab text-display-sm',
     {
@@ -45,6 +57,19 @@ export const cardsTitleVariant = cva('prumo prumo-slab text-center', {
         variant: {
             collapsed: 'text-18 prumo-semibold leading-[130%] md:text-20',
             expanded: 'text-subheading-lg prumo-bold'
+        }
+    },
+    defaultVariants: {
+        variant: 'collapsed'
+    }
+});
+
+export const cardsDescriptionVariant = cva('', {
+    variants: {
+        variant: {
+            collapsed: 'text-16 leading-140',
+            expanded:
+                'prumo prumo-slab prumo-ligh text-18 leading-130 text-20_md'
         }
     },
     defaultVariants: {

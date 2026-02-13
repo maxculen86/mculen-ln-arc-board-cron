@@ -25,8 +25,14 @@ window.addEventListener('load', function () {
         const config = JSON.parse(
             articleElement.getAttribute('data-config') || ''
         );
-        const { title, mediaId, instanceConfig, playerId, withAutoplay } =
-            config || {};
+        const {
+            title,
+            mediaId,
+            instanceConfig,
+            playerId,
+            withAutoplay,
+            videoId
+        } = config || {};
 
         const videoOrientation = getVerticalPlayer(playerId)
             ? 'vertical'
@@ -170,7 +176,7 @@ window.addEventListener('load', function () {
         videoContainer(articleElement, mediaId)?.addEventListener(
             'click',
             () => {
-                handleShare(mediaId, title, mediaId);
+                handleShare(videoId, title, mediaId);
             }
         );
     });

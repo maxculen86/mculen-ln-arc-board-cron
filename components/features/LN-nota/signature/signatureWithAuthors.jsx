@@ -50,7 +50,9 @@ function SignatureWithAuthors({
     });
 
     return (
-        <div className={cx('flex flex-wrap', !withAuthorRole && 'w-100')}>
+        <div
+            className={cx('flex flex-wrap', !withAuthorRole && 'w-100 w-full')}
+        >
             <div className={wrapperClasses}>
                 <Author
                     key={author?.name}

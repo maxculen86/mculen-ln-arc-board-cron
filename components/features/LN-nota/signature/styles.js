@@ -41,7 +41,8 @@ export const signatureWithAuthorsClasses = cva(
         'flex-column flex-row_m',
         'ai-center_m ai-start ',
         'gap-16',
-        'w-100'
+        'w-100',
+        'w-full'
     ],
     {
         variants: {
