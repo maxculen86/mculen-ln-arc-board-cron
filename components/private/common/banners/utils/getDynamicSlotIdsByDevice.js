@@ -1,14 +1,15 @@
 import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
-import { MAX_DYNAMIC_BANNERS } from '../dynamicBanners/dynamicBannersHelper';
+import { getDynamicBannerSettingsBySubtype } from '../dynamicBanners/dynamicBannersHelper';
 
-export const getDynamicSlotIdsByDevice = device => {
+export const getDynamicSlotIdsByDevice = (device, subtype = '') => {
     const suffix = suffixDevice[device];
     if (!suffix) return [];
 
     const base = device === 'desktop' ? 'cinturon' : 'caja';
+    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
 
     return Array.from(
-        { length: MAX_DYNAMIC_BANNERS },
+        { length: maxBanners },
         (_, i) => `${base}${i + 1}${suffix}`
     );
 };

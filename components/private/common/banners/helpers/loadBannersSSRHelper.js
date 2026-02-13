@@ -7,9 +7,10 @@ import { getDynamicSlotIdsByDevice } from '../utils/getDynamicSlotIdsByDevice';
 export const resolveDynamicBodyBanners = ({
     device,
     bannersToLoadFromDOM,
-    bannersInBody
+    bannersInBody,
+    subtype = ''
 }) => {
-    const dynamicSlotIds = getDynamicSlotIdsByDevice(device);
+    const dynamicSlotIds = getDynamicSlotIdsByDevice(device, subtype);
 
     const bannersInDom = bannersToLoadFromDOM
         .map(banner => banner.opt_div)
