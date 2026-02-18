@@ -1470,4 +1470,87 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(transformSubtype(null)).toBeNull();
         });
     });
+
+    describe('Tests configCallbackCustomEmbed', () => {
+        let configCallbackCustomEmbed;
+        let buildGalleryEmbedDataMock;
+
+        beforeEach(() => {
+            jest.resetModules();
+            buildGalleryEmbedDataMock = jest.fn();
+            jest.doMock(
+                '../../../../../content/sources/utils/articleSourceNota/_helper',
+                () => ({
+                    ...jest.requireActual(
+                        '../../../../../content/sources/utils/articleSourceNota/_helper'
+                    ),
+                    buildGalleryEmbedData: buildGalleryEmbedDataMock
+                })
+            );
+            const configs = require('../../../../../content/sources/utils/articleSourceNota/_configs');
+            configCallbackCustomEmbed = configs.configCallbackCustomEmbed;
+        });
+
+        afterEach(() => {
+            jest.resetModules();
+        });
+
+        it('should return empty object when isFotoAl100Note is false', async () => {
+            const result = await configCallbackCustomEmbed['gallery-embed']({
+                cachedCall: jest.fn(),
+                element: { subtype: 'gallery-embed' },
+                arcSite: 'la-nacion-ar',
+                isFotoAl100Note: false
+            });
+
+            expect(result).toEqual({});
+            expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
+        });
+
+        it('should return empty object when isFotoAl100Note is undefined', async () => {
+            const result = await configCallbackCustomEmbed['gallery-embed']({
+                cachedCall: jest.fn(),
+                element: { subtype: 'gallery-embed' },
+                arcSite: 'la-nacion-ar'
+            });
+
+            expect(result).toEqual({});
+            expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
+        });
+
+        it('should call buildGalleryEmbedData when isFotoAl100Note is true', async () => {
+            const mockElement = { subtype: 'gallery-embed' };
+            const mockCachedCall = jest.fn();
+            const mockArcSite = 'la-nacion-ar';
+            const expectedResult = {
+                ...mockElement,
+                embed: { config: { galleryImages: [] } }
+            };
+
+            buildGalleryEmbedDataMock.mockResolvedValue(expectedResult);
+
+            const result = await configCallbackCustomEmbed['gallery-embed']({
+                cachedCall: mockCachedCall,
+                element: mockElement,
+                arcSite: mockArcSite,
+                isFotoAl100Note: true
+            });
+
+            expect(buildGalleryEmbedDataMock).toHaveBeenCalledTimes(1);
+            expect(buildGalleryEmbedDataMock).toHaveBeenCalledWith({
+                element: mockElement,
+                cachedCall: mockCachedCall,
+                gallerySource: expect.any(Object),
+                arcSite: mockArcSite
+            });
+            expect(result).toEqual(expectedResult);
+        });
+
+        it('should return empty object when called with empty parameters', async () => {
+            const result = await configCallbackCustomEmbed['gallery-embed']();
+
+            expect(result).toEqual({});
+            expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
+        });
+    });
 });

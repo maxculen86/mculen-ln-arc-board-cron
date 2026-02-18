@@ -7,7 +7,14 @@ export const getMediaType = (type, subtype) =>
     type === 'raw_html' ? 'iframe' : type || subtype;
 
 const mediaRenderers = {
-    image: mediaData => <Image data={mediaData} showCaption={false} />,
+    image: mediaData => (
+        <Image
+            data={mediaData}
+            showCaption={false}
+            loading="eager"
+            fetchPriority="high"
+        />
+    ),
     video_jw: mediaData => <VideoPlayer data={mediaData} />,
     iframe: mediaData => <MediaIframe html={mediaData.content} />
 };

@@ -8,3 +8,7 @@ export const USER_TYPES = {
     UNLOGGED: 'unlogged',
     LOADING: 'loading'
 };
+
+export const OBSERVABLE_EVENTS = {
+    TOGGLE_DESPLEGABLE: 'toggleDesplegable'
+};

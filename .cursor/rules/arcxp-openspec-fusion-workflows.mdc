@@ -1,0 +1,76 @@
+---
+description: Guía sobre cuándo usar comandos OpenSpec (/opsx:*) vs atajos Fusion (/fusion-*) y cómo combinarlos en este proyecto.
+alwaysApply: true
+---
+
+# Workflows OpenSpec + Fusion (LN Arc XP Contenidos)
+
+Esta regla ayuda a decidir cuándo usar OpenSpec (`/opsx:*`) vs atajos Fusion (`/fusion-*`) y cómo combinarlos de forma efectiva.
+
+## OpenSpec (cambios estructurados guiados por specs)
+
+Usa OpenSpec para cambios que:
+
+- Afectan múltiples componentes, layouts o content/data sources.
+- Requieren planificación, documentación o revisión con stakeholders.
+- Representan features, épicas, migraciones o refactors de varios pasos.
+
+Comandos clave:
+
+- `/opsx:new [name]` → Start a new change (creates `openspec/changes/<name>/` with a workflow schema).
+- `/opsx:continue` → Create the next artifact in the workflow.
+- `/opsx:apply` → Implement tasks defined in artifacts.
+- `/opsx:archive` → Archive completed changes.
+- `/opsx:ff` → Fast-forward through artifact creation when you want all artifacts quickly.
+- `/opsx:explore` → Explore an idea/problem space before committing to a change.
+- `/opsx:verify` → Verify implementation matches change artifacts.
+- `/opsx:sync` → Sync delta specs back into main specs.
+- `/opsx:bulk-archive` → Archive multiple completed changes.
+- `/opsx:onboard` → Walk through a complete OpenSpec workflow for onboarding.
+
+Patrón recomendado:
+
+1. Create change: `/opsx:new add-user-profile`.
+2. Iterate on artifacts: `/opsx:continue` until ready to implement.
+3. Implement: `/opsx:apply`.
+4. Verify: `/opsx:verify`.
+5. Archive: `/opsx:archive` (and optionally `/opsx:sync`).
+
+## Atajos Fusion (tareas rápidas y enfocadas)
+
+Usa atajos Fusion para tareas más pequeñas y acotadas (típicamente < 30 minutos) donde el overhead de OpenSpec no se justifica:
+
+- `/fusion-component [name]`
+  - Create a new Fusion component following Arc XP patterns.
+  - Asks for site (la-nacion-ar vs foodit), component type (layout/feature/private), and description.
+  - Reads `openspec/specs/fusion-components.md` and shows similar examples.
+  - Creates directory structure, `index.jsx`, and a test file following conventions.
+- `/fusion-debug [description]`
+  - Debug build or runtime issues in the Fusion app.
+  - Gathers context, reads build/styling specs, runs diagnostics, and checks common Arc XP issues.
+- `/fusion-update-libs [library] [version]`
+  - Update a **single** npm library version with a structured verification and testing checklist.
+  - Best for minor/patch bumps of known libraries.
+
+Cuándo elegir atajos Fusion:
+
+- Componente nuevo simple o ajuste chico en un layout.
+- Sesión puntual de debugging de un error de build/runtime.
+- Bump de una sola dependencia con impacto acotado y claro.
+
+## Combinando OpenSpec y Fusion
+
+Flujos típicos:
+
+- **Primero simple, luego estructurado**:
+  - Empezar con `/fusion-component` o `/fusion-debug` para exploración rápida o fix chico.
+  - Si el alcance crece (múltiples componentes, impacto cross-cutting, migración compleja), mover el trabajo a OpenSpec con `/opsx:new`.
+- **Estructurado desde el inicio**:
+  - Para features grandes o migraciones conocidas, empezar directamente con `/opsx:new` y usar `/fusion-*` como herramientas dentro de la fase de implementación (`/opsx:apply`).
+
+Guía para el agente:
+
+- Si la persona describe una **feature** o cambio con varias partes → sugerir `/opsx:new` y explicar por qué.
+- Si quiere un **solo componente nuevo**, un debug rápido o un update simple de librería → sugerir el comando `/fusion-*` correspondiente.
+- En caso de duda, proponer brevemente ambas opciones con pros/contras y por defecto inclinarse por OpenSpec para todo lo que suene a cambio de nivel proyecto.
+

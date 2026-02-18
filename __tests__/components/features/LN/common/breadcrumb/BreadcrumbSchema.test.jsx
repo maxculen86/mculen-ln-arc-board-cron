@@ -58,4 +58,63 @@ describe('BreadcrumbSchema', () => {
 
         expect(script.innerHTML).toContain('Opinión \\"Especial\\"');
     });
+
+    it('should not include items with empty names in schema', () => {
+        const sections = [
+            { name: 'LA NACION', path: '/' },
+            { name: '', path: '/estados-unidos' },
+            { name: 'Subsección', path: '/estados-unidos/sub' }
+        ];
+
+        const { container } = render(
+            <BreadcrumbSchema sections={[...sections]} />
+        );
+
+        const script = container.querySelector(
+            'script[type="application/ld+json"]'
+        );
+        const json = JSON.parse(script.innerHTML);
+
+        expect(json.itemListElement).toHaveLength(2);
+        expect(json.itemListElement[0].name).toBe('LA NACION');
+        expect(json.itemListElement[1].name).toBe('Subsección');
+        expect(json.itemListElement[1].position).toBe(2);
+    });
+
+    it('should return null when all sections have empty names', () => {
+        const sections = [
+            { name: '', path: '/' },
+            { name: '   ', path: '/section' }
+        ];
+
+        const { container } = render(
+            <BreadcrumbSchema sections={[...sections]} />
+        );
+
+        const script = container.querySelector(
+            'script[type="application/ld+json"]'
+        );
+
+        expect(script).toBeNull();
+    });
+
+    it('should handle undefined name properties gracefully', () => {
+        const sections = [
+            { name: 'LA NACION', path: '/' },
+            { path: '/estados-unidos' },
+            { name: undefined, path: '/section' }
+        ];
+
+        const { container } = render(
+            <BreadcrumbSchema sections={[...sections]} />
+        );
+
+        const script = container.querySelector(
+            'script[type="application/ld+json"]'
+        );
+        const json = JSON.parse(script.innerHTML);
+
+        expect(json.itemListElement).toHaveLength(1);
+        expect(json.itemListElement[0].name).toBe('LA NACION');
+    });
 });

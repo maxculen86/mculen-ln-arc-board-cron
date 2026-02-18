@@ -10,6 +10,7 @@ import VideoPlayer from '../../common/video/default';
 import BlockQuote from '../../common/blockquote/default';
 import PullQuote from '../../common/pullquote/default';
 import Interstitial from '../../common/interstitial/default';
+import Heading from '../../common/heading/default';
 
 // TODO: A medida que se vayan creando los nuevos componentes DS, agregarlos aca
 const DS_DEFAULT_BODY_COMPONENTS = [
@@ -22,7 +23,8 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     VideoPlayer,
     BlockQuote,
     PullQuote,
-    Interstitial
+    Interstitial,
+    Heading
 ];
 
 const BASE_BODY_CONFIG = {

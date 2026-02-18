@@ -1,27 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
+
+const LEGACY_HEADING_CONFIG = {
+    defaults: {
+        weight: '--font-extra',
+        tag: 'h4',
+        size: '--m'
+    },
+    variantsByLevel: new Map([
+        [1, { tag: 'h2', size: '--xl' }],
+        [2, { tag: 'h3', size: '--l' }],
+        [4, { classCondition: 'underline' }]
+    ])
+};
+
+const getLegacyHeadingConfig = level => ({
+    ...LEGACY_HEADING_CONFIG.defaults,
+    ...LEGACY_HEADING_CONFIG.variantsByLevel.get(level)
+});
 
 function Subtitle({ data }) {
     const { level, content } = data;
 
-    const SUBTITLE_CONFIG = {
-        defaults: {
-            weight: '--font-extra',
-            tag: 'h4',
-            size: '--m'
-        },
-        variantsByLevel: new Map([
-            [1, { tag: 'h2', size: '--xl' }],
-            [2, { tag: 'h3', size: '--l' }],
-            [4, { classCondition: 'underline' }]
-        ])
-    };
-
-    const config = {
-        ...SUBTITLE_CONFIG.defaults,
-        ...SUBTITLE_CONFIG.variantsByLevel.get(level)
-    };
+    const config = getLegacyHeadingConfig(level);
 
     return (
         <ComTitle
@@ -37,13 +38,5 @@ function Subtitle({ data }) {
 
 Subtitle.arcType = 'header';
 Subtitle.isStatic = true;
-
-Subtitle.propTypes = {
-    data: PropTypes.shape({
-        content: PropTypes.string.isRequired,
-        level: PropTypes.number.isRequired,
-        type: PropTypes.string.isRequired
-    }).isRequired
-};
 
 export default Subtitle;

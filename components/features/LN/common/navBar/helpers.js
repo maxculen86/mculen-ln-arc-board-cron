@@ -1,7 +1,6 @@
-import { drawerManager } from '@ln/ds-common-drawer';
 import { SITE_LANACION, MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
-import { DRAWERS_ID } from '../utils/constants';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { OBSERVABLE_EVENTS } from '../utils/constants';
 
 export const getEventData = label => ({
     event: 'e_linkclick',
@@ -23,7 +22,12 @@ export const getNavbarItems = ({ userType }) => [
         text: 'Secciones',
         iconName: 'fuction',
         onClick: () => {
-            drawerManager.show(DRAWERS_ID.SECTIONS);
+            window?.LN?.observable?.publish(
+                OBSERVABLE_EVENTS.TOGGLE_DESPLEGABLE,
+                {
+                    show: true
+                }
+            );
             addEventToDataLayerV2(getEventData('secciones'));
         }
     },

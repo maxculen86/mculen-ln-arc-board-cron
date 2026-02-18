@@ -1,34 +1,41 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
-import { isValidString } from '../../../../private/common/utils/dataValidation';
+import { isEmptyString } from '../../../../private/common/utils/dataValidation';
 
-function BreadcrumbSchema({ sections }) {
-    const parent = [{ ...sections.shift() }].reduce(
-        (acc, val) => [
-            {
-                ...acc,
-                '@type': 'ListItem',
-                position: 1,
-                name: val.name,
-                item: SITE_LANACION
-            }
-        ],
-        []
+function BreadcrumbSchema({ sections, host = SITE_LANACION }) {
+    const validSections = sections.filter(
+        section => !isEmptyString(section?.name)
     );
 
-    const children = sections.map((el, i) => {
+    if (validSections.length === 0) {
+        return null;
+    }
+
+    const [first, ...rest] = validSections;
+
+    const parent = [
+        {
+            '@type': 'ListItem',
+            position: 1,
+            name: first.name,
+            item: SITE_LANACION
+        }
+    ];
+
+    const children = rest.map((el, i) => {
         const path =
             (el.path &&
                 el.path.split('?')[0] +
                     (el.path.split('?')[0].slice(-1) !== '/' ? '/' : '')) ||
             '';
+        const escapedName = el.name.replace(/"/g, '\\"');
 
         return `
                 {
                     "@type": "ListItem",
                     "position": ${i + 2},
-                    "name": "${isValidString(el.name) ? el.name.replace(/"/g, '\\"') : ''}",
-                    "item": "${SITE_LANACION + path}"
+                    "name": "${escapedName}",
+                    "item": "${host + path}"
                 }
             `;
     });

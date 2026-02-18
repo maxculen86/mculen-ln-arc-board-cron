@@ -1,0 +1,40 @@
+---
+description: Reglas breves para workflows de Git en este repo, alineadas con el spec de git-commits.
+alwaysApply: false
+---
+
+# Workflows de Git - Resumen
+
+Usa este resumen cuando el usuario pida ayuda con commits o ramas. Para detalles completos, ver `openspec/specs/git-commits.md`.
+
+## Ramas protegidas
+
+- Considerar como ramas protegidas: `master`, `main`, `develop`, `sandbox`.
+- Evitar crear commits directamente en estas ramas salvo petición explícita y consciente.
+- Cuando la persona pida un commit estando en una de estas ramas:
+  - Sugerir crear una rama de trabajo (`feat/<slug>`, `fix/<slug>`, `chore/<slug>`).
+  - Proponer nombres basados en la descripción del cambio.
+
+## Mensajes de commit
+
+- Usar formato semántico tipo Conventional Commits:
+
+  ```text
+  <tipo>(<scope opcional>): <descripción corta en presente>
+  ```
+
+- Tipos recomendados: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`.
+- Incluir un cuerpo opcional solo cuando ayude a entender el "por qué" o el "cómo".
+
+## Alcance del commit
+
+- No asumir que se debe commitear todo.
+- Preguntar si hay que usar solo lo que está en stage, todo el working directory, o solo algunos paths.
+- No ejecutar `git add` sin confirmación clara.
+
+## Seguridad
+
+- No modificar `git config`.
+- No usar `git push --force` salvo instrucción explícita del usuario.
+- Tener cuidado con archivos sensibles (.env, credenciales, dumps de datos).
+

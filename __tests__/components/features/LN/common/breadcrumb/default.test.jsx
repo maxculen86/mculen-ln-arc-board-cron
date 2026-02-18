@@ -100,7 +100,10 @@ describe('Breadcrumb', () => {
         );
 
         expect(BreadcrumbSchema).toHaveBeenCalledWith(
-            { sections: builtSectionsMock },
+            expect.objectContaining({
+                sections: builtSectionsMock,
+                host: 'https://www.lanacion.com.ar'
+            }),
             {}
         );
     });

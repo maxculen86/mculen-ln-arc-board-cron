@@ -6,7 +6,7 @@ import BreadcrumbTag from '../../../../../../components/private/LN/acumulado/bre
 describe('components - private - LN - acumulado - breadcrumbs - breadcrumbTag', () => {
     const tag = {
         slug: 'soy-un-tag',
-        text: 'Soy un tag'
+        name: 'Soy un tag'
     };
 
     const { container } = render(

@@ -1,5 +1,6 @@
 import React from 'react';
 import { toastManager } from '@ln/ds-common-toasts';
+import { Button } from '@ln/ds-common-button';
 import IconSprite from '../icon/default';
 
 const colorDefault = 'info';
@@ -11,7 +12,12 @@ const colorDefault = 'info';
  * @param {import('@ln/ds-common-toasts').ToastPublicProps & { color?: 'success' | 'error' | 'info' | 'warning' }} options
  * @returns {void}
  */
-function renderToasts({ color = colorDefault, duration = 3000, ...props }) {
+function renderToasts({
+    color = colorDefault,
+    duration = 3000,
+    buttonProps,
+    ...props
+}) {
     // Configuración de icons
     const closeIcon = <IconSprite name="close" />;
 
@@ -36,6 +42,17 @@ function renderToasts({ color = colorDefault, duration = 3000, ...props }) {
         closeIconProps,
         color,
         duration,
+        customContent: buttonProps?.href ? (
+            <Button
+                {...buttonProps}
+                variant="outline"
+                color="secondary"
+                className="w-fit"
+                asChild
+            >
+                <a href={buttonProps?.href}>{buttonProps?.children}</a>
+            </Button>
+        ) : null,
         ...props
     });
 }

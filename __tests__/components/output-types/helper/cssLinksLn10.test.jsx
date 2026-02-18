@@ -24,7 +24,7 @@ describe('Components - outputType - helper - CssLinksLn10', () => {
     };
 
     const {
-        layoutsName: { HomeLN10, NotaOpinion }
+        layoutsName: { HomeLN10 }
     } = config;
 
     it('should return null when layout is HomeLN10 (excluded layout)', () => {
@@ -39,19 +39,7 @@ describe('Components - outputType - helper - CssLinksLn10', () => {
         expect(container).toBeEmptyDOMElement();
     });
 
-    it('should return null when layout is NotaOpinion (excluded layout)', () => {
-        const { container } = render(
-            <CssLinksLn10
-                CssLinks={CssLinks}
-                globalContent={mockGlobalContent}
-                layout={NotaOpinion}
-            />
-        );
-
-        expect(container).toBeEmptyDOMElement();
-    });
-
-    it('should return <CssLinks> when layout is neither HomeLN10 nor NotaOpinion', () => {
+    it('should return <CssLinks> when layout is neither HomeLN10', () => {
         const { container } = render(
             <CssLinksLn10
                 CssLinks={CssLinks}

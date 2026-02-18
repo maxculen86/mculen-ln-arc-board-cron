@@ -1,0 +1,43 @@
+schema: spec-driven
+
+# Project context - Arc XP Fusion Engine
+context: |
+  ## Tech Stack
+  - Framework: Arc XP Fusion Engine (React-based)
+  - Build: Webpack + ESBuild
+  - Styling: SCSS, Critical CSS generation
+  - Testing: Jest
+  - Linting: ESLint + Prettier
+
+  ## Architecture
+  - Fusion components in components/ (layouts, output-types, private, features)
+  - Custom @ln/common-ui-* component library
+  - Content sources in content/
+  - Data sources in data/
+
+  ## Conventions
+  - Component structure: /components/{type}/{name}/
+  - Feature components use Fusion's consumer/presenter pattern
+  - Output types for SEO/performance (criticalCss, fontPreload, Helper)
+  - Scripts: ln:buildjs, ln:copycss for build process
+
+  ## Key Paths
+  - Components: components/{layouts,features,output-types,private}/
+  - Config: config/, environment/, .fusion/
+  - Build output: resources/dist/
+
+  ## DO NOT modify:
+  - .fusion/ directory (Arc XP managed)
+  - node_modules/ or package-lock.json directly
+  - Critical output-types without review
+
+# Per-artifact rules
+rules:
+  proposal:
+    - Consider Fusion Engine constraints and patterns
+    - Check if feature exists in @ln/common-ui-* libs first
+    - Include performance impact for client-side changes
+  tasks:
+    - Max 2 hours per task
+    - Test with npm run test
+    - Verify build with npm run build-dev

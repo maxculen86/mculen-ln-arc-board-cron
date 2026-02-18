@@ -1,0 +1,18 @@
+---
+description: Arc XP Contenidos - See /AGENTS.md for shared context (optimized for tokens)
+alwaysApply: true
+---
+
+# Arc XP Contenidos - Base Context
+
+> **This rule now references `/AGENTS.md` for shared context to optimize tokens and maintain single source of truth.**
+
+**See `/AGENTS.md`** for:
+- Project overview & tech stack
+- Project structure
+- Critical guardrails
+- Specs references (OpenSpec SSOT)
+- Workflows (OpenSpec + Fusion)
+
+**See `base.mdc`** for Cursor-specific configuration.
+

@@ -3,8 +3,8 @@ import React from 'react';
 function PlayButton() {
     return (
         <div
-            id="button-play" // TODO :REEMPLAZAR A CLASES DE DS
-            className="absolute flex w-100 h-100 jc-center ai-center z-15"
+            id="button-play"
+            className="absolute flex w-full h-full justify-center items-center z-15"
         >
             <svg
                 width="64"

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component HTML content renders HTML content safely with correct structure 1`] = `
+<li>
+  <mock-ds-common-icon
+    name="bullet-filled"
+    size="24"
+  />
+  <span
+    class="font-tertiary"
+  >
+    <strong>
+      Bold text
+    </strong>
+     and normal text
+  </span>
+</li>
+`;
+
+exports[`List component Ordered list numbers applies aria-hidden to number divs in ordered lists 1`] = `
+<li>
+  <div
+    aria-hidden="true"
+    class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+  >
+    1
+  </div>
+  <span
+    class="font-tertiary"
+  >
+    First item
+  </span>
+</li>
+`;
+
+exports[`List component Ordered list numbers renders numbered items for ordered lists with correct structure 1`] = `
+<ol
+  class="ds-custom-list-body gap-16"
+  direction="vertical"
+  size="16"
+>
+  <li>
+    <div
+      aria-hidden="true"
+      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+    >
+      1
+    </div>
+    <span
+      class="font-tertiary"
+    >
+      First item
+    </span>
+  </li>
+  <li>
+    <div
+      aria-hidden="true"
+      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+    >
+      2
+    </div>
+    <span
+      class="font-tertiary"
+    >
+      Second item
+    </span>
+  </li>
+  <li>
+    <div
+      aria-hidden="true"
+      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+    >
+      3
+    </div>
+    <span
+      class="font-tertiary"
+    >
+      Third item
+    </span>
+  </li>
+</ol>
+`;
+
+exports[`List component Unordered list bullets renders bullet icons for unordered lists with correct structure 1`] = `
+<ul
+  class="ds-custom-list-body gap-16"
+  direction="vertical"
+  size="16"
+>
+  <li>
+    <mock-ds-common-icon
+      name="bullet-filled"
+      size="24"
+    />
+    <span
+      class="font-tertiary"
+    >
+      Item with bullet
+    </span>
+  </li>
+  <li>
+    <mock-ds-common-icon
+      name="bullet-filled"
+      size="24"
+    />
+    <span
+      class="font-tertiary"
+    >
+      Another item
+    </span>
+  </li>
+</ul>
+`;

@@ -12,6 +12,8 @@ const getParamsFromQuery = query => {
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
 
     const authorId = get(query, 'authorId', '').replace('/', '');
+    const versionDeploy = get(query, 'versionDeploy', null);
+    const cookie = get(query, 'cookie', '');
 
     if (!versionUri) {
         throw new Error('The api page must have a version');
@@ -23,14 +25,24 @@ const getParamsFromQuery = query => {
         versionUri,
         ticksCache,
         categoryUri,
-        authorId
+        authorId,
+        cookie,
+        versionDeploy
     };
 };
 
 const fetch = async (query, { cachedCall }) => {
     try {
-        const { uri, website, versionUri, ticksCache, categoryUri, authorId } =
-            getParamsFromQuery(query);
+        const {
+            uri,
+            website,
+            versionUri,
+            ticksCache,
+            categoryUri,
+            authorId,
+            cookie,
+            versionDeploy
+        } = getParamsFromQuery(query);
 
         const queryParams = {
             rootPath: `${SITE_LANACION}/autor/${authorId}`,
@@ -39,7 +51,8 @@ const fetch = async (query, { cachedCall }) => {
             uri,
             categoryUri,
             versionUri,
-            cookie: query.cookie
+            cookie,
+            versionDeploy
         };
 
         const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
@@ -84,7 +97,8 @@ export default {
         categoryUri: 'text',
         versionUri: 'text',
         ticks: 'text',
-        cookie: 'text'
+        cookie: 'text',
+        versionDeploy: 'text'
     },
     ttl: 120
 };
