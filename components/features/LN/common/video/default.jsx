@@ -21,6 +21,7 @@ import {
     VIDEO_VERTICAL,
     OPINION
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import { WrapperBody } from '../wrapperBody/default';
 
 const SUBTYPES_WITHOUT_CAPTION = [
     STORYTELLING,
@@ -74,7 +75,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
     const isOpeningVideo = subtype === VIDEO || isPromoItemVideo;
 
     return (
-        <>
+        <WrapperBody variant="medium">
             <Static id="scriptJwVideoNote">
                 <script
                     defer
@@ -114,7 +115,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
                     minStream={{ url: get(minStream, 'file', '') }}
                 />
             </Static>
-        </>
+        </WrapperBody>
     );
 }
 

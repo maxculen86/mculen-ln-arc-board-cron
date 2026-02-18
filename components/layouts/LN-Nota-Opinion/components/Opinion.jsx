@@ -7,6 +7,7 @@ import get from '../../../private/common/utils/get';
 import formatAuthorList from '../helpers/formatAuthorList';
 import { getMediaData } from '../../_helpers/mediaHelper';
 import getMediaFigCaption from '../helpers/getMediaFigCaption';
+import { WrapperBody } from '../../../features/LN/common/wrapperBody/default';
 
 function Opinion({ children }) {
     const { globalContent, siteProperties } = useAppContext();
@@ -25,7 +26,7 @@ function Opinion({ children }) {
             <div data-tw className="contents">
                 <Opinion.Opening className="w-full flex flex-col gap-40">
                     <div className="flex flex-col items-center gap-40">
-                        <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 md:gap-x-24 lg:grid-cols-16 lg:gap-x-31">
+                        <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
                                 <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
                                     OPINIÓN
@@ -53,9 +54,9 @@ function Opinion({ children }) {
                     </div>
                 </Opinion.Opening>
                 {/* ---- Wrapper con grilla y ancho maximo ---- */}
-                <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full">
-                    <div className="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635 relative left-1/2 -translate-x-1/2 flex flex-col gap-24">
-                        {/* ---- PRE-CUERPO ---- */}
+                <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full justify-items-center gap-x-16 md:gap-x-24 xl:gap-x-32 gap-y-40">
+                    {/* ---- PRE-CUERPO ---- */}
+                    <WrapperBody>
                         <Opinion.PreBody>
                             {children[1]}
                             <PreBody.Breadcrumb
@@ -63,15 +64,15 @@ function Opinion({ children }) {
                                 siteProperties={siteProperties}
                             />
                         </Opinion.PreBody>
-                        {/* ---- CUERPO ---- */}
-                        {children[2]}
-                    </div>
+                    </WrapperBody>
+                    {/* ---- CUERPO ---- */}
+                    {children[2]}
                 </div>
             </div>
 
             {/* //TODO: migrar estructura a tailwind cuando se migre la estructura de la nota */}
             {/* ---- Post-Cuerpo ---- */}
-            <div className="grid grid-cols-16_xl w-100">
+            <div className="grid grid-cols-16_xl w-100 gap-x-16 md:gap-x-24 xl:gap-x-32">
                 <div className="col-span-3-center_xl">{children[3]}</div>
             </div>
             <div className="w-100 flex">

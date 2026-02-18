@@ -64,7 +64,17 @@ describe('OEmbed', () => {
             />
         );
 
-        expect(container.innerHTML).toBe('<div></div>');
+        const wrapper = container.firstChild;
+        expect(wrapper).toHaveClass(
+            'col-span-8',
+            'md:col-span-10',
+            'md:col-start-2',
+            'xl:col-span-8',
+            'xl:col-start-5',
+            'max-w-550',
+            'md:max-w-635'
+        );
+        expect(wrapper.firstChild?.outerHTML).toBe('<div></div>');
     });
 
     it('does not crash when data object is valid but html is empty', () => {

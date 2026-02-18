@@ -3,30 +3,40 @@
 exports[`Image component renders correctly and matches snapshot 1`] = `
 <div>
   <div
-    class="aspect-3/2 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 max-w-750 xl:max-w-none"
   >
-    <img
-      alt=""
-      data-sources="[{"minWidth":768,"srcSet":"https://sandbox-resizer.glanacion.com/resizer/v2/OKE6DQX7ANFLXILFX363CZCMUU.png?auth=ff7acff1f516bd0e275e0a3c3b624921bcd7b57f96e0417ca5138d7b7db069d8&width=780&height=98&quality=70&smart=true"}]"
-      data-testid="image-media"
-      height="100"
-      src="https://sandbox-resizer.glanacion.com/resizer/v2/OKE6DQX7ANFLXILFX363CZCMUU.png?auth=ff7acff1f516bd0e275e0a3c3b624921bcd7b57f96e0417ca5138d7b7db069d8&width=420&height=53&quality=70&smart=true"
-      width="800"
-    />
+    <figure>
+      <div
+        class="w-full flex justify-center bg-neutral-50"
+      >
+        <div
+          class="max-md:border-x-0 border-1 border-neutral-200 w-full aspect-3/2"
+        >
+          <img
+            alt=""
+            data-sources="[{"minWidth":768,"srcSet":"https://sandbox-resizer.glanacion.com/resizer/v2/OKE6DQX7ANFLXILFX363CZCMUU.png?auth=ff7acff1f516bd0e275e0a3c3b624921bcd7b57f96e0417ca5138d7b7db069d8&width=780&height=98&quality=70&smart=true"}]"
+            data-testid="image-media"
+            height="100"
+            src="https://sandbox-resizer.glanacion.com/resizer/v2/OKE6DQX7ANFLXILFX363CZCMUU.png?auth=ff7acff1f516bd0e275e0a3c3b624921bcd7b57f96e0417ca5138d7b7db069d8&width=420&height=53&quality=70&smart=true"
+            width="800"
+          />
+        </div>
+      </div>
+      <figcaption
+        class="py-8 space-x-8"
+      >
+        <span
+          class="font-normal text-base-default text-16 text-center leading-[110%] tracking-[-0.3px]"
+        >
+          Image caption
+        </span>
+        <span
+          class="font-normal text-base-light text-16 text-center leading-[110%] tracking-[-0.3px]"
+        >
+          Image credit
+        </span>
+      </figcaption>
+    </figure>
   </div>
-  <figcaption
-    class="py-8"
-  >
-    <span
-      class="font-normal text-base-default text-16 text-center leading-[110%] tracking-[-0.3px]"
-    >
-      Image caption
-    </span>
-    <span
-      class="pl-8 font-normal text-base-light text-16 text-center leading-[110%] tracking-[-0.3px]"
-    >
-      Image credit
-    </span>
-  </figcaption>
 </div>
 `;
