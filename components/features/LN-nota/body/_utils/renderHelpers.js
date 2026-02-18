@@ -22,7 +22,9 @@ const renderDynamicBanners = ({
     if (!dynamicBanners?.enabled) return null;
 
     const bannerIndex = elementPosition / BANNER_INSERT_INTERVAL;
-    if (!shouldInsertBanner(elementPosition - 1, bannerIndex)) return null;
+    const subtype = get(globalContent, 'subtype', '');
+    if (!shouldInsertBanner(elementPosition - 1, bannerIndex, subtype))
+        return null;
 
     const dynamicBannersResult = getDynamicBannersWithGPTConfigsForIndex({
         globalContent,

@@ -1,7 +1,11 @@
 import {
     createDynamicBannerConfig,
+    getDynamicBannerSettingsBySubtype,
     validateBannerConfig
 } from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
+import DivBannerSSR from 'private/common/banners/DivBannerSSR';
+import DynamicBanner from 'features/ui/ln/dynamicBanner/default';
+import { OPINION } from 'private/common/utils/subtypes/subtypeHelper';
 
 describe('Dynamic Banner Helper', () => {
     const mockGlobalContent = {
@@ -13,6 +17,20 @@ describe('Dynamic Banner Helper', () => {
     };
 
     describe('createDynamicBannerConfig', () => {
+        it('should respect opinion max banners limit', () => {
+            const opinionContent = {
+                ...mockGlobalContent,
+                subtype: OPINION
+            };
+
+            expect(
+                createDynamicBannerConfig(opinionContent, 'desktop', 4)
+            ).toBeDefined();
+            expect(
+                createDynamicBannerConfig(opinionContent, 'desktop', 5)
+            ).toBeNull();
+        });
+
         it('should create desktop cinturon banner configuration', () => {
             const config = createDynamicBannerConfig(
                 mockGlobalContent,
@@ -177,6 +195,22 @@ describe('Dynamic Banner Helper', () => {
             expect(mobileConfig.dimensions).toContainEqual([320, 100]);
 
             expect(tabletConfig.dimensions).toContainEqual([300, 250]);
+        });
+    });
+
+    describe('Dynamic banner settings by subtype', () => {
+        it('returns DynamicBanner for opinion subtype', () => {
+            const settings = getDynamicBannerSettingsBySubtype(OPINION);
+
+            expect(settings.BannerComponent).toBe(DynamicBanner);
+            expect(settings.maxBanners).toBe(4);
+        });
+
+        it('returns DivBannerSSR for non-opinion subtype', () => {
+            const settings = getDynamicBannerSettingsBySubtype('14');
+
+            expect(settings.BannerComponent).toBe(DivBannerSSR);
+            expect(settings.maxBanners).toBe(5);
         });
     });
 });

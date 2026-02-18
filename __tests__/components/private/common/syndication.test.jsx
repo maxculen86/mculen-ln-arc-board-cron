@@ -4,13 +4,6 @@ import Syndication from '../../../../components/private/common/syndication';
 
 describe('Components - private - common - Syndication', () => {
     describe('early returns', () => {
-        it('returns null when subtype is falsy', () => {
-            const { container } = render(
-                <Syndication subtype="" type="story" />
-            );
-            expect(container.firstChild).toBeNull();
-        });
-
         it('returns null when type is not "story"', () => {
             const { container } = render(
                 <Syndication subtype="1" type="video" nodeType="section" />

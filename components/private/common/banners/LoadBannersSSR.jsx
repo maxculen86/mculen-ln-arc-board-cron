@@ -39,7 +39,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
         renderables = [],
         outputType,
         isAdmin,
-        globalContentConfig
+        globalContentConfig,
+        globalContent = {}
     } = useAppContext();
     const device = useViewportSize();
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
@@ -58,6 +59,7 @@ function LoadBannersSSR({ blocksBanners = [] }) {
         get(globalContentConfig, 'query.banners_disabled', 'false') === 'true';
 
     const suffix = useAdsTestAndSuffix(device, outputType);
+    const subtype = get(globalContent, 'subtype', '');
 
     useEffect(() => {
         try {
@@ -92,6 +94,7 @@ function LoadBannersSSR({ blocksBanners = [] }) {
                             slotGroup,
                             bannerInPB,
                             device,
+                            subtype,
                             bannersInBody,
                             suffix,
                             bannersToLoadFromDOM,
@@ -150,7 +153,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
         suffix,
         outputType,
         subscription,
-        bannersDisabled
+        bannersDisabled,
+        subtype
     ]);
 
     return <div className="hlp-none hidden">Cargando banners ...</div>;
