@@ -26,6 +26,12 @@ export const getClassNamesMedia = isPlaying => {
     return { classNamePoster, classNameVideo };
 };
 
+export const getDesktopPreviewVideo = previewVideo =>
+    previewVideo?.replace(/-\d+\.mp4$/, '-640.mp4') || previewVideo;
+
+export const getDesktopPosterImage = posterImage =>
+    posterImage?.replace(/([?&]width=)\d+/, '$1640') || posterImage;
+
 export const cardVideoClassNames = cva(['card-carousel', 'cursor-pointer'], {
     variants: {
         withTitle: {

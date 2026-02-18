@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
-import { validateItemCarrusel } from './_helper';
+import { validateItemCarrusel, pickPreferredMp4 } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import CardCarruselContainer from '../../LN-10-global/cardCarrusel/default';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
@@ -14,6 +14,7 @@ import {
 import get from '../../../private/common/utils/get';
 import { getDataAttributesForViewability } from '../article/_helper';
 import useTermica from '../../../private/common/hooks/useTermica';
+import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 
 function itemCarrusel({
     isAdmin,
@@ -23,6 +24,7 @@ function itemCarrusel({
     layout,
     variant = 'vertical'
 }) {
+    const { setPreferredVideoFile } = useCajaCarruselContext();
     const { layoutsName = {} } = siteConfig || {};
 
     const layoutTypesForEvent = {
@@ -43,6 +45,22 @@ function itemCarrusel({
                 isAdmin
             }
         }) || null;
+
+    const shouldUsePreferredMp4 = variant === 'horizontal';
+    const preferredMp4 = shouldUsePreferredMp4
+        ? pickPreferredMp4(videoData?.sources)
+        : '';
+
+    useEffect(() => {
+        if (!shouldUsePreferredMp4 || !sanitizedVideoId || !preferredMp4)
+            return;
+        setPreferredVideoFile(sanitizedVideoId, preferredMp4);
+    }, [
+        shouldUsePreferredMp4,
+        sanitizedVideoId,
+        preferredMp4,
+        setPreferredVideoFile
+    ]);
 
     const error = validateItemCarrusel({
         video: videoData,
