@@ -1,10 +1,28 @@
 import React from 'react';
 import DivBannerSSR from '../DivBannerSSR';
+import DynamicBanner from '../../../../features/ui/ln/dynamicBanner/default';
 import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
+import get from '../../utils/get';
+import { OPINION } from '../../utils/subtypes/subtypeHelper';
 
 export const MAX_DYNAMIC_BANNERS = 5;
 export const BANNER_INSERT_INTERVAL = 4;
 export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
+
+export const DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE = {
+    [OPINION]: {
+        BannerComponent: DynamicBanner,
+        maxBanners: 4
+    },
+    default: {
+        BannerComponent: DivBannerSSR,
+        maxBanners: MAX_DYNAMIC_BANNERS
+    }
+};
+
+export const getDynamicBannerSettingsBySubtype = subtype =>
+    DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE[subtype] ??
+    DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE.default;
 
 const DYNAMIC_BANNER_CONFIG = {
     dfpId: 133919216,
@@ -42,10 +60,13 @@ const DYNAMIC_BANNER_CONFIG = {
     }
 };
 
-export const shouldInsertBanner = (itemIndex, bannerIndex) => {
+export const shouldInsertBanner = (itemIndex, bannerIndex, subtype = '') => {
     const isInsertPosition =
         (itemIndex + 1) % BANNER_INSERT_INTERVAL === 0 && itemIndex >= 0;
-    const withinLimit = bannerIndex <= MAX_DYNAMIC_BANNERS;
+
+    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+    const withinLimit = bannerIndex <= maxBanners;
+
     return isInsertPosition && withinLimit;
 };
 
@@ -56,7 +77,9 @@ export const createDynamicBannerConfig = (
 ) => {
     if (!globalContent || !device || !bannerIndex) return null;
 
-    if (bannerIndex > MAX_DYNAMIC_BANNERS) return null;
+    const subtype = get(globalContent, 'subtype', '');
+    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+    if (bannerIndex > maxBanners) return null;
 
     const deviceSuffix = suffixDevice[device];
     if (!deviceSuffix) return null;
@@ -136,7 +159,12 @@ export const renderDynamicBanner = (
 
     if (!bannerConfiguration) return null;
 
-    return <DivBannerSSR key={key} bannerConfiguration={bannerConfiguration} />;
+    const subtype = get(globalContent, 'subtype', '');
+    const { BannerComponent } = getDynamicBannerSettingsBySubtype(subtype);
+
+    return (
+        <BannerComponent key={key} bannerConfiguration={bannerConfiguration} />
+    );
 };
 
 export const buildGoogleTagBannerConfig = (
@@ -163,6 +191,8 @@ export const getDynamicBannersWithGPTConfigsForIndex = ({
 }) => {
     if (!globalContent || !bannerIndex) return null;
 
+    const subtype = get(globalContent, 'subtype', '');
+    const { BannerComponent } = getDynamicBannerSettingsBySubtype(subtype);
     const resolvedKeyIndex = keyIndex ?? bannerIndex;
     const bannerDivs = [];
     let googleTagConfig = null;
@@ -178,7 +208,7 @@ export const getDynamicBannersWithGPTConfigsForIndex = ({
         if (!bannerConfiguration) return;
 
         const bannerDiv = (
-            <DivBannerSSR
+            <BannerComponent
                 key={bannerKey}
                 bannerConfiguration={bannerConfiguration}
             />

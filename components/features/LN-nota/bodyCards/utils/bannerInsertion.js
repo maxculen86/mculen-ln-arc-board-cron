@@ -1,4 +1,5 @@
 import React from 'react';
+import get from '../../../../private/common/utils/get';
 import {
     buildGoogleTagBannerConfig,
     renderDynamicBanner,
@@ -70,6 +71,7 @@ export const insertBannersIntoCards = (
     const result = [];
     const googleTagConfigsArray = [];
     let bannerIndex = 1;
+    const subtype = get(globalContent, 'subtype', '');
 
     cardGroups.forEach((cardGroup, index) => {
         result.push(
@@ -82,7 +84,7 @@ export const insertBannersIntoCards = (
             )
         );
 
-        if (shouldInsertBanner(index, bannerIndex)) {
+        if (shouldInsertBanner(index, bannerIndex, subtype)) {
             SUPPORTED_DEVICES.forEach(device => {
                 const bannerResult = createBannerElement(
                     globalContent,

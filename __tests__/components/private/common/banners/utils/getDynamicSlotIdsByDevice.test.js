@@ -1,14 +1,17 @@
-import { getDynamicSlotIdsByDevice } from "../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice";
-
+import { getDynamicSlotIdsByDevice } from '../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice';
+import { OPINION } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 const MAX_DYNAMIC_BANNERS = 5;
 
-jest.mock('../../../../../../components/private/LN/common/utils/bannerHelper', () => ({
-    suffixDevice: {
-        desktop: '_dsk',
-        mobile: '_mob'
-    }
-}));
+jest.mock(
+    '../../../../../../components/private/LN/common/utils/bannerHelper',
+    () => ({
+        suffixDevice: {
+            desktop: '_dsk',
+            mobile: '_mob'
+        }
+    })
+);
 
 describe('getDynamicSlotIdsByDevice', () => {
     it('returns desktop dynamic slot ids', () => {
@@ -31,6 +34,18 @@ describe('getDynamicSlotIdsByDevice', () => {
                 (_, i) => `caja${i + 1}_mob`
             )
         );
+    });
+
+    it('returns opinion dynamic slot ids with max 4 banners on desktop', () => {
+        const result = getDynamicSlotIdsByDevice('desktop', OPINION);
+
+        expect(result).toEqual([
+            'cinturon1_dsk',
+            'cinturon2_dsk',
+            'cinturon3_dsk',
+            'cinturon4_dsk'
+        ]);
+        expect(result).toHaveLength(4);
     });
 
     it('returns an empty array for unsupported device', () => {

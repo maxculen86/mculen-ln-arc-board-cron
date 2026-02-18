@@ -1,7 +1,14 @@
-import bannerConfigType, { resolveDynamicBodyBanners, resolvePageBuilderBodyBanners, resolvePageBuilderGrillaBanners } from "../../../../../../components/private/common/banners/helpers/loadBannersSSRHelper";
-import { getDynamicSlotIdsByDevice } from "../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice";
+import bannerConfigType, {
+    resolveDynamicBodyBanners,
+    resolvePageBuilderBodyBanners,
+    resolvePageBuilderGrillaBanners
+} from '../../../../../../components/private/common/banners/helpers/loadBannersSSRHelper';
+import { getDynamicSlotIdsByDevice } from '../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice';
+import { OPINION } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
-jest.mock('../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice');
+jest.mock(
+    '../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice'
+);
 
 describe('Banner resolvers', () => {
     beforeEach(() => {
@@ -27,9 +34,41 @@ describe('Banner resolvers', () => {
                 bannersInBody
             });
 
+            expect(bannersInBody).toEqual(['cinturon1_dsk', 'cinturon2_dsk']);
+        });
+
+        it('passes subtype to dynamic slot resolver and applies subtype slot limits', () => {
+            getDynamicSlotIdsByDevice.mockReturnValue([
+                'cinturon1_dsk',
+                'cinturon2_dsk',
+                'cinturon3_dsk',
+                'cinturon4_dsk'
+            ]);
+
+            const bannersInBody = [];
+
+            resolveDynamicBodyBanners({
+                device: 'desktop',
+                subtype: OPINION,
+                bannersToLoadFromDOM: [
+                    { opt_div: 'cinturon1_dsk' },
+                    { opt_div: 'cinturon2_dsk' },
+                    { opt_div: 'cinturon3_dsk' },
+                    { opt_div: 'cinturon4_dsk' },
+                    { opt_div: 'cinturon5_dsk' }
+                ],
+                bannersInBody
+            });
+
+            expect(getDynamicSlotIdsByDevice).toHaveBeenCalledWith(
+                'desktop',
+                OPINION
+            );
             expect(bannersInBody).toEqual([
                 'cinturon1_dsk',
-                'cinturon2_dsk'
+                'cinturon2_dsk',
+                'cinturon3_dsk',
+                'cinturon4_dsk'
             ]);
         });
 
@@ -67,10 +106,7 @@ describe('Banner resolvers', () => {
                 bannersInBody
             });
 
-            expect(bannersInBody).toEqual([
-                'cuerpo1_dsk',
-                'cuerpo2_dsk'
-            ]);
+            expect(bannersInBody).toEqual(['cuerpo1_dsk', 'cuerpo2_dsk']);
         });
 
         it('does not duplicate banners already present in body', () => {
