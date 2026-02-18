@@ -3,19 +3,29 @@
 exports[`Components - features - LN-services - EconomicIndices - default Should match snapshot with data 1`] = `
 <div>
   <div
-    class="economic-indices"
+    class="index-table-container mb-32"
   >
     <div
-      class="economic-indices__header mb-16"
+      class="ln-roof --generic"
+      roof-container="roof-container"
     >
-      <span
-        class="font-secondary text-sm text-light-500"
+      <div
+        class="--ln-roof-full pt-24 flex jc-between"
       >
-        Actualizado: 
-        25-02-2026
-         
-        10:30:05
-      </span>
+        <div
+          class="--ln-roof-left"
+        >
+          <div
+            class="flex uppercase ai-center"
+            roof-group="left"
+            target="_blank"
+          />
+        </div>
+        <div
+          class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+          roof-group="right"
+        />
+      </div>
     </div>
     <div
       data-testid="table-v2"
@@ -24,6 +34,20 @@ exports[`Components - features - LN-services - EconomicIndices - default Should 
         {"tableType":"merval","fecha_actualizacion":"25-02-2026","hora_actualizacion":"10:30:05","cotizaciones":[{"ticket":"GGAL","var_diaria":"1.5","var_semanal":"2.3","cotizacion_actual":"150.00"}]}
       </span>
     </div>
+    <p
+      class="text ln-text text-10 pt-12 pb-8"
+    >
+      Actualización general del panel: 
+      10:30:05
+       |
+       
+      25-02-2026
+    </p>
+    <hr
+      aria-orientation="horizontal"
+      class="ds-divider border-0 bg-muted w-full h-1"
+      role="separator"
+    />
   </div>
 </div>
 `;

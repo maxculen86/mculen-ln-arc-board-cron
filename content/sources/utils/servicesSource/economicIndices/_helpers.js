@@ -232,7 +232,10 @@ export const formatNumber = value => {
     if (value === null || value === undefined || value === '') return '-';
     const num = parseFloat(value);
     if (Number.isNaN(num)) return '-';
-    return num.toLocaleString('es-AR');
+    return num.toLocaleString('es-AR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
 };
 
 export const wrapStrong = value =>
@@ -240,24 +243,24 @@ export const wrapStrong = value =>
         ? '-'
         : `<strong>${formatNumber(value)}</strong>`;
 
+const getVariationClass = value => {
+    if (value > 0) return 'positive';
+    if (value < 0) return 'negative';
+    return 'neutral';
+};
 export const formatVariation = value => {
     const num = parseFloat(value);
 
-    if (
+    const isInvalid =
         value === null ||
         value === undefined ||
         value === '' ||
-        Number.isNaN(num)
-    ) {
-        return '<span class="index-neutral">-</span>';
-    }
+        Number.isNaN(num);
 
-    const clase = num > 0 ? 'index-positive' : 'index-negative';
-    const texto = `${Math.abs(num)} %`;
+    const variant = getVariationClass(num);
+    const text = isInvalid ? '-' : `${Math.abs(num).toFixed(1)} %`;
 
-    if (num === 0) return '<span class="index-neutral">0 %</span>';
-
-    return `<span class="${clase}">${texto}</span>`;
+    return `<span class="index-${variant}">${text}</span>`;
 };
 
 export const HOME_FILTERS = {

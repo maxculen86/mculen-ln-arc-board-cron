@@ -3,6 +3,13 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import Context from 'fusion:context';
 import Content from 'fusion:content';
+
+jest.mock('fusion:consumer', Component => {
+    return function (Component) {
+        return props => <Component {...props} />;
+    };
+});
+
 import EconomicIndices from '../../../../../components/features/LN-services/economicIndices/default';
 
 jest.mock('fusion:context', () => ({
@@ -64,9 +71,9 @@ describe('Components - features - LN-services - EconomicIndices - default', () =
         const { container } = render(<EconomicIndices />);
 
         expect(
-            container.querySelector('.economic-indices')
+            container.querySelector('.index-table-container')
         ).toBeInTheDocument();
-        expect(container).toHaveTextContent('Actualizado: 25-02-2026 10:30:05');
+        expect(container).toHaveTextContent('Actualización general del panel');
     });
 
     it('Should match snapshot with data', () => {
