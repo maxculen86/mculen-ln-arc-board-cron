@@ -1,6 +1,7 @@
 import React from 'react';
 import HtmlPym from '../../../../private/LN/nota/cuerpo/htmlPym';
 import hasIframeWithPYM from '../utils/hasIframeWithPYM';
+import { WrapperBody } from '../wrapperBody/default';
 
 function RawHtml(props) {
     const { data = {} } = props;
@@ -9,15 +10,21 @@ function RawHtml(props) {
     if (!content) return null;
 
     if (hasIframeWithPYM(content)) {
-        return <HtmlPym data={data} />;
+        return (
+            <WrapperBody>
+                <HtmlPym data={data} />
+            </WrapperBody>
+        );
     }
 
     return (
-        <div
-            id={`anexo-${idMedia}`}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <WrapperBody>
+            <div
+                id={`anexo-${idMedia}`}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: content }}
+            />
+        </WrapperBody>
     );
 }
 

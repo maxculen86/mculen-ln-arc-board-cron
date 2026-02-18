@@ -1,5 +1,6 @@
 import React from 'react';
 import PullQuoteUI from '../../../ui/ln/pullQuote/default';
+import { WrapperBody } from '../wrapperBody/default';
 
 function PullQuote({ data = {}, className }) {
     const { citation = {}, content_elements: contentElements = [] } = data;
@@ -7,7 +8,13 @@ function PullQuote({ data = {}, className }) {
     const content = contentElements?.[0]?.content;
 
     return (
-        <PullQuoteUI content={content} author={author} className={className} />
+        <WrapperBody>
+            <PullQuoteUI
+                content={content}
+                author={author}
+                className={className}
+            />
+        </WrapperBody>
     );
 }
 

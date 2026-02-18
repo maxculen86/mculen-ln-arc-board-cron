@@ -1,20 +1,13 @@
 import React from 'react';
-import Image from '../../features/LN/common/image/default';
 import VideoPlayer from '../../features/LN/common/video/default';
 import MediaIframe from '../../features/LN/common/iframe/default';
+import { MediaItemImage } from '../LN-Nota-Opinion/components/apertura/MediaItemImage';
 
 export const getMediaType = (type, subtype) =>
     type === 'raw_html' ? 'iframe' : type || subtype;
 
 const mediaRenderers = {
-    image: mediaData => (
-        <Image
-            data={mediaData}
-            showCaption={false}
-            loading="eager"
-            fetchPriority="high"
-        />
-    ),
+    image: mediaData => <MediaItemImage data={mediaData} />,
     video_jw: mediaData => <VideoPlayer data={mediaData} />,
     iframe: mediaData => <MediaIframe html={mediaData.content} />
 };

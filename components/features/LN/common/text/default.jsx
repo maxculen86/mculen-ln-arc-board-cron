@@ -1,5 +1,6 @@
 import React from 'react';
 import Paragraph from '../../../ui/ln/paragraph/default';
+import { WrapperBody } from '../wrapperBody/default';
 
 function Text({ data = {}, capital = false, className = '' } = {}) {
     const { content = '' } = data;
@@ -7,7 +8,13 @@ function Text({ data = {}, capital = false, className = '' } = {}) {
     if (content === '<br/>') return null;
 
     return (
-        <Paragraph content={content} capital={capital} className={className} />
+        <WrapperBody>
+            <Paragraph
+                content={content}
+                capital={capital}
+                className={className}
+            />
+        </WrapperBody>
     );
 }
 

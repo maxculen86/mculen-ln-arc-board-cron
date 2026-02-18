@@ -2,6 +2,7 @@ import React from 'react';
 import get from '../../../../private/common/utils/get';
 import parse from '../../../../private/common/utils/parseHelper';
 import { getHeadingConfig } from './_helpers';
+import { WrapperBody } from '../wrapperBody/default';
 
 function Heading({ data }) {
     const level = get(data, 'level');
@@ -16,7 +17,11 @@ function Heading({ data }) {
 
     if (!content) return null;
 
-    return <Tag className={config.className}>{parsedContent}</Tag>;
+    return (
+        <WrapperBody>
+            <Tag className={config.className}>{parsedContent}</Tag>
+        </WrapperBody>
+    );
 }
 
 Heading.arcType = 'header';
