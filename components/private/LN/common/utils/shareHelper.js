@@ -125,7 +125,10 @@ export const shareWhatsAppMobile = (notaId, dominio, title) => {
 };
 
 export const scrollToComments = () => {
-    window.scrollTo(0, document.body.scrollHeight);
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
 };
 
 export const copyToClipboard = (domain, url) => {

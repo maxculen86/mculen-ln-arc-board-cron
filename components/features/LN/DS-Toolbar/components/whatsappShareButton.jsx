@@ -1,23 +1,31 @@
 import React from 'react';
-import { handleWhatsappShare } from '../_helpers';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import Button from '../../../ui/ln/button/default';
 import Icon from '../../../ui/ln/icon/default';
+import { shareWhatsAppDesktop } from '../../../../private/LN/common/utils/shareHelper';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function WhatsappShareButton({ requestUri, title }) {
     return (
-        <Button
-            id="btnwhatsappshare"
-            title="Compartir WhatsApp"
-            isIconOnly
-            variant="outline"
-            color="secondary"
-            onClick={() =>
-                handleWhatsappShare({ requestUri, title, host: config.host })
-            }
-        >
-            <Icon name="whatsapp" />
-        </Button>
+        <div className="max-md:hidden">
+            <Button
+                id="btnwhatsappshare"
+                title="Compartir WhatsApp"
+                isIconOnly
+                variant="ghost"
+                color="black"
+                onClick={() => {
+                    shareWhatsAppDesktop(requestUri, config.host);
+                    addEventToDataLayerV2({
+                        event: 'share_note',
+                        title,
+                        rest: { tags: 'whatsapp' }
+                    });
+                }}
+            >
+                <Icon name="whatsapp" />
+            </Button>
+        </div>
     );
 }
 

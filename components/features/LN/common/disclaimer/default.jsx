@@ -5,7 +5,7 @@ function Disclaimer({ text = '' }) {
     if (!text) return null;
 
     return (
-        <aside>
+        <aside className="flex items-center gap-4">
             <Icon size={12}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ function Disclaimer({ text = '' }) {
                     />
                 </svg>
             </Icon>
-            <span>{text}</span>
+            <span className="text-12 leading-[130%]">{text}</span>
         </aside>
     );
 }

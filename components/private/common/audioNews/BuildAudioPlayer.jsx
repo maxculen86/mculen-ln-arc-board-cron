@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import { Spinner } from '@ln/common-ui-spinner';
@@ -57,89 +56,73 @@ function BuildAudioPlayer({
     }, []);
 
     useEffect(() => {
-        const cleanupAudioPlayerListeners = () => {
-            if (!playerRef.current) return;
+        if (!isScriptLoaded || !document.querySelector('.audio-player'))
+            return undefined;
 
-            playerRef.current.removeEventListener('NoContentAvailable', () =>
-                setErrorAudio(true)
-            );
+        const controller = new AbortController();
+        const { signal } = controller;
 
-            playerRef.current.removeEventListener('ContentAvailable', () => {
-                setContentAvailable(true);
-            });
-
-            playerRef.current.removeEventListener('PlaybackPaused', () =>
-                setIsAudioPlaying(false)
-            );
-
-            playerRef.current.removeEventListener('PlaybackPlaying', () =>
-                setIsAudioPlaying(true)
-            );
-
-            playerRef.current.playbackState = 'stopped';
-        };
-
-        if (isScriptLoaded && document.querySelector('.audio-player')) {
-            let removeProgressTrackingListeners;
-
-            try {
-                if (!playerRef.current) {
-                    // eslint-disable-next-line no-undef
-                    playerRef.current = new BeyondWords.Player({
-                        target: '.audio-player',
-                        projectId: BEYONDWORDS_PROJECT_ID,
-                        sourceId: noteId,
-                        playbackRates: [1, 1.25, 1.5, 1.7, 2],
-                        playbackState,
-                        skipButtonStyle: 'seconds',
-                        logoIconEnabled: false,
-                        widgetWidth: '40rem',
-                        summary: isSummary
-                    });
-
-                    playerRef.current.addEventListener(
-                        'NoContentAvailable',
-                        () => setErrorAudio(true)
-                    );
-
-                    playerRef.current.addEventListener('ContentAvailable', () =>
-                        setContentAvailable(true)
-                    );
-
-                    playerRef.current.addEventListener('PlaybackPaused', () =>
-                        setIsAudioPlaying(false)
-                    );
-
-                    playerRef.current.addEventListener('PlaybackPlaying', () =>
-                        setIsAudioPlaying(true)
-                    );
-                } else {
-                    playerRef.current.summary = isSummary;
-                    playerRef.current.playbackState = playbackState;
-                }
-
-                removeProgressTrackingListeners = setupBwReproductionTracking({
-                    playerRef,
-                    globalContent,
-                    globalContentConfig,
-                    setContentAvailable
+        try {
+            if (!playerRef.current) {
+                // eslint-disable-next-line no-undef
+                playerRef.current = new BeyondWords.Player({
+                    target: '.audio-player',
+                    projectId: BEYONDWORDS_PROJECT_ID,
+                    sourceId: noteId,
+                    playbackRates: [1, 1.25, 1.5, 1.7, 2],
+                    playbackState,
+                    skipButtonStyle: 'seconds',
+                    logoIconEnabled: false,
+                    widgetWidth: '40rem',
+                    summary: isSummary
                 });
-            } catch (error) {
-                console.error(
-                    'Failed to initialize the BeyondWords player:',
-                    error
+
+                playerRef.current.addEventListener(
+                    'NoContentAvailable',
+                    () => setErrorAudio(true),
+                    { signal }
                 );
-                setErrorAudio(true);
+                playerRef.current.addEventListener(
+                    'ContentAvailable',
+                    () => setContentAvailable(true),
+                    { signal }
+                );
+                playerRef.current.addEventListener(
+                    'PlaybackPaused',
+                    () => setIsAudioPlaying(false),
+                    { signal }
+                );
+                playerRef.current.addEventListener(
+                    'PlaybackPlaying',
+                    () => setIsAudioPlaying(true),
+                    { signal }
+                );
+            } else {
+                playerRef.current.summary = isSummary;
+                playerRef.current.playbackState = playbackState;
             }
 
-            return () => {
-                cleanupAudioPlayerListeners();
-                removeProgressTrackingListeners?.();
-            };
+            setupBwReproductionTracking({
+                playerRef,
+                globalContent,
+                globalContentConfig,
+                setContentAvailable,
+                signal
+            });
+        } catch (error) {
+            console.error(
+                'Failed to initialize the BeyondWords player:',
+                error
+            );
+            setErrorAudio(true);
         }
 
         return () => {
-            cleanupAudioPlayerListeners();
+            controller.abort();
+            if (playerRef.current) {
+                playerRef.current.playbackState = 'stopped';
+            }
+            console.info('signal.aborted:', signal.aborted);
         };
     }, [
         isScriptLoaded,
@@ -186,14 +169,5 @@ function BuildAudioPlayer({
         </section>
     );
 }
-
-BuildAudioPlayer.propTypes = {
-    noteId: PropTypes.string.isRequired,
-    playbackState: PropTypes.string.isRequired,
-    setEnableButton: PropTypes.func.isRequired,
-    onCloseAudioPlayer: PropTypes.func.isRequired,
-    showVariantIa: PropTypes.bool.isRequired,
-    openToast: PropTypes.func.isRequired
-};
 
 export default BuildAudioPlayer;
