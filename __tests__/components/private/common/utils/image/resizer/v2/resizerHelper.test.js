@@ -219,6 +219,11 @@ describe('Common - Resizer', () => {
         expect(height).toBe(800);
     });
 
+    it('should return 372 for width 559 and proportion 3:2 (regression test)', () => {
+        const height = resizerHelper.setHeight(559, 0, '3:2');
+        expect(height).toBe(372);
+    });
+
     it('should return the correct focal string', () => {
         const focalStr = resizerHelper.setStrFocal(500, 450);
         expect(focalStr).toBe('495,455:505,445');
@@ -424,8 +429,7 @@ describe('Tests resizer helper', () => {
                 version: 0
             },
             auth: {
-                '1':
-                    '1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9'
+                1: '1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9'
             },
             height: 549,
             source: {
@@ -435,8 +439,7 @@ describe('Tests resizer helper', () => {
                 system: 'photo center'
             },
             type: 'image',
-            url:
-                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg',
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg',
             width: 976
         };
 
@@ -557,33 +560,35 @@ describe('Tests resizer helper', () => {
     describe('getSlugForImage', () => {
         it('should return empty string from object', () => {
             const imageData = {};
-    
+
             const result = resizerHelper.getSlugForImage(imageData);
             expect(result).toBe('');
         });
 
         it('should return slug from loremtextramdon lorem', () => {
             const imageData = { alt_text: 'loremtextramdon lorem' };
-    
+
             const result = resizerHelper.getSlugForImage(imageData);
             expect(result).toBe('loremtextramdon-');
         });
 
         it('should return slug from loremtextramdon', () => {
             const imageData = { alt_text: 'loremtextramdon' };
-    
+
             const result = resizerHelper.getSlugForImage(imageData);
             expect(result).toBe('loremtextramdo-');
         });
 
-        
         it('should return slug from text greater than 50 charts', () => {
-            const imageData = { alt_text: 'loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuhsjfhuqeysktpñlaisu' };
-    
+            const imageData = {
+                alt_text:
+                    'loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuhsjfhuqeysktpñlaisu'
+            };
+
             const result = resizerHelper.getSlugForImage(imageData);
-            expect(result).toBe('loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuh-');
+            expect(result).toBe(
+                'loremtextramdonasdgfsdfanwjkndlkandansdnasmdporuh-'
+            );
         });
-
-    })
-
+    });
 });
