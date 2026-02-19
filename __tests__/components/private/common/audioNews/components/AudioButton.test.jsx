@@ -3,11 +3,8 @@ import '@testing-library/jest-dom';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
 import { AudioButton } from '../../../../../../components/private/common/audioNews/components/AudioButton';
-import { GlobalContext } from '../../../../../../components/private/common/context/globalContext';
-import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
 import getToken from '../../../../../../components/private/common/utils/getToken';
-import handleCookie from '../../../../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
@@ -44,6 +41,7 @@ describe('components - private - common - audioNews - components - AudioButton',
             isOpenAudioPlayer: false
         },
         withAudio: true,
+        showListenButton: true,
         authorNames: ['José María Costa'],
         showTooltipVariantIA: true
     };
@@ -69,7 +67,7 @@ describe('components - private - common - audioNews - components - AudioButton',
     });
 
     it('does not render if withAudio is false', () => {
-        renderComponent({ withAudio: false });
+        renderComponent({ withAudio: false, showListenButton: false });
 
         expect(screen.queryByText('Escuchar Nota')).toBeNull();
     });
