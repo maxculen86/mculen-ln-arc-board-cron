@@ -2,7 +2,12 @@ import React, { useRef } from 'react';
 import BuildRoof from '../../../utils/_BuildRoof/default';
 import MediaScroller from '../../../../features/ui/ln/mediaScroller/default';
 
-function MediaScrollerContainer({ children, roofData, responsive }) {
+function MediaScrollerContainer({
+    children,
+    roofData,
+    responsive,
+    elementsToScroll
+}) {
     const containerRef = useRef(null);
 
     const responsiveData = {
@@ -15,7 +20,7 @@ function MediaScrollerContainer({ children, roofData, responsive }) {
             <BuildRoof {...roofData} />
             <div data-tw>
                 <MediaScroller
-                    elementsToScroll="visible"
+                    elementsToScroll={elementsToScroll || 'visible'}
                     responsive={responsiveData}
                     className="z-1"
                 >

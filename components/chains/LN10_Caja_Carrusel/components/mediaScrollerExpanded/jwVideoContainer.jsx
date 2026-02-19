@@ -113,6 +113,7 @@ const JwVideoContainer = forwardRef(
                                         handleNextCallback={handleNextCallback}
                                         isLoadedScriptJw={isLoadedScriptJw}
                                         origin={origin}
+                                        variant={variant}
                                     />
                                 )}
                             </div>
