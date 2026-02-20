@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
-    googleButtons,
     BtnContainer,
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
@@ -35,10 +33,6 @@ function BuildSecondButtonsGroup({
     const _classes = buildSecondButtonsGroupVariants({
         orientation: isHorizontal ? 'horizontal' : 'vertical'
     });
-
-    const allButtons = isNotaNoticia
-        ? [...buttonsList, ...googleButtons]
-        : buttonsList;
 
     return (
         <div className={_classes}>
@@ -88,7 +82,7 @@ function BuildSecondButtonsGroup({
                     </Icon>
                 </Button>
             )}
-            {allButtons.map(
+            {buttonsList.map(
                 ({
                     withContainer = false,
                     id,
@@ -167,16 +161,5 @@ function BuildSecondButtonsGroup({
         </div>
     );
 }
-
-BuildSecondButtonsGroup.propTypes = {
-    requestUri: PropTypes.string.isRequired,
-    host: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    mobileTitle: PropTypes.string.isRequired,
-    isNegative: PropTypes.bool.isRequired,
-    articleId: PropTypes.string.isRequired,
-    isHorizontal: PropTypes.bool.isRequired,
-    isNotaNoticia: PropTypes.bool.isRequired
-};
 
 export default BuildSecondButtonsGroup;

@@ -2,8 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
-import { useAudioPlayer } from '../../../../../components/private/common/audioNews/hooks/useAudioPlayer';
-import { AudioButton } from '../../../../../components/private/common/audioNews/components/AudioButton';
 import SignatureFeature from '../../../../../components/features/LN-nota/signature/default';
 import AudioPlayer from '../../../../../components/private/common/audioNews/AudioPlayer';
 

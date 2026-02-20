@@ -349,7 +349,7 @@ describe('Share buttons for NOTICIA subtype', () => {
 
     it('should show Google follow button for NOTICIA subtype', () => {
         const { container } = render(<Share />);
-        const googleButton = container.querySelector('#btnGoogle');
+        const googleButton = screen.getByTitle('Seguir a LA NACION en Google');
 
         expect(googleButton).toBeTruthy();
         expect(googleButton).toHaveAttribute(
@@ -368,7 +368,7 @@ describe('Share buttons for NOTICIA subtype', () => {
 
     it('should send correct DataLayer event when clicking Google follow button', () => {
         const { container } = render(<Share />);
-        const googleButton = container.querySelector('#btnGoogle');
+        const googleButton = screen.getByTitle('Seguir a LA NACION en Google');
 
         fireEvent.click(googleButton);
 
@@ -383,10 +383,12 @@ describe('Share buttons for NOTICIA subtype', () => {
     it('should show correct number of buttons for NOTICIA subtype (includes Google buttons)', () => {
         const { container } = render(<Share />);
         const buttons = screen.getAllByRole('button');
-        const googleButtons = container.querySelectorAll('#btnGoogle');
+        const googleButtons = screen.getAllByTitle(
+            'Seguir a LA NACION en Google'
+        );
 
-        expect(buttons.length).toBe(11);
-        expect(googleButtons.length).toBe(2);
+        expect(buttons.length).toBe(10);
+        expect(googleButtons.length).toBe(1);
         expect(container).toMatchSnapshot();
     });
 });
