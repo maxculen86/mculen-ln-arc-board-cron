@@ -5,6 +5,9 @@ export const isValidNonZeroNumber = number =>
 
 export const isValidString = string => typeof string === 'string';
 
+export const isNonEmptyArray = value =>
+    Array.isArray(value) && value.length > 0;
+
 export const isEmptyString = string => {
     if (isValidString(string)) {
         return !string.trim();
@@ -16,5 +19,5 @@ export const escapedStringForRegex = string => {
     if (isEmptyString(string)) {
         return '';
     }
-    return string.replace(/[\/\.\^\$\|\?\*\+\(\)\[\]\{\}]/g, '\\$&');
+    return string.replace(/[/.^$|?*+(){}[\]]/g, '\\$&');
 };

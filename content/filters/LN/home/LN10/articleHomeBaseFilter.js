@@ -36,6 +36,14 @@ export default `
             text
         }
     }
+    content_elements {
+        _id
+        type
+        numeric_rating
+        min
+        max
+        units
+    }
     promo_items {
         basic {
             ${image}

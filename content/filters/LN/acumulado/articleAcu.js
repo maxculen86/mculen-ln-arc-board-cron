@@ -107,8 +107,13 @@ export default `
             sponsored
         }
         content_elements {
+            _id
             type
             content
+            numeric_rating
+            min
+            max
+            units
         }
         display_date
         publish_date
