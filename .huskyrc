@@ -1,7 +1,0 @@
-{
-    "hooks": {
-        "pre-commit": "lint-staged",
-        "pre-push": "if `git-branch-is -qr '(master$|develop$|/origin$|^release/.+|/release$)'`; then npm run build && npm test; fi",
-        "post-merge": "if ! npx check-dependencies; then npm install; fi; if `git-branch-is -qr '(master$|develop$|/origin$)'`; then npm run build; fi"
-    }
-}
