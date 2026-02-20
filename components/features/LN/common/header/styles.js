@@ -14,7 +14,7 @@ export const wrapperHeaderVariants = cva(
         variants: {
             position: {
                 default: '',
-                sticky: 'sticky top-0'
+                sticky: 'xl:sticky top-0'
             },
             appearance: {
                 light: 'bg-primary-foreground',

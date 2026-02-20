@@ -2,7 +2,7 @@
 @layer components {
 
     /* Paragraph */
-    .ds-custom-paragraph mark {
+    .ds-custom-paragraph mark.hl_underline {
         background-color: transparent;
         font-weight: bold;
         text-decoration: underline;

@@ -1,51 +1,38 @@
-import React from 'react';
 import {
     copyToClipboard,
     getTwitterTitle,
     popUpCompartirMailTo,
     popUpCompartirNotaFB,
-    popUpCompartirNotaTW,
-    shareWhatsAppDesktop
+    popUpCompartirNotaTW
 } from '../../../private/LN/common/utils/shareHelper';
-import Icon from '../../ui/ln/icon/default';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import getAudioEvents from '../../LN-10-global/common/utils/getAudioEvents';
 
 export const SHARE_OPTIONS = [
     {
-        id: 'whatsapp',
-        label: 'WhatsApp',
-        icon: <Icon name="whatsapp" />,
-        tag: 'whatsapp',
-        onClick: ({ requestUri, host, title }) => {
-            shareWhatsAppDesktop(requestUri, host);
-            addEventToDataLayerV2({
-                event: 'share_note',
-                title,
-                rest: { tags: 'whatsapp' }
-            });
-        }
-    },
-    {
-        id: 'link',
-        label: 'Copiar link',
-        icon: <Icon name="fileCopy" />,
+        id: 'share_option_link',
+        label: ({ copied }) => (copied ? '¡Enlace copiado!' : 'Copiar enlace'),
+        icon: ({ copied }) => (copied ? 'check' : 'file-copy'),
         tag: 'link',
-        onClick: ({ setCopied, title }) => {
-            copyToClipboard();
+        onClick: ({ setCopied, title, host, requestUri }) => {
+            copyToClipboard(host, requestUri);
             setCopied(true);
-
             addEventToDataLayerV2({
                 event: 'share_note',
                 title,
                 rest: { tags: 'link' }
             });
-        }
+        },
+        color: 'custom',
+        className: ({ copied }) =>
+            copied
+                ? 'text-success-default'
+                : 'text-secondary-default hover:text-secondary-light'
     },
     {
-        id: 'facebook',
-        label: 'Facebook',
-        icon: <Icon name="facebook" />,
+        id: 'share_option_facebook',
+        label: 'Publicar en Facebook',
+        icon: 'facebook',
         tag: 'facebook',
         onClick: ({ requestUri, host, title }) => {
             popUpCompartirNotaFB(requestUri, host);
@@ -54,12 +41,13 @@ export const SHARE_OPTIONS = [
                 title,
                 rest: { tags: 'facebook' }
             });
-        }
+        },
+        color: 'secondary'
     },
     {
-        id: 'x',
-        label: 'X',
-        icon: <Icon name="twitter" />,
+        id: 'share_option_x',
+        label: 'Compartir en X (Twitter)',
+        icon: 'x',
         tag: 'x',
         onClick: ({ requestUri, host, title, mobileTitle }) => {
             const twitterTitle = getTwitterTitle(mobileTitle, title);
@@ -69,12 +57,13 @@ export const SHARE_OPTIONS = [
                 title,
                 rest: { tags: 'x' }
             });
-        }
+        },
+        color: 'secondary'
     },
     {
-        id: 'mail',
-        label: 'Mail',
-        icon: <Icon name="mail" />,
+        id: 'share_option_mail',
+        label: 'Enviar un E-Mail',
+        icon: 'mail',
         tag: 'mail',
         onClick: ({ requestUri, host, title }) => {
             popUpCompartirMailTo(requestUri, host);
@@ -83,18 +72,23 @@ export const SHARE_OPTIONS = [
                 title,
                 rest: { tags: 'mail' }
             });
-        }
+        },
+        color: 'secondary'
     }
 ];
 
-const handleShareClick = ({ shareButton, toggleShareMenu, noteId, title }) => {
+export const handleShareNativeTrigger = ({
+    shareNativeTrigger,
+    noteId,
+    title
+}) => {
     const isMobile =
         typeof window !== 'undefined' &&
-        window.matchMedia('(max-width: 768px)').matches &&
+        window.matchMedia('(max-width: 1280px)').matches &&
         typeof navigator.share === 'function';
 
     if (isMobile) {
-        shareButton();
+        shareNativeTrigger();
 
         addEventToDataLayerV2({
             event: 'share_note',
@@ -102,11 +96,7 @@ const handleShareClick = ({ shareButton, toggleShareMenu, noteId, title }) => {
             title,
             rest: { tags: 'popup-nativo' }
         });
-
-        return;
     }
-
-    toggleShareMenu();
 };
 
 export const handleWhatsappShare = ({ requestUri, title, host }) => {
@@ -140,4 +130,12 @@ export const handleClickAudioNews = ({
     });
 };
 
-export default handleShareClick;
+// TODO: remover al quitar data-tw post migracion, se necesita momentaneamente para evitar conflictos de selectores css.
+export const handleVisibilityChanged = event => {
+    if (event?.changedProps?.showBottomWidget?.currentValue === true) {
+        const el = document.querySelector('.time-indicator.standard.fixed');
+        if (el) {
+            el.style.setProperty('position', 'relative', 'important');
+        }
+    }
+};
