@@ -112,7 +112,7 @@ export const storyCommon = (dataNota, cuerpo) => {
         },
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: hasTable ? false : enviarApps,
+        enviarApps: enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor),
         trust: !isTrust,
         metadata: Metadata(dataNota),

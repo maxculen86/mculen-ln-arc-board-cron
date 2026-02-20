@@ -115,7 +115,7 @@ describe('storyCommon', () => {
 
         const resp = storyCommon(notaConTabla, cuerpoMock);
 
-        expect(resp.enviarApps).toBe(false);
+        expect(resp.enviarApps).toBe(true);
         expect(resp.openingMode).toBe('NativeBrowser');
     });
 
