@@ -272,6 +272,7 @@ const customPowerUps = `
                 includeInShoppingList
                 ingredient
                 isMainIngredient
+                isOptionalIngredient
                 unit
                 text
                 value
