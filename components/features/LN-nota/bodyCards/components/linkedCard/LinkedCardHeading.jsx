@@ -1,14 +1,18 @@
 import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import { useLinkedCardContext } from '../../context/LinkedCardContext';
-import { cardsNumberVariant, cardsTitleVariant } from '../styles';
+import {
+    cardsHeadingVariant,
+    cardsNumberVariant,
+    cardsTitleVariant
+} from '../styles';
 
 function LinkedCardHeading({ number, title }) {
     const { variant, cardColor } = useLinkedCardContext();
     if (!number && !title) return null;
 
     return (
-        <span data-tw className="flex flex-column ai-center gap-16 gap-24_m">
+        <span data-tw className={cardsHeadingVariant({ variant })}>
             {number && (
                 <Text
                     as="span"
