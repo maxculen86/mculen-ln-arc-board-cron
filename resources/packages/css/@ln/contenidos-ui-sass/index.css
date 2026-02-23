@@ -1885,6 +1885,10 @@ strong:not(.--font-primary),
   line-height: 130%;
 }
 
+.leading-140 {
+  line-height: 140%;
+}
+
 .leading-150.leading-150 {
   line-height: 150%;
 }

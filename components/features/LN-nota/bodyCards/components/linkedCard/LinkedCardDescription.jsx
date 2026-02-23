@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
+import { useLinkedCardContext } from '../../context/LinkedCardContext';
+import { cardsDescriptionVariant } from '../styles';
 
 function LinkedCardDescription({ children }) {
+    const { variant } = useLinkedCardContext();
     return (
-        <Text className="text-18 prumo prumo-slab prumo-light leading-130 text-20_md">
-            {children}
-        </Text>
+        <Text className={cardsDescriptionVariant({ variant })}>{children}</Text>
     );
 }
 

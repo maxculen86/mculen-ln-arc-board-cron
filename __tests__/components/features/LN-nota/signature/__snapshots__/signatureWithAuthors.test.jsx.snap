@@ -3,10 +3,10 @@
 exports[`components - feature - LN-nota - signature - signatureWithAuthors should render custom IA variant when showVariantIa is true 1`] = `
 <div>
   <div
-    class="flex flex-wrap w-100"
+    class="flex flex-wrap w-100 w-full"
   >
     <div
-      class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 2 mb-16"
+      class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full 2 mb-16"
     >
       <div
         class="flex inline-flex ai-center  gap-12"
@@ -105,10 +105,10 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
 exports[`components - feature - LN-nota - signature - signatureWithAuthors should render variant negative true when subtype is video ("5") 1`] = `
 <div>
   <div
-    class="flex flex-wrap w-100"
+    class="flex flex-wrap w-100 w-full"
   >
     <div
-      class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 7 mb-16"
+      class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full 7 mb-16"
     >
       <div
         class="flex inline-flex ai-center gap-12"

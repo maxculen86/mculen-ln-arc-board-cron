@@ -24,6 +24,8 @@ jest.mock(
     () => ({
         secondsToMinutes: jest.fn(),
         cardVideoClassNames: jest.fn(() => 'mocked-class'),
+        getDesktopPreviewVideo: jest.fn(value => value),
+        getDesktopPosterImage: jest.fn(value => value),
         getClassNamesMedia: jest.fn(() => ({
             classNamePoster: 'mocked-poster-class',
             classNameVideo: 'mocked-video-class'
