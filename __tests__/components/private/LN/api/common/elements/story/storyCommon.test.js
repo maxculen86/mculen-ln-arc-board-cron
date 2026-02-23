@@ -104,7 +104,7 @@ describe('storyCommon', () => {
         expect(result).toHaveProperty('template');
     });
 
-    it('If the note contains a table, send Apps should be false and openingMode NativeBrowser', () => {
+    it('When the note contains a table, sendToApps and openingMode should follow Composer configuration', () => {
         const notaConTabla = {
             ...baseNota,
             content_elements: [
@@ -116,7 +116,7 @@ describe('storyCommon', () => {
         const resp = storyCommon(notaConTabla, cuerpoMock);
 
         expect(resp.enviarApps).toBe(true);
-        expect(resp.openingMode).toBe('NativeBrowser');
+        expect(resp.openingMode).toBe('Native');
     });
 
     it('should not return content when subtype is 16', () => {
