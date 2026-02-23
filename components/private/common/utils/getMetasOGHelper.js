@@ -69,6 +69,7 @@ export const getImageProps = (
     const DEFAULTS = {
         height: '630',
         width: '1200',
+        quality: '85',
         mimeType: 'image/png',
         alt: 'Placeholder de LA NACION'
     };
@@ -112,6 +113,8 @@ export const getImageProps = (
             let newUrl;
             newUrl = modifyUrlParam(url, 'width', DEFAULTS.width);
             newUrl = modifyUrlParam(newUrl, 'height', newHeight);
+            newUrl = modifyUrlParam(newUrl, 'quality', DEFAULTS.quality);
+            newUrl = modifyUrlParam(newUrl, 'smart', true);
             return {
                 url: newUrl,
                 height: String(newHeight),
