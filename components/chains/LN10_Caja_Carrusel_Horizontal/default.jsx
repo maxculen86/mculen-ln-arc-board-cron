@@ -120,6 +120,7 @@ function CajaCarruselHorizontal(props) {
                             base: { gap: '16px', width: '285px' },
                             md: { gap: '16px', width: '575px' }
                         }}
+                        elementsToScroll={1}
                     >
                         {nodes.map(child => (
                             <MediaScroller.Item key={child.key}>

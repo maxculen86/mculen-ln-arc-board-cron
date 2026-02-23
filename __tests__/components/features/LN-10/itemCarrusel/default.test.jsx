@@ -18,6 +18,9 @@ jest.mock('fusion:content', () => ({
 jest.mock(
     '../../../../../components/features/LN-10/itemCarrusel/_helper',
     () => ({
+        ...jest.requireActual(
+            '../../../../../components/features/LN-10/itemCarrusel/_helper'
+        ),
         validateItemCarrusel: jest.fn()
     })
 );

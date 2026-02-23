@@ -2,7 +2,12 @@ import React, { useCallback, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/ds-cva';
 import Video from './video';
-import { secondsToMinutes, cardVideoClassNames } from './helpers';
+import {
+    secondsToMinutes,
+    cardVideoClassNames,
+    getDesktopPreviewVideo,
+    getDesktopPosterImage
+} from './helpers';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import isSSR from '../../../private/LN/common/utils/isSSR';
@@ -40,6 +45,13 @@ function CardCarruselContainer({
     };
 
     const isDesktop = !isSSR() && window?.innerWidth > 1279;
+    const isHorizontalDesktop = variant === 'horizontal' && isDesktop;
+    const previewVideoSrc = isHorizontalDesktop
+        ? getDesktopPreviewVideo(src)
+        : src;
+    const previewPosterImage = isHorizontalDesktop
+        ? getDesktopPosterImage(poster)
+        : poster;
 
     const handleClickCard = useCallback(
         event => {
@@ -77,8 +89,8 @@ function CardCarruselContainer({
             >
                 <CardVideo.Media>
                     <Video
-                        src={src}
-                        poster={poster}
+                        src={previewVideoSrc}
+                        poster={previewPosterImage}
                         isPlaying={isPlaying}
                         setIsPlaying={setIsPlaying}
                     />

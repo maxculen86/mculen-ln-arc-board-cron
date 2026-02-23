@@ -2,6 +2,7 @@ import React, { useEffect, useRef, memo, useState } from 'react';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
 import { useVideoJwCustomSettings } from '../hooks';
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
+import isSSR from '../../../../private/LN/common/utils/isSSR';
 import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/helperJw';
 import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
 import {
@@ -17,9 +18,10 @@ function JwVideoPlayer({
     counterVideo,
     handleNextCallback,
     isLoadedScriptJw,
-    origin = ''
+    origin = '',
+    variant = 'vertical'
 }) {
-    const { currentIndex } = useCajaCarruselContext();
+    const { currentIndex, preferredVideoFiles } = useCajaCarruselContext();
 
     const [loading, setLoading] = useState(true);
     const playerRef = useRef(null);
@@ -29,7 +31,10 @@ function JwVideoPlayer({
 
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
+    const isDesktop = !isSSR() && window?.innerWidth > 1279;
+    const shouldUsePreferredFile = isDesktop && variant === 'horizontal';
     const urlAds = urlForPrerollAds();
+    const videoFile = preferredVideoFiles?.[videoId];
 
     useEffect(() => {
         if (isInView) setLoading(false);
@@ -37,10 +42,19 @@ function JwVideoPlayer({
 
     useEffect(() => {
         const urlWithPermutiveSegment = buildTagsUrl(urlAds);
-        if (!playerRef.current && shouldInstanceVideo && isLoadedScriptJw) {
+        if (
+            !playerRef.current &&
+            shouldInstanceVideo &&
+            isLoadedScriptJw &&
+            (!shouldUsePreferredFile || videoFile)
+        ) {
             const playerInstance = window?.jwplayer?.(videoId);
+            const fallbackMp4File = `https://cdn.jwplayer.com/videos/${videoId}.mp4`;
+            const fileToPlay = shouldUsePreferredFile
+                ? videoFile
+                : fallbackMp4File;
             playerRef.current = playerInstance?.setup({
-                file: `https://cdn.jwplayer.com/videos/${videoId}.mp4`,
+                file: fileToPlay,
                 image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
                 width: '100%',
                 allowFullscreen: false,
@@ -120,9 +134,12 @@ function JwVideoPlayer({
         handleNextCallback,
         urlAds,
         videoId,
+        videoFile,
+        shouldUsePreferredFile,
         title,
         origin,
-        counterVideo
+        counterVideo,
+        variant
     ]);
 
     useVideoJwCustomSettings({

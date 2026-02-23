@@ -14,3 +14,17 @@ export const validateItemCarrusel = ({ video, videoId }) => {
 
     return pageBuilderValidator(rules);
 };
+
+export const pickPreferredMp4 = (sources = []) => {
+    const mp4Sources = sources.filter(
+        source => source?.type === 'video/mp4' && source?.file
+    );
+
+    const preferredLabels = ['540p', '360p'];
+    const preferredSource = preferredLabels.reduce((foundSource, label) => {
+        if (foundSource) return foundSource;
+        return mp4Sources.find(source => source?.label === label) || null;
+    }, null);
+
+    return preferredSource?.file || mp4Sources[0]?.file || '';
+};
