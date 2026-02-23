@@ -11,9 +11,16 @@ const LinkedSummaryCardSmall = memo(({ data, onCardClick, variant, ...r }) => {
 
     const cardId = get(data, 'embed.config.cardId', '');
     const cardColor = normalizeCardColor(get(data, 'embed.config.cardColor'));
+    const isClickable = Boolean(cardId && onCardClick);
 
     return (
-        <LinkedCard variant={variant} cardColor={cardColor} {...r}>
+        <LinkedCard
+            variant={variant}
+            cardColor={cardColor}
+            {...r}
+            className={isClickable ? 'cursor-pointer' : undefined}
+            onClick={() => isClickable && onCardClick(cardId)}
+        >
             <LinkedCard.Container>
                 <LinkedCard.Heading title={title} number={cardNumber} />
                 {description && (
@@ -22,10 +29,7 @@ const LinkedSummaryCardSmall = memo(({ data, onCardClick, variant, ...r }) => {
                     </LinkedCard.Description>
                 )}
 
-                <LinkedCard.Button
-                    onClick={() => cardId && onCardClick?.(cardId)}
-                    buttonText={buttonText}
-                />
+                <LinkedCard.Button buttonText={buttonText} />
             </LinkedCard.Container>
         </LinkedCard>
     );
