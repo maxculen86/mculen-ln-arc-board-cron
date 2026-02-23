@@ -32,7 +32,7 @@ const mockGlobalContent = {
     distributor: { name: 'LA NACION' },
     label: { trust: { text: 'Noticia Original' } },
     promo_items: {},
-    content_elements: [{ type: { text: 'text' } }]
+    content_elements: [{ type: 'text' }]
 };
 
 const mockContextPath = '/pf';
@@ -163,6 +163,152 @@ describe('SnippetNoticia', () => {
             );
 
             expect(container).toBeEmptyDOMElement();
+        });
+    });
+
+    describe('review schema', () => {
+        it('should render Schema_Review when numeric_rating exists', () => {
+            const reviewContent = {
+                ...mockGlobalContent,
+                subtype: '1',
+                canonical_url: '/espectaculos/cine/test-review',
+                content_elements: [
+                    {
+                        type: 'numeric_rating',
+                        numeric_rating: 4.5,
+                        min: 0.5,
+                        max: 5
+                    }
+                ]
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={reviewContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const reviewScript = container.querySelector('#Schema_Review');
+            expect(reviewScript).toBeInstanceOf(HTMLScriptElement);
+
+            const reviewSchemaData = JSON.parse(reviewScript.innerHTML);
+            expect(reviewSchemaData).toMatchObject({
+                '@context': 'https://schema.org',
+                '@graph': [
+                    {
+                        '@type': 'NewsMediaOrganization',
+                        '@id': 'https://www.lanacion.com.ar/#organization'
+                    },
+                    {
+                        '@type': 'Review',
+                        '@id': 'https://www.lanacion.com.ar/espectaculos/cine/test-review/#review',
+                        reviewRating: {
+                            '@type': 'Rating',
+                            ratingValue: '4.5',
+                            bestRating: '5',
+                            worstRating: '0.5'
+                        }
+                    }
+                ]
+            });
+        });
+
+        it('should use Organization as author when note has no byline', () => {
+            const reviewContent = {
+                ...mockGlobalContent,
+                subtype: '1',
+                content_elements: [
+                    {
+                        type: 'numeric_rating',
+                        numeric_rating: 3
+                    }
+                ],
+                credits: { by: [] }
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={reviewContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const reviewSchemaData = JSON.parse(
+                container.querySelector('#Schema_Review').innerHTML
+            );
+            const reviewNode = reviewSchemaData['@graph'].find(
+                node => node['@type'] === 'Review'
+            );
+
+            expect(reviewNode.author).toMatchObject({
+                '@type': 'Organization',
+                name: 'LA NACION',
+                url: 'https://www.lanacion.com.ar/'
+            });
+        });
+
+        it('should set itemReviewed as Thing for non-cine urls', () => {
+            const reviewContent = {
+                ...mockGlobalContent,
+                subtype: '1',
+                canonical_url: '/revista-living/nota-test',
+                content_elements: [
+                    {
+                        type: 'numeric_rating',
+                        numeric_rating: 4
+                    }
+                ]
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={reviewContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const reviewSchemaData = JSON.parse(
+                container.querySelector('#Schema_Review').innerHTML
+            );
+            const reviewNode = reviewSchemaData['@graph'].find(
+                node => node['@type'] === 'Review'
+            );
+
+            expect(reviewNode.itemReviewed).toMatchObject({
+                '@type': 'Thing',
+                name: 'Test title'
+            });
+        });
+
+        it('should NOT render Schema_Review for non-NOTICIA subtype', () => {
+            const reviewContent = {
+                ...mockGlobalContent,
+                subtype: '3',
+                content_elements: [
+                    {
+                        type: 'numeric_rating',
+                        numeric_rating: 4
+                    }
+                ]
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={reviewContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            expect(container.querySelector('#Schema_Review')).toBeNull();
         });
     });
 });

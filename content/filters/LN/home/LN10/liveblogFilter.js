@@ -47,6 +47,10 @@ export default `
         type
         _id
         content
+        numeric_rating
+        min
+        max
+        units
         embed {
             config {
                 title

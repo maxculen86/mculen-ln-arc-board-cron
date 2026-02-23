@@ -665,6 +665,10 @@ export default `
     content_elements {
         _id
         type
+        numeric_rating
+        min
+        max
+        units
         url
         content
         additional_properties {
