@@ -174,12 +174,6 @@ export const registerJwVideoControlsTracking = ({
         relatedPlugin?.on?.('open', handleRelatedOpen);
     };
 
-    player.on('seek', handleSeek);
-    player.on('mute', handleMute);
-    player.on('volume', handleVolume);
-    player.on('levelsChanged', handleLevelsChanged);
-    player.on('fullscreen', handleFullscreen);
-    player.on('playlistItem', updateCurrentMedia);
     player.on('relatedReady', handleRelatedReady);
 
     updateCurrentMedia(player.getPlaylistItem?.());
@@ -194,5 +188,65 @@ export const registerJwVideoControlsTracking = ({
         player.off?.('relatedReady', handleRelatedReady);
         relatedPlugin?.off?.('open', handleRelatedOpen);
         programmaticMutePlayers.delete(player);
+    };
+};
+
+export const registerVideoResumeTracking = ({
+    player,
+    defaultTitle,
+    defaultId
+}) => {
+    if (!player) return () => {};
+
+    let currentTitle = defaultTitle;
+    let currentId = defaultId;
+    let wasPaused = false;
+    let skipPlayForSeek = false;
+
+    const updateCurrentMedia = source => {
+        ({ title: currentTitle, id: currentId } = updatedMediaData(source, {
+            title: currentTitle,
+            id: currentId
+        }));
+        wasPaused = false;
+        skipPlayForSeek = false;
+    };
+
+    const handleSeek = () => {
+        skipPlayForSeek = true;
+    };
+
+    const handlePlay = () => {
+        if (skipPlayForSeek) {
+            skipPlayForSeek = false;
+            return;
+        }
+
+        if (wasPaused) {
+            wasPaused = false;
+            addEventToDataLayerV2({
+                event: 'videoResume',
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`
+            });
+        }
+    };
+
+    const handlePause = () => {
+        wasPaused = true;
+    };
+
+    player.on('seek', handleSeek);
+    player.on('play', handlePlay);
+    player.on('pause', handlePause);
+    player.on('playlistItem', updateCurrentMedia);
+
+    updateCurrentMedia(player.getPlaylistItem?.());
+
+    return () => {
+        player.off?.('seek', handleSeek);
+        player.off?.('play', handlePlay);
+        player.off?.('pause', handlePause);
+        player.off?.('playlistItem', updateCurrentMedia);
     };
 };
