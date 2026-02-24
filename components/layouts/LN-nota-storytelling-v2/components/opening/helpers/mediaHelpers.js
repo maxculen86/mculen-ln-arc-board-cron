@@ -1,5 +1,5 @@
-import get from '../../../private/common/utils/get';
-import { replaceAllUrlsResizerObject } from '../../../private/LN/common/utils/mediaHelper';
+import get from '../../../../../private/common/utils/get';
+import { replaceAllUrlsResizerObject } from '../../../../../private/LN/common/utils/mediaHelper';
 
 const getOpeningMediaItems = (promoItems = {}) => {
     const storytelling = get(promoItems, 'Storytelling', null);

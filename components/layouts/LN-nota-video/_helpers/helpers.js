@@ -16,12 +16,8 @@ import {
 } from '../../../private/common/utils/dateAndTimeUtil';
 import { isEmptyString } from '../../../private/common/utils/dataValidation';
 import transformISODate from '../../../private/common/utils/transformISODate';
-import {
-    calcReadingMinutes,
-    countWords,
-    isExcludedSubtype
-} from '../../../features/LN-10-global/common/readingTime/_helpers';
 import { getClassNameByLayout } from '../../../private/common/utils/modDateHelper';
+import getReadingTimeData from '../../../private/common/utils/getReadingTimeData';
 import { getMediaData } from '../../_helpers/mediaHelper';
 import { getVerticalPlayer } from '../../../private/common/videoPlayerJw/utils/helperJw';
 
@@ -101,13 +97,7 @@ export const getVideoOpeningDateData = ({ globalContent, layout }) => {
         credits = {},
         label = {},
         first_publish_date: firstPublishDate = '',
-        last_updated_date: lastUpdatedDate = '',
-        subheadlines: { basic: basicSubHeadline = '' } = {},
-        headlines: { basic: basicHeadline = '' } = {},
-        planning: {
-            story_length: { word_count_actual: bodyWordCount = '' } = {}
-        } = {},
-        subtype = ''
+        last_updated_date: lastUpdatedDate = ''
     } = globalContent || {};
 
     const { edicion: labelEdicionImpresa } = label || {};
@@ -122,15 +112,7 @@ export const getVideoOpeningDateData = ({ globalContent, layout }) => {
     );
     const dateFormattedUpdate = getFormattedStringDate(lastUpdatedResult);
 
-    const totalWordCount =
-        countWords(basicSubHeadline) +
-        countWords(basicHeadline) +
-        (Number.isFinite(bodyWordCount)
-            ? bodyWordCount
-            : Number(bodyWordCount) || 0);
-
-    const readingMinutes = calcReadingMinutes(totalWordCount);
-    const hasReadingTime = readingMinutes !== 0 && !isExcludedSubtype(subtype);
+    const readingTime = getReadingTimeData(globalContent);
 
     return {
         shouldRenderDate,
@@ -144,12 +126,7 @@ export const getVideoOpeningDateData = ({ globalContent, layout }) => {
         lastUpdateLabel: dateFormattedUpdate
             ? `Actualizado el ${dateFormattedUpdate}`
             : '',
-        readingTime: hasReadingTime
-            ? {
-                  minutes: readingMinutes.toString(),
-                  label: readingMinutes === 1 ? 'minuto' : 'minutos'
-              }
-            : null
+        readingTime
     };
 };
 
