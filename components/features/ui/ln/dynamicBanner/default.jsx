@@ -1,6 +1,8 @@
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import flatArray from '../../../../private/common/utils/flatArray';
 import get from '../../../../private/common/utils/get';
+import { WrapperBody } from '../../../LN/common/wrapperBody/default';
 
 /**
  * @typedef {Object} BannerConfiguration
@@ -38,23 +40,41 @@ function DynamicBanner({ bannerConfiguration }) {
         hideForSubscriptor
     } = bannerConfiguration;
 
-    // TODO Front: Agregar clases, este extracto fue de DivBannerSSR (sin usar mod-banner.css)
+    const wrapperBodyClassName = cx('w-auto', {
+        'h-600 flex md:hidden h-600': device === 'mobile',
+        'h-300 hidden xl:flex': device === 'desktop'
+    });
+    const bannerWrapperClassName = cx(
+        'relative z-1 flex justify-center items-center left-1/2 right-1/2 w-screen -translate-x-1/2',
+        {
+            'h-600': device === 'mobile',
+            'h-300': device === 'desktop'
+        }
+    );
+
     return (
-        <div className="">
-            <div
-                id={slotId}
-                className=""
-                data-slot-group={slotGroup}
-                data-device={device}
-                data-subscription={hideForSubscriptor || false}
-                data-ad-unit-path={dfpId ? `/${dfpId}/${slotName}` : null}
-                data-targeting={JSON.stringify(targeting)}
-                data-without-hide={withoutHide || false}
-                data-size={JSON.stringify(flatArray(dimensions))}
-                data-sizemap={JSON.stringify([])}
-                data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
-            />
-        </div>
+        <WrapperBody variant="banner" className={wrapperBodyClassName}>
+            <div className="ds-banner-background relative">
+                <div className="absolute z-0 top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 bg-[#fefefe] rounded-16">
+                    <span className="font-secondary font-normal uppercase text-12 text-center leading-[130%]">
+                        publicidad
+                    </span>
+                </div>
+                <div
+                    id={slotId}
+                    className={bannerWrapperClassName}
+                    data-slot-group={slotGroup}
+                    data-device={device}
+                    data-subscription={hideForSubscriptor || false}
+                    data-ad-unit-path={dfpId ? `/${dfpId}/${slotName}` : null}
+                    data-targeting={JSON.stringify(targeting)}
+                    data-without-hide={withoutHide || false}
+                    data-size={JSON.stringify(flatArray(dimensions))}
+                    data-sizemap={JSON.stringify([])}
+                    data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
+                />
+            </div>
+        </WrapperBody>
     );
 }
 

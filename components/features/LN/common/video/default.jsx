@@ -1,12 +1,14 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
+import { cx } from '@ln/ds-cva';
 import VideoFacade from './component/VideoFacade';
 import {
     extractVideoData,
     buildPlaylistConfig,
     buildVideoConfig,
-    shouldShowFigureCaption
+    shouldShowFigureCaption,
+    getVideoOrientation
 } from './utils/videoDataUtils';
 
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
@@ -73,9 +75,21 @@ function VideoPlayer({ data, hasAutoplay = false }) {
         firstVideo && getSourcesJw(get(firstVideo, 'sources', []));
 
     const isOpeningVideo = subtype === VIDEO || isPromoItemVideo;
+    const orientation = getVideoOrientation(playerId);
+
+    const containerClass = cx(
+        'border-1 border-neutral-200 w-full box-content',
+        !isOpeningVideo && orientation === 'vertical'
+            ? 'aspect-9/16 max-w-480'
+            : 'aspect-16/9',
+        {
+            'max-md:border-x-0 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none':
+                isOpeningVideo
+        }
+    );
 
     return (
-        <WrapperBody variant="medium">
+        <WrapperBody variant={isOpeningVideo ? null : 'medium'}>
             <Static id="scriptJwVideoNote">
                 <script
                     defer
@@ -85,22 +99,24 @@ function VideoPlayer({ data, hasAutoplay = false }) {
                 />
             </Static>
             <Static id={mediaId}>
-                <div
-                    data-has-jwplayer="true"
-                    data-video-id-jw={mediaId}
-                    data-config={JSON.stringify(videoConfig)}
-                    className="aspect-16/9 max-md:border-x-0 border-1 border-neutral-200 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none"
-                >
-                    <VideoFacade
-                        mediaId={mediaId}
-                        images={images}
-                        fallbackSrc={fallbackImage}
-                        alt={title}
-                        loading={isOpeningVideo ? 'eager' : 'lazy'}
-                        fetchPriority={isOpeningVideo ? 'high' : 'low'}
-                        subtype={subtype}
-                    />
-                    <div id={mediaId} />
+                <div className="w-full flex justify-center bg-neutral-50">
+                    <div
+                        data-has-jwplayer="true"
+                        data-video-id-jw={mediaId}
+                        data-config={JSON.stringify(videoConfig)}
+                        className={containerClass}
+                    >
+                        <VideoFacade
+                            mediaId={mediaId}
+                            images={images}
+                            fallbackSrc={fallbackImage}
+                            alt={title}
+                            loading={isOpeningVideo ? 'eager' : 'lazy'}
+                            fetchPriority={isOpeningVideo ? 'high' : 'low'}
+                            subtype={subtype}
+                        />
+                        <div id={mediaId} />
+                    </div>
                 </div>
                 {showCaption && (
                     <figcaption className="py-8">
