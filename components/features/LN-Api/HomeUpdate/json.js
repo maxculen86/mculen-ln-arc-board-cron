@@ -109,7 +109,7 @@ class HomeUpdate {
             );
 
             return {
-                homeUpdated: true
+                homeUpdated: false
             };
         } catch (err) {
             console.warn(
@@ -122,7 +122,9 @@ class HomeUpdate {
                     }
                 })
             );
-            return { Success: false, Message: err.message };
+            return {
+                homeUpdated: false
+            };
         }
     }
 }
