@@ -3,7 +3,7 @@
 exports[`Image component renders correctly and matches snapshot 1`] = `
 <div>
   <div
-    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 max-w-750 xl:max-w-none"
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 max-w-750"
   >
     <figure>
       <div

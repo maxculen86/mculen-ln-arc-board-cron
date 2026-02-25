@@ -10,7 +10,7 @@ function Media({ data }) {
 
     return (
         <div className="w-full md:grid md:justify-items-center md:grid-cols-12 xl:grid-cols-16 md:gap-x-24 xl:gap-x-32">
-            <figure className="w-full max-w-750 xl:max-w-none md:col-span-12 xl:col-start-4 xl:col-span-10 flex flex-col ">
+            <figure className="w-full max-w-750 md:col-span-12 xl:col-start-4 xl:col-span-10 flex flex-col ">
                 {mediaItem}
                 <Caption caption={caption} credit={attribution} />
             </figure>
