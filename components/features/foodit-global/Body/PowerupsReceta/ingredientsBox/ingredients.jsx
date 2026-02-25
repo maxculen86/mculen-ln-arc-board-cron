@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import get from '../../../../../private/common/utils/get';
 
@@ -29,9 +28,17 @@ function IngredientsTitle() {
 
 const createIngredientSections = list => {
     const { items = [], titleList = '' } = list || {};
-    const ingredientsNames = items.map(item =>
-        get(item, 'fullIngredientString', '').toLowerCase()
-    );
+    const ingredientsNames = items.map(item => {
+        const fullIngredientString = get(
+            item,
+            'fullIngredientString',
+            ''
+        ).toLowerCase();
+        const isOptionalIngredient = get(item, 'isOptionalIngredient', false);
+        return isOptionalIngredient
+            ? `${fullIngredientString} (opcional)`
+            : fullIngredientString;
+    });
 
     return (
         <IngredientsSection
@@ -109,26 +116,5 @@ export function Ingredients({
         </div>
     );
 }
-
-Ingredients.propTypes = {
-    articleId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    portions: PropTypes.string.isRequired,
-    showButton: PropTypes.bool.isRequired,
-    showButtonsConversor: PropTypes.bool.isRequired,
-    ingredientsLists: PropTypes.arrayOf(
-        PropTypes.shape({
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    fullIngredientString: PropTypes.string.isRequired,
-                    ingredient: PropTypes.string.isRequired
-                })
-            ).isRequired,
-            titleList: PropTypes.string.isRequired,
-            typeList: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    canonicalUrl: PropTypes.string.isRequired
-};
 
 export default Ingredients;
