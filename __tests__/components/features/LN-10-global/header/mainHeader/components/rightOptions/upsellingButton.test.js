@@ -7,13 +7,13 @@ import { render, fireEvent } from '@testing-library/react';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
 import handleCookie from '../../../../../../../../components/private/LN/common/utils/handleCookie';
-import addEventToDataLayer from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         __esModule: true,
-        default: jest.fn()
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -162,7 +162,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         const button = getByText(duo_button_text);
         fireEvent.click(button);
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             label: 'upselling_duo',
             category: 'home_ln10',

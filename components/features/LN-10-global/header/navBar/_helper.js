@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SITE_LANACION, MY_ACCOUNT_URL } from 'fusion:environment';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const getEventData = label => ({
     event: 'e_linkclick',
@@ -17,7 +17,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         className: 'home',
         link: `${SITE_LANACION}/`,
         callback: () => {
-            addEventToDataLayer(getEventData('inicio'));
+            addEventToDataLayerV2(getEventData('inicio'));
         }
     },
     {
@@ -28,7 +28,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         callback: e => {
             e.preventDefault();
             toggleDesplegable();
-            addEventToDataLayer(getEventData('secciones'));
+            addEventToDataLayerV2(getEventData('secciones'));
         }
     },
     {
@@ -37,7 +37,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         className: 'foodit',
         link: 'https://foodit.lanacion.com.ar/',
         callback: () => {
-            addEventToDataLayer(getEventData('foodit'));
+            addEventToDataLayerV2(getEventData('foodit'));
         }
     },
     {
@@ -46,7 +46,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         className: 'club-ln',
         link: 'https://club.lanacion.com.ar/',
         callback: () => {
-            addEventToDataLayer(getEventData('club_la_nacion'));
+            addEventToDataLayerV2(getEventData('club_la_nacion'));
         }
     },
     {
@@ -55,7 +55,7 @@ export const getNavbarItems = (toggleDesplegable, userType) => [
         className: 'profile',
         link: `${MY_ACCOUNT_URL}/`,
         callback: () => {
-            addEventToDataLayer(getEventData('perfil'));
+            addEventToDataLayerV2(getEventData('perfil'));
         }
     }
 ];
