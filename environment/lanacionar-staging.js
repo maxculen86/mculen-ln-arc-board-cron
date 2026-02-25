@@ -2,6 +2,7 @@ const DATADOG_DOMAIN = 'datadoghq.com';
 const MASK_USER_INPUT = 'mask-user-input';
 export default {
     IS_DEV: false,
+    IS_STAGING: 'true',
     API_ENV: 'prod',
     RESIZER_URL: 'https://resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
