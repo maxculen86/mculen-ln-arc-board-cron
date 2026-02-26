@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-services - EconomicIndices - default Should match snapshot with data 1`] = `
+<div>
+  <div
+    class="economic-indices"
+  >
+    <div
+      class="economic-indices__header mb-16"
+    >
+      <span
+        class="font-secondary text-sm text-light-500"
+      >
+        Actualizado: 
+        25-02-2026
+         
+        10:30:05
+      </span>
+    </div>
+    <div
+      data-testid="table-v2"
+    >
+      <span>
+        {"tableType":"merval","fecha_actualizacion":"25-02-2026","hora_actualizacion":"10:30:05","cotizaciones":[{"ticket":"GGAL","var_diaria":"1.5","var_semanal":"2.3","cotizacion_actual":"150.00"}]}
+      </span>
+    </div>
+  </div>
+</div>
+`;
