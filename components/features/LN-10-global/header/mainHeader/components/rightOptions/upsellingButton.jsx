@@ -10,7 +10,7 @@ import { termicaValuesUpselling } from './_helper';
 import useTermica from '../../../../../../private/common/hooks/useTermica';
 import get from '../../../../../../private/common/utils/get';
 import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
-import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function UpsellingButton() {
     const { userType, isHome } = useHeaderContext();
@@ -77,7 +77,7 @@ export function UpsellingButton() {
             size={{ sm: 32, md: 40 }}
             className="relative"
             onClick={() => {
-                addEventToDataLayer({
+                addEventToDataLayerV2({
                     event: 'e_linkclick',
                     label: upsellingLabel,
                     category: 'home_ln10',
