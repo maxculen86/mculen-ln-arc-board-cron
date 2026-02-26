@@ -60,6 +60,7 @@ describe('storyBox LN10', () => {
                     openingMode: 'Native',
                     seccionPadre: null,
                     opinion: false,
+                    rating: null,
                     enviarApps: true,
                     fechaPublicacion: '2023-01-27 09:16:07',
                     bajada: '\n                Los nazis mataron a más de 11 millones de personas durante el Holocausto, incluidos seis millones de judíos. Un grupo de nómadas marginados, los romaníes, fueron también víctimas de la masacre.\n            ',
