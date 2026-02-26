@@ -9,6 +9,7 @@ import { getEmbed, getEmbedWidget } from '../elements/embed/index';
 import { getFlyertext } from '../elements/volanta/index';
 import { getYouTubeVideoLink } from '../../../../../common/article/elements/video/index';
 import { videoJWHomeMobile } from '../../../../../common/elements/videoJW';
+import getRating from '../../../../../common/utils/getRating';
 
 export const CardRegular = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
@@ -26,6 +27,7 @@ export const CardRegular = article => {
     const basicCard = CardBasic(article);
     const isHashtagSection = validSectionAliasMobile(article);
     const autores = isHashtagSection ? null : basicCard.authors;
+    const rating = getRating(article);
 
     return {
         categoria: primarySection && getPrincipalCategory(primarySection),
@@ -39,10 +41,11 @@ export const CardRegular = article => {
         videoYouTube: getYouTubeVideoLink(article),
         widgetEmbed,
         embed: getEmbed(article),
-        ...(widgetEmbed === null && getBadgebyConfig(article)),
+        ...(widgetEmbed === null && !rating && getBadgebyConfig(article)),
         opinion: false,
         isListenable: article.isListenable,
         videoLoop: hasVideoLoop ? videoLoopRaw : null,
+        rating: rating
     };
 };
 

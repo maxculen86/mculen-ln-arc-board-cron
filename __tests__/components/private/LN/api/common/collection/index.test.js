@@ -47,7 +47,8 @@ describe('components - private - LN - api - common - collection - index', () => 
                     'badgeStyle',
                     'badge',
                     'chapita',
-                    'isListenable'
+                    'isListenable',
+                    'rating'
                 ].sort()
             );
         });

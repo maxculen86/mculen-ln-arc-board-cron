@@ -18,7 +18,8 @@ const getStoryElementBySubtype = storyBodyElements => {
         Html,
         Button,
         CustomEmbed,
-        Table
+        Table,
+        Numeric_rating
     } = storyBodyElements;
 
     return {
@@ -36,7 +37,8 @@ const getStoryElementBySubtype = storyBodyElements => {
             raw_html: Html,
             interstitial_link: Button,
             custom_embed: CustomEmbed,
-            table: Table
+            table: Table,
+            numeric_rating: Numeric_rating
         },
         7: {
             text: Text,
@@ -51,8 +53,7 @@ const getStoryElementBySubtype = storyBodyElements => {
             oembed_response: Embed,
             raw_html: Html,
             interstitial_link: Button,
-            custom_embed: CustomEmbed,
-            table: Table
+            custom_embed: CustomEmbed
         },
         8: {
             text: Text,
@@ -135,22 +136,22 @@ const storyBody = (dataNota, storyBodyElements) => {
     }[subtype];
     return templates
         ? {
-              idsElements,
-              elements: templates(
-                  contentElements,
-                  elementBySubtype[subtype],
-                  _id
-              )
-          }
+            idsElements,
+            elements: templates(
+                contentElements,
+                elementBySubtype[subtype],
+                _id
+            )
+        }
         : {
-              idsElements,
-              elements: defaultCuerpo(
-                  contentElements,
-                  elementBySubtype[1],
-                  _id,
-                  dataNota
-              )
-          };
+            idsElements,
+            elements: defaultCuerpo(
+                contentElements,
+                elementBySubtype[1],
+                _id,
+                dataNota
+            )
+        };
 };
 
 export default storyBody;

@@ -80,6 +80,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
+            rating: null,
 
         };
 
@@ -145,6 +146,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
+            rating: null,
         };
 
         // Act
@@ -189,6 +191,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
+            rating: null,
         };
 
         // ACT
@@ -235,7 +238,8 @@ describe('cardRegular', () => {
             isListenable: undefined,
             videoLoop: null,
             video: undefined,
-            videos: undefined
+            videos: undefined,
+            rating: null
         };
 
         const result = CardRegular(article);
@@ -278,9 +282,11 @@ describe('cardRegular', () => {
             embed: undefined,
             opinion: false,
             isListenable: undefined,
+            rating: null,
             videoLoop: null,
             video: undefined,
-            videos: undefined
+            videos: undefined,
+            rating: null
         };
 
         // ACT
@@ -317,6 +323,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
+            rating: null,
 
         };
 
@@ -420,5 +427,92 @@ describe('cardRegular', () => {
 
         expect(result.videoLoop).toBeNull();
         expect(result.imagen).toBe('imagen.jpg');
+    });
+
+    describe('rating normalization', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+            CardBasic.mockReturnValue({});
+
+            get.mockImplementation((obj, path, defaultValue) => {
+                if (path === 'content_elements') {
+                    return obj.content_elements;
+                }
+                return defaultValue;
+            });
+
+        });
+
+        test.each([
+            [0.1, 0.5],
+            [0.4, 0.5],
+            [0.6, 0.5],
+            [0.7, 0.5],
+            [0.8, 1],
+            [1.2, 1],
+            [1.3, 1.5],
+            [1.8, 2],
+            [2.3, 2.5],
+            [3.8, 4],
+            [4.9, 5],
+            [5.0, 5]
+        ])(
+            'numeric_rating %p should return rating %p',
+            (input, expected) => {
+                const article = {
+                    content_elements: [
+                        {
+                            numeric_rating: input
+                        }
+                    ]
+                };
+
+                const result = CardRegular(article);
+
+                expect(result.rating).toBe(expected);
+            }
+        );
+
+        test('rating should be null when numeric_rating is 0', () => {
+            const article = {
+                content_elements: [
+                    {
+                        numeric_rating: 0
+                    }
+                ]
+            };
+
+            const result = CardRegular(article);
+
+            expect(result.rating).toBeNull();
+        });
+
+        test('rating should be null when there is no numeric_rating', () => {
+            const article = {
+                content_elements: []
+            };
+
+            const result = CardRegular(article);
+
+            expect(result.rating).toBeNull();
+        });
+    });
+
+    it('You should not return the badge when there is a rating', () => {
+        CardBasic.mockReturnValueOnce({});
+
+        get.mockImplementation((obj, path, defaultValue) => {
+            if (path === 'content_elements') return obj.content_elements;
+            return defaultValue;
+        });
+
+        const article = {
+            content_elements: [{ numeric_rating: 4 }]
+        };
+
+        const result = CardRegular(article);
+
+        expect(result.rating).toBe(4);
+        expect(result.chapita).toBeUndefined();
     });
 });
