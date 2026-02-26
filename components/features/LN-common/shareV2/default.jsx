@@ -5,7 +5,7 @@ import { Tooltip } from '@ln/common-ui-tooltip';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import ShareBar from './components/ShareBar';
 import { shareVideoConfig } from './helper';
-import useShare from '../../LN-nota/share/hooks/useShare';
+import useShare from './hooks/useShare';
 import useTooltipVisibility from './hooks/useTooltipVisibility';
 
 function ShareV2({ videoId, className, videoTitle: basic, isHorizontal }) {

@@ -2,7 +2,7 @@
 @layer components {
 
     /* Paragraph */
-    .ds-custom-paragraph mark {
+    .ds-custom-paragraph mark.hl_underline {
         background-color: transparent;
         font-weight: bold;
         text-decoration: underline;
@@ -51,4 +51,10 @@
     @media (max-width: 1279px) {
         --center-options-grid-column: left-start / center-end;
     }
+}
+
+/* Banners */
+.ds-banner-background {
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
+    background-color: var(--light-neutral-0)
 }

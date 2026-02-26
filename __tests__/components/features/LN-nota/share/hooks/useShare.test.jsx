@@ -22,7 +22,7 @@ describe('Components - Features - LN-nota - share - hooks - useShare', () => {
         jest.clearAllMocks();
     });
 
-    it('should initialize with correct default values', () => {
+    it('should return shareNativeTrigger function', () => {
         const { result } = renderHook(() =>
             useShare({
                 mobileTitle: mockMobileTitle,
@@ -32,29 +32,10 @@ describe('Components - Features - LN-nota - share - hooks - useShare', () => {
             })
         );
 
-        expect(result.current.copy).toBe(false);
-        expect(typeof result.current.setCopy).toBe('function');
         expect(typeof result.current.shareButton).toBe('function');
     });
 
-    it('should update copy state when setCopy is called', () => {
-        const { result } = renderHook(() =>
-            useShare({
-                mobileTitle: mockMobileTitle,
-                basic: mockBasic,
-                host: mockHost,
-                requestUri: mockRequestUri
-            })
-        );
-
-        act(() => {
-            result.current.setCopy(true);
-        });
-
-        expect(result.current.copy).toBe(true);
-    });
-
-    it('should call navigator.share with correct data when shareButton is executed', () => {
+    it('should call navigator.share with correct data when shareNativeTrigger is executed', () => {
         const mockShare = jest.fn();
         global.navigator.share = mockShare;
         global.navigator.canShare = jest.fn(() => true);
@@ -87,7 +68,7 @@ describe('Components - Features - LN-nota - share - hooks - useShare', () => {
         });
     });
 
-    it('should not call navigator.share if canShare is not available', () => {
+    it('should not call navigator.share if canShare is not available when shareNativeTrigger is executed', () => {
         const mockShare = jest.fn();
         global.navigator.share = mockShare;
         global.navigator.canShare = undefined;

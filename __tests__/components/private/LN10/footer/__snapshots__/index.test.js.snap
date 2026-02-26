@@ -552,7 +552,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link text-start"
-            href="https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/"
+            href="https://suscripciones.lanacion.com.ar/ln/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Suscribirse al diario impreso"
           >

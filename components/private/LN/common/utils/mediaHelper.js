@@ -1,6 +1,5 @@
 import React from 'react';
 import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
-import PropTypes from 'prop-types';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -8,11 +7,12 @@ import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replace
 const optionWidth = 'option.width';
 const DEFAULT_WIDTH = undefined;
 
-export const getEpigrafe = basic => {
+export const getEpigrafe = (basic, onlyText = false) => {
     const { type, promo_items: promoItemsBasic, caption } = basic || {};
 
     if (type === 'image' && basic) {
         const creditImage = EpigrafeAndCreditsData(basic);
+        if (onlyText) return { caption, credit: creditImage };
         return {
             caption: caption && (
                 <span className="com-text --caption --twoxs">{caption}</span>
@@ -180,19 +180,6 @@ export function LinkImagePreload({ resizedUrls = [] }) {
         )
     );
 }
-
-LinkImagePreload.propTypes = {
-    resizedUrls: PropTypes.arrayOf(
-        PropTypes.shape({
-            resizedUrl: PropTypes.string.isRequired,
-            option: PropTypes.shape({
-                width: PropTypes.number.isRequired,
-                media: PropTypes.string
-            }).isRequired
-        })
-    ),
-    isLoadWithPicture: PropTypes.bool
-};
 
 LinkImagePreload.defaultProps = {
     resizedUrls: [],

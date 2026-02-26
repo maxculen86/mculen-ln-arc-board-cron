@@ -27,6 +27,7 @@ import {
     negativeSubtypes
 } from './_children/helper';
 import { NOTICIA } from '../../../private/common/utils/subtypes/subtypeHelper';
+import GoogleButton from '../../LN-10-global/common/googleButton/default';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -128,7 +129,10 @@ function Share() {
                     closeBarrier={closeBarrier}
                 />
             </Dialog>
-            <div className="mod-share flex mb-0 p-0_l" ref={shareContainer}>
+            <div
+                className="mod-share flex flex-column mb-0 p-0_l gap-24"
+                ref={shareContainer}
+            >
                 <div id="v-share" className={shareClasses} ref={share}>
                     <BuildFirstButtonsGroup {...firstGroupProps} />
 
@@ -138,6 +142,11 @@ function Share() {
 
                     <BuildSecondButtonsGroup {...secondGroupProps} />
                 </div>
+                <GoogleButton
+                    articleTitle={title}
+                    articleId={id}
+                    className="l-none"
+                />
             </div>
         </div>
     );

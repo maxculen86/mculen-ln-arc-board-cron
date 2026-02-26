@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function ButtonSearch({
     isListening,
@@ -9,6 +10,16 @@ export function ButtonSearch({
     inputValue,
     urlSearch
 }) {
+    const handleVoiceSearchClick = () => {
+        startListening();
+        addEventToDataLayerV2({
+            action: 'Busqueda',
+            category: 'interaction',
+            label: 'Busqueda_por_voz',
+            event: 'e_linkclick'
+        });
+    };
+
     return (
         <div className="flex h-100 ai-center">
             {inputValue ? (
@@ -32,7 +43,7 @@ export function ButtonSearch({
                     iconOnly
                     variant="link"
                     className="px-12 py-8"
-                    onClick={startListening}
+                    onClick={handleVoiceSearchClick}
                 >
                     <Icon size={24}>
                         <IconSprite

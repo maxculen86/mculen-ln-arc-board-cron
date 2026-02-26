@@ -87,7 +87,7 @@ export default {
     // del lado del servidor. De igual forma, esta API key solo permite consultas GET a la API del buscador
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
-    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    SITIO_SEGURO_REGISTRACION: 'https://qa-suscripciones.lanacion.com.ar',
     API_KEY_MINIWALL: 'kvkmcsegzcfo9gml40dcwc9xps287kk5aho6',
     CHECKOUT_URL: 'https://qa-checkout.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',

@@ -51,7 +51,7 @@ function SubscribeButton({ isHome }) {
                 asChild
             >
                 <a
-                    href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${currentUrlCallback}`}
+                    href={`${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${currentUrlCallback}`}
                 >
                     <div className="max-lg:hidden flex items-center">
                         <IconSprite name="subscriber-inverted" type="color" />

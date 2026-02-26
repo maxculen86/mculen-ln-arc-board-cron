@@ -6,57 +6,61 @@ exports[`components - feature - LN-nota - signature - default renders with autho
     class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-wrap w-100 w-full"
+      class="flex jc-between ai-center"
     >
       <div
-        class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full"
+        class="flex flex-wrap w-100 w-full"
       >
         <div
-          class="flex inline-flex ai-center gap-12"
+          class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full"
         >
-          <a
-            class="link ln-link"
-            href="/autor/mariano-grondona/"
-            target="_self"
-            title="Ir a notas de Mariano Grondona"
-          >
-            <div>
-              <img
-                class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
-                decoding="async"
-                fetchpriority="low"
-                loading="lazy"
-                src="https://bucket.glanacion.com/anexos/fotos/85/2089285.png"
-              />
-            </div>
-          </a>
           <div
-            class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
+            class="flex inline-flex ai-center gap-12"
           >
-            <span
-              class="text text-14 text-neutral-light-600 uppercase"
+            <a
+              class="link ln-link"
+              href="/autor/mariano-grondona/"
+              target="_self"
+              title="Ir a notas de Mariano Grondona"
             >
-              LA NACION
-            </span>
-            <span>
-              <span>
-                <a
-                  class="link ln-link"
-                  href="/autor/mariano-grondona/"
-                  target="_self"
-                  title="Ir a notas de Mariano Grondona"
-                >
-                  <strong>
-                    Mariano Grondona
-                  </strong>
-                </a>
+              <div>
+                <img
+                  class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://bucket.glanacion.com/anexos/fotos/85/2089285.png"
+                />
+              </div>
+            </a>
+            <div
+              class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
+            >
+              <span
+                class="text text-14 text-neutral-light-600 uppercase"
+              >
+                LA NACION
               </span>
-            </span>
+              <span>
+                <span>
+                  <a
+                    class="link ln-link"
+                    href="/autor/mariano-grondona/"
+                    target="_self"
+                    title="Ir a notas de Mariano Grondona"
+                  >
+                    <strong>
+                      Mariano Grondona
+                    </strong>
+                  </a>
+                </span>
+              </span>
+            </div>
           </div>
+          <button>
+            Escuchar Nota
+          </button>
         </div>
-        <button>
-          Escuchar Nota
-        </button>
       </div>
     </div>
   </div>
@@ -69,16 +73,20 @@ exports[`components - feature - LN-nota - signature - default renders with distr
     class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start"
+      class="flex jc-between ai-center"
     >
-      <span
-        class="text ln-text font-bold --xs"
+      <div
+        class="flex flex-column gap-16 w-100 flex-row_m ai-center_m ai-start"
       >
-        LA NACION
-      </span>
-      <button>
-        Escuchar Nota
-      </button>
+        <span
+          class="text ln-text font-bold --xs"
+        >
+          LA NACION
+        </span>
+        <button>
+          Escuchar Nota
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -90,12 +98,8 @@ exports[`components - feature - LN-nota - signature - default renders without si
     class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-column brand-color"
-    >
-      <button>
-        Escuchar Nota
-      </button>
-    </div>
+      class="flex jc-between ai-center"
+    />
   </div>
 </DocumentFragment>
 `;
@@ -106,63 +110,67 @@ exports[`components - feature - LN-nota - signature - default should not render 
     class="signature flex flex-column container-center-100 brand-color"
   >
     <div
-      class="flex flex-wrap w-100 w-full"
+      class="flex jc-between ai-center"
     >
       <div
-        class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full"
+        class="flex flex-wrap w-100 w-full"
       >
         <div
-          class="flex inline-flex ai-center gap-12"
+          class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full"
         >
           <div
-            class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
+            class="flex inline-flex ai-center gap-12"
           >
-            <span>
-              Por 
+            <div
+              class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
+            >
               <span>
-                <a
-                  class="link ln-link"
-                  href="/autor/paz-rodriguez-niell-160/"
-                  target="_self"
-                  title="Ir a notas de Paz Rodríguez Niell"
-                >
-                  <strong>
-                    Paz Rodríguez Niell
-                  </strong>
-                </a>
-                , 
+                Por 
+                <span>
+                  <a
+                    class="link ln-link"
+                    href="/autor/paz-rodriguez-niell-160/"
+                    target="_self"
+                    title="Ir a notas de Paz Rodríguez Niell"
+                  >
+                    <strong>
+                      Paz Rodríguez Niell
+                    </strong>
+                  </a>
+                  , 
+                </span>
+                <span>
+                  <a
+                    class="link ln-link"
+                    href="/autor/paz-rodriguez-niell-160/"
+                    target="_self"
+                    title="Ir a notas de Paz Rodríguez Niell"
+                  >
+                    <strong>
+                      Paz Rodríguez Niell
+                    </strong>
+                  </a>
+                   y 
+                </span>
+                <span>
+                  <a
+                    class="link ln-link"
+                    href="/autor/maia-jastreblansky-5/"
+                    target="_self"
+                    title="Ir a notas de Maia Jastreblansky"
+                  >
+                    <strong>
+                      Maia Jastreblansky
+                    </strong>
+                  </a>
+                </span>
               </span>
-              <span>
-                <a
-                  class="link ln-link"
-                  href="/autor/paz-rodriguez-niell-160/"
-                  target="_self"
-                  title="Ir a notas de Paz Rodríguez Niell"
-                >
-                  <strong>
-                    Paz Rodríguez Niell
-                  </strong>
-                </a>
-                 y 
-              </span>
-              <span>
-                <a
-                  class="link ln-link"
-                  href="/autor/maia-jastreblansky-5/"
-                  target="_self"
-                  title="Ir a notas de Maia Jastreblansky"
-                >
-                  <strong>
-                    Maia Jastreblansky
-                  </strong>
-                </a>
-              </span>
-            </span>
+            </div>
           </div>
+          <button>
+            Escuchar Nota
+          </button>
         </div>
-        <button>
-          Escuchar Nota
-        </button>
       </div>
     </div>
   </div>

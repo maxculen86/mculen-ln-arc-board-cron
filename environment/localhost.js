@@ -32,5 +32,7 @@ export default {
     CONTENT_TIMEOUT: '8000000',
     CLL_HTMLTFREE_DOMAIN: 'https://qa-canchallena.lanacion.com.ar/especiales',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
-    AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE'
+    AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE',
+    LANACION_ECONOMIC_URL:
+        'https://especialess3.lanacion.com.ar/data_jsons/indices'
 };

@@ -8,33 +8,30 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../private/common/auth/helper/loginHelper';
-import { useAudioPlayer } from '../../../private/common/audioNews/hooks/useAudioPlayer';
-import { SignatureContextProvider } from '../../../private/common/audioNews/hooks/SignatureContext';
 import { useSignature } from '../DS-Signature/hooks/useSignature';
-import useShare from '../../LN-nota/share/hooks/useShare';
-import isSSR from '../../../private/LN/common/utils/isSSR';
+import { ToolbarProvider } from './context/ToolbarContext';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import { isCustomVoice } from '../../../../content/sources/utils/audioNews/helper';
 import config from '../../../../properties/sites/la-nacion-ar';
-
 import useBookmark from './hooks/useBookmark';
 import useComments from './hooks/useComments';
 import useIaSummary from './hooks/useIaSummary';
-
 import BarrierRequiresSubscription from '../common/barrierRequiresSubscription/default';
 import { AudioButton } from './components/audioButton';
-import BuildAudioPlayer from './components/buildAudioPlayer';
 import BookmarkButton from './components/bookmarkButton';
 import SummaryButton from './components/summaryButton';
 import CommentsButton from './components/commentsButton';
-import ShareButton from './components/shareButton';
-import ShareMenu from './components/shareMenu';
+import ShareMobileTrigger from './components/shareMobileTrigger';
+import ShareDesktopTrigger from './components/shareDesktopTrigger';
 import WhatsappShareButton from './components/whatsappShareButton';
-
-import handleShareClick from './_helpers';
+import Divider from '../../ui/ln/divider/default';
+import BuildAudioPlayerRender from './components/buildAudioPlayerRender';
+import useNativeShare from './hooks/useNaviteShare';
+import useAudioPlayer from './hooks/useAudioPlayer';
 
 function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const { globalContent = {}, requestUri } = useAppContext();
+
     const {
         _id: noteId,
         headlines: { basic: title, mobile: mobileTitle } = {},
@@ -46,6 +43,7 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     } = globalContent;
 
     const [isShareOpen, setIsShareOpen] = useState(false);
+    const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 
     const {
         isOpen: isBarrierOpen,
@@ -67,13 +65,13 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
         thermicalAudio,
         onCloseAudioPlayer,
         isOpenAudioPlayer,
-        setEnableButton
+        setDisableButton
     } = audioPlayerProps;
 
     const customVoice = isCustomVoice(dataAuthor);
     const showVariantIa = customVoice && thermicalAudio && authors.length <= 1;
 
-    const { copy, setCopy, shareButton } = useShare({
+    const { shareNativeTrigger } = useNativeShare({
         mobileTitle,
         basic: title,
         host: config.host,
@@ -110,57 +108,57 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     };
 
     const audioPlayerData = {
-        isOpen: isOpenAudioPlayer,
-        setEnableButton,
+        isOpenAudioPlayer,
+        setDisableButton,
         noteId,
         playbackState: 'playing',
         onCloseAudioPlayer,
         showVariantIa
     };
 
-    const shareMenuData = {
-        isOpen: isShareOpen,
+    const shareDesktopTriggerData = {
+        isShareOpen,
+        setIsShareOpen,
         requestUri,
         title,
-        mobileTitle,
-        setCopied: setCopy,
-        onClose: () => setIsShareOpen(false)
+        mobileTitle
     };
 
-    const handleShare = () =>
-        handleShareClick({
-            shareButton,
-            toggleShareMenu: () => setIsShareOpen(prev => !prev),
-            noteId,
-            title
-        });
-
-    if (isSSR()) return null;
-
     return (
-        <SignatureContextProvider>
-            {isBarrierOpen && (
-                <BarrierRequiresSubscription
-                    isLogged={!!token}
-                    closeBarrier={closeBarrier}
-                />
-            )}
-            <div className="flex items-center gap-2">
-                <AudioButton {...audioButtonData} />
-                <BuildAudioPlayer {...audioPlayerData} />
-                <BookmarkButton {...bookmarkData} />
-                <SummaryButton {...iaSummary} />
-                <CommentsButton {...commentsData} />
-                <ShareButton onClick={handleShare} />
-                <WhatsappShareButton requestUri={requestUri} title={title} />
-                <ShareMenu {...shareMenuData} />
-                {copy && (
-                    <span className="absolute top-full mt-2 text-12">
-                        Link copiado
-                    </span>
-                )}
+        <ToolbarProvider
+            value={{
+                isAudioPlaying,
+                setIsAudioPlaying
+            }}
+        >
+            <BarrierRequiresSubscription
+                isOpen={isBarrierOpen}
+                isLogged={!!token}
+                closeBarrier={closeBarrier}
+            />
+            <div className="flex items-center gap-16">
+                <div className="flex items-center gap-8 md:gap-16">
+                    <AudioButton {...audioButtonData} />
+                    <BookmarkButton {...bookmarkData} />
+                    <SummaryButton {...iaSummary} />
+                    <CommentsButton {...commentsData} />
+                </div>
+                <Divider direction="vertical" />
+                <div className="flex items-center max-lg:gap-8 md:ml-[-16px]">
+                    <ShareMobileTrigger
+                        shareNativeTrigger={shareNativeTrigger}
+                        noteId={noteId}
+                        title={title}
+                    />
+                    <ShareDesktopTrigger {...shareDesktopTriggerData} />
+                    <WhatsappShareButton
+                        requestUri={requestUri}
+                        title={title}
+                    />
+                </div>
             </div>
-        </SignatureContextProvider>
+            <BuildAudioPlayerRender audioPlayerData={audioPlayerData} />
+        </ToolbarProvider>
     );
 }
 

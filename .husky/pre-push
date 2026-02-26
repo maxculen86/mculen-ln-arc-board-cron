@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚀 Validando rama protegida antes de push..."
+
+if `npx git-branch-is -qr '(master$|develop$|/origin$|^release/.+|/release$)'`; then
+  echo "⚙️ Ejecutando build y tests..."
+  npm run build && npm test
+fi

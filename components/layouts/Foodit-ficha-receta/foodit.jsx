@@ -10,6 +10,7 @@ import { UserBookmarks } from '../../features/foodit-global/common/bookmark/comp
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import RelatedContent from '../../features/foodit/RelatedContent/foodit';
 import { NutritionalInfo } from '../../features/foodit-global/common/nutritionalInfo/foodit';
+import { AIImageDisclaimer } from '../../features/foodit-global/common/AIImageDisclaimer/foodit';
 import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
@@ -45,6 +46,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                         />
                     </Static>
                     {body}
+                    <AIImageDisclaimer globalContent={globalContent} />
                 </div>
             </section>
             <div className="print-hide flex flex-column gap-40">

@@ -1,6 +1,6 @@
-import handleShareClick, {
+import {
+    handleShareNativeTrigger,
     SHARE_OPTIONS,
-    handleWhatsappShare,
     handleClickAudioNews
 } from '../../../../../components/features/LN/DS-Toolbar/_helpers';
 import {
@@ -8,8 +8,7 @@ import {
     getTwitterTitle,
     popUpCompartirMailTo,
     popUpCompartirNotaFB,
-    popUpCompartirNotaTW,
-    shareWhatsAppDesktop
+    popUpCompartirNotaTW
 } from '../../../../../components/private/LN/common/utils/shareHelper';
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import getAudioEvents from '../../../../../components/features/LN-10-global/common/utils/getAudioEvents';
@@ -21,8 +20,7 @@ jest.mock(
         getTwitterTitle: jest.fn(mobileTitle => mobileTitle || 'default'),
         popUpCompartirMailTo: jest.fn(),
         popUpCompartirNotaFB: jest.fn(),
-        popUpCompartirNotaTW: jest.fn(),
-        shareWhatsAppDesktop: jest.fn()
+        popUpCompartirNotaTW: jest.fn()
     })
 );
 
@@ -47,9 +45,9 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
         jest.clearAllMocks();
     });
 
-    describe('SHARE_OPTIONS', () => {
-        it('has 5 share options', () => {
-            expect(SHARE_OPTIONS).toHaveLength(5);
+    describe('SHARE_OPTIONS desktop', () => {
+        it('has 4 share options', () => {
+            expect(SHARE_OPTIONS).toHaveLength(4);
         });
 
         it('each option has required properties', () => {
@@ -64,37 +62,19 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
 
         it('has correct option ids', () => {
             const ids = SHARE_OPTIONS.map(option => option.id);
-            expect(ids).toEqual(['whatsapp', 'link', 'facebook', 'x', 'mail']);
-        });
-
-        describe('whatsapp option', () => {
-            it('calls shareWhatsAppDesktop and datalayer on click', () => {
-                const whatsappOption = SHARE_OPTIONS.find(
-                    o => o.id === 'whatsapp'
-                );
-                const params = {
-                    requestUri: '/test',
-                    host: 'https://example.com',
-                    title: 'Test Title'
-                };
-
-                whatsappOption.onClick(params);
-
-                expect(shareWhatsAppDesktop).toHaveBeenCalledWith(
-                    params.requestUri,
-                    params.host
-                );
-                expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-                    event: 'share_note',
-                    title: params.title,
-                    rest: { tags: 'whatsapp' }
-                });
-            });
+            expect(ids).toEqual([
+                'share_option_link',
+                'share_option_facebook',
+                'share_option_x',
+                'share_option_mail'
+            ]);
         });
 
         describe('link option', () => {
             it('calls copyToClipboard, setCopied and datalayer on click', () => {
-                const linkOption = SHARE_OPTIONS.find(o => o.id === 'link');
+                const linkOption = SHARE_OPTIONS.find(
+                    o => o.id === 'share_option_link'
+                );
                 const setCopied = jest.fn();
                 const params = { setCopied, title: 'Test Title' };
 
@@ -112,7 +92,9 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
 
         describe('facebook option', () => {
             it('calls popUpCompartirNotaFB and datalayer on click', () => {
-                const fbOption = SHARE_OPTIONS.find(o => o.id === 'facebook');
+                const fbOption = SHARE_OPTIONS.find(
+                    o => o.id === 'share_option_facebook'
+                );
                 const params = {
                     requestUri: '/test',
                     host: 'https://example.com',
@@ -135,7 +117,9 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
 
         describe('x option', () => {
             it('calls getTwitterTitle, popUpCompartirNotaTW and datalayer on click', () => {
-                const xOption = SHARE_OPTIONS.find(o => o.id === 'x');
+                const xOption = SHARE_OPTIONS.find(
+                    o => o.id === 'share_option_x'
+                );
                 const params = {
                     requestUri: '/test',
                     host: 'https://example.com',
@@ -164,7 +148,9 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
 
         describe('mail option', () => {
             it('calls popUpCompartirMailTo and datalayer on click', () => {
-                const mailOption = SHARE_OPTIONS.find(o => o.id === 'mail');
+                const mailOption = SHARE_OPTIONS.find(
+                    o => o.id === 'share_option_mail'
+                );
                 const params = {
                     requestUri: '/test',
                     host: 'https://example.com',
@@ -186,10 +172,9 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
         });
     });
 
-    describe('handleShareClick', () => {
+    describe('handleShareNativeTrigger', () => {
         const defaultParams = {
-            shareButton: jest.fn(),
-            toggleShareMenu: jest.fn(),
+            shareNativeTrigger: jest.fn(),
             noteId: 'note-123',
             title: 'Test Title'
         };
@@ -204,15 +189,14 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
                 });
             });
 
-            it('calls toggleShareMenu', () => {
-                handleShareClick(defaultParams);
+            it('does not call shareNativeTrigger', () => {
+                handleShareNativeTrigger(defaultParams);
 
-                expect(defaultParams.toggleShareMenu).toHaveBeenCalled();
-                expect(defaultParams.shareButton).not.toHaveBeenCalled();
+                expect(defaultParams.shareNativeTrigger).not.toHaveBeenCalled();
             });
 
             it('does not send datalayer event', () => {
-                handleShareClick(defaultParams);
+                handleShareNativeTrigger(defaultParams);
 
                 expect(addEventToDataLayerV2).not.toHaveBeenCalled();
             });
@@ -232,15 +216,14 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
                 });
             });
 
-            it('calls shareButton', () => {
-                handleShareClick(defaultParams);
+            it('calls shareNativeTrigger', () => {
+                handleShareNativeTrigger(defaultParams);
 
-                expect(defaultParams.shareButton).toHaveBeenCalled();
-                expect(defaultParams.toggleShareMenu).not.toHaveBeenCalled();
+                expect(defaultParams.shareNativeTrigger).toHaveBeenCalled();
             });
 
             it('sends datalayer event with popup-nativo tag', () => {
-                handleShareClick(defaultParams);
+                handleShareNativeTrigger(defaultParams);
 
                 expect(addEventToDataLayerV2).toHaveBeenCalledWith({
                     event: 'share_note',
@@ -265,33 +248,10 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
                 });
             });
 
-            it('calls toggleShareMenu as fallback', () => {
-                handleShareClick(defaultParams);
+            it('does not call shareNativeTrigger', () => {
+                handleShareNativeTrigger(defaultParams);
 
-                expect(defaultParams.toggleShareMenu).toHaveBeenCalled();
-                expect(defaultParams.shareButton).not.toHaveBeenCalled();
-            });
-        });
-    });
-
-    describe('handleWhatsappShare', () => {
-        it('calls whatsapp onClick with correct params', () => {
-            const params = {
-                requestUri: '/test',
-                title: 'Test Title',
-                host: 'https://example.com'
-            };
-
-            handleWhatsappShare(params);
-
-            expect(shareWhatsAppDesktop).toHaveBeenCalledWith(
-                params.requestUri,
-                params.host
-            );
-            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-                event: 'share_note',
-                title: params.title,
-                rest: { tags: 'whatsapp' }
+                expect(defaultParams.shareNativeTrigger).not.toHaveBeenCalled();
             });
         });
     });

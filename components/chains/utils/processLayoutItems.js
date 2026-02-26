@@ -22,38 +22,29 @@ const {
     BN_6_GRID_MAS_TIMELINE
 } = LAYOUTS;
 
-export const processLayoutItems = (
-    children = [],
-    childProps = [],
-    layout = '',
-    countTimeline = false
-) => {
-    const items = assignPropsToChildren(children, childProps);
-    let specialItem = null;
+const getTimeline = items => items.find(item => isTimeline(item.type));
+const getVideo = items => items.find(item => isVideo(item.type));
+const getVideoOrTimeline = items => getVideo(items) || getTimeline(items);
 
-    const isBnPlayer = [
-        BN_PLAYER_1_MAS_3,
-        BN_PLAYER_1_MAS_4,
-        BN_PLAYER_HORIZONTAL
-    ].includes(layout);
+const SPECIAL_ITEM_STRATEGIES = {
+    [FOCAL_LEFT]: getTimeline,
+    [BN_6_GRID_MAS_TIMELINE]: getTimeline,
+    [FOCAL_LEFT_VIDEO]: getVideoOrTimeline,
+    [BN_PLAYER_1_MAS_3]: getVideo,
+    [BN_PLAYER_1_MAS_4]: getVideo,
+    [BN_PLAYER_HORIZONTAL]: getVideo
+};
 
-    if (layout === FOCAL_LEFT || layout === BN_6_GRID_MAS_TIMELINE) {
-        specialItem = items.find(item => isTimeline(item.type));
-    } else if (layout === FOCAL_LEFT_VIDEO) {
-        specialItem = items.find(item => isVideo(item.type));
-        if (!specialItem) {
-            specialItem = items.find(item => isTimeline(item.type));
-        }
-    } else if (isBnPlayer) {
-        specialItem = items.find(item => isVideo(item.type));
-    }
+const getSpecialItem = (items, layout) => {
+    const strategy = SPECIAL_ITEM_STRATEGIES[layout];
+    return strategy ? strategy(items) : null;
+};
 
-    const regularItems = items
+const getRegularItems = (items, layout, specialItem) =>
+    items
         .filter(item => {
             const isSpecialType = isTimeline(item.type) || isVideo(item.type);
-
             if (specialItem && item === specialItem) return false;
-
             return !(
                 (layout === FOCAL_LEFT || layout === FOCAL_LEFT_VIDEO) &&
                 isSpecialType
@@ -61,21 +52,40 @@ export const processLayoutItems = (
         })
         .map(item => item.nodo);
 
+const ASSEMBLE_STRATEGIES = {
+    [FOCAL_LEFT]: 'push',
+    [FOCAL_LEFT_VIDEO]: 'push',
+    [BN_6_GRID_MAS_TIMELINE]: 'push',
+    [BN_PLAYER_1_MAS_3]: 'unshift',
+    [BN_PLAYER_1_MAS_4]: 'unshift',
+    [BN_PLAYER_HORIZONTAL]: 'unshift'
+};
+
+const assembleItems = (regularItems, specialItem, layout) => {
+    if (!specialItem) return [...regularItems];
+
+    const action = ASSEMBLE_STRATEGIES[layout];
+    const items = [...regularItems];
+
+    if (action === 'push') items.push(specialItem.nodo);
+    if (action === 'unshift') items.unshift(specialItem.nodo);
+
+    return items;
+};
+
+export const processLayoutItems = (
+    children = [],
+    childProps = [],
+    layout = '',
+    countTimeline = false
+) => {
+    const items = assignPropsToChildren(children, childProps);
+    const specialItem = getSpecialItem(items, layout);
+    const regularItems = getRegularItems(items, layout, specialItem);
+
     const maxQuantity = setQuantityByLayout({ layout, countTimeline });
     const contentLimit = specialItem ? maxQuantity - 1 : maxQuantity;
-    const itemsAssembled = regularItems.slice(0, contentLimit);
+    const slicedRegularItems = regularItems.slice(0, contentLimit);
 
-    if (specialItem) {
-        if (
-            layout === FOCAL_LEFT ||
-            layout === FOCAL_LEFT_VIDEO ||
-            layout === BN_6_GRID_MAS_TIMELINE
-        ) {
-            itemsAssembled.push(specialItem.nodo);
-        } else if (isBnPlayer) {
-            itemsAssembled.unshift(specialItem.nodo);
-        }
-    }
-
-    return itemsAssembled;
+    return assembleItems(slicedRegularItems, specialItem, layout);
 };

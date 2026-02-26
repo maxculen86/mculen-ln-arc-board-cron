@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import LinkedSummaryCardSmall from 'features/LN-nota/bodyCards/components/LinkedSummaryCardSmall';
 
 const createCardData = configOverrides => ({
@@ -51,5 +51,20 @@ describe('LinkedSummaryCardSmall', () => {
         expect(screen.getByText('Título de prueba')).toBeInTheDocument();
         expect(screen.getByText('Descripción de la card')).toBeInTheDocument();
         expect(screen.getByText('Ver más')).toBeInTheDocument();
+    });
+
+    it('triggers navigation when clicking anywhere on the small card', () => {
+        const onCardClick = jest.fn();
+        render(
+            <LinkedSummaryCardSmall
+                data={createCardData({ cardId: 'card-2' })}
+                variant="collapsed"
+                onCardClick={onCardClick}
+            />
+        );
+
+        fireEvent.click(screen.getByTestId('linked-card'));
+        expect(onCardClick).toHaveBeenCalledTimes(1);
+        expect(onCardClick).toHaveBeenCalledWith('card-2');
     });
 });

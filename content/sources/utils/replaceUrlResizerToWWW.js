@@ -1,4 +1,9 @@
-import { RESIZER_URL_PUBLIC, API_ENV, SITE_LANACION } from 'fusion:environment';
+import {
+    RESIZER_URL_PUBLIC,
+    API_ENV,
+    SITE_LANACION,
+    IS_STAGING
+} from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
@@ -7,16 +12,17 @@ const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
     const { url = '', type, resized_urls: resizedUrls } = originalPromoItems;
 
     const replaceUrlToWWW = _url => {
-        if (API_ENV === 'prod') {
+        if (API_ENV === 'prod' && IS_STAGING !== 'true') {
             return _url.replace(RESIZER_URL_PUBLIC, host);
         }
         return _url.replace(RESIZER_URL_PUBLIC, SITE_LANACION);
     };
 
     const transformUrls = (_resizedUrls = []) =>
-        _resizedUrls.map(item => {
-            return { ...item, resizedUrl: replaceUrlToWWW(item.resizedUrl) };
-        });
+        _resizedUrls.map(item => ({
+            ...item,
+            resizedUrl: replaceUrlToWWW(item.resizedUrl)
+        }));
 
     if (type !== 'image') return originalPromoItems;
 

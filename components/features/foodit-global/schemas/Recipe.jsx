@@ -16,6 +16,8 @@ import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
+const SCHEMA_ORG_CONTEXT = 'https://schema.org';
+
 const extractRecipeInstructions = contentElements => {
     const instructions = contentElements
         .filter(item => item.subtype === 'custom-preparacion')
@@ -151,7 +153,7 @@ const buildRecipeSchema = data => {
     } = data;
 
     return {
-        '@context': 'https://schema.org',
+        '@context': SCHEMA_ORG_CONTEXT,
         '@type': 'Recipe',
         publisher: {
             '@type': 'Organization',
@@ -162,7 +164,7 @@ const buildRecipeSchema = data => {
         name: get(headlines, 'basic', ''),
         description: get(subheadlines, 'basic', ''),
         image: {
-            '@context': 'https://schema.org',
+            '@context': SCHEMA_ORG_CONTEXT,
             '@type': 'ImageObject',
             url: imageUrl
         },
@@ -197,7 +199,7 @@ const buildArticleSchema = ({
     deployment,
     contextPath
 }) => ({
-    '@context': 'https://schema.org',
+    '@context': SCHEMA_ORG_CONTEXT,
     '@type': 'Article',
     mainEntityOfPage: {
         '@type': 'WebPage',

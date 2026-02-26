@@ -1,6 +1,5 @@
 /* global FB */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/ds-cva';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
@@ -125,7 +124,10 @@ export const shareWhatsAppMobile = (notaId, dominio, title) => {
 };
 
 export const scrollToComments = () => {
-    window.scrollTo(0, document.body.scrollHeight);
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
 };
 
 export const copyToClipboard = (domain, url) => {
@@ -197,46 +199,6 @@ export function BtnContainer({ children, withContainer, id }) {
     return children;
 }
 
-BtnContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-    withContainer: PropTypes.bool.isRequired,
-    id: PropTypes.string.isRequired
-};
-
-const googleButtonBase = {
-    dataEvent: 'LinkClick',
-    dataSection: 'CompartirNotaLN',
-    icon: <IconSprite name="googleColor" color />,
-    title: 'Seguir a LA NACION en Google',
-    id: 'btnGoogle',
-    handleClick: () => {
-        openGoogleDiscoverFollow();
-    },
-    labelDataLayer: 'seguir_google',
-    iconOnly: false,
-    customDataLayerEvent: {
-        event: 'e_linkclick',
-        action: 'toolbard',
-        category: 'nota_ln9',
-        label: 'seguir_google'
-    }
-};
-
-const googleButtonVariants = {
-    mobile: {
-        className: 'l-none p-12 px-8 h-40',
-        label: '+ Seguir',
-        variant: 'secondary',
-        iconSize: 18
-    },
-    desktop: {
-        className: 'l-only flex-column-reverse_l',
-        label: 'Seguir',
-        variant: 'custom',
-        iconSize: 24
-    }
-};
-
 export const buttonsList = [
     {
         dataEvent: 'LinkClick',
@@ -301,11 +263,6 @@ export const buttonsList = [
         className: 'email p-0 sm-none',
         labelDataLayer: 'enviar_mail'
     }
-];
-
-export const googleButtons = [
-    { ...googleButtonBase, ...googleButtonVariants.mobile },
-    { ...googleButtonBase, ...googleButtonVariants.desktop }
 ];
 
 export function isLN10IAHidden(renderables, glossary, summary) {

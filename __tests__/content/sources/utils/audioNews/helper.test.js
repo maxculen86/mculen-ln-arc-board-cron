@@ -555,4 +555,16 @@ describe('Test - isValidDate', () => {
     it('should return false for an empty date', () => {
         expect(isValidDate('')).toBe(false);
     });
+    it.each(['5', '7', '8', '9', '16'])(
+        'Should return false for disabled subtype %s in apps',
+        subtype => {
+            expect(
+                isNoteListenableForApps({
+                    source: { system: 'composer' },
+                    subtype,
+                    first_publish_date: '2025-04-01'
+                })
+            ).toBe(false);
+        }
+    );
 });
