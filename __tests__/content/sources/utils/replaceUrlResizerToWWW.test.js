@@ -37,6 +37,30 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
         });
     });
 
+    describe('Content - sources - utils - replaceUrlResizerToWWW function - When API_ENV is prod and IS_STAGING is true', () => {
+        test('Should replace RESIZER_URL_PUBLIC with SITE_LANACION instead of host', () => {
+            env.API_ENV = 'prod';
+            env.IS_STAGING = 'true';
+
+            const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
+
+            expect(result.url).toBe(
+                'https://site.lanacion.com.ar/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1920&height=0&quality=80&smart=true'
+            );
+        });
+
+        test('Should replace RESIZER_URL_PUBLIC with SITE_LANACION in resized_urls', () => {
+            env.API_ENV = 'prod';
+            env.IS_STAGING = 'true';
+
+            const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
+
+            result.resized_urls.forEach(item => {
+                expect(item.resizedUrl).toContain('https://site.lanacion.com.ar/');
+            });
+        });
+    });
+
     describe('When promo items are not type image', () => {
         test('Should return same promo_items as provived', () => {
             const notImageTypePromoItem = {
