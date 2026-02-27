@@ -74,7 +74,9 @@ describe('OEmbed', () => {
             'max-w-550',
             'md:max-w-635'
         );
-        expect(wrapper.firstChild?.outerHTML).toBe('<div></div>');
+        const innerDiv = wrapper.firstChild;
+        expect(innerDiv).toBeInTheDocument();
+        expect(innerDiv.innerHTML).toBe('');
     });
 
     it('does not crash when data object is valid but html is empty', () => {

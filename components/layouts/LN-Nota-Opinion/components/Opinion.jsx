@@ -56,7 +56,7 @@ function Opinion({ children }) {
                 {/* ---- Wrapper con grilla y ancho maximo ---- */}
                 <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full justify-items-center gap-x-16 md:gap-x-24 xl:gap-x-32 gap-y-40">
                     {/* ---- PRE-CUERPO ---- */}
-                    <WrapperBody>
+                    <WrapperBody id="cuerpo__nota">
                         <Opinion.PreBody>
                             {children[1]}
                             <PreBody.Breadcrumb
