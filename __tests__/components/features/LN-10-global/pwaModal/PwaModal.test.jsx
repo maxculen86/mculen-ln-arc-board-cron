@@ -22,17 +22,27 @@ Context.useAppContext = jest.fn(() => ({
 describe('PwaModal', () => {
     const mockHandleNoClick = jest.fn();
     const mockHandleYesClick = jest.fn();
+    let mockedReadyState = 'complete';
+
+    beforeAll(() => {
+        Object.defineProperty(document, 'readyState', {
+            configurable: true,
+            get: () => mockedReadyState
+        });
+    });
 
     beforeEach(() => {
         jest.clearAllMocks();
+        mockedReadyState = 'complete';
         usePwaModal.mockReturnValue({
+            isShowModal: true,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
         });
     });
 
-    it('should render the modal when isShowModal is true', () => {
-        usePwaModal.mockReturnValueOnce({
+    it('should render the modal when isShowModal is true', async () => {
+        usePwaModal.mockReturnValue({
             isShowModal: true,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
@@ -41,9 +51,11 @@ describe('PwaModal', () => {
         const { container } = render(<PwaModal />);
 
         expect(
-            screen.getByText('¿Querés recibir notificaciones de alertas?')
+            await screen.findByText('¿Querés recibir notificaciones de alertas?')
         ).toBeInTheDocument();
-        expect(screen.getByAltText('LA NACION')).toBeInTheDocument();
+        expect(
+            screen.getByAltText('LA NACION')
+        ).toBeInTheDocument();
         expect(screen.getByText('No, gracias')).toBeInTheDocument();
         expect(screen.getByText('Aceptar')).toBeInTheDocument();
 
@@ -51,7 +63,7 @@ describe('PwaModal', () => {
     });
 
     it('should not render the modal when isShowModal is false', () => {
-        usePwaModal.mockReturnValueOnce({
+        usePwaModal.mockReturnValue({
             isShowModal: false,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
@@ -66,8 +78,9 @@ describe('PwaModal', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('should handle No click', () => {
-        usePwaModal.mockReturnValueOnce({
+    it('should not render the modal until page load event is fired', async () => {
+        mockedReadyState = 'loading';
+        usePwaModal.mockReturnValue({
             isShowModal: true,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
@@ -75,13 +88,34 @@ describe('PwaModal', () => {
 
         render(<PwaModal />);
 
+        expect(
+            screen.queryByText('¿Querés recibir notificaciones de alertas?')
+        ).not.toBeInTheDocument();
+
+        fireEvent(window, new Event('load'));
+
+        expect(
+            await screen.findByText('¿Querés recibir notificaciones de alertas?')
+        ).toBeInTheDocument();
+    });
+
+    it('should handle No click', async () => {
+        usePwaModal.mockReturnValue({
+            isShowModal: true,
+            handleNoClick: mockHandleNoClick,
+            handleYesClick: mockHandleYesClick
+        });
+
+        render(<PwaModal />);
+
+        await screen.findByText('No, gracias');
         fireEvent.click(screen.getByText('No, gracias'));
 
         expect(mockHandleNoClick).toHaveBeenCalled();
     });
 
-    it('should handle Yes click', () => {
-        usePwaModal.mockReturnValueOnce({
+    it('should handle Yes click', async () => {
+        usePwaModal.mockReturnValue({
             isShowModal: true,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
@@ -89,19 +123,20 @@ describe('PwaModal', () => {
 
         render(<PwaModal />);
 
+        await screen.findByText('Aceptar');
         fireEvent.click(screen.getByText('Aceptar'));
 
         expect(mockHandleYesClick).toHaveBeenCalled();
     });
 
     it('should not render the modal when isAdmin is true', () => {
-        usePwaModal.mockReturnValueOnce({
+        usePwaModal.mockReturnValue({
             isShowModal: true,
             handleNoClick: mockHandleNoClick,
             handleYesClick: mockHandleYesClick
         });
 
-        Context.useAppContext.mockReturnValueOnce({
+        Context.useAppContext.mockReturnValue({
             contextPath: '/pf',
             deployment: jest.fn(),
             isAdmin: true

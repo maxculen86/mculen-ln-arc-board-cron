@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/cva';
@@ -12,6 +12,7 @@ import startPWASetup from './register';
 function PwaModal({ className }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
     const { deployment, contextPath, isAdmin, arcSite } = useAppContext();
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     const path = `${contextPath}/resources/images/la-nacion.webp`;
     const deploymentPath = deployment(path);
@@ -26,7 +27,21 @@ function PwaModal({ className }) {
         startPWASetup({ deployment, arcSite });
     }, [deployment]);
 
-    if (!isShowModal || isAdmin) return null;
+    useEffect(() => {
+        const onLoad = () => setIsPageLoaded(true);
+
+        if (document.readyState === 'complete') {
+            onLoad();
+        } else {
+            window.addEventListener('load', onLoad, { once: true });
+        }
+
+        return () => {
+            window.removeEventListener('load', onLoad);
+        };
+    }, []);
+
+    if (!isShowModal || isAdmin || !isPageLoaded) return null;
 
     return (
         <div className={classes} id="notificacion-modal">
@@ -74,13 +89,6 @@ PwaModal.propTypes = {
     className: PropTypes.string
 };
 
-PwaModal.defaultProps = {
-    className: ''
-};
-
-PwaModal.propTypes = {
-    className: PropTypes.string
-};
 PwaModal.defaultProps = {
     className: ''
 };
