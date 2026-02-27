@@ -46,7 +46,7 @@ function SignatureFeature(props) {
     const authorId = get(creditsBy, '[0]._id', '');
 
     const showSignatureWithDistributor =
-        (withFirmaDistributor && name !== 'lanacionar') ||
+        (withFirmaDistributor && Boolean(name) && name !== 'lanacionar') ||
         (isExternalDistributor(name, category, authorId) && position === 'Top');
 
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
