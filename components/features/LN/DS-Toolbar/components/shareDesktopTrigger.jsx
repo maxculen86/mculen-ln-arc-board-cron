@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import { Popper } from '@ln/ds-common-popper';
 import { Link } from '@ln/ds-common-link';
 import { cx } from '@ln/ds-cva';
@@ -27,7 +28,7 @@ function ShareDesktopTrigger({
         setIsShareOpen,
         shareData: {
             requestUri,
-            host,
+            host: SITE_LANACION || host,
             title,
             mobileTitle
         }
