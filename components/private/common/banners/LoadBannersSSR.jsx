@@ -49,6 +49,7 @@ function LoadBannersSSR({ blocksBanners = [] }) {
             'LN-common/banner',
             'LN-nota/cuerpo',
             'LN-nota/body',
+            'LN-nota/liveblogEditorialBody',
             'LN/DS-Body',
             'LN-acumulado/grillaNotas',
             'LN-common/bannerRefactor'
