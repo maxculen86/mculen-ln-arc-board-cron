@@ -6,7 +6,7 @@ exports[`Components - features - foodit - CardCategory should match snapshot wit
     class="h-100"
   >
     <article
-      class="border border-all border-thin w-100 h-100 p-8 border-light-100"
+      class="border border-all border-thin w-100 h-100 border-light-100 p-8"
       data-button="Snapshot Title"
       data-event="navbar"
       data-interaction="dataLayerInteraction"
@@ -37,10 +37,10 @@ exports[`Components - features - foodit - CardCategory should match snapshot wit
           </div>
         </div>
         <div
-          class="text-center"
+          class="text-14 text-center"
         >
           <span
-            class="text prumo prumo-book text-14"
+            class="text prumo prumo-book"
           >
             Snapshot Title
           </span>
