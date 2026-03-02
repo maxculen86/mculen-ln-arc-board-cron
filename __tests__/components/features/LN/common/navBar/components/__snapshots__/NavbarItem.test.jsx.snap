@@ -2,7 +2,7 @@
 
 exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - button with onClick 1`] = `
 <button
-  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-6"
   data-active="false"
   data-disabled="false"
   style="--ds-icon-size: 12px;"
@@ -18,7 +18,7 @@ exports[`components - features - LN - common - navBar - components - NavbarItem 
 
 exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - link with href 1`] = `
 <a
-  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-primary-default hover:text-primary-light data-[active="true"]:text-primary-dark data-[disabled="true"]:text-primary-lighten text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-primary-default hover:text-primary-light data-[active="true"]:text-primary-dark data-[disabled="true"]:text-primary-lighten text-label-sm font-regular flex items-center justify-center flex-col gap-6"
   data-active="false"
   data-disabled="false"
   href="https://www.lanacion.com.ar/"
@@ -35,7 +35,7 @@ exports[`components - features - LN - common - navBar - components - NavbarItem 
 
 exports[`components - features - LN - common - navBar - components - NavbarItem NavbarItem snapshots should match snapshot - link with target blank 1`] = `
 <a
-  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-8"
+  class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-label-sm font-regular flex items-center justify-center flex-col gap-6"
   data-active="false"
   data-disabled="false"
   href="https://www.foodit.com.ar/"

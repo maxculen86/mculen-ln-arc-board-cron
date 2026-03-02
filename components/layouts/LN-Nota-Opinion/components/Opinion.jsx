@@ -77,7 +77,7 @@ function Opinion({ children }) {
             </div>
             <div className="w-100 flex">
                 {/* ---- BOTTOM ---- */}
-                <div className="w-100 sidebar__main">{children[4]}</div>
+                <div className="sidebar__main">{children[4]}</div>
                 {/* ---- BOTTOM-TERCERA ---- */}
                 <div className="sidebar__aside">{children[5]}</div>
             </div>
