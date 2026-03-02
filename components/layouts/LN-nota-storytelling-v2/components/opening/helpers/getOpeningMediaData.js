@@ -1,9 +1,9 @@
 import {
     getImagesToLoadWithPicture,
     getShortestImage
-} from '../../../private/LN/common/utils/mediaHelper';
-import get from '../../../private/common/utils/get';
-import { getOpeningMediaItems, getNormalizedImageData } from './helpers';
+} from '../../../../../private/LN/common/utils/mediaHelper';
+import get from '../../../../../private/common/utils/get';
+import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
 import getOpeningResizedUrls from './getOpeningResizedUrls';
 
 const resolveAltText = ({ mobile, desktop, headline }) =>
@@ -34,7 +34,7 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
     const diagram = get(
         promoItems,
         'custom_storytelling_opening.embed.config.diagram',
-        ''
+        'image-100-title-below'
     );
 
     return { pictureSources, imgDefaultUrl, altText, diagram };

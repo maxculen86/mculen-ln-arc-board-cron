@@ -1,6 +1,6 @@
 import { transformSocial } from '../../../private-global/common/utils/transformSocial';
 
-export const buildSocialItems = socialLinks => {
+const getSocialItems = socialLinks => {
     const list = Array.isArray(socialLinks) ? socialLinks : [];
     return list.reduce((items, { site = '', url = '' }) => {
         const social = transformSocial(site, url);
@@ -13,3 +13,5 @@ export const buildSocialItems = socialLinks => {
         return items;
     }, []);
 };
+
+export default getSocialItems;

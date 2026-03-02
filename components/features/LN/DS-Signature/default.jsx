@@ -9,14 +9,22 @@ import ImageUI from '../../ui/ln/image/default';
 import LinkUI from '../../ui/ln/link/default';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { useSignatureRules } from './hooks/useSignatureRules';
-import { buildSocialItems } from './utils/socialHelpers';
+import getSocialItems from './utils/socialHelpers';
+import getSignatureDateTimeReadingData from './utils/getSignatureDateTimeReadingData';
 
-function DsSignature({ customFields = {}, globalContent = {} } = {}) {
+function DsSignature({
+    customFields = {},
+    globalContent = {},
+    ignoreDistributor = false,
+    showDateTimeAndReadingTime = false,
+    showPhoto = true
+} = {}) {
     const { layout, siteProperties } = useAppContext();
     const opinionLayout = siteProperties?.layoutsName?.NotaOpinion;
     const isOpinionLayout = Boolean(opinionLayout) && layout === opinionLayout;
     const { flags, data } = useSignatureRules({
         customFields,
+        ignoreDistributor,
         globalContent,
         isOpinionLayout
     });
@@ -42,11 +50,18 @@ function DsSignature({ customFields = {}, globalContent = {} } = {}) {
         shouldShowAuthors && !hasMultipleAuthors && isOpinionLayout;
     const shouldShowOpinionSignatureBottomExtras =
         shouldShowOpinionSignatureExtras && position === place.Bottom;
+    const shouldShowPhoto = showPhoto && photo;
     // TODO: Despues hacer el extras de signature top para el newsletter algo asi, y renderizar con eso
     // const shouldShowOpinionSignatureTopExtras =
     //     shouldShowOpinionSignatureExtras &&
     //     position === place.Top;
-    const socialItems = buildSocialItems(socialLinks);
+    const socialItems = getSocialItems(socialLinks);
+    const { date, time, readingTime, shouldRenderDateTimeAndReadingTime } =
+        getSignatureDateTimeReadingData({
+            globalContent,
+            showDateTimeAndReadingTime
+        });
+
     return (
         <div>
             {shouldShowDistributor && (
@@ -72,7 +87,7 @@ function DsSignature({ customFields = {}, globalContent = {} } = {}) {
             )}
             {shouldShowAuthors && (
                 <div>
-                    {photo && (
+                    {shouldShowPhoto && (
                         <ImageUI src={photo} alt={author?.name || 'Autor'} />
                     )}
                     <div>
@@ -107,6 +122,15 @@ function DsSignature({ customFields = {}, globalContent = {} } = {}) {
                         </div>
                     )}
                 </>
+            )}
+            {shouldRenderDateTimeAndReadingTime && (
+                <div className="">
+                    {date && <span>{date}</span>}
+                    {time && <span>{time}</span>}
+                    {readingTime && (
+                        <span>{`${readingTime.minutes} ${readingTime.label} de lectura`}</span>
+                    )}
+                </div>
             )}
         </div>
     );
