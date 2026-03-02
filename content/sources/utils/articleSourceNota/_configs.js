@@ -229,7 +229,7 @@ export const getMalformedAnchorTags = (textContent = '') => {
     return linkList.filter(e => {
         return !new RegExp(
             // Este regex es un formato de URL valido. Aca lo que se hace es validar que la url que venga en el href del tag A sea valido.
-            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
+            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z][a-z0-9-]*)(?:\\.(?:[a-z-0-9]-*)*[a-z0-9]+)*` +
                 `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
             'gim'
         ).test(e);
