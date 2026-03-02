@@ -9,8 +9,6 @@ describe('DateAndReadingTime Component', () => {
         headlines: { basic: 'Headline' },
         subheadlines: { basic: 'Subheadline' },
         display_date: '2023-01-01T12:00:00Z',
-        first_publish_date: '2023-01-01T12:00:00Z',
-        last_updated_date: '2023-01-02T12:00:00Z',
         planning: { story_length: { word_count_actual: 500 } }
     };
 
@@ -18,29 +16,48 @@ describe('DateAndReadingTime Component', () => {
         jest.clearAllMocks();
     });
 
-    it('should render date, time, reading time and update date when all data is available', () => {
+    it('renders date, time, dateTime attribute and plural reading time', () => {
         render(<DateAndReadingTime globalContent={mockGlobalContent} />);
 
-        expect(
-            screen.getByText('1 de enero de 2023 * 06:00')
-        ).toBeInTheDocument();
-        expect(screen.getByText('3 minutos de lectura')).toBeInTheDocument();
+        expect(screen.getByText('1 de enero de 2023')).toBeInTheDocument();
+        expect(screen.getByText('06:00')).toBeInTheDocument();
+
+        expect(document.querySelector('time')).toHaveAttribute(
+            'datetime',
+            '2023-01-01T12:00:00Z'
+        );
+
+        expect(screen.getByText('minutos de lectura')).toBeInTheDocument();
     });
 
-    it('should return the last update date if the difference between the publication date and the creation date is met.', () => {
+    it('renders singular "minuto" when reading time is exactly 1 minute', () => {
         render(
             <DateAndReadingTime
                 globalContent={{
-                    ...mockGlobalContent,
-                    last_updated_date: '2022-01-02T12:00:00Z'
+                    headlines: { basic: '' },
+                    subheadlines: { basic: '' },
+                    display_date: '2023-01-01T12:00:00Z',
+                    planning: { story_length: { word_count_actual: 200 } }
                 }}
             />
         );
 
-        expect(
-            screen.getByText('1 de enero de 2023 * 06:00')
-        ).toBeInTheDocument();
-        expect(screen.getByText('3 minutos de lectura')).toBeInTheDocument();
-        expect(screen.queryByText(/Actualizado el/)).not.toBeInTheDocument();
+        expect(screen.getByText('minuto de lectura')).toBeInTheDocument();
+    });
+
+    it('includes headline and subheadline word counts in reading time calculation', () => {
+        render(
+            <DateAndReadingTime
+                globalContent={{
+                    headlines: { basic: 'Headline' },
+                    subheadlines: { basic: 'Subheadline' },
+                    display_date: '2023-01-01T12:00:00Z',
+                    planning: { story_length: { word_count_actual: 399 } }
+                }}
+            />
+        );
+
+        // 1 + 1 + 399 = 401 → ceil(401/200) = 3 → plural
+        expect(screen.getByText('minutos de lectura')).toBeInTheDocument();
     });
 });

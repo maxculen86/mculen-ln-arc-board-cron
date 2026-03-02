@@ -59,6 +59,7 @@ function Opinion({ children }) {
                     {/* ---- PRE-CUERPO ---- */}
                     <WrapperBody id="cuerpo__nota">
                         <Opinion.PreBody>
+                            <DateAndReadingTime globalContent={globalContent} />
                             {children[1]}
                             <PreBody.Breadcrumb
                                 globalContent={globalContent}
@@ -67,7 +68,6 @@ function Opinion({ children }) {
                         </Opinion.PreBody>
                     </WrapperBody>
                     {/* ---- CUERPO ---- */}
-                    <DateAndReadingTime globalContent={globalContent} />
                     {children[2]}
                 </div>
             </div>
