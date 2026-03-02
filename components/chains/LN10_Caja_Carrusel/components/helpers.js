@@ -15,8 +15,10 @@ const normalizeVideoId = videoId =>
 export const handleEventSwipeVideo = ({
     videoIdObserved = '',
     videoTitle = '',
-    origin = ''
+    origin = '',
+    roofData = {}
 }) => {
+    const { title, hideRoof } = roofData;
     if (!videoIdObserved || videoIdObserved === lastTrackedId) {
         return;
     }
@@ -29,7 +31,8 @@ export const handleEventSwipeVideo = ({
         rest: {
             page_title: videoTitle,
             id_video: videoIdObserved,
-            origin
+            origin,
+            category_video: !title || hideRoof ? 'No tiene' : title
         }
     });
 };
@@ -47,7 +50,8 @@ export const transformNodes = ({
     childProps = [],
     isExpanded = false,
     bannerRef,
-    layoutType = ''
+    layoutType = '',
+    roofData
 }) => {
     let counterVideos = 0;
     return childProps.reduce((acc, properties, index) => {
@@ -66,6 +70,7 @@ export const transformNodes = ({
             counterVideo: counterVideos,
             isBanner,
             origin: layoutType,
+            roofData,
             node:
                 !isAdmin &&
                 !isExpanded &&

@@ -31,7 +31,8 @@ window.addEventListener('load', function () {
             instanceConfig,
             playerId,
             withAutoplay,
-            videoId
+            videoId,
+            roof
         } = config || {};
 
         const videoOrientation = getVerticalPlayer(playerId)
@@ -111,7 +112,8 @@ window.addEventListener('load', function () {
                                 videoName: currentTitle,
                                 videoID: currentId,
                                 mode,
-                                videoOrientation
+                                videoOrientation,
+                                category_video: roof
                             }
                         });
 
