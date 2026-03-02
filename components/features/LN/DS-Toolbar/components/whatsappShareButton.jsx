@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import Button from '../../../ui/ln/button/default';
 import Icon from '../../../ui/ln/icon/default';
@@ -15,7 +16,10 @@ function WhatsappShareButton({ requestUri, title }) {
                 variant="ghost"
                 color="black"
                 onClick={() => {
-                    shareWhatsAppDesktop(requestUri, config.host);
+                    shareWhatsAppDesktop(
+                        requestUri,
+                        SITE_LANACION || config.host
+                    );
                     addEventToDataLayerV2({
                         event: 'share_note',
                         title,

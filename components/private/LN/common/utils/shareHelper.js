@@ -132,7 +132,18 @@ export const scrollToComments = () => {
 
 export const copyToClipboard = (domain, url) => {
     const link = domain && url ? `${domain}${url}` : window.location.href;
-    navigator.clipboard.writeText(link);
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(link);
+    } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = link;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    }
 };
 
 export const getClassCondition = subtype =>
