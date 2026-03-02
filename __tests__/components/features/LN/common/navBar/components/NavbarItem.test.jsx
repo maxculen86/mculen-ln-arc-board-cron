@@ -55,7 +55,7 @@ describe('components - features - LN - common - navBar - components - NavbarItem
                 'items-center',
                 'justify-center',
                 'flex-col',
-                'gap-8'
+                'gap-6'
             );
         });
     });
@@ -101,7 +101,7 @@ describe('components - features - LN - common - navBar - components - NavbarItem
                 'items-center',
                 'justify-center',
                 'flex-col',
-                'gap-8'
+                'gap-6'
             );
         });
     });

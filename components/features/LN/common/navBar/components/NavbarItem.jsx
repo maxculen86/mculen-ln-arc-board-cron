@@ -22,7 +22,7 @@ function NavbarItem({
 }) {
     const shouldRenderButton = onClick && !href;
     const content = <NavbarItemContent iconName={iconName} text={text} />;
-    const classNameLink = 'flex items-center justify-center flex-col gap-8';
+    const classNameLink = 'flex items-center justify-center flex-col gap-6';
 
     if (shouldRenderButton) {
         return (
