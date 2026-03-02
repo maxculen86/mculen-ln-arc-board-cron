@@ -8,6 +8,7 @@ import formatAuthorList from '../helpers/formatAuthorList';
 import { getMediaData } from '../../_helpers/mediaHelper';
 import getMediaFigCaption from '../helpers/getMediaFigCaption';
 import { WrapperBody } from '../../../features/LN/common/wrapperBody/default';
+import DateAndReadingTime from '../../../features/LN/common/dateAndReadingTime/default';
 
 function Opinion({ children }) {
     const { globalContent, siteProperties } = useAppContext();
@@ -66,6 +67,7 @@ function Opinion({ children }) {
                         </Opinion.PreBody>
                     </WrapperBody>
                     {/* ---- CUERPO ---- */}
+                    <DateAndReadingTime globalContent={globalContent} />
                     {children[2]}
                 </div>
             </div>
