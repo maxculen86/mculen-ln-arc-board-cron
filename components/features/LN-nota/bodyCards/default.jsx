@@ -94,7 +94,7 @@ function BodyCards() {
 
     const gridCardSmall = cx(
         gridColumns === 3 && 'grid-col-3-15_lg',
-        'grid-col-1 grid-row-2 mt-80'
+        'grid-col-1 grid-row-2 mt-32'
     );
 
     return (
