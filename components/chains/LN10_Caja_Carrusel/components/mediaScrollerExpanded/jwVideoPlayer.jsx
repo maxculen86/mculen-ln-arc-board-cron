@@ -20,7 +20,8 @@ function JwVideoPlayer({
     handleNextCallback,
     isLoadedScriptJw,
     origin = '',
-    variant = 'vertical'
+    variant = 'vertical',
+    roofData = {}
 }) {
     const { currentIndex, preferredVideoFiles } = useCajaCarruselContext();
 
@@ -118,7 +119,8 @@ function JwVideoPlayer({
                     handleEventSwipeVideo({
                         videoIdObserved: videoId,
                         videoTitle: title,
-                        origin
+                        origin,
+                        roofData
                     });
                 });
             }
