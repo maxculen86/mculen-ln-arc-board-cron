@@ -65,7 +65,15 @@ const JwVideoContainer = forwardRef(
             >
                 {listVideoData.map(
                     (
-                        { id, title, isBanner, node, counterVideo, origin },
+                        {
+                            id,
+                            title,
+                            isBanner,
+                            node,
+                            counterVideo,
+                            origin,
+                            roofData
+                        },
                         index
                     ) => (
                         <li
@@ -114,6 +122,7 @@ const JwVideoContainer = forwardRef(
                                         isLoadedScriptJw={isLoadedScriptJw}
                                         origin={origin}
                                         variant={variant}
+                                        roofData={roofData}
                                     />
                                 )}
                             </div>

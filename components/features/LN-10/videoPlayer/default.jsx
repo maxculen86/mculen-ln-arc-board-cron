@@ -1,13 +1,17 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { getChainConfig } from '../article/common/_helper-WebApi';
+import {
+    getChainConfig,
+    getChainParentOfFeature
+} from '../article/common/_helper-WebApi';
 import { getDataAttributesForViewability } from '../article/_helper';
 import VideoCommonJw from '../../LN-10-global/common/videoCommon/default';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useGetVideoData from '../videoPlayerNota/common/hooks/useGetVideoConfig';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { validateVideoPlayer } from './_helper';
+import getViewabilityRoof from '../../../chains/utils/getViewabilityRoof';
 
 // TODO: Testear todas las implementaciones de video en home. Este componente y el feature del video horizontal
 
@@ -22,6 +26,12 @@ function LN10VideoPlayer({
         imageConfig: 'videoVertical',
         staticMode: true
     });
+
+    const {
+        props: { id: chainId, customFields: parentCustomFields }
+    } = getChainParentOfFeature(id, renderables);
+
+    const roof = getViewabilityRoof(chainId, renderables, parentCustomFields);
 
     const { title, mediaId, videoFile, playlist } = videoData || {};
 
@@ -68,6 +78,7 @@ function LN10VideoPlayer({
         playerId: 'tMVdYMxO',
         title,
         withAutoplay: true,
+        roof,
         instanceConfig: {
             aspectratio: '9:16',
             playlist,
