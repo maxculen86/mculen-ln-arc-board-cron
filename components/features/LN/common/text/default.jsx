@@ -8,7 +8,7 @@ function Text({ data = {}, capital = false, className = '' } = {}) {
     if (content === '<br/>') return null;
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-16">
             <Paragraph
                 content={content}
                 capital={capital}

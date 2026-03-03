@@ -9,7 +9,7 @@ function Distributor({ name, mode, subcategory, shouldShowDistributor }) {
     return (
         <div>
             {name === 'LA NACION' || mode === 'custom' ? (
-                <span>{name}</span>
+                <strong>{name}</strong>
             ) : (
                 <div className="flex items-center gap-4">
                     <LinkUI

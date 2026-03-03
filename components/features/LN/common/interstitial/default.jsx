@@ -12,7 +12,7 @@ function Interstitial({ data = {} }) {
     if (!url || !content) return null;
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-64">
             <div className="mx-auto">
                 <Button
                     asChild

@@ -4,7 +4,7 @@ import { WrapperBody } from '../wrapperBody/default';
 
 function Divider() {
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-16">
             <DividerComponent className="col-start-1 col-end-[-1]" />
         </WrapperBody>
     );
