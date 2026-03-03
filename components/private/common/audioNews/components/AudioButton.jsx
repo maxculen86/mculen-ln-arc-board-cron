@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
@@ -17,7 +16,6 @@ import getToken from '../../utils/getToken';
 import { isSubscribed, SUBSCRIBED_HELPER } from '../../auth/helper/loginHelper';
 
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import useTermica from '../../hooks/useTermica';
 import { useSignatureContext } from '../hooks/SignatureContext';
 import BarrierRequiresSubscription from '../../../../features/LN-10-global/common/barrierRequiresSubscription/default';
 
@@ -26,12 +24,10 @@ export function AudioButton({
     withAudio,
     authorNames = [],
     showTooltipVariantIA,
-    variant
+    variant,
+    showListenButton
 }) {
     const { globalContent = {}, globalContentConfig = {} } = useAppContext();
-    const { isListenable } = globalContent;
-    const showListenButton =
-        !useTermica('hide_listening_articles') && isListenable;
 
     const { isOpen: showTooltipIAAuthor, onClose: closeTooltipIAAuthor } =
         useDisclosure(showTooltipVariantIA && authorNames?.length);
@@ -135,15 +131,3 @@ export function AudioButton({
         </>
     );
 }
-
-AudioButton.propTypes = {
-    audioPlayerProps: PropTypes.shape({
-        enableButton: PropTypes.bool.isRequired,
-        onOpenAudioPlayer: PropTypes.func.isRequired,
-        isOpenAudioPlayer: PropTypes.bool.isRequired
-    }).isRequired,
-    withAudio: PropTypes.bool.isRequired,
-    authorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    showTooltipVariantIA: PropTypes.bool.isRequired,
-    variant: PropTypes.oneOf(['ia', 'default']).isRequired
-};

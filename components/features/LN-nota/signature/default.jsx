@@ -16,6 +16,8 @@ import WithoutSignature from './withoutSignature';
 import { useSignature } from '../../LN/DS-Signature/hooks/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
 import { signatureClasses } from './styles';
+import GoogleButton from '../../LN-10-global/common/googleButton/default';
+import useTermica from '../../../private/common/hooks/useTermica';
 
 function SignatureFeature(props) {
     const {
@@ -30,6 +32,8 @@ function SignatureFeature(props) {
             subtype
         }
     } = props;
+    const showListenButton =
+        !useTermica('hide_listening_articles') && isListenable;
 
     const { name, mode, category } = distributor;
 
@@ -42,7 +46,7 @@ function SignatureFeature(props) {
     const authorId = get(creditsBy, '[0]._id', '');
 
     const showSignatureWithDistributor =
-        (withFirmaDistributor && name !== 'lanacionar') ||
+        (withFirmaDistributor && Boolean(name) && name !== 'lanacionar') ||
         (isExternalDistributor(name, category, authorId) && position === 'Top');
 
     const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
@@ -59,7 +63,7 @@ function SignatureFeature(props) {
     const notShowSignature =
         !showSignatureWithDistributor && !authors?.length && !author;
 
-    if (!isListenable && notShowSignature) return null;
+    const googleButton = <GoogleButton className="l-only" />;
 
     const audioButton = (
         <AudioButton
@@ -68,6 +72,7 @@ function SignatureFeature(props) {
             withAudio={withAudio}
             authorNames={author?.name}
             showTooltipVariantIA={showVariantIa}
+            showListenButton={showListenButton}
         />
     );
 
@@ -86,30 +91,36 @@ function SignatureFeature(props) {
     return (
         <SignatureContextProvider>
             <div className={classNameContainer}>
-                <SignatureWithDistributor
-                    name={name}
-                    mode={mode}
-                    audioButton={audioButton}
-                    showSignatureWithDistributor={showSignatureWithDistributor}
-                    classNameSignature={cx(
-                        position === place.Bottom && 'mb-32'
-                    )}
-                />
-                <SignatureWithAuthors
-                    showVariantIa={showVariantIa}
-                    author={author}
-                    authors={authors}
-                    audioButton={audioButton}
-                    position={position}
-                    photo={photo}
-                    medio={medio}
-                    showSignatureWithAuthors={hasAuthors}
-                    subtype={subtype}
-                />
-                <WithoutSignature
-                    audioButton={audioButton}
-                    showWithoutSignature={notShowSignature}
-                />
+                <div className="flex jc-between ai-center">
+                    <SignatureWithDistributor
+                        name={name}
+                        mode={mode}
+                        audioButton={audioButton}
+                        showSignatureWithDistributor={
+                            showSignatureWithDistributor
+                        }
+                        classNameSignature={cx(
+                            position === place.Bottom && 'mb-32'
+                        )}
+                    />
+                    <SignatureWithAuthors
+                        showVariantIa={showVariantIa}
+                        author={author}
+                        authors={authors}
+                        audioButton={audioButton}
+                        position={position}
+                        photo={photo}
+                        medio={medio}
+                        showSignatureWithAuthors={hasAuthors}
+                        subtype={subtype}
+                    />
+                    <WithoutSignature
+                        showListenButton={showListenButton}
+                        audioButton={audioButton}
+                        showWithoutSignature={notShowSignature}
+                    />
+                    {googleButton}
+                </div>
                 {withAudio && audioPlayer}
             </div>
         </SignatureContextProvider>

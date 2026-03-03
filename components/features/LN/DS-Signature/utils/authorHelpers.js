@@ -4,7 +4,7 @@ const trimText = value => (typeof value === 'string' ? value.trim() : '');
 
 // Todo front: ajustar estilos para links de firma
 const buildAuthorText = ({ name, link }) =>
-    link ? `<a class="text-blue-300" href="${link}">${name}</a>` : name;
+    link ? `<a href="${link}">${name}</a>` : name;
 
 const normalizeAuthors = (authors = []) =>
     authors.reduce((acc, author) => {

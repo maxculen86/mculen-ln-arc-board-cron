@@ -2,16 +2,14 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import useTermica from '../../../../private/common/hooks/useTermica';
-import { useSignatureContext } from '../../../../private/common/audioNews/hooks/SignatureContext';
-import getToken from '../../../../private/common/utils/getToken';
-import { getTextAndIconColor } from '../../../../private/common/audioNews/helpers';
 import Button from '../../../ui/ln/button/default';
 import Icon from '../../../ui/ln/icon/default';
+import { useToolbarContext } from '../context/ToolbarContext';
+import getToken from '../../../../private/common/utils/getToken';
 import { handleClickAudioNews } from '../_helpers';
 
 export function AudioButton({
     audioPlayerProps = {},
-    variant,
     openBarrier,
     subscription
 }) {
@@ -20,10 +18,10 @@ export function AudioButton({
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
-    const { enableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
+    const { disableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
         audioPlayerProps;
 
-    const { isSummary, isAudioPlaying } = useSignatureContext();
+    const { isSummary, isAudioPlaying } = useToolbarContext();
 
     const token = getToken();
 
@@ -39,38 +37,37 @@ export function AudioButton({
         });
     };
 
-    const { text, iconColor } = getTextAndIconColor(isSummary, variant);
-
     if (!showListenButton) return null;
-
-    return isOpenAudioPlayer ? (
-        <div className="flex py-12 px-16 ai-center gap-8 h-40">
-            {/* CREAR COMPONENTE FRONT */}
-            <AnimatedIcons
-                name="logo-listen"
-                height={20}
-                width={20}
-                fill={iconColor}
-                stopAnimation={!isAudioPlaying}
-            />
-            <span className="text-12 text-neutral-light-600">
-                <strong>{text}</strong>
-            </span>
-        </div>
-    ) : (
+    return (
         <Button
-            isIconOnly
             id="btnAudioDesktop"
             title="Escuchar nota"
-            variant="primary"
+            variant="outline"
+            color="black"
             dataEvent="LinkClick"
             dataSection="Escuchar Nota"
-            className="mr-16 ai-start_l --no-app"
+            className="h-40 w-40 md:w-fit rounded-4 px-8 py-12 md:px-12 --no-app"
             onClick={handleClickAudioButton}
-            disabled={enableButton}
+            disabled={isOpenAudioPlayer || disableButton}
+            textTransform="none"
+            weight="bold"
+            iconLeft={
+                isOpenAudioPlayer ? (
+                    <AnimatedIcons
+                        name="logo-listen"
+                        height={20}
+                        width={20}
+                        fill="currentColor"
+                        stopAnimation={!isAudioPlaying}
+                    />
+                ) : (
+                    <Icon name="headphone" />
+                )
+            }
         >
-            <Icon name="mediaPlay" />
-            <span>Escuchar Nota</span>
+            <span className="max-md:hidden text-label-sm">
+                {isOpenAudioPlayer ? 'Escuchando' : 'Escuchar'}
+            </span>
         </Button>
     );
 }

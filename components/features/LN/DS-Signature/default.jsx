@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context, { useAppContext } from 'fusion:context';
-import { SITE_LANACION } from 'fusion:environment';
 import { place } from '../../../private/common/utils/firmaHelper';
-import formatDistributorName from '../../../private/LN/common/utils/formatDistributorName';
-// TODO front: ajustar cuando haya UI específica.
-import ImageUI from '../../ui/ln/image/default';
-import LinkUI from '../../ui/ln/link/default';
-import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { useSignatureRules } from './hooks/useSignatureRules';
 import { buildSocialItems } from './utils/socialHelpers';
+import { signatureVariants } from './components/styles';
+import BiographyAccordion from './components/BiographyAccordion';
+import AuthorsAndSocialLinks from './components/AuthorsAndSocialLinks';
+import Distributor from './components/Distributor';
+import Divider from '../../ui/ln/divider/default';
 
 function DsSignature({ customFields = {}, globalContent = {} } = {}) {
     const { layout, siteProperties } = useAppContext();
@@ -34,80 +33,41 @@ function DsSignature({ customFields = {}, globalContent = {} } = {}) {
         socialLinks = []
     } = data;
 
-    const shouldPrefix = position === place.Bottom || hasMultipleAuthors;
-    const authorsTextWithPrefix = shouldPrefix
-        ? `Por ${authorsText}`
-        : authorsText;
     const shouldShowOpinionSignatureExtras =
         shouldShowAuthors && !hasMultipleAuthors && isOpinionLayout;
     const shouldShowOpinionSignatureBottomExtras =
         shouldShowOpinionSignatureExtras && position === place.Bottom;
-    // TODO: Despues hacer el extras de signature top para el newsletter algo asi, y renderizar con eso
-    // const shouldShowOpinionSignatureTopExtras =
-    //     shouldShowOpinionSignatureExtras &&
-    //     position === place.Top;
+
     const socialItems = buildSocialItems(socialLinks);
+
     return (
-        <div>
-            {shouldShowDistributor && (
-                <div>
-                    {name === 'LA NACION' || mode === 'custom' ? (
-                        <span>{name}</span>
-                    ) : (
-                        <div>
-                            <LinkUI
-                                href={`${SITE_LANACION}/distributor/${formatDistributorName(
-                                    name
-                                )}/`}
-                                title={name}
-                            >
-                                <span>{name}</span>
-                            </LinkUI>
-                            {subcategory.length > 0 && name === 'EL PAIS' && (
-                                <span>{subcategory}</span>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
-            {shouldShowAuthors && (
-                <div>
-                    {photo && (
-                        <ImageUI src={photo} alt={author?.name || 'Autor'} />
-                    )}
-                    <div>
-                        {authorsText && (
-                            <span
-                                dangerouslySetInnerHTML={{
-                                    __html: authorsTextWithPrefix
-                                }}
-                            />
-                        )}
-                        {role && <span>{role}</span>}
-                    </div>
-                </div>
-            )}
-            {shouldShowOpinionSignatureBottomExtras && (
-                <>
-                    {longBio && <p>{longBio}</p>}
-                    {socialItems.length > 0 && (
-                        <div>
-                            {socialItems.map(({ icon, url, label }) => (
-                                <LinkUI
-                                    key={`${icon}-${url}`}
-                                    href={url}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                    title={`Ir a ${label}`}
-                                    aria-label={`Ir a ${label}`}
-                                >
-                                    <IconSprite name={icon} />
-                                </LinkUI>
-                            ))}
-                        </div>
-                    )}
-                </>
-            )}
+        <div
+            data-tw={position === place.Top ? undefined : true}
+            style={{ display: 'contents' }}
+        >
+            <div className={signatureVariants({ position })}>
+                <Divider />
+                <Distributor
+                    name={name}
+                    mode={mode}
+                    subcategory={subcategory}
+                    shouldShowDistributor={shouldShowDistributor}
+                />
+                <AuthorsAndSocialLinks
+                    photo={photo}
+                    author={author}
+                    authorsText={authorsText}
+                    role={role}
+                    socialItems={socialItems}
+                    shouldShowAuthors={shouldShowAuthors}
+                />
+
+                <BiographyAccordion
+                    text={longBio}
+                    shouldShowBiography={shouldShowOpinionSignatureBottomExtras}
+                />
+                <Divider />
+            </div>
         </div>
     );
 }

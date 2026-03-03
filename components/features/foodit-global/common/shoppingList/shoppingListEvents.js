@@ -5,30 +5,34 @@ export const SHOPPING_LIST_EVENTS = {
     BOOKMARK_UPDATED: 'shopping-list-bookmark-updated'
 };
 
-// TODO: crear función genérica emitBookmarkEvent para evitar duplicación de código
-export const emitBookmarkAdded = (articleId, bookmarkId) => {
-    const event = new CustomEvent(SHOPPING_LIST_EVENTS.BOOKMARK_ADDED, {
+const emitBookmarkEvent = (eventType, articleId, bookmarkId) => {
+    const event = new CustomEvent(eventType, {
         detail: { articleId, bookmarkId },
         bubbles: true
     });
     window.dispatchEvent(event);
 };
 
-export const emitBookmarkRemoved = (articleId, bookmarkId) => {
-    const event = new CustomEvent(SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED, {
-        detail: { articleId, bookmarkId },
-        bubbles: true
-    });
-    window.dispatchEvent(event);
-};
+export const emitBookmarkAdded = (articleId, bookmarkId) =>
+    emitBookmarkEvent(
+        SHOPPING_LIST_EVENTS.BOOKMARK_ADDED,
+        articleId,
+        bookmarkId
+    );
 
-export const emitBookmarkUpdated = (articleId, bookmarkId) => {
-    const event = new CustomEvent(SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED, {
-        detail: { articleId, bookmarkId },
-        bubbles: true
-    });
-    window.dispatchEvent(event);
-};
+export const emitBookmarkRemoved = (articleId, bookmarkId) =>
+    emitBookmarkEvent(
+        SHOPPING_LIST_EVENTS.BOOKMARK_REMOVED,
+        articleId,
+        bookmarkId
+    );
+
+export const emitBookmarkUpdated = (articleId, bookmarkId) =>
+    emitBookmarkEvent(
+        SHOPPING_LIST_EVENTS.BOOKMARK_UPDATED,
+        articleId,
+        bookmarkId
+    );
 
 export const BookmarkCache = {
     _cache: new Map(),

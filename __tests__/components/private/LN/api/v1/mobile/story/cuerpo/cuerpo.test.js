@@ -86,4 +86,62 @@ describe('Test Json Text del cuerpo de la nota', () => {
             ['B1', 'B2']
         ]);
     });
+    it('Debe incluir el rating normalizado en el cuerpo cuando exista numeric_rating', () => {
+        const articleConRating = {
+            subtype: '1',
+            content_elements: [
+                {
+                    type: 'text',
+                    content: 'Texto inicial'
+                },
+                {
+                    type: 'numeric_rating',
+                    numeric_rating: 3.8
+                },
+                {
+                    type: 'text',
+                    content: 'Texto final'
+                }
+            ]
+        };
+
+        const resp = Cuerpo(articleConRating);
+
+        const rating = resp.elements.find(el => el._t === 'numeric_rating');
+
+        expect(rating).toBeDefined();
+        expect(rating.value).toBe(4);
+        expect(rating.units).toBe('stars');
+    });
+
+    it('No debe incluir rating cuando numeric_rating es 0', () => {
+        const article = {
+            subtype: '1',
+            content_elements: [{ numeric_rating: 0 }]
+        };
+
+        const resp = Cuerpo(article);
+
+        const rating = resp.elements.find(el => el._t === 'numeric_rating');
+        expect(rating).toBeUndefined();
+    });
+
+    it('Normaliza numeric_rating menor a 0.5 a 0.5', () => {
+        const articleConRating = {
+            subtype: '1',
+            content_elements: [
+                {
+                    type: 'numeric_rating',
+                    numeric_rating: 0.1
+                }
+            ]
+        };
+
+        const resp = Cuerpo(articleConRating);
+
+        const rating = resp.elements.find(el => el._t === 'numeric_rating');
+
+        expect(rating).toBeDefined();
+        expect(rating.value).toBe(0.5);
+    });
 });

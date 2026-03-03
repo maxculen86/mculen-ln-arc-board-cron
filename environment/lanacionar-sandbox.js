@@ -90,7 +90,7 @@ export default {
     // del lado del servidor. De igual forma, esta API key solo permite consultas GET a la API del buscador
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
-    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    SITIO_SEGURO_REGISTRACION: 'https://qa-suscripciones.lanacion.com.ar',
     API_KEY_MINIWALL: 'e17xv5dvp1wrlqygpvh6bjtb0bhrtfkb7q0m',
     CHECKOUT_URL: 'https://qa-checkout.lanacion.com.ar',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
@@ -119,5 +119,7 @@ export default {
     STRAPI_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHbcELMW4qDVCqDQCL9KWx+AAABaDCCAWQGCSqGSIb3DQEHBqCCAVUwggFRAgEAMIIBSgYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAzO7x2aMCFnhKJ6aOACARCAggEb1kGg9ijCDHvw+6huUStIg8EI/HEC55gpGNKxCg6i4YZD2Yl3g03RDvAKHDyiKU36nE2RbmxQZUP3gAkfcmDJYJUlPVipsvOYY+lYuanLo4chsjlHCYqvu2DYv2Scsz3M3KQwsMCCxNfiHF0R6Bv82NIdouDyQ4udXZjk1dwMxYlKG37WISiEHnd45+03htZHTGVxMFtIV1+gYW4CfFaFSJlaYJQFHUeqLpIWlVUQ0mAbQE79oJ31Zoc81f/kmtpzxcrTrlc1DHvnkgXuu9m4MIImTiRdoLvc8Po54QDYfdv7c6swScdALMOvlcJ2Pf1pQ03+Iq/DzQh/nOZ+zw2h+tNucu3zMnFIU/rX6gWgZM5HclRjty+bRyF+UQ==}',
     GOOGLE_ONE_TAP:
-        '728122563439-mocsbse1177di5ncrjt20tdptu49ocog.apps.googleusercontent.com'
+        '728122563439-mocsbse1177di5ncrjt20tdptu49ocog.apps.googleusercontent.com',
+    LANACION_ECONOMIC_URL:
+        'https://especialess3.lanacion.com.ar/data_jsons/indices'
 };

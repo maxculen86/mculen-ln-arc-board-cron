@@ -77,6 +77,14 @@ export default `
     subheadlines {
         basic
     }
+    content_elements {
+        _id
+        type
+        numeric_rating
+        min
+        max
+        units
+    }
     display_date
     publish_date
     website_url

@@ -6,7 +6,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-0 p-0_l"
+      class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -224,7 +224,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-0 p-0_l"
+      class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -431,58 +431,33 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
               />
             </i>
           </button>
-          <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 l-none p-12 px-8 h-40 --secondary"
-            data-event="LinkClick"
-            data-section="CompartirNotaLN"
-            data-variant="secondary"
-            id="btnGoogle"
-            style="gap: 4px;"
-            title="Seguir a LA NACION en Google"
-            type="button"
-          >
-            <span
-              class="text ln-text tracking--032 capitalize text-12 leading-150 uppercase_l leading-130_l text-8_lg -mt-2_l"
-              style="font-weight: 400;"
-            >
-              + Seguir
-            </span>
-            <i
-              class="icon --icon-18 --inherit"
-            >
-              <mock-icon
-                color="true"
-                name="googleColor"
-              />
-            </i>
-          </button>
-          <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent l-only flex-column-reverse_l --custom"
-            data-event="LinkClick"
-            data-section="CompartirNotaLN"
-            data-variant="custom"
-            id="btnGoogle"
-            style="gap: 4px;"
-            title="Seguir a LA NACION en Google"
-            type="button"
-          >
-            <span
-              class="text ln-text tracking--032 capitalize text-12 leading-150 uppercase_l leading-130_l text-8_lg -mt-2_l"
-              style="font-weight: 400;"
-            >
-              Seguir
-            </span>
-            <i
-              class="icon --icon-24 --inherit"
-            >
-              <mock-icon
-                color="true"
-                name="googleColor"
-              />
-            </i>
-          </button>
         </div>
       </div>
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 px-12 h-40 l-none --secondary"
+        data-event="LinkClick"
+        data-section="CompartirNotaLN"
+        data-variant="secondary"
+        style="gap: 4px;"
+        title="Seguir a LA NACION en Google"
+        type="button"
+      >
+        <span
+          class="text tracking-none text-14 text-neutral-light-900"
+          style="text-transform: none; font-weight: 400;"
+        >
+          Seguir en
+        </span>
+        <i
+          class="icon --inherit"
+          style="width: 26px; height: 26px;"
+        >
+          <mock-icon
+            color="true"
+            name="googleColor"
+          />
+        </i>
+      </button>
     </div>
   </div>
 </div>
@@ -494,7 +469,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-0 p-0_l"
+      class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -701,58 +676,33 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
               />
             </i>
           </button>
-          <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 l-none p-12 px-8 h-40 --secondary"
-            data-event="LinkClick"
-            data-section="CompartirNotaLN"
-            data-variant="secondary"
-            id="btnGoogle"
-            style="gap: 4px;"
-            title="Seguir a LA NACION en Google"
-            type="button"
-          >
-            <span
-              class="text ln-text tracking--032 capitalize text-12 leading-150 uppercase_l leading-130_l text-8_lg -mt-2_l"
-              style="font-weight: 400;"
-            >
-              + Seguir
-            </span>
-            <i
-              class="icon --icon-18 --inherit"
-            >
-              <mock-icon
-                color="true"
-                name="googleColor"
-              />
-            </i>
-          </button>
-          <button
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent l-only flex-column-reverse_l --custom"
-            data-event="LinkClick"
-            data-section="CompartirNotaLN"
-            data-variant="custom"
-            id="btnGoogle"
-            style="gap: 4px;"
-            title="Seguir a LA NACION en Google"
-            type="button"
-          >
-            <span
-              class="text ln-text tracking--032 capitalize text-12 leading-150 uppercase_l leading-130_l text-8_lg -mt-2_l"
-              style="font-weight: 400;"
-            >
-              Seguir
-            </span>
-            <i
-              class="icon --icon-24 --inherit"
-            >
-              <mock-icon
-                color="true"
-                name="googleColor"
-              />
-            </i>
-          </button>
         </div>
       </div>
+      <button
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 px-12 h-40 l-none --secondary"
+        data-event="LinkClick"
+        data-section="CompartirNotaLN"
+        data-variant="secondary"
+        style="gap: 4px;"
+        title="Seguir a LA NACION en Google"
+        type="button"
+      >
+        <span
+          class="text tracking-none text-14 text-neutral-light-900"
+          style="text-transform: none; font-weight: 400;"
+        >
+          Seguir en
+        </span>
+        <i
+          class="icon --inherit"
+          style="width: 26px; height: 26px;"
+        >
+          <mock-icon
+            color="true"
+            name="googleColor"
+          />
+        </i>
+      </button>
     </div>
   </div>
 </div>
@@ -764,7 +714,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-0 p-0_l"
+      class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
@@ -999,7 +949,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
     class="mod-share-container --no-app py-12 mb-16 mb-0_l sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024"
   >
     <div
-      class="mod-share flex mb-0 p-0_l"
+      class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
         class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"

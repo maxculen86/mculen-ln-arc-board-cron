@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
+import { isNonEmptyArray } from '../../../common/utils/dataValidation';
+import getNumericRatingValue from '../../../common/utils/getNumericRatingValue';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
@@ -19,9 +20,15 @@ import {
     getPublishDate
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
 import {
+    NOTICIA,
     LIVEBLOG_EDITORIAL,
     OPINION
 } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    getReviewAuthor,
+    getReviewSchemaData
+} from './helpers/reviewSchemaHelper';
+import { PUBLISHING_PRINCIPLES } from './helpers/reviewSchemaConstants';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -57,58 +64,56 @@ const extracDataFromCredits = (by, config = {}) => {
     return { authors: authors.length ? authors : [] };
 };
 
-const publishingPrinciples = `${SITE_LANACION}/tema/the-trust-project-tid68036/`;
-
 export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
             ...data,
             '@type': 'AdvertiserContentArticle',
-            publishingPrinciples
+            publishingPrinciples: PUBLISHING_PRINCIPLES
         };
 
     switch (trust) {
         case Trust.TRUST_NOTICIA_ORIGINAL:
             return {
                 ...data,
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_NOTICIA:
             return {
                 ...data,
                 '@type': 'NewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_ANALISIS:
             return {
                 ...data,
                 '@type': 'AnalysisNewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_OPINION:
             return {
                 ...data,
                 '@type': 'OpinionNewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_EXPLICATIVO:
             return {
                 ...data,
                 '@type': 'BackgroundNewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_CONTRIBUCION_DE_LA_AUDIENCIA:
             return {
                 ...data,
                 '@type': 'AskPublicNewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         case Trust.TRUST_REVIEW:
             return {
                 ...data,
                 '@type': 'ReviewNewsArticle',
-                publishingPrinciples
+                publishingPrinciples: PUBLISHING_PRINCIPLES
             };
         default:
             return { ...data };
@@ -135,9 +140,12 @@ function SnippetNoticia({
     contextPath,
     deployment
 }) {
+    const { type } = globalContent;
+    const { promo_items: promoItems } = addRelatedImage(globalContent);
+    if (type !== 'story') return null;
+
     const {
         canonical_url: canonicalUrl = '',
-        type,
         headlines,
         content_elements: contentElements = [],
         taxonomy: { primary_section: primarySection = {}, tags },
@@ -154,7 +162,6 @@ function SnippetNoticia({
     } = globalContent;
 
     const { name: distributorName } = distributor;
-    const { promo_items: promoItems } = addRelatedImage(globalContent);
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600x60.jpg'
     );
@@ -175,7 +182,12 @@ function SnippetNoticia({
         PLACEHOLDER
     );
 
+    const headlineResolved =
+        get(headlines, 'basic', '') || 'LA NACION - Noticia';
+    const noteUrl = `${SITE_LANACION}${canonicalUrl}`;
+    const noteUrlWithSlash = addForwardSlash(noteUrl);
     const trust = get(label, 'trust.text', 'Noticia Original');
+    const hasAuthors = isNonEmptyArray(authors);
     const creators = authors.map(a => a.name);
     const articleBody = getFirstParagraph(contentElements);
     const datePublishedISO = createISODate(
@@ -192,13 +204,13 @@ function SnippetNoticia({
     let data = {
         '@context': urlSchema,
         '@type': subtypeConfig.schemaType || 'NewsArticle',
-        headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
+        headline: headlineResolved,
         ...(articleBody && { articleBody }),
-        url: `${SITE_LANACION}${canonicalUrl}`,
+        url: noteUrl,
         dateCreated: createISODate(createdDate),
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
-        mainEntityOfPage: addForwardSlash(`${SITE_LANACION}${canonicalUrl}`),
+        mainEntityOfPage: noteUrlWithSlash,
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
         hasPart: {
@@ -211,7 +223,7 @@ function SnippetNoticia({
             name: 'Acceso Digital Monthly Test',
             productID: 'lanacion.com.ar:acceso_digital'
         },
-        author: !authors.length ? distributorAuthor : authors,
+        author: hasAuthors ? authors : distributorAuthor,
         creator: creators,
         keywords,
         publisher: {
@@ -231,92 +243,29 @@ function SnippetNoticia({
     };
 
     data = getTrustProject(trust)(data)(sponsored);
-
-    SnippetNoticia.propTypes = {
-        siteProperties: PropTypes.shape({
-            title: PropTypes.string,
-            host: PropTypes.string
-        }).isRequired,
-        globalContent: PropTypes.shape({
-            canonical_url: PropTypes.string,
-            type: PropTypes.string,
-            headlines: PropTypes.shape({
-                basic: PropTypes.string
-            }),
-            taxonomy: PropTypes.shape({
-                primary_section: PropTypes.shape({
-                    path: PropTypes.string,
-                    name: PropTypes.string
-                }),
-                seo_keywords: PropTypes.arrayOf(PropTypes.string),
-                tags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        description: PropTypes.string,
-                        slug: PropTypes.string,
-                        text: PropTypes.string
-                    })
-                )
-            }),
-            promo_items: PropTypes.shape({
-                basic: PropTypes.shape({
-                    url: PropTypes.string,
-                    height: PropTypes.number,
-                    width: PropTypes.number,
-                    type: PropTypes.string
-                })
-            }),
-            credits: PropTypes.shape({
-                by: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        authors: PropTypes.arrayOf(
-                            PropTypes.shape({
-                                _id: PropTypes.string,
-                                name: PropTypes.string,
-                                type: PropTypes.string,
-                                slug: PropTypes.string,
-                                url: PropTypes.string
-                            })
-                        )
-                    })
-                )
-            }),
-            content_elements: PropTypes.arrayOf(
-                PropTypes.shape({
-                    type: PropTypes.string
-                })
-            ),
-            created_date: PropTypes.string,
-            first_publish_date: PropTypes.string,
-            last_updated_date: PropTypes.string,
-            display_date: PropTypes.string,
-            content_restrictions: PropTypes.shape({
-                content_code: PropTypes.string
-            }),
-            subtype: PropTypes.string,
-            distributor: PropTypes.shape({
-                name: PropTypes.string
-            }),
-            owner: PropTypes.shape({
-                sponsored: PropTypes.bool
-            }),
-            label: PropTypes.shape({
-                trust: PropTypes.shape({
-                    text: PropTypes.string
-                })
-            })
-        }).isRequired,
-        deployment: PropTypes.func.isRequired,
-        contextPath: PropTypes.string.isRequired
-    };
-
+    const ratingValue = getNumericRatingValue(contentElements);
+    const shouldRenderReviewSchema =
+        subtype === NOTICIA && ratingValue && canonicalUrl;
+    const reviewSchemaData = shouldRenderReviewSchema
+        ? getReviewSchemaData({
+              canonicalUrl,
+              reviewUrl: noteUrlWithSlash,
+              headline: headlineResolved,
+              author: getReviewAuthor({ authors, hasAuthors }),
+              datePublished: datePublishedISO,
+              ratingValue
+          })
+        : null;
     return (
-        (type === 'story' && (
+        <>
             <SnippetRender
                 {...(includeSchemaId && { id: 'Schema_NewsArticle' })}
                 data={data}
             />
-        )) ||
-        null
+            {reviewSchemaData && (
+                <SnippetRender id="Schema_Review" data={reviewSchemaData} />
+            )}
+        </>
     );
 }
 

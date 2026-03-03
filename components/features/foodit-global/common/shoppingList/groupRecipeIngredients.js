@@ -157,18 +157,38 @@ export const groupRecipeIngredients = recipeList => {
     const groupedByName = groupByNormalizedName(allIngredients);
 
     return Object.entries(groupedByName)
-        .map(([name, items]) => {
-            // If we have any quantifiable items, they take precedence
-            const quantifiableItems = items.filter(isAmountQuantifiable);
-            const itemsToFormat =
-                quantifiableItems.length > 0 ? quantifiableItems : items;
+        .flatMap(([name, items]) => {
+            const mandatory = items.filter(item => !item.isOptionalIngredient);
+            const optional = items.filter(item => item.isOptionalIngredient);
 
-            return {
-                name: items.find(item => item.ingredient)?.ingredient || name,
-                displayAmount: formatAmounts(itemsToFormat),
-                fullIngredientNameToCopy: `${formatAmounts(itemsToFormat)} de ${name}`,
-                group: items.find(item => item.group)?.group || 'default'
+            const createEntry = (groupItems, isOpt) => {
+                // If we have any quantifiable items, they take precedence
+                const quantifiableItems =
+                    groupItems?.items?.filter(isAmountQuantifiable);
+                const itemsToFormat =
+                    quantifiableItems?.length > 0
+                        ? quantifiableItems
+                        : groupItems;
+                const ingredientName =
+                    groupItems.find(item => item.ingredient)?.ingredient ||
+                    name;
+                const suffix = isOpt ? ' (opcional)' : '';
+
+                return {
+                    name: ingredientName + suffix,
+                    displayAmount: formatAmounts(itemsToFormat),
+                    fullIngredientNameToCopy: `${formatAmounts(itemsToFormat)} de ${name}${suffix}`,
+                    group:
+                        groupItems.find(item => item.group)?.group || 'default'
+                };
             };
+
+            const result = [];
+            if (mandatory.length > 0)
+                result.push(createEntry(mandatory, false));
+            if (optional.length > 0) result.push(createEntry(optional, true));
+
+            return result;
         })
         .filter(
             (item, index, self) =>

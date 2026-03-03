@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MY_ACCOUNT_URL, SITE_LANACION } from 'fusion:environment';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import get from '../../../../private/common/utils/get';
@@ -56,7 +56,7 @@ export const getMenuUser = () => {
         ...option,
         callback: e => {
             e.preventDefault();
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 event: 'e_linkclick',
                 action: 'menu_usuario',
                 category: 'home_ln10',
@@ -88,7 +88,7 @@ export const getTermicaValues = propertyNames => {
 
 export const sectionsCallback = () => {
     window?.LN?.observable?.publish(OBSERVABLE_EVENTS.TOGGLE_DESPLEGABLE);
-    addEventToDataLayer({
+    addEventToDataLayerV2({
         event: 'e_linkclick',
         action: 'header_logo',
         category: 'home_ln10',
@@ -97,7 +97,7 @@ export const sectionsCallback = () => {
 };
 
 export const logoCallback = () => {
-    addEventToDataLayer({
+    addEventToDataLayerV2({
         event: 'e_linkclick',
         action: 'header_logo',
         category: 'home_ln10',

@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { useHeaderContext } from '../../context';
 import { sectionsCallback } from '../_helper';
-import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 import GetQuerylyScript from '../../../../../private/common/scriptManager/GetQuerylyScript';
 
@@ -43,7 +43,7 @@ export function LeftOptions() {
                 title="Ir al buscador"
                 className={customButtonsClassName}
                 onClick={() =>
-                    addEventToDataLayer({
+                    addEventToDataLayerV2({
                         event: 'e_linkclick',
                         action: 'header_logo',
                         category: 'home_ln10',

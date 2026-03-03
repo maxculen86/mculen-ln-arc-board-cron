@@ -2,22 +2,47 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import getParagraphCount from '../../LN/common/utils/getParagraphCount';
 import get from '../utils/get';
+import { LIVEBLOG_EDITORIAL } from '../utils/subtypes/subtypeHelper';
+
+export const getStickyBanner = (bannerClass, viewport) => {
+    const { contextPath, deployment } = useAppContext();
+    return (
+        <script
+            defer
+            id="getStickyBanner"
+            type="text/javascript"
+            data-banner-classes={bannerClass}
+            data-viewport={viewport}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptBannerRulesSticky.min.js`
+            )}
+        />
+    );
+};
+
+export const getScriptForComercial = () => {
+    const { contextPath, deployment } = useAppContext();
+    return (
+        <script
+            async
+            id="getScriptForComercial"
+            type="text/javascript"
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptBannerRulesComercial.min.js`
+            )}
+        />
+    );
+};
 
 export default {
     nota: {
         desktop: {
             cabezal_dsk: {
-                customScript: ({ sticky }) => {
-                    return (
-                        sticky &&
-                        getStickyBanner('.--cabezal_dsk', '.lay-sidebar')
-                    );
-                }
+                customScript: ({ sticky }) =>
+                    sticky && getStickyBanner('.--cabezal_dsk', '.lay-sidebar')
             },
             comercial_dsk: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             },
             adhesion_dsk: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
@@ -49,18 +74,18 @@ export default {
         },
         mobile: {
             comercial_mob: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             },
             adhesion_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
             caja2_mob: {
-                validateInclusion: ({ subscription }) => subscription !== 'S'
+                validateInclusion: ({ subscription, subtype }) =>
+                    subtype === LIVEBLOG_EDITORIAL || subscription !== 'S'
             },
             caja5_mob: {
-                validateInclusion: ({ subscription }) => subscription !== 'S'
+                validateInclusion: ({ subscription, subtype }) =>
+                    subtype === LIVEBLOG_EDITORIAL || subscription !== 'S'
             },
             caja7_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
@@ -90,9 +115,7 @@ export default {
     acumulado: {
         desktop: {
             comercial_dsk: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             },
             adhesion_dsk: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
@@ -103,9 +126,7 @@ export default {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
             comercial_mob: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             }
         },
         tablet: {
@@ -117,9 +138,7 @@ export default {
     home: {
         desktop: {
             comercial_dsk: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             },
             adhesion_dsk: {
                 validateInclusion: ({ subscription }) => !subscription
@@ -128,12 +147,11 @@ export default {
                 validateInclusion: ({ subscription }) => !subscription
             },
             megatop_dsk: {
-                customScript: () => {
-                    return getStickyBanner(
+                customScript: () =>
+                    getStickyBanner(
                         'div[data-section="pre-apertura"]',
                         '.ln-banner-container.--megatop_dsk.--megatop'
-                    );
-                }
+                    )
             }
         },
         mobile: {
@@ -144,9 +162,7 @@ export default {
                 validateInclusion: ({ subscription }) => !subscription
             },
             comercial_mob: {
-                customScript: () => {
-                    return getScriptForComercial();
-                }
+                customScript: () => getScriptForComercial()
             }
         },
         tablet: {
@@ -158,34 +174,4 @@ export default {
             }
         }
     }
-};
-
-export const getStickyBanner = (bannerClass, viewport) => {
-    const { contextPath, deployment } = useAppContext();
-    return (
-        <script
-            defer
-            id="getStickyBanner"
-            type="text/javascript"
-            data-banner-classes={bannerClass}
-            data-viewport={viewport}
-            src={deployment(
-                `${contextPath}/resources/js/LN/scriptBannerRulesSticky.min.js`
-            )}
-        />
-    );
-};
-
-export const getScriptForComercial = () => {
-    const { contextPath, deployment } = useAppContext();
-    return (
-        <script
-            async
-            id="getScriptForComercial"
-            type="text/javascript"
-            src={deployment(
-                `${contextPath}/resources/js/LN/scriptBannerRulesComercial.min.js`
-            )}
-        />
-    );
 };

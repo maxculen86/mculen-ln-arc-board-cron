@@ -44,10 +44,10 @@ function renderToasts({
         duration,
         customContent: buttonProps?.href ? (
             <Button
-                {...buttonProps}
                 variant="outline"
                 color="secondary"
                 className="w-fit"
+                {...buttonProps}
                 asChild
             >
                 <a href={buttonProps?.href}>{buttonProps?.children}</a>

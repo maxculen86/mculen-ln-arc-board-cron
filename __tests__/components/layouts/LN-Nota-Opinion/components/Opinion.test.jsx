@@ -7,6 +7,8 @@ jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
 
+jest.mock('fusion:consumer', () => component => component);
+
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
 }));

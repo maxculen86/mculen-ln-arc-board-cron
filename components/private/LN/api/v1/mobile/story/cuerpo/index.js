@@ -12,7 +12,7 @@ import Gallery from './elements/gallery';
 import CustomEmbed from './elements/custom_embed';
 import StoryBody from '../../../../common/elements/story/cuerpo/index';
 import Table from './elements/table';
-
+import Numeric_rating from './elements/numeric_rating';
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {
         Text,
@@ -27,7 +27,8 @@ const cuerpoIndex = dataNota => {
         VideoJW,
         Gallery,
         CustomEmbed,
-        Table
+        Table,
+        Numeric_rating
     };
     return StoryBody(dataNota, storyBodyElements);
 };

@@ -1,0 +1,2 @@
+echo "✔️ Validando formato del commit..."
+npx commitlint --edit "$1"

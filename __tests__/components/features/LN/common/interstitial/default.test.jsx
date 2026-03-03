@@ -203,7 +203,8 @@ describe('Interstitial Container', () => {
             );
 
             const wrapper = container.firstChild;
-            expect(wrapper).toHaveClass('mx-auto');
+            const inner = wrapper?.firstChild;
+            expect(inner).toHaveClass('mx-auto');
         });
     });
 

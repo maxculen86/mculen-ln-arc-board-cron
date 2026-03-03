@@ -2,6 +2,7 @@ const DATADOG_DOMAIN = 'datadoghq.com';
 const MASK_USER_INPUT = 'mask-user-input';
 export default {
     IS_DEV: false,
+    IS_STAGING: 'true',
     API_ENV: 'prod',
     RESIZER_URL: 'https://resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
@@ -121,5 +122,7 @@ export default {
     CLL_HTMLFREE_DOMAIN: 'https://canchallena.lanacion.com.ar/especiales',
     STRAPI_API_URL: 'https://admin-lanacion.lnapps.com.ar',
     STRAPI_API_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEJu5rfF1t9Qsx5MQOhB4ETAAABaDCCAWQGCSqGSIb3DQEHBqCCAVUwggFRAgEAMIIBSgYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyC/1rJAVZXY+K6n5ECARCAggEbJEft25Hxrl2+UtGW4speBYB4T7NeO165MIn/kJc3T3vZr3I9SHJyjPBseYZRUYStoQPf2XVQCsudo8eB7k8Tvl1huKLpTYEacAk5q6fwxpX1fvhbdq+Go0czkOyp16Fpnq+lek2XYW/2xDg+Mzkpg/Gt3aHk5CRNKgtJcen8w5cSzeVKLuKOUga+PenGCtRzxXrsI2r4dhYlvEdRASWFfEDwjuwWYD+dlbFfuUWhzVTTyCharut/ZAOksudjXE9OEO0B1Z4O9x+HOSBFGe/9Lbaw3+iOxOap/kn+F7H/LRlnlXLPOqgG3tNmFbArHuyb8OunWpRkjKB4OuNK8KVHGVKAAkWpquSThd9Hp519o75NlnWVVVjuMXBs6A==}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEJu5rfF1t9Qsx5MQOhB4ETAAABaDCCAWQGCSqGSIb3DQEHBqCCAVUwggFRAgEAMIIBSgYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyC/1rJAVZXY+K6n5ECARCAggEbJEft25Hxrl2+UtGW4speBYB4T7NeO165MIn/kJc3T3vZr3I9SHJyjPBseYZRUYStoQPf2XVQCsudo8eB7k8Tvl1huKLpTYEacAk5q6fwxpX1fvhbdq+Go0czkOyp16Fpnq+lek2XYW/2xDg+Mzkpg/Gt3aHk5CRNKgtJcen8w5cSzeVKLuKOUga+PenGCtRzxXrsI2r4dhYlvEdRASWFfEDwjuwWYD+dlbFfuUWhzVTTyCharut/ZAOksudjXE9OEO0B1Z4O9x+HOSBFGe/9Lbaw3+iOxOap/kn+F7H/LRlnlXLPOqgG3tNmFbArHuyb8OunWpRkjKB4OuNK8KVHGVKAAkWpquSThd9Hp519o75NlnWVVVjuMXBs6A==}',
+    LANACION_ECONOMIC_URL:
+        'https://especialess3.lanacion.com.ar/data_jsons/indices'
 };

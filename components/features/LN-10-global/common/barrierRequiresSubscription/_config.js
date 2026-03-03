@@ -5,7 +5,7 @@ export default {
     button: {
         label: 'suscribirme',
         style: '--tertiary',
-        href: `${SITIO_SEGURO_REGISTRACION}/suscribirme?cv=670&fc=744&callback=`
+        href: `${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?cv=670&fc=744&callback=`
     },
     unLogged: {
         text: '¿Ya sos suscriptor?',

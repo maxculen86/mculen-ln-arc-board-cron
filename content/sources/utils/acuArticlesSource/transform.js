@@ -76,15 +76,25 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
                 .filter(art => (shouldNotFilter ? art : !isNotRecommend(art)))
                 .slice(0, Number(originalSize) + 1);
         }
-        // De todos los Content Elements, solo traigo el primero que sea parrafo
-        // (para no mandar mas info innecesaria)
+        // De todos los Content Elements, solo traigo:
+        // - el primer parrafo (fallback de bajada)
+        // - el primer numeric_rating (power up de calificacion)
+        // para no mandar mas info innecesaria.
         respData.content_elements = respData.content_elements.map(story => {
             const storyContentElements = get(story, 'content_elements', []);
+            const firstText = storyContentElements.find(e => e.type === 'text');
+            const numericRating = storyContentElements.find(
+                e => e.type === 'numeric_rating'
+            );
+            const compactContentElements = [firstText, numericRating].filter(
+                Boolean
+            );
+
             return {
                 ...story,
-                content_elements: [
-                    storyContentElements.find(e => e.type === 'text') || {}
-                ]
+                content_elements: compactContentElements.length
+                    ? compactContentElements
+                    : [{}]
             };
         });
 

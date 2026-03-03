@@ -5,7 +5,7 @@ import { getInitialState } from '../../_helper';
 import { toggleBellColor } from './_helper';
 import { useHeaderContext } from '../../../context';
 import useAuthManager from '../../../../../../private/common/auth/hooks/useAuthManager';
-import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 function BellButton() {
     const { negative, intersectingSentinel } = useHeaderContext();
@@ -16,7 +16,7 @@ function BellButton() {
     const handleBellClick = () => {
         setShowTooltip(false);
         localStorage.setItem('showTooltip', false);
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'trackEvent',
             category: 'campanita',
             action: 'campanita',
@@ -24,7 +24,7 @@ function BellButton() {
         });
     };
     const handleNotificationsClick = notification => {
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'action_notification',
             button: notification.buttonLabel || 'N/A',
             title:
@@ -35,7 +35,7 @@ function BellButton() {
         });
     };
     const handleMessageButtonClick = message => {
-        addEventToDataLayer({
+        addEventToDataLayerV2({
             event: 'action_notification',
             button: message.buttonLabel || 'N/A',
             title: (message.title && `mensaje-${message.title}`) || 'N/A',
@@ -60,7 +60,7 @@ function BellButton() {
             'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.',
         tooltipText: 'Aquí encontrarás todas nuestras notificaciones',
         loginOnClick: () => {
-            addEventToDataLayer({
+            addEventToDataLayerV2({
                 category: 'campanita',
                 label: 'Iniciar Sesión',
                 action: 'click',

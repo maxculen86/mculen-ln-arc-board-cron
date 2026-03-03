@@ -2,6 +2,7 @@ import weather from './weather';
 import lottery from './lottery';
 import holidays from './holidays';
 import horoscope from './horoscope';
+import indices from './indices';
 
 export default `{
     children {
@@ -15,6 +16,7 @@ export default `{
         ${lottery}
         ${holidays}
         ${horoscope}
+        ${indices}
     }
     metaData {
         completeDay

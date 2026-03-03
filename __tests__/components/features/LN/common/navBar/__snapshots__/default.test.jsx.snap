@@ -5,27 +5,27 @@ exports[`components - features - LN - common - navBar - default should match sna
   data-tw="true"
 >
   <nav
-    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+    class="fixed bottom-0 left-0 z-105 px-responsive py-10 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
     <ul
       class="flex justify-between w-full max-w-400"
     >
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
@@ -41,27 +41,27 @@ exports[`components - features - LN - common - navBar - default should match sna
   data-tw="true"
 >
   <nav
-    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+    class="fixed bottom-0 left-0 z-105 px-responsive py-10 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
     <ul
       class="flex justify-between w-full max-w-400"
     >
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
@@ -77,27 +77,27 @@ exports[`components - features - LN - common - navBar - default should match sna
   data-tw="true"
 >
   <nav
-    class="fixed bottom-0 left-0 z-20 px-responsive py-12 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
+    class="fixed bottom-0 left-0 z-105 px-responsive py-10 w-full flex justify-center xl:hidden border-t border-muted bg-primary-foreground --no-app"
   >
     <ul
       class="flex justify-between w-full max-w-400"
     >
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"
         />
       </li>
       <li
-        class="flex min-w-58 justify-center"
+        class="flex min-w-58 justify-center h-40"
       >
         <div
           data-testid="navbar-item"

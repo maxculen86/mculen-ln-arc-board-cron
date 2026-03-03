@@ -1,4 +1,6 @@
 import { getDynamicSlotIdsByDevice } from '../utils/getDynamicSlotIdsByDevice';
+import { LIVEBLOG_EDITORIAL } from '../../utils/subtypes/subtypeHelper';
+import { getLiveblogDynamicSlotIdsByDevice } from '../liveblogEditorial/config';
 
 /**
  * Resolves dynamic banners automatically inserted in the body of the note.
@@ -10,7 +12,10 @@ export const resolveDynamicBodyBanners = ({
     bannersInBody,
     subtype = ''
 }) => {
-    const dynamicSlotIds = getDynamicSlotIdsByDevice(device, subtype);
+    const dynamicSlotIds =
+        subtype === LIVEBLOG_EDITORIAL
+            ? getLiveblogDynamicSlotIdsByDevice(device)
+            : getDynamicSlotIdsByDevice(device, subtype);
 
     const bannersInDom = bannersToLoadFromDOM
         .map(banner => banner.opt_div)
@@ -77,7 +82,9 @@ export const resolvePageBuilderGrillaBanners = ({
 };
 
 const isDynamicBodyBanner = (bannerConfig, slotGroup) =>
-    bannerConfig.type === 'LN/DS-Body' && slotGroup === 'nota';
+    ['LN/DS-Body', 'LN-nota/liveblogEditorialBody'].includes(
+        bannerConfig.type
+    ) && slotGroup === 'nota';
 
 const isPageBuilderBodyBanner = (bannerConfig, slotGroup) =>
     (bannerConfig.type === 'LN-nota/cuerpo' ||

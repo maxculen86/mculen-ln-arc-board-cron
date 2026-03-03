@@ -151,7 +151,7 @@ export const masInformacion = [
     commonPropsFooter('¿Cómo anunciar?', 'https://www.lanacion.in/'),
     commonPropsFooter(
         'Suscribirse al diario impreso',
-        `${SITIO_SEGURO_REGISTRACION}/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/`
+        `${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/`
     )
 ];
 

@@ -8,6 +8,7 @@ describe('components - feature - LN-nota - signature - withoutSignature', () => 
         render(
             <WithoutSignature
                 audioButton={audioButton}
+                showListenButton={true}
                 showWithoutSignature={true}
             />
         );

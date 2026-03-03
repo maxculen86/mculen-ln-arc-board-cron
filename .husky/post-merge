@@ -1,0 +1,11 @@
+echo "🔄 Validando dependencias después del merge..."
+
+if ! npx check-dependencies; then
+  echo "📦 Instalando dependencias..."
+  npm install
+fi
+
+if `npx git-branch-is -qr '(master$|develop$|/origin$)'`; then
+  echo "⚙️ Ejecutando build después de merge..."
+  npm run build
+fi

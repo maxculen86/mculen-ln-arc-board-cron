@@ -4,10 +4,20 @@ import bannerConfigType, {
     resolvePageBuilderGrillaBanners
 } from '../../../../../../components/private/common/banners/helpers/loadBannersSSRHelper';
 import { getDynamicSlotIdsByDevice } from '../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice';
-import { OPINION } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import { getLiveblogDynamicSlotIdsByDevice } from '../../../../../../components/private/common/banners/liveblogEditorial/config';
+import {
+    LIVEBLOG_EDITORIAL,
+    OPINION
+} from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock(
     '../../../../../../components/private/common/banners/utils/getDynamicSlotIdsByDevice'
+);
+jest.mock(
+    '../../../../../../components/private/common/banners/liveblogEditorial/config',
+    () => ({
+        getLiveblogDynamicSlotIdsByDevice: jest.fn()
+    })
 );
 
 describe('Banner resolvers', () => {
@@ -70,6 +80,32 @@ describe('Banner resolvers', () => {
                 'cinturon3_dsk',
                 'cinturon4_dsk'
             ]);
+        });
+
+        it('uses liveblog slot resolver when subtype is liveblog editorial', () => {
+            getLiveblogDynamicSlotIdsByDevice.mockReturnValue([
+                'middle_1_dsk',
+                'middle_2_dsk'
+            ]);
+
+            const bannersInBody = [];
+
+            resolveDynamicBodyBanners({
+                device: 'desktop',
+                subtype: LIVEBLOG_EDITORIAL,
+                bannersToLoadFromDOM: [
+                    { opt_div: 'middle_1_dsk' },
+                    { opt_div: 'middle_2_dsk' },
+                    { opt_div: 'cinturon1_dsk' }
+                ],
+                bannersInBody
+            });
+
+            expect(getLiveblogDynamicSlotIdsByDevice).toHaveBeenCalledWith(
+                'desktop'
+            );
+            expect(getDynamicSlotIdsByDevice).not.toHaveBeenCalled();
+            expect(bannersInBody).toEqual(['middle_1_dsk', 'middle_2_dsk']);
         });
 
         it('does nothing when there are no dynamic slots for the device', () => {
@@ -164,6 +200,26 @@ describe('bannerConfigType (dispatcher)', () => {
         });
 
         expect(bannersInBody).toEqual(['cinturon1_dsk']);
+    });
+
+    it('executes resolveDynamicBodyBanners when liveblog body type matches', () => {
+        getLiveblogDynamicSlotIdsByDevice.mockReturnValue(['middle_1_dsk']);
+
+        const bannersInBody = [];
+
+        bannerConfigType({
+            bannerConfig: { type: 'LN-nota/liveblogEditorialBody' },
+            slotGroup: 'nota',
+            device: 'desktop',
+            subtype: LIVEBLOG_EDITORIAL,
+            bannersToLoadFromDOM: [{ opt_div: 'middle_1_dsk' }],
+            bannersInBody
+        });
+
+        expect(getLiveblogDynamicSlotIdsByDevice).toHaveBeenCalledWith(
+            'desktop'
+        );
+        expect(bannersInBody).toEqual(['middle_1_dsk']);
     });
 
     it('executes resolvePageBuilderBodyBanners when note body type matches', () => {

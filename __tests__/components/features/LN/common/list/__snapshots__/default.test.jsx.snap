@@ -34,80 +34,88 @@ exports[`List component Ordered list numbers applies aria-hidden to number divs 
 `;
 
 exports[`List component Ordered list numbers renders numbered items for ordered lists with correct structure 1`] = `
-<ol
-  class="ds-custom-list-body gap-16"
-  direction="vertical"
-  size="16"
+<div
+  class="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635"
 >
-  <li>
-    <div
-      aria-hidden="true"
-      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
-    >
-      1
-    </div>
-    <span
-      class="font-tertiary"
-    >
-      First item
-    </span>
-  </li>
-  <li>
-    <div
-      aria-hidden="true"
-      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
-    >
-      2
-    </div>
-    <span
-      class="font-tertiary"
-    >
-      Second item
-    </span>
-  </li>
-  <li>
-    <div
-      aria-hidden="true"
-      class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
-    >
-      3
-    </div>
-    <span
-      class="font-tertiary"
-    >
-      Third item
-    </span>
-  </li>
-</ol>
+  <ol
+    class="ds-custom-list-body gap-16"
+    direction="vertical"
+    size="16"
+  >
+    <li>
+      <div
+        aria-hidden="true"
+        class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+      >
+        1
+      </div>
+      <span
+        class="font-tertiary"
+      >
+        First item
+      </span>
+    </li>
+    <li>
+      <div
+        aria-hidden="true"
+        class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+      >
+        2
+      </div>
+      <span
+        class="font-tertiary"
+      >
+        Second item
+      </span>
+    </li>
+    <li>
+      <div
+        aria-hidden="true"
+        class="text-22 md:text-18 leading-[130%] text-black-foreground bg-black-default p-8 font-primary mr-8 tabular-nums"
+      >
+        3
+      </div>
+      <span
+        class="font-tertiary"
+      >
+        Third item
+      </span>
+    </li>
+  </ol>
+</div>
 `;
 
 exports[`List component Unordered list bullets renders bullet icons for unordered lists with correct structure 1`] = `
-<ul
-  class="ds-custom-list-body gap-16"
-  direction="vertical"
-  size="16"
+<div
+  class="col-span-8 md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-5 max-w-550 md:max-w-635"
 >
-  <li>
-    <mock-ds-common-icon
-      name="bullet-filled"
-      size="24"
-    />
-    <span
-      class="font-tertiary"
-    >
-      Item with bullet
-    </span>
-  </li>
-  <li>
-    <mock-ds-common-icon
-      name="bullet-filled"
-      size="24"
-    />
-    <span
-      class="font-tertiary"
-    >
-      Another item
-    </span>
-  </li>
-</ul>
+  <ul
+    class="ds-custom-list-body gap-16"
+    direction="vertical"
+    size="16"
+  >
+    <li>
+      <mock-ds-common-icon
+        name="bullet-filled"
+        size="24"
+      />
+      <span
+        class="font-tertiary"
+      >
+        Item with bullet
+      </span>
+    </li>
+    <li>
+      <mock-ds-common-icon
+        name="bullet-filled"
+        size="24"
+      />
+      <span
+        class="font-tertiary"
+      >
+        Another item
+      </span>
+    </li>
+  </ul>
+</div>
 `;

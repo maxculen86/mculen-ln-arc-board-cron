@@ -47,7 +47,7 @@ export function SubscribeButton() {
             size={{ sm: 32, md: 40 }}
             className={subscribeButtonClassName}
             onClick={() => {
-                window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                window.location.href = `${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${window.btoa(
                     window.location.href
                 )}`;
                 addEventToDataLayer({

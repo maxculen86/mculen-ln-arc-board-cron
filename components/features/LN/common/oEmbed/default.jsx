@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import ensureIframeLazyLoading from './helpers/ensureIframeLazyLoading';
+import { WrapperBody } from '../wrapperBody/default';
 
 // TODO para front: realizar ajustes de estilos según diseño
 function OEmbed({ data = {} }) {
@@ -8,12 +9,15 @@ function OEmbed({ data = {} }) {
     const { html = '' } = rawOembed;
 
     return (
-        <div
-            dangerouslySetInnerHTML={ensureIframeLazyLoading({
-                subtype,
-                tagHtml: html
-            })}
-        />
+        <WrapperBody>
+            <div
+                className="flex items-center justify-center min-w-0 overflow-hidden"
+                dangerouslySetInnerHTML={ensureIframeLazyLoading({
+                    subtype,
+                    tagHtml: html
+                })}
+            />
+        </WrapperBody>
     );
 }
 

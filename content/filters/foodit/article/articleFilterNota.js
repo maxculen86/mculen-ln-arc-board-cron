@@ -168,6 +168,9 @@ const labels = `
         info_nutricional{
             text
         }
+        leyenda_imagenes_ia{
+            text
+        }
     }
 `;
 
@@ -269,6 +272,7 @@ const customPowerUps = `
                 includeInShoppingList
                 ingredient
                 isMainIngredient
+                isOptionalIngredient
                 unit
                 text
                 value

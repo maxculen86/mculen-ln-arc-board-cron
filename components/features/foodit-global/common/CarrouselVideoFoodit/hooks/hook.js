@@ -16,7 +16,9 @@ export function useObserverMobAndTab({ videoRef, setIsPlaying }) {
     const observer = useRef(null);
 
     useEffect(() => {
-        if (window.innerWidth > 1279) return;
+        if (window.innerWidth > 1279) {
+            return undefined;
+        }
 
         observer.current = new IntersectionObserver(
             entries => {
@@ -40,7 +42,6 @@ export function useObserverMobAndTab({ videoRef, setIsPlaying }) {
             observer?.current?.observe(videoElement);
         }
 
-        // eslint-disable-next-line consistent-return
         return () => {
             if (observer?.current && videoElement) {
                 observer?.current?.unobserve(videoElement);

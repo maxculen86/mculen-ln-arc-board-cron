@@ -10,7 +10,7 @@ import { cx } from '@ln/ds-cva';
  * @param {ImageProps} props
  * @returns {React.ReactElement}
  */
-function Image({ className, classnames, ...props }) {
+function Image({ className, classnames, objectFit = 'contain', ...props }) {
     const imageRef = useRef(null);
 
     // TODO: implementar estado en la lib @ln/ds-common-image, tenemos esto provisorio ya que no esta ejecutando el onError correctamente cuando rehidrata el componente.
@@ -26,7 +26,7 @@ function Image({ className, classnames, ...props }) {
     return (
         <CommonImage
             ref={imageRef}
-            objectFit="contain"
+            objectFit={objectFit}
             classnames={{
                 image: cx(
                     'h-full w-full',

@@ -10,20 +10,23 @@ function SummaryButton({
     closeIa,
     shouldShowSummary
 }) {
+    // TODO: Alternar icono correcto, sparkling (desactivado) sparkling-filled (activado) cuando se active el resumen en el nuevo cuerpo.
     if (!shouldShowSummary) return null;
     return (
         <>
             <Button
                 id="btnsummary"
-                isIconOnly
                 variant="outline"
+                size="custom"
+                className="h-40 w-40 md:w-fit border border-secondary-default rounded-4 px-8 py-12 md:px-12"
                 color="secondary"
+                textTransform="none"
                 title="Leer resumen"
+                iconLeft={<Icon name="sparkling" />}
                 onClick={openIa}
             >
-                <Icon name="sparkling" />
+                <span className="max-md:hidden text-label-sm">Resumen</span>
             </Button>
-            <span>Resumen</span>
             <IaSummaryContainer
                 isOpen={isOpen}
                 summaryData={summaryData}

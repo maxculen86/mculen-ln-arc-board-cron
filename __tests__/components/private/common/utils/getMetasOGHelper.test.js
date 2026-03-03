@@ -309,9 +309,9 @@ describe('Case return getData', () => {
             description: '',
             displayDate: '2021-01-08T15:24:00.940Z',
             image: {
-                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800',
+                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=675&quality=85&smart=true',
                 width: '1200',
-                height: '800',
+                height: '675',
                 alt: '',
                 type: ''
             },
@@ -426,9 +426,9 @@ describe('Case return getData', () => {
             description: '',
             displayDate: '2021-01-08T15:24:00.940Z',
             image: {
-                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=800',
+                url: 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg?width=1200&height=675&quality=85&smart=true',
                 width: '1200',
-                height: '800',
+                height: '675',
                 alt: '',
                 type: ''
             },
@@ -484,9 +484,9 @@ describe('Case return getImageProps', () => {
             caption: 'image description'
         };
         const output = {
-            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?width=1200&height=1200',
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?width=1200&height=675&quality=85&smart=true',
             width: '1200',
-            height: '1200',
+            height: '675',
             alt: 'image description',
             type: 'image/png'
         };

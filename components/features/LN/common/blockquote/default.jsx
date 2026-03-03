@@ -1,5 +1,6 @@
 import React from 'react';
 import BlockQuoteUI from '../../../ui/ln/blockQuote/default';
+import { WrapperBody } from '../wrapperBody/default';
 
 function BlockQuote({ data }) {
     const { subtype, content_elements: contentElements = [] } = data ?? {};
@@ -7,7 +8,11 @@ function BlockQuote({ data }) {
 
     if (subtype !== 'blockquote') return null;
 
-    return <BlockQuoteUI content={content} />;
+    return (
+        <WrapperBody>
+            <BlockQuoteUI content={content} />
+        </WrapperBody>
+    );
 }
 
 BlockQuote.arcType = 'blockquote';

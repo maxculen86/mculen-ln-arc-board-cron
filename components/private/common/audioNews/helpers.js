@@ -171,45 +171,49 @@ export const setupBwReproductionTracking = ({
     playerRef,
     globalContent,
     globalContentConfig,
-    setContentAvailable
+    setContentAvailable,
+    signal
 }) => {
     const player = playerRef.current;
-    if (!player) return () => {};
+    if (!player) return;
 
     const context = { globalContent, globalContentConfig, player };
 
-    const onContentAvailable = () => {
-        setContentAvailable?.(true);
-        resetCurrentProgress(player);
-    };
-
-    const onPlaybackPlaying = () => {
-        resetCurrentProgress(player);
-    };
-
-    const onTimeUpdated = () => {
-        const ensured = ensureProgress(player);
-        if (!ensured) return;
-        const { key, progress } = ensured;
-        progressByAudioMode[key] = emitPercentage(player, progress, context);
-    };
-
-    const onPlaybackEnded = () => {
-        const ensured = ensureProgress(player);
-        if (!ensured) return;
-        const { key, progress } = ensured;
-        progressByAudioMode[key] = emitCompletion(progress, context);
-    };
-
-    player.addEventListener('ContentAvailable', onContentAvailable);
-    player.addEventListener('PlaybackPlaying', onPlaybackPlaying);
-    player.addEventListener('CurrentTimeUpdated', onTimeUpdated);
-    player.addEventListener('PlaybackEnded', onPlaybackEnded);
-
-    return () => {
-        player.removeEventListener('ContentAvailable', onContentAvailable);
-        player.removeEventListener('PlaybackPlaying', onPlaybackPlaying);
-        player.removeEventListener('CurrentTimeUpdated', onTimeUpdated);
-        player.removeEventListener('PlaybackEnded', onPlaybackEnded);
-    };
+    player.addEventListener(
+        'ContentAvailable',
+        () => {
+            setContentAvailable?.(true);
+            resetCurrentProgress(player);
+        },
+        { signal }
+    );
+    player.addEventListener(
+        'PlaybackPlaying',
+        () => resetCurrentProgress(player),
+        { signal }
+    );
+    player.addEventListener(
+        'CurrentTimeUpdated',
+        () => {
+            const ensured = ensureProgress(player);
+            if (!ensured) return;
+            const { key, progress } = ensured;
+            progressByAudioMode[key] = emitPercentage(
+                player,
+                progress,
+                context
+            );
+        },
+        { signal }
+    );
+    player.addEventListener(
+        'PlaybackEnded',
+        () => {
+            const ensured = ensureProgress(player);
+            if (!ensured) return;
+            const { key, progress } = ensured;
+            progressByAudioMode[key] = emitCompletion(progress, context);
+        },
+        { signal }
+    );
 };

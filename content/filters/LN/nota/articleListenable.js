@@ -665,8 +665,14 @@ export default `
     content_elements {
         _id
         type
+        numeric_rating
+        min
+        max
+        units
         url
-        content
+        content,
+        numeric_rating,
+        units,
         additional_properties {
             iptc_source
         }

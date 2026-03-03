@@ -115,6 +115,12 @@ describe('Components - features - LN - DS-Toolbar - hooks - useBookmark', () => 
             });
 
             expect(renderToasts).toHaveBeenCalledWith({
+                buttonProps: {
+                    className:
+                        'ds-custom-buttom-toast bg-neutral-1 text-black-default hover:bg-neutral-1-lighten border-black-default w-fit',
+                    color: 'custom',
+                    variant: 'outline'
+                },
                 title: 'Guardado',
                 description: 'Nota guardada correctamente',
                 color: 'success'
