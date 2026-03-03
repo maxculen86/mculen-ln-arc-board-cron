@@ -1,6 +1,7 @@
 import { LANACION_ECONOMIC_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
 import { handleHttpError } from '../../../../../components/private/common/utils/handleHttpError';
+import { getEconomicIndicesMetaData, VALID_SERVICE_ITEMS } from './_helpers';
 
 const ENDPOINTS = {
     merval: `${LANACION_ECONOMIC_URL}/acciones_merval.json`,
@@ -47,7 +48,13 @@ const economicIndicesRequest = async ({ queryData } = {}) => {
     }
 };
 
-const resolve = ({ response = {} }) => response;
+const resolve = ({ response = {} }) => {
+    const { serviceItem } = response;
+    return {
+        ...response,
+        metaData: getEconomicIndicesMetaData(serviceItem)
+    };
+};
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(
@@ -57,7 +64,8 @@ const reject = ({ error, uri, arcSite }) => {
     );
 };
 
-const getTemplates = serviceItem => serviceItem && 'detalle-indices';
+const getTemplates = serviceItem =>
+    VALID_SERVICE_ITEMS.includes(serviceItem) && 'detalle-indices';
 
 export default {
     getUri,

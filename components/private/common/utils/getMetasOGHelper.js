@@ -13,6 +13,7 @@ import {
     getPublishDate
 } from './schema/liveBlog/generatePostObject';
 import removeExtraSpaces from './removeExtraSpaces';
+import { getEconomicIndicesMetaData } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -27,8 +28,17 @@ export const getDescription = ({
     subheadlinesBasic,
     section,
     descriptionDefault,
-    metaDescription
+    metaDescription,
+    isEconomicIndices,
+    metaDescriptionIndices,
+    requestUri
 }) => {
+    if (isEconomicIndices && metaDescriptionIndices)
+        return metaDescriptionIndices;
+
+    if (requestUri?.startsWith('/economia/indices'))
+        return getEconomicIndicesMetaData('default').description;
+
     if (section === 'home') return descriptionDefault;
 
     if (isArticle) return subheadlinesBasic || '';
@@ -162,13 +172,14 @@ export const getTwitterLink = author => {
 export const getData = ({
     siteProperties,
     metaValue,
-    globalContent,
+    globalContent = {},
     globalContentConfig,
     contextPath,
     deployment,
     section,
     metaDescription,
-    layout
+    layout,
+    requestUri
 }) => {
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
@@ -199,14 +210,32 @@ export const getData = ({
 
     const contentUrl = canonicalUrl || _id;
 
-    const url = layout === 'LN-mapa-del-sitio' ? '/mapa-del-sitio' : contentUrl;
+    const isEconomicIndicesPage =
+        get(globalContent, 'serviceType', '') === 'detalle-indices' ||
+        requestUri?.startsWith('/economia/indices');
+
+    const getPageUrl = () => {
+        if (layout === 'LN-mapa-del-sitio') return '/mapa-del-sitio';
+        if (isEconomicIndicesPage) return requestUri?.split('?')[0];
+        return contentUrl;
+    };
+
+    const url = getPageUrl();
 
     const description = getDescription({
         isArticle,
         subheadlinesBasic,
         section,
         descriptionDefault,
-        metaDescription
+        metaDescription,
+        isEconomicIndices:
+            get(globalContent, 'serviceType', '') === 'detalle-indices',
+        metaDescriptionIndices: get(
+            globalContent,
+            'metaData.description',
+            descriptionDefault
+        ),
+        requestUri
     });
 
     const authors = get(globalContent, 'credits.by', []);

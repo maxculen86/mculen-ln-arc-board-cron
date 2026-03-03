@@ -4,6 +4,11 @@ import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import MetasOG from '../private/common/metaTags/metasOG';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import Schemas from '../private/common/scriptManager/schemas';
+import EconomicIndicesSchema, {
+    isEconomicIndicesHome,
+    isEconomicIndicesPage,
+    EconomicIndicesDetailSchema
+} from '../private/common/scriptManager/economicIndicesSchema';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
@@ -80,7 +85,9 @@ function Default(props) {
         display_date: displayDate,
         acumuladoGeneral: { metas } = {},
         content_elements: contentElements,
-        site = {}
+        site = {},
+        serviceItem,
+        dataService
     } = globalContent;
 
     const {
@@ -134,7 +141,8 @@ function Default(props) {
         nodeType,
         name,
         arcSite,
-        requestUri
+        requestUri,
+        globalContent
     );
 
     return (
@@ -256,7 +264,17 @@ function Default(props) {
                     outputType={outputType}
                     nodeType={_nodeType}
                 />
-                <Schemas section={_nodeType} />
+                {isEconomicIndicesHome(requestUri) && <EconomicIndicesSchema />}
+                {isEconomicIndicesPage(requestUri) &&
+                    !isEconomicIndicesHome(requestUri) && (
+                        <EconomicIndicesDetailSchema
+                            serviceItem={serviceItem}
+                            dataService={dataService}
+                        />
+                    )}
+                {!isEconomicIndicesPage(requestUri) && (
+                    <Schemas section={_nodeType} />
+                )}
                 <Favicon />
                 <link
                     rel="manifest"
