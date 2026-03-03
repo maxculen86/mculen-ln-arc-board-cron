@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Category } from '@ln/foodit-ui-category';
 import { Text } from '@ln/common-ui-text';
 import { cocinaAMedidaMock } from '../../../../features/foodit-global/common/subcategorias/helpers';
@@ -30,7 +29,7 @@ export function CategoryCustom({
                             <Category
                                 classnames={{
                                     container: classNames,
-                                    top: 'max-w-96'
+                                    top: 'max-w-78'
                                 }}
                                 key={title}
                                 container={container}
@@ -78,7 +77,7 @@ export function CategoryCustom({
                                 <Category
                                     classnames={{
                                         container: classNames,
-                                        top: 'max-w-96'
+                                        top: 'max-w-78'
                                     }}
                                     key={title}
                                     container={container}
@@ -107,10 +106,3 @@ export function CategoryCustom({
         </>
     );
 }
-
-CategoryCustom.propTypes = {
-    assetsPath: PropTypes.func.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    applyPageBasedPriority: PropTypes.func.isRequired,
-    trackSubcategoryCard: PropTypes.func.isRequired
-};

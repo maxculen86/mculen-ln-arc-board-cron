@@ -6,7 +6,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
     class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg pt-24 pt-0_lg gap-16 gap-24_md gap-32_lg"
   >
     <article
-      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200  p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      class="border border-all border-thin w-100 h-100 p-12_lg col-span-4 col-span-3_md border-light-200 col-span-4_lg p-8 min-h-100 min-h-80_lg"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
@@ -21,7 +21,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
         title="Ir a Aprendé en la cocina"
       >
         <div
-          class="w-100 max-w-96"
+          class="w-100 max-w-78"
         >
           <div
             class="foodit-placeholder w-100 ratio-3-2"
@@ -37,10 +37,10 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           </div>
         </div>
         <div
-          class="-mt-4 pl-4_lg text-start_lg text-center"
+          class="text-14 -mt-4 pl-4_lg text-start_lg text-center"
         >
           <span
-            class="text roboto roboto-bold text-16"
+            class="text roboto roboto-bold"
           >
             Aprendé en la cocina
           </span>
@@ -48,7 +48,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
       </a>
     </article>
     <article
-      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200  p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      class="border border-all border-thin w-100 h-100 p-12_lg col-span-4 col-span-3_md border-light-200 col-span-4_lg p-8 min-h-100 min-h-80_lg"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
@@ -63,7 +63,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
         title="Ir a Cociná fácil y rápido"
       >
         <div
-          class="w-100 max-w-96"
+          class="w-100 max-w-78"
         >
           <div
             class="foodit-placeholder w-100 ratio-3-2"
@@ -79,10 +79,10 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           </div>
         </div>
         <div
-          class="-mt-4 pl-4_lg text-start_lg text-center"
+          class="text-14 -mt-4 pl-4_lg text-start_lg text-center"
         >
           <span
-            class="text roboto roboto-bold text-16"
+            class="text roboto roboto-bold"
           >
             Cociná fácil y rápido
           </span>
@@ -90,7 +90,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
       </a>
     </article>
     <article
-      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200  p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      class="border border-all border-thin w-100 h-100 p-12_lg col-span-4 col-span-3_md border-light-200 col-span-4_lg p-8 min-h-100 min-h-80_lg"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
@@ -105,7 +105,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
         title="Ir a Cociná a tu medida"
       >
         <div
-          class="w-100 max-w-96"
+          class="w-100 max-w-78"
         >
           <div
             class="foodit-placeholder w-100 ratio-3-2"
@@ -121,10 +121,10 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           </div>
         </div>
         <div
-          class="-mt-4 pl-4_lg text-start_lg text-center"
+          class="text-14 -mt-4 pl-4_lg text-start_lg text-center"
         >
           <span
-            class="text roboto roboto-bold text-16"
+            class="text roboto roboto-bold"
           >
             Cociná a tu medida
           </span>
@@ -132,7 +132,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
       </a>
     </article>
     <article
-      class="border border-all border-thin w-100 h-100 col-span-4 col-span-3_md border-light-200  p-12 col-span-4_lg min-h-134 min-h-120_lg"
+      class="border border-all border-thin w-100 h-100 p-12_lg col-span-4 col-span-3_md border-light-200 col-span-4_lg p-8 min-h-100 min-h-80_lg"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular text-inherit flex flex-row_lg h-100_lg ai-center flex-column"
@@ -147,7 +147,7 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
         title="Ir a Todas las recetas"
       >
         <div
-          class="w-100 max-w-96"
+          class="w-100 max-w-78"
         >
           <div
             class="foodit-placeholder w-100 ratio-3-2"
@@ -163,10 +163,10 @@ exports[`EjesHome integrated snapshot with real links 1`] = `
           </div>
         </div>
         <div
-          class="-mt-4 pl-4_lg text-start_lg text-center"
+          class="text-14 -mt-4 pl-4_lg text-start_lg text-center"
         >
           <span
-            class="text roboto roboto-bold text-16"
+            class="text roboto roboto-bold"
           >
             Todas las recetas
           </span>
