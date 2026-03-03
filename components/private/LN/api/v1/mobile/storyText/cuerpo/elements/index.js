@@ -15,7 +15,6 @@ const getStoryElementBySubtype = elements => {
         Html,
         Button
     } = elements;
-
     return {
         1: {
             text: Text,

@@ -32,7 +32,8 @@ describe('Test-CardLiveblog when size is M', () => {
                 'videoData',
                 'videoYouTube',
                 'videos',
-                'volanta'
+                'volanta',
+                'rating'
             ].sort()
         );
     });

@@ -14,9 +14,12 @@ import LiveBlogBody from '../../../layouts/LN-Nota-Liveblog_Editorial/components
 import BuildBody from '../body/_children/_buildBody';
 import BaseBodyWrapper from '../body/_children/BaseBodyWrapper';
 import { registerScrollTrigger } from '../../LN-common/hooks/useScrollDispatcher';
+import LiveblogDynamicBanner from '../../../private/common/banners/liveblogEditorial/LiveblogDynamicBanner';
+import { getLiveblogDynamicBannersByCardPosition } from '../../../private/common/banners/liveblogEditorial/config';
 
 function BodyLiveblogEditorial() {
-    const { globalContent, outputType, _id } = useAppContext();
+    const { globalContent, outputType, _id, globalContentConfig } =
+        useAppContext();
     const { content_elements: contentElements = [] } = globalContent;
 
     const preLiveblog = getContentBeforeMarkers(
@@ -81,11 +84,16 @@ function BodyLiveblogEditorial() {
                 </LiveBlogBody.Pre>
                 <LiveBlogBody.Posts>
                     {posts.map((grupo, index) => {
+                        const cardPosition = index + 1;
                         const showTopDivider = shouldShowTopDivider(
                             index,
                             posts
                         );
                         const showBottomDivider = !grupo.isPinned;
+                        const dynamicBanners =
+                            getLiveblogDynamicBannersByCardPosition(
+                                cardPosition
+                            );
                         const postData = getPostRenderData(grupo);
                         const { visibleItems } = postData;
                         return (
@@ -106,6 +114,22 @@ function BodyLiveblogEditorial() {
                                     />
                                 </LiveBlogBody.Post>
                                 {showBottomDivider && <LiveBlogBody.Divider />}
+                                {dynamicBanners.map(
+                                    ({ device, slotId, showForSubscriber }) => (
+                                        <LiveblogDynamicBanner
+                                            key={`liveblog-dynamic-banner-${device}-${slotId}-${cardPosition}`}
+                                            device={device}
+                                            slotId={slotId}
+                                            showForSubscriber={
+                                                showForSubscriber
+                                            }
+                                            globalContent={globalContent}
+                                            globalContentConfig={
+                                                globalContentConfig
+                                            }
+                                        />
+                                    )
+                                )}
                             </Fragment>
                         );
                     })}

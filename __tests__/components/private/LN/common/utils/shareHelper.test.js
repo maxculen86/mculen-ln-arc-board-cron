@@ -289,5 +289,35 @@ describe('private - LN - common - utils - shareHelper', () => {
                 'https://www.lanacion.com.ar/el-mundo/los-mercados-asiaticos-y-europeos-operan-a-la-baja-tras-la-suba-de-aranceles-anunciada-por-donald-nid03042025/'
             );
         });
+
+        it('should use execCommand fallback when clipboard API is unavailable (e.g. HTTP)', () => {
+            Object.assign(navigator, { clipboard: undefined });
+
+            const mockTextarea = {
+                value: '',
+                style: {},
+                select: jest.fn()
+            };
+            jest.spyOn(document, 'createElement').mockReturnValue(mockTextarea);
+            jest.spyOn(document.body, 'appendChild').mockImplementation(
+                () => {}
+            );
+            jest.spyOn(document.body, 'removeChild').mockImplementation(
+                () => {}
+            );
+            document.execCommand = jest.fn().mockReturnValue(true);
+
+            copyToClipboard('https://www.lanacion.com.ar', '/nota/123/');
+
+            expect(document.createElement).toHaveBeenCalledWith('textarea');
+            expect(mockTextarea.value).toBe(
+                'https://www.lanacion.com.ar/nota/123/'
+            );
+            expect(mockTextarea.select).toHaveBeenCalled();
+            expect(document.execCommand).toHaveBeenCalledWith('copy');
+            expect(document.body.removeChild).toHaveBeenCalledWith(
+                mockTextarea
+            );
+        });
     });
 });

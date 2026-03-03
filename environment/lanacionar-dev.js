@@ -9,7 +9,7 @@ export default {
     API_ENV: 'sandbox',
     LANACIONAR_URLASSETS: urlSandboxArcPublishing,
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',
-    SITE_LANACION: 'https://sandbox.lanacion.com.ar',
+    SITE_LANACION: 'https://develop.lanacion.com.ar',
     SITE_RECETAS: urlSandboxArcPublishing,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:

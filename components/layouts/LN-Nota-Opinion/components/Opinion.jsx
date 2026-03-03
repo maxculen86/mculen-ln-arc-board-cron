@@ -8,6 +8,7 @@ import formatAuthorList from '../helpers/formatAuthorList';
 import { getMediaData } from '../../_helpers/mediaHelper';
 import getMediaFigCaption from '../helpers/getMediaFigCaption';
 import { WrapperBody } from '../../../features/LN/common/wrapperBody/default';
+import DateAndReadingTime from '../../../features/LN/common/dateAndReadingTime/default';
 
 function Opinion({ children }) {
     const { globalContent, siteProperties } = useAppContext();
@@ -24,7 +25,7 @@ function Opinion({ children }) {
             {/* ---- APERTURA ---- */}
             {/* Componentes con tailwind - DS */}
             <div data-tw className="contents">
-                <Opinion.Opening className="w-full flex flex-col gap-40">
+                <Opinion.Opening className="w-full flex flex-col gap-40 mb-16">
                     <div className="flex flex-col items-center gap-40">
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
@@ -56,8 +57,9 @@ function Opinion({ children }) {
                 {/* ---- Wrapper con grilla y ancho maximo ---- */}
                 <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full justify-items-center gap-x-16 md:gap-x-24 xl:gap-x-32 gap-y-40">
                     {/* ---- PRE-CUERPO ---- */}
-                    <WrapperBody>
+                    <WrapperBody id="cuerpo__nota">
                         <Opinion.PreBody>
+                            <DateAndReadingTime globalContent={globalContent} />
                             {children[1]}
                             <PreBody.Breadcrumb
                                 globalContent={globalContent}
@@ -77,7 +79,7 @@ function Opinion({ children }) {
             </div>
             <div className="w-100 flex">
                 {/* ---- BOTTOM ---- */}
-                <div className="w-100 sidebar__main">{children[4]}</div>
+                <div className="sidebar__main">{children[4]}</div>
                 {/* ---- BOTTOM-TERCERA ---- */}
                 <div className="sidebar__aside">{children[5]}</div>
             </div>

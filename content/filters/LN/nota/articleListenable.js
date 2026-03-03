@@ -670,7 +670,9 @@ export default `
         max
         units
         url
-        content
+        content,
+        numeric_rating,
+        units,
         additional_properties {
             iptc_source
         }

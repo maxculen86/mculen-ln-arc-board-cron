@@ -2,7 +2,6 @@ import { shareVideoConfig } from '../../../../../components/features/LN-common/s
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import {
     copyToClipboard,
-    getTwitterTitle,
     popUpCompartirMailTo,
     popUpCompartirNotaFB,
     popUpCompartirNotaTW,

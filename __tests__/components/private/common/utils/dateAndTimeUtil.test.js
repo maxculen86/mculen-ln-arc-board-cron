@@ -6,7 +6,6 @@ import dateAndTimeUtil, {
     datesDiffInDays,
     getArgentinaYear,
     getArgentinaDateMonthYear,
-    getUpdateDateMoreYears,
     getFormattedStringDate
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 

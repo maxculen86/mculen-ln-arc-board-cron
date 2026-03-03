@@ -1,172 +1,238 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import DsSignature from '../../../../../components/features/LN/DS-Signature/default';
 
-jest.mock('fusion:context', () => {
-    const useAppContext = jest.fn();
+jest.mock('fusion:context', () => ({
+    __esModule: true,
+    default: jest.fn(comp => comp),
+    useAppContext: jest.fn()
+}));
+
+jest.mock('fusion:prop-types', () => {
+    const tag = jest.fn(() => validator);
+    const validator = Object.assign(jest.fn(), { isRequired: jest.fn(), tag });
     return {
-        __esModule: true,
-        default: Component => Component,
-        useAppContext
+        shape: jest.fn(() => validator),
+        oneOf: jest.fn(() => validator)
     };
 });
 
-jest.mock('fusion:environment', () => ({
-    SITE_LANACION: 'https://www.lanacion.com.ar'
+jest.mock(
+    '../../../../../components/features/LN/DS-Signature/hooks/useSignatureRules',
+    () => ({ useSignatureRules: jest.fn() })
+);
+
+jest.mock(
+    '../../../../../components/features/LN/DS-Signature/utils/socialHelpers',
+    () => ({ buildSocialItems: jest.fn(() => []) })
+);
+
+jest.mock(
+    '../../../../../components/features/LN/DS-Signature/components/Distributor',
+    () => jest.fn(() => <div data-testid="distributor" />)
+);
+
+jest.mock(
+    '../../../../../components/features/LN/DS-Signature/components/AuthorsAndSocialLinks',
+    () => jest.fn(() => <div data-testid="authors-and-social-links" />)
+);
+
+jest.mock(
+    '../../../../../components/features/LN/DS-Signature/components/BiographyAccordion',
+    () => jest.fn(() => <div data-testid="biography-accordion" />)
+);
+
+jest.mock('../../../../../components/features/ui/ln/divider/default', () =>
+    jest.fn(() => <hr data-testid="divider" />)
+);
+
+jest.mock('../../../../../components/private/common/utils/firmaHelper', () => ({
+    place: { Top: 'Top', Bottom: 'Bottom' }
 }));
 
-jest.mock(
-    '../../../../../components/features/ui/ln/image/default',
-    () =>
-        ({ src = '', alt = '' }) => (
-            <img data-testid="signature-photo" src={src} alt={alt} />
-        )
-);
-
-jest.mock(
-    '../../../../../components/features/ui/ln/link/default',
-    () =>
-        ({ children, href, ...props }) => (
-            <a href={href} {...props}>
-                {children}
-            </a>
-        )
-);
-
-jest.mock(
-    '../../../../../components/features/private-global/common/iconSprite/IconSprite',
-    () =>
-        ({ name }) => <i data-testid={`icon-${name}`} />
-);
-
 const { useAppContext } = require('fusion:context');
+const {
+    useSignatureRules
+} = require('../../../../../components/features/LN/DS-Signature/hooks/useSignatureRules');
+const {
+    buildSocialItems
+} = require('../../../../../components/features/LN/DS-Signature/utils/socialHelpers');
+const Distributor = require('../../../../../components/features/LN/DS-Signature/components/Distributor');
+const AuthorsAndSocialLinks = require('../../../../../components/features/LN/DS-Signature/components/AuthorsAndSocialLinks');
+const BiographyAccordion = require('../../../../../components/features/LN/DS-Signature/components/BiographyAccordion');
 
-describe('DS-Signature', () => {
+const defaultData = {
+    distributor: { name: 'REUTERS', mode: 'default', subcategory: [] },
+    authorsBlob: {
+        author: { name: 'Juan Pérez' },
+        authorsText: 'Juan Pérez',
+        hasMultipleAuthors: false
+    },
+    photo: 'https://example.com/photo.jpg',
+    role: 'Periodista',
+    position: 'Bottom',
+    longBio: 'Texto de la bio',
+    socialLinks: []
+};
+
+describe('components - features - LN - DS-Signature - DsSignature', () => {
     beforeEach(() => {
         jest.clearAllMocks();
+
         useAppContext.mockReturnValue({
-            layout: 'LN-nota-storytelling-v2',
+            layout: 'NotaOpinion',
             siteProperties: {
-                layoutsName: {
-                    StoryTellingV2: 'LN-nota-storytelling-v2',
-                    NotaOpinion: 'LN-Nota-Opinion'
-                }
+                layoutsName: { NotaOpinion: 'NotaOpinion' }
             }
         });
+
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: true,
+                shouldShowAuthors: true,
+                shouldRender: true
+            },
+            data: defaultData
+        });
+
+        buildSocialItems.mockReturnValue([]);
     });
 
-    it('should render storytelling-v2 signature without photo and with date, time, reading time and author links', () => {
-        const globalContent = {
-            display_date: '2026-01-15T12:30:00.000Z',
-            withFirmaDistributor: true,
-            distributor: {
-                name: 'Agencia Test',
-                mode: 'custom',
-                subcategory: '',
-                category: ''
+    it('returns null when shouldRender is false', () => {
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: false,
+                shouldShowAuthors: false,
+                shouldRender: false
             },
-            credits: {
-                by: [
-                    {
-                        _id: 'juan-perez-123',
-                        type: 'author',
-                        name: 'Juan Pérez',
-                        additional_properties: {
-                            original: {
-                                author_type: '',
-                                byline: 'Juan Pérez',
-                                image: 'https://cdn.test/juan.jpg',
-                                role: 'Editor',
-                                gplus: 'Editor'
-                            }
-                        }
-                    }
-                ]
-            },
-            subheadlines: { basic: 'Subtitulo de prueba' },
-            headlines: { basic: 'Titulo de prueba' },
-            planning: { story_length: { word_count_actual: 400 } },
-            subtype: 'story'
-        };
-
-        render(
-            <DsSignature
-                customFields={{ position: 'Top' }}
-                globalContent={globalContent}
-                ignoreDistributor
-                showDateTimeAndReadingTime
-                showPhoto={false}
-            />
+            data: defaultData
+        });
+        const { container } = render(
+            <DsSignature customFields={{}} globalContent={{}} />
         );
+        expect(container.firstChild).toBeNull();
+    });
 
-        expect(screen.queryByTestId('signature-photo')).not.toBeInTheDocument();
-        expect(screen.queryByText('Agencia Test')).not.toBeInTheDocument();
+    it('renders Distributor, AuthorsAndSocialLinks and Dividers when shouldRender is true', () => {
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(screen.getByTestId('distributor')).toBeInTheDocument();
         expect(
-            screen.getByRole('link', { name: 'Juan Pérez' })
-        ).toHaveAttribute('href', '/autor/juan-perez-123/');
-        expect(
-            screen.getByText(/\d{1,2} de [a-z]+ de \d{4}/i)
+            screen.getByTestId('authors-and-social-links')
         ).toBeInTheDocument();
-        expect(screen.getByText(/\d{2}:\d{2}/)).toBeInTheDocument();
-        expect(screen.getByText(/minutos? de lectura/i)).toBeInTheDocument();
+        expect(screen.getAllByTestId('divider')).toHaveLength(2);
     });
 
-    it('should render opinion bottom extras with photo, role, bio and socials', () => {
+    it('passes shouldShowDistributor to Distributor', () => {
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(Distributor).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldShowDistributor: true }),
+            {}
+        );
+    });
+
+    it('passes shouldShowAuthors to AuthorsAndSocialLinks', () => {
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(AuthorsAndSocialLinks).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldShowAuthors: true }),
+            {}
+        );
+    });
+
+    it('passes shouldShowBiography=true to BiographyAccordion when opinion layout + bottom + single author', () => {
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(BiographyAccordion).toHaveBeenCalledWith(
+            expect.objectContaining({
+                text: 'Texto de la bio',
+                shouldShowBiography: true
+            }),
+            {}
+        );
+    });
+
+    it('passes shouldShowBiography=false when not opinion layout', () => {
         useAppContext.mockReturnValue({
-            layout: 'LN-Nota-Opinion',
+            layout: 'OtroLayout',
             siteProperties: {
-                layoutsName: {
-                    StoryTellingV2: 'LN-nota-storytelling-v2',
-                    NotaOpinion: 'LN-Nota-Opinion'
+                layoutsName: { NotaOpinion: 'NotaOpinion' }
+            }
+        });
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(BiographyAccordion).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldShowBiography: false }),
+            {}
+        );
+    });
+
+    it('passes shouldShowBiography=false when position is Top', () => {
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: true,
+                shouldShowAuthors: true,
+                shouldRender: true
+            },
+            data: { ...defaultData, position: 'Top' }
+        });
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(BiographyAccordion).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldShowBiography: false }),
+            {}
+        );
+    });
+
+    it('passes shouldShowBiography=false when hasMultipleAuthors is true', () => {
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: true,
+                shouldShowAuthors: true,
+                shouldRender: true
+            },
+            data: {
+                ...defaultData,
+                authorsBlob: {
+                    ...defaultData.authorsBlob,
+                    hasMultipleAuthors: true
                 }
             }
         });
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(BiographyAccordion).toHaveBeenCalledWith(
+            expect.objectContaining({ shouldShowBiography: false }),
+            {}
+        );
+    });
 
-        const globalContent = {
-            distributor: {
-                name: 'LA NACION',
-                mode: '',
-                subcategory: '',
-                category: ''
+    it('passes distributor data to Distributor component', () => {
+        render(<DsSignature customFields={{}} globalContent={{}} />);
+        expect(Distributor).toHaveBeenCalledWith(
+            expect.objectContaining({
+                name: 'REUTERS',
+                mode: 'default',
+                subcategory: []
+            }),
+            {}
+        );
+    });
+
+    it('sets data-tw attribute when position is not Top', () => {
+        const { container } = render(
+            <DsSignature customFields={{}} globalContent={{}} />
+        );
+        expect(container.firstChild).toHaveAttribute('data-tw');
+    });
+
+    it('does not set data-tw attribute when position is Top', () => {
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: true,
+                shouldShowAuthors: true,
+                shouldRender: true
             },
-            credits: {
-                by: [
-                    {
-                        _id: 'ana-gomez-456',
-                        type: 'author',
-                        name: 'Ana Gómez',
-                        social_links: [{ site: 'twitter', url: 'anagomez' }],
-                        additional_properties: {
-                            original: {
-                                author_type: '',
-                                byline: 'Ana Gómez',
-                                image: 'https://cdn.test/ana.jpg',
-                                role: 'Editora',
-                                gplus: 'Columnista',
-                                longBio: 'Bio larga de Ana'
-                            }
-                        }
-                    }
-                ]
-            }
-        };
-
-        render(
-            <DsSignature
-                customFields={{ position: 'Bottom' }}
-                globalContent={globalContent}
-            />
+            data: { ...defaultData, position: 'Top' }
+        });
+        const { container } = render(
+            <DsSignature customFields={{}} globalContent={{}} />
         );
-
-        expect(screen.getByTestId('signature-photo')).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: 'Ana Gómez' })).toHaveAttribute(
-            'href',
-            '/autor/ana-gomez-456/'
-        );
-        expect(screen.getByText('Columnista')).toBeInTheDocument();
-        expect(screen.getByText('Bio larga de Ana')).toBeInTheDocument();
-        expect(
-            screen.getByRole('link', { name: 'Ir a @anagomez' })
-        ).toHaveAttribute('href', 'https://twitter.com/anagomez/');
+        expect(container.firstChild).not.toHaveAttribute('data-tw');
     });
 });

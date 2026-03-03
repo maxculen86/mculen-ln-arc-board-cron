@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useDisclosure } from '@ln/hooks';
@@ -102,7 +103,7 @@ function Share() {
 
     const secondGroupProps = {
         requestUri,
-        host: config.host,
+        host: SITE_LANACION || config.host,
         title,
         mobileTitle,
         isNegative,

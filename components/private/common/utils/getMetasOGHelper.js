@@ -5,7 +5,6 @@ import get from './get';
 import transformISODate from './transformISODate';
 import { isEmptyObject } from './isEmptyObject';
 import { isEmptyString } from './dataValidation';
-import { adjustImageDimensions } from '../../LN/common/utils/adjustImageDimensions';
 import getImageAltText from '../../../features/foodit-global/common/utils/getImageAltText';
 import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import {
@@ -79,6 +78,7 @@ export const getImageProps = (
     const DEFAULTS = {
         height: '630',
         width: '1200',
+        ogHeight: '675',
         quality: '85',
         mimeType: 'image/png',
         alt: 'Placeholder de LA NACION'
@@ -105,29 +105,19 @@ export const getImageProps = (
         const {
             type,
             url,
-            originalSizes: {
-                height = promoItemsBasic.height,
-                width = promoItemsBasic.width
-            } = {},
             embed = {},
             additional_properties: { mime_type: mimeType = '' } = {}
         } = promoItemsBasic;
 
-        const { newHeight } = adjustImageDimensions(
-            width,
-            height,
-            DEFAULTS.width
-        );
-
         if (type === 'image' && isEmptyObject(embed)) {
             let newUrl;
             newUrl = modifyUrlParam(url, 'width', DEFAULTS.width);
-            newUrl = modifyUrlParam(newUrl, 'height', newHeight);
+            newUrl = modifyUrlParam(newUrl, 'height', DEFAULTS.ogHeight);
             newUrl = modifyUrlParam(newUrl, 'quality', DEFAULTS.quality);
             newUrl = modifyUrlParam(newUrl, 'smart', true);
             return {
                 url: newUrl,
-                height: String(newHeight),
+                height: DEFAULTS.ogHeight,
                 width: DEFAULTS.width,
                 type: mimeType,
                 alt: getImageAltText(promoItemsBasic)
