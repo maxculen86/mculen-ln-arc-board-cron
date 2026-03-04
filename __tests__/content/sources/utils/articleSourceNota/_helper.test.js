@@ -524,6 +524,54 @@ describe('Tests articleSourceNota - _helper', () => {
             );
         });
 
+        it('should not replace anchor tags with hyphenated domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://masterassist-trip.axa-assistance.com.ar/">adolescencia</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://masterassist-trip.axa-assistance.com.ar/">adolescencia</a>'
+            );
+        });
+
+        it('should not replace anchor tags with amp entities and hyphenated domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://masterassist-trip.axa-assistance.com.ar/?utm_source=LaNacion&amp;utm_medium=referral">adolescencia</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://masterassist-trip.axa-assistance.com.ar/?utm_source=LaNacion&amp;utm_medium=referral">adolescencia</a>'
+            );
+        });
+
+        it('should not replace anchor tags with amp entities and simple domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://example.com/?utm_source=LaNacion&amp;utm_medium=referral">primeros</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://example.com/?utm_source=LaNacion&amp;utm_medium=referral">primeros</a>'
+            );
+        });
+
         it('should not replace when no malformed anchor tags present', () => {
             const textTypeElement = {
                 content: 'This is plain text without any anchor tags.'
