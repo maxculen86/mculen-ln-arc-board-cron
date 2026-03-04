@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
-
 .com-logo {
     .--apertura & {
         margin-bottom: $spacing;
@@ -18,6 +17,11 @@
         &.--sm {
             width: px(44);
             height: px(21);
+        }
+    }
+    &.a-fondo-logo-blanco {
+        &.--sm {
+            height: px(35);
         }
     }
 

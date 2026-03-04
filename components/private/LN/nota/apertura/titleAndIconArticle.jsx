@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { Badge } from '@ln/contenidos-ui-badge';
 import get from '../../../common/utils/get';
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
@@ -8,13 +9,12 @@ import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
 import { VIDEO, LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import { LIVE } from '../../../common/badge/types';
-import { Badge } from '@ln/contenidos-ui-badge';
 import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
 
-const TitleAndIconArticle = ({
+function TitleAndIconArticle({
     customFields: { prefix },
     globalContent: {
-        taxonomy: { sections },
+        taxonomy: { sections, tags = [] },
         headlines,
         label,
         distributor = { name: 'LA NACION' },
@@ -23,7 +23,7 @@ const TitleAndIconArticle = ({
         display_date: displayDate
     },
     layout
-}) => {
+}) {
     const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
@@ -44,6 +44,7 @@ const TitleAndIconArticle = ({
                 advertiser={advertiser}
                 subtype={subtype}
                 tooltip={tooltip}
+                tags={tags}
             />
             {subtype === LIVEBLOG && coverageEndTime && (
                 <div className="badge-container">
@@ -59,7 +60,7 @@ const TitleAndIconArticle = ({
             />
         </>
     );
-};
+}
 
 TitleAndIconArticle.propTypes = {
     customFields: PropTypes.shape({

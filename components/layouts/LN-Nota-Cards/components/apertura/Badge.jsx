@@ -7,11 +7,11 @@ import ComLogo from '../../../../private/common/com-logo';
 import { wrapperVariants } from './styles';
 
 function CardsBadge({ badge, badgeText, isSubscriber, logoData }) {
-    if (!badge) return null;
+    if (!badge && !logoData) return null;
 
     const { path, logoName } = logoData || {};
 
-    const isLongText = badgeText.length > 20;
+    const isLongText = (badgeText || '').length > 20;
 
     const sections = [
         logoData && {
@@ -27,7 +27,7 @@ function CardsBadge({ badge, badgeText, isSubscriber, logoData }) {
         badgeText && {
             key: 'badgeText',
             component: (
-                <Text className="prumo prumo-slab prumo-bold leading-[130%] text-18 uppercase">
+                <Text className="prumo prumo-slab prumo-bold leading-[100%] text-18 uppercase">
                     {badgeText}
                 </Text>
             )

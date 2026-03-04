@@ -6,7 +6,8 @@ import LinkUI from '../../../../../features/ui/ln/link/default';
 import get from '../../../../../private/common/utils/get';
 import {
     dictionaryAlt,
-    getSectionLogo
+    getSectionLogo,
+    getAFondoLogo
 } from '../../../../../private/common/utils/sectionUtils';
 import getTargetAndRelIfExternal from '../../../../../private/common/utils/getTargetAndRelIfExternal';
 import { appendPageReferrerParam } from '../../../../../private/LN/common/utils/pageReferrer';
@@ -14,8 +15,10 @@ import { appendPageReferrerParam } from '../../../../../private/LN/common/utils/
 function OpeningAddons({ globalContent = {}, layout = '' }) {
     const { deployment, contextPath } = useAppContext();
     const sections = get(globalContent, 'taxonomy.sections', []);
+    const tags = get(globalContent, 'taxonomy.tags', []);
     const distributorName = get(globalContent, 'distributor.name', 'LA NACION');
-    const logoData = getSectionLogo(sections, layout, distributorName) || {};
+    const aFondoLogo = getAFondoLogo(tags, layout);
+    const logoData = aFondoLogo || getSectionLogo(sections, layout, distributorName) || {};
     const {
         logoName = '',
         path = '',

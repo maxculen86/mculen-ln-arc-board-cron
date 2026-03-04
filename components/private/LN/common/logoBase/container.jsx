@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
     dictionaryAlt,
-    getSectionLogo
+    getSectionLogo,
+    getAFondoLogo
 } from '../../../common/utils/sectionUtils';
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
@@ -14,12 +14,15 @@ function LogoBaseContainer({
     sections,
     layout,
     distributor,
-    sponsored,
-    advertiser,
-    tooltip
+    sponsored = false,
+    advertiser = '',
+    tooltip = '',
+    tags = []
 }) {
     const { name: distributorName } = distributor || {};
-    const sectionData = getSectionLogo(sections, layout, distributorName);
+    const aFondoLogo = getAFondoLogo(tags, layout);
+    const sectionData =
+        aFondoLogo || getSectionLogo(sections, layout, distributorName);
 
     const { path, logoName, color, isExternal } = sectionData || {
         path: null,
@@ -65,28 +68,5 @@ function LogoBaseContainer({
         />
     );
 }
-
-LogoBaseContainer.propTypes = {
-    sections: PropTypes.arrayOf(
-        PropTypes.shape({
-            path: PropTypes.string.isRequired,
-            _id: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    distributor: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired
-    }).isRequired,
-    layout: PropTypes.string.isRequired,
-    sponsored: PropTypes.bool,
-    advertiser: PropTypes.string,
-    tooltip: PropTypes.string
-};
-
-LogoBaseContainer.defaultProps = {
-    sponsored: false,
-    advertiser: '',
-    tooltip: ''
-};
 
 export default LogoBaseContainer;

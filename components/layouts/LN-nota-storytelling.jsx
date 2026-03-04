@@ -5,7 +5,10 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import GlobalProvider from '../private/common/context/globalContext';
-import { getSectionLogo } from '../private/common/utils/sectionUtils';
+import {
+    getSectionLogo,
+    getAFondoLogo
+} from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
@@ -20,7 +23,7 @@ function lnNotaStorytelling({
     outputType,
     layout,
     globalContent: {
-        taxonomy: { sections },
+        taxonomy: { sections, tags = [] },
         distributor: { name }
     },
     globalContent
@@ -30,7 +33,8 @@ function lnNotaStorytelling({
         get(globalContent, 'promo_items.video_jw', null)
     );
     const bannerMegatop = children[0];
-    const logo = getSectionLogo(sections, layout, name);
+    const aFondoLogo = getAFondoLogo(tags, layout);
+    const logo = aFondoLogo || getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
 
     const classNameWrapper = classNames(
