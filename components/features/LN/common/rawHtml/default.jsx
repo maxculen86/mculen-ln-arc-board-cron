@@ -12,7 +12,10 @@ function RawHtml(props) {
     if (hasIframeWithPYM(content)) {
         return (
             <WrapperBody>
-                <HtmlPym data={data} />
+                <HtmlPym
+                    data={data}
+                    className="flex items-center justify-center min-w-0 overflow-hidden"
+                />
             </WrapperBody>
         );
     }
@@ -20,6 +23,7 @@ function RawHtml(props) {
     return (
         <WrapperBody>
             <div
+                className="flex items-center justify-center min-w-0 overflow-hidden"
                 id={`anexo-${idMedia}`}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: content }}

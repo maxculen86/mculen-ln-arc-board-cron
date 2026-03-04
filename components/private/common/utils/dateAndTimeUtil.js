@@ -117,7 +117,7 @@ export function formatYearMontDayDate(originalDate) {
 
 /**
  * helper para formatear fecha y tiempo
- * @param {string} date
+ * @param {string} displayDate
  */
 export default function dateAndTimeUtil(displayDate) {
     return {

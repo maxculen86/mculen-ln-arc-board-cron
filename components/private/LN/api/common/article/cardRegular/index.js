@@ -4,6 +4,7 @@ import { getArticleVideos, getYouTubeVideoLink } from '../elements/video/index';
 import { getArticleTag } from '../elements/tag/index';
 import { CardBasic } from '../cardBasic';
 import { isNoteListenableForApps } from '../../../../../../../content/sources/utils/audioNews/helper';
+import getRating from '../../utils/getRating';
 
 export const cardRegular = article => {
     const hideDescriptionValue = get(
@@ -21,7 +22,8 @@ export const cardRegular = article => {
         video: getArticleVideos(article),
         videos: getArticleVideos(article, true),
         videoYouTube: getYouTubeVideoLink(article),
-        isListenable: isNoteListenableForApps(article)
+        isListenable: isNoteListenableForApps(article),
+        rating: getRating(article)
     };
 };
 

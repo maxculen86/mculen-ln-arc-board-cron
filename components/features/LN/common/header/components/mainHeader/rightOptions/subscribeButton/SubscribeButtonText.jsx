@@ -6,7 +6,7 @@ function SubscribeButtonText({
     termicaValues = {},
     isActiveTermicaSubscribe = false
 }) {
-    const { position } = useHeaderContext();
+    const { position, isHome } = useHeaderContext();
     const { button_text: buttonText, sticky_button_text: stickyButtonText } =
         termicaValues;
 
@@ -15,7 +15,12 @@ function SubscribeButtonText({
     const textToDisplay = isSticky ? stickyButtonText : buttonText;
     const textId = isSticky ? 'sticky-button-text' : 'button-text';
 
-    if (!isActiveTermicaSubscribe || !buttonText || !stickyButtonText) {
+    if (
+        !isActiveTermicaSubscribe ||
+        !buttonText ||
+        !stickyButtonText ||
+        !isHome
+    ) {
         return <span>suscribite</span>;
     }
 

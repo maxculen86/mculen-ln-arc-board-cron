@@ -11,6 +11,7 @@ function OEmbed({ data = {} }) {
     return (
         <WrapperBody>
             <div
+                className="flex items-center justify-center min-w-0 overflow-hidden"
                 dangerouslySetInnerHTML={ensureIframeLazyLoading({
                     subtype,
                     tagHtml: html
