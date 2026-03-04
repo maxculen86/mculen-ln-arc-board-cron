@@ -31,7 +31,7 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
     const gridCardSmall = cx(
         gridColumns === 4 && 'grid-cols-16_lg',
         gridColumns === 3 && 'grid-cols-12_lg',
-        'grid grid-cols-8 row-gap-16 grid-cols-12_m gap-32_m'
+        'grid grid-cols-8 row-gap-16 grid-cols-12_m gap-32_m grid-auto-rows-1'
     );
 
     return (
