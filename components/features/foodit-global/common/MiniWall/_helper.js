@@ -43,8 +43,8 @@ export const addToCartEvent = ({
     items: { id, name, category, category2, category3, price }
 }) => {
     const redirect = {
-        sandbox: `${CHECKOUT_URL}/C/${id}/?skn=&productoWall=mini_wall_foodit&cv=${canalVenta}&fc=${formaContacto}&productCategory=Cerrado&ref=${currentUrl}`,
-        prod: `${CHECKOUT_URL}/C/${id}/?skn=F&productoWall=mini_wall_foodit&cv=${canalVenta}&fc=${formaContacto}&productCategory=Cerrado&ref=${currentUrl}`
+        sandbox: `${CHECKOUT_URL}/C/${id}/?skn=&productoWall=mini_wall_foodit&cv=${canalVenta}&fc=${formaContacto}&productCategory=Cerrado&callback=${currentUrl}&ref=${currentUrl}`,
+        prod: `${CHECKOUT_URL}/C/${id}/?skn=F&productoWall=mini_wall_foodit&cv=${canalVenta}&fc=${formaContacto}&productCategory=Cerrado&callback=${currentUrl}&ref=${currentUrl}`
     };
 
     addEventToDataLayerV2({
