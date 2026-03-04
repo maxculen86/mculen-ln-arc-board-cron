@@ -10,8 +10,9 @@ export const loadViafoura = ({
     getCookie,
     subscription,
     setIsReady,
-    setMessage
-}) =>
+    setMessage,
+    articleId
+}) => {
     dynamicallyLoadScript('https://cdn.viafoura.net/vf-v2.js', 'body')
         .then(() => {
             const { loginUrl, registracionUrl } = getLoginAndRegistrationURLS();
@@ -35,18 +36,15 @@ export const loadViafoura = ({
                         window,
                         outputType,
                         registracionUrl,
-                        setIsReady
+                        setIsReady,
+                        articleId
                     });
                 });
 
-                if (
-                    subscription &&
-                    token &&
-                    window.vf &&
-                    window.vf.session &&
-                    window.vf.session.login
-                ) {
-                    window.vf.session.login.cookie(token).catch(error => {
+                const login = get(window, 'vf.session.login');
+
+                if (subscription && token && login) {
+                    login.cookie(token).catch(error => {
                         console.error('Viafoura Login incorrecto ', {
                             error,
                             outputType
@@ -63,4 +61,7 @@ export const loadViafoura = ({
                 }
             });
         })
-        .catch(() => {});
+        .catch(error => {
+            console.error('Error loading Viafoura script', error);
+        });
+};

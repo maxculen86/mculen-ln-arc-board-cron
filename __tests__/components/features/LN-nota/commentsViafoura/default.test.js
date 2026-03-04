@@ -11,7 +11,6 @@ import CommentsViafouraFeature from '../../../../../components/features/LN-nota/
 import dynamicallyLoadScript from '../../../../../components/private/LN/common/utils/dynamicallyLoadScript';
 import { useValidateComments } from '../../../../../components/private/common/utils/commentsHelper';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
-import getScrollPercent from '../../../../../components/private/LN/common/utils/getScrollPercent';
 import { VIDEO_COMENTARIOS } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:consumer', () => {
@@ -27,11 +26,6 @@ jest.mock(
 jest.mock('../../../../../components/private/common/utils/commentsHelper');
 
 jest.mock('../../../../../components/private/common/hooks/useTermica');
-
-jest.mock(
-    '../../../../../components/private/LN/common/utils/getScrollPercent',
-    () => jest.fn()
-);
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',
@@ -57,8 +51,7 @@ describe('CommentsViafouraFeature', () => {
     const setupMocks = ({
         shouldLoad = true,
         messageType = 'CLOSED_BY_TERMIC',
-        termicaLivefyre = true,
-        scrollPercent = 95
+        termicaLivefyre = true
     } = {}) => {
         useValidateComments.mockReturnValue({
             shouldLoad,
@@ -68,11 +61,17 @@ describe('CommentsViafouraFeature', () => {
         });
         useTermica.mockReturnValue(termicaLivefyre);
         dynamicallyLoadScript.mockResolvedValue();
-        getScrollPercent.mockReturnValue(scrollPercent);
     };
 
     beforeEach(() => {
         jest.clearAllMocks();
+        window.IntersectionObserver = jest.fn(function (callback) {
+            window.intersectionObserverCallback = callback;
+            return {
+                observe: jest.fn(),
+                disconnect: jest.fn()
+            };
+        });
     });
 
     it('renders without crashing', () => {
@@ -81,10 +80,16 @@ describe('CommentsViafouraFeature', () => {
         expect(screen.getByText('Test Message')).toBeInTheDocument();
     });
 
-    it('loads Viafoura script on scroll', () => {
+    it('loads Viafoura script when intersecting', () => {
         setupMocks();
         render(<CommentsViafouraFeature outputType="default" />);
-        fireEvent.scroll(window, { target: { scrollY: 1000 } });
+
+        act(() => {
+            if (window.intersectionObserverCallback) {
+                window.intersectionObserverCallback([{ isIntersecting: true }]);
+            }
+        });
+
         expect(dynamicallyLoadScript).toHaveBeenCalledWith(
             'https://cdn.viafoura.net/vf-v2.js',
             'body'
