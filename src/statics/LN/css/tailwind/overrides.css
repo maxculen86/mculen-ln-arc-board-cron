@@ -9,6 +9,13 @@
     width: revert-layer;
 }
 
+/* TODO: Quitar cuando se desacople correctamente el data-tw */
+@layer utilities {
+    [data-tw] .com-logo.a-fondo-logo {
+        height: 2.1875rem !important;
+    }
+}
+
 /* TODO: Quitar cuando se termine la migracion al DS */
 body:has([data-tw] .disable-body-scroll) {
     overflow: hidden;

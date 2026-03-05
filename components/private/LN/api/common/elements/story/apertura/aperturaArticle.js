@@ -1,4 +1,5 @@
 import get from '../../../../../../common/utils/get';
+import { hasAFondoTag } from '../../../../../../common/utils/sectionUtils';
 import { STORYTELLING } from '../../../../../../common/utils/subtypes/subtypeHelper';
 import {
     authorCommon as Author,
@@ -103,7 +104,8 @@ const patchBrand = article => {
     } = article;
     const category = primarySection && getPrincipalCategory(primarySection);
     let brand = category?.slug;
-    const aFondo = false; // TODO resolver como identificamos la nota A FONDO se deja logica implementada
+    const tags = get(article, 'taxonomy.tags', []);
+    const aFondo = hasAFondoTag(tags);
     if (aFondo) brand = '/a-fondo';
     return brand ? { brand } : {};
 };

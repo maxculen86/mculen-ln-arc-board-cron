@@ -13,7 +13,8 @@ jest.mock(
 jest.mock(
     '../../../../../components/private/common/utils/sectionUtils',
     () => ({
-        getSectionLogo: jest.fn(() => ({ logoName: 'MockLogo' }))
+        getSectionLogo: jest.fn(() => ({ logoName: 'MockLogo' })),
+        getAFondoLogo: jest.fn(() => null)
     })
 );
 

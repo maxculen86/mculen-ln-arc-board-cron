@@ -160,6 +160,33 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     );
 };
 
+const A_FONDO_SLUG = 'a-fondo';
+const A_FONDO_PATH = '/a-fondo';
+
+export const hasAFondoTag = tags =>
+    Array.isArray(tags) && tags.some(tag => tag && tag.slug === A_FONDO_SLUG);
+
+export const getAFondoLogo = (tags, layout) => {
+    const { layoutsName = {} } = siteProperties || {};
+    const validLayouts = [
+        layoutsName.StoryTelling,
+        layoutsName.StoryTellingV2,
+        layoutsName.Cards
+    ];
+
+    if (!validLayouts.includes(layout)) return null;
+    if (!hasAFondoTag(tags)) return null;
+
+    const isWhiteLogo = layout !== layoutsName.Cards;
+
+    return {
+        logoName: 'a-fondo-logo',
+        path: A_FONDO_PATH,
+        color: !isWhiteLogo,
+        isExternal: false
+    };
+};
+
 export const formatText = (str = '') =>
     str
         .toLowerCase()
