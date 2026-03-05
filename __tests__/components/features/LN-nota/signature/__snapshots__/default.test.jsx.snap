@@ -94,9 +94,7 @@ exports[`components - feature - LN-nota - signature - default renders with distr
 
 exports[`components - feature - LN-nota - signature - default renders without signature when no authors or distributor 1`] = `
 <DocumentFragment>
-  <div
-    class="signature flex flex-column container-center-100 brand-color"
-  >
+  <div>
     <div
       class="flex jc-between ai-center"
     />

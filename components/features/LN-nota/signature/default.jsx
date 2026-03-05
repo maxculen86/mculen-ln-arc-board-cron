@@ -63,7 +63,12 @@ function SignatureFeature(props) {
     const notShowSignature =
         !showSignatureWithDistributor && !authors?.length && !author;
 
-    const googleButton = <GoogleButton className="l-only" />;
+    const hasVisibleContent =
+        showSignatureWithDistributor || hasAuthors || showListenButton;
+    const googleButtonClassName = cx('l-only', {
+        'mb-24_m': !hasVisibleContent
+    });
+    const googleButton = <GoogleButton className={googleButtonClassName} />;
 
     const audioButton = (
         <AudioButton
@@ -86,7 +91,8 @@ function SignatureFeature(props) {
         />
     );
 
-    const classNameContainer = signatureClasses({ position, subtype });
+    const classNameContainer =
+        hasVisibleContent && signatureClasses({ position, subtype });
 
     return (
         <SignatureContextProvider>
