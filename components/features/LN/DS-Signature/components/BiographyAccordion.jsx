@@ -1,4 +1,5 @@
 import React from 'react';
+import { getTypeOfDevicev2 } from '@ln/utils';
 import Icon from '../../../ui/ln/icon/default';
 import useAccordionToggle from './useAccordionToggle';
 
@@ -20,15 +21,19 @@ function BiographyAccordion({
     shouldShowBiography,
     maxLength = BIO_MAX_LENGTH
 }) {
+    const deviceType = getTypeOfDevicev2({ breakpoints: { tablet: 1280 } });
+    const conditionedMaxLength =
+        deviceType === 'desktop' && maxLength < 1000 ? 1000 : maxLength;
+
     const { isOpen, wrapperRef, pRef, handleToggle } = useAccordionToggle();
 
     if (!text || !shouldShowBiography) return null;
 
-    if (text.length <= maxLength) {
+    if (text.length <= conditionedMaxLength) {
         return <p className="font-tertiary text-16">{text}</p>;
     }
 
-    const preview = getPreviewText(text, maxLength);
+    const preview = getPreviewText(text, conditionedMaxLength);
     const displayText = isOpen ? text : `${preview}...`;
     const iconTransform = isOpen ? 'rotate(180deg)' : 'none';
 

@@ -17,7 +17,7 @@ function Image({ data, fetchPriority, loading }) {
     );
 
     return (
-        <WrapperBody variant="medium">
+        <WrapperBody variant="medium" className="mb-16">
             <figure>
                 <div className="w-full flex justify-center bg-neutral-50">
                     <div className={_className}>

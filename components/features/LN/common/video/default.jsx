@@ -89,7 +89,10 @@ function VideoPlayer({ data, hasAutoplay = false }) {
     );
 
     return (
-        <WrapperBody variant={isOpeningVideo ? null : 'medium'}>
+        <WrapperBody
+            variant={isOpeningVideo ? null : 'medium'}
+            className="mb-48"
+        >
             <Static id="scriptJwVideoNote">
                 <script
                     defer

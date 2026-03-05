@@ -9,7 +9,7 @@ function OEmbed({ data = {} }) {
     const { html = '' } = rawOembed;
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-64">
             <div
                 className="flex items-center justify-center min-w-0 overflow-hidden"
                 dangerouslySetInnerHTML={ensureIframeLazyLoading({

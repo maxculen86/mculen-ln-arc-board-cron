@@ -6,6 +6,7 @@ import {
     RECETA
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import getSignatureRenderOptions from '../_utils/helper';
+import { shouldShowNoteFooterTopExternalSignature } from '../_utils/topRenderConditions';
 
 function ExternalSignature({ globalContent }) {
     const {
@@ -18,15 +19,11 @@ function ExternalSignature({ globalContent }) {
     const { name, mode, subcategory } = distributor;
     const { by = [] } = credits || {};
 
-    if (name && name === 'lanacionar') return null;
-
     const isReceta = subtype === RECETA;
     const isHtmlLibre = subtype === HTMLLIBRE;
     const isLaNacion = name === 'LA NACION';
     const isCustomDistributor = mode === 'custom';
     const hasAuthor = by.length > 0;
-
-    if ((isReceta || isLaNacion) && hasAuthor) return null;
 
     const signatureRenderOptions = getSignatureRenderOptions({
         isHtmlLibre,
@@ -43,7 +40,16 @@ function ExternalSignature({ globalContent }) {
         option => option.shouldRender
     )?.signatureContent;
 
-    if (!selectedSignature) return null;
+    if (
+        !shouldShowNoteFooterTopExternalSignature({
+            name,
+            isReceta,
+            isLaNacion,
+            hasAuthor,
+            selectedSignature
+        })
+    )
+        return null;
 
     return (
         <Static id="LN-external-signature" htmlOnly>

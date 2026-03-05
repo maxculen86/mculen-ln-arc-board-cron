@@ -29,8 +29,8 @@ export const useSignatureRules = ({
         contentElements
     });
     const hasMultipleAuthors = Array.isArray(authors) && authors.length > 1;
-    const gplus = get(dataAuthor, 'gplus', '');
-    const roleByLayout = isOpinionLayout ? gplus : medio;
+    const authorRole = get(dataAuthor, 'role', '');
+    const roleByLayout = isOpinionLayout ? authorRole : medio;
     const resolvedRole = hasMultipleAuthors ? null : roleByLayout;
     const opinionBottomExtras =
         (!hasMultipleAuthors &&

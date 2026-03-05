@@ -12,9 +12,13 @@ import Themes from './_children/themes';
 import { getSectionLogo } from '../../../private/common/utils/sectionUtils';
 import { isInvalidLogo } from './_utils/helper';
 import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
+import {
+    shouldShowNoteFooterTopSection,
+    shouldShowSignatureColumn
+} from './_utils/topRenderConditions';
 
 function Footer(props) {
-    const { globalContent, layout } = props;
+    const { globalContent, layout, siteProperties } = props;
 
     const {
         label,
@@ -44,27 +48,41 @@ function Footer(props) {
     const showDivider = !isInvalidLogo(logoData) && !isInvalid;
     const showLogoOrTrust = !isInvalidLogo(logoData) || !isInvalid;
 
+    const showTopSection = shouldShowNoteFooterTopSection({
+        globalContent,
+        layout,
+        siteProperties
+    });
+
+    const showSignatureColumn = shouldShowSignatureColumn({
+        globalContent,
+        layout,
+        siteProperties
+    });
+
     return (
         <section className="container-center-100 mb-40 border border-bottom border-thin border-neutral-light-700">
-            <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
-                <div className="flex flex-column gap-12">
-                    <Signature globalContent={globalContent} isNotaFooter />
-                    <ExternalSignature globalContent={globalContent} />
+            {showTopSection && (
+                <div className="grid grid-cols-2_m gap-12 py-16 py-12_m">
+                    {showSignatureColumn && (
+                        <div className="flex flex-column gap-12">
+                            <Signature
+                                globalContent={globalContent}
+                                isNotaFooter
+                            />
+                            <ExternalSignature globalContent={globalContent} />
+                        </div>
+                    )}
+                    <Themes globalContent={globalContent} />
                 </div>
-                <Themes globalContent={globalContent} />
-            </div>
+            )}
+            {showTopSection && showLogoOrTrust && <hr />}
             {showLogoOrTrust && (
-                <>
-                    <hr />
-                    <div className="flex flex-column flex-row_m gap-16 mb-40 ai-stretch py-16 py-12_m">
-                        <Logo logoData={logoData} />
-                        {showDivider && <hr className="vertical sm-none" />}
-                        <TrustProject
-                            isInvalid={isInvalid}
-                            tooltipData={tooltip}
-                        />
-                    </div>
-                </>
+                <div className="flex flex-column flex-row_m gap-16 mb-40 ai-stretch py-16 py-12_m">
+                    <Logo logoData={logoData} />
+                    {showDivider && <hr className="vertical sm-none" />}
+                    <TrustProject isInvalid={isInvalid} tooltipData={tooltip} />
+                </div>
             )}
             <div id="fin-de-nota" />
         </section>

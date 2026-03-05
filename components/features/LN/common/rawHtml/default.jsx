@@ -11,7 +11,7 @@ function RawHtml(props) {
 
     if (hasIframeWithPYM(content)) {
         return (
-            <WrapperBody>
+            <WrapperBody className="mb-64">
                 <HtmlPym
                     data={data}
                     className="flex items-center justify-center min-w-0 overflow-hidden"
@@ -21,7 +21,7 @@ function RawHtml(props) {
     }
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-64">
             <div
                 className="flex items-center justify-center min-w-0 overflow-hidden"
                 id={`anexo-${idMedia}`}

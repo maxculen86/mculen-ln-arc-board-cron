@@ -92,12 +92,7 @@ function ShareDesktopTrigger({
                                     size={12}
                                     asChild
                                 >
-                                    <button
-                                        type="button"
-                                        onClick={() => handleShareClick(option)}
-                                    >
-                                        {label}
-                                    </button>
+                                    <button type="button">{label}</button>
                                 </Link>
                             </li>
                         );
