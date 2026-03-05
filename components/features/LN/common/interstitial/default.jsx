@@ -13,7 +13,7 @@ function Interstitial({ data = {} }) {
 
     return (
         <WrapperBody className="mb-64">
-            <div className="mx-auto">
+            <div className="flex jc-center items-center">
                 <Button
                     asChild
                     variant="outline"
