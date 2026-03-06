@@ -4,6 +4,7 @@ import SignatureWithAuthors from '../../signature/signatureWithAuthors';
 import SignatureWithDistributor from '../../signature/signatureWithDistributor';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
+import { shouldShowNoteFooterTopSignature } from '../_utils/topRenderConditions';
 
 function Signature({ globalContent, isNotaFooter = false }) {
     const { layout, siteProperties } = useAppContext();
@@ -31,7 +32,13 @@ function Signature({ globalContent, isNotaFooter = false }) {
 
     const hasAuthors = author || authors.length > 0;
 
-    if (isOpinionLayout || (!showSignatureWithDistributor && !hasAuthors))
+    if (
+        !shouldShowNoteFooterTopSignature({
+            isOpinionLayout,
+            showSignatureWithDistributor,
+            hasAuthors
+        })
+    )
         return null;
 
     return (

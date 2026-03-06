@@ -5,18 +5,16 @@ import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { cx } from '@ln/cva';
-import { RECETA } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { shouldShowNoteFooterTopThemes } from '../_utils/topRenderConditions';
 
 function Themes({ globalContent }) {
     const { isOpen: isCollapsed, onToggle: onToggleCollapse } =
         useDisclosure(true);
     const { taxonomy, subtype } = globalContent;
-    const isReceta = subtype === RECETA;
-
-    if (isReceta) return null;
-
     const { tags = [] } = taxonomy || {};
+
+    if (!shouldShowNoteFooterTopThemes({ subtype, tags })) return null;
 
     const listTags = tags.map(({ type = 'tag', slug, text }) => ({
         type,
@@ -51,7 +49,6 @@ function Themes({ globalContent }) {
             );
         });
     };
-    if (!listTags.length) return null;
 
     return (
         <div

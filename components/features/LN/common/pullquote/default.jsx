@@ -8,7 +8,7 @@ function PullQuote({ data = {}, className }) {
     const content = contentElements?.[0]?.content;
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-64">
             <PullQuoteUI
                 content={content}
                 author={author}
