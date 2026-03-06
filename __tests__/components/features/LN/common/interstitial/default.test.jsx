@@ -192,7 +192,7 @@ describe('Interstitial Container', () => {
             expect(link.className).toContain('ds-custom-interstitial');
         });
 
-        it('applies mx-auto to outer wrapper', () => {
+        it('applies flex jc-center items-center to outer wrapper', () => {
             const { container } = render(
                 <Interstitial
                     data={{
@@ -204,7 +204,7 @@ describe('Interstitial Container', () => {
 
             const wrapper = container.firstChild;
             const inner = wrapper?.firstChild;
-            expect(inner).toHaveClass('mx-auto');
+            expect(inner).toHaveClass('flex jc-center items-center');
         });
     });
 

@@ -55,9 +55,9 @@ function Opinion({ children }) {
                     </div>
                 </Opinion.Opening>
                 {/* ---- Wrapper con grilla y ancho maximo ---- */}
-                <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full justify-items-center gap-x-16 md:gap-x-24 xl:gap-x-32 gap-y-40">
+                <div className="grid grid-cols-8 md:grid-cols-12 xl:grid-cols-16 w-full justify-items-center gap-x-16 md:gap-x-24 xl:gap-x-32 gap-y-16">
                     {/* ---- PRE-CUERPO ---- */}
-                    <WrapperBody id="cuerpo__nota">
+                    <WrapperBody id="cuerpo__nota" className="mb-24">
                         <Opinion.PreBody>
                             <DateAndReadingTime globalContent={globalContent} />
                             {children[1]}

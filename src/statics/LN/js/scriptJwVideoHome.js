@@ -92,7 +92,7 @@ window.addEventListener('load', function () {
                                 event: 'videoResume',
                                 rest: {
                                     videoName: currentTitle,
-                                    videoID: currentId
+                                    videoID: videoId
                                 }
                             });
                             return;
@@ -110,7 +110,7 @@ window.addEventListener('load', function () {
                             event: 'videoPlay',
                             rest: {
                                 videoName: currentTitle,
-                                videoID: currentId,
+                                videoID: videoId,
                                 mode,
                                 videoOrientation,
                                 category_video: roof
