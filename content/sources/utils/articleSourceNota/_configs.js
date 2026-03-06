@@ -71,44 +71,7 @@ export const setExternalLinks = ({
         }
     );
 
-export const sanitizeString = (str = '') =>
-    typeof str === 'string' ? str?.replace(/[^\x20-\x7E]/g, '') || '' : str;
-
-export const parseImageText = (image = {}) => {
-    const caption = get(image, 'caption', '');
-    return {
-        ...image,
-        caption: sanitizeString(caption),
-        additional_properties: {
-            ...image.additional_properties,
-            iptc_source: sanitizeString(
-                get(image, 'additional_properties.iptc_source', '')
-            )
-        },
-        subtitle: sanitizeString(get(image, 'subtitle', '')),
-        credits: {
-            affiliation: get(image, 'credits.affiliation', []).map(element => {
-                const { name = '', type = '' } = element || {};
-                return {
-                    ...element,
-                    name: sanitizeString(name),
-                    type: sanitizeString(type)
-                };
-            })
-        },
-        by: get(image, 'credits.by', []).map(element => {
-            const { byline = '', type = '', name = '' } = element || {};
-            return {
-                byline: sanitizeString(byline),
-                type: sanitizeString(type),
-                name: sanitizeString(name)
-            };
-        })
-    };
-};
-
 export const configPromoItems = {
-    basic: ({ element = {} } = {}) => parseImageText(element),
     video: ({ cachedCall, element, arcSite }) =>
         convertVideoArcToJw(element, arcSite, cachedCall),
     gallery: ({ cachedCall, element, arcSite }) =>
@@ -192,8 +155,7 @@ export const configCallbackContentElements = {
             articlePath,
             baseOrigin
         });
-    },
-    image: ({ element = {} } = {}) => parseImageText(element)
+    }
 };
 
 const callbacksByTypeReference = {
