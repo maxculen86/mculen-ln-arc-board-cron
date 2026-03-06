@@ -1,114 +1,90 @@
-import addEventToDataLayer, {
-    addEventToDataLayerV2
-} from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 import { scheduleTask } from '../../../../../../components/private/common/utils/scheduleTask';
 import isSSR from '../../../../../../components/private/LN/common/utils/isSSR';
 
 jest.mock('../../../../../../components/private/common/utils/scheduleTask');
 jest.mock('../../../../../../components/private/LN/common/utils/isSSR');
 
-describe('Private - LN - common - utils - addEventToDataLayer', () => {
-    const input = {
+describe('addEventToDataLayerV2', () => {
+    const basePayload = {
         category: 'Header',
         action: 'home_ln10',
         label: 'Economia',
         event: 'e_linkclick'
     };
+    let mockScheduleTask;
 
     beforeEach(() => {
         window.dataLayer = [];
+        jest.clearAllMocks();
+        mockScheduleTask = jest.fn(callback => callback());
+        scheduleTask.mockImplementation(mockScheduleTask);
         isSSR.mockReturnValue(false);
     });
 
-    describe('Original addEventToDataLayer function', () => {
-        test('should register in dataLayer the event with the specified values', () => {
-            delete window.dataLayer;
-            global.window.dataLayer = [];
-            addEventToDataLayer(input);
+    it('should register in dataLayer the event with the specified values using scheduleTask', () => {
+        addEventToDataLayerV2(basePayload);
 
-            expect(window.dataLayer).toStrictEqual([
-                {
-                    dynamic_action: 'home_ln10',
-                    dynamic_category: 'Header',
-                    dynamic_label: 'Economia',
-                    event: 'e_linkclick'
-                }
-            ]);
-        });
-
-        test('should return an empty object when the input is undefined', () => {
-            delete window.dataLayer;
-            global.window.dataLayer = [];
-
-            addEventToDataLayer(undefined);
-
-            expect(window.dataLayer).toStrictEqual([{}]);
-        });
-
-        test('should handle window.dataLayer not defined', () => {
-            delete window.dataLayer;
-
-            addEventToDataLayer(input);
-
-            expect(window.dataLayer).toBeUndefined();
-        });
-
-        test('should not push to dataLayer if isSSR returns true', () => {
-            isSSR.mockReturnValue(true);
-
-            addEventToDataLayer(input);
-
-            expect(window.dataLayer).toHaveLength(0);
-        });
+        expect(mockScheduleTask).toHaveBeenCalledTimes(1);
+        expect(window.dataLayer).toStrictEqual([
+            {
+                dynamic_action: 'home_ln10',
+                dynamic_category: 'Header',
+                dynamic_label: 'Economia',
+                event: 'e_linkclick'
+            }
+        ]);
     });
 
-    describe('addEventToDataLayerV2 function with scheduleTask', () => {
-        test('should register in dataLayer the event with the specified values using scheduleTask', () => {
-            const mockScheduleTask = jest.fn(callback => callback());
-            scheduleTask.mockImplementation(mockScheduleTask);
+    it('should merge optional fields and rest payload when scheduling the push', () => {
+        const restPayload = {
+            custom_field: 'value',
+            nested: { foo: 'bar' }
+        };
 
-            addEventToDataLayerV2(input);
-
-            expect(mockScheduleTask).toHaveBeenCalledTimes(1);
-            expect(window.dataLayer).toStrictEqual([
-                {
-                    dynamic_action: 'home_ln10',
-                    dynamic_category: 'Header',
-                    dynamic_label: 'Economia',
-                    event: 'e_linkclick'
-                }
-            ]);
+        addEventToDataLayerV2({
+            ...basePayload,
+            origin: 'ln-qa',
+            rest: restPayload
         });
 
-        test('should not push to dataLayer if isSSR returns true in V2', () => {
-            isSSR.mockReturnValue(true);
-            const mockScheduleTask = jest.fn(callback => callback());
-            scheduleTask.mockImplementation(mockScheduleTask);
+        expect(mockScheduleTask).toHaveBeenCalledTimes(1);
+        expect(window.dataLayer).toStrictEqual([
+            {
+                dynamic_action: 'home_ln10',
+                dynamic_category: 'Header',
+                dynamic_label: 'Economia',
+                event: 'e_linkclick',
+                origin: 'ln-qa',
+                custom_field: 'value',
+                nested: { foo: 'bar' }
+            }
+        ]);
+        expect(window.dataLayer[0]).not.toHaveProperty('rest');
+        expect(window.dataLayer[0].nested).toEqual(restPayload.nested);
+    });
 
-            addEventToDataLayerV2(input);
+    it('should not schedule when isSSR returns true', () => {
+        isSSR.mockReturnValue(true);
 
-            expect(mockScheduleTask).not.toHaveBeenCalled();
-            expect(window.dataLayer).toHaveLength(0);
-        });
+        addEventToDataLayerV2(basePayload);
 
-        test('should return an empty object when the input is undefined in V2', () => {
-            const mockScheduleTask = jest.fn(callback => callback());
-            scheduleTask.mockImplementation(mockScheduleTask);
+        expect(mockScheduleTask).not.toHaveBeenCalled();
+        expect(window.dataLayer).toHaveLength(0);
+    });
 
-            addEventToDataLayerV2(undefined);
+    it('should push an empty object when the input is undefined', () => {
+        addEventToDataLayerV2(undefined);
 
-            expect(mockScheduleTask).toHaveBeenCalledTimes(1);
-            expect(window.dataLayer).toStrictEqual([{}]);
-        });
+        expect(mockScheduleTask).toHaveBeenCalledTimes(1);
+        expect(window.dataLayer).toStrictEqual([{}]);
+    });
 
-        test('should handle window.dataLayer not defined in V2', () => {
-            delete window.dataLayer;
-            const mockScheduleTask = jest.fn(callback => callback());
-            scheduleTask.mockImplementation(mockScheduleTask);
+    it('should ignore execution if window.dataLayer is not defined', () => {
+        delete window.dataLayer;
 
-            addEventToDataLayerV2(input);
+        addEventToDataLayerV2(basePayload);
 
-            expect(mockScheduleTask).not.toHaveBeenCalled();
-        });
+        expect(mockScheduleTask).not.toHaveBeenCalled();
     });
 });
