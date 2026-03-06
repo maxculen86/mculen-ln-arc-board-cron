@@ -47,7 +47,7 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
         it('should format number with es-AR locale', () => {
             const result = formatNumber(1000.5);
-            expect(result).toMatch(/1[.,]000[.,]5/);
+            expect(result).toMatch(/1[.,]000[.,]50/);
         });
     });
 
@@ -94,7 +94,7 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
         it('should return neutral span for zero', () => {
             const result = formatVariation(0);
-            expect(result).toBe('<span class="index-neutral">0 %</span>');
+            expect(result).toBe('<span class="index-neutral">0.0 %</span>');
         });
 
         it('should return positive span for positive values', () => {

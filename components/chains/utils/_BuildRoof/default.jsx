@@ -2,7 +2,6 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Roof } from '@ln/contenidos-ui-roof';
-import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
@@ -25,7 +24,8 @@ export default function BuildRoof(props) {
         links,
         navigationId,
         isAdmin,
-        isAFondo
+        isAFondo,
+        textProps
     } = props;
 
     const { contextPath, deployment } = useAppContext();
@@ -59,6 +59,7 @@ export default function BuildRoof(props) {
         href: titleLink,
         target: targetUrlSite,
         text: !logo && title,
+        textProps,
         title,
         'roof-group': 'left',
         assets: !hideArrow ? getAssetsLeft : null
@@ -121,29 +122,3 @@ export default function BuildRoof(props) {
         }
     });
 }
-
-BuildRoof.propTypes = {
-    hideRoof: PropTypes.bool,
-    title: PropTypes.string.isRequired,
-    titleLink: PropTypes.string,
-    logoId: PropTypes.string,
-    buttonLogo: PropTypes.string,
-    buttonText: PropTypes.string,
-    linkButton: PropTypes.string,
-    buttonStyle: PropTypes.string,
-    navigationId: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired,
-    chainStyle: PropTypes.string
-};
-
-BuildRoof.defaultProps = {
-    hideRoof: false,
-    logoId: '',
-    titleLink: '',
-    buttonLogo: '',
-    buttonText: '',
-    linkButton: '',
-    buttonStyle: '',
-    navigationId: '',
-    chainStyle: 'generic'
-};
