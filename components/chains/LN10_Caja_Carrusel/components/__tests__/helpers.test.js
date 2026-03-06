@@ -24,7 +24,8 @@ describe('handleEventSwipeVideo', () => {
             rest: {
                 page_title: 'Title 1',
                 id_video: 'video1',
-                origin: 'home'
+                origin: 'home',
+                category_video: 'No tiene'
             }
         });
     });
@@ -58,7 +59,8 @@ describe('handleEventSwipeVideo', () => {
             rest: {
                 page_title: 'Title 1',
                 id_video: 'video1',
-                origin: 'home'
+                origin: 'home',
+                category_video: 'No tiene'
             }
         });
     });

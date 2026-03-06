@@ -37,7 +37,8 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
                 rest: {
                     page_title: videoTitle,
                     id_video: videoIdObserved,
-                    origin: ''
+                    origin: '',
+                    category_video: 'No tiene'
                 }
             });
         });

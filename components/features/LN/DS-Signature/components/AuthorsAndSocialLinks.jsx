@@ -3,6 +3,7 @@ import React from 'react';
 import Avatar from '../../../ui/ln/avatar/default';
 import Link from '../../../ui/ln/link/default';
 import Icon from '../../../ui/ln/icon/default';
+import { isMailUri } from '../utils/socialHelpers';
 
 function AuthorsAndSocialLinks({
     photo,
@@ -53,7 +54,7 @@ function AuthorsAndSocialLinks({
                             <Link
                                 key={`${icon}-${url}`}
                                 href={url}
-                                target="_blank"
+                                target={isMailUri(url) ? undefined : '_blank'}
                                 rel="noreferrer noopener"
                                 title={`Ir a ${label}`}
                                 color="base"

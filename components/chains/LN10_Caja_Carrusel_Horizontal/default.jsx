@@ -107,7 +107,8 @@ function CajaCarruselHorizontal(props) {
         children,
         isAdmin,
         childProps,
-        bannerRef: divRefInCarrusel
+        bannerRef: divRefInCarrusel,
+        roofData
     });
 
     return (

@@ -12,8 +12,8 @@ function Interstitial({ data = {} }) {
     if (!url || !content) return null;
 
     return (
-        <WrapperBody>
-            <div className="mx-auto">
+        <WrapperBody className="mb-64">
+            <div className="flex jc-center items-center">
                 <Button
                     asChild
                     variant="outline"

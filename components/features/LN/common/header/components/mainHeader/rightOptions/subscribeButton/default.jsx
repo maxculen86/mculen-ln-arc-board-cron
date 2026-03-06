@@ -7,7 +7,7 @@ import {
     termicaValuesSubscribe
 } from '../helpers';
 import Button from '../../../../../../../ui/ln/button/default';
-import IconSprite from '../../../../../../../ui/ln/icon/default';
+import Icon from '../../../../../../../ui/ln/icon/default';
 import { useHeaderContext } from '../../../../context';
 import useTermica from '../../../../../../../../private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../../../../../../private/LN/common/utils/addEventToDataLayer';
@@ -53,8 +53,8 @@ function SubscribeButton({ isHome }) {
                 <a
                     href={`${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${currentUrlCallback}`}
                 >
-                    <div className="max-lg:hidden flex items-center">
-                        <IconSprite name="subscriber-inverted" type="color" />
+                    <div className="max-lg:hidden flex items-center justify-center h-16 w-16 rounded-full bg-subscription bg-neutral-999">
+                        <Icon size={8} name="vip-crow" fill="#FFC108" />
                     </div>
                     <SubscribeButtonText
                         termicaValues={termicaValues}

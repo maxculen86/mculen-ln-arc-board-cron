@@ -125,7 +125,8 @@ function CajaCarrusel(props) {
                 isAdmin,
                 childProps,
                 isExpanded: true,
-                layoutType: normalizedLayout
+                layoutType: normalizedLayout,
+                roofData
             }),
         [children, isAdmin, childProps, normalizedLayout]
     );

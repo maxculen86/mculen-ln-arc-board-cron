@@ -26,6 +26,22 @@ const LONG_TEXT = 'A'.repeat(201);
 const BIO_MAX_LENGTH = 200;
 
 describe('components - features - LN - DS-Signature - BiographyAccordion', () => {
+    beforeAll(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(),
+                removeListener: jest.fn(),
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn()
+            }))
+        });
+    });
+
     beforeEach(() => {
         jest.clearAllMocks();
         useAccordionToggle.mockReturnValue({

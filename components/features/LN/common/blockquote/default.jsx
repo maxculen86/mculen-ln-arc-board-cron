@@ -9,7 +9,7 @@ function BlockQuote({ data }) {
     if (subtype !== 'blockquote') return null;
 
     return (
-        <WrapperBody>
+        <WrapperBody className="mb-64">
             <BlockQuoteUI content={content} />
         </WrapperBody>
     );
