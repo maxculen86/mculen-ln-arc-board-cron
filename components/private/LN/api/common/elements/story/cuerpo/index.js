@@ -127,6 +127,12 @@ const storyBody = (dataNota, storyBodyElements) => {
         contentElements
     );
 
+    const ratingIndex = contentElements.findIndex(el => el?.type === 'numeric_rating');
+    if (ratingIndex > 0) {
+        const [ratingElement] = contentElements.splice(ratingIndex, 1);
+        contentElements.unshift(ratingElement);
+    }
+
     const idsElements = contentElements.map(x => x && get(x, '_id', null));
 
     const templates = {
