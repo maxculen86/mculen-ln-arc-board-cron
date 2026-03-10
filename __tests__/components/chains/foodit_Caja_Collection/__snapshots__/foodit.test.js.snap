@@ -129,29 +129,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Carlos Pagni
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -232,29 +236,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Celina Chatruc
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -335,29 +343,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Francisco Jueguen
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -438,29 +450,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Redacción - BBC News Mundo
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -541,29 +557,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por José Luis Domínguez
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -644,29 +664,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Tomás Girón
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -747,29 +771,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Foodit
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -837,29 +865,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         Por Mariela Arias
                       </span>
                     </div>
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                      data-father-type="carousel"
-                      data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
-                      data-modal="open-modal"
-                      data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
-                      data-variant="link"
-                      title="Guardar receta"
+                    <div
+                      class="flex ai-center"
                     >
-                      <i
-                        class="icon w-24 --dark"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                        data-father-type="carousel"
+                        data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                        data-modal="open-modal"
+                        data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
+                        data-variant="link"
+                        title="Guardar receta"
                       >
-                        <mock-icon
-                          critical="true"
-                          name="bookmark"
-                        />
-                      </i>
-                      <span
-                        class="uppercase none"
-                      >
-                        Guardar
-                      </span>
-                    </button>
+                        <i
+                          class="icon w-24 --dark"
+                        >
+                          <mock-icon
+                            critical="true"
+                            name="bookmark"
+                          />
+                        </i>
+                        <span
+                          class="uppercase none"
+                        >
+                          Guardar
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -1000,29 +1032,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Carlos Pagni
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-6LWA56W2Q5CTLKNU7UEBLABMM4"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1103,29 +1139,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Celina Chatruc
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-UV32UCCHWZH6LKMZKHGOQJHR4I"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1206,29 +1246,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Francisco Jueguen
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-KLCMCRBJMFCUBFE55NDGERCTJQ"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1309,29 +1353,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Redacción - BBC News Mundo
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="HSPZIST4PJC2VHU3KCSFV7LHFA"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-HSPZIST4PJC2VHU3KCSFV7LHFA"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1412,29 +1460,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por José Luis Domínguez
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-GVFJYOZFHZAR7G6JCFNMQDXVCA"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1515,29 +1567,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Tomás Girón
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-EHI5Y6Y72ZGVNHZ74JEKEZ3IEE"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1618,29 +1674,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Foodit
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-QXMSDT6FFZBAPI4IMLUZRZOOLI"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1708,29 +1768,33 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           Por Mariela Arias
                         </span>
                       </div>
-                      <button
-                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                        data-father-type="carousel"
-                        data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
-                        data-modal="open-modal"
-                        data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
-                        data-variant="link"
-                        title="Guardar receta"
+                      <div
+                        class="flex ai-center"
                       >
-                        <i
-                          class="icon w-24 --dark"
+                        <button
+                          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                          data-father-type="carousel"
+                          data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                          data-modal="open-modal"
+                          data-test-id="button-bookmark-M3JPASZJAVBIRIZPVCSSVBUAHI"
+                          data-variant="link"
+                          title="Guardar receta"
                         >
-                          <mock-icon
-                            critical="true"
-                            name="bookmark"
-                          />
-                        </i>
-                        <span
-                          class="uppercase none"
-                        >
-                          Guardar
-                        </span>
-                      </button>
+                          <i
+                            class="icon w-24 --dark"
+                          >
+                            <mock-icon
+                              critical="true"
+                              name="bookmark"
+                            />
+                          </i>
+                          <span
+                            class="uppercase none"
+                          >
+                            Guardar
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </a>
