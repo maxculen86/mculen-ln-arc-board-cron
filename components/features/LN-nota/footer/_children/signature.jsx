@@ -5,6 +5,7 @@ import SignatureWithDistributor from '../../signature/signatureWithDistributor';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
 import { shouldShowNoteFooterTopSignature } from '../_utils/topRenderConditions';
+import { isEmptyObject } from '../../../../private/common/utils/isEmptyObject';
 
 function Signature({ globalContent, isNotaFooter = false }) {
     const { layout, siteProperties } = useAppContext();
@@ -19,8 +20,9 @@ function Signature({ globalContent, isNotaFooter = false }) {
     } = globalContent;
 
     const { name, mode, subcategory } = distributor;
-    const showSignatureWithDistributor =
-        withFirmaDistributor && name !== 'lanacionar';
+    const showSignatureWithDistributor = isOpinionLayout
+        ? Boolean(name === 'LA NACION')
+        : Boolean(withFirmaDistributor && name !== 'lanacionar');
 
     const { medio, authors } = useSignature({
         creditsBy,
@@ -30,11 +32,10 @@ function Signature({ globalContent, isNotaFooter = false }) {
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
 
-    const hasAuthors = author || authors.length > 0;
+    const hasAuthors = !isEmptyObject(author) || authors.length > 0;
 
     if (
         !shouldShowNoteFooterTopSignature({
-            isOpinionLayout,
             showSignatureWithDistributor,
             hasAuthors
         })
@@ -53,7 +54,7 @@ function Signature({ globalContent, isNotaFooter = false }) {
                 author={author}
                 authors={authors}
                 medio={medio}
-                showSignatureWithAuthors={hasAuthors}
+                showSignatureWithAuthors={hasAuthors && !isOpinionLayout}
                 subtype={subtype}
                 isNotaFooter={isNotaFooter}
             />
