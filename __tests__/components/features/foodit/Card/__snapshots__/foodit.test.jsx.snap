@@ -97,28 +97,32 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 </span>
               </div>
             </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-variant="link"
-              title="Guardar receta"
+            <div
+              class="flex ai-center"
             >
-              <i
-                class="icon w-24 w-20_lg --dark"
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-modal="open-modal"
+                data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-variant="link"
+                title="Guardar receta"
               >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase lg-only"
-              >
-                Guardar
-              </span>
-            </button>
+                <i
+                  class="icon w-24 w-20_lg --dark"
+                >
+                  <mock-icon
+                    critical="true"
+                    name="bookmark"
+                  />
+                </i>
+                <span
+                  class="uppercase lg-only"
+                >
+                  Guardar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </a>
@@ -224,28 +228,32 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 </span>
               </div>
             </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-variant="link"
-              title="Guardar receta"
+            <div
+              class="flex ai-center"
             >
-              <i
-                class="icon w-24 w-20_lg --dark"
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-modal="open-modal"
+                data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-variant="link"
+                title="Guardar receta"
               >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase lg-only"
-              >
-                Guardar
-              </span>
-            </button>
+                <i
+                  class="icon w-24 w-20_lg --dark"
+                >
+                  <mock-icon
+                    critical="true"
+                    name="bookmark"
+                  />
+                </i>
+                <span
+                  class="uppercase lg-only"
+                >
+                  Guardar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </a>
@@ -338,28 +346,32 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 </span>
               </div>
             </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="FMLGIYTL2ZBCRAKQTSO27CCQ6U"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-FMLGIYTL2ZBCRAKQTSO27CCQ6U"
-              data-variant="link"
-              title="Guardar receta"
+            <div
+              class="flex ai-center"
             >
-              <i
-                class="icon w-24 --dark"
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-id="FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                data-modal="open-modal"
+                data-test-id="button-bookmark-FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                data-variant="link"
+                title="Guardar receta"
               >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
+                <i
+                  class="icon w-24 --dark"
+                >
+                  <mock-icon
+                    critical="true"
+                    name="bookmark"
+                  />
+                </i>
+                <span
+                  class="uppercase none"
+                >
+                  Guardar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </a>
@@ -457,28 +469,32 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 </span>
               </div>
             </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-variant="link"
-              title="Guardar receta"
+            <div
+              class="flex ai-center"
             >
-              <i
-                class="icon w-24 --dark"
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-modal="open-modal"
+                data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-variant="link"
+                title="Guardar receta"
               >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
+                <i
+                  class="icon w-24 --dark"
+                >
+                  <mock-icon
+                    critical="true"
+                    name="bookmark"
+                  />
+                </i>
+                <span
+                  class="uppercase none"
+                >
+                  Guardar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </a>
@@ -576,28 +592,32 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 </span>
               </div>
             </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
-              data-variant="link"
-              title="Guardar receta"
+            <div
+              class="flex ai-center"
             >
-              <i
-                class="icon w-24 --dark"
+              <button
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-modal="open-modal"
+                data-test-id="button-bookmark-D3SATI3N45FQTB5PYSC7TRFTTU"
+                data-variant="link"
+                title="Guardar receta"
               >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
+                <i
+                  class="icon w-24 --dark"
+                >
+                  <mock-icon
+                    critical="true"
+                    name="bookmark"
+                  />
+                </i>
+                <span
+                  class="uppercase none"
+                >
+                  Guardar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </a>
