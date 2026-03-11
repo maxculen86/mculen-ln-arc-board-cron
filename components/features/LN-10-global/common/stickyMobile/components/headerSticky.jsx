@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { Text } from '@ln/contenidos-ui-text';
 import { Button } from '@ln/contenidos-ui-button';
@@ -32,9 +31,5 @@ export function HeaderSticky({ handleClose }) {
         </Dialog.Header>
     );
 }
-
-HeaderSticky.propTypes = {
-    handleClose: PropTypes.func.isRequired
-};
 
 export default HeaderSticky;

@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 
-function LiveBody({ children, className, ...r }) {
+function LiveBody({ children, className = '', ...r }) {
     return (
         <div
             className={cx(
@@ -15,13 +14,5 @@ function LiveBody({ children, className, ...r }) {
         </div>
     );
 }
-LiveBody.propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string
-};
-
-LiveBody.defaultProps = {
-    className: ''
-};
 
 export default LiveBody;

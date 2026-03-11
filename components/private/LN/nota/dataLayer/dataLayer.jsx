@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Subtypes } from '../../../common/utils/subtypes/subtypeHelper';
 
@@ -7,9 +6,13 @@ const dataLayer = props => {
     const { globalContent } = props;
     const { contextPath, deployment } = useAppContext();
 
-    const { content_restrictions, subtype: _subtype, _id } = globalContent;
+    const {
+        content_restrictions: contentRestrictions,
+        subtype: _subtype,
+        _id
+    } = globalContent;
     const valor =
-        (content_restrictions && content_restrictions.content_code) || 'comun';
+        (contentRestrictions && contentRestrictions.content_code) || 'comun';
     const pageType = 'nota';
     const pageTypeText = 'nota';
     const subtype = Subtypes.find(sub => sub.id === _subtype);
@@ -34,14 +37,6 @@ const dataLayer = props => {
             )}
         />
     );
-};
-
-dataLayer.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        subtype: PropTypes.string.isRequired,
-        content_restrictions: { content_code: PropTypes.string.isRequired }
-    }).isRequired
 };
 
 export default dataLayer;

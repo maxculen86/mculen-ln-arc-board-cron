@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Select } from '@ln/common-ui-select';
-import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-function ItemCardOption({ disabled, className, ...props }) {
+function ItemCardOption({ disabled = false, className = '', ...props }) {
     return (
         <Itemcard
             type="button"
@@ -14,24 +13,14 @@ function ItemCardOption({ disabled, className, ...props }) {
     );
 }
 
-ItemCardOption.propTypes = {
-    disabled: PropTypes.bool,
-    className: PropTypes.string
-};
-
-ItemCardOption.defaultProps = {
-    disabled: false,
-    className: ''
-};
-
 export function SelectMenu({
     setSelectedDay,
     setSelectedFood,
-    selectedDay,
-    selectedFood,
+    selectedDay = '',
+    selectedFood = '',
     articleId,
-    weeklyMenu,
-    menuToEdit
+    weeklyMenu = [],
+    menuToEdit = {}
 }) {
     const days = [
         { id: 'monday', text: 'Lunes' },
@@ -223,31 +212,3 @@ export function SelectMenu({
         </div>
     );
 }
-
-SelectMenu.propTypes = {
-    setSelectedDay: PropTypes.func.isRequired,
-    setSelectedFood: PropTypes.func.isRequired,
-    selectedDay: PropTypes.string,
-    selectedFood: PropTypes.string,
-    articleId: PropTypes.string.isRequired,
-    weeklyMenu: PropTypes.arrayOf(
-        PropTypes.shape({
-            day: PropTypes.string.isRequired,
-            mealType: PropTypes.string.isRequired,
-            recipe: PropTypes.shape({}).isRequired
-        })
-    ),
-    menuToEdit: PropTypes.shape({
-        bookmarkGroup: PropTypes.string.isRequired,
-        bookmarkContent: PropTypes.shape({
-            food: PropTypes.string.isRequired
-        }).isRequired
-    })
-};
-
-SelectMenu.defaultProps = {
-    selectedDay: '',
-    selectedFood: '',
-    weeklyMenu: [],
-    menuToEdit: {}
-};

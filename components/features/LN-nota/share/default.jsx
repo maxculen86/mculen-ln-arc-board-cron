@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import { useDisclosure } from '@ln/hooks';
 import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
@@ -154,20 +153,5 @@ function Share() {
 }
 
 Share.label = 'LN-Nota-Share';
-
-Share.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        subtype: PropTypes.string,
-        first_publish_date: PropTypes.string,
-        headlines: PropTypes.shape({
-            basic: PropTypes.string,
-            mobile: PropTypes.string
-        }),
-        comments: PropTypes.shape({
-            display_comments: PropTypes.bool
-        })
-    }).isRequired
-};
 
 export default Share;

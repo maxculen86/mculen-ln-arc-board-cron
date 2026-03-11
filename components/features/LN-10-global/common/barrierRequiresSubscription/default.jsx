@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { Button } from '@ln/contenidos-ui-button';
 import { Link } from '@ln/contenidos-ui-link';
@@ -12,7 +11,7 @@ import isSSR from '../../../../private/LN/common/utils/isSSR';
 import { a11yAttrsBarrierSub } from '../../../../private/common/audioNews/helpers';
 
 function BarrierRequiresSubscription({
-    isLogged = '',
+    isLogged = false,
     closeBarrier = () => null
 }) {
     const { button, title, message } = getConfigBarrierData(
@@ -79,15 +78,5 @@ function BarrierRequiresSubscription({
         </div>
     );
 }
-
-BarrierRequiresSubscription.propTypes = {
-    isLogged: PropTypes.bool,
-    closeBarrier: PropTypes.func
-};
-
-BarrierRequiresSubscription.defaultProps = {
-    isLogged: false,
-    closeBarrier: () => null
-};
 
 export default BarrierRequiresSubscription;

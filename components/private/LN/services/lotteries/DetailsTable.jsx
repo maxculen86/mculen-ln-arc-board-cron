@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/details-table.css';
 
-const DetailsTable = ({ data }) => {
+function DetailsTable({ data = {} }) {
     const {
         winners_table: winnersTable = [],
         name,
@@ -21,23 +20,21 @@ const DetailsTable = ({ data }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {winnersTable.map(x => {
-                            return (
-                                <tr>
-                                    <td>{x.name ? x.name : '-'}</td>
-                                    <td>
-                                        {x.winners && x.winners !== '0'
-                                            ? x.winners
-                                            : '-'}
-                                    </td>
-                                    <td>
-                                        {x.amount && x.amount !== '$0'
-                                            ? x.amount
-                                            : '-'}
-                                    </td>
-                                </tr>
-                            );
-                        })}
+                        {winnersTable.map(x => (
+                            <tr>
+                                <td>{x.name ? x.name : '-'}</td>
+                                <td>
+                                    {x.winners && x.winners !== '0'
+                                        ? x.winners
+                                        : '-'}
+                                </td>
+                                <td>
+                                    {x.amount && x.amount !== '$0'
+                                        ? x.amount
+                                        : '-'}
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             )}
@@ -66,13 +63,11 @@ const DetailsTable = ({ data }) => {
                     </thead>
                     <tbody>
                         <tr>
-                            {winnerCarton.map(carton => {
-                                return (
-                                    <td className="border-divider">
-                                        {carton.numbers}
-                                    </td>
-                                );
-                            })}
+                            {winnerCarton.map(carton => (
+                                <td className="border-divider">
+                                    {carton.numbers}
+                                </td>
+                            ))}
                         </tr>
                     </tbody>
                     {winnerCarton[0].amount !== '$0' && (
@@ -88,33 +83,6 @@ const DetailsTable = ({ data }) => {
             )}
         </section>
     );
-};
-
-DetailsTable.propTypes = {
-    data: PropTypes.shape({
-        component: PropTypes.string,
-        date: PropTypes.string,
-        estimatedPot: PropTypes.string,
-        id: PropTypes.string,
-        name: PropTypes.string,
-        results: PropTypes.arrayOf(PropTypes.string),
-        winners_table: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                winners: PropTypes.string,
-                amount: PropTypes.string
-            })
-        ),
-        winner_carton: PropTypes.arrayOf(
-            PropTypes.shape({
-                numbers: PropTypes.string,
-                amount: PropTypes.string
-            })
-        )
-    })
-};
-DetailsTable.defaultProps = {
-    data: {}
-};
+}
 
 export default DetailsTable;

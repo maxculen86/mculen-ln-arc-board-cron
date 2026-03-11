@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private - LN - Common - Utils -> mediaHelper Tests - helper - LinkImagePreload Load image with tag picture: Should return a preload link for each image with the valid attributes for a preloaded image. 1`] = `
-<div>
+NodeList [
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg"
     media="(min-width: 375)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg"
     media="(min-width: 320px) and (max-width: 375px)"
     rel="preload"
-  />
-</div>
+  />,
+]
 `;

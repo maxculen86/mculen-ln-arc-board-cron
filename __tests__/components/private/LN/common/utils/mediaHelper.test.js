@@ -210,24 +210,32 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 }
             ];
 
-            expect(container.querySelectorAll('[as=image]')).toHaveLength(2);
-            expect(container.querySelectorAll('[rel=preload]')).toHaveLength(2);
-            expect(container.querySelectorAll('link')).toHaveLength(2);
+            expect(document.head.querySelectorAll('[as=image]')).toHaveLength(
+                2
+            );
             expect(
-                container.querySelectorAll('[fetchpriority=high]')
+                document.head.querySelectorAll('[rel=preload]')
+            ).toHaveLength(2);
+            expect(
+                document.head.querySelectorAll('link[rel=preload][as=image]')
+            ).toHaveLength(2);
+            expect(
+                document.head.querySelectorAll('[fetchpriority=high]')
             ).toHaveLength(2);
 
             resultImages.forEach(({ mediaPreload, srcSet }) => {
                 expect(
-                    container.querySelector(`[imagesrcset="${srcSet}"]`)
+                    document.head.querySelector(`[imagesrcset="${srcSet}"]`)
                 ).toBeDefined();
 
                 expect(
-                    container.querySelector(`[media="${mediaPreload}"]`)
+                    document.head.querySelector(`[media="${mediaPreload}"]`)
                 ).toBeDefined();
             });
 
-            expect(container).toMatchSnapshot();
+            expect(
+                document.head.querySelectorAll('link[rel=preload][as=image]')
+            ).toMatchSnapshot();
         });
 
         test('should a empty node when the resizedUrls is not defined', () => {

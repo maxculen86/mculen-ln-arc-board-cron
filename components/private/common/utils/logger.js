@@ -46,7 +46,7 @@ const logger = (() => {
             url: url || uri
         };
 
-        error.statusCode === 404
+        return error.statusCode === 404
             ? flow404({ customsProps, error, justWarning })
             : regularFlow({ customsProps, error, loggerExcludedErrors });
     };

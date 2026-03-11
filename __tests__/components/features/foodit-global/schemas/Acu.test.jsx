@@ -26,7 +26,7 @@ describe('components - features- foodit-global - schemas - AcuSchema', () => {
         const { container } = render(
             <AcuSchema globalContent={mockAcuGlobalContent} />
         );
-        const scripts = container.querySelectorAll(
+        const scripts = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptSnippetRender = JSON.parse(scripts[0].textContent);

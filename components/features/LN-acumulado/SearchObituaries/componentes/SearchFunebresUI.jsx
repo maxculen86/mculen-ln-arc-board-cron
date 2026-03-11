@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import FuneralSearch from './FuneralSearch';
@@ -61,23 +60,5 @@ function SearchFuneberesUI({
         </FuneralSearch>
     );
 }
-
-SearchFuneberesUI.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            value: PropTypes.string.isRequired,
-            label: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    values: PropTypes.shape({
-        keyword: PropTypes.string
-    }).isRequired,
-    onKeywordChange: PropTypes.func.isRequired,
-    selectedOption: PropTypes.shape({
-        value: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired
-    }).isRequired,
-    handleSelectedOption: PropTypes.func.isRequired
-};
 
 export default SearchFuneberesUI;

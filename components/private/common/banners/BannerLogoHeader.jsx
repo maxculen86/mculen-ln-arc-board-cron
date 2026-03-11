@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import { getViewport } from '../../LN/common/utils/homeHelper';
@@ -11,7 +10,7 @@ import {
 } from '../../LN/common/utils/bannerHelper';
 import DivBannerSSR from './DivBannerSSR';
 
-const BannerLogoHeader = ({ section, isAdmin }) => {
+function BannerLogoHeader({ section, isAdmin }) {
     const { siteProperties } = useAppContext();
 
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
@@ -39,6 +38,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
             queueGoogletagCommand(bannerToLoad);
         };
 
+        // eslint-disable-next-line no-unused-expressions
         !isAdmin && slotId && loadBanner(slotId, section, device);
     }, [isAdmin, config, device, dfpId, section, slotId]);
 
@@ -70,12 +70,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
         </>
     );
 
-    return <>{Component}</>;
-};
-
-BannerLogoHeader.propTypes = {
-    section: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired
-};
+    return Component;
+}
 
 export default BannerLogoHeader;

@@ -110,7 +110,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -216,7 +216,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -306,7 +306,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -412,7 +412,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -518,7 +518,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -624,7 +624,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -714,7 +714,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -804,7 +804,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -910,7 +910,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -1016,7 +1016,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -1127,7 +1127,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -1238,7 +1238,7 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -1284,7 +1284,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
           class="icon w-24 w-20_md --dark"
         >
           <mock-icon
-            critical="false"
             name="bookmark-filled"
           />
         </i>
@@ -1401,7 +1400,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -1512,7 +1510,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -1607,7 +1604,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -1718,7 +1714,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -1829,7 +1824,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -1940,7 +1934,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2035,7 +2028,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2130,7 +2122,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2241,7 +2232,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2352,7 +2342,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2468,7 +2457,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2584,7 +2572,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
                       class="icon w-24 --dark"
                     >
                       <mock-icon
-                        critical="false"
                         name="bookmark-filled"
                       />
                     </i>
@@ -2629,7 +2616,6 @@ exports[`Components - Chains - Foodit-Global - Common - RenderCollection - LCP O
           class="icon w-24 w-20_md --dark"
         >
           <mock-icon
-            critical="false"
             name="bookmark-plus"
           />
         </i>

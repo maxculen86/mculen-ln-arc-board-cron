@@ -5,7 +5,6 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import { SelectMenu } from '../../SaveMenu/SelectMenu';
 import { FooterMenu } from '../../SaveMenu/FooterMenu';
@@ -138,12 +137,4 @@ function OptionEdit({
         </Dialog>
     );
 }
-OptionEdit.propTypes = {
-    articleId: PropTypes.string.isRequired,
-    weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setWeeklyMenu: PropTypes.func.isRequired,
-    bookmarkId: PropTypes.string.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired
-};
 export default OptionEdit;

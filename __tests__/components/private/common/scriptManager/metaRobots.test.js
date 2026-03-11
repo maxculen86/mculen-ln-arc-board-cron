@@ -4,9 +4,9 @@ import MetaRobots from '../../../../../components/private/common/scriptManager/M
 
 describe('components - private - common - scriptManager - metaRobots', () => {
     it('renders a meta tag with name="robots" and content="noindex, nofollow"', () => {
-        const { container } = render(<MetaRobots />);
+        render(<MetaRobots />);
 
-        const metaTag = container.querySelector('meta[name="robots"]');
+        const metaTag = document.head.querySelector('meta[name="robots"]');
 
         expect(metaTag).toBeInTheDocument();
         expect(metaTag).toHaveAttribute('content', 'noindex, nofollow');

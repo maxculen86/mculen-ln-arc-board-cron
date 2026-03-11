@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import { Note } from '@ln/foodit-ui-note';
@@ -116,10 +115,5 @@ function FichaNotaFoodit({ children = [], globalContent = {} }) {
 }
 
 FichaNotaFoodit.sections = pageBuilderSections;
-
-FichaNotaFoodit.propTypes = {
-    children: PropTypes.node.isRequired,
-    globalContent: PropTypes.shape({}).isRequired
-};
 
 export default Consumer(FichaNotaFoodit);

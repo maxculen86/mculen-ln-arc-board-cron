@@ -93,10 +93,7 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const resp = {
         id,
-        template:
-            template === '6' || template === '13'
-                ? '1'
-                : template,
+        template: template === '6' || template === '13' ? '1' : template,
         url,
         readingTime:
             readingMinutes !== 0 && !isExcludedSubtype(subtype)
@@ -110,12 +107,12 @@ export const storyCommon = (dataNota, cuerpo) => {
         },
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: enviarApps,
+        enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor),
         trust: !isTrust,
         metadata: Metadata(dataNota),
         ia: getIa(dataNota, subtype),
-        openingMode: openingMode,
+        openingMode,
         ...(domain && { domain })
     };
 

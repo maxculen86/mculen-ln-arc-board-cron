@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
@@ -21,16 +20,5 @@ export function AccountItem({ item }) {
         </li>
     );
 }
-
-AccountItem.propTypes = {
-    item: PropTypes.shape({
-        icon: PropTypes.node.isRequired,
-        onClick: PropTypes.func.isRequired,
-        text: PropTypes.string.isRequired,
-        variant: PropTypes.string.isRequired,
-        title: PropTypes.string,
-        classNameList: PropTypes.string.isRequired
-    }).isRequired
-};
 
 export default AccountItem;

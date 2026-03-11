@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 
@@ -23,8 +22,3 @@ export function HomeSchema(props) {
         />
     );
 }
-HomeSchema.propTypes = {
-    deployment: PropTypes.func.isRequired,
-    metaValue: PropTypes.func.isRequired,
-    contextPath: PropTypes.string.isRequired
-};

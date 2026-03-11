@@ -2,7 +2,6 @@ import React from 'react';
 import { Dialog } from '@ln/common-ui-dialog';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import { Message } from '../../../Modals/RemoveIngredients/components/Message';
 
@@ -103,16 +102,5 @@ function OptionDelete({
         </Dialog>
     );
 }
-
-OptionDelete.propTypes = {
-    bookmarkId: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setItems: PropTypes.func.isRequired,
-    deleteFunction: PropTypes.func.isRequired,
-    filterKey: PropTypes.string.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    messageType: PropTypes.string.isRequired
-};
 
 export default OptionDelete;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import PageBuilderMessage from '../../LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -17,9 +16,4 @@ function WarningMessage({ featureId, type, message }) {
     );
 }
 
-WarningMessage.propTypes = {
-    featureId: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired
-};
 export default Consumer(WarningMessage);

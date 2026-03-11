@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
 
-const ApiLNHomeMain = props => {
-    return [props?.globalContent];
-};
+const ApiLNHomeMain = props => [props?.globalContent];
+
+ApiLNHomeMain.sections = ['Body'];
 
 export default Consumer(ApiLNHomeMain);

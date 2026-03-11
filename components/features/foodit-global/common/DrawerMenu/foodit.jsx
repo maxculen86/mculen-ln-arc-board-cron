@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'fusion:prop-types';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
 import removeAccents from '../../../../private/common/utils/removeAccents';
@@ -70,13 +69,5 @@ function DrawerMenu({ categories = [] }) {
         </DrawerContainer>
     );
 }
-
-DrawerMenu.propTypes = {
-    categories: PropTypes.array
-};
-
-DrawerMenu.defaultProps = {
-    categories: []
-};
 
 export default DrawerMenu;

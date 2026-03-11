@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 import { useContent } from 'fusion:content';
 import PreloadImages from '../../../../private-global/common/preloadImage/preloadImages';
@@ -118,23 +117,5 @@ function PreloadFooditImages({
 
     return <PreloadImages resizedUrls={resizedUrls} />;
 }
-
-PreloadFooditImages.propTypes = {
-    layout: PropTypes.string,
-    renderables: PropTypes.array,
-    globalContent: PropTypes.object,
-    isAdmin: PropTypes.bool,
-    contextPath: PropTypes.string,
-    deployment: PropTypes.func
-};
-
-PreloadFooditImages.defaultProps = {
-    layout: '',
-    renderables: [],
-    globalContent: {},
-    isAdmin: false,
-    contextPath: '',
-    deployment: () => {}
-};
 
 export default PreloadFooditImages;

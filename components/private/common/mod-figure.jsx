@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComFigure from './com-figure';
 import ModPicture from './mod-picture';
 import ModFigcaption from './mod-figcaption';
@@ -16,12 +15,5 @@ function ModFigure(props) {
         </ComFigure>
     );
 }
-
-ModFigure.propTypes = {
-    src: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    credit: PropTypes.string.isRequired,
-    classCondition: PropTypes.string.isRequired
-};
 
 export default ModFigure;

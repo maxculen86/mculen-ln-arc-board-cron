@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import Static from 'fusion:static';
 
-const TitleFeature = props => {
+function TitleFeature(props) {
     const { id: featureId = '' } = props;
     const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
     const {
@@ -27,7 +27,7 @@ const TitleFeature = props => {
     );
 
     return <Static id={featureId}>{Component}</Static>;
-};
+}
 
 TitleFeature.label = 'LN-Acumulado-Titulo';
 
@@ -39,14 +39,7 @@ TitleFeature.propTypes = {
             label: 'Reemplazar titulo',
             defaultValue: undefined
         })
-    })
-};
-
-TitleFeature.defaultProps = {
-    customFields: {
-        idCollection: undefined,
-        prefixTitle: undefined
-    }
+    }).isRequired
 };
 
 export default TitleFeature;

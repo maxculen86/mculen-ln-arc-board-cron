@@ -2,9 +2,12 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
-function SkeletonCard({ className = '', variant = 'recipe', isResultdata }) {
+function SkeletonCard({
+    className = '',
+    variant = 'recipe',
+    isResultdata = false
+}) {
     const { layout, siteProperties } = useAppContext();
     const { layoutsName = {} } = siteProperties || {};
     const isLayoutRecetario = layout === layoutsName.FooditRecetario;
@@ -67,15 +70,4 @@ function SkeletonCard({ className = '', variant = 'recipe', isResultdata }) {
     );
 }
 
-SkeletonCard.propTypes = {
-    className: PropTypes.string,
-    variant: PropTypes.oneOf(['recipe', 'note', 'acu']),
-    isResultdata: PropTypes.bool
-};
-
-SkeletonCard.defaultProps = {
-    className: '',
-    variant: 'recipe',
-    isResultdata: false
-};
 export default SkeletonCard;

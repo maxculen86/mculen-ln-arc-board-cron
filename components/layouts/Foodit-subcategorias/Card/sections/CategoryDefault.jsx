@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Category } from '@ln/foodit-ui-category';
 
 export function CategoryDefault({
@@ -53,26 +52,3 @@ export function CategoryDefault({
         </div>
     );
 }
-
-CategoryDefault.propTypes = {
-    currentMock: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            container: PropTypes.string,
-            imageProps: PropTypes.shape({
-                src: PropTypes.string,
-                alt: PropTypes.string
-            }),
-            linkProps: PropTypes.shape({
-                href: PropTypes.string,
-                title: PropTypes.string
-            }),
-            trackingLabel: PropTypes.string,
-            classNames: PropTypes.string
-        })
-    ).isRequired,
-    assetsPath: PropTypes.func.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    applyPageBasedPriority: PropTypes.func.isRequired,
-    trackSubcategoryCard: PropTypes.func.isRequired
-};

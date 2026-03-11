@@ -29,7 +29,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   class="icon --icon-24 --dark"
                 >
                   <mock-icon
-                    critical="true"
+                    critical=""
                     name="menu"
                   />
                 </i>
@@ -186,40 +186,36 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               <div
                 class="lg-only"
               >
-                <button
-                  class="button notification-drawer-button --icon-only"
-                  data-test-id="campanita-notifications-drawer"
-                  title="Abrir Notificaciones"
+                <div
+                  class="relative w-max"
                 >
-                  <i
-                    class="icon"
+                  <button
+                    class="button notification-drawer-button --icon-only"
+                    title="Abrir Notificaciones"
                   >
-                    <svg
-                      fill="none"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="notification-drawer-button-icon-wrapper relative"
                     >
-                      <path
-                        d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7Zm-2 0v-7a6 6 0 1 0-12 0v7h12Zm-9 4h6v2H9v-2Z"
-                        fill="#333333"
+                      <i
+                        aria-hidden="true"
+                        class="icon notification-drawer-icon-default"
                       />
-                    </svg>
-                  </i>
+                    </div>
+                  </button>
                   <div
-                    class="notification-drawer-tooltip"
+                    class="tooltip absolute text-16 p-8 rounded-4 shadow-float transition-regular w-max max-w-328 z-1 --with-arrow mt-8 top-100 right-0 notification-drawer-tooltip"
                     data-position="bottom-right"
                     data-visible="true"
                     role="tooltip"
+                    style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
                   >
                     <p
-                      class="text"
+                      class="text w-107 w-141_md text-center"
                     >
                       Aquí encontrarás todas nuestras notificaciones
                     </p>
                   </div>
-                </button>
+                </div>
               </div>
             </div>
             <div
@@ -339,7 +335,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                                 class="icon --icon-20 --inherit"
                               >
                                 <mock-icon
-                                  critical="true"
+                                  critical=""
                                   name="bookmark"
                                 />
                               </i>
@@ -975,7 +971,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                                 class="icon --icon-20 --inherit"
                               >
                                 <mock-icon
-                                  critical="true"
+                                  critical=""
                                   name="cart"
                                 />
                               </i>
@@ -1358,7 +1354,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                         class="icon --icon-20"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -1377,7 +1373,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                         class="icon --icon-20"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="weekly-menu"
                         />
                       </i>
@@ -1402,7 +1398,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                         class="icon --icon-20"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="shopping-list"
                         />
                       </i>
@@ -1427,7 +1423,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                         class="icon --icon-20"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="newsletter"
                         />
                       </i>
@@ -1553,7 +1549,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="icon --icon-20 --inherit"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       name="bookmark"
                     />
                   </i>
@@ -2189,7 +2185,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="icon --icon-20 --inherit"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       name="cart"
                     />
                   </i>

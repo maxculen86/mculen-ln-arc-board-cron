@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import classNames from 'classnames';
@@ -30,10 +29,5 @@ function DisclaimerIA({ text = '', className = '' }) {
         </aside>
     );
 }
-
-DisclaimerIA.propTypes = {
-    text: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired
-};
 
 export default DisclaimerIA;

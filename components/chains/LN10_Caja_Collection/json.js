@@ -5,11 +5,13 @@ import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
 import { LAYOUTS } from '../utils/common/_helpers-WebApi';
 import getViewabilityRoof from '../utils/getViewabilityRoof';
+
 class CajaCollection extends GetCajaCollection {
     constructor(props) {
         super(props, null);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     validate = (propsValidate, articles) => {
         const {
             id: chainId,
@@ -48,7 +50,11 @@ class CajaCollection extends GetCajaCollection {
                 return null;
             }
 
-            const { id: chainId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+            const {
+                id: chainId,
+                renderables = [],
+                customFields: propsForRoof = {}
+            } = this.props || {};
 
             const viewabilityRoof = getViewabilityRoof(
                 chainId,
@@ -56,7 +62,11 @@ class CajaCollection extends GetCajaCollection {
                 propsForRoof
             );
 
-            return this.renderResponse({ ...this.props, viewabilityRoof }, elements, containerImage);
+            return this.renderResponse(
+                { ...this.props, viewabilityRoof },
+                elements,
+                containerImage
+            );
         } catch (err) {
             return { Success: false, Message: err.message };
         }

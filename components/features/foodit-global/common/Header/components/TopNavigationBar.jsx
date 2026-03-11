@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { Topnavigationbar } from '@ln/foodit-ui-topnavigationbar';
 import { Icon } from '@ln/common-ui-icon';
@@ -80,31 +79,3 @@ export function TopNavigationBar({ categories = [] }) {
         </div>
     );
 }
-
-TopNavigationBar.propTypes = {
-    categories: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            href: PropTypes.string,
-            data: PropTypes.arrayOf(
-                PropTypes.shape({
-                    title: PropTypes.shape({
-                        text: PropTypes.string.isRequired,
-                        href: PropTypes.string,
-                        icon: PropTypes.shape({
-                            props: PropTypes.shape({
-                                name: PropTypes.string.isRequired
-                            })
-                        })
-                    }),
-                    items: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            text: PropTypes.string.isRequired,
-                            href: PropTypes.string.isRequired
-                        })
-                    )
-                })
-            )
-        })
-    ).isRequired
-};

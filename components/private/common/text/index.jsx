@@ -1,19 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import setClassName from '../utils/setClassName';
 import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
 import '../../../../resources/dist/css/ln/components/com-text.css';
 
 function Text({
-    tag,
+    tag = 'span',
     id,
-    extraClass,
-    children,
-    text,
-    link,
-    font,
-    size,
-    weight,
+    extraClass = 'com-text',
+    children = '',
+    text = '',
+    link = '',
+    font = '',
+    size = '',
+    weight = '',
     styles
 }) {
     const CustomTag = tag;
@@ -39,31 +38,5 @@ function Text({
         </CustomTag>
     );
 }
-
-Text.propTypes = {
-    tag: PropTypes.string,
-    id: PropTypes.string,
-    extraClass: PropTypes.string,
-    children: PropTypes.node,
-    text: PropTypes.string,
-    link: PropTypes.string,
-    font: PropTypes.string,
-    size: PropTypes.string,
-    weight: PropTypes.string,
-    styles: PropTypes.string
-};
-
-Text.defaultProps = {
-    tag: 'span',
-    id: undefined,
-    extraClass: 'com-text',
-    children: '',
-    text: '',
-    link: '',
-    font: '',
-    size: '',
-    weight: '',
-    styles: undefined
-};
 
 export default Text;

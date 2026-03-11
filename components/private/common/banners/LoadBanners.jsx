@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
@@ -15,7 +14,7 @@ import {
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 import { isSubscribed, SUBSCRIBED_HELPER } from '../auth/helper/loginHelper';
 
-function LoadBanners({ blocksBanners }) {
+function LoadBanners({ blocksBanners = [] }) {
     const [bannersLoaded, setBannersLoaded] = useState(() => false);
     const { outputType, isAdmin } = useAppContext();
     const device = useViewportSize();
@@ -135,15 +134,5 @@ function LoadBanners({ blocksBanners }) {
 
     return <div className="none">Cargando banners ...</div>;
 }
-
-LoadBanners.propTypes = {
-    blocksBanners: PropTypes.arrayOf(
-        PropTypes.shape({
-            slotGroup: PropTypes.string
-        })
-    )
-};
-
-LoadBanners.defaultProps = { blocksBanners: [] };
 
 export default LoadBanners;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
@@ -32,21 +31,5 @@ function BreadcrumbSection({ sectionId, host, colorCategory }) {
         </>
     );
 }
-
-BreadcrumbSection.propTypes = {
-    sections: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            name: PropTypes.string,
-            path: PropTypes.string
-        })
-    ).isRequired,
-    host: PropTypes.string.isRequired,
-    colorCategory: PropTypes.string
-};
-
-BreadcrumbSection.defaultProps = {
-    colorCategory: ''
-};
 
 export default BreadcrumbSection;

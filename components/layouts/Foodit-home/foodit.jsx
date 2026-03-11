@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import classNames from 'classnames';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -10,7 +9,7 @@ import { EjesHome } from '../../features/foodit-global/common/ejesHome/foodit';
 
 const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2', 'Bloque-3'];
 
-function HomeFoodit({ children, isAdmin }) {
+function HomeFoodit({ children, isAdmin = false }) {
     const [opening, bloque1, bloque2, bloque3] = children;
     const sectionClasses = classNames('flex flex-column gap-40');
 
@@ -36,14 +35,5 @@ function HomeFoodit({ children, isAdmin }) {
 }
 
 HomeFoodit.sections = pageBuilderSections;
-
-HomeFoodit.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool
-};
-
-HomeFoodit.defaultProps = {
-    isAdmin: false
-};
 
 export default HomeFoodit;

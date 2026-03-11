@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function LiveTopics({ children }) {
     return (
@@ -12,8 +11,5 @@ function LiveTopics({ children }) {
         </div>
     );
 }
-LiveTopics.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default LiveTopics;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { GridArticlesFoodit } from './gridArticles';
 import { LoadMoreButton } from './loadMoreButton';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
@@ -70,16 +69,5 @@ function GridFooditClient({ id = '', layout = '', maxArticles = 24 }) {
         </>
     );
 }
-GridFooditClient.propTypes = {
-    id: PropTypes.string,
-    layout: PropTypes.string,
-    maxArticles: PropTypes.number
-};
-
-GridFooditClient.defaultProps = {
-    id: '',
-    layout: '',
-    maxArticles: 24
-};
 
 export default GridFooditClient;

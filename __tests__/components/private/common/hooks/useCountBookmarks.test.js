@@ -1,7 +1,6 @@
 import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
-import { act } from 'react-dom/test-utils';
-import React from 'react';
+import React, { act } from 'react';
 import useCountBookmarks from '../../../../../components/private/common/hooks/bookmark/useCountBookmarks';
 
 describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {

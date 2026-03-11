@@ -29,7 +29,7 @@ jest.mock(
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/CommonCardFoodit/foodit',
     () => {
-        return function MockCommonCardFoodit({
+        return jest.fn(function MockCommonCardFoodit({
             onDelete,
             onMove,
             isMyRecipesLayout,
@@ -54,23 +54,23 @@ jest.mock(
                     )}
                 </div>
             );
-        };
+        });
     }
 );
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/recetario/components/OptionMove',
     () => {
-        return function MockOptionMove() {
+        return jest.fn(function MockOptionMove() {
             return null;
-        };
+        });
     }
 );
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/MenuSemanal/components/MenuOptions/OptionDelete',
     () => {
-        return function MockOptionDelete({
+        return jest.fn(function MockOptionDelete({
             isOpen,
             onClose,
             deleteFunction,
@@ -99,7 +99,7 @@ jest.mock(
                     </button>
                 </div>
             );
-        };
+        });
     }
 );
 
@@ -179,9 +179,7 @@ describe('RecetarioArticle', () => {
         });
 
         it('should pass correct props to CommonCardFoodit', () => {
-            const CommonCardFoodit =
-                require('../../../../../../../components/features/foodit-global/common/CommonCardFoodit/foodit').default;
-            const spy = jest.spyOn(React, 'createElement');
+            const MockCommonCardFoodit = require('../../../../../../../components/features/foodit-global/common/CommonCardFoodit/foodit');
 
             render(
                 <RecetarioArticle
@@ -192,21 +190,15 @@ describe('RecetarioArticle', () => {
                 />
             );
 
-            const commonCardCall = spy.mock.calls.find(
-                call =>
-                    call[0] === CommonCardFoodit ||
-                    (call[0] && call[0].name === 'MockCommonCardFoodit')
+            expect(MockCommonCardFoodit).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    isMyRecipesLayout: true,
+                    onDelete: expect.any(Function),
+                    onMove: expect.any(Function),
+                    articleId: 'ARTICLE123'
+                }),
+                undefined
             );
-
-            expect(commonCardCall).toBeDefined();
-            const props = commonCardCall[1];
-
-            expect(props.isMyRecipesLayout).toBe(true);
-            expect(props.onDelete).toBeInstanceOf(Function);
-            expect(props.onMove).toBeInstanceOf(Function);
-            expect(props.articleId).toBe('ARTICLE123');
-
-            spy.mockRestore();
         });
 
         it('should not render dropdown when not in recipes layout', () => {
@@ -314,9 +306,7 @@ describe('RecetarioArticle', () => {
 
     describe('Modal Integration', () => {
         it('should render OptionMove with correct props', () => {
-            const OptionMove =
-                require('../../../../../../../components/features/foodit-global/common/recetario/components/OptionMove').default;
-            const spy = jest.spyOn(React, 'createElement');
+            const MockOptionMove = require('../../../../../../../components/features/foodit-global/common/recetario/components/OptionMove');
 
             render(
                 <RecetarioArticle
@@ -327,26 +317,18 @@ describe('RecetarioArticle', () => {
                 />
             );
 
-            const optionMoveCall = spy.mock.calls.find(
-                call =>
-                    call[0] === OptionMove ||
-                    (call[0] && call[0].name === 'MockOptionMove')
+            expect(MockOptionMove).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    bookmarkId: 'bookmark-123',
+                    currentCollectionId: 'Favorite Recipes',
+                    moveFunction: expect.any(Function)
+                }),
+                undefined
             );
-
-            expect(optionMoveCall).toBeDefined();
-            const props = optionMoveCall[1];
-
-            expect(props.bookmarkId).toBe('bookmark-123');
-            expect(props.currentCollectionId).toBe('Favorite Recipes');
-            expect(props.moveFunction).toBeInstanceOf(Function);
-
-            spy.mockRestore();
         });
 
         it('should render OptionDelete with correct props', () => {
-            const OptionDelete =
-                require('../../../../../../../components/features/foodit-global/common/MenuSemanal/components/MenuOptions/OptionDelete').default;
-            const spy = jest.spyOn(React, 'createElement');
+            const MockOptionDelete = require('../../../../../../../components/features/foodit-global/common/MenuSemanal/components/MenuOptions/OptionDelete');
 
             render(
                 <RecetarioArticle
@@ -357,20 +339,14 @@ describe('RecetarioArticle', () => {
                 />
             );
 
-            const optionDeleteCall = spy.mock.calls.find(
-                call =>
-                    call[0] === OptionDelete ||
-                    (call[0] && call[0].name === 'MockOptionDelete')
+            expect(MockOptionDelete).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    bookmarkId: 'bookmark-123',
+                    deleteFunction: expect.any(Function),
+                    messageType: 'bookmark'
+                }),
+                undefined
             );
-
-            expect(optionDeleteCall).toBeDefined();
-            const props = optionDeleteCall[1];
-
-            expect(props.bookmarkId).toBe('bookmark-123');
-            expect(props.deleteFunction).toBeInstanceOf(Function);
-            expect(props.messageType).toBe('bookmark');
-
-            spy.mockRestore();
         });
     });
 });

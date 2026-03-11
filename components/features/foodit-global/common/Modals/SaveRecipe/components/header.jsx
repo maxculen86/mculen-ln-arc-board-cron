@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function HeaderSaveRecipe({ title }) {
     return (
@@ -10,9 +9,5 @@ function HeaderSaveRecipe({ title }) {
         </header>
     );
 }
-
-HeaderSaveRecipe.propTypes = {
-    title: PropTypes.string.isRequired
-};
 
 export default HeaderSaveRecipe;

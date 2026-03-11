@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
@@ -56,12 +55,5 @@ function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
 }
 
 lnNotaNoticia.sections = ['Banner-Megatop', 'Bottom', 'Bottom-Tercera'];
-
-lnNotaNoticia.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired
-};
 
 export default Consumer(lnNotaNoticia);

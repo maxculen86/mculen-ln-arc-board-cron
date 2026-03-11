@@ -172,13 +172,7 @@ ToolBar.propTypes = {
             default: false,
             group: groupCustomFields
         })
-    })
-};
-
-ToolBar.defaultProps = {
-    customFields: {
-        hideSummary: false
-    }
+    }).isRequired
 };
 
 export default ToolBar;

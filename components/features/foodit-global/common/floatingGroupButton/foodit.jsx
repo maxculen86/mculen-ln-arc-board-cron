@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Groupbutton } from '@ln/common-ui-groupbutton';
 import { Button } from '@ln/foodit-ui-button';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ import useGetUserConfig from '../../hooks/useGetUserConfig';
 function FloatingGroupButton({
     buttons = [],
     className = '',
-    observerSelector
+    observerSelector = ''
 }) {
     const { layout, siteProperties } = useAppContext();
     const { layoutsName = {} } = siteProperties || {};
@@ -40,23 +40,5 @@ function FloatingGroupButton({
         </Groupbutton>
     );
 }
-
-FloatingGroupButton.propTypes = {
-    buttons: PropTypes.arrayOf(
-        PropTypes.shape({
-            onClick: PropTypes.func,
-            title: PropTypes.string,
-            disabled: PropTypes.bool
-        })
-    ),
-    className: PropTypes.string,
-    observerSelector: PropTypes.string
-};
-
-FloatingGroupButton.defaultProps = {
-    buttons: [],
-    className: '',
-    observerSelector: ''
-};
 
 export default FloatingGroupButton;

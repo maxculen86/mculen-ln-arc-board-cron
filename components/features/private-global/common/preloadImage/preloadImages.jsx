@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
 function PreloadImages({ resizedUrls = [] }) {
@@ -17,17 +16,5 @@ function PreloadImages({ resizedUrls = [] }) {
         />
     ));
 }
-PreloadImages.propTypes = {
-    resizedUrls: PropTypes.arrayOf(
-        PropTypes.shape({
-            mediaPreload: PropTypes.string.isRequired,
-            href: PropTypes.string.isRequired
-        })
-    )
-};
-
-PreloadImages.defaultProps = {
-    resizedUrls: []
-};
 
 export default PreloadImages;

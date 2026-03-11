@@ -1,4 +1,3 @@
-import PropTypes from 'fusion:prop-types';
 import get from '../utils/get';
 import { FOTOAL100 } from '../utils/subtypes/subtypeHelper';
 
@@ -22,19 +21,5 @@ function scriptVideoValidator(globalContent) {
         subtype !== FOTOAL100
     );
 }
-
-scriptVideoValidator.propTypes = {
-    globalContent: PropTypes.shape({
-        content_elements: PropTypes.node.isRequired,
-        promo_items: PropTypes.shape({
-            basic: PropTypes.shape({
-                type: PropTypes.string
-            }),
-            storytelling: PropTypes.shape({
-                type: PropTypes.string
-            })
-        })
-    }).isRequired
-};
 
 export default scriptVideoValidator;

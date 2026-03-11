@@ -2,7 +2,6 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 
 import { getTypeOfDevice } from '@ln/hooks';
-import PropTypes from 'prop-types';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 
 import { useAdManager } from './hooks/useAdManager';
@@ -51,34 +50,5 @@ export function BannerBaseFoodit({ bannerType }) {
         </div>
     );
 }
-
-BannerBaseFoodit.propTypes = {
-    bannerType: PropTypes.shape({
-        devices: PropTypes.shape({
-            desktop: PropTypes.shape({
-                slotId: PropTypes.string.isRequired,
-                size: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
-                    .isRequired,
-                divId: PropTypes.string.isRequired,
-                classParent: PropTypes.string.isRequired
-            }),
-            mobile: PropTypes.shape({
-                slotId: PropTypes.string.isRequired,
-                size: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
-                    .isRequired,
-                divId: PropTypes.string.isRequired,
-                classParent: PropTypes.string.isRequired
-            }),
-            tablet: PropTypes.shape({
-                slotId: PropTypes.string.isRequired,
-                size: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
-                    .isRequired,
-                divId: PropTypes.string.isRequired,
-                classParent: PropTypes.string.isRequired
-            })
-        }).isRequired,
-        getTargetings: PropTypes.func.isRequired
-    }).isRequired
-};
 
 export default BannerBaseFoodit;

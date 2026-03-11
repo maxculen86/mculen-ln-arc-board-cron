@@ -4,7 +4,6 @@ import { Icon } from '@ln/common-ui-icon';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { useDisclosure } from '@ln/hooks';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import OptionEdit from './OptionEdit';
 import OptionDelete from './OptionDelete';
@@ -110,10 +109,3 @@ export function MenuOptions({
         </>
     );
 }
-MenuOptions.propTypes = {
-    articleId: PropTypes.string.isRequired,
-    bookmarkId: PropTypes.string.isRequired,
-    weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setWeeklyMenu: PropTypes.func.isRequired,
-    subscription: PropTypes.bool.isRequired
-};

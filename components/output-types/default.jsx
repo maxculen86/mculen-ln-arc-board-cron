@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import MetasOG from '../private/common/metaTags/metasOG';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -307,44 +306,5 @@ function Default(props) {
         </html>
     );
 }
-
-Default.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired,
-    CssLinks: PropTypes.func.isRequired,
-    Fusion: PropTypes.node.isRequired,
-    Libs: PropTypes.node.isRequired,
-    metaValue: PropTypes.func.isRequired,
-    renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
-    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
-    outputType: PropTypes.string.isRequired,
-    siteProperties: PropTypes.isRequired,
-    layout: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    isAdmin: PropTypes.boolean.isRequired,
-    template: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired,
-    globalContentConfig: PropTypes.shape({
-        source: PropTypes.string.isRequired,
-        query: PropTypes.shape({
-            id: PropTypes.string,
-            website: PropTypes.string,
-            'arc-site': PropTypes.string.isRequired,
-            url: PropTypes.string,
-            uri: PropTypes.string,
-            meteringVariant: PropTypes.string,
-            paywallUrl: PropTypes.string,
-            paywallEnabled: PropTypes.string,
-            outputType: PropTypes.string,
-            utm_source: PropTypes.string,
-            utm_campaign: PropTypes.string,
-            utm_medium: PropTypes.string,
-            utm_term: PropTypes.string,
-            utm_content: PropTypes.string
-        })
-    }).isRequired
-};
 
 export default Default;

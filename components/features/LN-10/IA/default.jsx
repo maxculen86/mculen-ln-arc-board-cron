@@ -39,14 +39,7 @@ LnIa.propTypes = {
             default: false,
             group: groupCustomFields
         })
-    })
-};
-
-LnIa.defaultProps = {
-    customFields: {
-        hideSummary: false,
-        hideGlossary: false
-    }
+    }).isRequired
 };
 
 export default LnIa;

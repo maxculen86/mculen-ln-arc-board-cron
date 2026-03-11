@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/common-ui-button';
 
-export function LoadMoreButton({ clickMoreArticle, loading = false, name }) {
+export function LoadMoreButton({
+    clickMoreArticle,
+    loading = false,
+    name = ''
+}) {
     const notesName = name ? `${name.toUpperCase()}` : '';
 
     return (
@@ -20,14 +23,3 @@ export function LoadMoreButton({ clickMoreArticle, loading = false, name }) {
         </div>
     );
 }
-
-LoadMoreButton.propTypes = {
-    clickMoreArticle: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
-    name: PropTypes.string
-};
-
-LoadMoreButton.defaultProps = {
-    loading: false,
-    name: ''
-};

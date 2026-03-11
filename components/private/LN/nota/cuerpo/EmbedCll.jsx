@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Html from './html';
 import buildEmbedCll from '../../../common/utils/embedCllHelper';
 
@@ -12,18 +11,6 @@ function EmbedCll({ data = {} }) {
 
     return <Html data={{ content, _id }} />;
 }
-
-EmbedCll.propTypes = {
-    data: PropTypes.shape({
-        embed: PropTypes.shape({
-            config: PropTypes.shape({
-                widgetUrl: PropTypes.string,
-                embedType: PropTypes.string
-            })
-        }),
-        _id: PropTypes.string
-    })
-}.isRequired;
 
 EmbedCll.arcType = 'canchallena';
 export default EmbedCll;

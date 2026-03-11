@@ -127,7 +127,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         render(<DsSignature customFields={{}} globalContent={{}} />);
         expect(Distributor).toHaveBeenCalledWith(
             expect.objectContaining({ shouldShowDistributor: true }),
-            {}
+            undefined
         );
     });
 
@@ -135,7 +135,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         render(<DsSignature customFields={{}} globalContent={{}} />);
         expect(AuthorsAndSocialLinks).toHaveBeenCalledWith(
             expect.objectContaining({ shouldShowAuthors: true }),
-            {}
+            undefined
         );
     });
 
@@ -146,7 +146,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
                 text: 'Texto de la bio',
                 shouldShowBiography: true
             }),
-            {}
+            undefined
         );
     });
 
@@ -160,7 +160,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         render(<DsSignature customFields={{}} globalContent={{}} />);
         expect(BiographyAccordion).toHaveBeenCalledWith(
             expect.objectContaining({ shouldShowBiography: false }),
-            {}
+            undefined
         );
     });
 
@@ -176,7 +176,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         render(<DsSignature customFields={{}} globalContent={{}} />);
         expect(BiographyAccordion).toHaveBeenCalledWith(
             expect.objectContaining({ shouldShowBiography: false }),
-            {}
+            undefined
         );
     });
 
@@ -198,7 +198,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         render(<DsSignature customFields={{}} globalContent={{}} />);
         expect(BiographyAccordion).toHaveBeenCalledWith(
             expect.objectContaining({ shouldShowBiography: false }),
-            {}
+            undefined
         );
     });
 
@@ -210,7 +210,7 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
                 mode: 'default',
                 subcategory: []
             }),
-            {}
+            undefined
         );
     });
 

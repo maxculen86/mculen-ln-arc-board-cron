@@ -3,7 +3,6 @@ import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'fusion:prop-types';
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 
@@ -45,10 +44,6 @@ function AcumuladoChefFoodit({ children }) {
         </BaseLayout>
     );
 }
-
-AcumuladoChefFoodit.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 AcumuladoChefFoodit.sections = pageBuilderSections;
 

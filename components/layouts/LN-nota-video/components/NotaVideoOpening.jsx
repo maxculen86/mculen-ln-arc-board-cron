@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function NotaVideoOpening({ children }) {
     return (
@@ -8,9 +7,5 @@ function NotaVideoOpening({ children }) {
         </div>
     );
 }
-
-NotaVideoOpening.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default NotaVideoOpening;

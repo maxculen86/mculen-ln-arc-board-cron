@@ -4,11 +4,16 @@ import ScriptCripto from '../../../../../components/private/common/scriptManager
 
 describe('ScriptCripto Component', () => {
     test('renders a script tag with the correct src and async attribute', () => {
-        const { container } = render(<ScriptCripto />);
+        render(<ScriptCripto />);
 
-        const scriptTag = container.querySelector('script');
+        const scriptTag = document.head.querySelector(
+            'script[src*="livecoinwatch"]'
+        );
         expect(scriptTag).toBeInTheDocument();
-        expect(scriptTag).toHaveAttribute('src', 'https://www.livecoinwatch.com/static/lcw-widget.js');
+        expect(scriptTag).toHaveAttribute(
+            'src',
+            'https://www.livecoinwatch.com/static/lcw-widget.js'
+        );
         expect(scriptTag).toHaveAttribute('async');
     });
 });

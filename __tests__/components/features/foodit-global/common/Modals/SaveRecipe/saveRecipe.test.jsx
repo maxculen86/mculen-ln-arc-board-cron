@@ -254,7 +254,7 @@ describe('SaveRecipe Component', () => {
                 inputRef: expect.any(Object),
                 restoreInputValue: expect.any(Function)
             }),
-            {}
+            undefined
         );
     });
 
@@ -306,13 +306,14 @@ describe('SaveRecipe Component', () => {
             expect.objectContaining({
                 error: { hasError: true, message: 'Error message' }
             }),
-            {}
+            undefined
         );
+
         expect(FooterSaveRecipe).toHaveBeenCalledWith(
             expect.objectContaining({
                 hasInputError: true
             }),
-            {}
+            undefined
         );
     });
 
@@ -366,7 +367,7 @@ describe('SaveRecipe Component', () => {
                 layout: 'Foodit-home',
                 fatherType: 'sampleFatherType'
             }),
-            {}
+            undefined
         );
     });
 

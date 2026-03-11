@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Timeline from './timeline';
 import CajaTemaWrapper from './cajaTemaWrapper';
 import ModHeaderSection from '../../common/mod-headerSection';
@@ -12,7 +11,7 @@ import getFeatureByLayout from './utils/getFeatureByLayout';
 import { setTLDistribution, setTLOrderClass } from './utils/timeline';
 import '../../../../resources/dist/css/ln/modules/box-articles.css';
 
-const CajaTema = props => {
+function CajaTema(props) {
     const {
         title,
         imageId,
@@ -64,6 +63,7 @@ const CajaTema = props => {
     };
 
     const options = {
+        // eslint-disable-next-line react/no-unstable-nested-components
         Timeline: () => {
             const feature = getFeatureByLayout(features, _children, layoutName);
 
@@ -115,45 +115,7 @@ const CajaTema = props => {
             </section>
         </div>
     );
-};
-
-CajaTema.propTypes = {
-    articles: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string
-        })
-    ).isRequired,
-    outputType: PropTypes.string,
-    layout: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    classCondition: PropTypes.string,
-    notesQuantity: PropTypes.number,
-    hideTitle: PropTypes.bool,
-    withSubhead: PropTypes.bool,
-    title: PropTypes.string,
-    titleSize: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    url: PropTypes.string,
-    imageId: PropTypes.string,
-    position: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
-        .isRequired,
-    sectionName: PropTypes.string.isRequired,
-    _children: PropTypes.arrayOf(PropTypes.node)
-};
-
-CajaTema.defaultProps = {
-    classCondition: '',
-    backgroundColor: '',
-    layout: 'grilla3',
-    title: null,
-    url: null,
-    imageId: null,
-    titleSize: undefined,
-    withSubhead: false,
-    hideTitle: false,
-    notesQuantity: 3,
-    _children: [],
-    outputType: 'default'
-};
+}
 
 const areEqual = (prevProps, nextProps) =>
     prevProps &&

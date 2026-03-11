@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import { Text } from '@ln/common-ui-text';
@@ -67,20 +66,5 @@ function ChefFoodit(props) {
 }
 
 ChefFoodit.sections = pageBuilderSections;
-
-ChefFoodit.propTypes = {
-    children: PropTypes.node.isRequired,
-    globalContent: PropTypes.shape({
-        byline: PropTypes.string,
-        longBio: PropTypes.string,
-        image: PropTypes.shape({
-            url: PropTypes.string
-        }),
-        instagram: PropTypes.string,
-        youtube: PropTypes.string,
-        pinterest: PropTypes.string,
-        twitter: PropTypes.string
-    }).isRequired
-};
 
 export default Consumer(ChefFoodit);

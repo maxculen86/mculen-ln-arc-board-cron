@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
@@ -68,9 +67,5 @@ function CajaDolar({ id: featureId }) {
 }
 
 CajaDolar.label = 'LN Acumulado Caja Dolar';
-
-CajaDolar.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default CajaDolar;

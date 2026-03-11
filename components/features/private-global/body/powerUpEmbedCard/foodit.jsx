@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 import CommonCardFoodit from '../../../foodit-global/common/CommonCardFoodit/foodit';
 import {
     getFooditAuthor,
@@ -108,39 +107,5 @@ function PowerUpEmbedCard({ data = {} }) {
         </div>
     );
 }
-
-PowerUpEmbedCard.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        embed: PropTypes.shape({
-            config: PropTypes.shape({
-                noteId: PropTypes.string,
-                title: PropTypes.string,
-                url: PropTypes.string,
-                preparationTime: PropTypes.oneOfType([
-                    PropTypes.number,
-                    PropTypes.string
-                ]),
-                altTextImage: PropTypes.string,
-                image: PropTypes.string,
-                hasVideo: PropTypes.shape({
-                    _id: PropTypes.string
-                }),
-                arcData: PropTypes.shape({}),
-                sections: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string,
-                        path: PropTypes.string
-                    })
-                ),
-                resizedImages: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        resizedUrl: PropTypes.string
-                    })
-                )
-            })
-        })
-    }).isRequired
-};
 
 export default PowerUpEmbedCard;

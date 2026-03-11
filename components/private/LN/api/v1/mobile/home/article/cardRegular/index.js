@@ -17,9 +17,15 @@ export const CardRegular = article => {
         article,
         'additionalProperties.hideDescription'
     );
-    const showVideoLoop = get(article, 'additionalProperties.showVideoLoop', false);
+    const showVideoLoop = get(
+        article,
+        'additionalProperties.showVideoLoop',
+        false
+    );
     const video = get(article, 'additionalProperties.video', null);
-    const videoLoopRaw = video?.sources ? videoJWHomeMobile(video.sources) : null;
+    const videoLoopRaw = video?.sources
+        ? videoJWHomeMobile(video.sources)
+        : null;
     const hasVideoLoop = showVideoLoop && videoLoopRaw;
 
     const widgetEmbed = getEmbedWidget(article);
@@ -45,7 +51,7 @@ export const CardRegular = article => {
         opinion: false,
         isListenable: article.isListenable,
         videoLoop: hasVideoLoop ? videoLoopRaw : null,
-        rating: rating
+        rating
     };
 };
 

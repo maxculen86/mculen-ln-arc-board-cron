@@ -1,13 +1,11 @@
 /* eslint-disable react/no-danger */
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import LoadingIcon from '../private/LN/common/loadingIcon';
 import Text from '../private/common/text';
 import redirectNota from '../private/common/utils/redirectNota';
 
-const Emtpy = props => {
+function Emtpy(props) {
     const {
         children,
         globalContent: { redirectNotaAsp } = {},
@@ -24,31 +22,25 @@ const Emtpy = props => {
 
     if (redirectUrl) {
         return (
-            <>
-                <div id="wrapper" className="error404">
-                    <main>
-                        <div className="lay">
-                            <LoadingIcon />
-                            <Text
-                                font="arial"
-                                extraClass="hlp-text-center"
-                                weight="bold"
-                                tag="h2"
-                            >
-                                Redirigiendo ...
-                            </Text>
-                        </div>
-                    </main>
-                </div>
-            </>
+            <div id="wrapper" className="error404">
+                <main>
+                    <div className="lay">
+                        <LoadingIcon />
+                        <Text
+                            font="arial"
+                            extraClass="hlp-text-center"
+                            weight="bold"
+                            tag="h2"
+                        >
+                            Redirigiendo ...
+                        </Text>
+                    </div>
+                </main>
+            </div>
         );
     }
-    return <>{children}</>;
-};
-
-Emtpy.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
-};
+    return children;
+}
 
 Emtpy.sections = ['Cuerpo'];
 

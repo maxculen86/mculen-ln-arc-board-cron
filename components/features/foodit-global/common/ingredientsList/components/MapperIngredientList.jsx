@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Ingredient from './Ingredient';
 import { groupRecipeIngredients } from '../../shoppingList/groupRecipeIngredients';
 
-function MapperIngredientList({ list = [], isTabIngredients }) {
+function MapperIngredientList({ list = [], isTabIngredients = false }) {
     if (!list.length) return null;
 
     // Group and format ingredients for the "Tab Ingredients" view

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
 import CajaTema from '../../common/cajaTema';
 
@@ -14,20 +13,5 @@ function Index({ relatedContent = [], outputType = 'default' }) {
         />
     );
 }
-
-Index.propTypes = {
-    relatedContent: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string.isRequired,
-            headlines: PropTypes.shape({
-                basic: PropTypes.string
-            }),
-            type: PropTypes.string.isRequired,
-            website_url: PropTypes.string,
-            canonical_url: PropTypes.string
-        })
-    ).isRequired,
-    outputType: PropTypes.string.isRequired
-};
 
 export default Index;

@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
@@ -24,11 +23,11 @@ function SaveRecipe({
     ids,
     indexStep,
     setIndexStep,
-    onConfirmMove,
-    collectionArticles,
-    carouselTitle,
-    fatherType,
-    currentCollectionId
+    onConfirmMove = null,
+    collectionArticles = [],
+    carouselTitle = '',
+    fatherType = '',
+    currentCollectionId = null
 }) {
     const {
         layout,
@@ -193,30 +192,5 @@ function SaveRecipe({
         </Dialog>
     );
 }
-
-SaveRecipe.propTypes = {
-    showModal: PropTypes.bool.isRequired,
-    close: PropTypes.func.isRequired,
-    ids: PropTypes.arrayOf(PropTypes.string).isRequired,
-    indexStep: PropTypes.number.isRequired,
-    setIndexStep: PropTypes.func.isRequired,
-    carouselTitle: PropTypes.string,
-    fatherType: PropTypes.string,
-    onConfirmMove: PropTypes.func,
-    currentCollectionId: PropTypes.string,
-    collectionArticles: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string
-        })
-    )
-};
-
-SaveRecipe.defaultProps = {
-    collectionArticles: [],
-    carouselTitle: '',
-    fatherType: '',
-    onConfirmMove: null,
-    currentCollectionId: null
-};
 
 export default SaveRecipe;

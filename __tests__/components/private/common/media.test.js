@@ -15,7 +15,7 @@ jest.mock('fusion:context', () => ({
 
 describe('Private - LN - Common - Media', () => {
     it('Dibuja el tag loading lazy', () => {
-        render(
+        const { container } = render(
             <Media
                 mediaData={image}
                 withZoom={false}
@@ -26,13 +26,14 @@ describe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = screen.getByRole('img');
+
+        const img = container.querySelector('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('loading', 'lazy');
     });
 
     it('No dibuja el tag loading lazy por ser Galeria', () => {
-        render(
+        const { container } = render(
             <Media
                 mediaData={image}
                 withZoom={false}
@@ -43,13 +44,14 @@ describe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = screen.getByRole('img');
+        // In React 19, images with empty alt have role="presentation"
+        const img = container.querySelector('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('loading', undefined);
     });
 
     it('No dibuja el tag loading lazy por tener zoom', () => {
-        render(
+        const { container } = render(
             <Media
                 mediaData={image}
                 withZoom={true}
@@ -60,7 +62,8 @@ describe('Private - LN - Common - Media', () => {
                 outputType="default"
             />
         );
-        const img = screen.getByRole('img');
+        // In React 19, images with empty alt have role="presentation"
+        const img = container.querySelector('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('loading', undefined);
     });
@@ -78,8 +81,7 @@ describe('Private - LN - Common - Media', () => {
         },
         subtitle: 'prueba title de messi',
         type: 'image',
-        url:
-            '/resizer/jyurG2Ow8jHanY1TE_d9M0NQkSU=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg'
+        url: '/resizer/jyurG2Ow8jHanY1TE_d9M0NQkSU=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg'
     };
 
     const basivVideo = {

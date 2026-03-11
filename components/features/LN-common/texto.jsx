@@ -75,19 +75,7 @@ Text.propTypes = {
             description: 'Ingrese la clase extra que necesite el elemento.',
             defaultValue: ''
         })
-    })
-};
-
-Text.defaultProps = {
-    customFields: {
-        font: '',
-        size: 'medium',
-        weight: 'regular',
-        htmlTag: 'span',
-        link: '',
-        text: '',
-        className: ''
-    }
+    }).isRequired
 };
 
 Text.label = 'LN Common Text';

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { Button } from '@ln/foodit-ui-button';
@@ -128,29 +127,3 @@ export function NutritionalInfo({ globalContent = {} }) {
         </div>
     );
 }
-
-NutritionalInfo.propTypes = {
-    globalContent: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            nutritional_information: PropTypes.shape({
-                embed: PropTypes.shape({
-                    config: PropTypes.shape({
-                        items: PropTypes.shape({
-                            calories: PropTypes.number,
-                            carbohydrates: PropTypes.number,
-                            totalFat: PropTypes.number,
-                            protein: PropTypes.number,
-                            sodium: PropTypes.number,
-                            fiber: PropTypes.number
-                        })
-                    })
-                })
-            })
-        }),
-        label: PropTypes.shape({
-            info_nutricional: PropTypes.shape({
-                text: PropTypes.string
-            })
-        })
-    }).isRequired
-};

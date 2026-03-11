@@ -1,4 +1,4 @@
-import getRating from "../../../../../../../components/private/LN/api/common/utils/getRating";
+import getRating from '../../../../../../../components/private/LN/api/common/utils/getRating';
 
 describe('getRating util', () => {
     it('returns null when there are no content_elements', () => {
@@ -6,7 +6,9 @@ describe('getRating util', () => {
     });
 
     it('returns null when there are content_elements but no numeric_rating', () => {
-        const article = { content_elements: [{ type: 'text', content: 'foo' }] };
+        const article = {
+            content_elements: [{ type: 'text', content: 'foo' }]
+        };
         expect(getRating(article)).toBeNull();
     });
 
@@ -33,9 +35,7 @@ describe('getRating util', () => {
 
     it('returns null when numeric_rating is 0', () => {
         const article = {
-            content_elements: [
-                { numeric_rating: 0 }
-            ]
+            content_elements: [{ numeric_rating: 0 }]
         };
         expect(getRating(article)).toBeNull();
     });
@@ -55,20 +55,17 @@ describe('rating normalization', () => {
         [3.8, 4],
         [4.9, 5],
         [5.0, 5]
-    ])(
-        'numeric_rating %p should return rating %p',
-        (input, expected) => {
-            const article = {
-                content_elements: [
-                    {
-                        numeric_rating: input
-                    }
-                ]
-            };
+    ])('numeric_rating %p should return rating %p', (input, expected) => {
+        const article = {
+            content_elements: [
+                {
+                    numeric_rating: input
+                }
+            ]
+        };
 
-            const result = getRating(article);
+        const result = getRating(article);
 
-            expect(result).toBe(expected);
-        }
-    );
+        expect(result).toBe(expected);
+    });
 });

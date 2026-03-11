@@ -20,7 +20,7 @@ import { LazyLoad } from '../../foodit-global/common/LazyLoad/foodit';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 
 function RelatedArticles({
-    isAdmin,
+    isAdmin = false,
     customFields,
     globalContent,
     id: featureId
@@ -141,7 +141,7 @@ function RelatedArticles({
 
 RelatedArticles.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool,
+    isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...setRelatedArticlesCustomFields()
     }).isRequired,
@@ -154,10 +154,6 @@ RelatedArticles.propTypes = {
             })
         })
     }).isRequired
-};
-
-RelatedArticles.defaultProps = {
-    isAdmin: false
 };
 
 export default Consumer(RelatedArticles);

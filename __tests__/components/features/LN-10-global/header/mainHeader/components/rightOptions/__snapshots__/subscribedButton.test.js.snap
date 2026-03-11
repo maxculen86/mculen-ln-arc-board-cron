@@ -13,7 +13,7 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
       class="icon --mobile-none --icon-16"
     >
       <mock-icon
-        color="true"
+        color=""
         name="subscriberInverted"
       />
     </i>

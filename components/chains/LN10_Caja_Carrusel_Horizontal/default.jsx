@@ -89,6 +89,12 @@ function CajaCarruselHorizontal(props) {
         shouldSchedule
     });
 
+    useEffect(() => {
+        if (!isAdmin) {
+            hideParentNode(divRefInCarrusel, 'DIV');
+        }
+    }, [divRefInCarrusel?.current]);
+
     if (hasError) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
@@ -96,12 +102,6 @@ function CajaCarruselHorizontal(props) {
     if (hide) {
         return null;
     }
-
-    useEffect(() => {
-        if (!isAdmin) {
-            hideParentNode(divRefInCarrusel, 'DIV');
-        }
-    }, divRefInCarrusel?.current);
 
     const nodes = transformNodes({
         children,

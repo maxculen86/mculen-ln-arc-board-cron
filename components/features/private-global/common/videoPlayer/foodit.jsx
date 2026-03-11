@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
-import PropTypes from 'prop-types';
 import Facade from '../facade/foodit';
 
 function VideoPlayer({
@@ -56,11 +55,4 @@ function VideoPlayer({
         </Static>
     );
 }
-VideoPlayer.propTypes = {
-    data: PropTypes.shape({}).isRequired,
-    tituloNota: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired,
-    isOpening: PropTypes.bool.isRequired
-};
-
 export default VideoPlayer;

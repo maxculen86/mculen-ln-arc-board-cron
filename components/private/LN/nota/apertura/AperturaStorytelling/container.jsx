@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
 import {
     FOTOAL100,
@@ -16,15 +15,7 @@ function AperturaStorytelling(props) {
 
     if (subtype === STORYTELLING || subtype === FOTOAL100)
         return <AperturaComponent {...props} />;
-    return <></>;
+    return null;
 }
-
-AperturaStorytelling.propTypes = {
-    globalContent: PropTypes.shape({
-        subtype: PropTypes.string
-    })
-};
-
-AperturaStorytelling.defaultProps = {};
 
 export default Context(AperturaStorytelling);

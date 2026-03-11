@@ -181,11 +181,6 @@ export function LinkImagePreload({ resizedUrls = [] }) {
     );
 }
 
-LinkImagePreload.defaultProps = {
-    resizedUrls: [],
-    isLoadWithPicture: false
-};
-
 export const wikiImagesWithWWW = data => {
     const { image = {} } = data;
     const { resizedUrls = [] } = image;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Dialog } from '@ln/common-ui-dialog';
@@ -7,7 +6,7 @@ import { cx } from '@ln/cva';
 import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
 import { a11yAttrsDialogGlossary } from '../helpers';
 
-function Header({ keyGlossary, className, isDialog }) {
+function Header({ keyGlossary, className = '', isDialog }) {
     const capitalizeKeyGlossary = capitalizeFirstLetter(keyGlossary);
 
     return (
@@ -73,14 +72,5 @@ function Header({ keyGlossary, className, isDialog }) {
         </div>
     );
 }
-
-Header.propTypes = {
-    keyGlossary: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    isDialog: PropTypes.bool.isRequired
-};
-Header.defaultProps = {
-    className: ''
-};
 
 export default Header;

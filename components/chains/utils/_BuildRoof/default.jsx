@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Roof } from '@ln/contenidos-ui-roof';
-import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
@@ -13,17 +11,17 @@ import { targetUrlRedirect } from '../targetUrlRedirect';
 export default function BuildRoof(props) {
     const {
         title,
-        titleLink,
+        titleLink = '',
         logo,
-        logoId,
-        buttonLogo,
-        buttonText,
-        linkButton,
-        buttonStyle,
-        chainStyle: chainStyleUncheked,
-        hideRoof,
+        logoId = '',
+        buttonLogo = '',
+        buttonText = '',
+        linkButton = '',
+        buttonStyle = '',
+        chainStyle: chainStyleUncheked = 'generic',
+        hideRoof = false,
         links,
-        navigationId,
+        navigationId = '',
         isAdmin,
         isAFondo
     } = props;
@@ -121,29 +119,3 @@ export default function BuildRoof(props) {
         }
     });
 }
-
-BuildRoof.propTypes = {
-    hideRoof: PropTypes.bool,
-    title: PropTypes.string.isRequired,
-    titleLink: PropTypes.string,
-    logoId: PropTypes.string,
-    buttonLogo: PropTypes.string,
-    buttonText: PropTypes.string,
-    linkButton: PropTypes.string,
-    buttonStyle: PropTypes.string,
-    navigationId: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired,
-    chainStyle: PropTypes.string
-};
-
-BuildRoof.defaultProps = {
-    hideRoof: false,
-    logoId: '',
-    titleLink: '',
-    buttonLogo: '',
-    buttonText: '',
-    linkButton: '',
-    buttonStyle: '',
-    navigationId: '',
-    chainStyle: 'generic'
-};

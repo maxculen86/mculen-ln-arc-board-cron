@@ -3,7 +3,6 @@ import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 
 const textTooltip = bookmarkId =>
@@ -43,7 +42,3 @@ export function IngredientsPortionsText({
         </div>
     );
 }
-IngredientsPortionsText.propTypes = {
-    showButtonsConversor: PropTypes.bool.isRequired,
-    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired
-};

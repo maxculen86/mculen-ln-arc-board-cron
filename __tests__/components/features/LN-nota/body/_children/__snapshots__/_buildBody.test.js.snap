@@ -1420,6 +1420,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -1713,6 +1714,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -1861,6 +1863,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -1908,6 +1911,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -1950,6 +1954,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2016,6 +2021,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2063,6 +2069,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2105,6 +2112,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2166,6 +2174,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2213,6 +2222,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2265,6 +2275,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2312,6 +2323,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -2706,6 +2718,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -4837,6 +4850,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5130,6 +5144,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5278,6 +5293,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5325,6 +5341,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5367,6 +5384,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5433,6 +5451,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5480,6 +5499,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5522,6 +5542,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5583,6 +5604,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5630,6 +5652,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5682,6 +5705,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -5729,6 +5753,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -6123,6 +6148,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8254,6 +8280,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8547,6 +8574,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8695,6 +8723,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8742,6 +8771,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8784,6 +8814,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8850,6 +8881,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8897,6 +8929,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -8939,6 +8972,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -9000,6 +9034,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -9047,6 +9082,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -9099,6 +9135,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --horizontal"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -9146,6 +9183,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure --vertical"
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "
@@ -9540,6 +9578,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       <figure
         class="mod-figure "
         role="button"
+        tabindex="0"
       >
         <div
           class="placeholder "

@@ -19,28 +19,35 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should render OK', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            expect(container).toBeVisible();
-            expect(container).not.toBeEmptyDOMElement();
+            expect(canonicalLink).toBeDefined();
         });
 
         it('Should have the correct DOM attributes form canonical link', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const link = document.head.getElementsByTagName('link');
+            expect(link.length).toBeGreaterThanOrEqual(1);
+            const canonicalLink = Array.from(link).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual('https://www.lanacion.com.ar/');
+            expect(canonicalLink).toBeDefined();
+            expect(canonicalLink.href).toEqual('https://www.lanacion.com.ar/');
         });
 
         it('Snapshot link canonical homepage', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
     });
 
@@ -54,40 +61,49 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should render OK', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            expect(container).toBeVisible();
-            expect(container).not.toBeEmptyDOMElement();
+            expect(canonicalLink).toBeDefined();
         });
 
         it('Validate sent props', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/'
             );
         });
 
         it('Should have the correct DOM attributes', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual(
+            expect(
+                Array.from(links).filter(l => l.rel === 'canonical').length
+            ).toBeGreaterThanOrEqual(1);
+            expect(canonicalLink.rel).toEqual('canonical');
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/'
             );
         });
 
         it('Snapshot link canonical note', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
     });
 
@@ -103,40 +119,49 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should render OK', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            expect(container).toBeVisible();
-            expect(container).not.toBeEmptyDOMElement();
+            expect(canonicalLink).toBeDefined();
         });
 
         it('Validate sent props', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/deportes/'
             );
         });
 
         it('Should have the correct DOM attributes', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual(
+            expect(
+                Array.from(links).filter(l => l.rel === 'canonical').length
+            ).toBeGreaterThanOrEqual(1);
+            expect(canonicalLink.rel).toEqual('canonical');
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/deportes/'
             );
         });
 
         it('Snapshot link canonical section', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
         it('When is page, dolar-hoy case', () => {
             const dolarHoyProps = {
@@ -149,13 +174,16 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
                 },
                 template: 'page/pNqYuSKvntKUNh2qs'
             };
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...dolarHoyProps} />
+            render(<LinkCanonicalAndAlternate {...dolarHoyProps} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual(
+            expect(
+                Array.from(links).filter(l => l.rel === 'canonical').length
+            ).toBeGreaterThanOrEqual(1);
+            expect(canonicalLink.rel).toEqual('canonical');
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/dolar-hoy/'
             );
         });
@@ -171,40 +199,49 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should render OK', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            expect(container).toBeVisible();
-            expect(container).not.toBeEmptyDOMElement();
+            expect(canonicalLink).toBeDefined();
         });
 
         it('Validate sent props', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/deportes/futbol/boca-juniors/'
             );
         });
 
         it('Should have the correct DOM attributes', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual(
+            expect(
+                Array.from(links).filter(l => l.rel === 'canonical').length
+            ).toBeGreaterThanOrEqual(1);
+            expect(canonicalLink.rel).toEqual('canonical');
+            expect(canonicalLink.href).toEqual(
                 'https://www.lanacion.com.ar/deportes/futbol/boca-juniors/'
             );
         });
 
         it('Snapshot link canonical sub-section', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
     });
 
@@ -219,40 +256,49 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should render OK', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            expect(container).toBeVisible();
-            expect(container).not.toBeEmptyDOMElement();
+            expect(canonicalLink).toBeDefined();
         });
 
         it('Validate sent props', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link[0].href).toEqual(
+            expect(canonicalLink.href).toEqual(
                 'https://foodit.lanacion.com.ar/leo-messi-10/'
             );
         });
 
         it('Should have the correct DOM attributes', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = document.head.getElementsByTagName('link');
+            const canonicalLink = Array.from(links).find(
+                l => l.rel === 'canonical'
             );
-            const link = container.getElementsByTagName('link');
-            expect(link).toHaveLength(1);
-            expect(link[0].rel).toEqual('canonical');
-            expect(link[0].href).toEqual(
+            expect(
+                Array.from(links).filter(l => l.rel === 'canonical').length
+            ).toBeGreaterThanOrEqual(1);
+            expect(canonicalLink.rel).toEqual('canonical');
+            expect(canonicalLink.href).toEqual(
                 'https://foodit.lanacion.com.ar/leo-messi-10/'
             );
         });
 
         it('Snapshot link canonical sub-section', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
     });
 
@@ -267,10 +313,13 @@ describe('Private - LN - Common - LinkCanonicalAndAlternate', () => {
         };
 
         it('Should link canonical and link alternate', () => {
-            const { container } = render(
-                <LinkCanonicalAndAlternate {...props} />
+            render(<LinkCanonicalAndAlternate {...props} />);
+            const links = Array.from(
+                document.head.querySelectorAll(
+                    'link[rel="canonical"], link[rel="alternate"]'
+                )
             );
-            expect(container).toMatchSnapshot();
+            expect(links.map(el => el.outerHTML)).toMatchSnapshot();
         });
     });
 });

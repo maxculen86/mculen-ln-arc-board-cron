@@ -1,6 +1,4 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
@@ -23,10 +21,5 @@ function BreadcrumbColumnista({ host, requestUri }) {
         </>
     );
 }
-
-BreadcrumbColumnista.propTypes = {
-    host: PropTypes.string,
-    requestUri: PropTypes.string
-};
 
 export default BreadcrumbColumnista;

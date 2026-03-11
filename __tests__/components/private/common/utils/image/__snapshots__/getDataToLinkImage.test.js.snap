@@ -96,67 +96,67 @@ NodeList [
 `;
 
 exports[`Common - GetDataToLinkImage When section is note, STORYTELLING with promo_items.storytelling_mobile, return mobile preload 1`] = `
-<div>
+NodeList [
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1280.1px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1024.1px and max-width: 1280px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(max-width: 1024px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1280.1px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1024.1px and max-width: 1280px)"
     rel="preload"
-  />
-</div>
+  />,
+]
 `;
 
 exports[`Common - GetDataToLinkImage When section is note, STORYTELLING without promo_items.storytelling_mobile, return desk preload 1`] = `
-<div>
+NodeList [
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1280.1px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(min-width: 1024.1px and max-width: 1280px)"
     rel="preload"
-  />
+  />,
   <link
     as="image"
     fetchpriority="high"
     href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"
     media="(max-width: 1024px)"
     rel="preload"
-  />
-</div>
+  />,
+]
 `;

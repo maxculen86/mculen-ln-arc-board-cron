@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import '../../../../../resources/dist/css/ln/components/result-item.css';
 
-const ResultItem = ({ text, result, className }) => {
+function ResultItem({ text, result = [], className = '' }) {
     return (
         <div className="result-item">
             <Text size="5xs" extraClass="labeled" text={text} />
@@ -14,17 +13,6 @@ const ResultItem = ({ text, result, className }) => {
             </div>
         </div>
     );
-};
+}
 
-ResultItem.propTypes = {
-    text: PropTypes.string,
-    result: PropTypes.arrayOf(PropTypes.string),
-    className: PropTypes.string
-};
-
-ResultItem.defaultProps = {
-    text: '',
-    result: [],
-    className: ''
-};
 export default ResultItem;

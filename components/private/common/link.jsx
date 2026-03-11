@@ -1,21 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import setClassName from './utils/setClassName';
 import '../../../resources/dist/css/ln/components/com-link.css';
 
-const Link = ({
+function Link({
     children,
-    href,
+    href = '',
     text,
     target,
     title,
-    mod,
-    size,
-    className,
+    mod = '',
+    size = '',
+    className = '',
     id,
     rel,
     onClick
-}) => {
+}) {
     const _className = setClassName({
         baseClass: `com-${href ? 'link' : 'text'}`,
         size,
@@ -37,33 +36,6 @@ const Link = ({
             {content}
         </a>
     );
-};
-
-Link.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    href: PropTypes.string,
-    text: PropTypes.string,
-    target: PropTypes.string,
-    title: PropTypes.string,
-    mod: PropTypes.string,
-    rel: PropTypes.string,
-    size: PropTypes.string,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    onClick: PropTypes.func
-};
-
-Link.defaultProps = {
-    href: '',
-    text: undefined,
-    target: undefined,
-    title: undefined,
-    mod: '',
-    rel: undefined,
-    size: '',
-    className: '',
-    id: undefined,
-    onClick: undefined
-};
+}
 
 export default Link;

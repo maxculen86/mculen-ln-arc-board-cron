@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
@@ -56,10 +55,5 @@ function seguirLeyendo({ globalContent, outputType }) {
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 seguirLeyendo.lazy = true;
-
-seguirLeyendo.propTypes = {
-    globalContent: PropTypes.shape({ _id: PropTypes.string }).isRequired,
-    outputType: PropTypes.string.isRequired
-};
 
 export default Consumer(seguirLeyendo);

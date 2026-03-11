@@ -3,14 +3,14 @@ import { render } from '@testing-library/react';
 import MetaDescription from '../../../../../components/private/common/metaDescription';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 describe('LN - Common - MetaDescription', () => {
     it('MetaDescription nota snapshot', () => {
-        const { container } = render(
+        render(
             <MetaDescription
                 arcSite="la-nacion-ar"
                 subtype="1"
@@ -20,7 +20,10 @@ describe('LN - Common - MetaDescription', () => {
             />
         );
 
-        expect(container).toMatchSnapshot();
+        const metaElement = document.head.querySelector(
+            'meta[name="description"]'
+        );
+        expect(metaElement).toMatchSnapshot();
     });
 
     it('MetaDescriptionAcumulado', () => {

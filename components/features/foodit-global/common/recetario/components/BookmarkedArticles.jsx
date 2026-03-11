@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
 import useBookmarkedArticles from '../hooks/useBookmarkedArticles';
 
 function BookmarkedArticles({
     userBookmarks,
-    selectedItemId,
-    selectedItemQuantity,
+    selectedItemId = '',
+    selectedItemQuantity = 0,
     setSelectedItem,
     setUserBookmarks
 }) {
@@ -44,18 +43,5 @@ function BookmarkedArticles({
         </>
     );
 }
-
-BookmarkedArticles.defaultProps = {
-    selectedItemId: '',
-    selectedItemQuantity: 0
-};
-
-BookmarkedArticles.propTypes = {
-    userBookmarks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    selectedItemId: PropTypes.string,
-    selectedItemQuantity: PropTypes.number,
-    setSelectedItem: PropTypes.func.isRequired,
-    setUserBookmarks: PropTypes.func.isRequired
-};
 
 export default BookmarkedArticles;

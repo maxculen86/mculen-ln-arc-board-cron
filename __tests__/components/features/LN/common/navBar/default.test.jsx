@@ -105,7 +105,7 @@ describe('components - features - LN - common - navBar - default', () => {
                 href: 'https://www.lanacion.com.ar/',
                 color: 'primary'
             }),
-            {}
+            undefined
         );
 
         expect(NavbarItem).toHaveBeenNthCalledWith(
@@ -115,7 +115,7 @@ describe('components - features - LN - common - navBar - default', () => {
                 iconName: 'fuction',
                 color: 'base'
             }),
-            {}
+            undefined
         );
     });
 
@@ -139,11 +139,12 @@ describe('components - features - LN - common - navBar - default', () => {
 
         render(<Navbar />);
 
+        expect(NavbarItem).toHaveBeenCalled();
         expect(NavbarItem).toHaveBeenCalledWith(
             expect.objectContaining({
                 color: 'primary'
             }),
-            {}
+            undefined
         );
     });
 
@@ -167,11 +168,12 @@ describe('components - features - LN - common - navBar - default', () => {
 
         render(<Navbar />);
 
+        expect(NavbarItem).toHaveBeenCalled();
         expect(NavbarItem).toHaveBeenCalledWith(
             expect.objectContaining({
                 color: 'base'
             }),
-            {}
+            undefined
         );
     });
 

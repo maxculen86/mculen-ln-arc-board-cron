@@ -1,20 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FontPreload matches snapshot 1`] = `
-<DocumentFragment>
-  <link
-    as="font"
-    crossorigin="anonymous"
-    href="https://foodit.com.ar/pf/fonts/roboto_regular.woff2"
-    rel="preload"
-    type="font/woff2"
-  />
-  <link
-    as="font"
-    crossorigin="anonymous"
-    href="https://foodit.com.ar/pf/fonts/font_prumo.woff2"
-    rel="preload"
-    type="font/woff2"
-  />
-</DocumentFragment>
-`;
+exports[`FontPreload matches snapshot 1`] = `"<link href="https://foodit.com.ar/pf/fonts/roboto_regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin="anonymous">"`;
+
+exports[`FontPreload matches snapshot 2`] = `"<link href="https://foodit.com.ar/pf/fonts/font_prumo.woff2" rel="preload" as="font" type="font/woff2" crossorigin="anonymous">"`;

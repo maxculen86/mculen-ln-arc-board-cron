@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Link } from '@ln/contenidos-ui-link';
@@ -32,13 +31,5 @@ function Logo({ logoData }) {
         </div>
     );
 }
-
-Logo.propTypes = {
-    logoData: PropTypes.shape({
-        path: PropTypes.string,
-        logoName: PropTypes.string,
-        isExternal: PropTypes.bool
-    }).isRequired
-};
 
 export default Logo;

@@ -35,11 +35,9 @@ describe('Components - Features - Foodit-global - Common - DataLayer - PageViewD
     });
 
     it('should render the script with correct data attributes', () => {
-        const { container } = render(
-            <PageViewDataLayer globalContent={mockGlobalContent} />
-        );
+        render(<PageViewDataLayer globalContent={mockGlobalContent} />);
 
-        const script = container.querySelector(
+        const script = document.head.querySelector(
             'script#scriptDataLayerPageView'
         );
         expect(script).toBeInTheDocument();

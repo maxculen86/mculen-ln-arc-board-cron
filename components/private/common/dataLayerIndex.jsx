@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
 import HomeDataLayer from '../LN/home/dataLayer/dataLayerHome';
@@ -57,10 +56,5 @@ function dataLayerIndex(props) {
         </>
     );
 }
-
-dataLayerIndex.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
-};
 
 export default dataLayerIndex;

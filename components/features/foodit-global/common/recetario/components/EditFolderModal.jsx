@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Button } from '@ln/foodit-ui-button';
@@ -129,15 +128,4 @@ function EditFolderModal({
     );
 }
 
-EditFolderModal.defaultProps = {
-    folderId: ''
-};
-
-EditFolderModal.propTypes = {
-    onClose: PropTypes.func.isRequired,
-    setUserBookmarks: PropTypes.func.isRequired,
-    setSelectedItem: PropTypes.func.isRequired,
-    folderId: PropTypes.string,
-    isOpen: PropTypes.bool.isRequired
-};
 export default EditFolderModal;

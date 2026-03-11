@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import IngredientsListHeader from './components/Header';
@@ -60,24 +59,3 @@ export function IngredientsList({ list = [], setShoppingList }) {
         </section>
     );
 }
-
-IngredientsList.propTypes = {
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            typeList: PropTypes.string,
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    isMainIngredient: PropTypes.bool.isRequired,
-                    amount: PropTypes.string,
-                    unit: PropTypes.string.isRequired,
-                    ingredient: PropTypes.string.isRequired,
-                    abbreviation: PropTypes.string,
-                    fullIngredientString: PropTypes.string.isRequired,
-                    includeInShoppingList: PropTypes.bool.isRequired
-                })
-            ),
-            titleList: PropTypes.string
-        })
-    ).isRequired,
-    setShoppingList: PropTypes.func.isRequired
-};

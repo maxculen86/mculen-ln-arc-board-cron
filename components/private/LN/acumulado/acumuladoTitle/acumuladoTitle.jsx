@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import withAcuCategories from '../hocs/withAcuCategories';
 import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
@@ -31,7 +30,7 @@ const setUrl = ({
 };
 
 function AcumuladoTitle(props) {
-    const { outputType, idLogoImage, colorCategory } = props;
+    const { outputType, idLogoImage = '', colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
 
@@ -91,38 +90,5 @@ function AcumuladoTitle(props) {
         />
     );
 }
-
-AcumuladoTitle.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        Payload: PropTypes.shape({
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
-        byline: PropTypes.string,
-        name: PropTypes.string,
-        node_type: PropTypes.string,
-        children: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                navigation: PropTypes.shape({
-                    nav_title: PropTypes.string
-                }),
-                _website: PropTypes.string
-            })
-        )
-    }).isRequired,
-    outputType: PropTypes.string.isRequired,
-    idLogoImage: PropTypes.string,
-    colorCategory: PropTypes.string
-};
-
-AcumuladoTitle.defaultProps = {
-    idLogoImage: '',
-    colorCategory: undefined
-};
 
 export default withAcuCategories(AcumuladoTitle);

@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 
-const CardLayout = ({ title, subtitle, link, children }) => {
+function CardLayout({ title, subtitle, link, children }) {
     return (
         <article className="lottery-card">
             <div className="lottery-header">
                 {link ? (
                     <Text tag="h2" size="2xs" weight="bold">
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <Link
                             link={link}
                             title={`Ir a ${title}`}
@@ -23,6 +23,7 @@ const CardLayout = ({ title, subtitle, link, children }) => {
             {children}
             {link && (
                 <Text tag="h3" size="5xs">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link
                         link={link}
                         title={`Ir a resultados del sorteo ${title}`}
@@ -32,20 +33,6 @@ const CardLayout = ({ title, subtitle, link, children }) => {
             )}
         </article>
     );
-};
-
-CardLayout.propTypes = {
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    link: PropTypes.string,
-    children: PropTypes.string
-};
-
-CardLayout.defaultProps = {
-    title: '',
-    subtitle: '',
-    link: '',
-    children: ''
-};
+}
 
 export default CardLayout;

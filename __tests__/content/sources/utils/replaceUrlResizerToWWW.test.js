@@ -56,7 +56,9 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
             const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
 
             result.resized_urls.forEach(item => {
-                expect(item.resizedUrl).toContain('https://site.lanacion.com.ar/');
+                expect(item.resizedUrl).toContain(
+                    'https://site.lanacion.com.ar/'
+                );
             });
         });
     });

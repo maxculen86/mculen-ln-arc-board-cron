@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import { Link } from '@ln/foodit-ui-link';
-import PropTypes from 'fusion:prop-types';
 import { getBreadcrumbSections } from './_helpers';
 import get from '../../../../private/common/utils/get';
 import BreadcrumbTooltip from './_childrens/BreadcrumbTooltip/foodit';
@@ -65,7 +64,3 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
         </div>
     );
 }
-BreadcrumbFoodit.propTypes = {
-    globalContent: PropTypes.object.isRequired,
-    className: PropTypes.string.isRequired
-};

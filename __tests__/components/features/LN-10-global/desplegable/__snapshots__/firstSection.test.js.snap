@@ -28,7 +28,7 @@ exports[`components - features - LN-10-global - desplegable - search should matc
             class="icon --icon-16"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="search"
             />
           </i>
@@ -52,7 +52,7 @@ exports[`components - features - LN-10-global - desplegable - search should matc
             class="icon --icon-16 --hasWrapper"
           >
             <mock-icon
-              critical="true"
+              critical=""
               fill="var(--neutral-light-800)"
               name="lnRadio"
             />

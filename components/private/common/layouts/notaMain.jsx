@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Header from '../../../features/LN-10-global/header/default';
 import Footer from '../../LN10/footer';
 import Glossary from '../../../features/LN-10-global/glossary/default';
@@ -73,10 +72,5 @@ function NotaMain({ children, className }) {
         </div>
     );
 }
-
-NotaMain.propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired
-};
 
 export default NotaMain;

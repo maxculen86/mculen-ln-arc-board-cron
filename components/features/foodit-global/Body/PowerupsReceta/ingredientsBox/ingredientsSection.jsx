@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { List } from '@ln/foodit-ui-list';
 import { Text } from '@ln/common-ui-text';
 
@@ -23,10 +22,5 @@ export function IngredientsSection({ items = [], titleList = '' }) {
         )
     );
 }
-
-IngredientsSection.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.string).isRequired,
-    titleList: PropTypes.string.isRequired
-};
 
 export default IngredientsSection;

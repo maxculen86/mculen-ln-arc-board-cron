@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NotaBody({ children }) {
+function NotaBody({ children = null }) {
     return (
         <section className="nota-cards__body">
             <div className="lay-container">

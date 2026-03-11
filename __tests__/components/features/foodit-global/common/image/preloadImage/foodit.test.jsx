@@ -121,7 +121,9 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
             }
         ]);
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
         expect(linkElements).toHaveLength(mockCombinedImages.length);
 
         mockCombinedImages.forEach((image, index) => {
@@ -181,7 +183,9 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
                 mockOpeningUrls
             );
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
+            const linkElements = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
             expect(linkElements).toHaveLength(1);
         });
     });
@@ -225,10 +229,12 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
             expect(getHomeOpeningImages).toHaveBeenCalled();
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
+            const linkElements = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
             expect(linkElements.length).toBeGreaterThan(0);
 
-            const posterLink = linkElements.find(link =>
+            const posterLink = Array.from(linkElements).find(link =>
                 link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
             );
             expect(posterLink).toBeInTheDocument();
@@ -266,10 +272,12 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
             expect(getHomeOpeningImages).toHaveBeenCalled();
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
+            const linkElements = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
             expect(linkElements.length).toBeGreaterThan(0);
 
-            const posterLink = linkElements.find(link =>
+            const posterLink = Array.from(linkElements).find(link =>
                 link
                     .getAttribute('href')
                     ?.includes('sandbox-resizer.glanacion.com')
@@ -303,8 +311,10 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
                 />
             );
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
-            const videoPosterLink = linkElements.find(link =>
+            const linkElements = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
+            const videoPosterLink = Array.from(linkElements).find(link =>
                 link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
             );
 
@@ -339,7 +349,9 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
         expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, mockUrls);
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
         expect(linkElements).toHaveLength(mockImages.length);
 
         mockImages.forEach((image, index) => {
@@ -362,7 +374,9 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
         render(<PreloadFooditImages layout="unknown-layout" />);
 
-        const linkElements = screen.queryAllByRole('link', { hidden: true });
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
         expect(linkElements).toHaveLength(0);
     });
 
@@ -388,7 +402,9 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
             'Foodit-recipe-paywall'
         );
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
         expect(linkElements).toHaveLength(1);
     });
 });

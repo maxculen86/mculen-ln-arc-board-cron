@@ -77,14 +77,15 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
             imageConfig: 'boxArticles'
         };
 
-        const { baseElement, asFragment } = render(
-            <ImagePreloadAcu {...mockProps} />
-        );
+        render(<ImagePreloadAcu {...mockProps} />);
 
-        const [linkElement] = baseElement.getElementsByTagName('link');
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
+        const [linkElement] = linkElements;
         const [firstArticle] = contentResponse.content_elements;
 
-        expect(baseElement.getElementsByTagName('link')).toHaveLength(
+        expect(linkElements).toHaveLength(
             contentResponse.content_elements[0].promo_items.basic.resized_urls
                 .length
         );
@@ -95,6 +96,8 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
         expect(linkElement.getAttribute('href')).toBe(
             firstArticle.promo_items.basic.resized_urls[0].resizedUrl
         );
-        expect(asFragment()).toMatchSnapshot();
+        expect(
+            Array.from(linkElements).map(el => el.outerHTML)
+        ).toMatchSnapshot();
     });
 });

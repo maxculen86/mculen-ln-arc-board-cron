@@ -215,7 +215,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                   class="icon --suscriptor-logo --icon-32"
                 >
                   <mock-icon
-                    color="true"
+                    color=""
                     name="subscriber"
                   />
                 </i>
@@ -232,12 +232,6 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
             />
           </div>
         </div>
-        <script
-          async=""
-          id="scriptCheckSubscriptionLN"
-          src="pathDeployment/pf//resources/js/LN/scriptCheckSubscriptionLN.min.js"
-          type="text/javascript"
-        />
         <section
           class="content-lab"
         >
@@ -1914,12 +1908,6 @@ exports[`Tests Chain CajaCollection Tests for Caja Foodit should match snapshot 
             />
           </div>
         </div>
-        <script
-          async=""
-          id="scriptCheckSubscriptionFoodit"
-          src="pathDeployment/pf//resources/js/LN/scriptCheckSubscriptionFoodit.min.js"
-          type="text/javascript"
-        />
         <section
           class="ln-bngrid pb-16 --foodit_3_grid --foodit"
         >

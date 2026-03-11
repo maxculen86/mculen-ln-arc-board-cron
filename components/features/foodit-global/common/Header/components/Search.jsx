@@ -25,7 +25,7 @@ const getMicPermissionState = async () => {
     }
 };
 
-export function Search({ className, ...r }) {
+export function Search({ className = '', ...r }) {
     const querySelected =
         typeof window !== 'undefined'
             ? new URLSearchParams(window?.location?.search).get('query')

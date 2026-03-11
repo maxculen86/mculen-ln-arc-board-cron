@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -61,10 +60,5 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
 }
 
 FichaRecetaFoodit.sections = pageBuilderSections;
-
-FichaRecetaFoodit.propTypes = {
-    children: PropTypes.array.isRequired,
-    globalContent: PropTypes.object.isRequired
-};
 
 export default Consumer(FichaRecetaFoodit);

@@ -1,13 +1,12 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
-import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import { Icon } from '@ln/common-ui-icon';
 import classNames from 'classnames';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 
 // TODO: reemplazar por @ln/common-ui-accordion
-const Accordion = ({ children, text }) => {
+function Accordion({ children, text = '' }) {
     const [openList, setOpenList] = useState(false);
     const handleAccordionStatus = () => {
         setOpenList(!openList);
@@ -42,17 +41,6 @@ const Accordion = ({ children, text }) => {
             )}
         </div>
     );
-};
-
-Accordion.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-    text: PropTypes.string
-};
-Accordion.defaultProps = {
-    className: '',
-    children: undefined,
-    text: ''
-};
+}
 
 export default Accordion;

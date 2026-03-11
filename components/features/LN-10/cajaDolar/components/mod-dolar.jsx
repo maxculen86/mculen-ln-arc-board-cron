@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import '../../../../../resources/dist/css/ln/modules/mod-dolar.css';
 import CurrencyData from '../../../../private/common/currencyData/CurrencyData';
@@ -7,16 +6,16 @@ import ComLink from '../../../../private/common/com-link';
 import ComImage from '../../../../private/common/com-image';
 import setClassName from '../../../../private/common/utils/setClassName';
 
-const ModDolar = ({
+function ModDolar({
     data = [],
-    informationAlt,
-    providedAlt,
-    oddOrEven,
-    fillClass,
-    logoByma,
-    logoIol,
-    _id
-}) => {
+    informationAlt = 'BYMA',
+    providedAlt = 'InvertirOnline',
+    oddOrEven = '',
+    fillClass = '',
+    logoByma = '',
+    logoIol = '',
+    _id = ''
+}) {
     const pageDolarOficialHistorico =
         _id !== '/economia/dolar-oficial-historico';
     const containerLogoClass = setClassName({
@@ -77,36 +76,7 @@ const ModDolar = ({
                 </div>
             </div>
         </>
-    ) : (
-        <></>
-    );
-};
-
-ModDolar.propTypes = {
-    data: PropTypes.shape({
-        sourceName: PropTypes.string,
-        title: PropTypes.string,
-        compra: PropTypes.string,
-        venta: PropTypes.string,
-        link: PropTypes.string
-    }).isRequired,
-    informationAlt: PropTypes.string,
-    providedAlt: PropTypes.string,
-    oddOrEven: PropTypes.string,
-    fillClass: PropTypes.string,
-    logoByma: PropTypes.string,
-    logoIol: PropTypes.string,
-    _id: PropTypes.string
-};
-
-ModDolar.defaultProps = {
-    informationAlt: 'BYMA',
-    providedAlt: 'InvertirOnline',
-    oddOrEven: '',
-    fillClass: '',
-    logoByma: '',
-    logoIol: '',
-    _id: ''
-};
+    ) : null;
+}
 
 export default ModDolar;

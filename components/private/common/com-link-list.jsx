@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 
 function ComLinkList({
-    list,
-    extraClass,
+    list = [],
+    extraClass = '',
     _ref,
     isEditoriales = false,
     isHome = false
@@ -46,19 +45,5 @@ function ComLinkList({
         null
     );
 }
-
-ComLinkList.propTypes = {
-    list: PropTypes.arrayOf(PropTypes.obj),
-    extraClass: PropTypes.string,
-    _ref: PropTypes.obj,
-    isEditoriales: PropTypes.bool,
-    isHome: PropTypes.bool
-};
-
-ComLinkList.defaultProps = {
-    list: [],
-    extraClass: '',
-    _ref: undefined
-};
 
 export default ComLinkList;

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { addMetaNoIndexNoFollow } from '../private/common/utils/outputTypeHelper';
 import { fontFaceLn10 } from '../features/LN-10-global/fontFace/default';
@@ -61,7 +60,7 @@ const TAGS_BY_WIDGET = {
     }
 };
 
-const Widgets = props => {
+function Widgets(props) {
     const {
         children,
         globalContent = {},
@@ -94,12 +93,6 @@ const Widgets = props => {
             </body>
         </html>
     );
-};
-
-Widgets.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string
-    }).isRequired
-};
+}
 
 export default Widgets;

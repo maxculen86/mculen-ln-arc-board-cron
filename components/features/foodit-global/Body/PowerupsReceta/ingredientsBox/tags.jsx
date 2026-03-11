@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import PropTypes from 'prop-types';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function Tags({ items = [] }) {
@@ -31,15 +30,6 @@ export function Tags({ items = [] }) {
         )
     );
 }
-
-Tags.propTypes = {
-    items: PropTypes.arrayOf(
-        PropTypes.shape({
-            text: PropTypes.string,
-            url: PropTypes.string
-        })
-    ).isRequired
-};
 
 Tags.lazy = true;
 
