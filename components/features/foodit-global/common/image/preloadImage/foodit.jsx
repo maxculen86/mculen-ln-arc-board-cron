@@ -1,4 +1,5 @@
 import React from 'react';
+import { preload } from 'react-dom';
 import { SITE_FOODIT } from 'fusion:environment';
 import { useContent } from 'fusion:content';
 import PreloadImages from '../../../../private-global/common/preloadImage/preloadImages';
@@ -34,30 +35,20 @@ const componentRequiredLayouts = {
         const { _id: id = '', articles = [] } = globalContent;
         if (id === '/tema') {
             const [firstArticle = {}] = articles;
-            return (
-                <link
-                    key={`${SITE_FOODIT}${firstArticle?.promo_image}`}
-                    rel="preload"
-                    as="image"
-                    fetchPriority="high"
-                    href={`${SITE_FOODIT}${firstArticle?.promo_image}`}
-                />
-            );
+            const temaHref = firstArticle?.promo_image
+                ? `${SITE_FOODIT}${firstArticle.promo_image}`
+                : null;
+            if (temaHref)
+                preload(temaHref, { as: 'image', fetchPriority: 'high' });
+            return null;
         }
 
         return <PreloadAcuFirstImage id={id} layout="Foodit-acumulado" />;
     },
     'Foodit-chef': ({ globalContent }) => {
         const { image: { url: imageUrl = '' } = {} } = globalContent;
-        return (
-            <link
-                key={imageUrl}
-                rel="preload"
-                as="image"
-                fetchPriority="high"
-                href={imageUrl}
-            />
-        );
+        if (imageUrl) preload(imageUrl, { as: 'image', fetchPriority: 'high' });
+        return null;
     },
     'Foodit-acumulado-chef': ({ renderables }) => {
         const firstCardChef = renderables.find(
@@ -76,15 +67,8 @@ const componentRequiredLayouts = {
         });
 
         const { image: { url: imageUrl } = {} } = author || {};
-        return (
-            <link
-                key={imageUrl}
-                rel="preload"
-                as="image"
-                fetchPriority="high"
-                href={imageUrl}
-            />
-        );
+        if (imageUrl) preload(imageUrl, { as: 'image', fetchPriority: 'high' });
+        return null;
     }
 };
 function PreloadFooditImages({
