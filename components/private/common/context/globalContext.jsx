@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import AuthInitializer from '../auth/AuthInitializer';
@@ -68,9 +67,5 @@ function GlobalProvider({ children }) {
         </GlobalContext.Provider>
     );
 }
-
-GlobalProvider.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default GlobalProvider;

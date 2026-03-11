@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Tags from '../tags';
 import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
@@ -48,27 +47,5 @@ function AperturaConDestacado(props) {
         </>
     );
 }
-
-AperturaConDestacado.propTypes = {
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.string,
-            sections: PropTypes.shape({}),
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    description: PropTypes.string,
-                    slug: PropTypes.string,
-                    text: PropTypes.string
-                })
-            ).isRequired
-        }),
-        promo_items: PropTypes.shape({
-            receta: PropTypes.shape({}),
-            basic: PropTypes.shape({})
-        })
-    }).isRequired,
-    outputType: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
-};
 
 export default AperturaConDestacado;

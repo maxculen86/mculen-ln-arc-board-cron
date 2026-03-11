@@ -50,7 +50,7 @@ describe('Common - GetDataToLinkImage - Diagramation Exceptions', () => {
             }
         ]);
 
-        const { container } = render(
+        render(
             <GetDataToLinkImage
                 {...{
                     data: {},
@@ -60,7 +60,9 @@ describe('Common - GetDataToLinkImage - Diagramation Exceptions', () => {
             />
         );
 
-        const linksPreload = container.querySelectorAll('link');
+        const linksPreload = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
         expect(linksPreload).toHaveLength(3);
         expect(linksPreload[0].getAttribute('href')).toContain(
             'el-diputado-nacional-german'

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
@@ -17,7 +16,7 @@ function VideoCommonJw({
     videoId,
     mediaId,
     videoConfig,
-    extraOpts,
+    extraOpts = {},
     isAdmin = false,
     ratio = 'ratio-9-16',
     videoData = {}
@@ -132,22 +131,5 @@ function VideoCommonJw({
         </article>
     );
 }
-
-VideoCommonJw.defaultProps = {
-    extraOpts: {},
-    ratio: 'ratio-9-16',
-    isAdmin: false,
-    videoData: {}
-};
-
-VideoCommonJw.propTypes = {
-    videoId: PropTypes.string.isRequired,
-    mediaId: PropTypes.string.isRequired,
-    videoConfig: PropTypes.object.isRequired,
-    extraOpts: PropTypes.object,
-    isAdmin: PropTypes.bool,
-    ratio: PropTypes.string,
-    videoData: PropTypes.object
-};
 
 export default VideoCommonJw;

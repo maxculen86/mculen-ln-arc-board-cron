@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import getProperties from 'fusion:properties';
 import Article from './mod-article';
 import get from './utils/get';
 import getFirstAuthorAsString from './utils/getAuthorsAsString';
 
-function Opinion(props) {
-    const { articles = [], layout, arcSite, handleClick } = props;
+function Opinion({
+    articles = [],
+    layout = 'opinion4',
+    arcSite = 'la-nacion-ar',
+    handleClick
+}) {
     const transform = _articles =>
         _articles &&
         _articles.length &&
@@ -136,19 +139,5 @@ function Opinion(props) {
         null
     );
 }
-
-Opinion.propTypes = {
-    articles: PropTypes.shape({}),
-    layout: PropTypes.string,
-    arcSite: PropTypes.string,
-    handleClick: PropTypes.func
-};
-
-Opinion.defaultProps = {
-    articles: [],
-    layout: 'opinion4',
-    arcSite: 'la-nacion-ar',
-    handleClick: undefined
-};
 
 export default Opinion;

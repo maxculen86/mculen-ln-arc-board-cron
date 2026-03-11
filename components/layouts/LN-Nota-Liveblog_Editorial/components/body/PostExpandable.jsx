@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 import { Text } from '@ln/contenidos-ui-text';
 import BuildBody from '../../../../features/LN-nota/body/_children/_buildBody';
@@ -47,14 +46,5 @@ function PostExpandable({
         </Accordion>
     );
 }
-
-PostExpandable.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onToggle: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
-    hiddenTextItems: PropTypes.shape({}).isRequired,
-    outputType: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({}).isRequired
-};
 
 export default PostExpandable;

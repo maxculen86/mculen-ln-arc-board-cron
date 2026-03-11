@@ -1,9 +1,13 @@
 import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
-function IconsFullScreen({ zoom, active, itsGallery, isApertura }) {
+function IconsFullScreen({
+    zoom = false,
+    active = false,
+    itsGallery = false,
+    isApertura = false
+}) {
     if (!zoom && !itsGallery) return null;
 
     return (
@@ -27,19 +31,5 @@ function IconsFullScreen({ zoom, active, itsGallery, isApertura }) {
         </>
     );
 }
-
-IconsFullScreen.propTypes = {
-    zoom: PropTypes.bool,
-    active: PropTypes.bool,
-    itsGallery: PropTypes.bool,
-    isApertura: PropTypes.bool
-};
-
-IconsFullScreen.defaultProps = {
-    zoom: false,
-    active: false,
-    itsGallery: false,
-    isApertura: false
-};
 
 export default IconsFullScreen;

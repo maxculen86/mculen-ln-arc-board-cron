@@ -33,7 +33,6 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
             class="icon w-24 w-20_md --dark"
           >
             <mock-icon
-              critical="false"
               name="bookmark-plus"
             />
           </i>
@@ -142,7 +141,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -245,7 +244,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -348,7 +347,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -451,7 +450,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -554,7 +553,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -657,7 +656,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -760,7 +759,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -804,7 +803,6 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
-                      src=""
                       style="display: none;"
                     />
                   </div>
@@ -850,7 +848,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should not have 
                         class="icon w-24 --dark"
                       >
                         <mock-icon
-                          critical="true"
+                          critical=""
                           name="bookmark"
                         />
                       </i>
@@ -904,7 +902,6 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
               class="icon w-24 w-20_md --dark"
             >
               <mock-icon
-                critical="false"
                 name="bookmark-plus"
               />
             </i>
@@ -1013,7 +1010,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1116,7 +1113,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1219,7 +1216,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1322,7 +1319,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1425,7 +1422,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1528,7 +1525,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1631,7 +1628,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>
@@ -1675,7 +1672,6 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
-                        src=""
                         style="display: none;"
                       />
                     </div>
@@ -1721,7 +1717,7 @@ exports[`Tests Chain FOODIT Caja Collection Tests cases success should show coll
                           class="icon w-24 --dark"
                         >
                           <mock-icon
-                            critical="true"
+                            critical=""
                             name="bookmark"
                           />
                         </i>

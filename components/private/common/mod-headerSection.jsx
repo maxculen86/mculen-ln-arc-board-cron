@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/modules/mod-headersection.css';
 import ComTitle from './com-title';
 import ComImage from './com-image';
@@ -10,19 +9,18 @@ import useGetLogoImage from './hooks/useGetLogoImage';
 import get from './utils/get';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 
-function ModheaderSection(props) {
-    const {
-        title,
-        tag,
-        line,
-        size,
-        classCondition,
-        link,
-        customTitle,
-        isVisible = true,
-        imageId,
-        layout
-    } = props;
+function ModheaderSection({
+    title = null,
+    tag = 'h3',
+    line = true,
+    size = '--xl',
+    classCondition = '',
+    link = null,
+    customTitle,
+    isVisible = true,
+    imageId,
+    layout
+}) {
     const isHome = layout === get(siteConfig, 'layoutsName.Home');
     const image = useGetLogoImage(imageId, isHome) || {};
 
@@ -45,8 +43,9 @@ function ModheaderSection(props) {
 
     return (
         <section
-            className={`mod-headersection ${classCondition} ${line && '--line'
-                }`}
+            className={`mod-headersection ${classCondition} ${
+                line && '--line'
+            }`}
             role="contentinfo"
         >
             {!Image ? (
@@ -64,35 +63,5 @@ function ModheaderSection(props) {
         </section>
     );
 }
-
-ModheaderSection.propTypes = {
-    imageId: PropTypes.string,
-    layout: PropTypes.string,
-    link: PropTypes.string,
-    title: PropTypes.string,
-    classCondition: PropTypes.string,
-    tag: PropTypes.string,
-    line: PropTypes.bool,
-    size: PropTypes.string,
-    image: PropTypes.shape({
-        caption: PropTypes.string,
-        width: PropTypes.number,
-        height: PropTypes.number,
-        url: PropTypes.string
-    }),
-    customTitle: PropTypes.string,
-    isVisible: PropTypes.bool
-};
-
-ModheaderSection.defaultProps = {
-    link: null,
-    title: null,
-    classCondition: '',
-    line: true,
-    size: '--xl',
-    tag: 'h3',
-    image: {},
-    customTitle: undefined
-};
 
 export default ModheaderSection;

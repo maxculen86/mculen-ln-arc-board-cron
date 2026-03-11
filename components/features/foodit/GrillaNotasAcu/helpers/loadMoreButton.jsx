@@ -1,5 +1,4 @@
 import { Button } from '@ln/foodit-ui-button';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 export function LoadMoreButton({ clickMoreArticle, loading = false }) {
@@ -17,12 +16,3 @@ export function LoadMoreButton({ clickMoreArticle, loading = false }) {
         </div>
     );
 }
-
-LoadMoreButton.propTypes = {
-    clickMoreArticle: PropTypes.func.isRequired,
-    loading: PropTypes.bool
-};
-
-LoadMoreButton.defaultProps = {
-    loading: false
-};

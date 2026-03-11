@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import OpeningRawHtml from '../../../../../components/private/common/scriptManager/OpeningRawHtml';
 import mockContentElements from '../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlTwoBlocks.json';
 
-jest.mock('html-react-parser', () => jest.fn(element => element));
+jest.mock('htmr');
 
 describe('components - private - common - OpeningRawHtml', () => {
     const validProps = {

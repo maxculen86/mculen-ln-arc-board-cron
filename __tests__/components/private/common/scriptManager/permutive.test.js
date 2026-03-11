@@ -36,10 +36,11 @@ describe('components - private - common - scriptManager - permutive', () => {
     });
 
     it('renders script tags with the correct attributes', () => {
-        const { container } = render(<Permutive />);
+        render(<Permutive />);
 
-        const permutiveScript = container.querySelector('#script-permutive');
-        const permutiveExternalScript = container.querySelector(
+        const permutiveScript =
+            document.head.querySelector('#script-permutive');
+        const permutiveExternalScript = document.head.querySelector(
             'script[src="https://867f8423-d142-4fd1-ae8d-1a9bbbdf2358.edge.permutive.app/867f8423-d142-4fd1-ae8d-1a9bbbdf2358-web.js"]'
         );
 

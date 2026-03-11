@@ -23,7 +23,7 @@ describe('components - features- foodit-global - schemas - AcuChefSchema', () =>
 
     it('renders the correct number of schema script tags', () => {
         const { container } = render(<AcuChefSchema />);
-        const scripts = container.querySelectorAll(
+        const scripts = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptSnippetRender = JSON.parse(scripts[0].textContent);

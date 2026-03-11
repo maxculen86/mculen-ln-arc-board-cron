@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
+import { useAppContext } from 'fusion:context';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import ComLinkList from './com-link-list';
-import { useAppContext } from 'fusion:context';
 
-const ModNavigation = props => {
-    const { navigation, classCondition = '', style } = props;
+function ModNavigation({ navigation, classCondition = '', style }) {
     const EXTRA_CLASS = ` ${classCondition}`;
     const { contextPath, deployment } = useAppContext();
 
@@ -50,20 +48,6 @@ const ModNavigation = props => {
             />
         </>
     );
-};
-
-ModNavigation.propTypes = {
-    classCondition: PropTypes.string,
-    style: PropTypes.shape({
-        color: PropTypes.string
-    }),
-    navigation: PropTypes.arrayOf(PropTypes.func)
-};
-
-ModNavigation.defaultProps = {
-    classCondition: undefined,
-    style: undefined,
-    navigation: undefined
-};
+}
 
 export default ModNavigation;

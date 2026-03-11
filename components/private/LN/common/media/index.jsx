@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import Image from './imageBase';
 import IconsFullScreen from './iconsFullScreen';
 import ComFigure from '../../../common/com-figure';
@@ -146,65 +145,5 @@ function Media({
         </>
     );
 }
-
-Media.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]),
-    outputType: PropTypes.string,
-    mediaData: PropTypes.shape({
-        type: PropTypes.string,
-        _id: PropTypes.string,
-        subtype: PropTypes.string
-    }),
-    itsGallery: PropTypes.bool,
-    active: PropTypes.bool,
-    handleClick: PropTypes.func,
-    withZoom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    href: PropTypes.string,
-    tituloNota: PropTypes.string,
-    parrafo: PropTypes.oneOfType([
-        PropTypes.shape({
-            content: PropTypes.string
-        }),
-        PropTypes.string
-    ]),
-    isApertura: PropTypes.bool,
-    html: PropTypes.string,
-    titleText: PropTypes.string,
-    scriptForZoom: PropTypes.node,
-    insideBody: PropTypes.bool.isRequired,
-    withMobileImage: PropTypes.bool,
-    searchableField: PropTypes.shape({
-        imageId: PropTypes.string
-    }),
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string
-    }).isRequired,
-    authors: PropTypes.string
-};
-
-Media.defaultProps = {
-    mediaData: {},
-    itsGallery: false,
-    withZoom: false,
-    isApertura: false,
-    href: '',
-    html: '',
-    titleText: '',
-    tituloNota: '',
-    outputType: 'default',
-    scriptForZoom: undefined,
-    parrafo: undefined,
-    active: undefined,
-    children: undefined,
-    handleClick: () => {
-        // This is intentional
-    },
-    withMobileImage: false,
-    searchableField: undefined,
-    authors: ''
-};
 
 export default Media;

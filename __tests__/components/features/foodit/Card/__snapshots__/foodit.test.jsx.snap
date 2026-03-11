@@ -109,7 +109,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 class="icon w-24 w-20_lg --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -236,7 +236,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 class="icon w-24 w-20_lg --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -350,7 +350,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -469,7 +469,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>
@@ -588,7 +588,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 class="icon w-24 --dark"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="bookmark"
                 />
               </i>

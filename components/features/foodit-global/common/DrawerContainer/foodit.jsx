@@ -2,14 +2,13 @@ import React from 'react';
 import { Drawer } from '@ln/common-ui-drawer';
 import { Text } from '@ln/common-ui-text';
 import classNames from 'classnames';
-import PropTypes from 'fusion:prop-types';
 
 function DrawerContainer({
     drawerId,
     position,
-    bodyClassName,
+    bodyClassName = '',
     children,
-    title
+    title = ''
 }) {
     return (
         <Drawer
@@ -43,20 +42,5 @@ function DrawerContainer({
         </Drawer>
     );
 }
-DrawerContainer.defaultProps = {
-    bodyClassName: '',
-    title: ''
-};
-
-DrawerContainer.propTypes = {
-    drawerId: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    bodyClassName: PropTypes.string,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]).isRequired,
-    title: PropTypes.string
-};
 
 export default DrawerContainer;

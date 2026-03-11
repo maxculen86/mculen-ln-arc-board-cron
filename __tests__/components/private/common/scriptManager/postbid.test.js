@@ -3,12 +3,15 @@ import { render } from '@testing-library/react';
 import getSectionName from '../../../../../components/private/LN/common/utils/getSectionName';
 import PostBid from '../../../../../components/private/common/scriptManager/postbid';
 
-jest.mock('../../../../../components/private/LN/common/utils/getSectionName', () => jest.fn());
+jest.mock(
+    '../../../../../components/private/LN/common/utils/getSectionName',
+    () => jest.fn()
+);
 
 describe('PostBid Component', () => {
     const mockGlobalContent = {
         type: 'someType',
-        node_type: 'someNodeType',
+        node_type: 'someNodeType'
     };
 
     beforeEach(() => {
@@ -19,27 +22,48 @@ describe('PostBid Component', () => {
     afterEach(() => {
         delete process.env.IS_DEV;
         delete process.env.IS_SANDBOX;
+
+        document.head
+            .querySelectorAll('script[src*="rubiconproject"]')
+            .forEach(s => s.remove());
     });
 
     test('renders script tags when section name is nota', () => {
         getSectionName.mockReturnValue('nota');
-        const { container } = render(<PostBid globalContent={mockGlobalContent} />);
+        const { container } = render(
+            <PostBid globalContent={mockGlobalContent} />
+        );
 
-        const scriptTags = container.querySelectorAll('script');
-        expect(scriptTags.length).toBe(2);
+        const srcScript = document.head.querySelector(
+            'script[src*="rubiconproject"]'
+        );
 
-        const [srcScript, inlineScript] = scriptTags;
-        expect(srcScript).toHaveAttribute('src', 'https://micro.rubiconproject.com/prebid/dynamic/20148.js');
+        const inlineScripts = Array.from(
+            container.querySelectorAll('script:not([src])')
+        ).filter(s => s.innerHTML.includes('pbjs'));
+
+        expect(srcScript).toBeInTheDocument();
+        expect(srcScript).toHaveAttribute(
+            'src',
+            'https://micro.rubiconproject.com/prebid/dynamic/20148.js'
+        );
         expect(srcScript).toHaveAttribute('async');
 
+        expect(inlineScripts.length).toBeGreaterThanOrEqual(1);
+        const inlineScript = inlineScripts.find(s =>
+            s.innerHTML.includes('var pbjs = pbjs || {}')
+        );
         expect(inlineScript.innerHTML).toContain('var pbjs = pbjs || {};');
         expect(inlineScript.innerHTML).toContain('pbjs.que = pbjs.que || [];');
     });
 
     test('does not render script tags when section name is not nota or acumulado', () => {
         getSectionName.mockReturnValue('other');
-        const { container } = render(<PostBid globalContent={mockGlobalContent} />);
+        render(<PostBid globalContent={mockGlobalContent} />);
 
-        expect(container.querySelector('script')).toBeNull();
+        const rubiconScript = document.head.querySelector(
+            'script[src*="rubiconproject"]'
+        );
+        expect(rubiconScript).toBeNull();
     });
 });

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { register } from '../../../LN-10-global/pwaModal/register/serviceWorkerUtils';
 import { PromoteInstallation } from '../PromoteInstallation/foodit';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
@@ -51,11 +50,5 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
         )
     );
 }
-
-PwaInstallPrompt.propTypes = {
-    deployment: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
-    variant: PropTypes.string.isRequired
-};
 
 export default PwaInstallPrompt;

@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
 import ComHour from '../../common/com-hour';
@@ -41,23 +40,23 @@ const ArticleAcum = forwardRef(
     (
         {
             children,
-            dataSection,
+            dataSection = '',
             sectionName,
             article,
             typeArticle = 'Grilla',
-            outputType,
+            outputType = 'default',
             titleTag,
             titleSize,
             titleWeight,
-            withSubhead,
-            withVolanta,
-            isRenderAuthor,
+            withSubhead = false,
+            withVolanta = true,
+            isRenderAuthor = false,
             boxPosition,
-            artPosition,
-            withCategory,
-            withTags,
+            artPosition = '',
+            withCategory = false,
+            withTags = false,
             handleClick,
-            isApertura,
+            isApertura = false,
             openBarrier
         },
         ref
@@ -141,73 +140,5 @@ const ArticleAcum = forwardRef(
         );
     }
 );
-
-ArticleAcum.propTypes = {
-    dataSection: PropTypes.string,
-    handleClick: PropTypes.func,
-    article: PropTypes.shape({
-        _id: PropTypes.string,
-        display_date: PropTypes.string,
-        headlines: PropTypes.shape({
-            basic: PropTypes.string,
-            meta_title: PropTypes.string,
-            mobile: PropTypes.string
-        }),
-        website_url: PropTypes.string,
-        label: PropTypes.shape({
-            volanta: PropTypes.shape({
-                text: PropTypes.string
-            })
-        }),
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.shape({
-                _id: PropTypes.string,
-                name: PropTypes.string,
-                path: PropTypes.string
-            }),
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    slug: PropTypes.string,
-                    text: PropTypes.string
-                })
-            )
-        })
-    }).isRequired,
-    children: PropTypes.node,
-    typeArticle: PropTypes.string,
-    outputType: PropTypes.string,
-    withCategory: PropTypes.bool,
-    withTags: PropTypes.bool,
-    titleTag: PropTypes.string,
-    titleSize: PropTypes.string,
-    titleWeight: PropTypes.string,
-    withSubhead: PropTypes.bool,
-    withVolanta: PropTypes.bool,
-    isRenderAuthor: PropTypes.bool,
-    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    artPosition: PropTypes.string,
-    isApertura: PropTypes.bool,
-    sectionName: PropTypes.string.isRequired,
-    openBarrier: PropTypes.func.isRequired
-};
-
-ArticleAcum.defaultProps = {
-    dataSection: '',
-    titleSize: undefined,
-    titleTag: undefined,
-    titleWeight: undefined,
-    artPosition: '',
-    typeArticle: 'Grilla',
-    outputType: 'default',
-    children: undefined,
-    handleClick: undefined,
-    boxPosition: undefined,
-    withCategory: false,
-    withTags: false,
-    isRenderAuthor: false,
-    withSubhead: false,
-    withVolanta: true,
-    isApertura: false
-};
 
 export default ArticleAcum;

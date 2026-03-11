@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import buildBody from './children/_buildBody';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import {
@@ -27,11 +26,4 @@ function Body({ globalContent = {} }) {
         globalContent
     });
 }
-Body.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        content_elements: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-    }).isRequired
-};
-
 export default Consumer(Body);

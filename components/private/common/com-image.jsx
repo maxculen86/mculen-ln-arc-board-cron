@@ -1,27 +1,24 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import PropTypes from 'prop-types';
 import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
 
-function ComImage(props) {
-    const {
-        src,
-        srcset,
-        alt,
-        classCondition,
-        width,
-        height,
-        href,
-        target,
-        isApertura,
-        svg,
-        searchableField
-    } = props;
-
+function ComImage({
+    src,
+    srcset,
+    alt,
+    classCondition = '',
+    width,
+    height,
+    href = '',
+    target = '',
+    isApertura = false,
+    svg = false,
+    searchableField
+}) {
     if (!src) return null;
 
     const commonProps = {
@@ -53,36 +50,5 @@ function ComImage(props) {
         image
     );
 }
-
-ComImage.propTypes = {
-    src: PropTypes.string.isRequired,
-    srcset: PropTypes.string,
-    alt: PropTypes.string,
-    classCondition: PropTypes.string,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    href: PropTypes.string,
-    target: PropTypes.string,
-    layout: PropTypes.string,
-    isApertura: PropTypes.bool,
-    svg: PropTypes.bool,
-    searchableField: PropTypes.shape({
-        imageId: PropTypes.string
-    })
-};
-
-ComImage.defaultProps = {
-    srcset: undefined,
-    classCondition: '',
-    href: '',
-    alt: undefined,
-    target: '',
-    layout: undefined,
-    isApertura: false,
-    svg: false,
-    height: undefined,
-    width: undefined,
-    searchableField: undefined
-};
 
 export default ComImage;

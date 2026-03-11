@@ -1,6 +1,4 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -102,10 +100,6 @@ function LNNotaReceta({ children }) {
         </GlobalProvider>
     );
 }
-
-LNNotaReceta.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 LNNotaReceta.sections = pageBuilderSections;
 

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import { GlobalContext } from '../../../private/common/context/globalContext';
@@ -10,7 +9,7 @@ import HeaderComments from '../../../private/LN/nota/comments/header';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
-const CommentsViafouraFeature = props => {
+function CommentsViafouraFeature(props) {
     const { globalContent: { messageType = '' } = {} } = props;
     const { contextPath, deployment } = useAppContext();
     const gc = useContext(GlobalContext);
@@ -48,14 +47,7 @@ const CommentsViafouraFeature = props => {
             />
         </Static>
     );
-};
-
-CommentsViafouraFeature.propTypes = {
-    id: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({
-        messageType: PropTypes.string
-    }).isRequired
-};
+}
 
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
 

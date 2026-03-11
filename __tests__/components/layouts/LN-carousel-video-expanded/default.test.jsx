@@ -43,6 +43,9 @@ describe('components - layouts - CarouselVideoExpanded - default', () => {
 
     it('passes videoId to ShareVideo', () => {
         render(<CarouselVideoExpanded globalContent={mockGlobalContent} />);
-        expect(ShareVideo).toHaveBeenCalledWith({ videoId: 'TdCdBgL' }, {});
+        expect(ShareVideo).toHaveBeenCalledWith(
+            { videoId: 'TdCdBgL' },
+            undefined
+        );
     });
 });

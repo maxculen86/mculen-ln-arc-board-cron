@@ -1,12 +1,11 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
-const formatExpression = text => {
-    return 'ca_'.concat(
+const formatExpression = text =>
+    'ca_'.concat(
         text
             .toLowerCase()
             .normalize('NFD')
@@ -14,7 +13,6 @@ const formatExpression = text => {
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/\W/g, '_')
     );
-};
 
 const getCategories = (name, parent, ancestors) => {
     const { default: defaultParent } = parent || {};
@@ -42,7 +40,7 @@ const getTopic = content =>
 
 const getAuthor = content => (content.slug ? ['au_'.concat(content.slug)] : []);
 
-const GooglePublisherTagAcumulado = props => {
+function GooglePublisherTagAcumulado(props) {
     const { globalContent } = props;
     const { contextPath, deployment } = useAppContext();
     const { type, parent, ancestors, name } = globalContent;
@@ -80,20 +78,6 @@ const GooglePublisherTagAcumulado = props => {
             />
         </>
     );
-};
-
-GooglePublisherTagAcumulado.propTypes = {
-    globalContent: PropTypes.shape({
-        id: PropTypes.string,
-        type: PropTypes.string,
-        name: PropTypes.string,
-        parent: PropTypes.shape({
-            default: PropTypes.string
-        }),
-        ancestors: PropTypes.shape({
-            default: PropTypes.arrayOf(PropTypes.string)
-        })
-    }).isRequired
-};
+}
 
 export default GooglePublisherTagAcumulado;

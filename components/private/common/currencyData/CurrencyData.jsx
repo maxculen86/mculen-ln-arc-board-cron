@@ -1,19 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Text from '../text';
 import ComLink from '../com-link';
 
 import '../../../../resources/dist/css/ln/modules/currency-data.css';
 
-const CurrencyData = ({
-    classCondition,
-    title,
-    purchaseValue,
-    saleValue,
-    link,
-    ...r
-}) => {
+function CurrencyData({
+    classCondition = '',
+    title = '',
+    purchaseValue = '',
+    saleValue = '',
+    link = ''
+}) {
     return (
         <div className={`${classCondition} currency-data`}>
             <ComLink
@@ -45,24 +43,6 @@ const CurrencyData = ({
             </p>
         </div>
     );
-};
-
-CurrencyData.propTypes = {
-    siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    }).isRequired,
-    classCondition: PropTypes.string,
-    title: PropTypes.string,
-    purchaseValue: PropTypes.string,
-    saleValue: PropTypes.string,
-    link: PropTypes.string
-};
-CurrencyData.defaultProps = {
-    classCondition: '',
-    title: '',
-    purchaseValue: '',
-    saleValue: '',
-    link: ''
-};
+}
 
 export default CurrencyData;

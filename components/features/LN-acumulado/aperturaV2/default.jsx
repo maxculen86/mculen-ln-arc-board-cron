@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 import useArticlesInCollection from './hooks/useArticlesInCollection';
@@ -17,9 +16,5 @@ function AperturaFeatureV2(props) {
 }
 
 AperturaFeatureV2.label = 'LN-Acumulado-AperturaV2';
-
-AperturaFeatureV2.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default Consumer(AperturaFeatureV2);

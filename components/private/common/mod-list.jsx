@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import setClassName from './utils/setClassName';
 import Link from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-list.css';
 
-const List = ({ children, order, inline, mod, size }) => {
+function List({ children, order, inline, mod, size }) {
     const CustomTag = order ? 'ol' : 'ul';
     const orderedClass = order ? '--ordered' : '';
     const inlineClass = inline ? '--inline' : '';
@@ -19,9 +18,10 @@ const List = ({ children, order, inline, mod, size }) => {
 
     return (
         <CustomTag className={_className}>
-            {children.map((item, index) => (
+            {children.map(item => (
                 <li key={item.text}>
                     {item.href ? (
+                        // eslint-disable-next-line jsx-a11y/anchor-is-valid
                         <Link
                             textname={item.text}
                             title={item.alt || item.text}
@@ -36,14 +36,6 @@ const List = ({ children, order, inline, mod, size }) => {
             ))}
         </CustomTag>
     );
-};
-
-List.propTypes = {
-    children: PropTypes.element,
-    order: PropTypes.bool,
-    inline: PropTypes.bool,
-    mod: PropTypes.string,
-    size: PropTypes.string
-};
+}
 
 export default List;

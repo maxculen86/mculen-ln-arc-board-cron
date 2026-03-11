@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import PostAuthor from './PostAuthor';
 
@@ -36,13 +35,5 @@ function PostHeader({ displayTime, date, title, dataAuthor, children }) {
         </div>
     );
 }
-
-PostHeader.propTypes = {
-    displayTime: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    dataAuthor: PropTypes.shape({}).isRequired,
-    children: PropTypes.node.isRequired
-};
 
 export default PostHeader;

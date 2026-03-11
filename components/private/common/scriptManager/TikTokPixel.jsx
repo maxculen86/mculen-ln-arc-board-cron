@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function TikTokPixel({ location = 'head', id }) {
     if (!id || location !== 'head') return null;
@@ -55,10 +54,5 @@ function TikTokPixel({ location = 'head', id }) {
         />
     );
 }
-
-TikTokPixel.propTypes = {
-    location: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
-};
 
 export default TikTokPixel;

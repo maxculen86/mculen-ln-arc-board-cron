@@ -67,7 +67,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
               class="icon --icon-24 --inherit"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmarkFilled"
               />
             </i>
@@ -285,7 +285,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
               class="icon --icon-24 --inherit"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmarkFilled"
               />
             </i>
@@ -453,7 +453,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
           style="width: 26px; height: 26px;"
         >
           <mock-icon
-            color="true"
+            color=""
             name="googleColor"
           />
         </i>
@@ -530,7 +530,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
               class="icon --icon-24 --inherit"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmarkFilled"
               />
             </i>
@@ -698,7 +698,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
           style="width: 26px; height: 26px;"
         >
           <mock-icon
-            color="true"
+            color=""
             name="googleColor"
           />
         </i>
@@ -775,7 +775,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
               class="icon --icon-24 --inherit"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmarkFilled"
               />
             </i>
@@ -973,7 +973,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
               class="icon --icon-32"
             >
               <mock-icon
-                default="true"
+                default=""
                 fill="#27D2BE"
                 name="ai"
               />
@@ -992,7 +992,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
               class="icon --icon-24 --inherit"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmarkFilled"
               />
             </i>

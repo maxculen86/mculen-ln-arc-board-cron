@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import ModDate from '../../../common/mod-date';
 import Author from './authorArticle';
 
@@ -9,8 +8,8 @@ const authorAndDate = props => {
         display_date: displayDate,
         credits,
         label,
-        first_publish_date,
-        last_updated_date
+        first_publish_date: firstPublishDate,
+        last_updated_date: lastUpdatedDate
     } = globalContent || {};
     const { edicion: labelEdicionImpresa } = label || {};
     const [visible, setVisible] = useState(false);
@@ -20,15 +19,15 @@ const authorAndDate = props => {
         if (by.length > 0) setVisible(true);
     }
 
-    if (!visible && !displayDate) return <></>;
+    if (!visible && !displayDate) return null;
     return (
         <>
             {date && (
                 <ModDate
                     display_date={displayDate}
                     labelEdicionImpresa={labelEdicionImpresa}
-                    first_publish_date={first_publish_date}
-                    last_updated_date={last_updated_date}
+                    first_publish_date={firstPublishDate}
+                    last_updated_date={lastUpdatedDate}
                 />
             )}
             {author && (
@@ -57,23 +56,6 @@ const authorAndDate = props => {
             )}
         </>
     );
-};
-
-authorAndDate.propTypes = {
-    globalContent: PropTypes.shape({
-        display_date: PropTypes.string,
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(PropTypes.shape({}))
-        })
-    }).isRequired,
-    date: PropTypes.bool,
-    author: PropTypes.bool,
-    authorDate: PropTypes.bool
-};
-authorAndDate.defaultProps = {
-    author: undefined,
-    authorDate: undefined,
-    date: undefined
 };
 
 export default authorAndDate;

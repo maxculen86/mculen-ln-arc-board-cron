@@ -4,7 +4,6 @@ import { Text } from '@ln/common-ui-text';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Image } from '@ln/foodit-ui-image';
 import { Link } from '@ln/foodit-ui-link';
-import PropTypes from 'prop-types';
 import { MenuOptions } from './MenuOptions/MenuOptions';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import EmptyState from '../../emptyState/foodit';
@@ -116,10 +115,4 @@ function MenuSemanalBody({
         </>
     );
 }
-MenuSemanalBody.propTypes = {
-    menusDay: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    weeklyMenu: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setWeeklyMenu: PropTypes.func.isRequired,
-    subscription: PropTypes.bool.isRequired
-};
 export default MenuSemanalBody;

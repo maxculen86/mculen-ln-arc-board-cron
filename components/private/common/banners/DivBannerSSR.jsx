@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { Button } from '@ln/contenidos-ui-button';
 import classNames from 'classnames';
@@ -103,41 +102,5 @@ function DivBannerSSR({ bannerConfiguration }) {
         <div className={bannerClassContainer}>{Comp}</div>
     );
 }
-
-DivBannerSSR.propTypes = {
-    bannerConfiguration: PropTypes.shape({
-        slotId: PropTypes.string.isRequired,
-        classes: PropTypes.string,
-        device: PropTypes.string,
-        dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-        slotName: PropTypes.string,
-        targeting: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.shape({
-                seccion: PropTypes.string,
-                sitio: PropTypes.string
-            })
-        ]),
-        sizemap: PropTypes.arrayOf(
-            PropTypes.shape({
-                // eslint-disable-next-line react/forbid-prop-types
-                breakpoints: PropTypes.array,
-                refresh: PropTypes.bool
-            })
-        ),
-        bidding: PropTypes.shape({
-            prebid: PropTypes.shape({
-                enabled: PropTypes.bool
-            })
-        }),
-        closeButton: PropTypes.bool,
-        slotGroup: PropTypes.string,
-        withoutHide: PropTypes.bool,
-        hideForSubscriptor: PropTypes.bool,
-        isStatic: PropTypes.bool,
-        lazyClass: PropTypes.string
-    }).isRequired
-};
 
 export default DivBannerSSR;

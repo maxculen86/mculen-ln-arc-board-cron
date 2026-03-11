@@ -1,21 +1,20 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 import '../../../resources/dist/css/ln/components/com-title.css';
 
 function ComTitle({
     lead,
-    tag,
+    tag = 'h4',
     size,
-    font,
+    font = '',
     weight,
     content,
     classCondition,
     link,
-    preTitle,
-    customTitle,
-    style = undefined
+    preTitle = '',
+    customTitle = '',
+    style
 }) {
     if (!content) return null;
 
@@ -58,34 +57,5 @@ function ComTitle({
         { ..._props }
     );
 }
-
-ComTitle.propTypes = {
-    lead: PropTypes.string,
-    tag: PropTypes.string,
-    size: PropTypes.string,
-    font: PropTypes.string,
-    weight: PropTypes.string,
-    content: PropTypes.string.isRequired,
-    classCondition: PropTypes.string,
-    link: PropTypes.string,
-    preTitle: PropTypes.string,
-    customTitle: PropTypes.string,
-    style: PropTypes.shape({
-        color: PropTypes.string
-    })
-};
-
-ComTitle.defaultProps = {
-    lead: undefined,
-    tag: 'h4',
-    size: undefined,
-    font: '',
-    weight: undefined,
-    classCondition: undefined,
-    link: undefined,
-    preTitle: '',
-    customTitle: '',
-    style: undefined
-};
 
 export default ComTitle;

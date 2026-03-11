@@ -3,7 +3,6 @@ import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import PropTypes from 'prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import {
@@ -99,31 +98,3 @@ export function RecipeOptions({ list = [], bookmarkId, setShoppingList }) {
         </Dropdown>
     );
 }
-
-RecipeOptions.propTypes = {
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            bookmarkId: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            canonicalUrl: PropTypes.string,
-            sections: PropTypes.arrayOf(
-                PropTypes.shape({
-                    titleList: PropTypes.string,
-                    items: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            amount: PropTypes.string,
-                            unit: PropTypes.string.isRequired,
-                            ingredient: PropTypes.string.isRequired,
-                            abbreviation: PropTypes.string,
-                            fullIngredientString: PropTypes.string
-                        })
-                    ).isRequired,
-                    typeList: PropTypes.string.isRequired
-                })
-            ).isRequired
-        })
-    ).isRequired,
-    bookmarkId: PropTypes.string.isRequired,
-    setShoppingList: PropTypes.func.isRequired
-};

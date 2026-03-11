@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComImage from '../../../common/com-image';
 
-const ImageAuthor = ({ url, name }) => {
+function ImageAuthor({ url, name }) {
     return (
         <figure className="mod-figure --horizontal">
             <div className="placeholder ">
@@ -17,11 +16,6 @@ const ImageAuthor = ({ url, name }) => {
             </div>
         </figure>
     );
-};
-
-ImageAuthor.propTypes = {
-    url: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-};
+}
 
 export default ImageAuthor;

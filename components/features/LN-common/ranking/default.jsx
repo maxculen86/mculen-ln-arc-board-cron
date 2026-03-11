@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
 import { Icon } from '@ln/common-ui-icon';
@@ -114,18 +113,5 @@ function RankingFeature({ id: featureId }) {
 }
 
 RankingFeature.label = 'LN-Common-Ranking';
-
-RankingFeature.propTypes = {
-    id: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        type: PropTypes.string,
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.shape({
-                _id: PropTypes.string
-            })
-        })
-    }).isRequired
-};
 
 export default RankingFeature;

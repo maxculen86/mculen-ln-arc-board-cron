@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
@@ -14,9 +13,13 @@ import { LoginButton } from './components/loginButton';
 
 function LoginSubscribeButtons({
     classNameButtons = '',
-    termicasData = {},
+    termicasData = {
+        tooltip_subscribe_foodit_text: '',
+        tooltip_subscribe_foodit_show: false,
+        hide_subscribe_button_foodit: false
+    },
     comesFrom = '',
-    loginClassName = ''
+    loginClassName = 'roboto-regular'
 }) {
     const { promotions } = useGetUserConfig();
     const { buttonLogginText, buttonSubscribeText, buttonSubscribeHeader } =
@@ -37,15 +40,15 @@ function LoginSubscribeButtons({
     const subscribeButtonText =
         textByCategory[categoryEvent] ?? buttonSubscribeText;
 
+    const tooltipText = termicasData?.tooltip_subscribe_foodit_text || '';
+    const tooltipShow = termicasData?.tooltip_subscribe_foodit_show === 'true';
+
     useEffect(() => {
-        if (termicasData) {
-            setTooltipState({
-                text: termicasData.tooltip_subscribe_foodit_text || '',
-                shouldShow:
-                    termicasData.tooltip_subscribe_foodit_show === 'true'
-            });
-        }
-    }, [termicasData]);
+        setTooltipState({
+            text: tooltipText,
+            shouldShow: tooltipShow
+        });
+    }, [tooltipText, tooltipShow]);
 
     const hideSubscribeButtons =
         termicasData.hide_subscribe_button_foodit === 'true';
@@ -113,30 +116,5 @@ function LoginSubscribeButtons({
         </>
     );
 }
-
-LoginSubscribeButtons.defaultProps = {
-    classNameButtons: '',
-    termicasData: {
-        tooltip_subscribe_foodit_text: '',
-        tooltip_subscribe_foodit_show: false,
-        hide_subscribe_button_foodit: false
-    },
-    comesFrom: '',
-    loginClassName: 'roboto-regular'
-};
-
-LoginSubscribeButtons.propTypes = {
-    classNameButtons: PropTypes.string,
-    termicasData: PropTypes.shape({
-        tooltip_subscribe_foodit_text: PropTypes.string,
-        tooltip_subscribe_foodit_show: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.bool
-        ]),
-        hide_subscribe_button_foodit: PropTypes.bool
-    }),
-    comesFrom: PropTypes.string,
-    loginClassName: PropTypes.string
-};
 
 export default LoginSubscribeButtons;

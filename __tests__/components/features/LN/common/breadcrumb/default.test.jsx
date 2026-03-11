@@ -79,7 +79,7 @@ describe('Breadcrumb', () => {
                 host: 'https://www.lanacion.com.ar',
                 'data-testid': 'breadcrumb'
             }),
-            {}
+            undefined
         );
     });
 
@@ -104,7 +104,7 @@ describe('Breadcrumb', () => {
                 sections: builtSectionsMock,
                 host: 'https://www.lanacion.com.ar'
             }),
-            {}
+            undefined
         );
     });
 });

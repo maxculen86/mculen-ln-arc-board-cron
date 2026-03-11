@@ -9,13 +9,13 @@ import useBuildMayInterest from './_hooks/useBuildMayInterest';
 import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
-const TePuedeInteresar = props => {
+function TePuedeInteresar(props) {
     const showLiftigniter = useTermica('liftigniter');
-    if (!showLiftigniter) return <></>;
+    if (!showLiftigniter) return null;
     const {
         customFields: { cantidadNotas = 6 } = {},
-        outputType,
-        siteProperties
+        outputType = 'default',
+        siteProperties = {}
     } = props;
 
     const { requestUri, globalContent = {}, arcSite, layout } = useAppContext();
@@ -47,31 +47,31 @@ const TePuedeInteresar = props => {
     }, [articles]);
 
     return (
-        <>
-            {isReady && articles && articles.length > 0 && (
-                <div
-                    className="row interest"
-                    ref={sectionReference}
-                    data-module="tema_tePuedeInteresar"
-                >
-                    <CajaTema
-                        title="Te puede interesar"
-                        sectionName={
-                            layout === layoutsName.Home
-                                ? 'TePuedeInteresarHome'
-                                : 'TePuedeInteresar'
-                        }
-                        articles={replaceUrlsByEnvironment(articles)}
-                        position="toi"
-                        outputType={outputType}
-                        withVolanta
-                        setRefs={articleRefs}
-                    />
-                </div>
-            )}
-        </>
+        isReady &&
+        articles &&
+        articles.length > 0 && (
+            <div
+                className="row interest"
+                ref={sectionReference}
+                data-module="tema_tePuedeInteresar"
+            >
+                <CajaTema
+                    title="Te puede interesar"
+                    sectionName={
+                        layout === layoutsName.Home
+                            ? 'TePuedeInteresarHome'
+                            : 'TePuedeInteresar'
+                    }
+                    articles={replaceUrlsByEnvironment(articles)}
+                    position="toi"
+                    outputType={outputType}
+                    withVolanta
+                    setRefs={articleRefs}
+                />
+            </div>
+        )
     );
-};
+}
 
 TePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
 
@@ -82,16 +82,7 @@ TePuedeInteresar.propTypes = {
             min: 3,
             label: 'Cantidad de Notas'
         })
-    }).isRequired,
-    outputType: PropTypes.string,
-    siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    })
-};
-
-TePuedeInteresar.defaultProps = {
-    outputType: 'default',
-    siteProperties: {}
+    }).isRequired
 };
 
 export default TePuedeInteresar;

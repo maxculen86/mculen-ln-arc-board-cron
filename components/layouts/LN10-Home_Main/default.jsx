@@ -1,7 +1,6 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
@@ -15,7 +14,6 @@ import {
     getScriptForComercial,
     getStickyBanner
 } from '../../private/common/banners/bannersRules';
-import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import { createViewabilityObservers } from '../../private/common/utils/viewability';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
@@ -212,13 +210,6 @@ function LN10Home(props) {
         </GlobalProvider>
     );
 }
-
-LN10Home.propTypes = {
-    renderables: PropTypes.arrayOf(PropTypes.node),
-    outputType: PropTypes.string,
-    isAdmin: PropTypes.bool,
-    ...homeLayoutsPropTypes
-};
 
 LN10Home.sections = pageBuilderSections;
 

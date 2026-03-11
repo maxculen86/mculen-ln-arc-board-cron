@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
-import PropTypes from 'prop-types';
 import BreadcrumbArticle from '../../../../features/LN-nota/breadcrumbArticle';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import StaticContentV2 from '../../../../chains/LN10-global/staticContentV2';
@@ -40,13 +39,5 @@ function DescriptionVideo100({ data }) {
         </StaticContentV2>
     );
 }
-
-DescriptionVideo100.propTypes = {
-    data: PropTypes.shape({
-        title: PropTypes.string,
-        date: PropTypes.string,
-        time: PropTypes.string
-    }).isRequired
-};
 
 export default DescriptionVideo100;

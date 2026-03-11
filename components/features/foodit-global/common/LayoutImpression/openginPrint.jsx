@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Text } from '@ln/common-ui-text';
 import { Badge } from '@ln/foodit-ui-badge';
@@ -48,12 +47,3 @@ export function OpeningPrint({
         </div>
     );
 }
-
-OpeningPrint.propTypes = {
-    includePhotos: PropTypes.bool.isRequired,
-    mainImage: PropTypes.string.isRequired,
-    imageCaption: PropTypes.string.isRequired,
-    titleRecipe: PropTypes.string.isRequired,
-    authorRecipe: PropTypes.string.isRequired,
-    badge: PropTypes.node.isRequired
-};

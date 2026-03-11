@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
@@ -166,82 +165,5 @@ function TabIngredients({ list = [], setShoppingList = () => null }) {
         </div>
     );
 }
-
-TabIngredients.propTypes = {
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            canonicalUrl: PropTypes.string,
-            sections: PropTypes.arrayOf(
-                PropTypes.shape({
-                    typeList: PropTypes.string.isRequired,
-                    items: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            isMainIngredient: PropTypes.bool.isRequired,
-                            amount: PropTypes.string,
-                            unit: PropTypes.string.isRequired,
-                            ingredient: PropTypes.string.isRequired,
-                            abbreviation: PropTypes.string,
-                            fullIngredientString: PropTypes.string.isRequired,
-                            includeInShoppingList: PropTypes.bool.isRequired
-                        })
-                    ).isRequired,
-                    titleList: PropTypes.string
-                })
-            ).isRequired
-        })
-    ).isRequired,
-    setShoppingList: PropTypes.func.isRequired,
-    shoppingList: PropTypes.arrayOf(
-        PropTypes.shape({
-            sections: PropTypes.arrayOf(
-                PropTypes.shape({
-                    typeList: PropTypes.string.isRequired,
-                    items: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            fullIngredientString: PropTypes.string.isRequired,
-                            ingredient: PropTypes.string.isRequired,
-                            isMainIngredient: PropTypes.bool,
-                            amount: PropTypes.string,
-                            unit: PropTypes.string,
-                            abbreviation: PropTypes.string,
-                            includeInShoppingList: PropTypes.bool
-                        })
-                    ).isRequired,
-                    titleList: PropTypes.string
-                })
-            ).isRequired,
-            text: PropTypes.string.isRequired,
-            id: PropTypes.string.isRequired,
-            bookmarkId: PropTypes.string.isRequired
-        })
-    )
-};
-
-TabIngredients.defaultProps = {
-    shoppingList: [
-        {
-            sections: [
-                {
-                    typeList: '',
-                    items: [
-                        {
-                            fullIngredientString: '',
-                            ingredient: '',
-                            isMainIngredient: false,
-                            amount: '',
-                            unit: '',
-                            abbreviation: '',
-                            includeInShoppingList: false
-                        }
-                    ],
-                    titleList: ''
-                }
-            ],
-            text: '',
-            id: '',
-            bookmarkId: ''
-        }
-    ]
-};
 
 export default TabIngredients;

@@ -1,18 +1,10 @@
 import React from 'react';
 
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import Image from './image';
 
-const Article = ({
-    id: featureId,
-    title,
-    imageId,
-    lead,
-    subhead,
-    authors,
-    url
-}) => {
+function Article({ title, imageId, lead, subhead, authors, url = '/' }) {
     return (
         // <Static id={featureId}>
         <article className="mod-article w-100-mobile firma-autor">
@@ -50,25 +42,6 @@ const Article = ({
         </article>
         // </Static>
     );
-};
-
-Article.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    imageId: PropTypes.string,
-    lead: PropTypes.string,
-    subhead: PropTypes.string,
-    authors: PropTypes.string,
-    url: PropTypes.string
-};
-
-Article.defaultProps = {
-    title: undefined,
-    imageId: undefined,
-    lead: undefined,
-    subhead: undefined,
-    authors: undefined,
-    url: '/'
-};
+}
 
 export default Consumer(Article);

@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 import ModHeaderSection from '../../../common/mod-headerSection';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 
 function ProvincesList({ provinces }) {
-    if (!provinces.length) return null;
+    if (!provinces?.length) return null;
     return (
         <>
             <ModHeaderSection tag="h3" title="Provincias" />
@@ -27,18 +26,5 @@ function ProvincesList({ provinces }) {
         </>
     );
 }
-
-ProvincesList.propTypes = {
-    provinces: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number,
-            name: PropTypes.string
-        })
-    )
-};
-
-ProvincesList.defaultProps = {
-    provinces: []
-};
 
 export default ProvincesList;

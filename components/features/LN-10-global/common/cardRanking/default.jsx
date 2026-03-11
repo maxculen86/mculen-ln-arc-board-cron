@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
@@ -39,15 +38,5 @@ function CardRanking({ href, title, mediaData, i }) {
         </Link>
     );
 }
-
-CardRanking.propTypes = {
-    href: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    mediaData: PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-    }).isRequired,
-    i: PropTypes.number.isRequired
-};
 
 export default CardRanking;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import CardsBadge from './Badge';
 
-function OpeningContent({ data }) {
+function OpeningContent({ data = {} }) {
     const { title, secondaryTitle, subtitle, label, logoData, isSubscriber } =
         data || {};
 

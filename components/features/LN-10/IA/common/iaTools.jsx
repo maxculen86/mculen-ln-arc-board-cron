@@ -3,7 +3,6 @@ import { useAppContext } from 'fusion:context';
 import { Horizontalscroller } from '@ln/common-ui-horizontalscroller';
 import { CommonTabs as Tabs } from '@ln/common-ui-tabs';
 import { Closebutton } from '@ln/common-ui-closebutton';
-import PropTypes from 'prop-types';
 import { Motion } from '@ln/common-ui-motion';
 import IaTab from './iaTab';
 import IaContent from './iaContent';
@@ -81,16 +80,5 @@ export function IaTools({ iaData = [] }) {
         </ContainerValidation>
     );
 }
-
-IaTools.propTypes = {
-    iaData: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            callback: PropTypes.func.isRequired,
-            data: PropTypes.arrayOf.isRequired
-        })
-    ).isRequired
-};
 
 export default IaTools;

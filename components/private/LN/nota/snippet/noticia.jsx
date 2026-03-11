@@ -30,6 +30,20 @@ import {
 } from './helpers/reviewSchemaHelper';
 import { PUBLISHING_PRINCIPLES } from './helpers/reviewSchemaConstants';
 
+const SUBTYPE_CONFIG = {
+    [OPINION]: {
+        schemaType: 'OpinionNewsArticle',
+        articleSection: 'Opinión',
+        distributorAuthorType: 'Person',
+        distributorAuthorName: 'Redacción LA NACION',
+        includeSchemaId: false,
+        cssSelector: ''
+    },
+    [LIVEBLOG_EDITORIAL]: {
+        cssSelector: '.liveblog-editorial'
+    }
+};
+
 const extractDataFromTags = tags => {
     let keywords = [];
     if (tags) {
@@ -120,20 +134,6 @@ export const getTrustProject = trust => data => sponsored => {
     }
 };
 
-const SUBTYPE_CONFIG = {
-    [OPINION]: {
-        schemaType: 'OpinionNewsArticle',
-        articleSection: 'Opinión',
-        distributorAuthorType: 'Person',
-        distributorAuthorName: 'Redacción LA NACION',
-        includeSchemaId: false,
-        cssSelector: ''
-    },
-    [LIVEBLOG_EDITORIAL]: {
-        cssSelector: '.liveblog-editorial'
-    }
-};
-
 function SnippetNoticia({
     siteProperties,
     globalContent,
@@ -162,12 +162,14 @@ function SnippetNoticia({
     } = globalContent;
 
     const { name: distributorName } = distributor;
+
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600x60.jpg'
     );
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-1200x800.jpg'
     );
+
     const { name } = primarySection;
     const subtypeConfig = SUBTYPE_CONFIG[subtype] || {};
     const distributorAuthor = {
@@ -243,6 +245,7 @@ function SnippetNoticia({
     };
 
     data = getTrustProject(trust)(data)(sponsored);
+
     const ratingValue = getNumericRatingValue(contentElements);
     const shouldRenderReviewSchema =
         subtype === NOTICIA && ratingValue && canonicalUrl;

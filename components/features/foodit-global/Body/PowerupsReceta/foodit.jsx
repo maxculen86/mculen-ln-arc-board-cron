@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Static from 'fusion:static';
-import PropTypes from 'fusion:prop-types';
 import { Ingredients } from './ingredientsBox/ingredients';
 import { MoreInfo } from './ingredientsBox/moreInfo';
 import { Nutritional } from './ingredientsBox/nutritional';
@@ -89,9 +88,5 @@ export function PowerupsReceta({ article = {} }) {
         </>
     );
 }
-
-PowerupsReceta.propTypes = {
-    article: PropTypes.object.isRequired
-};
 
 export default PowerupsReceta;

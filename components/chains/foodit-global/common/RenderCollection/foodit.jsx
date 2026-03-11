@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import {
     getImagesToLoadWithPicture,
@@ -25,11 +24,11 @@ const ELEMENTS_TO_OPTIMIZE_IN_MOBILE_CAROUSEL = 1;
 export function RenderCollection({
     rules,
     title,
-    hideCaja,
-    hideTitle,
+    hideCaja = false,
+    hideTitle = false,
     layout,
-    error,
-    carouselMobile,
+    error = null,
+    carouselMobile = false,
     link = '',
     collectionId = '',
     articles = [],
@@ -183,58 +182,5 @@ export function RenderCollection({
         ? React.Fragment
         : options[layout];
 }
-
-RenderCollection.propTypes = {
-    rules: PropTypes.shape({
-        roofAs: PropTypes.string,
-        classNameParent: PropTypes.string,
-        classNameChildren: PropTypes.string,
-        classNameRoof: PropTypes.string
-    }).isRequired,
-    title: PropTypes.string.isRequired,
-    hideCaja: PropTypes.bool,
-    hideTitle: PropTypes.bool,
-    carouselMobile: PropTypes.bool,
-    layout: PropTypes.oneOf([CAROUSEL, BN_12_GRID]).isRequired,
-    error: PropTypes.shape({
-        message: PropTypes.string
-    }),
-    link: PropTypes.string,
-    collectionId: PropTypes.string,
-    articles: PropTypes.arrayOf(
-        PropTypes.shape({
-            articleId: PropTypes.string.isRequired,
-            author: PropTypes.string,
-            href: PropTypes.string,
-            size: PropTypes.string,
-            tag: PropTypes.string,
-            time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            title: PropTypes.string.isRequired,
-            variant: PropTypes.string,
-            image: PropTypes.shape({
-                resized_urls: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        url: PropTypes.string
-                    })
-                ),
-                url: PropTypes.string
-            }),
-            contentCode: PropTypes.string,
-            hasVideo: PropTypes.bool
-        })
-    ).isRequired,
-    type: PropTypes.string,
-    carouselIndex: PropTypes.number
-};
-
-RenderCollection.defaultProps = {
-    hideCaja: false,
-    hideTitle: false,
-    carouselMobile: false,
-    link: '',
-    collectionId: '',
-    error: null,
-    type: ''
-};
 
 export default RenderCollection;

@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import ShareVideo from '../../features/LN-common/shareVideo/default';
-import trackShareView from './_helper';
 import { carouselVideoExpandedClasses } from '../../features/LN-common/shareVideo/styles';
+import trackShareView from './_helper';
 
 function CarouselVideoExpanded(props) {
     const { globalContent } = props;
@@ -21,15 +20,6 @@ function CarouselVideoExpanded(props) {
         </main>
     );
 }
-
-CarouselVideoExpanded.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }).isRequired
-    }).isRequired
-};
 
 CarouselVideoExpanded.sections = ['Cuerpo'];
 

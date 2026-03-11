@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
@@ -23,11 +22,5 @@ function BreadcrumbDistributor({ name, canonicalUrl, host }) {
         </>
     );
 }
-
-BreadcrumbDistributor.propTypes = {
-    canonicalUrl: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    host: PropTypes.string.isRequired
-};
 
 export default BreadcrumbDistributor;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Tags from '../tags';
 import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
@@ -25,25 +24,5 @@ function AperturaSinDestacado(props) {
         </div>
     );
 }
-
-AperturaSinDestacado.propTypes = {
-    taxonomy: PropTypes.shape({
-        tags: PropTypes.arrayOf(
-            PropTypes.shape({
-                description: PropTypes.string,
-                slug: PropTypes.string,
-                text: PropTypes.string
-            })
-        ).isRequired
-    }).isRequired,
-    tags: PropTypes.arrayOf(
-        PropTypes.shape({
-            description: PropTypes.string,
-            slug: PropTypes.string,
-            text: PropTypes.string
-        })
-    ).isRequired,
-    receta: PropTypes.node.isRequired
-};
 
 export default AperturaSinDestacado;

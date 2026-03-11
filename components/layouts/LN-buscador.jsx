@@ -1,7 +1,5 @@
-/* eslint-disable react/require-default-props */
 import Consumer from 'fusion:consumer';
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
@@ -56,10 +54,5 @@ function lnBuscador({
 const pageBuilderSections = ['Cuerpo'];
 
 lnBuscador.sections = pageBuilderSections;
-lnBuscador.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    metaValue: PropTypes.func.isRequired,
-    siteProperties: PropTypes.isRequired
-};
 
 export default Consumer(lnBuscador);

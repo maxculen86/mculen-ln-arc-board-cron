@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Context from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 // TODO: Refactorizar para dejar de usar el hoc withScreenUtils
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import withScreenUtils from './hocs/withScreenUtils';
 import handleCookie from '../LN/common/utils/handleCookie';
 import {
@@ -146,13 +146,6 @@ function Component(props) {
 
     return null;
 }
-
-Component.propTypes = {
-    globalContent: PropTypes.shape({
-        type: PropTypes.string,
-        _id: PropTypes.string
-    }).isRequired
-};
 
 const Metarefresh = Context(withScreenUtils(Component));
 

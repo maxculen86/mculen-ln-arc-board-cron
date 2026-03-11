@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import { BEYONDWORDS_PROJECT_ID_FOODIT } from 'fusion:environment';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import {
@@ -100,8 +99,3 @@ export function AudioFoodit({ article, setIsAudioPlaying }) {
         </>
     );
 }
-
-AudioFoodit.propTypes = {
-    article: PropTypes.shape({}).isRequired,
-    setIsAudioPlaying: PropTypes.func.isRequired
-};

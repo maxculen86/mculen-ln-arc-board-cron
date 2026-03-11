@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
@@ -26,13 +25,5 @@ function BreadcrumbAutor({ author = {}, host }) {
         </>
     );
 }
-
-BreadcrumbAutor.propTypes = {
-    author: PropTypes.shape({
-        _id: PropTypes.string,
-        byline: PropTypes.string
-    }).isRequired,
-    host: PropTypes.string.isRequired
-};
 
 export default BreadcrumbAutor;

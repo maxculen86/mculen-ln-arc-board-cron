@@ -125,7 +125,7 @@ describe('SnippetIndex Component', () => {
 
         expect(NotaSnippet).toHaveBeenCalledWith(
             expect.objectContaining({ globalContent: FAKE_MOCK_NOTA }),
-            expect.anything()
+            undefined
         );
     });
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Link } from '@ln/foodit-ui-link';
 import MenuCategories from '../../MenuCategories/foodit';
 
-function Categories({ title, href, data = [] }) {
+function Categories({ title, href = '', data = null }) {
     if (data) {
         return (
             <Dropdown toggleOn="hover" key={title} className="flex ai-center">
@@ -44,30 +44,5 @@ function Categories({ title, href, data = [] }) {
         />
     );
 }
-
-Categories.propTypes = {
-    title: PropTypes.string.isRequired,
-    href: PropTypes.string,
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.shape({
-                text: PropTypes.string,
-                href: PropTypes.string,
-                icon: PropTypes.element
-            }),
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    text: PropTypes.string,
-                    href: PropTypes.string
-                })
-            )
-        })
-    )
-};
-
-Categories.defaultProps = {
-    href: '',
-    data: null
-};
 
 export default Categories;

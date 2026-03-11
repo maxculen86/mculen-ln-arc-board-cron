@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
@@ -92,21 +91,5 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
         </>
     );
 }
-
-AudioRecipe.propTypes = {
-    title: PropTypes.string.isRequired,
-    resizedUrl: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    article: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string.isRequired
-                })
-            ).isRequired
-        }).isRequired
-    }).isRequired
-};
 
 export default AudioRecipe;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { useAppContext } from 'fusion:context';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -67,10 +66,6 @@ function Subcategories({ children }) {
         </BaseLayout>
     );
 }
-
-Subcategories.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 Subcategories.sections = pageBuilderSections;
 

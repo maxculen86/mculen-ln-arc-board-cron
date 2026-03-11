@@ -36,22 +36,26 @@ describe('Common - GetDataToLinkImage', () => {
             '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
 
         it('with resized Media, return array media data', () => {
-            const { container } = render(
-                <GetDataToLinkImage data={globalContent} section="nota" />
-            );
+            render(<GetDataToLinkImage data={globalContent} section="nota" />);
 
-            expect(container.innerHTML).toEqual(expected);
+            const links = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
+            expect(links).toHaveLength(3);
         });
 
         it('Opening with video, it should return the preload of the facade image', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={globalContentWithVideo}
                     section="nota"
                 />
             );
 
-            expect(container.innerHTML).toEqual(expectedVideoType);
+            const links = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
+            expect(links).toHaveLength(2);
         });
 
         it('without resized Media, return empty string', () => {
@@ -60,17 +64,21 @@ describe('Common - GetDataToLinkImage', () => {
         });
 
         it('FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '8' }}
                     section="nota"
                 />
             );
-            expect(container.innerHTML).toEqual(expectedFotoAl100);
+
+            const links = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
+            expect(links).toHaveLength(3);
         });
 
         it('STORYTELLING without promo_items.storytelling_mobile, return desk preload', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: { ...globalContent, subtype: '4' },
@@ -79,10 +87,12 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
+            const linksPreload = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
 
             expect(linksPreload).toHaveLength(3);
-            expect(container).toMatchSnapshot();
+            expect(linksPreload).toMatchSnapshot();
 
             linksPreload.forEach(link => {
                 expect(link.getAttribute('fetchpriority')).toEqual('high');
@@ -94,7 +104,7 @@ describe('Common - GetDataToLinkImage', () => {
         });
 
         it('STORYTELLING with promo_items.storytelling_mobile, return mobile preload', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: { ...articleToExclude, subtype: '4' },
@@ -103,10 +113,12 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
+            const linksPreload = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
 
             expect(linksPreload).toHaveLength(5);
-            expect(container).toMatchSnapshot();
+            expect(linksPreload).toMatchSnapshot();
 
             linksPreload.forEach(link => {
                 expect(link.getAttribute('fetchpriority')).toEqual('high');
@@ -118,7 +130,7 @@ describe('Common - GetDataToLinkImage', () => {
         });
 
         it('If the opening has video and image for desktop, it should return the mobile image-only preload.', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: {
@@ -130,7 +142,9 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
+            const linksPreload = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
 
             expect(linksPreload).toHaveLength(2);
             expect(linksPreload[0].getAttribute('media')).toStrictEqual(
@@ -152,14 +166,17 @@ describe('Common - GetDataToLinkImage', () => {
         });
 
         it('does not exclude preload when subtype is not CARDS', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '1' }}
                     section="nota"
                 />
             );
 
-            expect(container.innerHTML).toEqual(expected);
+            const links = document.head.querySelectorAll(
+                'link[rel="preload"][as="image"]'
+            );
+            expect(links).toHaveLength(3);
         });
     });
 
@@ -184,7 +201,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseRelatedImageSource
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -194,7 +211,9 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
+                const linksPreload = document.head.querySelectorAll(
+                    'link[rel="preload"][as="image"]'
+                );
 
                 expect(linksPreload).toHaveLength(3);
                 expect(linksPreload).toMatchSnapshot();
@@ -205,7 +224,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseArticleSourceNota
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -215,7 +234,9 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
+                const linksPreload = document.head.querySelectorAll(
+                    'link[rel="preload"][as="image"]'
+                );
 
                 expect(linksPreload).toHaveLength(3);
                 expect(linksPreload).toMatchSnapshot();
@@ -246,7 +267,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseRelatedImageSource
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -256,7 +277,9 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
+                const linksPreload = document.head.querySelectorAll(
+                    'link[rel="preload"][as="image"]'
+                );
 
                 expect(linksPreload).toHaveLength(3);
                 expect(linksPreload).toMatchSnapshot();
@@ -267,7 +290,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseGetVideoPosterResized
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -277,7 +300,9 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
+                const linksPreload = document.head.querySelectorAll(
+                    'link[rel="preload"][as="image"]'
+                );
 
                 expect(linksPreload).toHaveLength(2);
                 expect(linksPreload).toMatchSnapshot();

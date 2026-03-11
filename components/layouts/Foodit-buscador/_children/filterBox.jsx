@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
@@ -145,7 +144,3 @@ export default function FilterBox({ toggleDrawer }) {
         </aside>
     );
 }
-
-FilterBox.propTypes = {
-    toggleDrawer: PropTypes.func.isRequired
-};

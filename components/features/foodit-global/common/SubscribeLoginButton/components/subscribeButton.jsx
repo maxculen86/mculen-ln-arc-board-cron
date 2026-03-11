@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import PropTypes from 'prop-types';
 
+/* eslint-disable react/require-default-props */
 export function SubscribeButton({
-    classNameButtons,
+    classNameButtons = '',
     buttonSubscribeText,
     handleSubscribeClick
 }) {
@@ -23,13 +23,3 @@ export function SubscribeButton({
         </Button>
     );
 }
-
-SubscribeButton.propTypes = {
-    classNameButtons: PropTypes.string,
-    buttonSubscribeText: PropTypes.string.isRequired,
-    handleSubscribeClick: PropTypes.func.isRequired
-};
-
-SubscribeButton.defaultProps = {
-    classNameButtons: ''
-};

@@ -51,7 +51,7 @@ describe('FloatingGroupButton getCustomConfigByLayout helper', () => {
         expect(title).toBe('Copiar todo');
         expect(children).toHaveProperty(
             '$$typeof',
-            Symbol.for('react.element')
+            Symbol.for('react.transitional.element')
         );
     });
 

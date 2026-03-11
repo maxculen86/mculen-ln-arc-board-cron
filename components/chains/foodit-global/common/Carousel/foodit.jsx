@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Mediascroller } from '@ln/common-ui-mediascroller';
 import { Button } from '@ln/foodit-ui-button';
 import classNames from 'classnames';
@@ -8,7 +7,7 @@ const CustomButtonTag = React.forwardRef((props, ref) => (
     <Button variant="secondary" rounded="rounded-circle" ref={ref} {...props} />
 ));
 
-export function Carousel({ children, type, carouselMobile }) {
+export function Carousel({ children, type, carouselMobile = false }) {
     const classCarouselMobile = carouselMobile
         ? 'pt-24 pt-0_md'
         : 'hide-mobile';
@@ -73,15 +72,5 @@ export function Carousel({ children, type, carouselMobile }) {
         </Mediascroller>
     );
 }
-
-Carousel.propTypes = {
-    children: PropTypes.node.isRequired,
-    type: PropTypes.string.isRequired,
-    carouselMobile: PropTypes.bool
-};
-
-Carousel.defaultProps = {
-    carouselMobile: false
-};
 
 export default Carousel;

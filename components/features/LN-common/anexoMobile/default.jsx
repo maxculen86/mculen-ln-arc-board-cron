@@ -1,10 +1,9 @@
-import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 
-const AnexoFeature = () => {
-    return <></>;
-};
+function AnexoFeature() {
+    return null;
+}
 
 AnexoFeature.label = 'LN Anexo Mobile';
 
@@ -28,17 +27,7 @@ AnexoFeature.propTypes = {
             description: 'Ingrese aquí el alto fijo del anexo',
             defaultValue: 0
         })
-    })
-};
-
-AnexoFeature.defaultProps = {
-    customFields: {
-        url: '',
-        hideByUrl: false,
-        html: '',
-        height: 0,
-        hideByHtml: false
-    }
+    }).isRequired
 };
 
 export default AnexoFeature;

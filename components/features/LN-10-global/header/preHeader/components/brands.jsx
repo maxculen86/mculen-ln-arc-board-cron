@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
@@ -58,16 +57,5 @@ function Brands({ brandsData }) {
         </div>
     );
 }
-
-Brands.propTypes = {
-    brandsData: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string,
-            link: PropTypes.string,
-            dataEvent: PropTypes.string,
-            icon: PropTypes.string
-        })
-    ).isRequired
-};
 
 export default Brands;

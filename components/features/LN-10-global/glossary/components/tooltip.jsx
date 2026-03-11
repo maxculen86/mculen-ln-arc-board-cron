@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import { useTooltip } from '../hooks/useTooltip';
 import Header from './header';
@@ -34,14 +33,5 @@ function Tooltip({ glossaryData = [] }) {
         </div>
     );
 }
-
-Tooltip.propTypes = {
-    glossaryData: PropTypes.arrayOf(
-        PropTypes.shape({
-            key: PropTypes.string,
-            value: PropTypes.string
-        })
-    ).isRequired
-};
 
 export default Tooltip;

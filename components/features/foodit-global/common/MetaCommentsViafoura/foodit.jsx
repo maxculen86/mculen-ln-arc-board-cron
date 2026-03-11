@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 
 export function BuildComments({
-    _id,
-    canonicalUrl,
-    mobile,
-    basic,
-    layoutsName,
-    layout,
+    _id = '',
+    canonicalUrl = '',
+    mobile = '',
+    basic = '',
+    layoutsName = { FooditFichaReceta: '', FooditFichaNota: '' },
+    layout = '',
     allowComments
 }) {
     const layoutsWithComments = [
@@ -31,30 +30,5 @@ export function BuildComments({
         </>
     );
 }
-
-BuildComments.propTypes = {
-    _id: PropTypes.string,
-    canonicalUrl: PropTypes.string,
-    mobile: PropTypes.string,
-    basic: PropTypes.string,
-    layoutsName: PropTypes.shape({
-        FooditFichaReceta: PropTypes.string,
-        FooditFichaNota: PropTypes.string
-    }),
-    layout: PropTypes.string,
-    allowComments: PropTypes.bool.isRequired
-};
-
-BuildComments.defaultProps = {
-    _id: '',
-    canonicalUrl: '',
-    mobile: '',
-    basic: '',
-    layoutsName: {
-        FooditFichaReceta: '',
-        FooditFichaNota: ''
-    },
-    layout: ''
-};
 
 export default BuildComments;

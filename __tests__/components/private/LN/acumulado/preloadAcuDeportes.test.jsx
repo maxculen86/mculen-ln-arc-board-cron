@@ -61,14 +61,15 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
             arcSite: 'la-nacion-ar'
         };
 
-        const { baseElement, asFragment } = render(
-            <PreloadAcuDeportes {...mockProps} />
-        );
+        render(<PreloadAcuDeportes {...mockProps} />);
 
-        const [linkElement] = baseElement.getElementsByTagName('link');
+        const linkElements = document.head.querySelectorAll(
+            'link[rel="preload"][as="image"]'
+        );
+        const [linkElement] = linkElements;
         const [firstArticle] = deportesAcu;
 
-        expect(baseElement.getElementsByTagName('link')).toHaveLength(
+        expect(linkElements).toHaveLength(
             deportesAcu[0].promo_items.basic.resized_urls.length
         );
         expect(linkElement.getAttribute('as')).toBe(
@@ -79,6 +80,8 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
         expect(linkElement.getAttribute('href')).toBe(
             firstArticle.promo_items.basic.resized_urls[0].resizedUrl
         );
-        expect(asFragment()).toMatchSnapshot();
+        expect(
+            Array.from(linkElements).map(el => el.outerHTML)
+        ).toMatchSnapshot();
     });
 });

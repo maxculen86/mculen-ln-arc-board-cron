@@ -1,13 +1,12 @@
 import React from 'react';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import PropTypes from 'fusion:prop-types';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import {
     DESCUBRIR_SECTIONS,
     transformDataLayerString
 } from '../dataLayer/_helpers';
 
-function MenuCategories({ data = [], fullWidth }) {
+function MenuCategories({ data = [], fullWidth = false }) {
     return (
         <div className="flex flex-column flex-row_lg">
             {data.map(({ title, items = [] }, index) => {
@@ -79,15 +78,5 @@ function MenuCategories({ data = [], fullWidth }) {
         </div>
     );
 }
-
-MenuCategories.propTypes = {
-    data: PropTypes.array,
-    fullWidth: PropTypes.boolean
-};
-
-MenuCategories.defaultProps = {
-    data: [],
-    fullWidth: false
-};
 
 export default MenuCategories;

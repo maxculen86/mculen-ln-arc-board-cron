@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
 import { SkeletonMenuSemanal } from '../skeletons/MenuSemanal/foodit';
@@ -20,6 +19,3 @@ export function EmptyStateComponent({ userType }) {
         </div>
     );
 }
-EmptyStateComponent.propTypes = {
-    userType: PropTypes.string.isRequired
-};

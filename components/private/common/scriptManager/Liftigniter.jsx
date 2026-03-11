@@ -1,10 +1,7 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
-import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 
 function LiftIgniter({ globalContent }) {
     const { contextPath, deployment } = useAppContext();
@@ -79,25 +76,4 @@ function LiftIgniter({ globalContent }) {
     );
 }
 
-LiftIgniter.propTypes = {
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.shape({
-                name: PropTypes.string
-            }),
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    text: PropTypes.string,
-                    description: PropTypes.string,
-                    slug: PropTypes.string
-                })
-            )
-        }),
-        content_elements:
-            googlePublisherAndLiftIgniterPropTypes.content_elements,
-        credits: googlePublisherAndLiftIgniterPropTypes.credits,
-        googlePublisherAndLiftIgniterPropTypes:
-            googlePublisherAndLiftIgniterPropTypes.label
-    })
-};
 export default LiftIgniter;

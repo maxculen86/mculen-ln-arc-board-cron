@@ -66,7 +66,7 @@ describe('MediaScrollerExpandedWrapper', () => {
                     wrapper: 'flex w-100 h-100'
                 }
             }),
-            expect.any(Object)
+            undefined
         );
     });
 

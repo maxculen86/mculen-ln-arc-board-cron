@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { TimeItem } from './TimeItem';
 
@@ -42,9 +41,3 @@ export function TimePrint({ cookTime, prepTime, counterTime }) {
         )
     );
 }
-
-TimePrint.propTypes = {
-    cookTime: PropTypes.number.isRequired,
-    prepTime: PropTypes.number.isRequired,
-    counterTime: PropTypes.number.isRequired
-};

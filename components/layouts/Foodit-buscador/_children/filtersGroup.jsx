@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 import { cx } from '@ln/cva';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
@@ -11,7 +10,7 @@ export default function FiltersGroup({
     applyFilter,
     removeFilters,
     resetPage,
-    group,
+    group = '',
     isFirst
 }) {
     const classNameContainer = cx(
@@ -46,26 +45,3 @@ export default function FiltersGroup({
         </Accordion>
     );
 }
-
-FiltersGroup.propTypes = {
-    category: PropTypes.string,
-    listFilters: PropTypes.arrayOf(
-        PropTypes.shape({
-            key: PropTypes.string.isRequired,
-            value: PropTypes.number,
-            checked: PropTypes.bool,
-            facetedKey: PropTypes.string
-        })
-    ),
-    resetPage: PropTypes.func.isRequired,
-    applyFilter: PropTypes.func.isRequired,
-    removeFilters: PropTypes.func.isRequired,
-    group: PropTypes.string,
-    isFirst: PropTypes.bool.isRequired
-};
-
-FiltersGroup.defaultProps = {
-    category: '',
-    listFilters: [],
-    group: ''
-};

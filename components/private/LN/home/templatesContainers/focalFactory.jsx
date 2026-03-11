@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import getProperties from 'fusion:properties';
 import ArticleAcum from '../../acumulado/articleAcum';
 import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 
-const FocalFactory = ({
+function FocalFactory({
     directionFocal,
     articles = [],
     _children,
@@ -14,7 +13,7 @@ const FocalFactory = ({
     boxPosition,
     handleClick,
     pageLayout
-}) => {
+}) {
     const { layoutsName } = siteConfig;
     const articleList =
         (_children && _children.length && _children) ||
@@ -68,18 +67,6 @@ const FocalFactory = ({
         )) ||
         null
     );
-};
-
-FocalFactory.propTypes = {
-    directionFocal: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
-    articles: PropTypes.arrayOf(PropTypes.node).isRequired,
-    _children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    handleClick: PropTypes.func
-};
-
-FocalFactory.defaultProps = {
-    handleClick: undefined
-};
+}
 
 export default FocalFactory;

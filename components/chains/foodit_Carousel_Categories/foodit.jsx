@@ -7,7 +7,7 @@ import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import { RoofFoodit } from '../../features/foodit-global/common/RoofFoodit/foodit';
 
 function CarouselCategory({
-    isAdmin,
+    isAdmin = false,
     children,
     classNameRoof,
     customFields: { hideCarousel, hideTitle, link, title }
@@ -35,7 +35,7 @@ function CarouselCategory({
 CarouselCategory.label = 'foodit Carousel Category';
 
 CarouselCategory.propTypes = {
-    isAdmin: PropTypes.bool,
+    isAdmin: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
     classNameRoof: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
@@ -64,10 +64,6 @@ CarouselCategory.propTypes = {
             defaultValue: false
         })
     }).isRequired
-};
-
-CarouselCategory.defaultProps = {
-    isAdmin: false
 };
 
 export default Consumer(CarouselCategory);

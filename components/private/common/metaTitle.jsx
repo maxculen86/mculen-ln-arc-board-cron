@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { getSectionOfRequestUri } from './utils/outputTypeHelper';
 import removeExtraSpaces from './utils/removeExtraSpaces';
 
 function MetaTitle({
     arcSite,
-    title,
+    title = '',
     nodeType,
-    section,
-    defaultTitle,
-    requestUri
+    section = '',
+    defaultTitle = '',
+    requestUri = ''
 }) {
     if (!['la-nacion-ar'].includes(arcSite)) return null;
 
@@ -35,21 +34,5 @@ function MetaTitle({
 
     return <meta name="title" content={content} />;
 }
-
-MetaTitle.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    nodeType: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    section: PropTypes.string,
-    defaultTitle: PropTypes.string,
-    requestUri: PropTypes.string
-};
-
-MetaTitle.defaultProps = {
-    title: '',
-    section: '',
-    defaultTitle: '',
-    requestUri: ''
-};
 
 export default MetaTitle;

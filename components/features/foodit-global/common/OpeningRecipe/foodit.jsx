@@ -1,6 +1,5 @@
 import React from 'react';
 import Static from 'fusion:static';
-import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
@@ -133,45 +132,5 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
         </Recipe>
     );
 }
-
-OpeningRecipe.propTypes = {
-    article: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            video_jw: PropTypes.object,
-            basic: PropTypes.shape({
-                resized_urls: PropTypes.arrayOf(PropTypes.string),
-                url: PropTypes.string
-            })
-        }),
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        taxonomy: PropTypes.shape({
-            sections: PropTypes.arrayOf(PropTypes.object)
-        }),
-        _id: PropTypes.string
-    }),
-    isPrivate: PropTypes.bool
-};
-
-OpeningRecipe.defaultProps = {
-    article: {
-        promo_items: {
-            video_jw: null,
-            basic: {
-                resized_urls: [],
-                url: ''
-            }
-        },
-        headlines: {
-            basic: ''
-        },
-        taxonomy: {
-            sections: []
-        },
-        _id: ''
-    },
-    isPrivate: false
-};
 
 export default OpeningRecipe;

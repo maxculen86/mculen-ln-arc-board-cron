@@ -1,11 +1,9 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import BtnMasNotas from '../botonVerMasNotas';
 import LoadingIcon from '../../common/loadingIcon';
-import Static from 'fusion:static';
 
-const GrillaNotas = props => {
+function GrillaNotas(props) {
     const {
         InitialGrid,
         NextResults,
@@ -34,16 +32,6 @@ const GrillaNotas = props => {
             )}
         </>
     );
-};
-
-GrillaNotas.propTypes = {
-    InitialGrid: PropTypes.node,
-    NextResults: PropTypes.oneOfType([PropTypes.node, PropTypes.array]),
-    hasMoreArticles: PropTypes.bool,
-    loading: PropTypes.bool,
-    goToNextPage: PropTypes.func,
-    name: PropTypes.string,
-    outputType: PropTypes.string
-};
+}
 
 export default GrillaNotas;

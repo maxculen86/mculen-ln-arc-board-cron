@@ -45,7 +45,7 @@ exports[`WIkiAuthorHelper functions test Checking authorEducation 1`] = `
     classcondition="--educacion"
   >
     <mock-mod-description
-      bullet="true"
+      bullet=""
       descriptiontitle="Educación"
       list="[object Object],[object Object]"
       size="--twoxs"

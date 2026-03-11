@@ -31,7 +31,6 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
             />
           </picture>
@@ -48,7 +47,6 @@ exports[`InfoBoxFeature Should override the link if tagList matches tag slug and
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
               width="150"
             />
@@ -106,7 +104,6 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
             />
           </picture>
@@ -123,7 +120,6 @@ exports[`InfoBoxFeature Should render if any tag slug matches tagList 1`] = `
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
               width="150"
             />
@@ -181,7 +177,6 @@ exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] 
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
             />
           </picture>
@@ -198,7 +193,6 @@ exports[`InfoBoxFeature Should render if primary_section path has /deportes 1`] 
               decoding="async"
               fetchpriority="low"
               loading="lazy"
-              src=""
               style="display: none;"
             />
             <p

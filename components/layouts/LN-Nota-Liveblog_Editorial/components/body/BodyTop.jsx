@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BreadcrumbArticle from '../../../../features/LN-nota/breadcrumbArticle';
 import StaticContentV2 from '../../../../chains/LN10-global/staticContentV2';
 
@@ -26,13 +25,5 @@ function BodyTop({ children, dateTime }) {
         </div>
     );
 }
-
-BodyTop.propTypes = {
-    children: PropTypes.node.isRequired,
-    dateTime: PropTypes.shape({
-        date: PropTypes.string.isRequired,
-        time: PropTypes.string.isRequired
-    }).isRequired
-};
 
 export default BodyTop;

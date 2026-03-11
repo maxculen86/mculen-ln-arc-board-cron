@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image as FooditImage } from '@ln/foodit-ui-image';
-import PropTypes from 'fusion:prop-types';
 import EpigraphComponent from '../../../foodit-global/common/epigraph/foodit';
 import {
     getImagesToLoadWithPicture,
@@ -52,13 +51,3 @@ function ConsecutiveImages({ images }) {
 }
 
 export default ConsecutiveImages;
-
-ConsecutiveImages.propTypes = {
-    images: PropTypes.arrayOf(
-        PropTypes.shape({
-            caption: PropTypes.string,
-            resized_urls: PropTypes.array,
-            url: PropTypes.string
-        })
-    ).isRequired
-};

@@ -1,17 +1,14 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-descriptionlist.css';
 
-const ModDescriptionList = props => {
-    const {
-        classCondition = '',
-        size,
-        descriptionTitle,
-        list = [],
-        text
-    } = props;
-
+function ModDescriptionList({
+    classCondition = '',
+    size = '',
+    descriptionTitle,
+    list = [],
+    text = ''
+}) {
     const listItem =
         text ||
         list.map(item => (
@@ -28,8 +25,9 @@ const ModDescriptionList = props => {
         ));
     return (
         <dl
-            className={`mod-descriptionlist ${classCondition || ''} ${size ||
-                ''}`}
+            className={`mod-descriptionlist ${classCondition || ''} ${
+                size || ''
+            }`}
         >
             <dt className={`com-subtitle --twoxs ${classCondition || ''}`}>
                 {descriptionTitle}
@@ -37,21 +35,6 @@ const ModDescriptionList = props => {
             {listItem}
         </dl>
     );
-};
-
-ModDescriptionList.propTypes = {
-    descriptionTitle: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(PropTypes.node),
-    text: PropTypes.string,
-    size: PropTypes.string,
-    classCondition: PropTypes.string
-};
-
-ModDescriptionList.defaultProps = {
-    size: '',
-    classCondition: '',
-    text: '',
-    list: []
-};
+}
 
 export default ModDescriptionList;
