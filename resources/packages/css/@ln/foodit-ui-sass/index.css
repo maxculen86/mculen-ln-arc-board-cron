@@ -2139,6 +2139,10 @@ strong {
   min-height: 0.875rem;
 }
 
+.min-h-32 {
+  min-height: 2rem;
+}
+
 .min-h-113 {
   min-height: 7.0625rem;
 }

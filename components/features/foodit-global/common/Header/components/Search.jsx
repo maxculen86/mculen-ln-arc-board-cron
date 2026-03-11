@@ -10,6 +10,9 @@ import { Text } from '@ln/common-ui-text';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { ButtonSearch } from './ButtonSearch';
 import { useListeningTimer } from '../hooks/helperSearch';
+import { searchFood } from '../_helpers';
+import useGetUserConfig from '../../../hooks/useGetUserConfig';
+import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 
 const getMicPermissionState = async () => {
     try {
@@ -34,6 +37,8 @@ export function Search({ className = '', ...r }) {
     const [inputValue, setInputValue] = useState(querySelected || '');
     const [isMicPermissionPending, setIsMicPermissionPending] = useState(false);
     const [typedByUser, setTypedByUser] = useState(false);
+    const { isSubscribed, id: userId } = useGetUserConfig();
+    const [loading, setLoading] = useState(false);
 
     const {
         listening: isListening,
@@ -53,15 +58,33 @@ export function Search({ className = '', ...r }) {
     // add a space at the end to the query term to avoid the search engine from suggesting
     const encodedQuery = encodeURIComponent(`${inputValue} `);
     const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodedQuery}`;
+    const urlChat = `${SITE_FOODIT}/chat/?query=${encodedQuery}`;
 
     const handleInputValue = e => {
         setTypedByUser(true);
         setInputValue(e.target.value);
     };
 
+    const startSearch = async () => {
+        setLoading(true);
+        const query = typedByUser ? inputValue : '';
+        if (!isSubscribed) {
+            window.location.href = urlSearch;
+            return;
+        }
+        const { accessToken } = await getAuthTokens();
+        const resp = await searchFood({ query, userId, accessToken });
+        const { chat } = resp;
+        if (chat) {
+            window.location.href = urlChat;
+        } else {
+            window.location.href = urlSearch;
+        }
+    };
+
     const handleKeyDown = e => {
         if (e.key === 'Enter') {
-            window.location.href = urlSearch;
+            startSearch();
         }
     };
 
@@ -119,12 +142,15 @@ export function Search({ className = '', ...r }) {
             setInputValue(transcript);
             SpeechRecognition.stopListening();
             const encodedQueryListed = encodeURIComponent(`${transcript} `);
-            const urlSearchListed = `${SITE_FOODIT}/buscador/?query=${encodedQueryListed}`;
-            window.location.href = urlSearchListed;
+            startSearch(encodedQueryListed);
         }
     }, [isListening]);
 
     const classnames = cx('foodit-search w-100 as-center', className);
+    const classNameInput = cx(
+        'text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide',
+        { 'icon-ia': !inputValue && !isListening }
+    );
 
     const shouldListen =
         isListening && isMicrophoneAvailable && !isMicPermissionPending;
@@ -135,12 +161,12 @@ export function Search({ className = '', ...r }) {
             <div className="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search">
                 <div className="m-auto w-100 relative">
                     <input
-                        className="text-light-600 text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide"
+                        className={classNameInput}
                         type="search"
                         enterKeyHint="search"
                         readOnly={shouldListen}
                         placeholder={
-                            shouldListen ? '' : '¿Qué querés cocinar hoy?'
+                            shouldListen ? '' : 'Buscá o pregúntale a la IA'
                         }
                         value={inputValue}
                         onChange={handleInputValue}
@@ -180,8 +206,9 @@ export function Search({ className = '', ...r }) {
                 <ButtonSearch
                     isListening={isListening}
                     startListening={startListening}
+                    startSearch={startSearch}
                     inputValue={typedByUser ? inputValue : ''}
-                    urlSearch={urlSearch}
+                    loading={loading}
                 />
             </div>
         </div>

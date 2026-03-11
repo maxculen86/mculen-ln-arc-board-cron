@@ -1,6 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import usePagination from '../../../../../components/layouts/Foodit-buscador/hooks/useSearchPagination';
-
+import usePagination from '../../../../../components/features/foodit-global/Queryly/hooks/useSearchPagination';
 describe('Tests - hooks - foodit-buscador - usePagination', () => {
     it('should initialize pagination correctly', () => {
         const { result } = renderHook(() => usePagination(0, 24));

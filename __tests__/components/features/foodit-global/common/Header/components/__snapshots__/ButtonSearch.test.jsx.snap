@@ -5,13 +5,11 @@ exports[`match snapshot if inputValue has value 1`] = `
   <div
     class="flex h-100 ai-center"
   >
-    <a
+    <button
       class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-12 p-8 mr-16"
       data-test-id="button-header-search"
       data-variant="primary"
-      href="/buscador/?query=pollo"
       style="padding: 8px;"
-      target="_self"
       title="Buscar"
     >
       <i
@@ -21,7 +19,7 @@ exports[`match snapshot if inputValue has value 1`] = `
           search
         </span>
       </i>
-    </a>
+    </button>
   </div>
 </div>
 `;
