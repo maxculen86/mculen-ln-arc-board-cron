@@ -10,7 +10,7 @@ import useTooltipVisibility from './hooks/useTooltipVisibility';
 
 function ShareV2({ videoId, className, videoTitle: basic, isHorizontal }) {
     const variantUrl = isHorizontal ? 'h' : 'v';
-    const url = `/carrousel/jwid${videoId}-${variantUrl}/`;
+    const url = `/video/jwid${videoId}-${variantUrl}/`;
     const { isTooltipVisible, handleTooltipVisibility } =
         useTooltipVisibility();
 
