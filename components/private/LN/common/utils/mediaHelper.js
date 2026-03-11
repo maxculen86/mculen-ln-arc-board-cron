@@ -1,4 +1,5 @@
 import React from 'react';
+import { preload } from 'react-dom';
 import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
@@ -164,21 +165,19 @@ export const getImagesToLoadWithPicture = (isPreload, sourceActive = []) => {
 export function LinkImagePreload({ resizedUrls = [] }) {
     if (resizedUrls.length === 0) return null;
 
-    const fetchPriorityAttr = { fetchPriority: 'high' };
     const images = getImagesToLoadWithPicture(true, resizedUrls);
-
-    return images.map(
-        ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => (
-            <link
-                rel="preload"
-                as="image"
-                {...fetchPriorityAttr}
-                media={mediaPreload}
-                imageSrcSet={withConfigPixelRatio ? srcSet : undefined}
-                href={href}
-            />
-        )
+    images.forEach(
+        ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => {
+            if (!href) return;
+            preload(href, {
+                as: 'image',
+                fetchPriority: 'high',
+                ...(mediaPreload && { media: mediaPreload }),
+                ...(withConfigPixelRatio && srcSet && { imageSrcSet: srcSet })
+            });
+        }
     );
+    return null;
 }
 
 export const wikiImagesWithWWW = data => {

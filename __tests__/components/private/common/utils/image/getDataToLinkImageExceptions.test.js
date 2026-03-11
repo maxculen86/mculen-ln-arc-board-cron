@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { preload } from 'react-dom';
 import getProperties from 'fusion:properties';
 import '@testing-library/jest-dom';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
@@ -11,7 +12,16 @@ jest.mock(
     () => jest.fn()
 );
 
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
+}));
+
 describe('Common - GetDataToLinkImage - Diagramation Exceptions', () => {
+    beforeEach(() => {
+        preload.mockClear();
+    });
+
     it('Should preload both first and second article images for exception diagramation', () => {
         useGetMediaApertura.mockReturnValue([
             {
@@ -60,17 +70,10 @@ describe('Common - GetDataToLinkImage - Diagramation Exceptions', () => {
             />
         );
 
-        const linksPreload = document.head.querySelectorAll(
-            'link[rel="preload"][as="image"]'
-        );
-        expect(linksPreload).toHaveLength(3);
-        expect(linksPreload[0].getAttribute('href')).toContain(
-            'el-diputado-nacional-german'
-        );
-        expect(linksPreload[2].getAttribute('href')).toContain(
-            'erupcion-de-volcan'
-        );
-        expect(linksPreload).toMatchSnapshot();
+        const hrefs = preload.mock.calls.map(([href]) => href);
+        expect(preload).toHaveBeenCalledTimes(3);
+        expect(hrefs[0]).toContain('el-diputado-nacional-german');
+        expect(hrefs[2]).toContain('erupcion-de-volcan');
     });
 
     it('should render an empty fragment when useGetMediaApertura returns no data', () => {
@@ -86,8 +89,7 @@ describe('Common - GetDataToLinkImage - Diagramation Exceptions', () => {
             />
         );
 
-        const linksPreload = container.querySelectorAll('link');
-        expect(linksPreload).toHaveLength(0);
+        expect(preload).not.toHaveBeenCalled();
         expect(container).toMatchInlineSnapshot(`<div />`);
     });
 });

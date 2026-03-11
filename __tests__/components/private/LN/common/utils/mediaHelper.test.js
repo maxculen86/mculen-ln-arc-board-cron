@@ -1,4 +1,5 @@
 import React from 'react';
+import { preload } from 'react-dom';
 import {
     wikiImagesWithWWW,
     getImagesToLoadWithPicture,
@@ -17,6 +18,11 @@ jest.mock('fusion:environment', () => {
 
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
 }));
 
 describe('Private - LN - Common - Utils -> mediaHelper', () => {
@@ -191,58 +197,48 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
     });
 
     describe('Tests - helper - LinkImagePreload', () => {
-        test('Load image with tag picture: Should return a preload link for each image with the valid attributes for a preloaded image.', () => {
-            const { container } = render(
+        beforeEach(() => {
+            preload.mockClear();
+        });
+
+        test('Load image with tag picture: Should call preload for each image with valid attributes.', () => {
+            const resultImages = [
+                {
+                    mediaPreload: '(min-width: 320px) and (max-width: 375px)',
+                    href: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                },
+                {
+                    mediaPreload: '(min-width: 375)',
+                    href: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
+                }
+            ];
+
+            render(
                 <LinkImagePreload
                     resizedUrls={mockDataResizedUrls}
                     isLoadWithPicture={true}
                 />
             );
 
-            const resultImages = [
-                {
-                    mediaPreload: '(min-width: 320px) and (max-width: 375px)',
-                    srcSet: 'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
-                },
-                {
-                    mediaPreload: '(min-width: 375)',
-                    srcSet: 'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
-                }
-            ];
-
-            expect(document.head.querySelectorAll('[as=image]')).toHaveLength(
-                2
-            );
-            expect(
-                document.head.querySelectorAll('[rel=preload]')
-            ).toHaveLength(2);
-            expect(
-                document.head.querySelectorAll('link[rel=preload][as=image]')
-            ).toHaveLength(2);
-            expect(
-                document.head.querySelectorAll('[fetchpriority=high]')
-            ).toHaveLength(2);
-
-            resultImages.forEach(({ mediaPreload, srcSet }) => {
-                expect(
-                    document.head.querySelector(`[imagesrcset="${srcSet}"]`)
-                ).toBeDefined();
-
-                expect(
-                    document.head.querySelector(`[media="${mediaPreload}"]`)
-                ).toBeDefined();
+            expect(preload).toHaveBeenCalledTimes(2);
+            resultImages.forEach(({ mediaPreload, href }) => {
+                expect(preload).toHaveBeenCalledWith(
+                    href,
+                    expect.objectContaining({
+                        as: 'image',
+                        fetchPriority: 'high',
+                        media: mediaPreload
+                    })
+                );
             });
-
-            expect(
-                document.head.querySelectorAll('link[rel=preload][as=image]')
-            ).toMatchSnapshot();
         });
 
-        test('should a empty node when the resizedUrls is not defined', () => {
+        test('should not call preload when resizedUrls is empty', () => {
             const { container } = render(
                 <LinkImagePreload resizedUrls={[]} isLoadWithPicture={false} />
             );
 
+            expect(preload).not.toHaveBeenCalled();
             expect(container).toMatchInlineSnapshot(`<div />`);
         });
     });
