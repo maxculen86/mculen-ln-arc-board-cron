@@ -1,6 +1,5 @@
 import React from 'react';
 import Static from 'fusion:static';
-import PropTypes from 'prop-types';
 import { GridArticlesFoodit } from './gridArticles';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 import { RoofFoodit } from '../../../foodit-global/common/RoofFoodit/foodit';
@@ -40,23 +39,5 @@ function GridFooditServer({
         </Static>
     );
 }
-
-GridFooditServer.propTypes = {
-    id: PropTypes.string,
-    layout: PropTypes.string,
-    maxArticles: PropTypes.number,
-    title: PropTypes.string,
-    link: PropTypes.string,
-    hide: PropTypes.bool
-};
-
-GridFooditServer.defaultProps = {
-    id: '',
-    layout: '',
-    maxArticles: 24,
-    title: '',
-    link: '',
-    hide: false
-};
 
 export default GridFooditServer;

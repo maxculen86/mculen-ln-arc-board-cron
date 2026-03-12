@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
@@ -50,9 +49,5 @@ function ShareVideo({ videoId, variant = 'vertical' }) {
 
 VideoShare.Button = VideoShareButton;
 VideoShare.Media = VideoShareMedia;
-
-ShareVideo.propTypes = {
-    videoId: PropTypes.string.isRequired
-};
 
 export default ShareVideo;

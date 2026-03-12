@@ -4,7 +4,6 @@ import { Icon } from '@ln/common-ui-icon';
 import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { SelectMenu } from '../SaveMenu/SelectMenu';
@@ -146,19 +145,5 @@ function MenuSemanalDialog({
         </Dialog>
     );
 }
-
-MenuSemanalDialog.propTypes = {
-    article: PropTypes.shape({}).isRequired,
-    onClose: PropTypes.func.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    weeklyMenu: PropTypes.arrayOf(
-        PropTypes.shape({
-            day: PropTypes.string.isRequired,
-            mealType: PropTypes.string.isRequired,
-            recipe: PropTypes.shape({}).isRequired
-        })
-    ).isRequired,
-    setWeeklyMenu: PropTypes.func.isRequired
-};
 
 export default MenuSemanalDialog;

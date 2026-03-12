@@ -1,7 +1,6 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from '../com-link';
 import Text from '../text';
 import {
@@ -55,6 +54,7 @@ function Calendar({
                     weight="bold"
                     extraClass="com-text --title"
                 >
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link link={link} title={titleLink}>
                         {validMonthName}
                     </Link>
@@ -83,18 +83,5 @@ function Calendar({
         </section>
     );
 }
-
-Calendar.propTypes = {
-    year: PropTypes.string,
-    monthNumber: PropTypes.number,
-    monthName: PropTypes.string,
-    holidayData: PropTypes.arrayOf(
-        PropTypes.shape({
-            day: PropTypes.number,
-            class: PropTypes.oneOf(['Trasladable', 'Inamovible', 'Puente'])
-        })
-    ),
-    layout: PropTypes.oneOf(['home', 'month'])
-};
 
 export default Calendar;

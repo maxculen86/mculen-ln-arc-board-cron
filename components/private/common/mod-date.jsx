@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Text } from '@ln/contenidos-ui-text';
 import ComDate from './com-date';
@@ -51,12 +50,5 @@ function ModDate({
         </div>
     );
 }
-
-ModDate.propTypes = {
-    display_date: PropTypes.string.isRequired,
-    first_publish_date: PropTypes.string.isRequired,
-    last_updated_date: PropTypes.string.isRequired,
-    labelEdicionImpresa: PropTypes.string.isRequired
-};
 
 export default ModDate;

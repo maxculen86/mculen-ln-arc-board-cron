@@ -1,7 +1,6 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { Text } from '@ln/contenidos-ui-text';
 import ComPartner from '../../private/common/com-partner';
@@ -73,20 +72,6 @@ function FirmaLogoExterno({ globalContent }) {
         </Static>
     );
 }
-
-FirmaLogoExterno.propTypes = {
-    globalContent: PropTypes.shape({
-        distributor: PropTypes.shape({
-            name: PropTypes.string,
-            mode: PropTypes.string
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.array
-        }),
-        subtype: PropTypes.string,
-        withFirmaDistributor: PropTypes.bool
-    }).isRequired
-};
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
 

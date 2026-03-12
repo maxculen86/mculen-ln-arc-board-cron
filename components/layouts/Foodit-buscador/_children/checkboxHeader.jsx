@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { transformedFilterNames } from '../_helpers';
 
 function CheckBoxHeader({ checkboxes = [], handleCheckBox = () => {} }) {
@@ -36,16 +35,5 @@ function CheckBoxHeader({ checkboxes = [], handleCheckBox = () => {} }) {
         </ol>
     );
 }
-
-CheckBoxHeader.propTypes = {
-    checkboxes: PropTypes.arrayOf(
-        PropTypes.shape({
-            key: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired,
-            checked: PropTypes.bool.isRequired
-        })
-    ).isRequired,
-    handleCheckBox: PropTypes.func.isRequired
-};
 
 export default CheckBoxHeader;

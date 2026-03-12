@@ -4,10 +4,7 @@ import GetCajaCarrusel from '../../private/LN/api/global/components/chains/LN10/
 class CajaCarrusel extends GetCajaCarrusel {
     constructor(props) {
         super(props, {
-            allowedChildren: [
-                'LN-10/itemCarrusel',
-                'LN-common/bannerRefactor'
-            ],
+            allowedChildren: ['LN-10/itemCarrusel', 'LN-common/bannerRefactor'],
             isHorizontal: false
         });
     }

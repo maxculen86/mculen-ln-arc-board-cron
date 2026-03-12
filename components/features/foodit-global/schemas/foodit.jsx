@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import { AcuSchema } from './Acu';
 import { HomeSchema } from './Home';
@@ -33,8 +32,5 @@ function FooditSchemas(props) {
 
     return <Snippet {...props} />;
 }
-FooditSchemas.propTypes = {
-    layout: PropTypes.string.isRequired
-};
 
 export default FooditSchemas;

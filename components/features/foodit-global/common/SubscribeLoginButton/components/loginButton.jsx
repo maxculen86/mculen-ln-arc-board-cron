@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import PropTypes from 'prop-types';
 
 export function LoginButton({
     classNameButtons,
@@ -21,10 +20,3 @@ export function LoginButton({
         </Button>
     );
 }
-
-LoginButton.propTypes = {
-    classNameButtons: PropTypes.string.isRequired,
-    buttonLogginText: PropTypes.string.isRequired,
-    handleLoginClick: PropTypes.func.isRequired,
-    loginClassName: PropTypes.string.isRequired
-};

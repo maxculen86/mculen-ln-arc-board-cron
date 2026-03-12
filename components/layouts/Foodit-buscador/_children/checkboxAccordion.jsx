@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 import { cx } from '@ln/cva';
 import { useDisclosure } from '@ln/hooks';
@@ -33,17 +32,5 @@ function CheckBoxAccordion({ checkboxes, handleCheckBox, subtypes }) {
         </Accordion>
     );
 }
-
-CheckBoxAccordion.propTypes = {
-    checkboxes: PropTypes.arrayOf(
-        PropTypes.shape({
-            key: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired,
-            checked: PropTypes.bool.isRequired
-        })
-    ).isRequired,
-    handleCheckBox: PropTypes.func.isRequired,
-    subtypes: PropTypes.isRequired
-};
 
 export default CheckBoxAccordion;

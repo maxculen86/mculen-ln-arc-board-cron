@@ -3,7 +3,6 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
@@ -115,44 +114,5 @@ function snippet(props) {
     };
     return <SnippetRender data={data} />;
 }
-
-snippet.propTypes = {
-    globalContent: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        subheadlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        promo_items: PropTypes.shape({
-            receta: PropTypes.object,
-            basic: PropTypes.object
-        }),
-        display_date: PropTypes.string.isRequired,
-        content_elements: PropTypes.array.isRequired,
-        taxonomy: PropTypes.shape({
-            tags: PropTypes.array,
-            sections: PropTypes.array,
-            primary_section: PropTypes.object
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.shape({
-                authors: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        _id: PropTypes.string,
-                        name: PropTypes.string,
-                        type: PropTypes.string,
-                        slug: PropTypes.string,
-                        url: PropTypes.string
-                    })
-                )
-            })
-        }),
-        _id: PropTypes.string.isRequired,
-        website_url: PropTypes.string.isRequired
-    }).isRequired,
-    deployment: PropTypes.func.isRequired,
-    contextPath: PropTypes.string.isRequired
-};
 
 export default Context(snippet);

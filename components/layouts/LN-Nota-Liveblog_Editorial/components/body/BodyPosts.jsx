@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AuthorBox from './authorBox/default';
 
 function BodyPosts({ children }) {
@@ -14,7 +13,4 @@ function BodyPosts({ children }) {
     );
 }
 
-BodyPosts.propTypes = {
-    children: PropTypes.node.isRequired
-};
 export default BodyPosts;

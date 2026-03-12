@@ -1,11 +1,11 @@
 import React from 'react';
-import parse from 'html-react-parser';
+import htmr from 'htmr';
 
-const OpeningRawHTML = ({
+function OpeningRawHTML({
     contentElements = [],
     layoutName = '',
     allowedLayout = ''
-}) => {
+}) {
     const isTemplateAllowed = allowedLayout === layoutName;
     const rawHTMLS = contentElements.filter(
         (contentElement = {}) => contentElement.type === 'raw_html'
@@ -13,7 +13,7 @@ const OpeningRawHTML = ({
 
     const opening = rawHTMLS.length > 1 && rawHTMLS[0].content;
 
-    return opening && isTemplateAllowed && <>{parse(opening)}</>;
-};
+    return opening && isTemplateAllowed && <>{htmr(opening)}</>;
+}
 
 export default OpeningRawHTML;

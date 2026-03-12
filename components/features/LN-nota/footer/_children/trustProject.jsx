@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
@@ -9,7 +8,7 @@ import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
-function TrustProject({ isInvalid, tooltipData }) {
+function TrustProject({ isInvalid, tooltipData = { text: '', label: '' } }) {
     if (isInvalid) return null;
 
     const { deployment, contextPath } = useAppContext();
@@ -67,20 +66,5 @@ function TrustProject({ isInvalid, tooltipData }) {
         </section>
     );
 }
-
-TrustProject.propTypes = {
-    tooltipData: PropTypes.shape({
-        text: PropTypes.func.string,
-        label: PropTypes.func.string
-    }),
-    isInvalid: PropTypes.boolean.isRequired
-};
-
-TrustProject.defaultProps = {
-    tooltipData: {
-        text: '',
-        label: ''
-    }
-};
 
 export default TrustProject;

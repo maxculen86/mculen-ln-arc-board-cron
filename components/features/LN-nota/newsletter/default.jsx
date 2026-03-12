@@ -1,6 +1,5 @@
 import Consumer from 'fusion:consumer';
 import { LAZY_OFFSETTOP, API_ENV } from 'fusion:environment';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import React, { useEffect, useState } from 'react';
 import { NewsletterBox } from '@ln/lib-newsletter';
@@ -81,14 +80,5 @@ function NewsLetter({ globalContent }) {
 
 NewsLetter.label = 'LN-Common-Newsletter';
 NewsLetter.lazy = true;
-NewsLetter.propTypes = {
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.shape({
-                _id: PropTypes.string
-            })
-        })
-    }).isRequired
-};
 
 export default Consumer(NewsLetter);

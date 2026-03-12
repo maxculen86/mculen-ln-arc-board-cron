@@ -3,7 +3,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat
 } from '../../../../private/common/utils/dateAndTimeUtil';
 
-function OpeningMeta({ children, data }) {
+function OpeningMeta({ children, data = {} }) {
     const { publishDate } = data || {};
 
     const { date } = dateAndTimeUtil(publishDate);

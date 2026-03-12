@@ -7,7 +7,6 @@ import { setRankingByLayout } from '../../../common/elements/ranking/index';
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 import { setLiveLayout } from '../../../common/elements/live';
 
-
 const validateData = (elements, layoutPage) => {
     if (!elements || !layoutPage) {
         throw new Error('Missing data Layout');
@@ -19,29 +18,24 @@ const applySyncLayout = (fnByLayout, layoutPage, elements) => {
 
     const result = fnByLayout[layoutPage](elements, layoutPage);
 
-    return Array.isArray(result) && result.length > 0
-        ? result
-        : elements;
+    return Array.isArray(result) && result.length > 0 ? result : elements;
 };
 const applyAsyncLayout = async (fnByLayout, layoutPage, elements) => {
     if (!fnByLayout?.[layoutPage]) return elements;
 
     const result = await fnByLayout[layoutPage](elements, layoutPage);
 
-    return Array.isArray(result) && result.length > 0
-        ? result
-        : elements;
+    return Array.isArray(result) && result.length > 0 ? result : elements;
 };
-
 
 const filterSections = elements =>
     Array.isArray(elements)
         ? elements.filter(
-            elem =>
-                (elem && elem.type < 9) ||
-                elem.type === 10 ||
-                elem.type === 12
-        )
+              elem =>
+                  (elem && elem.type < 9) ||
+                  elem.type === 10 ||
+                  elem.type === 12
+          )
         : elements;
 
 const transform = async (dataPage, query) => {
@@ -65,11 +59,13 @@ const transform = async (dataPage, query) => {
         // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
         elements = applySyncLayout(setBannerByLayout, layoutPage, elements);
         // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
-        elements = await applyAsyncLayout(setDolarByLayout, layoutPage, elements);
+        elements = await applyAsyncLayout(
+            setDolarByLayout,
+            layoutPage,
+            elements
+        );
         // Add Component live set file /pageSource/common/elements/live/config/configLivePositionbySection.js
         elements = await applyAsyncLayout(setLiveLayout, layoutPage, elements);
-
-
 
         // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
         if (setRankingByLayout?.[layoutPage]) {

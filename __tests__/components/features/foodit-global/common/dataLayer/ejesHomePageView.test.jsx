@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
 import EjesHomePageView from '../../../../../../components/features/foodit-global/common/dataLayer/ejesHomePageView';
 
@@ -12,18 +12,23 @@ jest.mock('fusion:environment', () => ({
 }));
 
 describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomePageView', () => {
+    afterEach(() => {
+        cleanup();
+        document
+            .querySelectorAll('script#scriptDataLayerPageView')
+            .forEach(el => el.remove());
+    });
+
     it('should render script for "Aprendé en la cocina" page with correct data attributes', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-1',
             deployment: jest.fn(path => path),
             requestUri: '/aprende-en-la-cocina/'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute(
@@ -38,22 +43,20 @@ describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomeP
         expect(script).toHaveAttribute('data-title', 'Aprendé en la cocina');
         expect(script).toHaveAttribute(
             'src',
-            '/test-path/resources/js/LN/dataLayerPageView.min.js'
+            '/test-path-1/resources/js/LN/dataLayerPageView.min.js'
         );
     });
 
     it('should render script for "Cociná fácil y rápido" page with correct data attributes', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-2',
             deployment: jest.fn(path => path),
             requestUri: '/cocina-facil-y-rapido/'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute(
@@ -68,22 +71,20 @@ describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomeP
         expect(script).toHaveAttribute('data-title', 'Cociná fácil y rápido');
         expect(script).toHaveAttribute(
             'src',
-            '/test-path/resources/js/LN/dataLayerPageView.min.js'
+            '/test-path-2/resources/js/LN/dataLayerPageView.min.js'
         );
     });
 
     it('should render script for "Cociná a tu medida" page with correct data attributes', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-3',
             deployment: jest.fn(path => path),
             requestUri: '/cocina-a-tu-medida/'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute(
@@ -98,22 +99,20 @@ describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomeP
         expect(script).toHaveAttribute('data-title', 'Cociná a tu medida');
         expect(script).toHaveAttribute(
             'src',
-            '/test-path/resources/js/LN/dataLayerPageView.min.js'
+            '/test-path-3/resources/js/LN/dataLayerPageView.min.js'
         );
     });
 
     it('should render script for "Todas las recetas" page with correct data attributes', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-4',
             deployment: jest.fn(path => path),
             requestUri: '/recetas/'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute(
@@ -125,38 +124,34 @@ describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomeP
         expect(script).toHaveAttribute('data-title', 'Todas las recetas');
         expect(script).toHaveAttribute(
             'src',
-            '/test-path/resources/js/LN/dataLayerPageView.min.js'
+            '/test-path-4/resources/js/LN/dataLayerPageView.min.js'
         );
     });
 
     it('should not render script for non-ejes pages', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-5',
             deployment: jest.fn(path => path),
             requestUri: '/some-other-page/'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).not.toBeInTheDocument();
     });
 
     it('should handle URLs with query parameters', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-6',
             deployment: jest.fn(path => path),
             requestUri: '/aprende-en-la-cocina/?query=test'
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute(
@@ -171,16 +166,14 @@ describe('Components - Features - Foodit-global - Common - DataLayer - EjesHomeP
 
     it('should not render when requestUri is empty', () => {
         useAppContext.mockReturnValue({
-            contextPath: '/test-path',
+            contextPath: '/test-path-7',
             deployment: jest.fn(path => path),
             requestUri: ''
         });
 
-        const { container } = render(<EjesHomePageView />);
+        render(<EjesHomePageView />);
 
-        const script = container.querySelector(
-            'script#scriptDataLayerPageView'
-        );
+        const script = document.querySelector('script#scriptDataLayerPageView');
 
         expect(script).not.toBeInTheDocument();
     });

@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
-import DailyHoroscope from '../../private/common/dailyHoroscope';
 import Static from 'fusion:static';
+import DailyHoroscope from '../../private/common/dailyHoroscope';
 
-const CajaDetalleSigno = ({ id: featureId }) => {
+function CajaDetalleSigno({ id: featureId }) {
     const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
@@ -30,18 +29,12 @@ const CajaDetalleSigno = ({ id: featureId }) => {
                         deployment={deployment}
                         contextPath={contextPath}
                     />
-                ) : (
-                    <></>
-                );
+                ) : null;
             })()}
         </Static>
     );
-};
+}
 
 CajaDetalleSigno.label = 'LN Acumulado Caja Detalle Signo';
-
-CajaDetalleSigno.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default CajaDetalleSigno;

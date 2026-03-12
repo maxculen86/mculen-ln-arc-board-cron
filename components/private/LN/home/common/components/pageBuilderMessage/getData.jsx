@@ -1,12 +1,4 @@
-import PropTypes from 'fusion:prop-types';
-
-export const getClass = type => {
-    return `--${type}`;
-};
-
-getClass.propTypes = {
-    type: PropTypes.string.isRequired
-};
+export const getClass = type => `--${type}`;
 
 export const getTitle = type => {
     switch (type) {
@@ -21,8 +13,4 @@ export const getTitle = type => {
         default:
             return type;
     }
-};
-
-getTitle.propTypes = {
-    type: PropTypes.string.isRequired
 };

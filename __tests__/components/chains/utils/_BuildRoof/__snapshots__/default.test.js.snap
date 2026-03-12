@@ -24,7 +24,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
             class="icon --suscriptor-logo --icon-32"
           >
             <mock-icon
-              color="true"
+              color=""
               name="subscriber"
             />
           </i>
@@ -64,11 +64,5 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
       </div>
     </div>
   </div>
-  <script
-    async=""
-    id="scriptCheckSubscriptionLN"
-    src="/pf/resources/js/LN/scriptCheckSubscriptionLN.min.js"
-    type="text/javascript"
-  />
 </div>
 `;

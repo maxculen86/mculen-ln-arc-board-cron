@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Carrousell from './default';
 
 const index = props => {
+    // eslint-disable-next-line no-use-before-define
     const { outputType, data, withZoom = { withZoom } } = props;
 
     return (
@@ -11,9 +11,5 @@ const index = props => {
 };
 
 index.arcType = 'gallery';
-
-index.propTypes = {
-    outputType: PropTypes.string.isRequired
-};
 
 export default index;

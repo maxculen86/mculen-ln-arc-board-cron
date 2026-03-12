@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
@@ -44,11 +43,6 @@ function HowTo({ title, number, id, ...r }) {
     );
 }
 
-export default HowTo;
-
 HowTo.arcType = 'custom-how-to';
-HowTo.propTypes = {
-    number: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
-};
+
+export default HowTo;

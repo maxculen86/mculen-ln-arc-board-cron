@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-counter.css';
 import Text from '../../../common/text';
 
@@ -51,15 +50,4 @@ function HolidaysCounter({
         </div>
     );
 }
-HolidaysCounter.propTypes = {
-    nextHoliday: PropTypes.number.isRequired,
-    month: PropTypes.string.isRequired,
-    remainingDays: PropTypes.number.isRequired,
-    description: PropTypes.string,
-    typeHoliday: PropTypes.shape({
-        inamovibles: PropTypes.string,
-        puente: PropTypes.string,
-        trasladables: PropTypes.string
-    })
-};
 export default HolidaysCounter;

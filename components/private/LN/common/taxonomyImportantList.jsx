@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
 import { Link } from '@ln/contenidos-ui-link';
 import textSelector from '../../common/utils/recetaDictionary';
@@ -68,24 +67,5 @@ function TaxonomyImportantList({ list, showItems, extraClass, collapsible }) {
         </ConditionalWrapper>
     );
 }
-
-TaxonomyImportantList.propTypes = {
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            text: PropTypes.string,
-            path: PropTypes.string,
-            type: PropTypes.string
-        })
-    ).isRequired,
-    showItems: PropTypes.number,
-    extraClass: PropTypes.string,
-    collapsible: PropTypes.Boolean
-};
-
-TaxonomyImportantList.defaultProps = {
-    showItems: undefined,
-    extraClass: '',
-    collapsible: false
-};
 
 export default TaxonomyImportantList;

@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
-const ScriptLogoBBC = ({ distributorName }) => {
+function ScriptLogoBBC({ distributorName }) {
     const { contextPath, deployment } = useAppContext();
     const nodes = [
         <script
@@ -21,10 +20,6 @@ const ScriptLogoBBC = ({ distributorName }) => {
     ];
 
     return distributorName === 'BBC Mundo' ? nodes : null;
-};
-
-ScriptLogoBBC.propTypes = {
-    distributorName: PropTypes.string.isRequired
-};
+}
 
 export default ScriptLogoBBC;

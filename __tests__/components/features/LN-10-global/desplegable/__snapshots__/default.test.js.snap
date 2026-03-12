@@ -83,7 +83,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                     class="icon --icon-16"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       name="search"
                     />
                   </i>
@@ -107,7 +107,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                     class="icon --icon-16 --hasWrapper"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       fill="var(--neutral-light-800)"
                       name="lnRadio"
                     />
@@ -1280,7 +1280,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="clubLnDefault"
                       />
@@ -1310,7 +1310,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="canchallena"
                       />
@@ -1340,7 +1340,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="foodit"
                       />
@@ -1370,7 +1370,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="bonvivir"
                       />
@@ -1400,7 +1400,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="lnRadio"
                       />
@@ -1430,7 +1430,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        critical="true"
+                        critical=""
                         fill="#333333"
                         name="lnMas"
                       />
@@ -1460,7 +1460,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       class="icon --icon-16"
                     >
                       <mock-icon
-                        default="true"
+                        default=""
                         fill="#333333"
                         name="storeLine"
                       />

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import { getListsFromPowerup } from '../PowerupsReceta/_helper';
 import get from '../../../../private/common/utils/get';
 
@@ -29,6 +28,3 @@ export function PowerupsRecipePaywall({ article = {} }) {
         </div>
     );
 }
-PowerupsRecipePaywall.propTypes = {
-    article: PropTypes.shape({}).isRequired
-};

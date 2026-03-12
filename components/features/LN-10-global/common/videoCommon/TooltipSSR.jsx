@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/cva';
 
 function TooltipSSR({ children, content, className: classNameProp }) {
@@ -27,11 +26,5 @@ function TooltipSSR({ children, content, className: classNameProp }) {
         </div>
     );
 }
-
-TooltipSSR.propTypes = {
-    children: PropTypes.node.isRequired,
-    content: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired
-};
 
 export default TooltipSSR;

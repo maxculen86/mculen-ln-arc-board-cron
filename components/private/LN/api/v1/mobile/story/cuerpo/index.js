@@ -12,7 +12,8 @@ import Gallery from './elements/gallery';
 import CustomEmbed from './elements/custom_embed';
 import StoryBody from '../../../../common/elements/story/cuerpo/index';
 import Table from './elements/table';
-import Numeric_rating from './elements/numeric_rating';
+import NumericRating from './elements/numeric_rating';
+
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {
         Text,
@@ -28,7 +29,7 @@ const cuerpoIndex = dataNota => {
         Gallery,
         CustomEmbed,
         Table,
-        Numeric_rating
+        Numeric_rating: NumericRating
     };
     return StoryBody(dataNota, storyBodyElements);
 };

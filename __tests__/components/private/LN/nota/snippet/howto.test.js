@@ -46,10 +46,9 @@ describe('Schema HowTo - SnippetHowTo', () => {
     };
 
     test('Should render the schema script ', () => {
-        const { container } = render(
-            <SnippetHowTo globalContent={globalContent} />
-        );
-        const script = container.querySelector('script#Schema_HowTo');
+        render(<SnippetHowTo globalContent={globalContent} />);
+
+        const script = document.getElementById('Schema_HowTo');
         expect(script).toBeInTheDocument();
         expect(script).toHaveAttribute('type', 'application/ld+json');
     });

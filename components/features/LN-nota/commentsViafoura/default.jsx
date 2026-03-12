@@ -3,7 +3,6 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/ds-cva';
 import {
     CLOSED_BY_TERMIC,
@@ -125,15 +124,6 @@ function CommentsViafouraFeature(props) {
         </>
     );
 }
-
-CommentsViafouraFeature.propTypes = {
-    id: PropTypes.string,
-    globalContent: PropTypes.shape({
-        first_publish_date: PropTypes.string,
-        id: PropTypes.string
-    }),
-    outputType: PropTypes.string
-};
 
 CommentsViafouraFeature.outputType = 'default';
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';

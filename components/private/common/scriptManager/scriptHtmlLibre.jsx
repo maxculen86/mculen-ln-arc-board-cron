@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import get from '../utils/get';
 
 function ScriptHtmlLibre(props) {
@@ -35,13 +34,5 @@ function ScriptHtmlLibre(props) {
         null
     );
 }
-
-ScriptHtmlLibre.propTypes = {
-    globalContent: PropTypes.shape({
-        type: PropTypes.string.isRequired,
-        subtype: PropTypes.string.isRequired,
-        content_elements: PropTypes.shape.isRequired
-    }).isRequired
-};
 
 export default Consumer(ScriptHtmlLibre);

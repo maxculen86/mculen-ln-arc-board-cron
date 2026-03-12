@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../snippet/snippetRender';
 import MillisecondsToTime from '../utils/millisecondsToTime';
 import get from '../utils/get';
@@ -55,34 +54,5 @@ function videoPlayerSnippet({ mediaData, minStream, paragraph, noteTitle }) {
 
     return <SnippetRender data={data} />;
 }
-
-videoPlayerSnippet.propTypes = {
-    mediaData: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        promo_items: PropTypes.shape({
-            basic: PropTypes.shape({
-                url: PropTypes.string,
-                caption: PropTypes.string
-            })
-        }),
-        created_date: PropTypes.string.isRequired,
-        pubdate: PropTypes.number,
-        publish_date: PropTypes.string.isRequired,
-        duration: PropTypes.string.isRequired
-    }).isRequired,
-    minStream: PropTypes.shape({
-        height: PropTypes.number,
-        url: PropTypes.string
-    }).isRequired,
-    tituloNota: PropTypes.string.isRequired,
-    paragraph: PropTypes.oneOfType([
-        PropTypes.shape({
-            content: PropTypes.string
-        }),
-        PropTypes.string
-    ]).isRequired
-};
 
 export default videoPlayerSnippet;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
@@ -28,13 +27,4 @@ function IaTab({ id = '', title = '' }) {
         </>
     );
 }
-IaTab.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string
-};
-IaTab.defaultProps = {
-    id: '',
-    title: ''
-};
-
 export default IaTab;

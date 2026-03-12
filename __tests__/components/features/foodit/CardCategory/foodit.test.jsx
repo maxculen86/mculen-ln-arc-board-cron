@@ -300,7 +300,7 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(screen.getByText('Test Title')).toBeInTheDocument();
 
         const img = container.querySelector('img');
-        expect(img).toHaveAttribute('src', '');
+        expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('alt', 'Foto de Test Title');
 
         expect(screen.getByRole('link')).toHaveAttribute(

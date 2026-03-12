@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import toggleBookmark, {
@@ -13,7 +12,7 @@ function BarrierDeleteNote({
     closeBarrier = () => null,
     bookmarkId,
     deleteArticle,
-    substractOne
+    substractOne = null
 }) {
     return (
         <div className="barrier flex flex-column jc-center ai-center rounded-4 w-328 bg-light-50 m-16 py-16 px-20">
@@ -78,16 +77,5 @@ function BarrierDeleteNote({
         </div>
     );
 }
-
-BarrierDeleteNote.propTypes = {
-    closeBarrier: PropTypes.func.isRequired,
-    bookmarkId: PropTypes.string.isRequired,
-    deleteArticle: PropTypes.func.isRequired,
-    substractOne: PropTypes.func
-};
-
-BarrierDeleteNote.defaultProps = {
-    substractOne: null
-};
 
 export default BarrierDeleteNote;

@@ -12,11 +12,9 @@ jest.mock('fusion:environment', () => {
 
 describe('components - features- foodit-global - schemas - StorytellingSchema', () => {
     it('renders a BlogPosting schema script tag', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')
@@ -25,11 +23,9 @@ describe('components - features- foodit-global - schemas - StorytellingSchema', 
     });
 
     it('outputs correct @type and @context', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')
@@ -40,11 +36,9 @@ describe('components - features- foodit-global - schemas - StorytellingSchema', 
     });
 
     it('includes all required Article properties', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')
@@ -60,11 +54,9 @@ describe('components - features- foodit-global - schemas - StorytellingSchema', 
     });
 
     it('renders image with lowercase key', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')
@@ -75,11 +67,9 @@ describe('components - features- foodit-global - schemas - StorytellingSchema', 
     });
 
     it('renders correct dates', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')
@@ -90,11 +80,9 @@ describe('components - features- foodit-global - schemas - StorytellingSchema', 
     });
 
     it('renders correct mainEntityOfPage', () => {
-        const { container } = render(
-            <StorytellingSchema globalContent={mockArticle} />
-        );
+        render(<StorytellingSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const blogPostingScript = scriptTags.find(tag =>
             tag.textContent.includes('"BlogPosting"')

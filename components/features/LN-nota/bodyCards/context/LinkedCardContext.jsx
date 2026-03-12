@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import PropTypes from 'prop-types';
 
 const LinkedCardContext = createContext(undefined);
 
@@ -20,12 +19,6 @@ export const useLinkedCardContext = () => {
         );
     }
     return context;
-};
-
-LinkedCardProvider.propTypes = {
-    children: PropTypes.node.isRequired,
-    variant: PropTypes.oneOf(['collapsed', 'expanded']).isRequired,
-    cardColor: PropTypes.string.isRequired
 };
 
 export default LinkedCardProvider;

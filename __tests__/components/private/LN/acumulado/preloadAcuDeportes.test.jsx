@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { preload } from 'react-dom';
 import useGetArticlesToPreload from '../../../../../components/private/LN/common/hooks/useGetArticlesToPreload';
 import PreloadAcuDeportes from '../../../../../components/private/LN/acumulado/preloadAcuDeportes';
 
@@ -12,7 +13,16 @@ jest.mock(
     '../../../../../components/private/LN/common/hooks/useGetArticlesToPreload'
 );
 
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
+}));
+
 describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
+    beforeEach(() => {
+        preload.mockClear();
+    });
+
     test('render correctly acu deportes', () => {
         const deportesAcu = [
             {
@@ -61,24 +71,21 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
             arcSite: 'la-nacion-ar'
         };
 
-        const { baseElement, asFragment } = render(
-            <PreloadAcuDeportes {...mockProps} />
-        );
+        render(<PreloadAcuDeportes {...mockProps} />);
 
-        const [linkElement] = baseElement.getElementsByTagName('link');
-        const [firstArticle] = deportesAcu;
+        const { resized_urls: resizedUrls, type } =
+            deportesAcu[0].promo_items.basic;
 
-        expect(baseElement.getElementsByTagName('link')).toHaveLength(
-            deportesAcu[0].promo_items.basic.resized_urls.length
-        );
-        expect(linkElement.getAttribute('as')).toBe(
-            firstArticle.promo_items.basic.type
-        );
-
-        expect(linkElement.getAttribute('rel')).toBe('preload');
-        expect(linkElement.getAttribute('href')).toBe(
-            firstArticle.promo_items.basic.resized_urls[0].resizedUrl
-        );
-        expect(asFragment()).toMatchSnapshot();
+        expect(preload).toHaveBeenCalledTimes(resizedUrls.length);
+        resizedUrls.forEach(({ resizedUrl, option }) => {
+            expect(preload).toHaveBeenCalledWith(
+                resizedUrl,
+                expect.objectContaining({
+                    as: type,
+                    fetchPriority: 'high',
+                    ...(option.media_preload && { media: option.media_preload })
+                })
+            );
+        });
     });
 });

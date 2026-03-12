@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
@@ -16,7 +15,3 @@ export function ErrorMessage({ message = '' }) {
         </div>
     );
 }
-
-ErrorMessage.propTypes = {
-    message: PropTypes.string.isRequired
-};

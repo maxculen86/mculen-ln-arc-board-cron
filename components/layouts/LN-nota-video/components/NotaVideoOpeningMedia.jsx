@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getMediaItem } from '../../_helpers/mediaHelper';
 import { openingVideoMediaStyles, videoStyles } from './styles';
 
-function NotaVideoOpeningMedia({ mediaData, variant }) {
+function NotaVideoOpeningMedia({ mediaData = null, variant = 'vertical' }) {
     if (!mediaData) return null;
 
     const classes = openingVideoMediaStyles({ variant });
@@ -19,15 +18,5 @@ function NotaVideoOpeningMedia({ mediaData, variant }) {
 
     return <div className={classes}>{mediaItem}</div>;
 }
-
-NotaVideoOpeningMedia.propTypes = {
-    mediaData: PropTypes.shape({}),
-    variant: PropTypes.oneOf(['horizontal', 'vertical'])
-};
-
-NotaVideoOpeningMedia.defaultProps = {
-    mediaData: null,
-    variant: 'vertical'
-};
 
 export default NotaVideoOpeningMedia;

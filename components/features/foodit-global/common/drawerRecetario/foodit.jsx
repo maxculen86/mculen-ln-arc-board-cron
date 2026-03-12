@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { Select } from '@ln/common-ui-select';
@@ -80,16 +79,5 @@ function DrawerRecetario({ onItemSelected, summaryList = [] }) {
         </DrawerContainer>
     );
 }
-
-DrawerRecetario.propTypes = {
-    onItemSelected: PropTypes.func.isRequired,
-    summaryList: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            label: PropTypes.string,
-            quantity: PropTypes.number
-        })
-    ).isRequired
-};
 
 export default DrawerRecetario;

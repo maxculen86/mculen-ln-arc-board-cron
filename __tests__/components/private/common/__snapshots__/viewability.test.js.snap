@@ -45,6 +45,7 @@ exports[`Viewability Evento productClick del script viewability should test view
               <figure
                 class="mod-figure --horizontal"
                 role="button"
+                tabindex="0"
               >
                 <a
                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
@@ -105,6 +106,7 @@ exports[`Viewability Evento productClick del script viewability should test view
               <figure
                 class="mod-figure --horizontal"
                 role="button"
+                tabindex="0"
               >
                 <a
                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
@@ -165,6 +167,7 @@ exports[`Viewability Evento productClick del script viewability should test view
               <figure
                 class="mod-figure --horizontal"
                 role="button"
+                tabindex="0"
               >
                 <a
                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"

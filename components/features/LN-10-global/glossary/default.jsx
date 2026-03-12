@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'prop-types';
 import get from '../../../private/common/utils/get';
 import Tooltip from './components/tooltip';
 import Dialog from './components/dialog';
@@ -27,9 +26,5 @@ function Glossary({ showGlossary }) {
         </>
     );
 }
-
-Glossary.propTypes = {
-    showGlossary: PropTypes.bool.isRequired
-};
 
 export default Glossary;

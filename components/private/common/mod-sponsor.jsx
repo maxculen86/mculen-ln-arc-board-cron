@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import ComText from './text';
 import ComLogo from './com-logo';
@@ -10,18 +9,16 @@ import ComContainer from './com-container';
 import ModTooltip from './mod-tooltip';
 import { dictionaryAlt } from './utils/sectionUtils';
 
-function ModSponsor(props) {
-    const {
-        type,
-        sponsor,
-        textName,
-        link,
-        target,
-        rel,
-        logoName,
-        tooltip = {}
-    } = props;
-
+function ModSponsor({
+    type,
+    sponsor,
+    textName,
+    link,
+    target,
+    rel,
+    logoName,
+    tooltip = {}
+}) {
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {logoName && (
@@ -60,30 +57,5 @@ function ModSponsor(props) {
         </div>
     );
 }
-
-ModSponsor.propTypes = {
-    type: PropTypes.string,
-    sponsor: PropTypes.string,
-    textName: PropTypes.string,
-    link: PropTypes.string,
-    target: PropTypes.string,
-    rel: PropTypes.string,
-    tooltip: PropTypes.shape({
-        text: PropTypes.string,
-        label: PropTypes.string
-    }),
-    logoName: PropTypes.string
-};
-
-ModSponsor.defaultProps = {
-    type: undefined,
-    sponsor: undefined,
-    tooltip: undefined,
-    textName: undefined,
-    link: undefined,
-    logoName: undefined,
-    target: undefined,
-    rel: undefined
-};
 
 export default ModSponsor;

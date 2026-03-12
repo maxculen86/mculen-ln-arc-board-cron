@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/cva';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
@@ -113,11 +112,5 @@ const pageBuilderSections = [
 ];
 
 lnNotaVideo.sections = pageBuilderSections;
-
-lnNotaVideo.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired
-};
 
 export default Consumer(lnNotaVideo);

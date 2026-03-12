@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { cx } from '@ln/ds-cva';
 import Header from '../../features/LN-10-global/header/default';
@@ -224,40 +223,6 @@ function LNAcumuladoLayout(props) {
         </GlobalProvider>
     );
 }
-
-LNAcumuladoLayout.propTypes = {
-    children: PropTypes.node,
-    requestUri: PropTypes.string,
-    renderables: PropTypes.arrayOf(PropTypes.node),
-    layout: PropTypes.string,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string,
-            headerdark: PropTypes.string
-        }),
-        name: PropTypes.string,
-        node_type: PropTypes.string,
-        acumuladoGeneral: PropTypes.shape({
-            tipo_acumulado: PropTypes.string,
-            hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.string,
-            cantidad_notas: PropTypes.string,
-            id_collection_promo_items: PropTypes.string
-        }),
-        acumuladoColor: PropTypes.shape({
-            header_class_name: PropTypes.string,
-            background_color: PropTypes.string,
-            navigation_color: PropTypes.string,
-            navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string
-        }),
-        articlesInCollection: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string
-            })
-        )
-    })
-};
 
 LNAcumuladoLayout.sections = pageBuilderSections;
 

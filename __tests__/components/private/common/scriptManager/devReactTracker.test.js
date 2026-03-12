@@ -14,8 +14,11 @@ describe('components - private - common - scriptManager - devReactTracker', () =
     it('renders the script tag when IS_DEV is "true"', () => {
         const { container } = render(<DevReactTracker />);
 
-        expect(container.querySelector('script')).toBeInTheDocument();
-        expect(container.querySelector('script').src).toBe(
+        const scriptTag = container.querySelector(
+            'script[src*="react-render-tracker"]'
+        );
+        expect(scriptTag).toBeInTheDocument();
+        expect(scriptTag.src).toBe(
             'https://cdn.jsdelivr.net/npm/react-render-tracker'
         );
     });

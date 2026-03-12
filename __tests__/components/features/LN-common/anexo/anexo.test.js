@@ -375,17 +375,7 @@ describe('features - LN-common - anexo - default', () => {
             const expectedIframeResult = (
                 <React.Fragment>
                     <div className="roof-class">
-                        <BuildRoof
-                            buttonStyle=""
-                            buttonText=""
-                            chainStyle="generic"
-                            hideRoof={false}
-                            link="https://example.com"
-                            linkButton=""
-                            logoId="456"
-                            navigationId=""
-                            titleLink=""
-                        />
+                        <BuildRoof link="https://example.com" logoId="456" />
                     </div>
                     <iframe
                         data-src=""

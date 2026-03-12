@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DrawerContainer from '../DrawerContainer/foodit';
 import { MyAccount } from '../MyAccount/foodit';
 import { menuUser, logOutItem } from '../utils/menuUser';
@@ -29,8 +28,4 @@ function DrawerMyAccount({ arcSite, deployment }) {
     );
 }
 
-DrawerMyAccount.propTypes = {
-    deployment: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired
-};
 export default DrawerMyAccount;

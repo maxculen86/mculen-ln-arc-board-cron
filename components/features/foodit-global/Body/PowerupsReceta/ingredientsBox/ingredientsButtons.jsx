@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'prop-types';
 import { useDisclosure } from '@ln/hooks';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { DialogFoodit } from '../../../common/DialogFoodit/foodit';
@@ -87,11 +86,3 @@ export function IngredientsButtons({
         </div>
     );
 }
-
-IngredientsButtons.propTypes = {
-    currentPortion: PropTypes.number.isRequired,
-    portions: PropTypes.number.isRequired,
-    setCurrentPortion: PropTypes.func.isRequired,
-    showButtonsConversor: PropTypes.bool.isRequired,
-    bookmarkId: PropTypes.oneOf([PropTypes.string, null]).isRequired
-};

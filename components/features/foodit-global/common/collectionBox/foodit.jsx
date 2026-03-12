@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import PropTypes from 'prop-types';
 
 function CollectionBox({ title, list, onItemSelected, selectedItemId }) {
     const validList = Array.isArray(list) ? list : [];
@@ -71,18 +70,5 @@ function CollectionBox({ title, list, onItemSelected, selectedItemId }) {
         </div>
     );
 }
-
-CollectionBox.propTypes = {
-    title: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            quantity: PropTypes.number.isRequired
-        })
-    ).isRequired,
-    onItemSelected: PropTypes.func.isRequired,
-    selectedItemId: PropTypes.string.isRequired
-};
 
 export default CollectionBox;

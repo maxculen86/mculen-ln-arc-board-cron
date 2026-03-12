@@ -1,6 +1,5 @@
 import React from 'react';
 import { SITE_LANACION, SITE_FOODIT } from 'fusion:environment';
-import PropTypes from 'fusion:prop-types';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 import { isEmptyString } from './utils/dataValidation';
 import {
@@ -69,15 +68,4 @@ function LinkCanonicalAndAlternate(props = {}) {
         </>
     ) : null;
 }
-LinkCanonicalAndAlternate.propTypes = {
-    _id: PropTypes.string.isRequired,
-    canonicalUrl: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
-    nodeType: PropTypes.string.isRequired,
-    site: PropTypes.shape({
-        site_url: PropTypes.string
-    }).isRequired,
-    template: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired
-};
 export default LinkCanonicalAndAlternate;

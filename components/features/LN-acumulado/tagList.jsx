@@ -2,7 +2,6 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import ComLinkList from '../../private/common/com-link-list';
@@ -14,6 +13,53 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
+
+export const getUltimasNoticiasSectionsIds = renderables => {
+    const ultimasNoticiasFeature = renderables.find(
+        element => get(element, 'type', '') === 'LN-acumulado/ultimasNoticias'
+    );
+    return sectionsFormated(
+        get(ultimasNoticiasFeature, 'props.customFields.sections', [])
+    );
+};
+
+const getUltimasNoticiasProps = ({ sectionId, renderables = [] }) =>
+    sectionId === '/ultimas-noticias'
+        ? {
+              sectionsIds: getUltimasNoticiasSectionsIds(renderables),
+              sourceOrigin: 'composer'
+          }
+        : {
+              sectionsIds: undefined,
+              sourceOrigin: undefined
+          };
+
+export const getSectionProps = ({
+    sectionName,
+    sectionId,
+    renderables,
+    arcSite
+}) => {
+    const ultimasNoticiasQueryProps = getUltimasNoticiasProps({
+        sectionId,
+        renderables
+    });
+
+    const configForSection = {
+        default: {
+            sourceName: 'acuArticlesSourceV2',
+            query: {
+                website: arcSite,
+                sectionId,
+                page: 0,
+                promoItemsOnly: false,
+                ...ultimasNoticiasQueryProps
+            }
+        }
+    };
+
+    return configForSection[sectionName] || configForSection.default;
+};
 
 function TagsListFeature({ id: featureId, title }) {
     const {
@@ -56,77 +102,22 @@ function TagsListFeature({ id: featureId, title }) {
     });
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
-    const Component = (hidetagslist !== 'true' && tagList.length && (
-        <>
-            {title && <ComTitle size="--twoxs" content={title} />}
-            <ComLinkList
-                list={tagList}
-                extraClass="--tags"
-                isHome={sectionIsHome}
-            />
-        </>
-    )) || <></>;
+    const Component =
+        (hidetagslist !== 'true' && tagList.length && (
+            <>
+                {title && <ComTitle size="--twoxs" content={title} />}
+                <ComLinkList
+                    list={tagList}
+                    extraClass="--tags"
+                    isHome={sectionIsHome}
+                />
+            </>
+        )) ||
+        null;
 
     return <Static id={featureId}>{Component}</Static>;
 }
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';
 
-TagsListFeature.propTypes = {
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    layout: PropTypes.string
-};
-
-TagsListFeature.defaultProps = {
-    title: ''
-};
-
 export default TagsListFeature;
-
-export const getUltimasNoticiasSectionsIds = renderables => {
-    const ultimasNoticiasFeature = renderables.find(
-        element => get(element, 'type', '') === 'LN-acumulado/ultimasNoticias'
-    );
-    return sectionsFormated(
-        get(ultimasNoticiasFeature, 'props.customFields.sections', [])
-    );
-};
-
-const getUltimasNoticiasProps = ({ sectionId, renderables = [] }) =>
-    sectionId === '/ultimas-noticias'
-        ? {
-            sectionsIds: getUltimasNoticiasSectionsIds(renderables),
-            sourceOrigin: 'composer'
-        }
-        : {
-            sectionsIds: undefined,
-            sourceOrigin: undefined
-        };
-
-export const getSectionProps = ({
-    sectionName,
-    sectionId,
-    renderables,
-    arcSite
-}) => {
-    const ultimasNoticiasQueryProps = getUltimasNoticiasProps({
-        sectionId,
-        renderables
-    });
-
-    const configForSection = {
-        default: {
-            sourceName: 'acuArticlesSourceV2',
-            query: {
-                website: arcSite,
-                sectionId,
-                page: 0,
-                promoItemsOnly: false,
-                ...ultimasNoticiasQueryProps
-            }
-        }
-    };
-
-    return configForSection[sectionName] || configForSection.default;
-};

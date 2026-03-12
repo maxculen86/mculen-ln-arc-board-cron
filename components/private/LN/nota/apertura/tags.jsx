@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import HeaderSection from '../../../common/mod-headerSection';
 
@@ -70,26 +69,5 @@ function Tags({ tags = [], sections, destacado, temas, showItems }) {
         />
     );
 }
-
-Tags.propTypes = {
-    tags: PropTypes.arrayOf(
-        PropTypes.shape({
-            description: PropTypes.string,
-            slug: PropTypes.string,
-            text: PropTypes.string
-        })
-    ),
-    destacado: PropTypes.bool.isRequired,
-    temas: PropTypes.bool,
-    sections: PropTypes.arrayOf(PropTypes.shape),
-    showItems: PropTypes.number
-};
-
-Tags.defaultProps = {
-    temas: false,
-    sections: [],
-    tags: [],
-    showItems: undefined
-};
 
 export default Tags;

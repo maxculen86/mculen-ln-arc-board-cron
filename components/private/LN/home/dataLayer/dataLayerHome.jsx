@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
 const dataLayerHome = props => {
@@ -18,12 +17,6 @@ const dataLayerHome = props => {
             )}
         />
     );
-};
-
-dataLayerHome.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string.isRequired
-    }).isRequired
 };
 
 export default dataLayerHome;

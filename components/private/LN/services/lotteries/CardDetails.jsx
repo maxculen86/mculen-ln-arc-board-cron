@@ -1,20 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
 import BallLotteries from './BallLotteries';
 import { removeEmptyElements } from './helpers';
 
-const CardDetail = ({
+function CardDetail({
     isDetail,
     hasExtraResults,
-    reorderedResults,
+    reorderedResults = [],
     isQuiniela,
-    extraResultsModificator,
+    extraResultsModificator = '',
     hasJackpot,
-    jackpot
-}) => {
-    const filteredJackspot = removeEmptyElements(jackpot);
+    jackpot = []
+}) {
+    const filteredJackspot = removeEmptyElements(jackpot) || [];
 
     return (
         <>
@@ -78,26 +77,6 @@ const CardDetail = ({
             )}
         </>
     );
-};
-
-CardDetail.propTypes = {
-    isDetail: PropTypes.bool,
-    hasExtraResults: PropTypes.bool,
-    reorderedResults: PropTypes.arrayOf(PropTypes.string),
-    isQuiniela: PropTypes.bool,
-    extraResultsModificator: PropTypes.string,
-    hasJackpot: PropTypes.bool,
-    jackpot: PropTypes.arrayOf(PropTypes.string)
-};
-
-CardDetail.defaultProps = {
-    hasExtraResults: false,
-    reorderedResults: [],
-    isQuiniela: PropTypes.bool,
-    extraResultsModificator: PropTypes.string,
-    hasJackpot: PropTypes.bool,
-    jackpot: [],
-    isDetail: false
-};
+}
 
 export default CardDetail;

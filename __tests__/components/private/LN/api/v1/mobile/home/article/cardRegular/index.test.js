@@ -80,8 +80,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
-            rating: null,
-
+            rating: null
         };
 
         // Act
@@ -146,7 +145,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
-            rating: null,
+            rating: null
         };
 
         // Act
@@ -191,7 +190,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
-            rating: null,
+            rating: null
         };
 
         // ACT
@@ -247,7 +246,6 @@ describe('cardRegular', () => {
         expect(result).toEqual(expectedCard);
     });
 
-
     test('Common - CardRegular > Should return bajada when hideDescription is false', () => {
         // ARRANGE
         get.mockImplementation((obj, path, defaultValue) => {
@@ -296,7 +294,6 @@ describe('cardRegular', () => {
         expect(result).toEqual(expectedCard);
     });
 
-
     test('removes `marquesina` and `authors` when sectionAliasMobile is `hashtag`', () => {
         CardBasic.mockReturnValueOnce({
             ...article,
@@ -323,8 +320,7 @@ describe('cardRegular', () => {
             opinion: false,
             isListenable: undefined,
             videoLoop: null,
-            rating: null,
-
+            rating: null
         };
 
         const result = CardRegular(article);
@@ -371,7 +367,6 @@ describe('cardRegular', () => {
         expect(result.imagen).toBe('imagen.jpg');
     });
 
-
     test('muestra imagen y oculta videoLoop cuando showVideoLoop es true pero no hay video', () => {
         get.mockImplementation((obj, path, defaultValue) => {
             if (path === 'additionalProperties.showVideoLoop') return true;
@@ -393,7 +388,6 @@ describe('cardRegular', () => {
         expect(result.videoLoop).toBeNull();
         expect(result.imagen).toBe('imagen.jpg');
     });
-
 
     test('muestra imagen y oculta videoLoop cuando showVideoLoop es false', () => {
         const mockVideoLoop = {
@@ -440,7 +434,6 @@ describe('cardRegular', () => {
                 }
                 return defaultValue;
             });
-
         });
 
         test.each([
@@ -456,22 +449,19 @@ describe('cardRegular', () => {
             [3.8, 4],
             [4.9, 5],
             [5.0, 5]
-        ])(
-            'numeric_rating %p should return rating %p',
-            (input, expected) => {
-                const article = {
-                    content_elements: [
-                        {
-                            numeric_rating: input
-                        }
-                    ]
-                };
+        ])('numeric_rating %p should return rating %p', (input, expected) => {
+            const article = {
+                content_elements: [
+                    {
+                        numeric_rating: input
+                    }
+                ]
+            };
 
-                const result = CardRegular(article);
+            const result = CardRegular(article);
 
-                expect(result.rating).toBe(expected);
-            }
-        );
+            expect(result.rating).toBe(expected);
+        });
 
         test('rating should be null when numeric_rating is 0', () => {
             const article = {

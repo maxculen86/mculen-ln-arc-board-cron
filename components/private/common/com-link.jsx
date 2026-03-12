@@ -1,24 +1,22 @@
 import React from 'react';
 import generateProps from '../../features/LN/common/link/_helpers';
 
-function ComLink(props) {
-    const {
-        children,
-        dataEvent,
-        dataSection,
-        link,
-        textname,
-        target,
-        title,
-        classCondition,
-        size,
-        rel,
-        style,
-        marfeelTrack,
-        bodyLinkType,
-        withSponsoredLink = false
-    } = props;
-
+function ComLink({
+    children,
+    dataEvent = '',
+    dataSection = '',
+    link = null,
+    textname = '',
+    target,
+    title = '',
+    classCondition = '',
+    size = '',
+    rel,
+    style = '',
+    marfeelTrack = false,
+    bodyLinkType = '',
+    withSponsoredLink = false
+}) {
     const classBuilder = builder => (builder ? ` ${builder}` : '');
 
     const isString = typeof children === 'string';
@@ -48,21 +46,5 @@ function ComLink(props) {
 
     return React.createElement(tag, { ..._props });
 }
-
-ComLink.defaultProps = {
-    textname: '',
-    title: '',
-    target: undefined,
-    classCondition: '',
-    size: '',
-    style: '',
-    dataSection: '',
-    dataEvent: '',
-    link: null,
-    rel: undefined,
-    withSponsoredLink: false,
-    marfeelTrack: false,
-    bodyLinkType: ''
-};
 
 export default ComLink;

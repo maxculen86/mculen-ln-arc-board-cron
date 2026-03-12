@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo } from 'react';
-import propTypes from 'prop-types';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
@@ -194,11 +193,3 @@ export function RecipeActionsDropdown({
         </Tooltip>
     );
 }
-
-RecipeActionsDropdown.propTypes = {
-    handleOpen: propTypes.func.isRequired,
-    countDayFood: propTypes.number.isRequired,
-    article: propTypes.shape({
-        _id: propTypes.string.isRequired
-    }).isRequired
-};

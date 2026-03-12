@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import { allowComments } from './utils/commentsHelper';
 import useTermica from './hooks/useTermica';
 
-const MetaViafoura = props => {
+function MetaViafoura(props) {
     const { globalContent = {} } = props;
     const { canonical_url: canonicalUrl = '' } = globalContent;
     const allow = useTermica('livefyre') && allowComments(props);
@@ -23,15 +22,9 @@ const MetaViafoura = props => {
                     content={`${SITE_LANACION}${canonicalUrl}`}
                 />
             </>
-        )) || <></>
+        )) ||
+        null
     );
-};
-
-MetaViafoura.propTypes = {
-    globalThis: PropTypes.shape({
-        _id: PropTypes.string,
-        type: PropTypes.string
-    }).isRequired
-};
+}
 
 export default MetaViafoura;

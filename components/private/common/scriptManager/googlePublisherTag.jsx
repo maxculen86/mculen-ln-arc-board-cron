@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import {
     decorator,
@@ -7,7 +6,6 @@ import {
     getAuthors,
     getAuthorsFromContentElements
 } from '../../LN/common/utils/getDataFormated';
-import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
@@ -16,7 +14,7 @@ function GooglePublisherTag(props) {
     const { type } = globalContent;
     const { getCookie } = handleCookie();
     const { contextPath, deployment } = useAppContext();
-    if (!type || type !== 'story') return <></>;
+    if (!type || type !== 'story') return null;
 
     const {
         taxonomy,
@@ -28,8 +26,8 @@ function GooglePublisherTag(props) {
 
     const { tags = [], sections = [] } = taxonomy || {};
     const { by: authors = [] } = credits || {};
-    const { eje_subeje } = label || {};
-    const { text: ejeSubejeText = '' } = eje_subeje || {};
+    const { eje_subeje: ejeSubeje } = label || {};
+    const { text: ejeSubejeText = '' } = ejeSubeje || {};
 
     const getTopics = tagsList =>
         tagsList && tagsList.length
@@ -55,7 +53,7 @@ function GooglePublisherTag(props) {
         !canonicalUrl &&
         (!authors.length || contentElements.length)
     )
-        return <></>;
+        return null;
 
     const categories = getCategories(sections);
     const topics = getTopics(tags);
@@ -95,40 +93,5 @@ function GooglePublisherTag(props) {
         </>
     );
 }
-
-GooglePublisherTag.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        type: PropTypes.string,
-        canonical_url: PropTypes.string,
-        taxonomy: PropTypes.shape({
-            primary_section: PropTypes.shape({
-                name: PropTypes.string
-            }),
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    text: PropTypes.string,
-                    description: PropTypes.string,
-                    slug: PropTypes.string
-                })
-            ),
-            sections: PropTypes.arrayOf(
-                PropTypes.shape({
-                    path: PropTypes.string
-                })
-            )
-        }),
-        label: PropTypes.shape({
-            eje_subeje: PropTypes.shape({
-                text: PropTypes.string
-            })
-        }),
-        content_elements:
-            googlePublisherAndLiftIgniterPropTypes.content_elements,
-        credits: googlePublisherAndLiftIgniterPropTypes.credits,
-        googlePublisherAndLiftIgniterPropTypes:
-            googlePublisherAndLiftIgniterPropTypes.label
-    }).isRequired
-};
 
 export default GooglePublisherTag;

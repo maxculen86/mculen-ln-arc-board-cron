@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Image as FooditImage } from '@ln/foodit-ui-image';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/cva';
 import EpigraphComponent from '../../../foodit-global/common/epigraph/foodit';
 import {
@@ -96,24 +95,5 @@ export function Image({ data = {}, contentElements = [] }) {
         </figure>
     );
 }
-
-Image.propTypes = {
-    data: PropTypes.shape({
-        caption: PropTypes.string,
-        resized_urls: PropTypes.array,
-        url: PropTypes.string,
-        _id: PropTypes.string,
-        additional_properties: PropTypes.object
-    }).isRequired,
-    contentElements: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            type: PropTypes.string,
-            content: PropTypes.string,
-            level: PropTypes.number,
-            additional_properties: PropTypes.shape()
-        })
-    ).isRequired
-};
 
 export default Image;

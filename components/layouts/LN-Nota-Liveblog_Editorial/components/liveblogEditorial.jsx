@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'prop-types';
 import { BaseLayout } from '../../../features/LN-10-global/common/baseLayout/default';
 import { getLiveBlogEditorialDataApertura } from '../_helpers/liveblogEditorialApertura';
 import LiveBlogOpening from './apertura/LiveBlogOpening';
@@ -48,9 +47,5 @@ function LiveBlogEditorial({ children }) {
 
 LiveBlogEditorial.Opening = LiveBlogOpening;
 LiveBlogEditorial.Body = LiveBlogBody;
-
-LiveBlogEditorial.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default LiveBlogEditorial;

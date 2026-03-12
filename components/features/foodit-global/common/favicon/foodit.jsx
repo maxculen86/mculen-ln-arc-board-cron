@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 export function Favicon({ contextPath, deployment }) {
     if (!contextPath || !deployment) return null;
@@ -40,8 +39,3 @@ export function Favicon({ contextPath, deployment }) {
         </>
     );
 }
-
-Favicon.propTypes = {
-    deployment: PropTypes.func.isRequired,
-    contextPath: PropTypes.string.isRequired
-};

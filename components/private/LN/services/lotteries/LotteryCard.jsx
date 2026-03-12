@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/lottery-card.css';
 import {
@@ -10,18 +9,18 @@ import CardLayout from './CardLayout';
 import CardMainResult from './CardMainResult';
 import CardDetail from './CardDetails';
 
-const LotteryCard = ({
+function LotteryCard({
     id,
     name,
     date,
     link,
     isDetail,
-    results,
+    results = [],
     letters,
     meaning,
     vacantPot,
     jackpot
-}) => {
+}) {
     const getDate = get(games, `${id}.getLotteryDate`, () => date);
     const getOrder = get(games, `${id}.sublotteriesOrder`, []);
     const isQuiniela = get(games, `${id}.isQuiniela`, false);
@@ -88,38 +87,6 @@ const LotteryCard = ({
             />
         </CardLayout>
     );
-};
-
-LotteryCard.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string,
-    date: PropTypes.string,
-    link: PropTypes.string,
-    letters: PropTypes.string,
-    meaning: PropTypes.string,
-    jackpot: PropTypes.string,
-    vacantPot: PropTypes.string,
-    isDetail: PropTypes.bool,
-    results: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            date: PropTypes.string,
-            result: PropTypes.arrayOf(PropTypes.string)
-        })
-    )
-};
-
-LotteryCard.defaultProps = {
-    id: '',
-    name: '',
-    date: '',
-    link: '',
-    letters: '',
-    meaning: '',
-    jackpot: '',
-    vacantPot: '',
-    results: [],
-    isDetail: false
-};
+}
 
 export default LotteryCard;

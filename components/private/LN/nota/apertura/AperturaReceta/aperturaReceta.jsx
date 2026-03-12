@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
 import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
 
-function aperturaReceta(props) {
-    const {
-        globalContent: { promo_items: promoItems, taxonomy }
-    } = props;
-
-    const { tags, primary_section: primary, sections } = taxonomy;
+function aperturaReceta({ globalContent = {}, ...props }) {
+    const { promo_items: promoItems, taxonomy = {} } = globalContent;
+    const { tags, primary_section: primary, sections = [] } = taxonomy;
 
     let listSections = [];
     if (primary) {
@@ -38,7 +34,10 @@ function aperturaReceta(props) {
     return (
         <div className="row aper-receta w-100-mobile">
             {hasMultimedia ? (
-                <AperturaConDestacado {...props} />
+                <AperturaConDestacado
+                    globalContent={globalContent}
+                    {...props}
+                />
             ) : (
                 <AperturaSinDestacado
                     tags={tags}
@@ -49,34 +48,5 @@ function aperturaReceta(props) {
         </div>
     );
 }
-
-aperturaReceta.propTypes = {
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    description: PropTypes.string,
-                    slug: PropTypes.string,
-                    text: PropTypes.string
-                })
-            ),
-            primary_section: PropTypes.shape(),
-            sections: PropTypes.shape()
-        }),
-        promo_items: PropTypes.shape({
-            receta: PropTypes.shape({}),
-            basic: PropTypes.shape({})
-        }),
-        subtype: PropTypes.string
-    })
-};
-
-aperturaReceta.defaultProps = {
-    globalContent: {
-        taxonomy: {
-            tags: []
-        }
-    }
-};
 
 export default aperturaReceta;

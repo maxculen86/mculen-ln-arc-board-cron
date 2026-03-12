@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 
 export function Access({ accessData = [] }) {
@@ -35,13 +34,3 @@ export function Access({ accessData = [] }) {
         </div>
     );
 }
-
-Access.propTypes = {
-    accessData: PropTypes.arrayOf(
-        PropTypes.shape({
-            href: PropTypes.string,
-            text: PropTypes.string,
-            callback: PropTypes.func
-        })
-    ).isRequired
-};

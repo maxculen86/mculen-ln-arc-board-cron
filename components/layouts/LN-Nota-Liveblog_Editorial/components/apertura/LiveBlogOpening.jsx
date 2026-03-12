@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import OpeningDescription from './OpeningDescription';
 import OpeningMedia from './OpeningMedia';
 
@@ -19,9 +18,5 @@ function LiveBlogOpening({ children }) {
 
 LiveBlogOpening.Description = OpeningDescription;
 LiveBlogOpening.Media = OpeningMedia;
-
-LiveBlogOpening.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default LiveBlogOpening;

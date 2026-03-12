@@ -55,7 +55,7 @@ describe('components - features- foodit-global - schemas - ChefSchema', () => {
             <ChefSchema globalContent={globalContent} />
         );
 
-        const scripts = container.querySelector(
+        const scripts = document.querySelector(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scripts.textContent);
@@ -69,9 +69,9 @@ describe('components - features- foodit-global - schemas - ChefSchema', () => {
     });
 
     it('renders chefSchema without data', () => {
-        const { container } = render(<ChefSchema globalContent={{}} />);
+        render(<ChefSchema globalContent={{}} />);
 
-        const scripts = container.querySelector(
+        const scripts = document.querySelector(
             'script[type="application/ld+json"]'
         );
 

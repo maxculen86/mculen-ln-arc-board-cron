@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 function snippetRender({ data = {}, id = null }) {
     const stringData = JSON.stringify(data, null, 2);
@@ -13,13 +12,5 @@ function snippetRender({ data = {}, id = null }) {
         />
     );
 }
-
-snippetRender.propTypes = {
-    data: PropTypes.shape({
-        '@context': PropTypes.string,
-        '@type': PropTypes.string
-    }),
-    id: PropTypes.string
-};
 
 export default snippetRender;

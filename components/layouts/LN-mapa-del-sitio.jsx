@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* TODO: MODIFICAR LAS KEY  */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import Copyright from '../private/LN/common/footer/copyright';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
@@ -73,9 +72,5 @@ function LNMapaDelSitio({ children }) {
 const pageBuilderSections = ['Cuerpo'];
 
 LNMapaDelSitio.sections = pageBuilderSections;
-
-LNMapaDelSitio.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
-};
 
 export default LNMapaDelSitio;

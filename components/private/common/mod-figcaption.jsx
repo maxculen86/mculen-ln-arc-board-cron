@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import ComFigcaption from './com-figcaption';
 import ComText from './text';
 
 import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
 
-function ModFigcaption(props) {
-    const { title, credit, className } = props;
+function ModFigcaption({ title = '', credit = '', className = '' }) {
     if (!title && !credit) return null;
 
     return (
@@ -21,17 +19,5 @@ function ModFigcaption(props) {
         </ComFigcaption>
     );
 }
-
-ModFigcaption.propTypes = {
-    title: PropTypes.string,
-    credit: PropTypes.string,
-    className: PropTypes.string
-};
-
-ModFigcaption.defaultProps = {
-    title: '',
-    credit: '',
-    className: ''
-};
 
 export default ModFigcaption;

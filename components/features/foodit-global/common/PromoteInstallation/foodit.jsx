@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Motion } from '@ln/common-ui-motion';
@@ -86,8 +85,3 @@ export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
         </Motion>
     );
 }
-
-PromoteInstallation.propTypes = {
-    variant: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
-};

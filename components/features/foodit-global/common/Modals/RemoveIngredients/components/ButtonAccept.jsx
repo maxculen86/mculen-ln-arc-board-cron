@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import PropTypes from 'prop-types';
 import { addErrorToast, addToast, TOAST } from '../../../bookmark/api/_helper';
 
 export function ButtonAccept({ close = () => null, clickAction, title }) {
@@ -23,9 +22,3 @@ export function ButtonAccept({ close = () => null, clickAction, title }) {
         </Button>
     );
 }
-
-ButtonAccept.propTypes = {
-    close: PropTypes.func.isRequired,
-    clickAction: PropTypes.func.isRequired,
-    title: PropTypes.string.isRequired
-};

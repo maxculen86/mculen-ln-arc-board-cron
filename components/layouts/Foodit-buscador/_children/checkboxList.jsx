@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import CheckBoxHeader from './checkboxHeader';
 import CheckBoxAccordion from './checkboxAccordion';
@@ -60,13 +59,5 @@ function CheckBoxList({
         </div>
     );
 }
-
-CheckBoxList.propTypes = {
-    listFilters: PropTypes.arrayOf.isRequired,
-    resetPage: PropTypes.func.isRequired,
-    applyFilter: PropTypes.func.isRequired,
-    removeFilters: PropTypes.func.isRequired,
-    group: PropTypes.string.isRequired
-};
 
 export default CheckBoxList;

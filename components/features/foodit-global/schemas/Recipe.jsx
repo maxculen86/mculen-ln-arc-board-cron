@@ -1,7 +1,6 @@
 import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import {
     findPreparationSteps,
@@ -136,6 +135,38 @@ const createPaywallSchema = layout => {
     };
 };
 
+const buildArticleSchema = ({
+    imageUrl,
+    headlines,
+    author,
+    canonicalUrl,
+    displayDate,
+    lastUpdatedDate,
+    deployment,
+    contextPath
+}) => ({
+    '@context': SCHEMA_ORG_CONTEXT,
+    '@type': 'Article',
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${SITE_FOODIT}${canonicalUrl}`
+    },
+    headline: get(headlines, 'basic', ''),
+    image: [imageUrl],
+    datePublished: displayDate,
+    dateModified: lastUpdatedDate,
+    author: {
+        '@type': 'Person',
+        name: author || 'Redacción de Foodit'
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: 'Foodit',
+        url: `${SITE_FOODIT}/`,
+        logo: fooditSchemaLogo(deployment, contextPath)
+    }
+});
+
 const buildRecipeSchema = data => {
     const {
         deployment,
@@ -188,38 +219,6 @@ const buildRecipeSchema = data => {
         headline: get(headlines, 'basic', '')
     };
 };
-
-const buildArticleSchema = ({
-    imageUrl,
-    headlines,
-    author,
-    canonicalUrl,
-    displayDate,
-    lastUpdatedDate,
-    deployment,
-    contextPath
-}) => ({
-    '@context': SCHEMA_ORG_CONTEXT,
-    '@type': 'Article',
-    mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `${SITE_FOODIT}${canonicalUrl}`
-    },
-    headline: get(headlines, 'basic', ''),
-    image: [imageUrl],
-    datePublished: displayDate,
-    dateModified: lastUpdatedDate,
-    author: {
-        '@type': 'Person',
-        name: author || 'Redacción de Foodit'
-    },
-    publisher: {
-        '@type': 'Organization',
-        name: 'Foodit',
-        url: `${SITE_FOODIT}/`,
-        logo: fooditSchemaLogo(deployment, contextPath)
-    }
-});
 
 export function RecipeSchema({ globalContent = {}, layout = '' }) {
     const { contextPath, deployment } = useAppContext();
@@ -295,15 +294,3 @@ export function RecipeSchema({ globalContent = {}, layout = '' }) {
         </>
     );
 }
-
-RecipeSchema.propTypes = {
-    globalContent: PropTypes.shape({
-        promo_items: PropTypes.object,
-        content_elements: PropTypes.array,
-        headlines: PropTypes.object,
-        subheadlines: PropTypes.object,
-        taxonomy: PropTypes.object,
-        additional_properties: PropTypes.object
-    }).isRequired,
-    layout: PropTypes.string.isRequired
-};

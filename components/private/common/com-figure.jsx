@@ -1,6 +1,5 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
@@ -10,19 +9,12 @@ function ComFigure({ classCondition, children, handleClick }) {
             role="button"
             onClick={handleClick}
             onKeyDown={handleClick}
+            tabIndex={handleClick ? 0 : undefined}
             className={`mod-figure ${classCondition || ''}`}
         >
             {children}
         </figure>
-    ) : (
-        <></>
-    );
+    ) : null;
 }
-
-ComFigure.propTypes = {
-    children: PropTypes.node.isRequired,
-    classCondition: PropTypes.string,
-    handleClick: PropTypes.func
-};
 
 export default ComFigure;

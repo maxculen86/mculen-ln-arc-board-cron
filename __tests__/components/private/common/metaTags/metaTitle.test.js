@@ -6,20 +6,21 @@ describe('LN - Common - MetaTitle', () => {
     const props = {
         arcSite: 'la-nacion-ar',
         nodeType: 'section',
-        title:
-            'El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano'
+        title: 'El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano'
     };
 
     it('MetaTitle nota snapshot', () => {
-        const { container } = render(<MetaTitle {...props} />);
-        const metaTitle = container.querySelector('meta');
+        render(<MetaTitle {...props} />);
+
+        const metaTitle = document.head.querySelector('meta[name="title"]');
         expect(metaTitle).toMatchSnapshot();
     });
 
     it('should return null for arcSite value different from la-nacion-ar', () => {
         const customProps = { ...props, arcSite: 'dummy-arc-site' };
-        const { container } = render(<MetaTitle {...customProps} />);
-        const metaTitle = container.querySelector('meta');
+        render(<MetaTitle {...customProps} />);
+
+        const metaTitle = document.head.querySelector('meta[name="title"]');
         expect(metaTitle).toBeNull();
     });
 
@@ -28,8 +29,9 @@ describe('LN - Common - MetaTitle', () => {
             ...props,
             requestUri: '/mis-notas'
         };
-        const { container } = render(<MetaTitle {...customProps} />);
-        const metaTitle = container.querySelector('meta');
+        render(<MetaTitle {...customProps} />);
+
+        const metaTitle = document.head.querySelector('meta[name="title"]');
         expect(metaTitle).toBeInTheDocument();
         expect(metaTitle.getAttribute('content')).toBe(customProps.title);
     });
@@ -40,8 +42,9 @@ describe('LN - Common - MetaTitle', () => {
             section: 'dummy-section',
             title: 'Últimas noticias - LA NACION'
         };
-        const { container } = render(<MetaTitle {...customProps} />);
-        const metaTitle = container.querySelector('meta');
+        render(<MetaTitle {...customProps} />);
+
+        const metaTitle = document.head.querySelector('meta[name="title"]');
         expect(metaTitle).toBeInTheDocument();
         expect(metaTitle.getAttribute('content')).toBe(
             'Últimas noticias - LA NACION'

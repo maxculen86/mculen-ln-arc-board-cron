@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { getTypeOfDevice } from '@ln/hooks';
 import get from '../../../common/utils/get';
 import getApertura from '../../../common/utils/getApertura';
@@ -55,36 +54,6 @@ export default function WithStorytellingData(WrappedComponent) {
             <WrappedComponent {...props} storytellingData={storytellingData} />
         );
     }
-
-    Component.propTypes = {
-        globalContent: PropTypes.shape({
-            promo_items: PropTypes.shape({
-                basic: PropTypes.instanceOf(Object),
-                storytelling: PropTypes.oneOfType([
-                    PropTypes.arrayOf(PropTypes.node),
-                    PropTypes.object
-                ]),
-                storytelling_mobile: PropTypes.oneOfType([
-                    PropTypes.arrayOf(PropTypes.node),
-                    PropTypes.object
-                ]),
-                type: PropTypes.string,
-                subtype: PropTypes.string
-            })
-        })
-    };
-
-    Component.defaultProps = {
-        globalContent: {
-            promo_items: {
-                basic: {},
-                storytelling: {},
-                storytelling_mobile: {}
-            },
-            type: '',
-            subtype: ''
-        }
-    };
 
     return Component;
 }

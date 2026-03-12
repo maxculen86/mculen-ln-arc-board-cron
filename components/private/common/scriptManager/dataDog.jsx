@@ -1,11 +1,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DATADOG_CONFIG } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 
-const Datadog = ({ location = 'head' }) => {
+function Datadog({ location = 'head' }) {
     const {
         deployment,
         arcSite = 'la-nacion-ar',
@@ -172,8 +171,6 @@ const Datadog = ({ location = 'head' }) => {
             </>
         )
     );
-};
-
-Datadog.propTypes = { location: PropTypes.string.isRequired };
+}
 
 export default Datadog;

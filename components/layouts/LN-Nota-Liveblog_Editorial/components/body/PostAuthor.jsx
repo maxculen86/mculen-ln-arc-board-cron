@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import { Text } from '@ln/contenidos-ui-text';
 import SignatureWithAuthors from '../../../../features/LN-nota/signature/signatureWithAuthors';
@@ -28,30 +27,3 @@ function PostAuthor({ dataAuthor }) {
 }
 
 export default PostAuthor;
-
-PostAuthor.propTypes = {
-    dataAuthor: PropTypes.shape({
-        author: PropTypes.shape({
-            name: PropTypes.string,
-            link: PropTypes.string
-        }),
-        authors: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                link: PropTypes.string
-            })
-        ),
-        photo: PropTypes.string,
-        position: PropTypes.string,
-        role: PropTypes.string,
-        size: PropTypes.number,
-        showSignatureWithAuthors: PropTypes.bool,
-        shouldShowRole: PropTypes.bool
-    }).isRequired,
-    shouldShowRole: PropTypes.bool.isRequired,
-    authorRole: PropTypes.string
-};
-
-PostAuthor.defaultProps = {
-    authorRole: ''
-};

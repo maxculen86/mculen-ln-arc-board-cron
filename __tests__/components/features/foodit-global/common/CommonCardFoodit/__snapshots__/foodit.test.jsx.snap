@@ -27,7 +27,6 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
             decoding="async"
             fetchpriority="low"
             loading="lazy"
-            src=""
             style="display: none;"
           />
         </div>
@@ -93,7 +92,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               class="icon w-24 w-16_md --dark"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmark"
               />
             </i>
@@ -208,7 +207,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               class="icon w-24 --dark"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmark"
               />
             </i>
@@ -343,7 +342,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               class="icon w-24 --dark"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmark"
               />
             </i>
@@ -456,7 +455,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               class="icon w-24 --dark"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmark"
               />
             </i>

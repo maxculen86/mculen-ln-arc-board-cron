@@ -13,6 +13,7 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-dropdown/index.css'
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-header/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-drawer/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-tooltip/index.css';
 

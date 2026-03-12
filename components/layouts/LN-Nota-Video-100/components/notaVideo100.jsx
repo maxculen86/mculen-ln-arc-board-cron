@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BaseLayout } from '../../../features/LN-10-global/common/baseLayout/default';
 import AperturaVideo100 from './apertura/default';
 
@@ -49,9 +48,5 @@ function NotaVideo100({ children }) {
         </BaseLayout>
     );
 }
-
-NotaVideo100.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default NotaVideo100;

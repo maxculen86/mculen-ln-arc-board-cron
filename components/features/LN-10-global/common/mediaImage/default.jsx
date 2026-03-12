@@ -1,6 +1,5 @@
 import React from 'react';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/cva';
 import {
@@ -8,7 +7,7 @@ import {
     VIDEO_VERTICAL
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
-function MediaImage({ src, alt, sources, className }) {
+function MediaImage({ src, alt = '', sources = [], className = '' }) {
     const {
         globalContent: { subtype }
     } = useAppContext() || {};
@@ -30,18 +29,5 @@ function MediaImage({ src, alt, sources, className }) {
         </div>
     );
 }
-
-MediaImage.propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string,
-    sources: PropTypes.arrayOf(PropTypes.shape({})),
-    className: PropTypes.string
-};
-
-MediaImage.defaultProps = {
-    alt: '',
-    sources: [],
-    className: ''
-};
 
 export default MediaImage;

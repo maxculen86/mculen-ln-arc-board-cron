@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Avatar } from '@ln/foodit-ui-avatar';
 import { AccountItem } from './accountItem';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
@@ -62,34 +61,5 @@ export function MyAccount({
         </>
     );
 }
-
-MyAccount.propTypes = {
-    avatarProps: PropTypes.shape({
-        email: PropTypes.string.isRequired,
-        initials: PropTypes.string.isRequired,
-        hasSubscription: PropTypes.bool.isRequired
-    }).isRequired,
-    itemsList: PropTypes.arrayOf(
-        PropTypes.shape({
-            icon: PropTypes.node.isRequired,
-            onClick: PropTypes.func.isRequired,
-            text: PropTypes.string.isRequired,
-            variant: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            classNameList: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    fullWidth: PropTypes.bool.isRequired,
-    logOutItem: PropTypes.shape({
-        icon: PropTypes.node.isRequired,
-        onClick: PropTypes.func.isRequired,
-        text: PropTypes.string.isRequired,
-        variant: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        classNameList: PropTypes.string.isRequired
-    }).isRequired,
-    arcSite: PropTypes.string.isRequired,
-    deployment: PropTypes.string.isRequired
-};
 
 export default MyAccount;

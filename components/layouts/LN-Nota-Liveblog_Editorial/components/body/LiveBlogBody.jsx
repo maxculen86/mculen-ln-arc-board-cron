@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BodyTop from './BodyTop';
 import BodyPre from './BodyPre';
 import BodyPost from './BodyPost';
@@ -24,9 +23,5 @@ LiveBlogBody.Pre = BodyPre;
 LiveBlogBody.Posts = BodyPosts;
 LiveBlogBody.Post = BodyPost;
 LiveBlogBody.Divider = PostDivider;
-
-LiveBlogBody.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default LiveBlogBody;

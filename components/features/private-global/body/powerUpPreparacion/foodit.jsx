@@ -2,7 +2,6 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { List } from '@ln/foodit-ui-list';
 import { Text } from '@ln/common-ui-text';
-import PropTypes from 'prop-types';
 import get from '../../../../private/common/utils/get';
 import {
     processPreparacionContent,
@@ -126,48 +125,5 @@ export function PowerUpPreparacion({ data = {}, includePhotos = false }) {
         </>
     );
 }
-
-PowerUpPreparacion.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        type: PropTypes.string,
-        subtype: PropTypes.string,
-        level: PropTypes.number,
-        content: PropTypes.string,
-        items: PropTypes.arrayOf(
-            PropTypes.shape({
-                id: PropTypes.string,
-                type: PropTypes.string,
-                content: PropTypes.string,
-                url: PropTypes.string,
-                caption: PropTypes.string
-            })
-        ),
-        url: PropTypes.string,
-        caption: PropTypes.string,
-        embed: PropTypes.shape({
-            config: PropTypes.oneOfType([
-                PropTypes.shape({
-                    items: PropTypes.arrayOf(PropTypes.string),
-                    titleList: PropTypes.string
-                })
-            ])
-        })
-    }),
-    includePhotos: PropTypes.bool
-};
-
-PowerUpPreparacion.defaultProps = {
-    data: {
-        _id: '',
-        embed: {
-            config: {
-                items: [],
-                titleList: ''
-            }
-        }
-    },
-    includePhotos: false
-};
 
 export default PowerUpPreparacion;
