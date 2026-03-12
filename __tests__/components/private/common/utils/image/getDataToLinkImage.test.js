@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { preload } from 'react-dom';
 import getProperties from 'fusion:properties';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import useGetMediaData from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData';
@@ -26,51 +27,52 @@ jest.mock(
     () => jest.fn()
 );
 
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
+}));
+
 describe('Common - GetDataToLinkImage', () => {
+    beforeEach(() => {
+        preload.mockClear();
+    });
+
     describe('When section is note,', () => {
-        const expected =
-            '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
-        const expectedVideoType =
-            '<link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=480"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)" href="https://cdn.jwplayer.com/v2/media/aomrvRI3/poster.jpg?width=720">';
-        const expectedFotoAl100 =
-            '<link rel="preload" as="image" fetchpriority="high" media="(min-width: 1280.1px)" href="https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(min-width: 1024.1px and max-width: 1280px)" href="https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg"><link rel="preload" as="image" fetchpriority="high" media="(max-width: 1024px)" href="https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg">';
-
         it('with resized Media, return array media data', () => {
-            const { container } = render(
-                <GetDataToLinkImage data={globalContent} section="nota" />
-            );
-
-            expect(container.innerHTML).toEqual(expected);
+            render(<GetDataToLinkImage data={globalContent} section="nota" />);
+            expect(preload).toHaveBeenCalledTimes(3);
         });
 
         it('Opening with video, it should return the preload of the facade image', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={globalContentWithVideo}
                     section="nota"
                 />
             );
 
-            expect(container.innerHTML).toEqual(expectedVideoType);
+            expect(preload).toHaveBeenCalledTimes(2);
         });
 
         it('without resized Media, return empty string', () => {
             const { container } = render(<GetDataToLinkImage section="nota" />);
             expect(container.innerHTML).toEqual('');
+            expect(preload).not.toHaveBeenCalled();
         });
 
         it('FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '8' }}
                     section="nota"
                 />
             );
-            expect(container.innerHTML).toEqual(expectedFotoAl100);
+
+            expect(preload).toHaveBeenCalledTimes(3);
         });
 
         it('STORYTELLING without promo_items.storytelling_mobile, return desk preload', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: { ...globalContent, subtype: '4' },
@@ -79,22 +81,17 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
-
-            expect(linksPreload).toHaveLength(3);
-            expect(container).toMatchSnapshot();
-
-            linksPreload.forEach(link => {
-                expect(link.getAttribute('fetchpriority')).toEqual('high');
-                expect(link.getAttribute('as')).toEqual('image');
-                expect(link.getAttribute('rel')).toEqual('preload');
-                expect(link.hasAttribute('href')).toBeTruthy();
-                expect(link.hasAttribute('media')).toBeTruthy();
+            expect(preload).toHaveBeenCalledTimes(3);
+            preload.mock.calls.forEach(([href, options]) => {
+                expect(options.fetchPriority).toEqual('high');
+                expect(options.as).toEqual('image');
+                expect(href).toBeTruthy();
+                expect(options.media).toBeTruthy();
             });
         });
 
         it('STORYTELLING with promo_items.storytelling_mobile, return mobile preload', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: { ...articleToExclude, subtype: '4' },
@@ -103,22 +100,17 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
-
-            expect(linksPreload).toHaveLength(5);
-            expect(container).toMatchSnapshot();
-
-            linksPreload.forEach(link => {
-                expect(link.getAttribute('fetchpriority')).toEqual('high');
-                expect(link.getAttribute('as')).toEqual('image');
-                expect(link.getAttribute('rel')).toEqual('preload');
-                expect(link.hasAttribute('href')).toBeTruthy();
-                expect(link.hasAttribute('media')).toBeTruthy();
+            expect(preload).toHaveBeenCalled();
+            preload.mock.calls.forEach(([href, options]) => {
+                expect(options.fetchPriority).toEqual('high');
+                expect(options.as).toEqual('image');
+                expect(href).toBeTruthy();
+                expect(options.media).toBeTruthy();
             });
         });
 
         it('If the opening has video and image for desktop, it should return the mobile image-only preload.', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     {...{
                         data: {
@@ -130,15 +122,13 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            const linksPreload = container.querySelectorAll('link');
-
-            expect(linksPreload).toHaveLength(2);
-            expect(linksPreload[0].getAttribute('media')).toStrictEqual(
+            expect(preload).toHaveBeenCalledTimes(2);
+            const [, firstOptions] = preload.mock.calls[0];
+            const [, secondOptions] = preload.mock.calls[1];
+            expect(firstOptions.media).toStrictEqual(
                 '(min-width: 768px) and (max-width: 1023px)'
             );
-            expect(linksPreload[1].getAttribute('media')).toStrictEqual(
-                '(max-width: 767px)'
-            );
+            expect(secondOptions.media).toStrictEqual('(max-width: 767px)');
         });
 
         it('excludes preload when subtype is CARDS', () => {
@@ -149,17 +139,17 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
             expect(container.innerHTML).toEqual('');
+            expect(preload).not.toHaveBeenCalled();
         });
 
         it('does not exclude preload when subtype is not CARDS', () => {
-            const { container } = render(
+            render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '1' }}
                     section="nota"
                 />
             );
-
-            expect(container.innerHTML).toEqual(expected);
+            expect(preload).toHaveBeenCalledTimes(3);
         });
     });
 
@@ -184,7 +174,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseRelatedImageSource
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -194,10 +184,7 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
-
-                expect(linksPreload).toHaveLength(3);
-                expect(linksPreload).toMatchSnapshot();
+                expect(preload).toHaveBeenCalledTimes(3);
             });
 
             it('Visible with noteId, return Array with imageResizedUrls', () => {
@@ -205,7 +192,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseArticleSourceNota
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -215,10 +202,7 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
-
-                expect(linksPreload).toHaveLength(3);
-                expect(linksPreload).toMatchSnapshot();
+                expect(preload).toHaveBeenCalledTimes(3);
             });
 
             it('Hiden, return Empty Array', () => {
@@ -246,7 +230,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseRelatedImageSource
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -256,10 +240,7 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
-
-                expect(linksPreload).toHaveLength(3);
-                expect(linksPreload).toMatchSnapshot();
+                expect(preload).toHaveBeenCalledTimes(3);
             });
 
             test('Return array images resized from video', () => {
@@ -267,7 +248,7 @@ describe('Common - GetDataToLinkImage', () => {
                     () => responseGetVideoPosterResized
                 );
 
-                const { container } = render(
+                render(
                     <GetDataToLinkImage
                         {...{
                             data: {},
@@ -277,10 +258,7 @@ describe('Common - GetDataToLinkImage', () => {
                     />
                 );
 
-                const linksPreload = container.querySelectorAll('link');
-
-                expect(linksPreload).toHaveLength(2);
-                expect(linksPreload).toMatchSnapshot();
+                expect(preload).toHaveBeenCalledTimes(2);
             });
         });
     });

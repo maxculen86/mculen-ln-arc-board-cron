@@ -1,7 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
-
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -19,7 +15,7 @@ import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import { setStaticDynamically } from '../utils/_helpers';
 
-const CajaBomba = props => {
+function CajaBomba(props) {
     const {
         id: chainId,
         isAdmin,
@@ -80,7 +76,6 @@ const CajaBomba = props => {
                 getClassCondition(layout, childrenOfBomba, chainId)
             );
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [layout, chainId, isAdmin]);
 
     const Component = setRender({
@@ -104,7 +99,7 @@ const CajaBomba = props => {
     });
 
     return setStaticDynamically(Component, isAdmin, extraOptsDiv, chainId);
-};
+}
 
 CajaBomba.label = 'LN10 Caja Bomba';
 
@@ -137,10 +132,6 @@ CajaBomba.propTypes = {
             group: 'Ajuste Bomba'
         })
     })
-};
-
-CajaBomba.defaultProps = {
-    outputType: 'default'
 };
 
 export default Consumer(CajaBomba);

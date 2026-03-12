@@ -1,11 +1,9 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import PropTypes from 'prop-types';
 import setClassName from '../../../common/utils/setClassName';
 import '../../../../../resources/dist/css/ln/components/table.css';
 
-const Table = ({ data = {}, extraClass = '' }) => {
+function Table({ data = {}, extraClass = '' }) {
     const { header = [], rows = [] } = data;
 
     if (!rows.length) return null;
@@ -38,28 +36,8 @@ const Table = ({ data = {}, extraClass = '' }) => {
             </table>
         </div>
     );
-};
+}
 
 Table.arcType = 'table';
-Table.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        header: PropTypes.arrayOf(
-            PropTypes.shape({
-                content: PropTypes.string,
-                type: PropTypes.string
-            })
-        ),
-        rows: PropTypes.arrayOf(
-            PropTypes.arrayOf(
-                PropTypes.shape({
-                    content: PropTypes.string,
-                    type: PropTypes.string
-                })
-            )
-        ).isRequired
-    }).isRequired,
-    extraClass: PropTypes.string
-};
 
 export default Table;

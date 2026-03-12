@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Select } from '@ln/common-ui-select';
 
 function FuneralSearchSelect({ children, ...r }) {
@@ -14,9 +13,5 @@ function FuneralSearchSelect({ children, ...r }) {
         </Select>
     );
 }
-
-FuneralSearchSelect.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default FuneralSearchSelect;

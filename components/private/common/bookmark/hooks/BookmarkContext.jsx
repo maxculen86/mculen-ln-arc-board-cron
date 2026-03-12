@@ -1,5 +1,4 @@
 import React, { useContext, useMemo, useState } from 'react';
-import PropTypes from 'fusion:prop-types';
 
 export const BookmarkContext = React.createContext({});
 
@@ -14,7 +13,5 @@ export function BookmarkContextProvider({ children }) {
         </BookmarkContext.Provider>
     );
 }
-
-BookmarkContextProvider.propTypes = { children: PropTypes.node.isRequired };
 
 export const useBookmarkContext = () => useContext(BookmarkContext);

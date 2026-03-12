@@ -1,7 +1,6 @@
 import React from 'react';
 import Static from 'fusion:static';
 import { useContent } from 'fusion:content';
-import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit';
 import { RoofFoodit } from '../../foodit-global/common/RoofFoodit/foodit';
@@ -92,11 +91,5 @@ function RelatedContent({ globalContent }) {
         </Static>
     );
 }
-
-RelatedContent.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string
-    }).isRequired
-};
 
 export default RelatedContent;

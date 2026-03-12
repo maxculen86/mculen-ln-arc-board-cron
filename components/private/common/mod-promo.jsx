@@ -1,19 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ComLogo from './com-logo';
 
 import '../../../resources/dist/css/ln/modules/mod-promo.css';
 
-const ModPromo = ({
-    tag,
+function ModPromo({
+    tag = null,
     link,
-    logoName,
-    logoSize,
-    text,
-    textButton,
-    classCondition,
-    isStatic
-}) => {
+    logoName = null,
+    logoSize = null,
+    text = null,
+    textButton = null,
+    classCondition = null,
+    isStatic = true
+}) {
     const CustomTag = tag || 'section';
 
     return (
@@ -34,27 +33,6 @@ const ModPromo = ({
             </a>
         </CustomTag>
     );
-};
-
-ModPromo.propTypes = {
-    tag: PropTypes.string,
-    link: PropTypes.string.isRequired,
-    logoName: PropTypes.string,
-    logoSize: PropTypes.string,
-    text: PropTypes.string,
-    textButton: PropTypes.string,
-    classCondition: PropTypes.string,
-    isStatic: PropTypes.bool
-};
-
-ModPromo.defaultProps = {
-    tag: null,
-    logoName: null,
-    logoSize: null,
-    text: null,
-    textButton: null,
-    classCondition: null,
-    isStatic: true
-};
+}
 
 export default ModPromo;

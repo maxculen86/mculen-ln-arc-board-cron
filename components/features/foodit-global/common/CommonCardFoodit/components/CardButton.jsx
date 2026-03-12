@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
@@ -43,16 +42,3 @@ export function CardButton({
         </Button>
     );
 }
-
-CardButton.propTypes = {
-    fill: PropTypes.bool.isRequired,
-    handleBookmarkClick: PropTypes.func.isRequired,
-    container: PropTypes.string.isRequired,
-    buttonProps: PropTypes.shape({
-        'data-id': PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-            .isRequired,
-        'data-modal': PropTypes.string.isRequired,
-        'data-test-id': PropTypes.string.isRequired,
-        'data-father-type': PropTypes.string
-    }).isRequired
-};

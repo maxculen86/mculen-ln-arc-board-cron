@@ -26,7 +26,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="sun"
           />
         </i>
@@ -44,7 +44,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="clearNight"
           />
         </i>
@@ -62,7 +62,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="windy"
           />
         </i>
@@ -80,7 +80,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="sunCloudy"
           />
         </i>
@@ -98,7 +98,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="cloudy"
           />
         </i>
@@ -116,7 +116,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="rainyCloudy"
           />
         </i>
@@ -134,7 +134,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="rain"
           />
         </i>
@@ -152,7 +152,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="stormCloudy"
           />
         </i>
@@ -170,7 +170,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="storm"
           />
         </i>
@@ -188,7 +188,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="snowCloudy"
           />
         </i>
@@ -206,7 +206,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="snow"
           />
         </i>
@@ -224,7 +224,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           style="background-color: rgb(242, 242, 242);"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="drop"
           />
         </i>

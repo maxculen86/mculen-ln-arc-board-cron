@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Spinner } from '@ln/common-ui-spinner';
 import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
@@ -18,8 +17,3 @@ export function EmptyStateComponent({ userType, loading }) {
         </div>
     );
 }
-
-EmptyStateComponent.propTypes = {
-    userType: PropTypes.string.isRequired,
-    loading: PropTypes.bool.isRequired
-};

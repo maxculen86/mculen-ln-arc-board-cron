@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Card } from '@ln/foodit-ui-card';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { CardButton } from './components/CardButton';
@@ -8,26 +7,26 @@ import { DropdownCard } from './components/DropdownCard';
 function CommonCardFoodit({
     articleId,
     linksProps,
-    showTime,
-    time,
-    size,
-    variant,
-    src,
-    alt,
-    sources,
-    loading,
-    fetchPriority,
-    tag,
+    showTime = false,
+    time = '',
+    size = '',
+    variant = '',
+    src = null,
+    alt = '',
+    sources = [],
+    loading = 'lazy',
+    fetchPriority = 'low',
+    tag = '',
     title,
-    customTitle,
-    author,
-    subtitle,
-    label,
-    titleEllipsis,
-    contentCode,
-    fatherType,
-    container,
-    poster,
+    customTitle = '',
+    author = '',
+    subtitle = '',
+    label = 'Receta del día',
+    titleEllipsis = 3,
+    contentCode = '',
+    fatherType = '',
+    container = 'grid',
+    poster = '',
     className = '',
     bookmarkAction = null,
     fill = false,
@@ -142,77 +141,5 @@ function CommonCardFoodit({
         </Card>
     );
 }
-
-CommonCardFoodit.propTypes = {
-    articleId: PropTypes.string.isRequired,
-    linksProps: PropTypes.shape({
-        href: PropTypes.string,
-        title: PropTypes.string
-    }).isRequired,
-    showTime: PropTypes.bool,
-    time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    size: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    variant: PropTypes.string,
-    src: PropTypes.string,
-    alt: PropTypes.string,
-    sources: PropTypes.arrayOf(
-        PropTypes.shape({
-            url: PropTypes.string
-        })
-    ),
-    loading: PropTypes.oneOf(['eager', 'lazy']),
-    fetchPriority: PropTypes.oneOf(['high', 'low', 'auto']),
-    tag: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    customTitle: PropTypes.string,
-    author: PropTypes.string,
-    subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    titleEllipsis: PropTypes.number,
-    contentCode: PropTypes.string,
-    container: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    className: PropTypes.string,
-    bookmarkAction: PropTypes.func,
-    fill: PropTypes.bool,
-    isOpening: PropTypes.bool,
-    poster: PropTypes.string,
-    mediaVariant: PropTypes.oneOf(['image', 'video']),
-    hasVideo: PropTypes.bool,
-    fatherType: PropTypes.string,
-    isMyRecipesLayout: PropTypes.bool,
-    onDelete: PropTypes.func,
-    onMove: PropTypes.func
-};
-
-CommonCardFoodit.defaultProps = {
-    showTime: false,
-    time: '',
-    size: '',
-    variant: '',
-    src: '',
-    alt: '',
-    sources: [],
-    loading: 'lazy',
-    fetchPriority: 'low',
-    tag: '',
-    customTitle: '',
-    author: '',
-    subtitle: '',
-    label: 'Receta del día',
-    titleEllipsis: 3,
-    contentCode: '',
-    container: 'grid',
-    className: '',
-    bookmarkAction: null,
-    fill: false,
-    isOpening: false,
-    poster: '',
-    mediaVariant: 'image',
-    hasVideo: false,
-    fatherType: '',
-    isMyRecipesLayout: false,
-    onDelete: null,
-    onMove: null
-};
 
 export default CommonCardFoodit;

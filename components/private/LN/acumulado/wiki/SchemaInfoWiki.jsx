@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 
@@ -22,17 +21,3 @@ function SchemaInfoWiki({ classes, label, text, link }) {
 }
 
 export default SchemaInfoWiki;
-
-SchemaInfoWiki.propTypes = {
-    classes: PropTypes.string,
-    link: PropTypes.string,
-    label: PropTypes.string,
-    text: PropTypes.string
-};
-
-SchemaInfoWiki.defaultProps = {
-    text: '',
-    label: '',
-    classes: '',
-    link: ''
-};

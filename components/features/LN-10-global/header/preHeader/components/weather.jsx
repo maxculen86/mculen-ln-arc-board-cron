@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
@@ -31,18 +30,5 @@ function Weather({ weatherData }) {
         </Link>
     );
 }
-
-Weather.propTypes = {
-    weatherData: PropTypes.shape({
-        icon: PropTypes.shape({
-            type: PropTypes.func
-        }),
-        temperature: PropTypes.string,
-        place: PropTypes.string,
-        dataEvent: PropTypes.string,
-        dataSection: PropTypes.string,
-        link: PropTypes.string
-    }).isRequired
-};
 
 export default Weather;

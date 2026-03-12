@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Accordion } from '@ln/common-ui-accordion';
 
 export function MainWrapper({ visible, ...props }) {
@@ -11,7 +10,3 @@ export function MainWrapper({ visible, ...props }) {
         />
     );
 }
-
-MainWrapper.propTypes = {
-    visible: PropTypes.bool.isRequired
-};

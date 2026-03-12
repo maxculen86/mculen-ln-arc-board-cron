@@ -51,8 +51,8 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
     };
 
     test('Should render the <SnippetLiveblog/> component with a script tag', () => {
-        const { container } = render(<SnippetLiveblog {...baseProps} />);
-        const scriptTag = container.querySelector('script');
+        render(<SnippetLiveblog {...baseProps} />);
+        const scriptTag = document.head.querySelector('script');
         expect(scriptTag).toBeDefined();
     });
 

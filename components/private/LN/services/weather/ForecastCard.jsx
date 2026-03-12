@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import get from '../../../common/utils/get';
 import Text from '../../../common/text';
 import optionsIcons from './optionsIcons';
 
-const ForecastByDay = ({ id, title, data }) => {
+function ForecastByDay({ title, data }) {
     if ([title, data].some(e => e === undefined)) return null;
     const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
@@ -82,28 +81,6 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
         </div>
     );
-};
-
-ForecastByDay.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    data: PropTypes.shape({
-        humidity: PropTypes.number,
-        rain_prob: PropTypes.number,
-        temperature: PropTypes.number,
-        weather: PropTypes.shape({
-            id: PropTypes.string,
-            description: PropTypes.string
-        }),
-        wind: PropTypes.shape({
-            direction: PropTypes.string,
-            speed: PropTypes.number
-        })
-    }).isRequired
-};
-
-ForecastByDay.defaultProps = {
-    id: ''
-};
+}
 
 export default ForecastByDay;

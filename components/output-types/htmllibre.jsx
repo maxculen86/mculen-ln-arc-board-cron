@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 function htmllibre(props) {
     const {
@@ -21,15 +20,7 @@ function htmllibre(props) {
                 />
             </body>
         </html>
-    ) : (
-        <></>
-    );
+    ) : null;
 }
-
-htmllibre.propTypes = {
-    globalContent: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(PropTypes.string, PropTypes.object)
-    }).isRequired
-};
 
 export default htmllibre;

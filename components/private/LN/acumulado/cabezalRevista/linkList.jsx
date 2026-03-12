@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 // eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import WithNavigation from '../../../common/hocs/withNavigation';
 
@@ -17,20 +16,5 @@ function LinkList({ navigations, id }) {
     }
     return <div className="links">{links}</div>;
 }
-
-LinkList.propTypes = {
-    navigations: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string.isRequired,
-            children: PropTypes.arrayOf(
-                PropTypes.shape({
-                    display_name: PropTypes.string.isRequired,
-                    url: PropTypes.string.isRequired
-                })
-            )
-        })
-    ).isRequired,
-    id: PropTypes.string.isRequired
-};
 
 export default WithNavigation(LinkList, null, 'la-nacion-ar');

@@ -8,7 +8,7 @@ import usePwaModal from '../../../../../components/private/common/hooks/usePwaMo
 jest.mock('../../../../../components/private/common/hooks/usePwaModal');
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -51,11 +51,11 @@ describe('PwaModal', () => {
         const { container } = render(<PwaModal />);
 
         expect(
-            await screen.findByText('¿Querés recibir notificaciones de alertas?')
+            await screen.findByText(
+                '¿Querés recibir notificaciones de alertas?'
+            )
         ).toBeInTheDocument();
-        expect(
-            screen.getByAltText('LA NACION')
-        ).toBeInTheDocument();
+        expect(screen.getByAltText('LA NACION')).toBeInTheDocument();
         expect(screen.getByText('No, gracias')).toBeInTheDocument();
         expect(screen.getByText('Aceptar')).toBeInTheDocument();
 
@@ -95,7 +95,9 @@ describe('PwaModal', () => {
         fireEvent(window, new Event('load'));
 
         expect(
-            await screen.findByText('¿Querés recibir notificaciones de alertas?')
+            await screen.findByText(
+                '¿Querés recibir notificaciones de alertas?'
+            )
         ).toBeInTheDocument();
     });
 

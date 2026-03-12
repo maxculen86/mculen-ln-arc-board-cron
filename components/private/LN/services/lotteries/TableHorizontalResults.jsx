@@ -1,21 +1,20 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import get from '../../../common/utils/get';
 
 import '../../../../../resources/dist/css/ln/components/table-horizontal-results.css';
 
-const TableHorizontalResults = ({
-    id,
-    className,
-    results,
-    date,
+function TableHorizontalResults({
+    id = '',
+    className = '',
+    results = [],
+    date = '',
     letters,
     isMeaning,
-    name,
+    name = '',
     meaning
-}) => {
+}) {
     const classes = `table-horizontal-results ${className}`;
     const formatIndex = index => (index < 10 ? `0${index}` : index);
     const meaningNumber = get(results, '[0].length') && results[0].slice(-2);
@@ -43,7 +42,7 @@ const TableHorizontalResults = ({
                                 {meaning}
                             </Text>
                         )}
-                        {letters.length !== 0 && (
+                        {letters && letters.length !== 0 && (
                             <Text weight="bold" size="4xs">
                                 {`Letras: ${letters}`}
                             </Text>
@@ -72,28 +71,6 @@ const TableHorizontalResults = ({
             </div>
         </div>
     );
-};
-
-TableHorizontalResults.propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    date: PropTypes.string,
-    letters: PropTypes.arrayOf(PropTypes.string),
-    isMeaning: PropTypes.bool,
-    name: PropTypes.string,
-    meaning: PropTypes.string,
-    results: PropTypes.arrayOf(PropTypes.string)
-};
-
-TableHorizontalResults.defaultProps = {
-    id: '',
-    className: '',
-    date: '',
-    letters: [],
-    isMeaning: false,
-    name: '',
-    meaning: '',
-    results: []
-};
+}
 
 export default TableHorizontalResults;

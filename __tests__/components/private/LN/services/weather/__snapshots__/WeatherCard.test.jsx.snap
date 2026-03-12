@@ -101,7 +101,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         class="icon --icon-48"
       >
         <mock-icon
-          critical="true"
+          critical=""
           name="sun"
         />
       </i>
@@ -150,7 +150,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         class="icon --icon-48"
       >
         <mock-icon
-          critical="true"
+          critical=""
           name="sun"
         />
       </i>
@@ -210,7 +210,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when ha
         class="icon --icon-48"
       >
         <mock-icon
-          critical="true"
+          critical=""
           name="sun"
         />
       </i>

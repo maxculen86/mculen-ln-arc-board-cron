@@ -1,7 +1,6 @@
 import React from 'react';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import ForecastByDay from '../../../private/LN/services/weather/ForecastByDay';
 import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
@@ -29,7 +28,5 @@ function WeatherForecast({ id: _featureId }) {
     );
 }
 WeatherForecast.label = 'LN Clima Pronostico';
-
-WeatherForecast.propTypes = { id: PropTypes.string.isRequired };
 
 export default WeatherForecast;

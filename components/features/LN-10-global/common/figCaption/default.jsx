@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
 
-function FigureCaption({ epigraphTitle, credit, className }) {
+function FigureCaption({ epigraphTitle = '', credit = '', className = '' }) {
     if (!epigraphTitle) return null;
     const classnames = cx(
         'border border-1 border-bottom border-light-300 relative px-16 py-8 min-h-36 w-100_md',
@@ -20,17 +19,5 @@ function FigureCaption({ epigraphTitle, credit, className }) {
         </figcaption>
     );
 }
-
-FigureCaption.propTypes = {
-    epigraphTitle: PropTypes.string,
-    credit: PropTypes.string,
-    className: PropTypes.string
-};
-
-FigureCaption.defaultProps = {
-    epigraphTitle: '',
-    credit: '',
-    className: ''
-};
 
 export default FigureCaption;

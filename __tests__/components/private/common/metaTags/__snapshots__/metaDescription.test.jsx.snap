@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LN - Common - MetaDescription MetaDescription nota snapshot 1`] = `
-<div>
-  <meta
-    content="Descripción Pruebaaaaa !!! - LA NACION"
-    name="description"
-  />
-</div>
+<meta
+  content="Descripción Pruebaaaaa !!! - LA NACION"
+  name="description"
+/>
 `;

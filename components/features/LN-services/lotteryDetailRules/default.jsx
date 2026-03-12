@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import ComText from '../../../private/common/text';
 import { games } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 import get from '../../../private/common/utils/get';
 
-const LotteryDetailRules = ({ id: featureId }) => {
+function LotteryDetailRules({ id: featureId }) {
     const lottery = get(
         useAppContext(),
         'globalContent.dataService.lotteryDetail',
@@ -40,10 +39,8 @@ const LotteryDetailRules = ({ id: featureId }) => {
             </div>
         </Static>
     );
-};
+}
 
 LotteryDetailRules.label = 'LN Loteria Detalle Reglas';
-
-LotteryDetailRules.propTypes = { id: PropTypes.string.isRequired };
 
 export default LotteryDetailRules;

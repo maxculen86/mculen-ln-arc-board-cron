@@ -1,33 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { preload } from 'react-dom';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
 function PreloadImages({ resizedUrls = [] }) {
     if (resizedUrls.length === 0) return null;
     const images = getImagesToLoadWithPicture(true, resizedUrls);
-
-    return images.map(({ mediaPreload, href } = {}) => (
-        <link
-            key={href}
-            rel="preload"
-            as="image"
-            fetchPriority="high"
-            media={mediaPreload}
-            href={href}
-        />
-    ));
+    images.forEach(({ mediaPreload, href } = {}) => {
+        if (!href) return;
+        preload(href, {
+            as: 'image',
+            fetchPriority: 'high',
+            ...(mediaPreload && { media: mediaPreload })
+        });
+    });
+    return null;
 }
-PreloadImages.propTypes = {
-    resizedUrls: PropTypes.arrayOf(
-        PropTypes.shape({
-            mediaPreload: PropTypes.string.isRequired,
-            href: PropTypes.string.isRequired
-        })
-    )
-};
-
-PreloadImages.defaultProps = {
-    resizedUrls: []
-};
 
 export default PreloadImages;

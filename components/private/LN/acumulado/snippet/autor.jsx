@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
@@ -84,23 +83,5 @@ function SnippetAutor({ globalContent = {} }) {
 
     return <SnippetRender data={data} />;
 }
-
-SnippetAutor.propTypes = {
-    globalContent: PropTypes.shape({
-        byline: PropTypes.string,
-        email: PropTypes.string,
-        longBio: PropTypes.string,
-        image: PropTypes.shape({
-            url: PropTypes.string
-        }),
-        awards: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string
-            })
-        ),
-        languages: PropTypes.string,
-        location: PropTypes.string
-    }).isRequired
-};
 
 export default SnippetAutor;

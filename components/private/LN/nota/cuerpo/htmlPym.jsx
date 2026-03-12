@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 import AnexoIframe from '../../acumulado/anexoIframe';
 
@@ -103,8 +102,7 @@ export const getChildren = (nodes, id) => {
         .filter(item => item != null);
 };
 
-function HtmlPym(props) {
-    const { data } = props;
+function HtmlPym({ data = { _id: '', content: '' } }) {
     const { content } = data || { content: null };
     const { _id: id } = data || '';
     const parser = useRef();
@@ -132,17 +130,5 @@ function HtmlPym(props) {
 
 HtmlPym.arcType = 'raw_html';
 HtmlPym.outputType = 'default';
-HtmlPym.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        content: PropTypes.string
-    })
-};
-HtmlPym.defaultProps = {
-    data: {
-        _id: '',
-        content: ''
-    }
-};
 
 export default HtmlPym;

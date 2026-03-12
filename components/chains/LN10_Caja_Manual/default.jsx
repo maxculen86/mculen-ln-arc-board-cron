@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -144,10 +142,6 @@ CajaManual.propTypes = {
     customFields: PropTypes.shape({
         ...setCommonCustomFields('cajaManual')
     }).isRequired
-};
-
-CajaManual.defaultProps = {
-    outputType: 'default'
 };
 
 export default Consumer(CajaManual);

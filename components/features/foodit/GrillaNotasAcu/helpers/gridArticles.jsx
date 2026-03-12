@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { createArticleList } from '.';
 
 export function GridArticlesFoodit({
@@ -12,12 +11,3 @@ export function GridArticlesFoodit({
         </div>
     );
 }
-GridArticlesFoodit.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.shape({})),
-    bookmarkedArticlesIds: PropTypes.arrayOf(PropTypes.string)
-};
-
-GridArticlesFoodit.defaultProps = {
-    articles: [],
-    bookmarkedArticlesIds: []
-};

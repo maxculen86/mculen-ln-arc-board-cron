@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { getViewport } from '../../../common/utils/homeHelper';
 
 import ModArticle from '../../../../common/mod-article';
@@ -12,7 +11,7 @@ import {
     getIsRenderAutor
 } from './noteCardHelper';
 
-const NoteCard = ({
+function NoteCard({
     article: content,
     articleProps,
     customFields,
@@ -28,7 +27,7 @@ const NoteCard = ({
     mobileImage,
     searchableField,
     isApertura
-}) => {
+}) {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
     );
@@ -107,59 +106,9 @@ const NoteCard = ({
                 mobileImage={mobileImage}
                 searchableField={searchableField}
             />
-        )) || <></>
+        )) ||
+        null
     );
-};
-
-NoteCard.propTypes = {
-    id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    article: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }).isRequired,
-        subheadlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        promo_items: PropTypes.shape({
-            basic: PropTypes.shape({
-                resized_urls: PropTypes.array
-            })
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.array
-        }),
-        display_date: PropTypes.string,
-        marquesina: PropTypes.string,
-        website_url: PropTypes.string
-    }).isRequired,
-    customFields: PropTypes.shape({
-        authors: PropTypes.string,
-        chapita: PropTypes.string,
-        chapitaStyle: PropTypes.string,
-        canonical_url: PropTypes.string,
-        description: PropTypes.string,
-        imageId: PropTypes.string,
-        isOpening: PropTypes.bool,
-        lead: PropTypes.string,
-        title: PropTypes.string
-    }),
-    isOpening: PropTypes.bool,
-    belongsTo: PropTypes.string,
-    layout: PropTypes.string
-};
-
-NoteCard.defaultProps = {
-    customFields: {
-        imageId: undefined,
-        lead: undefined,
-        title: undefined,
-        description: undefined,
-        authors: undefined
-    },
-    isOpening: undefined,
-    belongsTo: undefined,
-    layout: ''
-};
+}
 
 export default NoteCard;

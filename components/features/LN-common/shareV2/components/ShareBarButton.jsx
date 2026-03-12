@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 
 function ShareBarButton({
     children,
     size = 'inherit',
     isNegative = true,
-    onClick,
+    onClick = () => {},
     ...r
 }) {
     return (
@@ -21,18 +20,5 @@ function ShareBarButton({
         </Button>
     );
 }
-
-ShareBarButton.propTypes = {
-    children: PropTypes.node.isRequired,
-    onClick: PropTypes.func,
-    size: PropTypes.string,
-    isNegative: PropTypes.bool
-};
-
-ShareBarButton.defaultProps = {
-    onClick: () => {},
-    size: 'inherit',
-    isNegative: true
-};
 
 export default ShareBarButton;

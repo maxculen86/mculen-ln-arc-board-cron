@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import optionsIcons from './optionsIcons';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import { isValidNumber } from '../../../common/utils/dataValidation';
 
-const WeatherCard = ({ data } = {}) => {
+function WeatherCard({ data } = {}) {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
@@ -21,6 +20,7 @@ const WeatherCard = ({ data } = {}) => {
     return (
         <div className="weather-card">
             <div>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <Link link={link} title={`Ver clima en ${locationName}`}>
                     <Text tag="h2" size="--2xs" weight="bold">
                         {locationName}
@@ -58,6 +58,7 @@ const WeatherCard = ({ data } = {}) => {
             )}
             {link && (
                 <Text tag="h3" size="5xs">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link
                         link={link}
                         title={`Ver clima en ${locationName}`}
@@ -67,20 +68,6 @@ const WeatherCard = ({ data } = {}) => {
             )}
         </div>
     );
-};
-
-WeatherCard.propTypes = {
-    data: PropTypes.shape({
-        location_name: PropTypes.string,
-        link: PropTypes.string,
-        weather: PropTypes.shape({
-            id: PropTypes.string,
-            description: PropTypes.string
-        }),
-        current_temp: PropTypes.number,
-        temp_min: PropTypes.number,
-        temp_max: PropTypes.number
-    }).isRequired
-};
+}
 
 export default WeatherCard;

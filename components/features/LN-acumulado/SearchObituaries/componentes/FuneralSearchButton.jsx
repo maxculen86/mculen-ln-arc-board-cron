@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { cx } from '@ln/cva';
 
 function FuneralSearchButton({
     children,
-    className,
-    onClick,
+    className = '',
+    onClick = () => {},
     variant = 'primary',
     ...r
 }) {
@@ -21,18 +20,5 @@ function FuneralSearchButton({
         </Button>
     );
 }
-
-FuneralSearchButton.propTypes = {
-    children: PropTypes.node.isRequired,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    variant: PropTypes.string
-};
-
-FuneralSearchButton.defaultProps = {
-    onClick: () => {},
-    className: '',
-    variant: 'primary'
-};
 
 export default FuneralSearchButton;

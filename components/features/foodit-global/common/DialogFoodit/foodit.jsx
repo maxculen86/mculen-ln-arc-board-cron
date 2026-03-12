@@ -3,7 +3,6 @@ import { Dialog } from '@ln/common-ui-dialog';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
@@ -63,16 +62,3 @@ export function DialogFoodit({
         </Dialog>
     );
 }
-
-DialogFoodit.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    isSubscribed: PropTypes.bool.isRequired,
-    userType: PropTypes.string.isRequired,
-    classnames: PropTypes.shape({}).isRequired,
-    children: PropTypes.node
-};
-
-DialogFoodit.defaultProps = {
-    children: null
-};

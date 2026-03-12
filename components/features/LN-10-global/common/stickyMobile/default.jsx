@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@ln/cva';
 import { Dialog } from '@ln/common-ui-dialog';
 import { useStickyMobile } from './hooks/useStickyMobile';
@@ -100,33 +99,5 @@ export function StickyMobile({ articlesToShow, ...r }) {
         </Dialog>
     );
 }
-
-StickyMobile.propTypes = {
-    articlesToShow: PropTypes.arrayOf(
-        PropTypes.shape({
-            alt: PropTypes.string,
-            _id: PropTypes.string,
-            promo_items: PropTypes.shape({
-                basic: PropTypes.shape({
-                    url: PropTypes.string,
-                    resized_urls: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            resizedUrl: PropTypes.string,
-                            option: PropTypes.shape({
-                                width: PropTypes.number,
-                                height: PropTypes.number
-                            })
-                        })
-                    )
-                })
-            }),
-            website_url: PropTypes.string,
-            headlines: PropTypes.shape({
-                mobile: PropTypes.string,
-                basic: PropTypes.string
-            })
-        })
-    ).isRequired
-};
 
 export default StickyMobile;

@@ -1,7 +1,6 @@
 import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import React from 'react';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export function TagCategories({ tagLinks = [] }) {
@@ -36,12 +35,3 @@ export function TagCategories({ tagLinks = [] }) {
         </nav>
     );
 }
-
-TagCategories.propTypes = {
-    tagLinks: PropTypes.arrayOf(
-        PropTypes.shape({
-            href: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired
-        })
-    ).isRequired
-};

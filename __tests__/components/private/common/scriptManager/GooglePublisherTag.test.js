@@ -71,13 +71,21 @@ describe('GooglePublisherTag', () => {
 
     it('Builds the json object accordingly', () => {
         const { container } = render(<GooglePublisherTag {...props} />);
-        const scriptElements = container.querySelectorAll('script');
 
-        expect(scriptElements.length).toBe(2);
+        const asyncScript = document.head.querySelector(
+            'script[src*="gpt.js"]'
+        );
+        const metadataScript = container.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+
+        expect(asyncScript).toBeInTheDocument();
+        expect(metadataScript).toBeInTheDocument();
     });
 
     it('Includes the googlePublisherTag-metadata script in the DOM', () => {
         const { container } = render(<GooglePublisherTag {...props} />);
+        // In React 19, scripts with defer and other attributes stay in container
         const googlePublisherTagScript = container.querySelector(
             '#googlePublisherTag-metadata'
         );
@@ -86,6 +94,7 @@ describe('GooglePublisherTag', () => {
 
     it('Generates the correct new-tags', () => {
         const { container } = render(<GooglePublisherTag {...props} />);
+        // In React 19, scripts with defer and other attributes stay in container
         const googlePublisherTagScript = container.querySelector(
             '#googlePublisherTag-metadata'
         );

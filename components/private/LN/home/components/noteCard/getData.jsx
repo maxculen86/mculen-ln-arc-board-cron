@@ -1,5 +1,3 @@
-import PropTypes from 'fusion:prop-types';
-
 export const getLead = (customData, defaultData) =>
     (customData && customData.lead) ||
     (defaultData &&
@@ -12,31 +10,10 @@ export const getTitle = (customData, defaultData) =>
     (customData && customData.title) ||
     (defaultData && defaultData.headlines && defaultData.headlines.basic);
 
-getTitle.propTypes = {
-    defaultData: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        })
-    }),
-    customData: PropTypes.shape({
-        title: PropTypes.string
-    })
-};
-
 export const getSubhead = (customData, defaultData) =>
     (customData && customData.description) ||
     (defaultData && defaultData.subheadlines && defaultData.subheadlines.basic);
 
-getSubhead.propTypes = {
-    defaultData: PropTypes.shape({
-        subheadlines: PropTypes.shape({
-            basic: PropTypes.string
-        })
-    }),
-    customData: PropTypes.shape({
-        description: PropTypes.string
-    })
-};
 // TODO: aplicar resizer
 export const getImageId = (customData, defaultData) => {
     const customImage = customData && customData.imageId;
@@ -48,36 +25,13 @@ export const getImageId = (customData, defaultData) => {
     return customImage || defaultImage;
 };
 
-getImageId.propTypes = {
-    defaultData: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            basic: PropTypes.shape({
-                resized_urls: PropTypes.array
-            })
-        })
-    }),
-    customData: PropTypes.shape({
-        idImage: PropTypes.string
-    })
-};
-
 export const getAuthors = (customData, defaultData) =>
     (customData && customData.authors) ||
     (defaultData &&
         defaultData.credits &&
         defaultData.credits.by &&
+        // eslint-disable-next-line no-use-before-define
         getDefaultAuthors(defaultData.credits.by));
-
-getAuthors.propTypes = {
-    defaultData: PropTypes.shape({
-        credits: PropTypes.shape({
-            by: PropTypes.array
-        })
-    }),
-    customData: PropTypes.shape({
-        authors: PropTypes.string
-    })
-};
 
 export const getDefaultAuthors = authorList => {
     const authorMessage = authorList
@@ -98,9 +52,3 @@ export const getDefaultAuthors = authorList => {
 };
 
 export const getUrl = defaultData => defaultData && defaultData.canonical_url;
-
-getUrl.propTypes = {
-    defaultData: PropTypes.shape({
-        canonical_url: PropTypes.string
-    })
-};

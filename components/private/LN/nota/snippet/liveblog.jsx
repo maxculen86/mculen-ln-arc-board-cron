@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
@@ -123,34 +122,5 @@ function SnippetLiveblog(props) {
 
     return <SnippetRender id="Schema_LiveBlog" data={data} />;
 }
-
-SnippetLiveblog.propTypes = {
-    siteProperties: PropTypes.shape.isRequired,
-    globalContent: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    authors: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            _id: PropTypes.string,
-                            name: PropTypes.string,
-                            type: PropTypes.string,
-                            slug: PropTypes.string,
-                            url: PropTypes.string
-                        })
-                    )
-                })
-            )
-        }),
-        first_publish_date: PropTypes.string,
-        last_updated_date: PropTypes.string,
-        canonical_url: PropTypes.string
-    }).isRequired,
-    deployment: PropTypes.func.isRequired,
-    contextPath: PropTypes.string.isRequired
-};
 
 export default SnippetLiveblog;

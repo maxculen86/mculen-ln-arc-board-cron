@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/ds-cva';
 import ImageGrid from './ImageGrid';
@@ -75,28 +74,3 @@ function ImageGallery({
 }
 
 export default ImageGallery;
-
-const imageShape = PropTypes.shape({
-    url: PropTypes.string,
-    height: PropTypes.number,
-    width: PropTypes.number,
-    resized_urls: PropTypes.array
-});
-
-const videoShape = PropTypes.shape({
-    type: PropTypes.oneOf(['video']).isRequired,
-    id: PropTypes.string,
-    mp4: PropTypes.string.isRequired,
-    poster: PropTypes.string
-});
-
-ImageGallery.propTypes = {
-    galleryImages: PropTypes.arrayOf(
-        PropTypes.oneOfType([imageShape, videoShape])
-    ).isRequired,
-    caption: PropTypes.string.isRequired,
-    gridClass: PropTypes.string.isRequired,
-    containerClass: PropTypes.string.isRequired,
-    embedItemClass: PropTypes.string.isRequired,
-    aspectRatio: PropTypes.string.isRequired
-};

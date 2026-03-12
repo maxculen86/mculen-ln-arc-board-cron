@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import useGridArticlesLN from '../hooks/useGridArticles';
 import { shouldStoreArticles } from '../_helpers';
 import { LoadMoreButton } from './LoadMoreButton';
@@ -66,13 +65,3 @@ export function GrillaNotasClient({
         </>
     );
 }
-
-GrillaNotasClient.propTypes = {
-    id: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    isUltimasNoticias: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        name: PropTypes.string
-    }).isRequired
-};

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 
 export function NutritionalInfoCard({ title, cant, udm }) {
@@ -17,9 +16,3 @@ export function NutritionalInfoCard({ title, cant, udm }) {
         </article>
     );
 }
-
-NutritionalInfoCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    cant: PropTypes.string.isRequired,
-    udm: PropTypes.string.isRequired
-};

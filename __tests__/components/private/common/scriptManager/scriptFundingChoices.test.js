@@ -6,7 +6,7 @@ describe('components - private - common - scriptManager - FundingChoices', () =>
     it('should render the script tag with the correct attributes and content', () => {
         const { container } = render(<FundingChoices />);
 
-        const scriptTag = container.querySelector('script');
+        const scriptTag = container.querySelector('script:not([src])');
 
         const expectedScriptContent = `
         window.googlefc = window.googlefc || {};
@@ -15,6 +15,7 @@ describe('components - private - common - scriptManager - FundingChoices', () =>
         };
     `;
 
+        expect(scriptTag).toBeDefined();
         expect(scriptTag.innerHTML.trim()).toBe(expectedScriptContent.trim());
     });
 });

@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import Copyright from '../private/LN/common/footer/copyright';
@@ -8,7 +6,7 @@ import ComLogo from '../private/common/com-logo';
 
 import '../../resources/dist/css/ln/pages/error.css';
 
-const ErrorPage = props => {
+function ErrorPage(props) {
     const {
         deployment,
         contextPath,
@@ -103,15 +101,8 @@ const ErrorPage = props => {
             </footer>
         </div>
     );
-};
+}
 
 ErrorPage.sections = ['Mas-Notas'];
-
-ErrorPage.propTypes = {
-    siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    }).isRequired,
-    children: PropTypes.node.isRequired
-};
 
 export default Consumer(ErrorPage);

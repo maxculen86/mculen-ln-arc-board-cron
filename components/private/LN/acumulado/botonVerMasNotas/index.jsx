@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/com-button.css';
 
-function Button({ onClickHandler, name, loading, loadingIcon, textButton }) {
+function Button({
+    onClickHandler,
+    name,
+    loading = false,
+    loadingIcon,
+    textButton = ''
+}) {
     const notesName = name ? ` de ${name.toUpperCase()}` : '';
     return (
         <div className="col-12 --loader">
@@ -20,19 +25,5 @@ function Button({ onClickHandler, name, loading, loadingIcon, textButton }) {
         </div>
     );
 }
-
-Button.propTypes = {
-    name: PropTypes.string.isRequired,
-    loading: PropTypes.bool,
-    loadingIcon: PropTypes.node,
-    onClickHandler: PropTypes.func.isRequired,
-    textButton: PropTypes.string
-};
-
-Button.defaultProps = {
-    loading: false,
-    loadingIcon: undefined,
-    textButton: ''
-};
 
 export default Button;

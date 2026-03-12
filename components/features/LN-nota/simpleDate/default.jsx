@@ -1,10 +1,9 @@
 import React from 'react';
 import Static from 'fusion:static';
-import PropTypes from 'prop-types';
 import { dateVariants } from './styles';
 import dateAndTimeUtil from '../../../private/common/utils/dateAndTimeUtil';
 
-function SimpleDate({ dateTime, showTime, variant }) {
+function SimpleDate({ dateTime, showTime = true, variant = 'dark' }) {
     const { date, time } = dateAndTimeUtil(dateTime);
     const dateTimeItems = showTime ? [date, time] : [date];
     return (
@@ -21,14 +20,3 @@ function SimpleDate({ dateTime, showTime, variant }) {
 }
 
 export default SimpleDate;
-
-SimpleDate.propTypes = {
-    dateTime: PropTypes.string.isRequired,
-    showTime: PropTypes.bool,
-    variant: PropTypes.oneOf(['dark', 'light'])
-};
-
-SimpleDate.defaultProps = {
-    showTime: true,
-    variant: 'dark'
-};

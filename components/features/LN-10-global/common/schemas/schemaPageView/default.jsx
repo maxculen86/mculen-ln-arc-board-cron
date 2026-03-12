@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SnippetRender from '../../../../../private/common/snippet/snippetRender';
 import get from '../../../../../private/common/utils/get';
 import getPageType, {
@@ -16,15 +15,3 @@ export default function SchemaPageview({ globalContent, layout }) {
 
     return <SnippetRender data={schema[pagetype]} id="pageview" />;
 }
-
-SchemaPageview.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        subtype: PropTypes.string,
-        isListenable: PropTypes.bool,
-        content_restrictions: PropTypes.shape({
-            content_code: PropTypes.string
-        })
-    }).isRequired,
-    layout: PropTypes.string.isRequired
-};

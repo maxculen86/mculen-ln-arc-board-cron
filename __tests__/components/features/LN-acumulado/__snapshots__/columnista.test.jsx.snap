@@ -15,6 +15,7 @@ exports[`features - LaNacion - Acumulado - columnista should render columnist co
         <figure
           class="mod-figure --horizontal"
           role="button"
+          tabindex="0"
         >
           <a
             href="/autor/joaquin-morales-sola-51/"

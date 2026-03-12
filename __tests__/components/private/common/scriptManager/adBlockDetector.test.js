@@ -17,7 +17,9 @@ describe('components - private - common - scriptManager - adBlockDetector', () =
     it('renders a script tag with the correct src attribute', () => {
         const { container } = render(<AdblockDetector />);
 
-        const scriptTag = container.querySelector('script[defer]');
+        const scriptTag = container.querySelector(
+            'script[src*="scriptAdblockDetector"]'
+        );
 
         expect(scriptTag).toBeInTheDocument();
         expect(scriptTag).toHaveAttribute(

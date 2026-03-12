@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { DESCUBRIR_SECTIONS } from '../dataLayer/_helpers';
@@ -36,9 +35,3 @@ export function DrawerItems({ href, title, dynamicLabel }) {
         </div>
     );
 }
-
-DrawerItems.propTypes = {
-    href: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    dynamicLabel: PropTypes.string.isRequired
-};

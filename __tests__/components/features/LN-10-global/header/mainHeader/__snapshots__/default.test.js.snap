@@ -25,7 +25,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 class="icon --icon-24 --inherit"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="menu"
                 />
               </i>
@@ -44,7 +44,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 class="icon --icon-24 --inherit"
               >
                 <mock-icon
-                  critical="true"
+                  critical=""
                   name="search"
                 />
               </i>
@@ -247,7 +247,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="javascript:void(0);"
+                      href="javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
                       target="_self"
                       title="Cerrar sesión"
                     >
@@ -268,7 +268,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 class="icon --mobile-none --icon-16"
               >
                 <mock-icon
-                  color="true"
+                  color=""
                   name="subscriberInverted"
                 />
               </i>

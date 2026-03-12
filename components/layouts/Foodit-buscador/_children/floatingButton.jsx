@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Icon } from '@ln/common-ui-icon';
-import PropTypes from 'prop-types';
 import { SearchContext } from './searchContext';
 import FloatingGroupButton from '../../../features/foodit-global/common/floatingGroupButton/foodit';
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
@@ -31,9 +30,5 @@ function FloatingButton({ toggleDrawer }) {
         />
     );
 }
-
-FloatingButton.propTypes = {
-    toggleDrawer: PropTypes.func.isRequired
-};
 
 export default FloatingButton;

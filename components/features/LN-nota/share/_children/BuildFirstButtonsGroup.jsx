@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { VIAFOURA_UUID } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
@@ -181,32 +180,5 @@ function BuildFirtsButtonsGroup({
         </div>
     );
 }
-
-BuildFirtsButtonsGroup.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string,
-        first_publish_date: PropTypes.string,
-        headlines: PropTypes.shape({
-            basic: PropTypes.string,
-            mobile: PropTypes.string
-        }),
-        comments: PropTypes.shape({
-            display_comments: PropTypes.bool
-        }),
-        isListenable: PropTypes.bool
-    }).isRequired,
-    bookmark: PropTypes.string.isRequired,
-    setBookmark: PropTypes.func.isRequired,
-    toast: PropTypes.shape({
-        status: PropTypes.string,
-        description: PropTypes.string,
-        timeout: PropTypes.number
-    }).isRequired,
-    suscription: PropTypes.bool.isRequired,
-    termicaBookmark: PropTypes.bool.isRequired,
-    isNegative: PropTypes.bool.isRequired,
-    openBarrier: PropTypes.func.isRequired,
-    isHorizontal: PropTypes.bool.isRequired
-};
 
 export default BuildFirtsButtonsGroup;

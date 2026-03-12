@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import get from '../../../common/utils/get';
@@ -84,29 +83,5 @@ function SnippetHowTo({ globalContent }) {
 
     return <SnippetRender id="Schema_HowTo" data={data} />;
 }
-
-SnippetHowTo.propTypes = {
-    siteProperties: PropTypes.shape({
-        title: PropTypes.string
-    }).isRequired,
-    globalContent: PropTypes.shape({
-        type: PropTypes.string,
-        subtype: PropTypes.string,
-        canonical_url: PropTypes.string,
-        headlines: PropTypes.shape({
-            basic: PropTypes.string,
-            meta_title: PropTypes.string
-        }),
-        subheadlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                type: PropTypes.string,
-                subtype: PropTypes.string
-            })
-        )
-    }).isRequired
-};
 
 export default SnippetHowTo;

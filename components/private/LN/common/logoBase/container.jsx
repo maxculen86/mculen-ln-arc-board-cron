@@ -2,8 +2,7 @@ import React from 'react';
 
 import {
     dictionaryAlt,
-    getSectionLogo,
-    getAFondoLogo
+    getSectionLogo
 } from '../../../common/utils/sectionUtils';
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
@@ -16,13 +15,10 @@ function LogoBaseContainer({
     distributor,
     sponsored = false,
     advertiser = '',
-    tooltip = '',
-    tags = []
+    tooltip = ''
 }) {
     const { name: distributorName } = distributor || {};
-    const aFondoLogo = getAFondoLogo(tags, layout);
-    const sectionData =
-        aFondoLogo || getSectionLogo(sections, layout, distributorName);
+    const sectionData = getSectionLogo(sections, layout, distributorName);
 
     const { path, logoName, color, isExternal } = sectionData || {
         path: null,

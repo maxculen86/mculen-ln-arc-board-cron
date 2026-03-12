@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-nav.css';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
@@ -38,6 +37,7 @@ function HolidaysNav({ year, layout }) {
             </div>
             <ol className="year">
                 <li className={`--font-bold --fivexs${isActivePrevious}`}>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link
                         link={validateYear(previousYear)}
                         title={`Ir a feriados ${previousYear}`}
@@ -45,6 +45,7 @@ function HolidaysNav({ year, layout }) {
                     />
                 </li>
                 <li className={`--font-bold --fivexs${isActiveCurrent}`}>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link
                         link={validateYear(currentYear)}
                         title={`Ir a feriados ${currentYear}`}
@@ -52,6 +53,7 @@ function HolidaysNav({ year, layout }) {
                     />
                 </li>
                 <li className={`--font-bold --fivexs${isActivePosterior}`}>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link
                         link={validateYear(posteriorYear)}
                         title={`Ir a feriados ${posteriorYear}`}
@@ -62,10 +64,5 @@ function HolidaysNav({ year, layout }) {
         </div>
     );
 }
-
-HolidaysNav.propTypes = {
-    year: PropTypes.number.isRequired,
-    layout: PropTypes.oneOf(['home', 'month'])
-};
 
 export default HolidaysNav;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
-import PropTypes from 'prop-types';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import useApiGuard from '../../recetario/hooks/useApiGuard';
 
@@ -71,9 +70,3 @@ export function DropdownCard({ bookmarkId, onDelete, onMove }) {
         </Dropdown>
     );
 }
-
-DropdownCard.propTypes = {
-    bookmarkId: PropTypes.string.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    onMove: PropTypes.func.isRequired
-};

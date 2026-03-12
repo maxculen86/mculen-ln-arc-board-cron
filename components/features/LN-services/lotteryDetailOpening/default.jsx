@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import Text from '../../../private/common/text';
@@ -51,23 +50,16 @@ function LotteryDetailOpening() {
                 >
                     {reorderedLotteries.map(lot => {
                         const { id: lotteryId, winners_table } = lot;
-                        return (
+                        return !winners_table ? (
+                            <TableHorizontalResults key={lotteryId} {...lot} />
+                        ) : (
                             <>
-                                {!winners_table ? (
-                                    <TableHorizontalResults
-                                        key={lotteryId}
-                                        {...lot}
-                                    />
-                                ) : (
-                                    <>
-                                        <LotteryCard
-                                            key={lotteryId}
-                                            isDetail
-                                            {...lot}
-                                        />
-                                        <DetailsTable data={lot} />
-                                    </>
-                                )}
+                                <LotteryCard
+                                    key={lotteryId}
+                                    isDetail
+                                    {...lot}
+                                />
+                                <DetailsTable data={lot} />
                             </>
                         );
                     })}
@@ -90,7 +82,5 @@ function LotteryDetailOpening() {
 }
 
 LotteryDetailOpening.label = 'LN Loteria Detalle Apertura';
-
-LotteryDetailOpening.propTypes = { id: PropTypes.string.isRequired };
 
 export default LotteryDetailOpening;

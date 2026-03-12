@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import {
     HTMLLIBRE,
@@ -57,19 +56,5 @@ function ExternalSignature({ globalContent }) {
         </Static>
     );
 }
-
-ExternalSignature.propTypes = {
-    globalContent: PropTypes.shape({
-        distributor: PropTypes.shape({
-            name: PropTypes.string,
-            mode: PropTypes.string
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.array
-        }),
-        subtype: PropTypes.string,
-        withFirmaDistributor: PropTypes.bool
-    }).isRequired
-};
 
 export default ExternalSignature;

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -13,19 +12,19 @@ import PageBuilderMessage from '../../private/LN/home/common/components/pageBuil
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
 
-const CajaManual = props => {
+function CajaManual(props) {
     const {
         id: featureId,
         isAdmin,
         customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
-        outputType,
+        outputType = 'default',
         childProps,
         children,
         renderables = [],
         layout: pageLayout
     } = props;
 
-    if (hideCaja) return <></>;
+    if (hideCaja) return null;
 
     const {
         notesQuantity,
@@ -65,7 +64,7 @@ const CajaManual = props => {
         );
     }
 
-    if (error) return <></>;
+    if (error) return null;
 
     const Component = (
         <CajaTema
@@ -91,21 +90,17 @@ const CajaManual = props => {
             {Component}
         </Static>
     );
-};
+}
 
 CajaManual.label = 'LN Caja Manual';
 
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.string,
+    outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaManual')
     }).isRequired
-};
-
-CajaManual.defaultProps = {
-    outputType: 'default'
 };
 
 export default Consumer(CajaManual);

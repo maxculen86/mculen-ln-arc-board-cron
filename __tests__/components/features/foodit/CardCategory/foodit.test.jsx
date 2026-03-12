@@ -300,7 +300,7 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(screen.getByText('Test Title')).toBeInTheDocument();
 
         const img = container.querySelector('img');
-        expect(img).toHaveAttribute('src', '');
+        expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('alt', 'Foto de Test Title');
 
         expect(screen.getByRole('link')).toHaveAttribute(
@@ -309,7 +309,7 @@ describe('Components - features - foodit - CardCategory', () => {
         );
     });
 
-    it('should match snapshot with complete props', () => {
+    it('should render complete props with stable DOM assertions', () => {
         useContent.mockReturnValue(fooditCategoryImageSource);
         helpers.registerCardIndex.mockReturnValue(0);
 
@@ -327,6 +327,27 @@ describe('Components - features - foodit - CardCategory', () => {
         };
 
         const { container } = render(<CardCategory {...props} />);
-        expect(container.firstChild).toMatchSnapshot();
+
+        const card = container.querySelector(
+            '[data-test-id="carousel-category-card-snapshot-test-id"]'
+        );
+        expect(card).toHaveAttribute('data-label', '1');
+        expect(card).toHaveAttribute('data-button', 'Snapshot Title');
+        expect(card).toHaveAttribute('data-event', 'navbar');
+        expect(card).toHaveAttribute(
+            'data-interaction',
+            'dataLayerInteraction'
+        );
+
+        const link = screen.getByRole('link', { name: /snapshot title/i });
+        expect(link).toHaveAttribute('href', '/recetas');
+
+        const image = screen.getByRole('img', {
+            name: 'Foto de Snapshot Title'
+        });
+        expect(image).toHaveAttribute(
+            'src',
+            'https://sandbox-resizer.glanacion.com/resizer/v2/E74GZJYWCBEBRBQY4JKVS2UYZA.jpg?auth=c9fd48c08e2932ae4055beea8a378eb28a7555181528b1a5479d4ca745fab031&width=150&height=150&quality=85&smart=true'
+        );
     });
 });

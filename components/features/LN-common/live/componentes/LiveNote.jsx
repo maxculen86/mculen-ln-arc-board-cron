@@ -1,10 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
 import { targetUrlRedirect } from '../../../../chains/utils/targetUrlRedirect';
 
-function LiveNote({ children, title, url = '', timeSinceUpdate, ...r }) {
+function LiveNote({
+    children,
+    title = '',
+    url = '',
+    timeSinceUpdate = '',
+    ...r
+}) {
     const Wrapper = url ? Link : 'div';
     const wrapperprops = url
         ? { href: url, title, target: targetUrlRedirect(url) }
@@ -40,18 +45,5 @@ function LiveNote({ children, title, url = '', timeSinceUpdate, ...r }) {
         </li>
     );
 }
-
-LiveNote.propTypes = {
-    children: PropTypes.node.isRequired,
-    title: PropTypes.string,
-    url: PropTypes.string,
-    timeSinceUpdate: PropTypes.string
-};
-
-LiveNote.defaultProps = {
-    title: '',
-    url: '',
-    timeSinceUpdate: ''
-};
 
 export default LiveNote;

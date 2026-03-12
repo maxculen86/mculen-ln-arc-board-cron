@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Text from '../../../common/text';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 import { isEmptyString } from '../../../common/utils/dataValidation';
 import transformISODate from '../../../common/utils/transformISODate';
 
-const BajadaNota = props => {
+function BajadaNota(props) {
     const {
         globalContent: {
             subheadlines: { basic = '' },
@@ -26,14 +25,6 @@ const BajadaNota = props => {
             text={subtype === VIDEO ? subtitleVideo : subtitle}
         />
     );
-};
-
-BajadaNota.propTypes = {
-    globalContent: PropTypes.shape({
-        subheadlines: PropTypes.shape({
-            basic: PropTypes.string
-        }).isRequired
-    }).isRequired
-};
+}
 
 export default BajadaNota;

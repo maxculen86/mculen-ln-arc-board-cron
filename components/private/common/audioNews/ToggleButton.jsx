@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
@@ -92,10 +91,5 @@ function ToggleButton({ isSummary, handleToggle }) {
         </div>
     );
 }
-
-ToggleButton.propTypes = {
-    isSummary: PropTypes.bool.isRequired,
-    handleToggle: PropTypes.func.isRequired
-};
 
 export default ToggleButton;

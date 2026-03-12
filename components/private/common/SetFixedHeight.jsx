@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default function SetFixedHeight({
     elementId,
-    heightMobile,
-    heightTablet,
-    heightDesktop
+    heightMobile = 0,
+    heightTablet = 0,
+    heightDesktop = 0
 }) {
     return (
         <style>
@@ -22,16 +21,3 @@ export default function SetFixedHeight({
         </style>
     );
 }
-
-SetFixedHeight.propTypes = {
-    elementId: PropTypes.string.isRequired,
-    heightMobile: PropTypes.number,
-    heightTablet: PropTypes.number,
-    heightDesktop: PropTypes.number
-};
-
-SetFixedHeight.defaultProps = {
-    heightMobile: 0,
-    heightTablet: 0,
-    heightDesktop: 0
-};

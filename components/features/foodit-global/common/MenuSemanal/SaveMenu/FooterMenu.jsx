@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 
 export function FooterMenu({ onClose, saveMenuWeekly, isDisabled }) {
@@ -25,9 +24,3 @@ export function FooterMenu({ onClose, saveMenuWeekly, isDisabled }) {
         </div>
     );
 }
-
-FooterMenu.propTypes = {
-    onClose: PropTypes.func.isRequired,
-    saveMenuWeekly: PropTypes.func.isRequired,
-    isDisabled: PropTypes.bool.isRequired
-};

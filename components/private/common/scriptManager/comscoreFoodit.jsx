@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function ComscoreFoodit({ config, configNoScript, location = 'head' }) {
     if (!config || !configNoScript) return null;
@@ -41,11 +40,5 @@ function ComscoreFoodit({ config, configNoScript, location = 'head' }) {
         </>
     );
 }
-
-ComscoreFoodit.propTypes = {
-    config: PropTypes.shape({}).isRequired,
-    configNoScript: PropTypes.shape({}).isRequired,
-    location: PropTypes.string.isRequired
-};
 
 export default ComscoreFoodit;

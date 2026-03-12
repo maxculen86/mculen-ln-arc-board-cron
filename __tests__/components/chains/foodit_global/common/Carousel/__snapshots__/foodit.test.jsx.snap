@@ -89,33 +89,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC111"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC111"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC111"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC111"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -198,33 +194,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC222"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC222"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC222"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC222"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -291,33 +283,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     Por Maru Botana
                   </span>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC333"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC333"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC333"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC333"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -400,33 +388,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC444"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC444"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC444"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC444"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -509,33 +493,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC555"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC555"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC555"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC555"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -618,33 +598,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC666"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC666"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC666"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC666"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -711,33 +687,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     Por Maru Botana
                   </span>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC777"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC777"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC777"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC777"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -804,33 +776,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     Por Emilio Ocampo
                   </span>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC888"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC888"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC888"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC888"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -913,33 +881,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC999"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC999"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC999"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC999"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -1022,33 +986,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC0000"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC0000"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC0000"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC0000"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -1136,33 +1096,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCC000"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCC000"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCC000"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCC000"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>
@@ -1250,33 +1206,29 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     </span>
                   </div>
                 </div>
-                <div
-                  class="flex ai-center"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-father-type="carousel"
+                  data-id="AAABBBCCD111"
+                  data-modal="open-modal"
+                  data-test-id="button-bookmark-AAABBBCCD111"
+                  data-variant="link"
+                  title="Guardar receta"
                 >
-                  <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                    data-father-type="carousel"
-                    data-id="AAABBBCCD111"
-                    data-modal="open-modal"
-                    data-test-id="button-bookmark-AAABBBCCD111"
-                    data-variant="link"
-                    title="Guardar receta"
+                  <i
+                    class="icon w-24 --dark"
                   >
-                    <i
-                      class="icon w-24 --dark"
-                    >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    <span
-                      class="uppercase none"
-                    >
-                      Guardar
-                    </span>
-                  </button>
-                </div>
+                    <mock-icon
+                      critical=""
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
+                </button>
               </div>
             </div>
           </a>

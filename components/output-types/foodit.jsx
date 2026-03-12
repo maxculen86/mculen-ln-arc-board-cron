@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -177,21 +176,4 @@ function Foodit({
     );
 }
 
-Foodit.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    Libs: PropTypes.node.isRequired,
-    Fusion: PropTypes.node.isRequired,
-    layout: PropTypes.string.isRequired,
-    renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
-    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
-    siteProperties: PropTypes.isRequired,
-    arcSite: PropTypes.string.isRequired,
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired,
-    metaValue: PropTypes.func.isRequired,
-    isAdmin: PropTypes.boolean.isRequired,
-    template: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired
-};
 export default Foodit;

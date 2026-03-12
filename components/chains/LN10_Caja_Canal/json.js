@@ -9,6 +9,7 @@ class CajaCanal extends GetCajaCollection {
         super(props, null);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     validate = (propsValidate, articles) => {
         const {
             id: chainId,
@@ -40,7 +41,11 @@ class CajaCanal extends GetCajaCollection {
                 return null;
             }
 
-            const { id: chainId, renderables = [], customFields: propsForRoof = {} } = this.props || {};
+            const {
+                id: chainId,
+                renderables = [],
+                customFields: propsForRoof = {}
+            } = this.props || {};
 
             const viewabilityRoof = getViewabilityRoof(
                 chainId,
@@ -48,7 +53,11 @@ class CajaCanal extends GetCajaCollection {
                 propsForRoof
             );
 
-            return this.renderResponse({ ...this.props, viewabilityRoof }, elements, containerImage);
+            return this.renderResponse(
+                { ...this.props, viewabilityRoof },
+                elements,
+                containerImage
+            );
         } catch (err) {
             return { Success: false, Message: err.message };
         }

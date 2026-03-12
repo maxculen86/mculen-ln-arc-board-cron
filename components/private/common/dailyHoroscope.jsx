@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { removeAccents } from './utils/dailyHoroscopeHelper';
 import getAssetsPath from './utils/getAssetsPath';
 import Text from './text/index';
@@ -8,7 +7,12 @@ import Image from './com-image';
 
 import '../../../resources/dist/css/ln/components/daily-horoscope.css';
 
-const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
+function DailyHoroscope({
+    classCondition = '',
+    data,
+    deployment,
+    contextPath
+}) {
     const {
         nombre = '',
         periodo = '',
@@ -46,6 +50,7 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
                     {autor && (
                         <Text tag="p" extraClass="text" size="--fourxs">
                             Por{' '}
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <Link
                                 link="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
                                 title=""
@@ -76,27 +81,6 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
             </main>
         </article>
     );
-};
-
-DailyHoroscope.propTypes = {
-    classCondition: PropTypes.string,
-    data: PropTypes.shape({
-        nombre: PropTypes.string,
-        detalle: PropTypes.string,
-        periodo: PropTypes.string,
-        autor: PropTypes.string,
-        elementos: PropTypes.shape({
-            Amor: PropTypes.string,
-            Riqueza: PropTypes.string,
-            Bienestar: PropTypes.string
-        })
-    }).isRequired,
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired
-};
-
-DailyHoroscope.defaultProps = {
-    classCondition: ''
-};
+}
 
 export default DailyHoroscope;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 import ComFigure from '../../../../common/com-figure';
 import ModPicture from '../../../../common/mod-picture';
@@ -15,12 +14,28 @@ import { replaceAllUrlsResizerObject } from '../../../common/utils/mediaHelper';
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 
-function Component(props) {
-    const {
+function Component({
+    storytellingData = {
+        apertura: {
+            src: '',
+            srcset: '',
+            altText: '',
+            video: '',
+            caption: '',
+            credit: ''
+        }
+    },
+    globalContent,
+    withoutVideoBackground = false,
+    ...restProps
+}) {
+    const { headlines, subtype } = globalContent;
+    const props = {
         storytellingData,
-        globalContent: { headlines, subtype },
-        withoutVideoBackground
-    } = props;
+        globalContent,
+        withoutVideoBackground,
+        ...restProps
+    };
     const isMobile = get(storytellingData, 'apertura.isMobile', false);
     const [data, setData] = useState(
         isMobile || subtype === FOTOAL100 || withoutVideoBackground
@@ -70,43 +85,5 @@ function Component(props) {
         </section>
     );
 }
-
-Component.propTypes = {
-    outputType: PropTypes.string.isRequired,
-    screenUtils: PropTypes.shape({
-        device: PropTypes.string
-    }).isRequired,
-    storytellingData: PropTypes.shape({
-        apertura: PropTypes.shape({
-            src: PropTypes.string,
-            srcset: PropTypes.string,
-            altText: PropTypes.string,
-            video: PropTypes.string,
-            caption: PropTypes.string,
-            credit: PropTypes.string
-        })
-    }),
-    globalContent: PropTypes.shape({
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        subtype: PropTypes.string
-    }).isRequired,
-    withoutVideoBackground: PropTypes.bool
-};
-
-Component.defaultProps = {
-    storytellingData: {
-        apertura: {
-            src: '',
-            srcset: '',
-            altText: '',
-            video: '',
-            caption: '',
-            credit: ''
-        }
-    },
-    withoutVideoBackground: false
-};
 
 export default WithStorytellingData(Component);

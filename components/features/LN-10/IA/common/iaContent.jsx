@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Text } from '@ln/contenidos-ui-text';
-import PropTypes from 'prop-types';
 import DisclaimerIA from '../../../LN-10-global/common/disclaimerIa/default';
 import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
 
@@ -42,21 +41,4 @@ function IaContent({ id, contentData = [], className = '' }) {
         </div>
     );
 }
-IaContent.propTypes = {
-    id: PropTypes.string.isRequired,
-    contentData: PropTypes.oneOfType([
-        PropTypes.arrayOf(
-            PropTypes.shape({
-                key: PropTypes.string,
-                value: PropTypes.string
-            })
-        ),
-        PropTypes.arrayOf(PropTypes.string)
-    ]).isRequired,
-    className: PropTypes.string
-};
-
-IaContent.defaultProps = {
-    className: ''
-};
 export default IaContent;

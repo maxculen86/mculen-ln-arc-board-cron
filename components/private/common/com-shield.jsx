@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ComLink from './com-link';
 import SvgDefaultShield from './sportShields/svgDefaultShield';
 import ComImage from './com-image';
 
-const ComShield = props => {
-    const { src, link, nameShield } = props;
+function ComShield({ src = '', link = '', nameShield = '' }) {
     if (!src && !link) return null;
     return (
         <ComLink classCondition="--shield" link={link}>
@@ -22,18 +20,6 @@ const ComShield = props => {
             )}
         </ComLink>
     );
-};
-
-ComShield.propTypes = {
-    src: PropTypes.string,
-    link: PropTypes.string,
-    nameShield: PropTypes.string
-};
-
-ComShield.defaultProps = {
-    src: '',
-    link: '',
-    nameShield: ''
-};
+}
 
 export default ComShield;

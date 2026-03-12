@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import GlobalProvider from '../../private/common/context/globalContext';
 import NotaVideo100 from './components/notaVideo100';
 
@@ -26,9 +25,5 @@ const pageBuilderSections = [
 ];
 
 LnNotaVideo100.sections = pageBuilderSections;
-
-LnNotaVideo100.propTypes = {
-    children: PropTypes.node.isRequired
-};
 
 export default Consumer(LnNotaVideo100);

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import checkIsApertura from '../common/utils/checkIsApertura';
@@ -91,26 +90,5 @@ function ArticlesAcum({
         </ModRowGap>
     );
 }
-
-ArticlesAcum.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
-    getBanner: PropTypes.func.isRequired,
-    typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string,
-    classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    nodeType: PropTypes.string.isRequired,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.object).isRequired,
-    hasChainBeforeGrid: PropTypes.bool.isRequired,
-    hasCollectionApertura: PropTypes.bool.isRequired,
-    isWiki: PropTypes.bool.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    hideSubheaderText: PropTypes.bool.isRequired,
-    openBarrier: PropTypes.func.isRequired
-};
-
-ArticlesAcum.defaultProps = {
-    classCondition: '',
-    outputType: 'default'
-};
 
 export default ArticlesAcum;

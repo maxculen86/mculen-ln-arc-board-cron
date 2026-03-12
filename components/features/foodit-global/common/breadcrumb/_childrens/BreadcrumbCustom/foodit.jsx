@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SITE_FOODIT } from 'fusion:environment';
 import Static from 'fusion:static';
 
@@ -9,7 +8,7 @@ import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import { Link } from '@ln/foodit-ui-link';
 import capitalizeFirstLetter from '../../../../../../private/common/utils/capitalizeFirstLetter';
 
-function BreadcrumbCustomFoodit({ className, sectionsCustom = [] }) {
+function BreadcrumbCustomFoodit({ className = '', sectionsCustom = [] }) {
     const sections = [
         {
             name: 'Foodit',
@@ -57,15 +56,5 @@ function BreadcrumbCustomFoodit({ className, sectionsCustom = [] }) {
         </Static>
     );
 }
-
-BreadcrumbCustomFoodit.propTypes = {
-    sectionsCustom: PropTypes.arrayOf(PropTypes.shape({})),
-    className: PropTypes.string
-};
-
-BreadcrumbCustomFoodit.defaultProps = {
-    sectionsCustom: [],
-    className: ''
-};
 
 export default BreadcrumbCustomFoodit;

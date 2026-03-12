@@ -14,7 +14,7 @@ function splitObjectForLogging(obj, maxSize = 20000) {
     return parts;
 }
 
-const resolveVersions = (query) => {
+const resolveVersions = query => {
     const version = get(query, 'versionUri', 1);
     const rawDeploy = get(query, 'versionDeploy', null);
     const match = String(rawDeploy).match(/\d+/);
@@ -22,11 +22,11 @@ const resolveVersions = (query) => {
     return {
         version,
         versionDeploy: match ? match[0] : null,
-        useCachedCall: get(query, 'useCachedCall', 'true') !== 'false',
+        useCachedCall: get(query, 'useCachedCall', 'true') !== 'false'
     };
 };
 
-const resolveTicks = (query) => {
+const resolveTicks = query => {
     const raw = get(query, 'ticks', null);
     return raw ? raw.replace('/', '') : '';
 };
@@ -35,24 +35,30 @@ const configPages = {
     home: {
         aliasPage: '/homepage',
         transformPage: transformv1,
-        transformHome: homev2,
+        transformHome: homev2
     },
     bitacora: {
         aliasPage: '/homepage',
-        transformPage: transformBitacorav1,
+        transformPage: transformBitacorav1
     },
     default: {
         transformPage: transformv1,
-        transformHome: homev2,
-    },
+        transformHome: homev2
+    }
 };
 
-const resolvePageConfig = (alias) => {
+const resolvePageConfig = alias => {
     if (configPages[alias]) return configPages[alias];
     return { ...configPages.default, aliasPage: `/${alias}` };
 };
 
-const buildQueryParams = ({ aliasPage, ticksCache, website, versionDeploy, cookie }) => {
+const buildQueryParams = ({
+    aliasPage,
+    ticksCache,
+    website,
+    versionDeploy,
+    cookie
+}) => {
     if (!SITE_LANACION) throw new Error('Variable SITE_LANACION missing');
 
     return {
@@ -64,19 +70,27 @@ const buildQueryParams = ({ aliasPage, ticksCache, website, versionDeploy, cooki
         website,
         isPage: true,
         versionDeploy,
-        cookie,
+        cookie
     };
 };
 
-const fetchPage = async ({ useCachedCall, cachedCall, key, queryParams, executionSteps }) => {
-    executionSteps.push(`execute page fetch - query: ${JSON.stringify(queryParams)}`);
+const fetchPage = async ({
+    useCachedCall,
+    cachedCall,
+    key,
+    queryParams,
+    executionSteps
+}) => {
+    executionSteps.push(
+        `execute page fetch - query: ${JSON.stringify(queryParams)}`
+    );
 
     if (!useCachedCall) {
         console.warn(
             JSON.stringify({
                 name: 'BackendLnWarn',
                 customType: 'apiPageHomeSource',
-                log_details: { message: 'se ejecuto el fetch sin cachedCall' },
+                log_details: { message: 'se ejecuto el fetch sin cachedCall' }
             })
         );
         return pages.fetch(queryParams);
@@ -89,11 +103,16 @@ const fetchPage = async ({ useCachedCall, cachedCall, key, queryParams, executio
     return cachedCall(key, pages.fetch, {
         query: queryParams,
         ttl: 120,
-        independent: true,
+        independent: true
     });
 };
 
-const handlePageHomeError = (error, resultPage, executionSteps, queryParams = {}) => {
+const handlePageHomeError = (
+    error,
+    resultPage,
+    executionSteps,
+    queryParams = {}
+) => {
     const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`;
 
     if (resultPage) {
@@ -106,8 +125,8 @@ const handlePageHomeError = (error, resultPage, executionSteps, queryParams = {}
                     log_details: {
                         logId: guid,
                         part: `${idx + 1}/${parts.length}`,
-                        page: part,
-                    },
+                        page: part
+                    }
                 })
             );
         });
@@ -123,8 +142,8 @@ const handlePageHomeError = (error, resultPage, executionSteps, queryParams = {}
                 executionSteps,
                 message: `Error content/apiPageHomeSource QueryParams: ${JSON.stringify(
                     queryParams
-                )} errorMsj: ${error.message}`,
-            },
+                )} errorMsj: ${error.message}`
+            }
         })
     );
 
@@ -151,18 +170,19 @@ const fetch = async (query, { cachedCall } = {}) => {
             ticksCache,
             website: get(query, 'website', null),
             versionDeploy,
-            cookie: get(query, 'useCookie', null),
+            cookie: get(query, 'useCookie', null)
         });
 
-        const keyCachedCall = `ApiPageHome${alias}${ticksCache ? `_${ticksCache}` : ''
-            }`;
+        const keyCachedCall = `ApiPageHome${alias}${
+            ticksCache ? `_${ticksCache}` : ''
+        }`;
 
         resultPage = await fetchPage({
             useCachedCall,
             cachedCall,
             key: keyCachedCall,
             queryParams,
-            executionSteps,
+            executionSteps
         });
 
         if (!resultPage) {
@@ -178,7 +198,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             homeFetchDate,
             keyCachedCall,
             ticksCache,
-            apiPageHomeSourceFetchDate,
+            apiPageHomeSourceFetchDate
         };
 
         const transformedPage = configItemPage.transformPage
@@ -192,7 +212,12 @@ const fetch = async (query, { cachedCall } = {}) => {
         const home = configItemPage.transformHome(transformedPage, queryParams);
         return Array.isArray(home) ? home[0] : home;
     } catch (error) {
-        handlePageHomeError(error, resultPage, executionSteps, queryParams);
+        return handlePageHomeError(
+            error,
+            resultPage,
+            executionSteps,
+            queryParams
+        );
     }
 };
 
@@ -205,7 +230,7 @@ export default {
         ticks: 'text',
         versionDeploy: 'text',
         useCookie: 'text',
-        useCachedCall: 'boolean',
+        useCachedCall: 'boolean'
     },
-    ttl: 120,
+    ttl: 120
 };

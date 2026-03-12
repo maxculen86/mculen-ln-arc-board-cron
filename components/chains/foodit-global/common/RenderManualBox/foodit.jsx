@@ -1,21 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { LAYOUTS } from '../utils/helper-WebApi';
 import { FocalOnePlusFour } from './components/FocalOnePlusFour';
 
-function BNFocal1({ cards }) {
+function BNFocal1({ cards = [] }) {
     return cards;
 }
 
-BNFocal1.propTypes = {
-    cards: PropTypes.arrayOf(PropTypes.node)
-};
-
-BNFocal1.defaultProps = {
-    cards: []
-};
-
-function BN2Grid({ boxType, cards }) {
+function BN2Grid({ boxType, cards = [] }) {
     return (
         <div
             className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
@@ -25,15 +16,6 @@ function BN2Grid({ boxType, cards }) {
         </div>
     );
 }
-
-BN2Grid.propTypes = {
-    boxType: PropTypes.string.isRequired,
-    cards: PropTypes.arrayOf(PropTypes.node)
-};
-
-BN2Grid.defaultProps = {
-    cards: []
-};
 
 const componentsByLayout = {
     [LAYOUTS.BN_FOCAL_1]: BNFocal1,
@@ -49,15 +31,5 @@ function RenderManualBox({ layout, boxType, cards = [] }) {
 
     return <LayoutComponent boxType={boxType} cards={cards} />;
 }
-
-RenderManualBox.propTypes = {
-    layout: PropTypes.oneOf(Object.values(LAYOUTS)).isRequired,
-    boxType: PropTypes.string.isRequired,
-    cards: PropTypes.arrayOf(PropTypes.node)
-};
-
-RenderManualBox.defaultProps = {
-    cards: []
-};
 
 export default RenderManualBox;

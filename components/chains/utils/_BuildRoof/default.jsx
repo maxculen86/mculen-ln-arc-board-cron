@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { Roof } from '@ln/contenidos-ui-roof';
@@ -12,17 +11,17 @@ import { targetUrlRedirect } from '../targetUrlRedirect';
 export default function BuildRoof(props) {
     const {
         title,
-        titleLink,
+        titleLink = '',
         logo,
-        logoId,
-        buttonLogo,
-        buttonText,
-        linkButton,
-        buttonStyle,
-        chainStyle: chainStyleUncheked,
-        hideRoof,
+        logoId = '',
+        buttonLogo = '',
+        buttonText = '',
+        linkButton = '',
+        buttonStyle = '',
+        chainStyle: chainStyleUncheked = 'generic',
+        hideRoof = false,
         links,
-        navigationId,
+        navigationId = '',
         isAdmin,
         isAFondo,
         textProps

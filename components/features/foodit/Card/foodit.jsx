@@ -124,7 +124,7 @@ function CardFoodit({ id: featureId, customFields }) {
                     showTime={Boolean(time)}
                     time={time}
                     linksProps={{ href, title }}
-                    size={!isOpening && size}
+                    size={!isOpening ? size : undefined}
                     container={isOpening ? containerConfig : 'grid'}
                     variant={isDayRecipeVariant ? 'day-recipe' : variant}
                     loading={isOpening ? 'eager' : 'lazy'}

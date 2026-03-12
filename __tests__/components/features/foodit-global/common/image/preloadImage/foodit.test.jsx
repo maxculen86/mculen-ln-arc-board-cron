@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { preload } from 'react-dom';
 import PreloadFooditImages from '../../../../../../../components/features/foodit-global/common/image/preloadImage/foodit';
 import {
     getHomeOpeningImages,
@@ -35,6 +36,11 @@ jest.mock(
         getImagesToLoadWithPicture: jest.fn()
     })
 );
+
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
+}));
 
 let mockEjesHomeMock = [
     {
@@ -121,20 +127,16 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
             }
         ]);
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
-        expect(linkElements).toHaveLength(mockCombinedImages.length);
-
+        expect(preload).toHaveBeenCalledTimes(mockCombinedImages.length);
         mockCombinedImages.forEach((image, index) => {
-            expect(linkElements[index]).toHaveAttribute('href', image.href);
-            expect(linkElements[index]).toHaveAttribute('rel', 'preload');
-            expect(linkElements[index]).toHaveAttribute('as', 'image');
-            expect(linkElements[index]).toHaveAttribute(
-                'fetchpriority',
-                'high'
-            );
-            expect(linkElements[index]).toHaveAttribute(
-                'media',
-                image.mediaPreload
+            expect(preload).toHaveBeenNthCalledWith(
+                index + 1,
+                image.href,
+                expect.objectContaining({
+                    as: 'image',
+                    fetchPriority: 'high',
+                    media: image.mediaPreload
+                })
             );
         });
     });
@@ -181,8 +183,7 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
                 mockOpeningUrls
             );
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
-            expect(linkElements).toHaveLength(1);
+            expect(preload).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -225,13 +226,10 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
             expect(getHomeOpeningImages).toHaveBeenCalled();
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
-            expect(linkElements.length).toBeGreaterThan(0);
-
-            const posterLink = linkElements.find(link =>
-                link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
+            expect(preload).toHaveBeenCalledWith(
+                expect.stringContaining('foodit.lanacion.com.ar'),
+                expect.any(Object)
             );
-            expect(posterLink).toBeInTheDocument();
         });
 
         it('should use external resizer domain for video poster when isInApertura is false', () => {
@@ -266,15 +264,10 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
             expect(getHomeOpeningImages).toHaveBeenCalled();
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
-            expect(linkElements.length).toBeGreaterThan(0);
-
-            const posterLink = linkElements.find(link =>
-                link
-                    .getAttribute('href')
-                    ?.includes('sandbox-resizer.glanacion.com')
+            expect(preload).toHaveBeenCalledWith(
+                expect.stringContaining('sandbox-resizer.glanacion.com'),
+                expect.any(Object)
             );
-            expect(posterLink).toBeInTheDocument();
         });
 
         it('should have fetchPriority="high" for video poster preload in apertura', () => {
@@ -303,14 +296,13 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
                 />
             );
 
-            const linkElements = screen.getAllByRole('link', { hidden: true });
-            const videoPosterLink = linkElements.find(link =>
-                link.getAttribute('href')?.includes('foodit.lanacion.com.ar')
+            expect(preload).toHaveBeenCalledWith(
+                expect.stringContaining('foodit.lanacion.com.ar'),
+                expect.objectContaining({
+                    as: 'image',
+                    fetchPriority: 'high'
+                })
             );
-
-            expect(videoPosterLink).toHaveAttribute('fetchpriority', 'high');
-            expect(videoPosterLink).toHaveAttribute('rel', 'preload');
-            expect(videoPosterLink).toHaveAttribute('as', 'image');
         });
     });
 
@@ -339,20 +331,16 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
         expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, mockUrls);
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
-        expect(linkElements).toHaveLength(mockImages.length);
-
+        expect(preload).toHaveBeenCalledTimes(mockImages.length);
         mockImages.forEach((image, index) => {
-            expect(linkElements[index]).toHaveAttribute('href', image.href);
-            expect(linkElements[index]).toHaveAttribute('rel', 'preload');
-            expect(linkElements[index]).toHaveAttribute('as', 'image');
-            expect(linkElements[index]).toHaveAttribute(
-                'fetchpriority',
-                'high'
-            );
-            expect(linkElements[index]).toHaveAttribute(
-                'media',
-                image.mediaPreload
+            expect(preload).toHaveBeenNthCalledWith(
+                index + 1,
+                image.href,
+                expect.objectContaining({
+                    as: 'image',
+                    fetchPriority: 'high',
+                    media: image.mediaPreload
+                })
             );
         });
     });
@@ -362,8 +350,7 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
 
         render(<PreloadFooditImages layout="unknown-layout" />);
 
-        const linkElements = screen.queryAllByRole('link', { hidden: true });
-        expect(linkElements).toHaveLength(0);
+        expect(preload).not.toHaveBeenCalled();
     });
 
     it('renders PreloadImages with URLs from imagesToPreload fallback when not in componentRequiredLayouts', () => {
@@ -388,7 +375,6 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
             'Foodit-recipe-paywall'
         );
 
-        const linkElements = screen.getAllByRole('link', { hidden: true });
-        expect(linkElements).toHaveLength(1);
+        expect(preload).toHaveBeenCalledTimes(1);
     });
 });

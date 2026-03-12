@@ -1,11 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import { replaceAllUrlsResizerObject } from '../common/utils/mediaHelper';
 
-const NotaApertura = props => {
+function NotaApertura(props) {
     const ARTICLE_TYPE = 'Grilla';
     const DATA_SECTION = 'AperturaAcu';
     const { outputType, articlesInCollection = [] } = props;
@@ -30,19 +29,6 @@ const NotaApertura = props => {
             ))}
         </ModRowGap>
     );
-};
-
-NotaApertura.propTypes = {
-    articlesInCollection: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string
-        })
-    ).isRequired,
-    outputType: PropTypes.string
-};
-
-NotaApertura.defaultProps = {
-    outputType: 'default'
-};
+}
 
 export default NotaApertura;

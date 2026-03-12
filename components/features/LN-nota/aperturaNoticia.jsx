@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Media from '../../private/LN/common/media';
 import BuildScriptForZoom from '../../private/LN/common/utils/BuildScriptForZoom';
@@ -64,20 +63,5 @@ function AperturaNoticia(props) {
 }
 
 AperturaNoticia.label = 'LN-Nota-AperturaNoticia';
-
-AperturaNoticia.propTypes = {
-    outputType: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            basic: PropTypes.object
-        }),
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        subtype: PropTypes.string,
-        content_elements: PropTypes.arrayOf(PropTypes.shape())
-    }).isRequired,
-    layout: PropTypes.string.isRequired
-};
 
 export default Consumer(AperturaNoticia);

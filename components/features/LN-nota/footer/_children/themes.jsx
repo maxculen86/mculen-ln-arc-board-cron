@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useDisclosure } from '@ln/hooks';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
@@ -82,15 +81,5 @@ function Themes({ globalContent }) {
         </div>
     );
 }
-
-Themes.propTypes = {
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            tags: PropTypes.arrayOf(PropTypes.shape()),
-            sections: PropTypes.arrayOf(PropTypes.shape())
-        }),
-        subtype: PropTypes.string
-    }).isRequired
-};
 
 export default Themes;

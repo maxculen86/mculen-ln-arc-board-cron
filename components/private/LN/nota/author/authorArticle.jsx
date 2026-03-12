@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/author.css';
 
 const authorArticle = ({
@@ -30,22 +29,6 @@ const authorArticle = ({
             ))}
         </>
     );
-};
-
-authorArticle.propTypes = {
-    globalContent: PropTypes.shape({
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    _id: PropTypes.string,
-                    name: PropTypes.string,
-                    type: PropTypes.string,
-                    slug: PropTypes.string,
-                    url: PropTypes.string
-                })
-            )
-        })
-    }).isRequired
 };
 
 export default authorArticle;

@@ -1,18 +1,17 @@
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 
-const TagsLoadingList = ({
-    arcSite: website,
-    location,
-    section,
+function TagsLoadingList({
+    arcSite: website = 'la-nacion-ar',
+    location = 'body-bottom',
+    section = '',
     Tag,
-    globalContent
-}) => {
+    globalContent = {}
+}) {
     const { contextPath, deployment } = useAppContext();
     const resp = useContent({
         sourceName: 'navigationTreeSource',
@@ -28,15 +27,13 @@ const TagsLoadingList = ({
         staticMode: true
     });
 
-    if (!Tag) return <></>;
+    if (!Tag) return null;
 
     return resp.map((scriptConfig, index) => {
         try {
             const scriptData = JSON.parse(scriptConfig);
-            const {
-                location: _location = 'body-bottom',
-                section: _section
-            } = scriptData;
+            const { location: _location = 'body-bottom', section: _section } =
+                scriptData;
 
             Object.keys(scriptData).forEach(jsonAttr => {
                 const wordValidation = 'validate';
@@ -70,31 +67,20 @@ const TagsLoadingList = ({
             delete scriptData.section;
 
             const sectionActive = section === _section || _section === 'all';
+            const uniqueKey = `${_location}-${_section}-${scriptData.src || scriptConfig.substring(0, 50)}-${index}`;
 
             return (
                 sectionActive &&
-                location === _location && <Tag {...scriptData} key={index} />
+                location === _location && (
+                    <Tag {...scriptData} key={uniqueKey} />
+                )
             );
         } catch (error) {
             // Agregar DataDog
             console.log('🚀 ~ file: tagsLoadingList ~ error');
-            return <></>;
+            return null;
         }
     });
-};
-
-TagsLoadingList.propTypes = {
-    arcSite: PropTypes.string,
-    Tag: PropTypes.string,
-    location: PropTypes.string,
-    section: PropTypes.string
-};
-
-TagsLoadingList.defaultProps = {
-    section: '',
-    arcSite: 'la-nacion-ar',
-    globalContent: {},
-    location: 'body-bottom'
-};
+}
 
 export default TagsLoadingList;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+
 import { useAppContext } from 'fusion:context';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
@@ -15,7 +15,12 @@ import CardInfo from './cardInfo';
 import LoginSubscribeButtons from '../SubscribeLoginButton/foodit';
 import { useNavigationData } from '../Header/hooks/useNavigationData';
 
-function EmptyState({ variant, className, direction = 'row', comesFrom }) {
+function EmptyState({
+    variant = '',
+    className = '',
+    direction = 'row',
+    comesFrom = ''
+}) {
     const { isSubscribed } = useGetUserConfig();
     const { contextPath, deployment, layout } = useAppContext();
     const directionEmptyState = direction === 'row';
@@ -99,19 +104,5 @@ function EmptyState({ variant, className, direction = 'row', comesFrom }) {
         </div>
     );
 }
-
-EmptyState.propTypes = {
-    variant: PropTypes.string,
-    direction: PropTypes.string,
-    className: PropTypes.string,
-    comesFrom: PropTypes.string
-};
-
-EmptyState.defaultProps = {
-    variant: '',
-    direction: 'row',
-    className: '',
-    comesFrom: ''
-};
 
 export default EmptyState;

@@ -15,6 +15,7 @@ exports[`components - private - LN - nota - cuerpo Matches snapshot 1`] = `
           <figure
             class="mod-figure --horizontal"
             role="button"
+            tabindex="0"
           >
             <div
               class="placeholder "
@@ -64,6 +65,7 @@ exports[`components - private - LN - nota - cuerpo Matches snapshot 1`] = `
         <figure
           class="mod-figure --horizontal"
           role="button"
+          tabindex="0"
         >
           <div
             class="placeholder "

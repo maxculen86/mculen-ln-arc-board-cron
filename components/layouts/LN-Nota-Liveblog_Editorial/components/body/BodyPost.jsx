@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { useDisclosure } from '@ln/hooks';
@@ -97,16 +96,5 @@ function BodyPost({
         </div>
     );
 }
-
-BodyPost.propTypes = {
-    id: PropTypes.string.isRequired,
-    isPinned: PropTypes.bool.isRequired,
-    children: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({}).isRequired,
-    isExpandable: PropTypes.bool.isRequired,
-    headerProps: PropTypes.shape({}).isRequired,
-    expandableProps: PropTypes.shape({}).isRequired
-};
 
 export default BodyPost;

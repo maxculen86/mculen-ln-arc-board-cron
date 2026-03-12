@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { useWindowSize } from '@ln/hooks';
 import { Button } from '@ln/common-ui-button';
@@ -60,15 +59,5 @@ function AudioPlayer({ noteId = '', audioPlayerProps = {}, showVariantIa }) {
         buildAudioPlayer
     );
 }
-
-AudioPlayer.propTypes = {
-    noteId: PropTypes.string.isRequired,
-    audioPlayerProps: PropTypes.shape({
-        onCloseAudioPlayer: PropTypes.func.isRequired,
-        isOpenAudioPlayer: PropTypes.bool.isRequired,
-        setEnableButton: PropTypes.func.isRequired
-    }).isRequired,
-    showVariantIa: PropTypes.bool.isRequired
-};
 
 export default AudioPlayer;

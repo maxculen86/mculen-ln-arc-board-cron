@@ -6,14 +6,14 @@ module.exports = {
         jest: true
     },
     settings: {
-        react: { version: '18.2.0' }
+        react: { version: '19.2.0' }
     },
     extends: ['airbnb', 'prettier'],
     parserOptions: {
         ecmaFeatures: {
             jsx: true
         },
-        ecmaVersion: 2021,
+        ecmaVersion: 2022,
         sourceType: 'module'
     },
     plugins: ['prettier'],

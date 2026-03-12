@@ -14,11 +14,9 @@ describe('BreadcrumbSchema', () => {
             { name: 'Columnistas', path: '/opinion/columnistas' }
         ];
 
-        const { container } = render(
-            <BreadcrumbSchema sections={[...sections]} />
-        );
+        render(<BreadcrumbSchema sections={[...sections]} />);
 
-        const script = container.querySelector(
+        const script = document.querySelector(
             'script[type="application/ld+json"]'
         );
 
@@ -48,11 +46,9 @@ describe('BreadcrumbSchema', () => {
             { name: 'Opinión "Especial"', path: '/opinion' }
         ];
 
-        const { container } = render(
-            <BreadcrumbSchema sections={[...sections]} />
-        );
+        render(<BreadcrumbSchema sections={[...sections]} />);
 
-        const script = container.querySelector(
+        const script = document.querySelector(
             'script[type="application/ld+json"]'
         );
 
@@ -66,11 +62,9 @@ describe('BreadcrumbSchema', () => {
             { name: 'Subsección', path: '/estados-unidos/sub' }
         ];
 
-        const { container } = render(
-            <BreadcrumbSchema sections={[...sections]} />
-        );
+        render(<BreadcrumbSchema sections={[...sections]} />);
 
-        const script = container.querySelector(
+        const script = document.querySelector(
             'script[type="application/ld+json"]'
         );
         const json = JSON.parse(script.innerHTML);
@@ -87,11 +81,9 @@ describe('BreadcrumbSchema', () => {
             { name: '   ', path: '/section' }
         ];
 
-        const { container } = render(
-            <BreadcrumbSchema sections={[...sections]} />
-        );
+        render(<BreadcrumbSchema sections={[...sections]} />);
 
-        const script = container.querySelector(
+        const script = document.querySelector(
             'script[type="application/ld+json"]'
         );
 
@@ -105,11 +97,9 @@ describe('BreadcrumbSchema', () => {
             { name: undefined, path: '/section' }
         ];
 
-        const { container } = render(
-            <BreadcrumbSchema sections={[...sections]} />
-        );
+        render(<BreadcrumbSchema sections={[...sections]} />);
 
-        const script = container.querySelector(
+        const script = document.querySelector(
             'script[type="application/ld+json"]'
         );
         const json = JSON.parse(script.innerHTML);
