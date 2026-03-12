@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { act, waitFor } from '@testing-library/react';
-import useFetchSearchResults from '../../../../../components/layouts/Foodit-buscador/hooks/useFetchSearchResults';
+import useFetchSearchResults from '../../../../../components/features/foodit-global/Queryly/hooks/useFetchSearchResults';
 
 global.fetch = jest.fn();
 jest.spyOn(console, 'error').mockImplementation(() => {});

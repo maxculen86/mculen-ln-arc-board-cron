@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import useFilterState from '../../../../../components/layouts/Foodit-buscador/hooks/useFilter';
+import useFilterState from '../../../../../components/features/foodit-global/Queryly/hooks/useFilter';
 
 describe('Tests - hooks - foodit-buscador - useFilterState', () => {
     it('should initialize filters correctly', () => {

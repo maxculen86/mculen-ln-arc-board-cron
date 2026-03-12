@@ -8,7 +8,8 @@ export function ButtonSearch({
     isListening,
     startListening,
     inputValue,
-    urlSearch
+    startSearch,
+    loading
 }) {
     const handleVoiceSearchClick = () => {
         startListening();
@@ -30,7 +31,8 @@ export function ButtonSearch({
                     variant="primary"
                     style={{ padding: '8px' }}
                     className="p-8 mr-16"
-                    href={urlSearch}
+                    onClick={startSearch}
+                    loading={loading}
                 >
                     <Icon size={16}>
                         <IconSprite fill="#ffffff" name="search" />

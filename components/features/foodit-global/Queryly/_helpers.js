@@ -1,4 +1,4 @@
-import { getHighestPriorityTag } from '../../features/foodit-global/common/utils/notaFooditHelper';
+import { getHighestPriorityTag } from '../common/utils/notaFooditHelper';
 
 export const getQueryForFilters = (filters = {}) => {
     const categorysGroup = Object.keys(filters).join('|');

@@ -4,7 +4,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
 <div>
   <div>
     <section
-      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg"
     >
       <img
         alt="Logo Foodit"
@@ -15,7 +15,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
         src="undefined/pf/resources/images/logo-404.png"
       />
       <div
-        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md md:text-left"
       >
         <p
           class="text prumo prumo-medium text-24 text-light-800"
@@ -23,7 +23,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
           ¡Uppps! Contenido en preparación
         </p>
         <p
-          class="text text-16 text-light-600"
+          class="text text-16 text-light-600 text-center md:text-left"
         >
           <span>
             <span
@@ -53,10 +53,10 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
 <div>
   <div>
     <section
-      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg"
     >
       <div
-        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md md:text-left"
       >
         <p
           class="text prumo prumo-medium text-24 text-light-800"
@@ -64,7 +64,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-600"
+          class="text text-16 text-light-600 text-center md:text-left"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -76,7 +76,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
           class="relative w-max"
         >
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg min-h-32 min-h-40_lg"
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
@@ -101,10 +101,10 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
 <div>
   <div>
     <section
-      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg"
     >
       <div
-        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md md:text-left"
       >
         <p
           class="text prumo prumo-medium text-24 text-light-800"
@@ -112,7 +112,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-600"
+          class="text text-16 text-light-600 text-center md:text-left"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -124,7 +124,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
           class="relative w-max"
         >
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg min-h-32 min-h-40_lg"
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
@@ -149,7 +149,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
 <div>
   <div>
     <section
-      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg"
     >
       <img
         alt="¡Aún no hay nada por acá!"
@@ -160,7 +160,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
         src="undefined/pf/resources/images/empty-state-recetario.webp"
       />
       <div
-        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md md:text-left"
       >
         <p
           class="text prumo prumo-medium text-24 text-light-800"
@@ -168,7 +168,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           ¡Aún no hay nada por acá!
         </p>
         <p
-          class="text text-16 text-light-600"
+          class="text text-16 text-light-600 text-center md:text-left"
         >
           <span>
             Presioná el botón
@@ -191,7 +191,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           class="relative w-max"
         >
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg min-h-32 min-h-40_lg"
             data-button="buttonSubscribeText"
             data-event="subscription_start"
             data-interaction="dataLayerInteraction"
@@ -216,7 +216,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
 <div>
   <div>
     <section
-      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg"
+      class="flex ai-center px-24 px-32_lg flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg"
     >
       <img
         alt="¡Aún no hay nada por acá!"
@@ -227,7 +227,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
         src="undefined/pf/resources/images/empty-state-recetario.webp"
       />
       <div
-        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md"
+        class="flex flex-column gap-8 text-center flex-grow-1 ai-center ai-start_md text-start_md md:text-left"
       >
         <p
           class="text prumo prumo-medium text-24 text-light-800"
@@ -235,7 +235,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
           ¡Nada por acá!
         </p>
         <p
-          class="text text-16 text-light-600"
+          class="text text-16 text-light-600 text-center md:text-left"
         >
           <span
             class="roboto text-16 text-light-600 text-center"

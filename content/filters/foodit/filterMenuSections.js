@@ -14,6 +14,7 @@ export default `
             show_nutritional_info
             subscribe_button_header_text
             hide_subscribe_button_foodit
+            hide_chat_ia_foodit
         },
         children {
             ${childrenFilter}

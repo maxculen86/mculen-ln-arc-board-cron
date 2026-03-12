@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
+import { useAppContext } from 'fusion:context';
 import FiltersGroup from './filtersGroup';
 import { SearchContext } from './searchContext';
 import Chips from './chips';
-import { SkeletonFaceteddata } from '../../../features/foodit-global/common/skeletons/Buscador/faceteddata';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import { SkeletonFaceteddata } from '../../common/skeletons/Buscador/faceteddata';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { transformedFilterNames, checkStateCheckbox } from '../_helpers';
 
 export default function FilterBox({ toggleDrawer }) {
@@ -23,7 +24,9 @@ export default function FilterBox({ toggleDrawer }) {
     const classNameChips = cx(
         `flex flex-wrap gap-8 pb-0_lg ${appliedFilters.length > 0 ? 'pb-24' : ''}`
     );
-
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
+    const isLayoutChatIa = layout === layoutsName.FooditChatIA;
     const aplicatedWithValues = appliedFilters.map(item => {
         const matchedChild = listFilters
             .flatMap(list => list.childrens)
@@ -43,6 +46,12 @@ export default function FilterBox({ toggleDrawer }) {
             child => !filtradosKeys.has(child.key)
         )
     }));
+
+    const hasFilterOptions = listFilters?.some(
+        f => (f?.childrens?.length ?? f?.children?.length ?? 0) > 0
+    );
+
+    if (!loading && !hasFilterOptions && isLayoutChatIa) return null;
 
     return (
         <aside

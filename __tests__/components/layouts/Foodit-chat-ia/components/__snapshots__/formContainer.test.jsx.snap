@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormContainer should match snapshot 1`] = `
+<div>
+  <div
+    class="border-2 border-secondary-lighten text-base-default rounded-sm focus-within:ring-transparent"
+    data-disabled="true"
+    data-testid="thread-input"
+  >
+    <input
+      data-testid="thread-native-input"
+      disabled=""
+      placeholder="Continuá preguntándole a Foodit"
+    />
+    <div
+      data-testid="adornment"
+    >
+      <button
+        data-testid="send-button"
+        disabled=""
+        type="submit"
+      >
+        <span
+          data-testid="icon"
+        >
+          send-ia
+        </span>
+      </button>
+    </div>
+    <div
+      data-testid="helpertext"
+    >
+      Respuestas basadas en el contenido de Foodit. Te recomendamos verificar siempre las fuentes.
+    </div>
+  </div>
+</div>
+`;

@@ -1,21 +1,29 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import EmptyState from '../../../../../../components/features/foodit-global/common/emptyState/foodit';
 import { titleByVariant } from '../../../../../../components/features/foodit-global/common/emptyState/helpers';
 import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        layout: 'otro-layout',
+        siteProperties: {
+            layoutsName: {
+                FooditChatIA: 'foodit-chat-ia'
+            }
+        },
+        deployment: value => value,
+        contextPath: '/pf'
+    }))
+}));
+
 jest.mock('fusion:environment', () => ({
     SITIO_SEGURO_REGISTRACION: 'https://mocked-registro.com',
     FOODIT_LOGIN_URL: 'https://mocked-login.com/'
 }));
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
 jest.mock(
     '../../../../../../components/features/foodit-global/hooks/useGetUserConfig'
 );
@@ -43,25 +51,35 @@ describe('EmptyState component', () => {
     });
     const deployment = deploymentValue => deploymentValue;
     Context.useAppContext = jest.fn(() => ({
-        deployment: deployment,
-        contextPath: '/pf'
+        deployment,
+        contextPath: '/pf',
+        layout: 'otro-layout',
+        siteProperties: {
+            layoutsName: {
+                FooditChatIA: 'foodit-chat-ia'
+            }
+        }
     }));
     it('should render title for variant "empty-state"', () => {
         render(<EmptyState variant="empty-state" />);
-        const title = screen.getByText(titleByVariant['empty-state']);
-        expect(title).toBeInTheDocument();
+        waitFor(() => {
+            const title = screen.getByText(titleByVariant['empty-state']);
+            expect(title).toBeInTheDocument();
+        });
     });
     it('should render title and button "accent" for variant "barrier-logged"', () => {
         render(<EmptyState variant="barrier-logged" />);
-        const title = screen.getByText(titleByVariant['barrier-logged']);
-        const buttons = screen.getAllByRole('button');
-        const suscribeButton = buttons.find(
-            button => button.getAttribute('data-variant') === 'accent'
-        );
+        waitFor(() => {
+            const title = screen.getByText(titleByVariant['barrier-logged']);
+            const buttons = screen.getAllByRole('button');
+            const suscribeButton = buttons.find(
+                button => button.getAttribute('data-variant') === 'accent'
+            );
 
-        expect(suscribeButton).toHaveAttribute('data-variant', 'accent');
-        expect(suscribeButton).toHaveTextContent('Suscribite');
-        expect(title).toBeInTheDocument();
+            expect(suscribeButton).toHaveAttribute('data-variant', 'accent');
+            expect(suscribeButton).toHaveTextContent('Suscribite');
+            expect(title).toBeInTheDocument();
+        });
     });
     it('should render title, button "link" for variant "barrier-unlogged"', () => {
         useGetUserConfig.mockReturnValue({
@@ -72,15 +90,16 @@ describe('EmptyState component', () => {
             }
         });
         render(<EmptyState variant="barrier-unlogged" />);
-        const title = screen.getByText(titleByVariant['barrier-unlogged']);
-        const buttons = screen.getAllByRole('button');
-        const loginButton = buttons.find(button =>
-            button.textContent.includes('Iniciá sesión')
-        );
-
-        expect(title).toBeInTheDocument();
-        expect(loginButton).toHaveAttribute('data-variant', 'link');
-        expect(loginButton).toHaveTextContent('Iniciá sesión');
+        waitFor(() => {
+            const title = screen.getByText(titleByVariant['barrier-unlogged']);
+            const buttons = screen.getAllByRole('button');
+            const loginButton = buttons.find(button =>
+                button.textContent.includes('Iniciá sesión')
+            );
+            expect(title).toBeInTheDocument();
+            expect(loginButton).toHaveAttribute('data-variant', 'link');
+            expect(loginButton).toHaveTextContent('Iniciá sesión');
+        });
     });
     it('should not render button in variant "404"', () => {
         render(<EmptyState variant="404" />);

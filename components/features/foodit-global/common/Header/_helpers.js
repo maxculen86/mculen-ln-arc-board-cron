@@ -1,4 +1,4 @@
-import { SITE_FOODIT } from 'fusion:environment';
+import { SITE_FOODIT, API_IA_FOODIT } from 'fusion:environment';
 
 const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
@@ -80,3 +80,56 @@ export default function transformMenuData({
 
     return menuItems;
 }
+
+export const searchFood = async ({ query, userId, accessToken }) => {
+    const response = await fetch(`${API_IA_FOODIT}/api/search`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-authorization': `${accessToken}`
+        },
+        body: JSON.stringify({
+            query,
+            user_id: userId
+        })
+    });
+
+    const responseSearch = await response.json();
+    return responseSearch;
+};
+
+export const createSessionChat = async ({ accessToken }) => {
+    const response = await fetch(`${API_IA_FOODIT}/api/session`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-authorization': `${accessToken}`
+        }
+    });
+
+    const sessionResponse = await response.json();
+
+    if (!sessionResponse.session_id) {
+        throw new Error('Error obteniendo sessión');
+    }
+
+    return sessionResponse;
+};
+
+export const sendChatMessage = async ({ sessionId, message, accessToken }) => {
+    const response = await fetch(`${API_IA_FOODIT}/api/chat`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-authorization': `${accessToken}`
+        },
+        body: JSON.stringify({
+            session_id: sessionId,
+            message
+        })
+    });
+
+    const chatMessageResponse = await response.json();
+
+    return chatMessageResponse;
+};

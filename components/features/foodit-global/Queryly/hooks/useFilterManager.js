@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
-import getQueryParamValue from '../../../private/common/utils/getQueryParamValue';
+import getQueryParamValue from '../../../../private/common/utils/getQueryParamValue';
 import { getQueryForFilters } from '../_helpers';
 import useFilterState from './useFilter';
 import useFetchSearchResults from './useFetchSearchResults';
@@ -17,9 +17,12 @@ const useFilterManager = () => {
         'query',
         `${SITE_FOODIT}/${requestUri}`
     );
+
     const concatFilters = useMemo(() => getQueryForFilters(filters), [filters]);
 
     const [sort, setSort] = useState('relevance');
+
+    // queryly buscador si no hay nada no mostrar el empty ...sino mostrar nada vacio ...solo blanco (no mostrar componente)
 
     const { loading, data } = useFetchSearchResults({
         queryUrl,

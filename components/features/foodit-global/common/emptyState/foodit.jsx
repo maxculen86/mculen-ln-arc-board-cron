@@ -22,7 +22,13 @@ function EmptyState({
     comesFrom = ''
 }) {
     const { isSubscribed } = useGetUserConfig();
-    const { contextPath, deployment, layout } = useAppContext();
+    const { contextPath, deployment, layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
+
+    if (layout === layoutsName.FooditChatIA && comesFrom !== 'ChatIA') {
+        return null;
+    }
+
     const directionEmptyState = direction === 'row';
     const barrierEmptyState =
         variant === 'barrier-unlogged' || variant === 'barrier-logged';
@@ -31,7 +37,7 @@ function EmptyState({
     const containerClassNames = cx(
         'flex ai-center px-24 px-32_lg',
         {
-            'flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24 p-32_lg':
+            'flex-column flex-row_md gap-32 gap-24_md gap-32_lg p-24_md p-32_lg':
                 direction === 'row'
         },
         { 'flex-column gap-24': direction === 'column' },
@@ -41,7 +47,7 @@ function EmptyState({
         'flex flex-column gap-8 text-center',
         { 'ai-center ': direction === 'column' },
         {
-            'flex-grow-1 ai-center ai-start_md text-start_md':
+            'flex-grow-1 ai-center ai-start_md text-start_md md:text-left':
                 direction === 'row'
         }
     );
@@ -71,13 +77,17 @@ function EmptyState({
                     >
                         {titleByVariant[variant]}
                     </Text>
-                    <Text as="p" className="text-16 text-light-600">
+                    <Text
+                        as="p"
+                        className="text-16 text-light-600 text-center md:text-left"
+                    >
                         {descriptionByVariant({ layout, variant })}
                     </Text>
                 </div>
                 {shouldRenderButtons && (
                     <div className="flex ai-center gap-24">
                         <LoginSubscribeButtons
+                            classNameButtons="min-h-32 min-h-40_lg"
                             loginClassName="roboto roboto-bold"
                             comesFrom={comesFrom}
                             termicasData={termicasData}
