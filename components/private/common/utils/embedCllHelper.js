@@ -5,7 +5,8 @@ const VALID_EMBEDS_TYPES = [
     'isStandingsTable',
     'isMatchDetail',
     'isAnnualTable',
-    'isAverageTable'
+    'isAverageTable',
+    'isFixture'
 ];
 
 function buildEmbedCll(data = {}) {
