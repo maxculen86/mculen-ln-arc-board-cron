@@ -17,10 +17,12 @@ function Distributor({ name, mode, subcategory, shouldShowDistributor }) {
                         title={name}
                         color="black"
                     >
-                        <strong>{name}</strong>
+                        <strong className="text ln-text text-16">{name}</strong>
                     </LinkUI>
                     {subcategory.length > 0 && name === 'EL PAIS' && (
-                        <strong>{subcategory}</strong>
+                        <span className="text ln-text text-12 text-neutral-light-800">
+                            {subcategory}
+                        </span>
                     )}
                 </div>
             )}

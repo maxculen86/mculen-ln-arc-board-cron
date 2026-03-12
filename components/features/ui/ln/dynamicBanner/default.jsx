@@ -41,7 +41,7 @@ function DynamicBanner({ bannerConfiguration }) {
     } = bannerConfiguration;
 
     const wrapperBodyClassName = cx('w-auto', {
-        'h-600 flex md:hidden h-600': device === 'mobile',
+        'h-600 flex md:hidden': device === 'mobile',
         'h-300 hidden xl:flex': device === 'desktop'
     });
     const bannerWrapperClassName = cx(
