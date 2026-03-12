@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { setEventsRoof } from '../../../../../../components/private/common/utils/eventsHelper';
 
 const getMockRoof = ({ childrenLeft, childrenRight = [] }) => {
@@ -55,22 +55,24 @@ describe('should register in dataLayer the click event of the logo with the alt 
         window.dataLayer = [];
     });
 
-    test('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
+    test('should register in dataLayer the click event of the logo with the alt of the image as description', async () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithImage('left') }));
         setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
-        expect(
-            window.dataLayer[0].dynamic_label.includes('programas')
-        ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
-            'caja_programas'
-        );
+        await waitFor(() => {
+            expect(
+                window.dataLayer[0].dynamic_label.includes('programas')
+            ).toBeTruthy();
+            expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+                'caja_programas'
+            );
+        });
     });
 
-    test('Should record in datalayer the text of the span as description.', () => {
+    test('Should record in datalayer the text of the span as description.', async () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithoutImage('left') }));
 
         setEventsRoof();
@@ -78,14 +80,18 @@ describe('should register in dataLayer the click event of the logo with the alt 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
-        expect(
-            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
-        ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
-            'caja_ultimas_noticias'
-        );
-        expect(window.dataLayer[0].event).toStrictEqual('e_linkclick');
-        expect(window.dataLayer[0].dynamic_category).toStrictEqual('home_ln10');
+        await waitFor(() => {
+            expect(
+                window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
+            ).toBeTruthy();
+            expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+                'caja_ultimas_noticias'
+            );
+            expect(window.dataLayer[0].event).toStrictEqual('e_linkclick');
+            expect(window.dataLayer[0].dynamic_category).toStrictEqual(
+                'home_ln10'
+            );
+        });
     });
 
     test('You should not record anything in datalayer when there are no links', () => {
@@ -112,7 +118,7 @@ describe('should register in dataLayer the click event of the logo with the alt 
         expect(window.dataLayer).toStrictEqual([]);
     });
 
-    test('Of the right group, only the button should register.', () => {
+    test('Of the right group, only the button should register.', async () => {
         render(
             getMockRoof({
                 childrenRight: [
@@ -127,13 +133,14 @@ describe('should register in dataLayer the click event of the logo with the alt 
 
         links.forEach(link => fireEvent.click(link));
 
-        expect(window.dataLayer).toHaveLength(1);
-
-        expect(
-            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
-        ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
-            'caja_ultimas_noticias'
-        );
+        await waitFor(() => {
+            expect(window.dataLayer).toHaveLength(1);
+            expect(
+                window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
+            ).toBeTruthy();
+            expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+                'caja_ultimas_noticias'
+            );
+        });
     });
 });

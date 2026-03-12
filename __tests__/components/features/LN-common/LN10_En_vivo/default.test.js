@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Live from '../../../../../components/features/LN-common/LN10_En_Vivo/default';
 import { useContent } from 'fusion:content';
@@ -165,14 +165,17 @@ describe('Tests - feature - EnVivo', () => {
             expect(topic.getAttribute('href')).toEqual('lanacion.com.ar');
         });
 
-        test('should register in dataLayer the click events of each link', () => {
+        test('should register in dataLayer the click events of each link', async () => {
             let eventsHelper = new EventsHelper();
 
             render(<Live {...props} />);
             eventsHelper.setEventsTopics();
             const links = screen.getAllByRole('link');
             links.forEach(link => link.click());
-            expect(window.dataLayer).toEqual(enVivoEventLogResult);
+
+            await waitFor(() => {
+                expect(window.dataLayer).toEqual(enVivoEventLogResult);
+            });
         });
     });
 
