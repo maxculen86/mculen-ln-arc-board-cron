@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BallLotteries from '../BallLotteries';
 
-const BallsResults = ({
+function BallsResults({
     isDetail,
     hasJackpot,
-    boxResultClass,
-    result,
-    results,
-    firstResultJackpot
-}) => {
+    boxResultClass = '',
+    result = [],
+    results = [],
+    firstResultJackpot = []
+}) {
     return (
         <>
             {isDetail && hasJackpot && (
@@ -41,35 +40,6 @@ const BallsResults = ({
             )}
         </>
     );
-};
-
-BallsResults.propTypes = {
-    isDetail: PropTypes.bool,
-    results: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            date: PropTypes.string,
-            result: PropTypes.arrayOf(PropTypes.string)
-        })
-    ),
-    firstResultJackpot: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            date: PropTypes.string,
-            result: PropTypes.arrayOf(PropTypes.string)
-        })
-    ),
-    hasJackpot: PropTypes.bool,
-    boxResultClass: PropTypes.string,
-    result: PropTypes.arrayOf(PropTypes.string)
-};
-BallsResults.defaultProps = {
-    isDetail: false,
-    results: [],
-    firstResultJackpot: [],
-    hasJackpot: false,
-    boxResultClass: '',
-    result: []
-};
+}
 
 export default BallsResults;

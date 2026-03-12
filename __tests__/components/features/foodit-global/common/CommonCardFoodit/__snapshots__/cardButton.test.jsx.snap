@@ -14,7 +14,7 @@ exports[`CardButton should match snapshot container="grid" 1`] = `
       class="icon w-24 --dark"
     >
       <mock-icon
-        critical="true"
+        critical=""
         name="bookmark"
       />
     </i>
@@ -41,7 +41,7 @@ exports[`CardButton should match snapshot container="link" 1`] = `
       class="icon w-24 w-16_md --dark"
     >
       <mock-icon
-        critical="true"
+        critical=""
         name="bookmark"
       />
     </i>
@@ -68,7 +68,7 @@ exports[`CardButton should match snapshot container="opening-grid" 1`] = `
       class="icon w-24 w-20_lg --dark"
     >
       <mock-icon
-        critical="true"
+        critical=""
         name="bookmark"
       />
     </i>
@@ -95,7 +95,7 @@ exports[`CardButton should match snapshot container="related-content" 1`] = `
       class="icon w-24 w-20_lg --dark"
     >
       <mock-icon
-        critical="true"
+        critical=""
         name="bookmark"
       />
     </i>

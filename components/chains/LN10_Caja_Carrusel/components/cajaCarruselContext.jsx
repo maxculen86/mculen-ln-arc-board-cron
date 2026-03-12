@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useReducer, useMemo } from 'react';
-import PropTypes from 'fusion:prop-types';
 
 const CarouselBoxContext = createContext(undefined);
 
@@ -105,10 +104,6 @@ export const useCajaCarruselContext = () => {
         );
     }
     return context;
-};
-
-CajaCarruselProvider.propTypes = {
-    children: PropTypes.node.isRequired
 };
 
 export default CajaCarruselProvider;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Dialog } from '@ln/common-ui-dialog';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -42,9 +41,3 @@ export function DialogBarrier({ isOpen, onClose, userType }) {
         </Dialog>
     );
 }
-
-DialogBarrier.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    userType: PropTypes.string.isRequired
-};

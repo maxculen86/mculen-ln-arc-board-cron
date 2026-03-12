@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getMediaItem } from '../../../_helpers/mediaHelper';
 
-function MediaVideo100({ data }) {
+function MediaVideo100({ data = {} }) {
     const { mediaData } = data;
     const mediaItem = getMediaItem({
         mediaData,
@@ -21,19 +20,5 @@ function MediaVideo100({ data }) {
         </div>
     );
 }
-
-MediaVideo100.propTypes = {
-    data: PropTypes.shape({
-        mediaData: PropTypes.shape({
-            subtype: PropTypes.string
-        }),
-        caption: PropTypes.shape({}),
-        credit: PropTypes.shape({})
-    })
-};
-
-MediaVideo100.defaultProps = {
-    data: {}
-};
 
 export default MediaVideo100;

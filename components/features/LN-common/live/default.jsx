@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import LiveNew from './liveNew';
@@ -36,17 +35,5 @@ function Updates({ section = '', chapita = '', updates = [], chapitaStyle }) {
         </LiveNew>
     );
 }
-
-Updates.propTypes = {
-    section: PropTypes.string.isRequired,
-    chapita: PropTypes.string.isRequired,
-    updates: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            link: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    chapitaStyle: PropTypes.number.isRequired
-};
 
 export default Updates;

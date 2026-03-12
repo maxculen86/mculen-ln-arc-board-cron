@@ -1,10 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 
-const HtmlLibre = props => {
+function HtmlLibre(props) {
     const {
         outputType,
         globalContent: { _id, content_elements: contentElements = [] } = {}
@@ -27,14 +26,8 @@ const HtmlLibre = props => {
             </Static>
         )
     );
-};
+}
 
 HtmlLibre.outputType = 'default';
-HtmlLibre.propTypes = {
-    outputType: PropTypes.string,
-    globalContent: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(PropTypes.object)
-    })
-}.isRequired;
 
 export default Consumer(HtmlLibre);

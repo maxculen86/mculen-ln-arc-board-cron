@@ -16,7 +16,7 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
       title="Prueba nota recetas nuevo"
     >
       <div
-        class="relative w-50_lg h-100"
+        class="relative w-50_lg"
       >
         <div
           class="foodit-placeholder object-cover card-image ratio-3-2 w-100 w-147 w-224_md w-100_lg"
@@ -27,7 +27,6 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
             decoding="async"
             fetchpriority="low"
             loading="lazy"
-            src=""
             style="display: none;"
           />
         </div>
@@ -81,53 +80,27 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               </span>
             </div>
           </div>
-          <div
-            class="flex ai-center"
-          >
-            <div
-              class="sm-none pr-24_md"
-            >
-              <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover px-16 py-8"
-                data-variant="primary"
-                title="ver receta"
-              >
-                Ver receta
-              </button>
-            </div>
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-variant="link"
-              title="Guardar receta"
-            >
-              <i
-                class="icon w-24 w-16_md --dark"
-              >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase sm-none"
-              >
-                Guardar
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          class="sm-only"
-        >
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover px-16 py-8"
-            data-variant="primary"
-            title="ver receta"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
           >
-            Ver receta
+            <i
+              class="icon w-24 w-16_md --dark"
+            >
+              <mock-icon
+                critical=""
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase sm-none"
+            >
+              Guardar
+            </span>
           </button>
         </div>
       </div>
@@ -222,32 +195,28 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               </span>
             </div>
           </div>
-          <div
-            class="flex ai-center"
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
           >
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-variant="link"
-              title="Guardar receta"
+            <i
+              class="icon w-24 --dark"
             >
-              <i
-                class="icon w-24 --dark"
-              >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
-          </div>
+              <mock-icon
+                critical=""
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
+          </button>
         </div>
       </div>
     </a>
@@ -361,32 +330,28 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               </span>
             </div>
           </div>
-          <div
-            class="flex ai-center"
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
           >
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-variant="link"
-              title="Guardar receta"
+            <i
+              class="icon w-24 --dark"
             >
-              <i
-                class="icon w-24 --dark"
-              >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
-          </div>
+              <mock-icon
+                critical=""
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
+          </button>
         </div>
       </div>
     </a>
@@ -478,32 +443,28 @@ exports[`Components - Features - Foodit-global - common - CommonCardFoodit shoul
               </span>
             </div>
           </div>
-          <div
-            class="flex ai-center"
+          <button
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
+            data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-variant="link"
+            title="Guardar receta"
           >
-            <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-              data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-modal="open-modal"
-              data-test-id="button-bookmark-TDEG3VTIAFEW7BKS676OUVQAVE"
-              data-variant="link"
-              title="Guardar receta"
+            <i
+              class="icon w-24 --dark"
             >
-              <i
-                class="icon w-24 --dark"
-              >
-                <mock-icon
-                  critical="true"
-                  name="bookmark"
-                />
-              </i>
-              <span
-                class="uppercase none"
-              >
-                Guardar
-              </span>
-            </button>
-          </div>
+              <mock-icon
+                critical=""
+                name="bookmark"
+              />
+            </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
+          </button>
         </div>
       </div>
     </a>

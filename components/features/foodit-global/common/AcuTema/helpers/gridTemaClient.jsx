@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'fusion:prop-types';
 import { createArticleListTema } from '.';
 import { LoadMoreButton } from '../../../../foodit/GrillaNotasAcu/helpers/loadMoreButton';
 import useGridTemaFoodit from '../hooks/useGridTema';
@@ -63,7 +62,4 @@ function GridTemaClient({ globalContent }) {
     );
 }
 
-GridTemaClient.propTypes = {
-    globalContent: PropTypes.object.isRequired
-};
 export default GridTemaClient;

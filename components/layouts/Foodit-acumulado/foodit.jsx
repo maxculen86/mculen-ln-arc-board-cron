@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { Text } from '@ln/common-ui-text';
 import BreadcrumbFoodit from '../../features/foodit-global/common/breadcrumb/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -51,10 +50,6 @@ function AcumuladoFoodit(props) {
     );
 }
 
-AcumuladoFoodit.propTypes = {
-    children: PropTypes.node.isRequired,
-    globalContent: PropTypes.object.isRequired
-};
 AcumuladoFoodit.sections = pageBuilderSections;
 
 export default Consumer(AcumuladoFoodit);

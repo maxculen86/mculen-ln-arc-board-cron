@@ -1,6 +1,4 @@
-/* eslint-disable react/require-default-props */
 import React, { useReducer } from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
@@ -102,25 +100,5 @@ function GlobalProviderAcu(props) {
         </GlobalContext.Provider>
     );
 }
-
-GlobalProviderAcu.propTypes = {
-    children: PropTypes.node.isRequired,
-    acumuladoGeneral: PropTypes.shape({
-        tipo_acumulado: PropTypes.string,
-        hierarchy_navigation: PropTypes.string,
-        hide_banner: PropTypes.string,
-        cantidad_notas: PropTypes.string,
-        id_collection_promo_items: PropTypes.string
-    }).isRequired,
-    acumuladoColor: PropTypes.shape({
-        header_class_name: PropTypes.string,
-        background_color: PropTypes.string,
-        navigation_color: PropTypes.string,
-        navigation_color_tags: PropTypes.string,
-        id_logo_image: PropTypes.string
-    }).isRequired,
-    idCollectionsInPage: PropTypes.arrayOf(PropTypes.string).isRequired,
-    idCollectionApertura: PropTypes.string
-};
 
 export { GlobalContext, GlobalProviderAcu };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
@@ -46,9 +45,5 @@ function LnRadio({ id: featureId }) {
 }
 
 LnRadio.label = 'LN10 Radio';
-
-LnRadio.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default LnRadio;

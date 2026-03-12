@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { useDisclosure } from '@ln/hooks';
 import get from '../../../../../private/common/utils/get';
@@ -149,15 +148,5 @@ function RecetarioArticle({
         </>
     );
 }
-
-RecetarioArticle.propTypes = {
-    article: PropTypes.shape({
-        bookmarkContent: PropTypes.shape({}),
-        bookmarkGroup: PropTypes.string
-    }).isRequired,
-    executeDeleteBookmark: PropTypes.func.isRequired,
-    executeMoveBookmark: PropTypes.func.isRequired,
-    isFirst: PropTypes.bool.isRequired
-};
 
 export default RecetarioArticle;

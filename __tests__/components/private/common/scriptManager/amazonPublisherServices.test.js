@@ -15,12 +15,16 @@ describe('components - private - common - scriptManager - amazonPublisherService
         });
     });
 
-    it('renders the script tag with the correct src when location is "head"', () => {
-        const { container } = render(
-            <AmazonPublisherServices location="head" />
-        );
+    afterEach(() => {
+        document.head
+            .querySelectorAll('#scriptAmazonPublisherServices')
+            .forEach(s => s.remove());
+    });
 
-        const scriptTag = container.querySelector(
+    it('renders the script tag with the correct src when location is "head"', () => {
+        render(<AmazonPublisherServices location="head" />);
+
+        const scriptTag = document.head.querySelector(
             '#scriptAmazonPublisherServices'
         );
 
@@ -34,11 +38,9 @@ describe('components - private - common - scriptManager - amazonPublisherService
     });
 
     it('does not render the script tag when location is not "head"', () => {
-        const { container } = render(
-            <AmazonPublisherServices location="body" />
-        );
+        render(<AmazonPublisherServices location="body" />);
 
-        const scriptTag = container.querySelector(
+        const scriptTag = document.head.querySelector(
             '#scriptAmazonPublisherServices'
         );
 

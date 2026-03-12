@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/contenidos-ui-link';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
@@ -21,7 +20,7 @@ const list = [
     'tumblr'
 ];
 
-const ListSocialIcons = ({ data }) => {
+function ListSocialIcons({ data }) {
     const listItem = list.map((item, index) => {
         if (!data[item]) return null;
         const linkSocialNetwork =
@@ -57,29 +56,6 @@ const ListSocialIcons = ({ data }) => {
             </ul>
         </div>
     );
-};
-
-ListSocialIcons.propTypes = {
-    data: PropTypes.shape({
-        twitter: PropTypes.string,
-        facebook: PropTypes.string,
-        youtube: PropTypes.string,
-        instagram: PropTypes.string,
-        linkedin: PropTypes.string,
-        rss: PropTypes.string,
-        medium: PropTypes.string,
-        reddit: PropTypes.string,
-        pinterest: PropTypes.string,
-        soundcloud: PropTypes.string,
-        snapchat: PropTypes.string,
-        whatsapp: PropTypes.string,
-        tumblr: PropTypes.string
-    }).isRequired,
-    vertical: PropTypes.string
-};
-
-ListSocialIcons.defaultProps = {
-    vertical: ''
-};
+}
 
 export default ListSocialIcons;

@@ -1,7 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
@@ -61,21 +59,5 @@ const pageBuilderSections = [
 ];
 
 lnNotaNoticia.sections = pageBuilderSections;
-
-lnNotaNoticia.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node),
-    outputType: PropTypes.string,
-    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
-    isAdmin: PropTypes.bool,
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            sections: PropTypes.arrayOf(PropTypes.shape())
-        }),
-        distributor: PropTypes.shape({
-            name: PropTypes.string
-        })
-    }),
-    layout: PropTypes.string
-};
 
 export default Consumer(lnNotaNoticia);

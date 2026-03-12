@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
 
-function OpeningDescription({ data }) {
+function OpeningDescription({ data = {} }) {
     if (!data || !data.title) return null;
 
     const { subheadline, title, badge } = data;
@@ -35,19 +34,5 @@ function OpeningDescription({ data }) {
         </div>
     );
 }
-
-OpeningDescription.propTypes = {
-    data: PropTypes.shape({
-        volanta: PropTypes.string,
-        title: PropTypes.string,
-        badge: PropTypes.bool,
-        signature: PropTypes.node,
-        subheadline: PropTypes.string
-    })
-};
-
-OpeningDescription.defaultProps = {
-    data: {}
-};
 
 export default OpeningDescription;

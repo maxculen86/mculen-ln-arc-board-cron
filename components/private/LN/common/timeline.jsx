@@ -1,10 +1,9 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import ModRowGap from '../../common/mod-rowgap';
 
-const Timeline = ({ articles, content, orderClass }) => {
-    if (!articles || !content) return <></>;
+function Timeline({ articles, content, orderClass }) {
+    if (!articles || !content) return null;
 
     return (
         <ModRowGap classCondition={`timeline-home ${orderClass}`}>
@@ -12,12 +11,6 @@ const Timeline = ({ articles, content, orderClass }) => {
             <div className="row-gap-tablet-2">{articles}</div>
         </ModRowGap>
     );
-};
-
-Timeline.propTypes = {
-    orderClass: PropTypes.string,
-    content: PropTypes.node,
-    articles: PropTypes.node
-};
+}
 
 export default Timeline;

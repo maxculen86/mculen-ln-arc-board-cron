@@ -25,8 +25,8 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         const { container } = render(<ArticleAcum {...props} />);
         const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(modArticleMock.getAttribute('withMedia')).toBe('true');
-        expect(modArticleMock.getAttribute('subheadText')).toBe('false');
+        expect(modArticleMock.getAttribute('withMedia')).toBe('');
+        expect(modArticleMock.getAttribute('subheadText')).toBe(null);
         expect(modArticleMock.getAttribute('titleText')).toEqual(
             'Titulo Movil Corto'
         );
@@ -41,8 +41,8 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         );
         const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(modArticleMock.getAttribute('withMedia')).toBe('false');
-        expect(modArticleMock.getAttribute('hour')).toBe('false');
+        expect(modArticleMock.getAttribute('withMedia')).toBe(null);
+        expect(modArticleMock.getAttribute('hour')).toBe(null);
         expect(modArticleMock.getAttribute('subheadText')).toBe(
             'Este es el subtitulo'
         );
@@ -54,8 +54,8 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         );
         const modArticleMock = container.querySelector('mod-article-mock');
 
-        expect(modArticleMock.getAttribute('subheadText')).toBe('false');
-        expect(modArticleMock.getAttribute('dateText')).toBe('false');
+        expect(modArticleMock.getAttribute('subheadText')).toBe(null);
+        expect(modArticleMock.getAttribute('dateText')).toBe(null);
         expect(modArticleMock.getAttribute('hour')).toBeTruthy();
     });
 

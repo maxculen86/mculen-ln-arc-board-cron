@@ -1,17 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Link } from '@ln/foodit-ui-link';
 
 export function RoofFoodit({
-    buttonProps,
+    buttonProps = {},
     hide,
-    icon,
-    title = {},
-    linkProps = {},
-    carouselMobile
+    icon = null,
+    title = { text: '', as: '' },
+    linkProps = { href: '', text: '' },
+    carouselMobile = false
 }) {
     const { text = '', as = 'h3' } = title;
     if (hide) return null;
@@ -55,38 +54,5 @@ export function RoofFoodit({
         </div>
     );
 }
-
-RoofFoodit.propTypes = {
-    buttonProps: PropTypes.shape({
-        text: PropTypes.string,
-        title: PropTypes.string,
-        onClick: PropTypes.func
-    }),
-    hide: PropTypes.bool.isRequired,
-    icon: PropTypes.node,
-    title: PropTypes.shape({
-        text: PropTypes.string,
-        as: PropTypes.string
-    }),
-    linkProps: PropTypes.shape({
-        href: PropTypes.string,
-        text: PropTypes.string
-    }),
-    carouselMobile: PropTypes.bool
-};
-
-RoofFoodit.defaultProps = {
-    buttonProps: {},
-    icon: null,
-    title: {
-        text: '',
-        as: ''
-    },
-    linkProps: {
-        href: '',
-        text: ''
-    },
-    carouselMobile: false
-};
 
 export default RoofFoodit;

@@ -12,10 +12,13 @@ describe('FontPreload', () => {
     const contextPath = '/pf';
 
     it('should render preload links correctly', () => {
-        const { container } = render(
+        render(
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
-        const links = container.querySelectorAll('link');
+
+        const links = document.head.querySelectorAll(
+            'link[rel="preload"][as="font"]'
+        );
         expect(links).toBeDefined();
         expect(links).toHaveLength(2);
         expect(links[0]).toHaveAttribute(
@@ -27,7 +30,7 @@ describe('FontPreload', () => {
         expect(links[0]).toHaveAttribute('as', 'font');
         expect(links[0]).toHaveAttribute('type', 'font/woff2');
         expect(links[0]).toHaveAttribute('crossOrigin', 'anonymous');
-         expect(links[1]).toHaveAttribute(
+        expect(links[1]).toHaveAttribute(
             'href',
             'https://foodit.com.ar/pf/fonts/font_prumo.woff2'
         );
@@ -38,9 +41,13 @@ describe('FontPreload', () => {
         expect(links[1]).toHaveAttribute('crossOrigin', 'anonymous');
     });
     it('matches snapshot', () => {
-        const { asFragment } = render(
+        render(
             <FontPreload deployment={deployment} contextPath={contextPath} />
         );
-        expect(asFragment()).toMatchSnapshot();
+        const links = document.head.querySelectorAll(
+            'link[rel="preload"][as="font"]'
+        );
+        expect(links[0].outerHTML).toMatchSnapshot();
+        expect(links[1].outerHTML).toMatchSnapshot();
     });
 });

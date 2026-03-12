@@ -1,7 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
 import get from '../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -37,15 +34,5 @@ function PreloadAcuDeportes({
 
     return <LinkImagePreload resizedUrls={resizedUrls} />;
 }
-
-PreloadAcuDeportes.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    articleId: PropTypes.string,
-    imageId: PropTypes.string,
-    collectionId: PropTypes.string,
-    isFocal: PropTypes.bool,
-    initialPosition: PropTypes.number,
-    imageConfig: PropTypes.string
-};
 
 export default PreloadAcuDeportes;

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { SITE_FOODIT } from 'fusion:environment';
 
-import PropTypes from 'fusion:prop-types';
 import { transformSocial } from '../../private-global/common/utils/transformSocial';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 
@@ -53,7 +52,3 @@ export function ChefSchema({ globalContent = {} }) {
 
     return <SnippetRender id="chef-schema" data={chefSchema} />;
 }
-
-ChefSchema.propTypes = {
-    globalContent: PropTypes.object.isRequired
-};

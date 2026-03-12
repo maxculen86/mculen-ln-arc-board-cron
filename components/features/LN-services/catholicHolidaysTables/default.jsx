@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import Table from '../../../private/LN/nota/cuerpo/table';
 import ModheaderSection from '../../../private/common/mod-headerSection';
@@ -51,8 +50,5 @@ function CatholicHolidaysTables() {
 }
 
 CatholicHolidaysTables.label = 'LN Tablas Feriados Católicos';
-CatholicHolidaysTables.propTypes = {
-    id: PropTypes.string.isRequired
-};
 
 export default CatholicHolidaysTables;

@@ -113,7 +113,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
                     class="icon --icon-20 --inherit"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       name="bookmark"
                     />
                   </i>
@@ -749,7 +749,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
                     class="icon --icon-20 --inherit"
                   >
                     <mock-icon
-                      critical="true"
+                      critical=""
                       name="cart"
                     />
                   </i>

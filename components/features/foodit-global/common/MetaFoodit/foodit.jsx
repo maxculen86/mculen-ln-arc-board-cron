@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-
 import { ARC_STATIC, SITE_FOODIT } from 'fusion:environment';
 import {
     getAppId,
@@ -97,11 +95,4 @@ export function MetaFoodit({
         </>
     );
 }
-MetaFoodit.propTypes = {
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired,
-    metaValue: PropTypes.func.isRequired,
-    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
-    siteProperties: PropTypes.isRequired
-};
 export default MetaFoodit;

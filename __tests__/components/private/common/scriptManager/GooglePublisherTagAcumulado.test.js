@@ -9,6 +9,14 @@ jest.mock('fusion:context', () => ({
 }));
 
 describe('GooglePublisherTagAcumulado', () => {
+    afterEach(() => {
+        document.head
+            .querySelectorAll(
+                'script[src*="gpt.js"], script#googlePublisherTag-metadata'
+            )
+            .forEach(s => s.remove());
+    });
+
     const content = {
         globalContent: {
             Payload: {
@@ -35,7 +43,7 @@ describe('GooglePublisherTagAcumulado', () => {
     };
 
     it('Returns null when on stories', () => {
-        const { container } = render(
+        render(
             <GooglePublisherTagAcumulado
                 {...{
                     ...content,
@@ -48,19 +56,31 @@ describe('GooglePublisherTagAcumulado', () => {
                 }}
             />
         );
-        expect(container.innerHTML).toEqual('');
+        const googleScript = document.head.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+        expect(googleScript).toBeNull();
     });
 
     it('Builds the json object as expected', () => {
         const { container } = render(
             <GooglePublisherTagAcumulado {...content} />
         );
-        expect(container.querySelectorAll('script')).toHaveLength(2);
-        expect(container.innerHTML).toMatch('ca_recetas');
-        expect(container.innerHTML).toMatch('ca_deportes');
-        expect(container.innerHTML).toMatch('ca_futbol');
-        expect(container.innerHTML).toMatch('te_deportes-qatar');
-        expect(container.innerHTML).toMatch('au_alberto-fernandez');
+
+        const gptScript = document.head.querySelector('script[src*="gpt.js"]');
+        const metadataScript = container.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+
+        expect(gptScript).toBeInTheDocument();
+        expect(metadataScript).toBeInTheDocument();
+
+        const containerHTML = container.innerHTML;
+        expect(containerHTML).toMatch('ca_recetas');
+        expect(containerHTML).toMatch('ca_deportes');
+        expect(containerHTML).toMatch('ca_futbol');
+        expect(containerHTML).toMatch('te_deportes-qatar');
+        expect(containerHTML).toMatch('au_alberto-fernandez');
     });
 
     const content2 = {
@@ -76,9 +96,14 @@ describe('GooglePublisherTagAcumulado', () => {
         const { container } = render(
             <GooglePublisherTagAcumulado {...content2} />
         );
-        expect(container.querySelectorAll('script')).toHaveLength(2);
-        expect(container.innerHTML).toMatch('ca_deportes');
-        expect(container.innerHTML).toMatch('ca_futbol');
+
+        const metadataScript = container.querySelector(
+            '#googlePublisherTag-metadata'
+        );
+        expect(metadataScript).toBeInTheDocument();
+        const containerHTML = container.innerHTML;
+        expect(containerHTML).toMatch('ca_deportes');
+        expect(containerHTML).toMatch('ca_futbol');
     });
 
     const content3 = {
@@ -86,9 +111,7 @@ describe('GooglePublisherTagAcumulado', () => {
     };
 
     it('Builds the json object without ancestors', () => {
-        const { container } = render(
-            <GooglePublisherTagAcumulado {...content3} />
-        );
-        expect(container.innerHTML).toBeDefined();
+        render(<GooglePublisherTagAcumulado {...content3} />);
+        expect(document.head.innerHTML).toBeDefined();
     });
 });

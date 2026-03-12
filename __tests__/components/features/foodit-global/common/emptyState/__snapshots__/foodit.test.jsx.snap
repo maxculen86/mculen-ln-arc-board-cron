@@ -176,7 +176,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
               class="icon vertical-align-middle mx-4 --icon-16"
             >
               <mock-icon
-                critical="true"
+                critical=""
                 name="bookmark"
               />
             </i>

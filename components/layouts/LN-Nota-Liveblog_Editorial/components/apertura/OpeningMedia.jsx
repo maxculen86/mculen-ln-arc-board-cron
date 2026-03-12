@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getMediaItem } from '../../../_helpers/mediaHelper';
 import ModFigcaption from '../../../../private/common/mod-figcaption';
 
-function OpeningMedia({ data }) {
+function OpeningMedia({ data = {} }) {
     const { mediaData, caption, credit } = data;
 
     const mediaItem = getMediaItem({
@@ -34,19 +33,5 @@ function OpeningMedia({ data }) {
         </div>
     );
 }
-
-OpeningMedia.propTypes = {
-    data: PropTypes.shape({
-        mediaData: PropTypes.shape({
-            subtype: PropTypes.string
-        }),
-        caption: PropTypes.shape({}),
-        credit: PropTypes.shape({})
-    })
-};
-
-OpeningMedia.defaultProps = {
-    data: {}
-};
 
 export default OpeningMedia;

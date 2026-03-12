@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import LinkList from './linkList';
 import Social from './social';
 
@@ -38,29 +37,5 @@ function Index(props) {
         </div>
     );
 }
-
-Index.propTypes = {
-    globalContent: PropTypes.shape({
-        social: PropTypes.shape({
-            twitter: PropTypes.string,
-            facebook: PropTypes.string,
-            instagram: PropTypes.string
-        }),
-        _website: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired,
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string.isRequired
-        }).isRequired
-    }).isRequired,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ])
-};
-
-Index.defaultProps = {
-    children: null
-};
 
 export default Index;

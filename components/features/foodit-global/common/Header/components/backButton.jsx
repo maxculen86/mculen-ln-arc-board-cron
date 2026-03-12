@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
@@ -58,8 +57,3 @@ export function BackButton({ variant = 'link', iconOnly }) {
         </div>
     );
 }
-
-BackButton.propTypes = {
-    variant: PropTypes.string.isRequired,
-    iconOnly: PropTypes.bool.isRequired
-};

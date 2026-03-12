@@ -76,7 +76,7 @@ describe('Components - features - LN-services - EconomicIndices - default', () =
         expect(container).toHaveTextContent('Actualización general del panel');
     });
 
-    it('Should match snapshot with data', () => {
+    it('Should render roof and table data without brittle snapshot assertions', () => {
         Context.useAppContext.mockReturnValue({
             globalContent: { serviceItem: 'merval' }
         });
@@ -84,7 +84,16 @@ describe('Components - features - LN-services - EconomicIndices - default', () =
 
         const { container } = render(<EconomicIndices />);
 
-        expect(container).toMatchSnapshot();
+        expect(
+            container.querySelector('[roof-container="roof-container"]')
+        ).toBeInTheDocument();
+        expect(
+            container.querySelector('[roof-group="left"]')
+        ).toBeInTheDocument();
+        expect(
+            container.querySelector('[data-testid="table-v2"]')
+        ).toHaveTextContent('"tableType":"merval"');
+        expect(container).toHaveTextContent('Actualización general del panel');
     });
 
     it('Should use customFields.serviceItem when globalContent.serviceItem is empty', () => {

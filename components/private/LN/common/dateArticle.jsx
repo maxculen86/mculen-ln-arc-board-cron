@@ -1,13 +1,8 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-import ComDate from '../../../private/common/com-date';
-function DateArticle({ display_date, hasTime }) {
-    return <ComDate display_date={display_date} />;
-}
+import ComDate from '../../common/com-date';
 
-DateArticle.propTypes = {
-    display_date: PropTypes.string.isRequired,
-    hasTime: PropTypes.bool
-};
+function DateArticle({ display_date: displayDateProp }) {
+    return <ComDate display_date={displayDateProp} />;
+}
 
 export default DateArticle;

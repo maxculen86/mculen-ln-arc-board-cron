@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import useGridArticlesFoodit from '../../../../../foodit/GrillaNotasAcu/hooks/useGridArticles';
 import PreloadImages from '../../../../../private-global/common/preloadImage/preloadImages';
@@ -18,8 +17,3 @@ export function PreloadAcuFirstImage({ id = '', layout = '' }) {
 
     return <PreloadImages resizedUrls={resizedUrls} />;
 }
-
-PreloadAcuFirstImage.propTypes = {
-    id: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
-};

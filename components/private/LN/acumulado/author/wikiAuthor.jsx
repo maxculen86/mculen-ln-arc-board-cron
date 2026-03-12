@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/author.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
 import ComText from '../../../common/text';
 import ComLink from '../../../common/com-link';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
-import { wikiAuthorPropTypes } from '../../../common/utils/propTypesHelper';
 import {
     authorPhoto,
     authorEducation,
@@ -20,7 +18,12 @@ import {
     authorExpertise
 } from '../../../common/utils/wikiAuthorHelper';
 
-function WikiAuthor({ data = {}, outputType, classesNames, classCondition }) {
+function WikiAuthor({
+    data = {},
+    outputType,
+    classesNames = '',
+    classCondition = ''
+}) {
     const {
         byline,
         email,
@@ -93,19 +96,5 @@ function WikiAuthor({ data = {}, outputType, classesNames, classCondition }) {
         </section>
     );
 }
-
-WikiAuthor.propTypes = {
-    data: PropTypes.shape({
-        ...wikiAuthorPropTypes
-    }).isRequired,
-    classesNames: PropTypes.string,
-    classCondition: PropTypes.string,
-    outputType: PropTypes.string.isRequired
-};
-
-WikiAuthor.defaultProps = {
-    classesNames: '',
-    classCondition: ''
-};
 
 export default WikiAuthor;

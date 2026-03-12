@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Logo } from '@ln/foodit-ui-logo';
 import { List } from '@ln/foodit-ui-list';
@@ -117,55 +116,3 @@ export const FooditPrint = React.forwardRef(
         );
     }
 );
-
-FooditPrint.propTypes = {
-    includePhotos: PropTypes.bool.isRequired,
-    article: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                subtype: PropTypes.string,
-                type: PropTypes.string,
-                content: PropTypes.string,
-                items: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        content: PropTypes.string
-                    })
-                )
-            })
-        ),
-        taxonomy: PropTypes.shape({
-            sections: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        }),
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
-        promo_items: PropTypes.shape({
-            receta: PropTypes.shape({
-                embed: PropTypes.shape({
-                    config: PropTypes.shape({
-                        counterPortion: PropTypes.number,
-                        prepTime: PropTypes.number,
-                        cookTime: PropTypes.number,
-                        counterTime: PropTypes.number
-                    })
-                })
-            }),
-            basic: PropTypes.shape({
-                url: PropTypes.string,
-                caption: PropTypes.string
-            })
-        })
-    }).isRequired
-};

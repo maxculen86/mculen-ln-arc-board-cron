@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Button } from '@ln/foodit-ui-button';
 import { Spinner } from '@ln/common-ui-spinner';
@@ -7,22 +6,23 @@ import { transformBookmarkContent } from '../../../bookmark/_helper';
 import { useGetFooditArticles } from '../../../bookmark/hooks/useGetFooditArticle';
 import { actionButtons } from '../helpers';
 
+/* eslint-disable react/require-default-props */
 function FooterSaveRecipe({
     hasInputError,
     close,
     indexStep,
     leftButton,
-    newFolder,
+    newFolder = '',
     rightButton,
     selectedFolder,
     setIndexStep,
-    ids,
-    layout,
+    ids = [],
+    layout = '',
     collectionArticles = [],
     carouselTitle = '',
-    fatherType,
+    fatherType = '',
     mode = 'save',
-    onConfirmMove,
+    onConfirmMove = null,
     isLoading = false,
     setIsLoading = () => {}
 }) {
@@ -132,47 +132,5 @@ function FooterSaveRecipe({
         </footer>
     );
 }
-
-FooterSaveRecipe.propTypes = {
-    hasInputError: PropTypes.bool.isRequired,
-    close: PropTypes.func.isRequired,
-    indexStep: PropTypes.number.isRequired,
-    leftButton: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        action: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-    }).isRequired,
-    newFolder: PropTypes.string,
-    rightButton: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        action: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-    }).isRequired,
-    selectedFolder: PropTypes.shape({
-        value: PropTypes.string
-    }).isRequired,
-    setIndexStep: PropTypes.func.isRequired,
-    ids: PropTypes.arrayOf(PropTypes.string),
-    layout: PropTypes.string,
-    collectionArticles: PropTypes.arrayOf(PropTypes.shape({})),
-    carouselTitle: PropTypes.string,
-    fatherType: PropTypes.string,
-    mode: PropTypes.oneOf(['save', 'move']).isRequired,
-    onConfirmMove: PropTypes.func,
-    isLoading: PropTypes.bool,
-    setIsLoading: PropTypes.func
-};
-
-FooterSaveRecipe.defaultProps = {
-    newFolder: '',
-    ids: [],
-    layout: '',
-    collectionArticles: [],
-    carouselTitle: '',
-    fatherType: '',
-    onConfirmMove: null,
-    isLoading: false,
-    setIsLoading: () => {}
-};
 
 export default FooterSaveRecipe;

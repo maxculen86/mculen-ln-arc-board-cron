@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { extractGalleryEmbedData, getAspectRatioClass } from './_helper';
 import { isFotoAl100 } from '../../../body/_utils/helpers';
@@ -42,29 +41,5 @@ function ImageGalleryEmbed(props) {
 }
 
 ImageGalleryEmbed.arcType = 'gallery-embed';
-
-ImageGalleryEmbed.propTypes = {
-    data: PropTypes.shape({
-        embed: PropTypes.shape({
-            config: PropTypes.shape({
-                galleryId: PropTypes.string,
-                caption: PropTypes.string,
-                diagram: PropTypes.string,
-                galleryImages: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        url: PropTypes.string,
-                        height: PropTypes.number,
-                        width: PropTypes.number,
-                        resized_urls: PropTypes.array
-                    })
-                )
-            })
-        })
-    })
-};
-
-ImageGalleryEmbed.defaultProps = {
-    data: {}
-};
 
 export default ImageGalleryEmbed;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DollarItem } from './dollarItem';
 
 function Dollar({ dollarData }) {
@@ -15,16 +14,5 @@ function Dollar({ dollarData }) {
         </div>
     );
 }
-
-Dollar.propTypes = {
-    dollarData: PropTypes.arrayOf(
-        PropTypes.shape({
-            text: PropTypes.string,
-            title: PropTypes.string,
-            venta: PropTypes.string,
-            link: PropTypes.string
-        })
-    ).isRequired
-};
 
 export default Dollar;

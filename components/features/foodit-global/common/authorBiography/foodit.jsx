@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Image } from '@ln/foodit-ui-image';
-import PropTypes from 'prop-types';
 import { SocialNetwork } from './components/SocialNetwork';
 
 export function AuthorBiography({
@@ -38,22 +37,5 @@ export function AuthorBiography({
         </div>
     );
 }
-
-AuthorBiography.propTypes = {
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    socialNetworks: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            href: PropTypes.string,
-            icon: PropTypes.element
-        })
-    ).isRequired,
-    imageProps: PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string,
-        title: PropTypes.string
-    }).isRequired
-};
 
 export default AuthorBiography;

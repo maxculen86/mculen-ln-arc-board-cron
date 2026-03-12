@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../common/iconSprite/IconSprite';
 
@@ -32,6 +31,7 @@ function TableComponent({ data = {} }) {
                             className="flex ai-center w-100 border border-bottom border-thin border-light-100"
                         >
                             {row.map(({ _id: rowId, content }) => (
+                                // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                 <td
                                     className="flex ai-center py-12 px-16 white-space-nowrap white-space-normal_md min-w-116 h-72"
                                     key={rowId}
@@ -50,28 +50,5 @@ function TableComponent({ data = {} }) {
         </div>
     );
 }
-
-TableComponent.propTypes = {
-    data: PropTypes.shape({
-        _id: PropTypes.string,
-        header: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string.isRequired,
-                content: PropTypes.string.isRequired,
-                type: PropTypes.string.isRequired
-            })
-        ),
-        rows: PropTypes.arrayOf(
-            PropTypes.arrayOf(
-                PropTypes.shape({
-                    _id: PropTypes.string.isRequired,
-                    content: PropTypes.string.isRequired,
-                    type: PropTypes.string.isRequired
-                })
-            )
-        ),
-        type: PropTypes.string
-    }).isRequired
-};
 
 export default TableComponent;

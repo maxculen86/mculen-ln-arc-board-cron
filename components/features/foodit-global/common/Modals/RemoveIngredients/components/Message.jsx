@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Image } from '@ln/common-ui-image';
 import { Text } from '@ln/common-ui-text';
@@ -36,9 +35,3 @@ export function Message({ type, bookmarkId = null, userBookmarks = [] }) {
         </div>
     );
 }
-
-Message.propTypes = {
-    type: PropTypes.string.isRequired,
-    bookmarkId: PropTypes.string.isRequired,
-    userBookmarks: PropTypes.arrayOf(PropTypes.shape()).isRequired
-};

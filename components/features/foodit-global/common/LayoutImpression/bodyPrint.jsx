@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
@@ -69,29 +68,3 @@ export function BodyPrint({
         </section>
     );
 }
-
-BodyPrint.propTypes = {
-    portions: PropTypes.string.isRequired,
-    ingredientsLists: PropTypes.arrayOf(
-        PropTypes.shape({
-            titleList: PropTypes.string,
-            items: PropTypes.arrayOf(PropTypes.string)
-        })
-    ).isRequired,
-    nutritionLists: PropTypes.arrayOf(
-        PropTypes.shape({
-            titleList: PropTypes.string,
-            items: PropTypes.arrayOf(PropTypes.string)
-        })
-    ).isRequired,
-    preparationElements: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            titleList: PropTypes.string,
-            items: PropTypes.arrayOf(PropTypes.string)
-        })
-    ).isRequired,
-    tipsAndTricks: PropTypes.arrayOf(PropTypes.node).isRequired,
-    includePhotos: PropTypes.bool.isRequired,
-    renderHeadingOrList: PropTypes.func.isRequired
-};

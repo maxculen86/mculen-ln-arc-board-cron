@@ -14,7 +14,7 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 
-function CardCategory({ id: featureId, isAdmin, customFields }) {
+function CardCategory({ id: featureId, isAdmin = false, customFields }) {
     const {
         title = '',
         image = '',
@@ -91,7 +91,7 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
 
 CardCategory.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool,
+    isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         title: PropTypes.string.tag({
             label: 'Titulo',
@@ -125,10 +125,6 @@ CardCategory.propTypes = {
             defaultValue: []
         })
     }).isRequired
-};
-
-CardCategory.defaultProps = {
-    isAdmin: false
 };
 
 export default Consumer(CardCategory);

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { normalize } from '../image/helpers';
 
 function Subtitle({ data }) {
@@ -26,12 +25,5 @@ function Subtitle({ data }) {
         />
     );
 }
-
-Subtitle.propTypes = {
-    data: PropTypes.shape({
-        level: PropTypes.number.isRequired,
-        content: PropTypes.string.isRequired
-    }).isRequired
-};
 
 export default Subtitle;

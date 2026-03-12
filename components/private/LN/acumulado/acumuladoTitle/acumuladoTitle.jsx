@@ -1,15 +1,36 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import withAcuCategories from '../hocs/withAcuCategories';
+import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
 import textSelector from '../../../common/utils/recetaDictionary';
-import { setTitle, setUrl } from '../../../../features/LN/DS-SubNav/_helpers';
+
+const setTitle = (
+    replaceTitle,
+    { Payload, node_type: nodeType, name, byline }
+) => {
+    if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
+    if (Payload) return capitalizeFirstLetter(Payload.items[0].name);
+    if (nodeType === 'section') return capitalizeFirstLetter(name);
+    if (byline) return capitalizeFirstLetter(byline);
+    return '';
+};
+
+const setUrl = ({
+    _id,
+    canonical_url: canonicalUrl,
+    node_type: nodeType
+} = {}) => {
+    if (nodeType === 'tags') return `${SITE_LANACION}${canonicalUrl || ''}`;
+    if (nodeType === 'section') return `${SITE_LANACION}${_id}/`;
+    return SITE_LANACION;
+};
 
 function AcumuladoTitle(props) {
-    const { outputType, idLogoImage, colorCategory } = props;
+    const { outputType, idLogoImage = '', colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
 
@@ -28,31 +49,33 @@ function AcumuladoTitle(props) {
             : '';
     const titleText = `${prefixText}${title}`;
 
-    const categories = navigationList?.map(
-        ({
-            _id,
-            navigation,
-            name,
-            node_type: nodeType,
-            url: categoryUrl,
-            display_name: displayName,
-            parent = {}
-        }) => {
-            const { nav_title: navTitle } = navigation || {};
-            const isLink = nodeType === 'link';
-            const titleLink = navTitle || (isLink && displayName) || name;
-            const { default: acuName = '' } = parent;
-            return {
-                key: _id,
-                link: (isLink && categoryUrl) || `${_id}/`,
-                textname: navTitle || (isLink && displayName) || name,
-                title: acuName.includes('/recetas')
-                    ? `Ir a notas de ${textSelector(name)}`
-                    : `Ir a ${titleLink}`,
-                ...(colorCategory && { style: { color: colorCategory } })
-            };
-        }
-    );
+    const categories =
+        navigationList &&
+        navigationList.map(
+            ({
+                _id,
+                navigation,
+                name,
+                node_type: nodeType,
+                url: categoryUrl,
+                display_name: displayName,
+                parent = {}
+            }) => {
+                const { nav_title: navTitle } = navigation || {};
+                const isLink = nodeType === 'link';
+                const titleLink = navTitle || (isLink && displayName) || name;
+                const { default: acuName = '' } = parent;
+                return {
+                    key: _id,
+                    link: (isLink && categoryUrl) || `${_id}/`,
+                    textname: navTitle || (isLink && displayName) || name,
+                    title: acuName.includes('/recetas')
+                        ? `Ir a notas de ${textSelector(name)}`
+                        : `Ir a ${titleLink}`,
+                    ...(colorCategory && { style: { color: colorCategory } })
+                };
+            }
+        );
 
     return (
         <ModCategory
@@ -67,38 +90,5 @@ function AcumuladoTitle(props) {
         />
     );
 }
-
-AcumuladoTitle.propTypes = {
-    globalContent: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        Payload: PropTypes.shape({
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
-        byline: PropTypes.string,
-        name: PropTypes.string,
-        node_type: PropTypes.string,
-        children: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                navigation: PropTypes.shape({
-                    nav_title: PropTypes.string
-                }),
-                _website: PropTypes.string
-            })
-        )
-    }).isRequired,
-    outputType: PropTypes.string.isRequired,
-    idLogoImage: PropTypes.string,
-    colorCategory: PropTypes.string
-};
-
-AcumuladoTitle.defaultProps = {
-    idLogoImage: '',
-    colorCategory: undefined
-};
 
 export default withAcuCategories(AcumuladoTitle);

@@ -1,7 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
 import setArticleQueryAcu from '../common/utils/setArticleQueryAcu';
@@ -52,17 +49,5 @@ function ImagePreloadlAcu({
 
     return <LinkImagePreload resizedUrls={resizedUrls} />;
 }
-
-ImagePreloadlAcu.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    accumulated: PropTypes.shape({
-        id: PropTypes.string,
-        canonicalUrl: PropTypes.string,
-        name: PropTypes.string
-    }).isRequired,
-    nodeType: PropTypes.string.isRequired,
-    collectionId: PropTypes.string,
-    imageConfig: PropTypes.string
-};
 
 export default ImagePreloadlAcu;

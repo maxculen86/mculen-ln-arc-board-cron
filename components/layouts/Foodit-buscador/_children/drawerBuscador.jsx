@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useWindowSize } from '@ln/hooks';
 import DrawerContainer from '../../../features/foodit-global/common/DrawerContainer/foodit';
 import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/constants';
@@ -20,9 +19,5 @@ function DrawerBuscador({ toggleDrawer }) {
         </DrawerContainer>
     );
 }
-
-DrawerBuscador.propTypes = {
-    toggleDrawer: PropTypes.func.isRequired
-};
 
 export default DrawerBuscador;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { cx } from '@ln/cva';
 import ModNavigation from './mod-navigation';
 import ComImage from './com-image';
@@ -9,17 +8,15 @@ import get from './utils/get';
 import useGetLogoImage from './hooks/useGetLogoImage';
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
-function ModCategory(props) {
-    const {
-        imageId,
-        revista,
-        category,
-        style = undefined,
-        navigation,
-        url,
-        sectionId
-    } = props;
-
+function ModCategory({
+    imageId = '',
+    revista = '',
+    category = '',
+    style,
+    navigation,
+    url,
+    sectionId = ''
+}) {
     const image = useGetLogoImage(imageId) || {};
     const wwwImage = replaceUrlResizerToWWW(image);
     const {
@@ -75,26 +72,5 @@ function ModCategory(props) {
         </div>
     );
 }
-
-ModCategory.propTypes = {
-    revista: PropTypes.string,
-    category: PropTypes.string,
-    url: PropTypes.string.isRequired,
-    style: PropTypes.shape({
-        color: PropTypes.string
-    }),
-    navigation: PropTypes.string,
-    imageId: PropTypes.string,
-    sectionId: PropTypes.string
-};
-
-ModCategory.defaultProps = {
-    revista: '',
-    category: '',
-    style: undefined,
-    imageId: '',
-    navigation: undefined,
-    sectionId: ''
-};
 
 export default ModCategory;

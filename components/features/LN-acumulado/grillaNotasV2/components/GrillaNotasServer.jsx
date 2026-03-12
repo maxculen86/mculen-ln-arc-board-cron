@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useGridArticlesLN from '../hooks/useGridArticles';
 import ArticleCardsList from './ArticleCardList';
 
@@ -22,13 +21,3 @@ export function GrillaNotasServer({
         />
     );
 }
-
-GrillaNotasServer.propTypes = {
-    id: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    getBanner: PropTypes.func.isRequired,
-    isUltimasNoticias: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        name: PropTypes.string
-    }).isRequired
-};

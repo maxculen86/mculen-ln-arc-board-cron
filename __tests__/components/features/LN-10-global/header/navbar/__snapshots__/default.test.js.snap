@@ -19,7 +19,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
             class="icon --icon-20"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="home"
             />
           </i>
@@ -39,7 +39,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
             class="icon --icon-20"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="sections"
             />
           </i>
@@ -59,7 +59,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
             class="icon --icon-20"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="foodit"
             />
           </i>
@@ -79,7 +79,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
             class="icon --icon-20"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="clubLnDefault"
             />
           </i>
@@ -99,7 +99,7 @@ exports[`components - features - LN-10-global - header - navbar should match sna
             class="icon --icon-20"
           >
             <mock-icon
-              critical="true"
+              critical=""
               name="profile"
             />
           </i>

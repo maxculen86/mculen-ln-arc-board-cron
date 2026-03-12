@@ -5,16 +5,18 @@ import Datadog from '../../../../../components/private/common/scriptManager/data
 import handleCookie from '../../../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(),
+    useAppContext: jest.fn()
 }));
 
-jest.mock('../../../../../components/private/LN/common/utils/handleCookie', () =>
-    jest.fn(() => ({
-        getCookie: jest.fn(() => 'mockedCookieValue'),
-        setCookie: jest.fn(),
-        eraseCookie: jest.fn(),
-        DiccionarioCookiesAGuardar: []
-    }))
+jest.mock(
+    '../../../../../components/private/LN/common/utils/handleCookie',
+    () =>
+        jest.fn(() => ({
+            getCookie: jest.fn(() => 'mockedCookieValue'),
+            setCookie: jest.fn(),
+            eraseCookie: jest.fn(),
+            DiccionarioCookiesAGuardar: []
+        }))
 );
 
 jest.mock('fusion:environment', () => ({
@@ -44,22 +46,27 @@ describe('Datadog Component', () => {
         useAppContext.mockReturnValue({
             deployment: path => path,
             arcSite: 'la-nacion-ar',
-            globalContent: { subtype: 'subtypeValue', node_type: 'nodeTypeValue' },
+            globalContent: {
+                subtype: 'subtypeValue',
+                node_type: 'nodeTypeValue'
+            },
             template: 'templateValue',
             outputType: 'outputTypeValue',
             globalContentConfig: { source: 'sourceValue' },
             layout: 'layoutValue',
-            contextPath: '/mockedContextPath',
+            contextPath: '/mockedContextPath'
         });
     });
 
     test('renders Datadog scripts in the head location', () => {
         const { container } = render(<Datadog location="head" />);
 
-        const scriptTags = container.querySelectorAll('script');
-        expect(scriptTags.length).toBe(3);
+        const containerScripts = container.querySelectorAll('script');
+        const [logScript, rumScript] = containerScripts;
 
-        const [logScript, rumScript, configScript] = scriptTags;
+        const configScript = document.head.querySelector(
+            '#script-configure-datadog-context'
+        );
 
         expect(logScript).toBeInTheDocument();
         expect(logScript).toHaveAttribute('type', 'text/javascript');
@@ -74,8 +81,14 @@ describe('Datadog Component', () => {
         expect(configScript).toBeInTheDocument();
         expect(configScript).toHaveAttribute('type', 'text/javascript');
         expect(configScript).toHaveAttribute('defer');
-        expect(configScript).toHaveAttribute('id', 'script-configure-datadog-context');
-        expect(configScript).toHaveAttribute('src', '/mockedContextPath/resources/js/LN/configureDatadogContext.min.js');
+        expect(configScript).toHaveAttribute(
+            'id',
+            'script-configure-datadog-context'
+        );
+        expect(configScript).toHaveAttribute(
+            'src',
+            '/mockedContextPath/resources/js/LN/configureDatadogContext.min.js'
+        );
 
         const expectedObj = {
             layout: 'layoutValue',
@@ -85,7 +98,9 @@ describe('Datadog Component', () => {
             template: 'templateValue',
             nodeType: 'nodeTypeValue'
         };
-        expect(configScript.getAttribute('data-obj')).toBe(JSON.stringify(expectedObj));
+        expect(configScript.getAttribute('data-obj')).toBe(
+            JSON.stringify(expectedObj)
+        );
     });
 
     test('does not render scripts when location is not head', () => {

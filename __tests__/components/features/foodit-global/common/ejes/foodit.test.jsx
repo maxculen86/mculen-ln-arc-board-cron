@@ -28,9 +28,38 @@ describe('EjesHome integrated', () => {
         ]);
     });
 
-    it('snapshot with real links', () => {
-        const { asFragment } = render(<EjesHome />);
-        expect(asFragment()).toMatchSnapshot();
+    it('renders expected card content without brittle style snapshots', () => {
+        render(<EjesHome />);
+
+        const expectedCards = [
+            {
+                title: 'Aprendé en la cocina',
+                imageFile: 'aprende.webp'
+            },
+            {
+                title: 'Cociná fácil y rápido',
+                imageFile: 'cocina-facil.webp'
+            },
+            {
+                title: 'Cociná a tu medida',
+                imageFile: 'cocina-a-tu-medida.webp'
+            },
+            {
+                title: 'Todas las recetas',
+                imageFile: 'recetas.webp'
+            }
+        ];
+
+        expectedCards.forEach(({ title, imageFile }) => {
+            const image = screen.getByRole('img', {
+                name: `Imagen de ${title}`
+            });
+
+            expect(image).toHaveAttribute(
+                'src',
+                `https://example.com/pf/resources/foodit/assets/images/ejes/${imageFile}`
+            );
+        });
     });
 
     describe('Data Layer Tracking Attributes', () => {

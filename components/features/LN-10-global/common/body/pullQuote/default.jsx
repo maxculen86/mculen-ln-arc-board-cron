@@ -6,7 +6,7 @@ import IconSprite from '../../../../private-global/common/iconSprite/IconSprite'
 import '../../../../../../resources/dist/css/ln/components/com-lead.css';
 import '../../../../../../resources/dist/css/ln/modules/mod-linklist.css';
 
-function PullQuote({ data, className, ...r }) {
+function PullQuote({ data, className = '', ...r }) {
     const {
         citation: { content: author = '' } = {},
         content_elements: {

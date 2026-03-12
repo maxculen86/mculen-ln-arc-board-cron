@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../../features/LN-10-global/header/default';
@@ -72,16 +71,6 @@ function LNAcumuladoColumnistasLayout(props) {
         </GlobalProvider>
     );
 }
-
-LNAcumuladoColumnistasLayout.propTypes = {
-    children: PropTypes.node.isRequired,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string,
-            headerdark: PropTypes.string
-        })
-    }).isRequired
-};
 
 LNAcumuladoColumnistasLayout.sections = layoutItemsColumnistas;
 

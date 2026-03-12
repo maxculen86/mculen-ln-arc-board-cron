@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Image } from '@ln/foodit-ui-image';
 import { getTypeOfDevice } from '@ln/hooks';
@@ -61,24 +60,5 @@ export function OpeningStorytelling({ article = {}, isPrivate = false }) {
         />
     );
 }
-
-OpeningStorytelling.propTypes = {
-    article: PropTypes.shape({
-        promoItems: PropTypes.shape({
-            basic: PropTypes.string,
-            storytelling_mobile: PropTypes.string,
-            video_jw: PropTypes.string
-        }),
-        headlines: PropTypes.shape({
-            basic: PropTypes.string
-        })
-    }),
-    isPrivate: PropTypes.bool
-};
-
-OpeningStorytelling.defaultProps = {
-    article: {},
-    isPrivate: false
-};
 
 export default OpeningStorytelling;

@@ -1,5 +1,4 @@
-import React, { HTMLInputElement } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Select } from '@ln/common-ui-select';
 import { ErrorMessage } from '../../../errorMessage/foodit';
@@ -94,28 +93,5 @@ function MainSaveRecipe(props) {
         </div>
     );
 }
-
-MainSaveRecipe.propTypes = {
-    newFolder: PropTypes.string.isRequired,
-    onInputFolderChange: PropTypes.func.isRequired,
-    error: PropTypes.shape({
-        hasError: PropTypes.bool.isRequired,
-        message: PropTypes.string.isRequired
-    }).isRequired,
-    onSelectChange: PropTypes.func.isRequired,
-    showInputFolder: PropTypes.bool.isRequired,
-    showSelect: PropTypes.bool.isRequired,
-    inputRef: PropTypes.shape({
-        current: PropTypes.instanceOf(HTMLInputElement)
-    }).isRequired,
-    restoreInputValue: PropTypes.func.isRequired,
-    mode: PropTypes.oneOf(['save', 'move']),
-    currentCollectionId: PropTypes.string
-};
-
-MainSaveRecipe.defaultProps = {
-    mode: 'save',
-    currentCollectionId: null
-};
 
 export default MainSaveRecipe;

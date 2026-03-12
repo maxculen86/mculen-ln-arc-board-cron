@@ -26,7 +26,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="icon mr-16 --icon-48"
       >
         <mock-icon
-          critical="true"
+          critical=""
           name="sun"
         />
       </i>
@@ -52,7 +52,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Humedad"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="drop"
           />
         </i>
@@ -70,7 +70,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Dirección del viento"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="windy"
           />
         </i>
@@ -88,7 +88,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Probabilidad de lluvia"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="rain"
           />
         </i>
@@ -129,7 +129,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="icon mr-16 --icon-48"
       >
         <mock-icon
-          critical="true"
+          critical=""
           name="sun"
         />
       </i>
@@ -155,7 +155,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Humedad"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="drop"
           />
         </i>
@@ -173,7 +173,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Dirección del viento"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="windy"
           />
         </i>
@@ -191,7 +191,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
           title="Probabilidad de lluvia"
         >
           <mock-icon
-            critical="true"
+            critical=""
             name="rain"
           />
         </i>

@@ -3,6 +3,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 // TODO: REFACTOR ES-LINT RULES
 import React from 'react';
+import { preload } from 'react-dom';
 import get from '../../get';
 import {
     LinkImagePreload,
@@ -106,17 +107,10 @@ function GetDataToLinkImage({
                 const urlImage = replaceAllUrlsResizerObject(
                     get(data, 'image.url', null)
                 );
-                return (
-                    urlImage && (
-                        <link
-                            rel="preload"
-                            as="image"
-                            fetchPriority="high"
-                            href={urlImage}
-                            imageSrcSet={urlImage}
-                        />
-                    )
-                );
+                if (urlImage) {
+                    preload(urlImage, { as: 'image', fetchPriority: 'high' });
+                }
+                return null;
             }
             const hasFeatureAcumuladoApertura =
                 haveFeatureAcumuladoApertura(renderables);

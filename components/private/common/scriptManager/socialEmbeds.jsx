@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import config from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
@@ -83,12 +82,5 @@ function SocialEmbeds(props) {
         </>
     );
 }
-
-SocialEmbeds.propTypes = {
-    globalContent: PropTypes.shape({
-        type: PropTypes.string.isRequired,
-        content_elements: PropTypes.shape.isRequired
-    }).isRequired
-};
 
 export default Consumer(SocialEmbeds);

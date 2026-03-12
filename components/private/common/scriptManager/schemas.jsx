@@ -1,10 +1,9 @@
 import React from 'react';
 import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'prop-types';
 import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 
-function Schemas({ section }) {
+function Schemas({ section = '' }) {
     const { contextPath, deployment } = useAppContext();
     const _deployment = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
     const logoUrl = `${ARC_STATIC}${deployment(_deployment)}`;
@@ -55,13 +54,5 @@ function Schemas({ section }) {
 
     return section === 'home' ? nodes : null;
 }
-
-Schemas.defaultProps = {
-    section: ''
-};
-
-Schemas.propTypes = {
-    section: PropTypes.string
-};
 
 export default Schemas;

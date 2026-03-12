@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import classNames from 'classnames';
@@ -57,19 +56,4 @@ function Carousell({ slider, children, itsGallery, active }) {
     );
 }
 
-Carousell.propTypes = {
-    slider: PropTypes.shape({
-        hasPrevPage: PropTypes.func,
-        hasNextPage: PropTypes.func,
-        prevButtonHandler: PropTypes.func,
-        nextButtonHandler: PropTypes.func
-    }).isRequired,
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    itsGallery: PropTypes.bool,
-    active: PropTypes.bool
-};
-Carousell.defaultProps = {
-    itsGallery: undefined,
-    active: undefined
-};
 export default withSlider(Carousell, DEFAULT_PAGESIZE);

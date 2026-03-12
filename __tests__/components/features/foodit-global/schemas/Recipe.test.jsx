@@ -12,21 +12,17 @@ jest.mock('fusion:environment', () => {
 
 describe('components - features- foodit-global - schemas - RecipeSchema', () => {
     it('renders the correct number of schema script tags', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scripts = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scripts = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         expect(scripts.length).toBe(3);
     });
 
     it('outputs correct suitableForDiet URLs', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
+        render(<RecipeSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const dietScriptTag = scriptTags.find(tag =>
             tag.textContent.includes('"suitableForDiet"')
@@ -39,10 +35,8 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct author information', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
@@ -50,10 +44,8 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct recipe instructions', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
@@ -92,10 +84,8 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct recipe ingredients', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
@@ -119,10 +109,8 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct image URL', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
@@ -132,10 +120,8 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders correct prep and cook times', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
-        const scriptTags = container.querySelectorAll(
+        render(<RecipeSchema globalContent={mockArticle} />);
+        const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
@@ -144,11 +130,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('renders an Article schema alongside Recipe', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
+        render(<RecipeSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const articleScript = scriptTags.find(tag =>
             tag.textContent.includes('"Article"')
@@ -159,11 +143,9 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
     });
 
     it('Article schema includes all required properties', () => {
-        const { container } = render(
-            <RecipeSchema globalContent={mockArticle} />
-        );
+        render(<RecipeSchema globalContent={mockArticle} />);
         const scriptTags = Array.from(
-            container.querySelectorAll('script[type="application/ld+json"]')
+            document.querySelectorAll('script[type="application/ld+json"]')
         );
         const articleScript = scriptTags.find(tag =>
             tag.textContent.includes('"Article"')

@@ -15,9 +15,8 @@ jest.mock(
     () => jest.fn(page => page)
 );
 
-jest.mock(
-    '../../../components/private/LN/api/v2/mobile/home/index',
-    () => jest.fn(() => null)
+jest.mock('../../../components/private/LN/api/v2/mobile/home/index', () =>
+    jest.fn(() => null)
 );
 
 jest.mock(
@@ -28,7 +27,7 @@ jest.mock(
 describe('content - sources - apiPageHomeSource', () => {
     beforeEach(() => {
         jest.resetModules();
-        jest.spyOn(console, 'error').mockImplementation(() => { });
+        jest.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     const baseQuery = {
@@ -40,24 +39,22 @@ describe('content - sources - apiPageHomeSource', () => {
         useCookie: null
     };
 
-
     test('throws error when alias is invalid', async () => {
         expect.assertions(1);
 
         const query = {
             ...baseQuery,
-            namePage: 'homexxxx',
+            namePage: 'homexxxx'
         };
 
         try {
             await apiPageHomeSource.fetch(query, {
-                cachedCall: jest.fn(),
+                cachedCall: jest.fn()
             });
         } catch (error) {
             expect(error.message).toMatch(/apiPageHomeSource/i);
         }
     });
-
 
     test('returns bitacora transform', async () => {
         const query = { ...baseQuery, namePage: 'bitacora' };
@@ -90,12 +87,12 @@ describe('content - sources - apiPageHomeSource', () => {
     test('returns nothing when page falls into default config without alias', async () => {
         const query = {
             ...baseQuery,
-            namePage: 'some-random-page',
+            namePage: 'some-random-page'
         };
 
         try {
             const result = await apiPageHomeSource.fetch(query, {
-                cachedCall: jest.fn(),
+                cachedCall: jest.fn()
             });
 
             expect(result).toBeUndefined();
@@ -103,5 +100,4 @@ describe('content - sources - apiPageHomeSource', () => {
             expect(error.message).toContain('Not found page');
         }
     });
-
 });

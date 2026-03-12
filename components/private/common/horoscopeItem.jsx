@@ -1,6 +1,5 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
-import PropTypes from 'prop-types';
 import getAssetsPath from './utils/getAssetsPath';
 import Link from './link';
 import Text from './text';
@@ -10,13 +9,13 @@ import { formatText } from './utils/sectionUtils';
 import '../../../resources/dist/css/ln/components/horoscope-item.css';
 
 function HoroscopeItem({
-    classCondition,
-    periodo,
-    nombre,
-    filenameLogo,
+    classCondition = '',
+    periodo = '',
+    nombre = 'cancer',
+    filenameLogo = 'cancer',
     deployment,
     contextPath,
-    chineseYear
+    chineseYear = ''
 }) {
     const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
 
@@ -54,23 +53,5 @@ function HoroscopeItem({
         </article>
     );
 }
-
-HoroscopeItem.propTypes = {
-    classCondition: PropTypes.string,
-    filenameLogo: PropTypes.string,
-    nombre: PropTypes.string,
-    periodo: PropTypes.string,
-    chineseYear: PropTypes.string,
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired
-};
-
-HoroscopeItem.defaultProps = {
-    classCondition: '',
-    filenameLogo: 'cancer',
-    nombre: 'cancer',
-    periodo: '',
-    chineseYear: ''
-};
 
 export default HoroscopeItem;

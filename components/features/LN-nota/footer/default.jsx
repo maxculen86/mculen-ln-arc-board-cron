@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Context from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
 import ExternalSignature from './_children/externalSiganture';
 import Logo from './_children/logo';
 import TrustProject from './_children/trustProject';
@@ -90,10 +89,5 @@ function Footer(props) {
 }
 
 Footer.label = 'LN-Nota-Pie-De-Nota';
-
-Footer.propTypes = {
-    globalContent: PropTypes.object.isRequired,
-    layout: PropTypes.string.isRequired
-};
 
 export default Context(Footer);

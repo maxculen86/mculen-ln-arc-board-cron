@@ -66,7 +66,7 @@ describe('LN - Common - MetaSyndication', () => {
             }
         };
 
-        const { container } = render(
+        render(
             <MetaSyndication
                 arcSite={props.arcSite}
                 subtype={props.subtype}
@@ -77,7 +77,7 @@ describe('LN - Common - MetaSyndication', () => {
         );
 
         expect(
-            container.querySelector('meta[name="robots"]')
+            document.head.querySelector('meta[name="robots"]')
         ).not.toHaveAttribute('content', 'noindex, follow');
     });
 });

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
@@ -96,12 +95,3 @@ export function PrintButton({ printType, description, IconButton, article }) {
         </Dropdown>
     );
 }
-
-PrintButton.propTypes = {
-    printType: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    IconButton: PropTypes.node.isRequired,
-    article: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-    }).isRequired
-};

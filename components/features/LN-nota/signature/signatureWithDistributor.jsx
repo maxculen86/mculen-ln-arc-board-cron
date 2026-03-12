@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { Link } from '@ln/contenidos-ui-link';
 import { Text } from '@ln/contenidos-ui-text';
@@ -12,7 +11,7 @@ function SignatureWithDistributor({
     subcategory = '',
     audioButton,
     showSignatureWithDistributor,
-    classNameSignature
+    classNameSignature = ''
 }) {
     if (!showSignatureWithDistributor) return null;
 
@@ -50,18 +49,5 @@ function SignatureWithDistributor({
         </div>
     );
 }
-
-SignatureWithDistributor.propTypes = {
-    name: PropTypes.string.isRequired,
-    subcategory: PropTypes.string.isRequired,
-    mode: PropTypes.string.isRequired,
-    audioButton: PropTypes.node.isRequired,
-    showSignatureWithDistributor: PropTypes.bool.isRequired,
-    classNameSignature: PropTypes.string
-};
-
-SignatureWithDistributor.defaultProps = {
-    classNameSignature: ''
-};
 
 export default SignatureWithDistributor;

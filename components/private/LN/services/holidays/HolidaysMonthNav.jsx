@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import HolidaysCardCalendar from './HolidaysCardCalendar';
@@ -9,7 +8,7 @@ import get from '../../../common/utils/get';
 import setClassName from '../../../common/utils/setClassName';
 import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
 
-const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
+function HolidaysMonthNav({ calendar, previousAndNextCalendar, year }) {
     const { monthHolidays = [], monthNumber, monthName } = calendar;
     const holidayDayContents = get(
         monthHolidays,
@@ -23,20 +22,18 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
         baseClassName: 'holidays-month-nav',
         extraClassList
     });
-    const link = previousOrNext => {
-        return `${previousAndNextCalendar[previousOrNext].url}`;
-    };
-    const title = previousOrNext => {
-        return previousAndNextCalendar[previousOrNext].title;
-    };
-    const text = previousOrNext => {
-        return `${previousAndNextCalendar[previousOrNext].text}`;
-    };
+    const link = previousOrNext =>
+        `${previousAndNextCalendar[previousOrNext].url}`;
+    const title = previousOrNext =>
+        previousAndNextCalendar[previousOrNext].title;
+    const text = previousOrNext =>
+        `${previousAndNextCalendar[previousOrNext].text}`;
 
     return (
         <div className={_className}>
             {previousAndNextCalendar.previous && (
                 <h3 className="previous-month">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link link={link('previous')} title={title('previous')}>
                         <div className="interaction-container">
                             <div className="circle">
@@ -60,6 +57,7 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
             </div>
             {previousAndNextCalendar.next && (
                 <h3 className="posterior-month">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link link={link('next')} title={title('next')}>
                         <div className="interaction-container">
                             <div className="circle">
@@ -74,37 +72,6 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
             )}
         </div>
     );
-};
-
-HolidaysMonthNav.propTypes = {
-    calendar: PropTypes.shape({
-        year: PropTypes.string,
-        monthNumber: PropTypes.number,
-        monthName: PropTypes.string,
-        monthHolidays: PropTypes.arrayOf(
-            PropTypes.shape({
-                month: PropTypes.number,
-                holiday_day_contents: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        days: PropTypes.arrayOf(PropTypes.number),
-                        reason: PropTypes.string,
-                        day_type_name: PropTypes.string
-                    })
-                )
-            })
-        )
-    }).isRequired,
-    previousAndNextCalendar: PropTypes.shape({
-        previous: PropTypes.shape({
-            text: PropTypes.string,
-            url: PropTypes.string
-        }),
-        next: PropTypes.shape({
-            text: PropTypes.string,
-            url: PropTypes.string
-        })
-    }).isRequired,
-    year: PropTypes.number.isRequired
-};
+}
 
 export default HolidaysMonthNav;

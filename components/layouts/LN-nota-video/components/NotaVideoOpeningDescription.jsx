@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
@@ -24,7 +23,7 @@ import {
 function NotaVideoOpeningDescription({
     globalContent,
     layout,
-    variant,
+    variant = 'vertical',
     customFields = {}
 }) {
     const { prefix = '' } = customFields;
@@ -140,21 +139,5 @@ function NotaVideoOpeningDescription({
         </div>
     );
 }
-
-NotaVideoOpeningDescription.propTypes = {
-    globalContent: PropTypes.shape({}).isRequired,
-    layout: PropTypes.string.isRequired,
-    variant: PropTypes.oneOf(['horizontal', 'vertical']),
-    customFields: PropTypes.shape({
-        prefix: PropTypes.string
-    })
-};
-
-NotaVideoOpeningDescription.defaultProps = {
-    variant: 'vertical',
-    customFields: {
-        prefix: ''
-    }
-};
 
 export default NotaVideoOpeningDescription;

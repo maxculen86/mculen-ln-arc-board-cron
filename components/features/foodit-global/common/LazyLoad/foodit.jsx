@@ -1,15 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { SkeletonCarousel } from '../skeletons/Carousel/foodit';
 
 export function LazyLoad({
-    children,
+    children = null,
     PlaceholderComponent = SkeletonCarousel,
     showComponent = true,
     rootMargin = '600px',
     threshold = 0.1,
     onViewport = () => {},
-    hide,
+    hide = false,
     ...props
 }) {
     const targetRef = useRef(null);
@@ -50,25 +49,5 @@ export function LazyLoad({
         </div>
     );
 }
-
-LazyLoad.propTypes = {
-    children: PropTypes.node,
-    PlaceholderComponent: PropTypes.elementType,
-    showComponent: PropTypes.bool,
-    rootMargin: PropTypes.string,
-    threshold: PropTypes.number,
-    onViewport: PropTypes.func,
-    hide: PropTypes.bool
-};
-
-LazyLoad.defaultProps = {
-    children: null,
-    PlaceholderComponent: SkeletonCarousel,
-    showComponent: true,
-    rootMargin: '600px',
-    threshold: 0.1,
-    onViewport: () => {},
-    hide: false
-};
 
 export default LazyLoad;

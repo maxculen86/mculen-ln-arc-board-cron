@@ -7,7 +7,7 @@ import {
     cardsTitleVariant
 } from '../styles';
 
-function LinkedCardHeading({ number, title }) {
+function LinkedCardHeading({ number = null, title }) {
     const { variant, cardColor } = useLinkedCardContext();
     if (!number && !title) return null;
 

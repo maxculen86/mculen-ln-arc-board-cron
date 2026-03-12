@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import SaveRecipe from '../../Modals/SaveRecipe/saveRecipe';
 
 function OptionMove({
@@ -97,25 +96,5 @@ function OptionMove({
         />
     );
 }
-
-OptionMove.propTypes = {
-    bookmarkId: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    setItems: PropTypes.func.isRequired,
-    moveFunction: PropTypes.func.isRequired,
-    filterKey: PropTypes.string,
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    currentCollectionId: PropTypes.string.isRequired,
-    collectionArticles: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string
-        })
-    ).isRequired
-};
-
-OptionMove.defaultProps = {
-    filterKey: 'bookmarkId'
-};
 
 export default OptionMove;

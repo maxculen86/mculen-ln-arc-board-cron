@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ForecastCard from './ForecastCard';
 import { addHoursAndFormat } from '../../../common/utils/dateAndTimeUtil';
 import { weekDays } from '../../../common/utils/transformISODate';
@@ -44,16 +43,5 @@ function ForecastByDay({ index, section, data } = {}) {
         </div>
     );
 }
-
-ForecastByDay.propTypes = {
-    index: PropTypes.number.isRequired,
-    data: PropTypes.shape({
-        morning: PropTypes.shape(),
-        afternoon: PropTypes.shape(),
-        night: PropTypes.shape(),
-        date: PropTypes.string
-    }).isRequired,
-    section: PropTypes.string.isRequired
-};
 
 export default ForecastByDay;

@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Placeholder = props => {
-    const { slotName, targeting, dimensions, missDfpId, error } = props;
-
+function Placeholder({
+    slotName,
+    targeting,
+    dimensions,
+    missDfpId = false,
+    error = ''
+}) {
     const style = {
         alignItems: 'center',
         width: '300px',
@@ -28,19 +31,6 @@ const Placeholder = props => {
             <p>{`Dimensions: ${JSON.stringify(dimensions)}`}</p>
         </div>
     );
-};
-
-Placeholder.propTypes = {
-    slotName: PropTypes.string.isRequired,
-    targeting: PropTypes.oneOfType([PropTypes.object]).isRequired,
-    dimensions: PropTypes.oneOfType([PropTypes.array]).isRequired,
-    missDfpId: PropTypes.bool,
-    error: PropTypes.string
-};
-
-Placeholder.defaultProps = {
-    missDfpId: false,
-    error: ''
-};
+}
 
 export default Placeholder;

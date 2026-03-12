@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
@@ -62,10 +61,5 @@ function FooditRecipePaywallLayout({ children = [], globalContent = {} }) {
 }
 
 FooditRecipePaywallLayout.sections = ['Cuerpo'];
-
-FooditRecipePaywallLayout.propTypes = {
-    children: PropTypes.node.isRequired,
-    globalContent: PropTypes.shape({}).isRequired
-};
 
 export default Consumer(FooditRecipePaywallLayout);

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/cva';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
@@ -9,7 +8,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import usePwaModal from '../../../private/common/hooks/usePwaModal';
 import startPWASetup from './register';
 
-function PwaModal({ className }) {
+function PwaModal({ className = '' }) {
     const { isShowModal, handleNoClick, handleYesClick } = usePwaModal();
     const { deployment, contextPath, isAdmin, arcSite } = useAppContext();
     const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -85,12 +84,4 @@ function PwaModal({ className }) {
         </div>
     );
 }
-PwaModal.propTypes = {
-    className: PropTypes.string
-};
-
-PwaModal.defaultProps = {
-    className: ''
-};
-
 export default PwaModal;

@@ -67,7 +67,7 @@ function useFetchSearchResults({
 
                 const {
                     faceted,
-                    items,
+                    items = [],
                     metadata = {}
                 } = (await response.json()) || {};
 

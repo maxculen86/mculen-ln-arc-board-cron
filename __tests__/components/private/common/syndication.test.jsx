@@ -14,10 +14,8 @@ describe('Components - private - common - Syndication', () => {
 
     describe('home and acumulado nodeTypes', () => {
         it('returns meta with max-image-preview:standard for nodeType "home"', () => {
-            const { container } = render(
-                <Syndication subtype="1" type="story" nodeType="home" />
-            );
-            const meta = container.querySelector('meta[name="robots"]');
+            render(<Syndication subtype="1" type="story" nodeType="home" />);
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute(
                 'content',
@@ -26,10 +24,10 @@ describe('Components - private - common - Syndication', () => {
         });
 
         it('returns meta with max-image-preview:standard for nodeType "acumulado"', () => {
-            const { container } = render(
+            render(
                 <Syndication subtype="1" type="story" nodeType="acumulado" />
             );
-            const meta = container.querySelector('meta[name="robots"]');
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute(
                 'content',
@@ -40,14 +38,14 @@ describe('Components - private - common - Syndication', () => {
 
     describe('story type with syndication', () => {
         it('returns noindex meta when subtype is not "7", syndication exists, and search is falsy', () => {
-            const { container } = render(
+            render(
                 <Syndication
                     type="story"
                     subtype="1"
                     syndication={{ search: false }}
                 />
             );
-            const meta = container.querySelector('meta[name="robots"]');
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute(
                 'content',
@@ -56,36 +54,36 @@ describe('Components - private - common - Syndication', () => {
         });
 
         it('returns max-image-preview:large meta when subtype is "7"', () => {
-            const { container } = render(
+            render(
                 <Syndication
                     type="story"
                     subtype="7"
                     syndication={{ search: false }}
                 />
             );
-            const meta = container.querySelector('meta[name="robots"]');
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute('content', 'max-image-preview:large');
         });
 
         it('returns max-image-preview:large meta when search is truthy', () => {
-            const { container } = render(
+            render(
                 <Syndication
                     type="story"
                     subtype="1"
                     syndication={{ search: true }}
                 />
             );
-            const meta = container.querySelector('meta[name="robots"]');
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute('content', 'max-image-preview:large');
         });
 
         it('returns max-image-preview:large meta when syndication is undefined', () => {
-            const { container } = render(
+            render(
                 <Syndication type="story" subtype="1" syndication={undefined} />
             );
-            const meta = container.querySelector('meta[name="robots"]');
+            const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
             expect(meta).toHaveAttribute('content', 'max-image-preview:large');
         });

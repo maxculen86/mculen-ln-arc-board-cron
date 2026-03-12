@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { preload } from 'react-dom';
 import ImagePreloadAcu from '../../../../../components/private/LN/acumulado/imagePreloadAcu';
 import { useContent } from 'fusion:content';
 
@@ -10,7 +11,16 @@ jest.mock('fusion:properties', () => () => ({
 
 jest.mock('fusion:content');
 
+jest.mock('react-dom', () => ({
+    ...jest.requireActual('react-dom'),
+    preload: jest.fn()
+}));
+
 describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
+    beforeEach(() => {
+        preload.mockClear();
+    });
+
     test('render correctly', () => {
         const contentResponse = {
             content_elements: [
@@ -77,24 +87,15 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
             imageConfig: 'boxArticles'
         };
 
-        const { baseElement, asFragment } = render(
-            <ImagePreloadAcu {...mockProps} />
-        );
+        render(<ImagePreloadAcu {...mockProps} />);
 
-        const [linkElement] = baseElement.getElementsByTagName('link');
         const [firstArticle] = contentResponse.content_elements;
+        const { resized_urls } = firstArticle.promo_items.basic;
 
-        expect(baseElement.getElementsByTagName('link')).toHaveLength(
-            contentResponse.content_elements[0].promo_items.basic.resized_urls
-                .length
+        expect(preload).toHaveBeenCalledTimes(resized_urls.length);
+        expect(preload).toHaveBeenCalledWith(
+            resized_urls[0].resizedUrl,
+            expect.objectContaining({ as: 'image', fetchPriority: 'high' })
         );
-        expect(linkElement.getAttribute('as')).toBe(
-            firstArticle.promo_items.basic.type
-        );
-        expect(linkElement.getAttribute('rel')).toBe('preload');
-        expect(linkElement.getAttribute('href')).toBe(
-            firstArticle.promo_items.basic.resized_urls[0].resizedUrl
-        );
-        expect(asFragment()).toMatchSnapshot();
     });
 });

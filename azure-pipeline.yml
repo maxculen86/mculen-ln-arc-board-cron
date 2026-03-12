@@ -13,8 +13,8 @@ trigger:
 pool: CI-AgentsLinux #El agente utilizado, adentro cada template tiene su agente particular.
 
 variables:
-    FUSION_RELEASE: '6.1.0'
-    NODE_VERSION: 20.x
+    FUSION_RELEASE: '7.0.2'
+    NODE_VERSION: 22.x
 
 jobs:
     - job: BuildArc

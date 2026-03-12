@@ -4,11 +4,10 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { cx } from '@ln/cva';
-import PropTypes from 'prop-types';
 import { isExcludedSubtype, calcReadingMinutes, countWords } from './_helpers';
 import get from '../../../../private/common/utils/get';
 
-function ReadingTime({ isLight }) {
+function ReadingTime({ isLight = false }) {
     const {
         deployment,
         contextPath,
@@ -62,13 +61,5 @@ function ReadingTime({ isLight }) {
         </li>
     );
 }
-
-ReadingTime.propTypes = {
-    isLight: PropTypes.bool
-};
-
-ReadingTime.defaultProps = {
-    isLight: false
-};
 
 export default ReadingTime;

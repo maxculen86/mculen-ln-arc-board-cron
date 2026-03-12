@@ -1,18 +1,17 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-card-calendar.css';
 import Text from '../../../common/text';
 import Calendar from '../../../common/calendar/Calendar';
 import setClassName from '../../../common/utils/setClassName';
 
-const HolidaysCardCalendar = ({
+function HolidaysCardCalendar({
     year,
     monthNumber,
     monthName,
     holidayData = [],
     layout
-}) => {
+}) {
     const extraClass = {
         home: '--vertical',
         month: '--horizontal',
@@ -40,41 +39,19 @@ const HolidaysCardCalendar = ({
             {holidayData.length ? (
                 <ul className="holidays-list">
                     {holidayData.map(
-                        ({ days, day_type_name: dayTypeName, reason }) => {
-                            return (
-                                <li>
-                                    <span className={extraClass[dayTypeName]}>
-                                        {days}
-                                    </span>
-                                    <Text tag="h4">{reason}</Text>
-                                </li>
-                            );
-                        }
+                        ({ days, day_type_name: dayTypeName, reason }) => (
+                            <li>
+                                <span className={extraClass[dayTypeName]}>
+                                    {days}
+                                </span>
+                                <Text tag="h4">{reason}</Text>
+                            </li>
+                        )
                     )}
                 </ul>
-            ) : (
-                <></>
-            )}
+            ) : null}
         </div>
     );
-};
-
-HolidaysCardCalendar.propTypes = {
-    holidayData: PropTypes.arrayOf(
-        PropTypes.shape({
-            days: PropTypes.arrayOf(PropTypes.number),
-            reason: PropTypes.string,
-            day_type_name: PropTypes.oneOf([
-                'Inamovible',
-                'Puente',
-                'Trasladable'
-            ])
-        })
-    ),
-    layout: PropTypes.oneOf(['home', 'month']),
-    year: PropTypes.string,
-    monthNumber: PropTypes.number,
-    monthName: PropTypes.string
-};
+}
 
 export default HolidaysCardCalendar;

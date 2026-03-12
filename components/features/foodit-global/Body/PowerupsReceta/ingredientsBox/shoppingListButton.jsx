@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { handleIngredientListButton } from './_helper';
@@ -54,25 +53,5 @@ function ShoppingListButton({
         </Button>
     );
 }
-
-ShoppingListButton.propTypes = {
-    isSuscriptor: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
-    articleId: PropTypes.string.isRequired,
-    ingredientsLists: PropTypes.arrayOf(
-        PropTypes.shape({
-            items: PropTypes.arrayOf(
-                PropTypes.shape({
-                    fullIngredientString: PropTypes.string.isRequired,
-                    ingredient: PropTypes.string.isRequired,
-                    amount: PropTypes.number.isRequired
-                })
-            ).isRequired,
-            titleList: PropTypes.string.isRequired,
-            typeList: PropTypes.string.isRequired
-        })
-    ).isRequired,
-    canonicalUrl: PropTypes.string.isRequired
-};
 
 export default ShoppingListButton;

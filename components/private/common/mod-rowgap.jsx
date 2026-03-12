@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 const row = 'row';
 const rowTablet2 = 'row-gap-tablet-2';
@@ -30,14 +29,12 @@ const layout = {
     Editoriales: 'mod-footersection'
 };
 
-const ModRowGap = props => {
-    const {
-        children,
-        column = 3,
-        classCondition,
-        typeArticle = 'Grilla'
-    } = props;
-
+function ModRowGap({
+    children,
+    column = 3,
+    classCondition = '',
+    typeArticle = 'Grilla'
+}) {
     const classLayout =
         typeArticle === 'Grilla' || typeArticle === 'ArticleFeature'
             ? layout[typeArticle][column]
@@ -48,19 +45,6 @@ const ModRowGap = props => {
             {children}
         </div>
     );
-};
-
-ModRowGap.propTypes = {
-    children: PropTypes.node.isRequired,
-    column: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    classCondition: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    typeArticle: PropTypes.string
-};
-
-ModRowGap.defaultProps = {
-    column: 3,
-    classCondition: '',
-    typeArticle: 'Grilla'
-};
+}
 
 export default ModRowGap;

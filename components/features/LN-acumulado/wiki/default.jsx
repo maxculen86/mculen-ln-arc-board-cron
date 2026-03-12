@@ -2,7 +2,6 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/common-ui-link';
@@ -191,9 +190,5 @@ function WikiFeature({ id: featureId }) {
         </Static>
     );
 }
-
-WikiFeature.propTypes = {
-    isWiki: PropTypes.string
-};
 
 export default WikiFeature;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 
@@ -17,11 +16,3 @@ export function TimeItem({ icon, time, text, index, key }) {
         </li>
     );
 }
-
-TimeItem.propTypes = {
-    icon: PropTypes.element.isRequired,
-    time: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
-    key: PropTypes.string.isRequired
-};

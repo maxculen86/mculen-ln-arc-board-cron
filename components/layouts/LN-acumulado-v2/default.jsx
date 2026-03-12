@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import get from '../../private/common/utils/get';
 import AnexoDefault from '../../features/LN-common/anexo/default';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
@@ -102,20 +101,6 @@ function LNAcumuladoV2Layout(props) {
         </GlobalProvider>
     );
 }
-
-LNAcumuladoV2Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-    requestUri: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string
-        }),
-        node_type: PropTypes.string,
-        acumuladoGeneral: PropTypes.object,
-        acumuladoColor: PropTypes.object
-    }).isRequired
-};
 
 LNAcumuladoV2Layout.sections = pageBuilderSections;
 

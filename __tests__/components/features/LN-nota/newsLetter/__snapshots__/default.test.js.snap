@@ -6,13 +6,19 @@ exports[`components - features - LN-Nota - newsLetters Render and snapshot Test 
     class="mb-32"
   >
     <article
-      class="newsletterbox newsletterbox-skeleton"
+      class="newsletterbox"
     >
       <div
         class="newsletterbox-image"
       >
-        <div
-          class="skeleton-loader image flex --cover"
+        <img
+          class="image flex --cover"
+          decoding="async"
+          fetchpriority="low"
+          height="170"
+          loading="lazy"
+          src="https://especialess3.lanacion.com.ar/LN/newsletter/landing/newsletter-default.png"
+          width="256"
         />
       </div>
       <div
@@ -22,28 +28,55 @@ exports[`components - features - LN-Nota - newsLetters Render and snapshot Test 
           class="newsletterbox-text-content"
         >
           <div
-            class="skeleton-loader email-icon"
+            class="email-icon"
           />
           <div
             class="newsletterbox-header"
           >
-            <div
-              class="skeleton-loader newsletterbox-header-text"
-            />
-            <div
-              class="skeleton-loader newsletterbox-header-title"
-            />
+            <p
+              class="text newsletterbox-header-text"
+            >
+              Newsletter
+            </p>
+            <h4
+              class="text newsletterbox-title"
+            >
+              LA NACION
+              <svg
+                fill="none"
+                height="16.8"
+                viewBox="0 0 10 18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 16.52l8.04-7.44V9L0 1.48V.6l9.88 8.12v.64L0 17.4v-.88z"
+                  fill="currentColor"
+                />
+              </svg>
+            </h4>
           </div>
-          <div
-            class="skeleton-loader newsletterbox-description"
-          />
+          <p
+            class="text newsletterbox-description"
+          >
+            Recibí en tu buzón todas las noticias, producciones especiales y columnas de opinión de LA NACION
+          </p>
         </div>
         <div
           class="newsletterbox-divider"
         />
-        <div
-          class="skeleton-loader newsletterbox-button"
-        />
+        <a
+          class="button newsletterbox-button"
+          href="https://newsletter.lanacion.com.ar/"
+          rel="nofollow"
+          target="_blank"
+          title="Ir a RECIBIR NEWSLETTER"
+        >
+          <span
+            class="text"
+          >
+            RECIBIR NEWSLETTER
+          </span>
+        </a>
       </div>
     </article>
   </div>
