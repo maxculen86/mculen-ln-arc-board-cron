@@ -1,4 +1,5 @@
 import { registerScrollTrigger } from '../../../LN-common/hooks/useScrollDispatcher';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const registerScrollTracking = () => {
     registerScrollTrigger({
@@ -7,13 +8,13 @@ const registerScrollTracking = () => {
         threshold: 10,
         thresholdStep: 10,
         callback: percent => {
-            if (window.dataLayer) {
-                window.dataLayer.push({
-                    event: 'scroll_tracking_nota',
-                    scroll_percent: percent,
-                    content_type: 'nota'
-                });
-            }
+            addEventToDataLayerV2({
+                event: 'scroll_tracking_nota',
+                contentType: 'nota',
+                rest: {
+                    scroll_percent: percent
+                }
+            });
         }
     });
 };

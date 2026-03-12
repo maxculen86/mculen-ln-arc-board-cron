@@ -10,12 +10,18 @@ import AuthorsAndSocialLinks from './components/AuthorsAndSocialLinks';
 import Distributor from './components/Distributor';
 import Divider from '../../ui/ln/divider/default';
 
-function DsSignature({ customFields = {}, globalContent = {} } = {}) {
+function DsSignature({
+    customFields = {},
+    globalContent = {},
+    ignoreDistributor = false,
+    showPhoto = true
+} = {}) {
     const { layout, siteProperties } = useAppContext();
     const opinionLayout = siteProperties?.layoutsName?.NotaOpinion;
     const isOpinionLayout = Boolean(opinionLayout) && layout === opinionLayout;
     const { flags, data } = useSignatureRules({
         customFields,
+        ignoreDistributor,
         globalContent,
         isOpinionLayout
     });
@@ -54,7 +60,7 @@ function DsSignature({ customFields = {}, globalContent = {} } = {}) {
                     shouldShowDistributor={shouldShowDistributor}
                 />
                 <AuthorsAndSocialLinks
-                    photo={photo}
+                    photo={showPhoto ? photo : null}
                     author={author}
                     authorsText={authorsText}
                     role={role}

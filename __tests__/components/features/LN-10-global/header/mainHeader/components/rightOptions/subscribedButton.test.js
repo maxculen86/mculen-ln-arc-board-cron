@@ -6,13 +6,13 @@ import { useHeaderContext } from '../../../../../../../../components/features/LN
 import { SubscribeButton } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/subscribeButton';
 import { termicaValuesSubscribe } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/_helper';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
-import addEventToDataLayer from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
 jest.mock(
     '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         __esModule: true,
-        default: jest.fn()
+        addEventToDataLayerV2: jest.fn()
     })
 );
 
@@ -201,7 +201,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
 
         fireEvent.click(document.getElementById('btnsuscribite'));
 
-        expect(addEventToDataLayer).toHaveBeenCalledWith({
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             category: 'home_ln10',
             label: 'suscribite',
             action: 'header_logo',

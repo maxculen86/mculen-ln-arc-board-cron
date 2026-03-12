@@ -26,7 +26,7 @@ import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls, getResizerUrlJw } from './_helper';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 import { shouldPreloadForSubtype } from '../../subtypes/subtypeHelper';
-import getOpeningResizedUrls from '../../../../../layouts/LN-nota-storytelling-v2/helpers/getOpeningResizedUrls';
+import getOpeningResizedUrls from '../../../../../layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls';
 import siteProperties from '../../../../../../properties/sites/la-nacion-ar';
 
 const STORYTELLING_V2_LAYOUT = get(

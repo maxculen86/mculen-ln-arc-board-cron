@@ -3,7 +3,13 @@ import { cx } from '@ln/cva';
 import TableHeader from './components/header';
 import TableRow from './components/row';
 
-function TableV2({ data = {}, classnames = {} }) {
+function TableV2({
+    data = {},
+    classnames = {},
+    stickyFirstCol = false,
+    isCentered = false,
+    withMargin = true
+}) {
     const { header = [], rows = [] } = data;
 
     if (!rows.length) return null;
@@ -14,10 +20,9 @@ function TableV2({ data = {}, classnames = {} }) {
                 'container-table',
                 'overflow-x-auto',
                 'contenidos-scrollbar scrollbar-4',
-                'w-800_l max-w-100_l',
                 'pb-12',
-                'mb-32',
-                'p-8 border border-all border-thin border-light-200',
+                !stickyFirstCol && 'w-800_l max-w-100_l',
+                withMargin && 'mb-32',
                 classnames.container
             ])}
         >
@@ -27,7 +32,12 @@ function TableV2({ data = {}, classnames = {} }) {
                 cellSpacing={0}
                 style={{ tableLayout: 'auto', width: '100%' }}
             >
-                <TableHeader header={header} />
+                <TableHeader
+                    stickyFirstCol={stickyFirstCol}
+                    isCentered={isCentered}
+                    header={header}
+                    className={classnames.header}
+                />
                 <tbody>
                     {rows.map((row, rowIndex) => (
                         <TableRow
@@ -37,6 +47,9 @@ function TableV2({ data = {}, classnames = {} }) {
                             row={row}
                             rowIndex={rowIndex}
                             headerLength={header.length}
+                            stickyFirstCol={stickyFirstCol}
+                            isCentered={isCentered}
+                            className={classnames.row}
                         />
                     ))}
                 </tbody>

@@ -71,7 +71,49 @@ export const setExternalLinks = ({
         }
     );
 
+export const sanitizeString = (str = '') =>
+    typeof str === 'string'
+        ? str?.replace(/(?![\n\r\t])[\p{Cc}\p{Cf}\p{Cs}\p{Zp}\p{Zl}]/gu, '') ||
+          ''
+        : str;
+
+export const parseImageText = (image = {}) => {
+    const caption = get(image, 'caption', '');
+    return {
+        ...image,
+        caption: sanitizeString(caption),
+        additional_properties: {
+            ...image.additional_properties,
+            iptc_source: sanitizeString(
+                get(image, 'additional_properties.iptc_source', '')
+            )
+        },
+        subtitle: sanitizeString(get(image, 'subtitle', '')),
+        credits: {
+            affiliation: get(image, 'credits.affiliation', []).map(element => {
+                const { name = '', type = '' } = element || {};
+                return {
+                    ...element,
+                    name: sanitizeString(name),
+                    type: sanitizeString(type)
+                };
+            })
+        },
+        by: get(image, 'credits.by', []).map(element => {
+            const { byline = '', type = '', name = '' } = element || {};
+            return {
+                byline: sanitizeString(byline),
+                type: sanitizeString(type),
+                name: sanitizeString(name)
+            };
+        })
+    };
+};
+
 export const configPromoItems = {
+    image: async ({ element = {} } = {}) => {
+        return parseImageText(element);
+    },
     video: ({ cachedCall, element, arcSite }) =>
         convertVideoArcToJw(element, arcSite, cachedCall),
     gallery: ({ cachedCall, element, arcSite }) =>
@@ -155,7 +197,8 @@ export const configCallbackContentElements = {
             articlePath,
             baseOrigin
         });
-    }
+    },
+    image: ({ element = {} } = {}) => parseImageText(element)
 };
 
 const callbacksByTypeReference = {
@@ -229,7 +272,7 @@ export const getMalformedAnchorTags = (textContent = '') => {
     return linkList.filter(e => {
         return !new RegExp(
             // Este regex es un formato de URL valido. Aca lo que se hace es validar que la url que venga en el href del tag A sea valido.
-            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
+            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z][a-z0-9-]*)(?:\\.(?:[a-z-0-9]-*)*[a-z0-9]+)*` +
                 `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
             'gim'
         ).test(e);

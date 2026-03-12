@@ -129,7 +129,7 @@ export const productos = [
     ),
     commonPropsFooter(
         'Fundación LA NACION',
-        'https://fundacionlanacion.org.ar/',
+        'https://www.fundacionlanacion.org.ar/',
         TARGET_BLANK
     )
 ];

@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import SubHeaderLN from '../../../../../../components/features/LN-10-global/header/subHeader/default';
 import {
     setDollarData,
@@ -152,7 +152,7 @@ describe('components - features - LN-10-global - subHeader - default', () => {
 
         expect(container).toMatchSnapshot();
     });
-    test('should register in dataLayer the click events of each link', () => {
+    test('should register in dataLayer the click events of each link', async () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: true
         }));
@@ -166,6 +166,8 @@ describe('components - features - LN-10-global - subHeader - default', () => {
         links.forEach(link => {
             link.click();
         });
-        expect(window.dataLayer).toEqual(subHeaderEventLog);
+        await waitFor(() => {
+            expect(window.dataLayer).toEqual(subHeaderEventLog);
+        });
     });
 });

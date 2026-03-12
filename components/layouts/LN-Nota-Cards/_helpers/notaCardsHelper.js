@@ -1,6 +1,9 @@
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import getBajadaOrFirstTextParagraph from '../../../private/common/utils/getBajadaOrFirstTextParagraph';
-import { getSectionLogo } from '../../../private/common/utils/sectionUtils';
+import {
+    getSectionLogo,
+    getAFondoLogo
+} from '../../../private/common/utils/sectionUtils';
 
 export const resolveDualTitles = (workTitle, nativeTitle) => {
     const cleanNative = nativeTitle?.trim();
@@ -28,10 +31,12 @@ export const getNotaCardsAperturaData = globalContent => {
     const { layoutsName = {} } = siteConfig || {};
 
     const layout = layoutsName.Cards;
-    const { sections } = taxonomy || {};
+    const { sections, tags = [] } = taxonomy || {};
     const { name: distributorName } = distributor || {};
 
-    const logoData = getSectionLogo(sections, layout, distributorName);
+    const aFondoLogo = getAFondoLogo(tags, layout);
+    const logoData =
+        aFondoLogo || getSectionLogo(sections, layout, distributorName);
 
     const dataMeta = {
         publishDate,

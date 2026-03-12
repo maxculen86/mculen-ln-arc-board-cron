@@ -2,7 +2,7 @@ import React from 'react';
 import { cellVariants } from '../styles';
 import stripHtml from '../../../../private/common/utils/stripHtml';
 
-function TableHeader({ header = [] }) {
+function TableHeader({ header = [], stickyFirstCol, className, isCentered }) {
     return (
         <thead>
             <tr>
@@ -12,9 +12,11 @@ function TableHeader({ header = [] }) {
                             {
                                 variant: 'header',
                                 withBorderLeft: index !== 0,
-                                withBorderRight: index !== header.length - 1
+                                withBorderRight: index !== header.length - 1,
+                                isSticky: index === 0 && stickyFirstCol,
+                                isCentered
                             },
-                            'vertical-align-top'
+                            className
                         )}
                         // TODO: Reemplazar con ID único desde el source, ARC no lo esta mandando en ._id (si no abrir ticket)
                         // eslint-disable-next-line react/no-array-index-key

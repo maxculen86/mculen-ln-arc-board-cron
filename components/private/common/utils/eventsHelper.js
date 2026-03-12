@@ -1,4 +1,6 @@
-//TODO: DELETE FUNCTIONS NOT USED IN SCRIPTS FROM THIS FILE
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
+
+// TODO: DELETE FUNCTIONS NOT USED IN SCRIPTS FROM THIS FILE
 export const addEventToDataLayer = ({
     label,
     action,
@@ -8,13 +10,12 @@ export const addEventToDataLayer = ({
     const HOME_LN10 = 'home_ln10';
     const E_LINK_CLICK = 'e_linkclick';
 
-    window.dataLayer &&
-        window.dataLayer.push({
-            event: event || E_LINK_CLICK,
-            dynamic_category: category || HOME_LN10,
-            dynamic_action: action,
-            dynamic_label: label
-        });
+    addEventToDataLayerV2({
+        event: event || E_LINK_CLICK,
+        category: category || HOME_LN10,
+        action,
+        label
+    });
 };
 
 export const addEventListeners = (element, payload, callback) => {
@@ -28,8 +29,8 @@ export const addEventListeners = (element, payload, callback) => {
     }
 };
 
-export const createDynamicLabel = (text = '') => {
-    return text
+export const createDynamicLabel = (text = '') =>
+    text
         .toLowerCase()
         .replace(/ /g, '_')
         .replace(/á/g, 'a')
@@ -37,7 +38,6 @@ export const createDynamicLabel = (text = '') => {
         .replace(/í/g, 'i')
         .replace(/ó/g, 'o')
         .replace(/ú/g, 'u');
-};
 
 export const setEventsFooter = () => {
     const linksFooter = window.document
@@ -140,12 +140,8 @@ export const setEventsRoof = () => {
         document.querySelectorAll('[roof-container="roof-container"]') || [];
 
     roofs.forEach(roof => {
-        const {
-            anchorLeft,
-            actionLeft,
-            anchorRight,
-            actionRight
-        } = getAnchorsFromGroup(roof);
+        const { anchorLeft, actionLeft, anchorRight, actionRight } =
+            getAnchorsFromGroup(roof);
 
         const roofTitle = getRoofTitle(roof);
 

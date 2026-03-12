@@ -26,7 +26,7 @@ export function CategoryDefault({
                         key={title}
                         classnames={{
                             container: classNames,
-                            top: 'max-w-96'
+                            top: 'max-w-78'
                         }}
                         container={container}
                         title={title}

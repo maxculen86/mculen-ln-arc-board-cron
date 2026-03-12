@@ -14,7 +14,7 @@ import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
 function TitleAndIconArticle({
     customFields: { prefix },
     globalContent: {
-        taxonomy: { sections },
+        taxonomy: { sections, tags = [] },
         headlines,
         label,
         distributor = { name: 'LA NACION' },
@@ -44,6 +44,7 @@ function TitleAndIconArticle({
                 advertiser={advertiser}
                 subtype={subtype}
                 tooltip={tooltip}
+                tags={tags}
             />
             {subtype === LIVEBLOG && coverageEndTime && (
                 <div className="badge-container">

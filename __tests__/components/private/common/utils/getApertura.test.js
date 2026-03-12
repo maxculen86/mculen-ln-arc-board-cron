@@ -24,8 +24,7 @@ describe('getApertura test', () => {
                 credits: {},
                 height: 720,
                 type: 'image',
-                url:
-                    'https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg',
+                url: 'https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg',
                 width: 1280
             }
         },
@@ -34,15 +33,13 @@ describe('getApertura test', () => {
             {
                 height: 360,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_640x360-600.mp4',
+                url: 'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_640x360-600.mp4',
                 width: 640
             },
             {
                 height: 720,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
+                url: 'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
                 width: 1280
             }
         ],
@@ -65,8 +62,7 @@ describe('getApertura test', () => {
             ]
         },
         description: {
-            basic:
-                '2007. Una entrevista en Olivos entre la Presidenta Cristina Kirchner y LA NACION'
+            basic: '2007. Una entrevista en Olivos entre la Presidenta Cristina Kirchner y LA NACION'
         },
         distributor: {
             name: ''
@@ -128,8 +124,7 @@ describe('getApertura test', () => {
         subtitle:
             '2007. Una entrevista en Olivos entre la Presidenta Cristina Kirchner y LA NACION',
         type: 'image',
-        url:
-            'https://resizer.glanacion.com/resizer/jAy1YvTHpx2cmfB2pxX77T48pKY=/1920x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/5V7HOVM465E4FHY2FZ35TYITCE.jpg',
+        url: 'https://resizer.glanacion.com/resizer/jAy1YvTHpx2cmfB2pxX77T48pKY=/1920x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/5V7HOVM465E4FHY2FZ35TYITCE.jpg',
         width: 2000
     };
     const videoJw = {
@@ -149,42 +144,35 @@ describe('getApertura test', () => {
                             Sitio: 'LA NACION',
                             description: '',
                             duration: 10,
-                            image:
-                                'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720',
+                            image: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720',
                             images: [
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
                                     type: 'image/jpeg',
                                     width: 320
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=480',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=480',
                                     type: 'image/jpeg',
                                     width: 480
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=640',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=640',
                                     type: 'image/jpeg',
                                     width: 640
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720',
                                     type: 'image/jpeg',
                                     width: 720
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1280',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1280',
                                     type: 'image/jpeg',
                                     width: 1280
                                 },
                                 {
-                                    src:
-                                        'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1920',
+                                    src: 'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1920',
                                     type: 'image/jpeg',
                                     width: 1920
                                 }
@@ -194,14 +182,12 @@ describe('getApertura test', () => {
                             pubdate: 1693833189,
                             sources: [
                                 {
-                                    file:
-                                        'https://cdn.jwplayer.com/manifests/bb7snV27.m3u8',
+                                    file: 'https://cdn.jwplayer.com/manifests/bb7snV27.m3u8',
                                     type: 'application/vnd.apple.mpegurl'
                                 },
                                 {
                                     bitrate: 540776,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
                                     filesize: 675971,
                                     framerate: 25,
                                     height: 180,
@@ -211,8 +197,7 @@ describe('getApertura test', () => {
                                 },
                                 {
                                     bitrate: 801936,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4',
                                     filesize: 1002421,
                                     framerate: 25,
                                     height: 270,
@@ -222,8 +207,7 @@ describe('getApertura test', () => {
                                 },
                                 {
                                     bitrate: 2646835,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4',
                                     filesize: 3308544,
                                     framerate: 25,
                                     height: 720,
@@ -233,16 +217,14 @@ describe('getApertura test', () => {
                                 },
                                 {
                                     bitrate: 120009,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a',
                                     filesize: 150012,
                                     label: 'AAC Audio',
                                     type: 'audio/mp4'
                                 },
                                 {
                                     bitrate: 1026344,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
                                     filesize: 1282931,
                                     framerate: 25,
                                     height: 360,
@@ -252,8 +234,7 @@ describe('getApertura test', () => {
                                 },
                                 {
                                     bitrate: 1775553,
-                                    file:
-                                        'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
+                                    file: 'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
                                     filesize: 2219442,
                                     framerate: 25,
                                     height: 540,
@@ -265,8 +246,7 @@ describe('getApertura test', () => {
                             title: 'Video Home 2',
                             tracks: [
                                 {
-                                    file:
-                                        'https://cdn.jwplayer.com/strips/bb7snV27-120.vtt',
+                                    file: 'https://cdn.jwplayer.com/strips/bb7snV27-120.vtt',
                                     kind: 'thumbnails'
                                 }
                             ],

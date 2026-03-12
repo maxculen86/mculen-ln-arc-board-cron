@@ -1,3 +1,5 @@
+import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/utils/addEventToDataLayer';
+
 // TODO: Ver posibilidad de testear EventsHelper
 export class EventsHelper {
     constructor() {
@@ -21,13 +23,12 @@ export class EventsHelper {
             const HOME_LN10 = 'home_ln10';
             const E_LINK_CLICK = 'e_linkclick';
 
-            window.dataLayer &&
-                window.dataLayer.push({
-                    event: event || E_LINK_CLICK,
-                    dynamic_category: category || HOME_LN10,
-                    dynamic_action: action,
-                    dynamic_label: label
-                });
+            addEventToDataLayerV2({
+                event: event || E_LINK_CLICK,
+                category: category || HOME_LN10,
+                action,
+                label
+            });
         };
 
         this.addEventListeners = (element, payload, callback) => {

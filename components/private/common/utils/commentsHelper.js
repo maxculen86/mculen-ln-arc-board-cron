@@ -1,14 +1,17 @@
 /* eslint-disable no-restricted-globals */
-/* eslint-disable react-hooks/rules-of-hooks */
 import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/globalContext';
 import useTermica from '../hooks/useTermica';
 import get from './get';
+import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
 
 export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
 export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
 export const SUBSCRIPTION = 'SUBSCRIPTION';
+const COMMENTS_SECTION_POSITION = '11';
+const COMMENTS_PAGE_POSITION = '00';
+const COMMENTS_DEFAULT_VALUE = '00';
 
 export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     authentication: {
@@ -18,9 +21,16 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
         }
     },
     commenting: {
-        loaded: ({ setIsReady, outputType }) => {
+        loaded: ({ setIsReady, outputType, articleId }) => {
             if (outputType === 'default') {
-                setIsReady?.(true);
+                setIsReady(true);
+                const position = `${COMMENTS_SECTION_POSITION}${COMMENTS_PAGE_POSITION}${COMMENTS_DEFAULT_VALUE}`;
+                addEventToDataLayerV2({
+                    event: 'impressioncomentario',
+                    ctr_brand: 'cajaComentarios',
+                    ctr_position: position,
+                    articleId
+                });
             }
             if (outputType === 'widgets') {
                 const loader = document.getElementsByClassName('loader');
@@ -33,9 +43,11 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     comment: {
         created: ({ channel, event, args, window }) => {
             if (window.dataLayer !== 'undefined') {
-                window.dataLayer.push({
+                addEventToDataLayerV2({
                     event: 'Comentar',
-                    Type: 'Comentar'
+                    rest: {
+                        Type: 'Comentar'
+                    }
                 });
             }
             return { channel, event, args };
@@ -44,9 +56,11 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     'comment-reply': {
         posted: ({ channel, event, args, window }) => {
             if (window.dataLayer !== 'undefined') {
-                window.dataLayer.push({
+                addEventToDataLayerV2({
                     event: 'Comentar',
-                    Type: 'Responder'
+                    rest: {
+                        Type: 'Responder'
+                    }
                 });
             }
             return { channel, event, args };
