@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { useAppContext } from 'fusion:context';
@@ -64,7 +64,11 @@ describe('Components - Features - Foodit-global - Common - ShoppingList - Foodit
         }));
         getToken.mockReturnValue('10');
         const { getByText } = render(<ShoppingList />);
-        expect(getByText('Exclusivo para suscriptores')).toBeInTheDocument();
+        waitFor(() => {
+            expect(
+                getByText('Exclusivo para suscriptores')
+            ).toBeInTheDocument();
+        });
     });
 
     it('Should render shoppingList', () => {

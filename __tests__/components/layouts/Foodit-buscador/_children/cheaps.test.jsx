@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Chips from '../../../../../components/layouts/Foodit-buscador/_children/chips';
+import Chips from '../../../../../components/features/foodit-global/Queryly/_children/chips';
 
 jest.mock('@ln/foodit-ui-button', () => ({
     Button: ({ onClick, style, children }) => (

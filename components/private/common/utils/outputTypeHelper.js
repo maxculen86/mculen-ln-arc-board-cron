@@ -1,6 +1,6 @@
 import React from 'react';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
-import { LIVEBLOG_EDITORIAL, RECETA } from './subtypes/subtypeHelper';
+import { AGENCIA, LIVEBLOG_EDITORIAL, RECETA } from './subtypes/subtypeHelper';
 import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
 import get from './get';
 import { getEconomicIndicesMetaData } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
@@ -149,6 +149,7 @@ export const metasFromSiteServices = (metaTags = {}) => {
 export const addMetaNoIndexNoFollow = ({
     outputType = 'default',
     requestUri,
+    subtype,
     distributorName = ''
 }) => {
     const section = getSectionOfRequestUri(requestUri);
@@ -163,8 +164,10 @@ export const addMetaNoIndexNoFollow = ({
         'carrusel-home'
     ];
     const blockedOutputTypes = ['opta', 'widgets'];
+    const blockedSubtypes = [AGENCIA];
 
     const showRobotsMeta =
+        blockedSubtypes.includes(subtype) ||
         blockedSections.includes(section) ||
         blockedOutputTypes.includes(outputType);
     const normalizedUri = requestUri?.toLowerCase?.() || '';

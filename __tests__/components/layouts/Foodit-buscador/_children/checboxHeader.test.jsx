@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import CheckBoxHeader from '../../../../../components/layouts/Foodit-buscador/_children/checkboxHeader';
+import CheckBoxHeader from '../../../../../components/features/foodit-global/Queryly/_children/checkboxHeader';
 
 describe('CheckBoxHeader Component', () => {
     const mockHandleCheckBox = jest.fn();

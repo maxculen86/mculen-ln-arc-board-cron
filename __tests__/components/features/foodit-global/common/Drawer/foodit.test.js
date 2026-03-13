@@ -8,6 +8,11 @@ window.SpeechRecognition = jest.fn(() => ({
     stop: jest.fn()
 }));
 
+jest.mock('@ln/utils', () => ({
+    ...jest.requireActual('@ln/utils'),
+    getTypeOfDevicev2: jest.fn()
+}));
+
 describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     beforeEach(() => {
         render(<DrawerMenu categories={menuCategories} />);
@@ -35,7 +40,7 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     });
     it('it should had component Search', () => {
         const searchComponent = screen.getByPlaceholderText(
-            '¿Qué querés cocinar hoy?'
+            'Buscá o pregúntale a la IA'
         );
         expect(searchComponent).toBeInTheDocument();
     });

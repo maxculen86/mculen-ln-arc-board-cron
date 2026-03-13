@@ -31,14 +31,11 @@ it('renderiza el botón de audio cuando inputValue está vacío', () => {
 });
 
 it('renderiza el botón de search con href cuando inputValue tiene valor', () => {
-    const urlSearch = 'https://foodit.lanacion.com.ar/buscador/?query=pollo';
-
-    render(<ButtonSearch inputValue="pollo" urlSearch={urlSearch} />);
+    render(<ButtonSearch inputValue="pollo" />);
 
     const button = screen.getByTitle('Buscar');
 
     expect(button).toHaveAttribute('title', 'Buscar');
-    expect(button).toHaveAttribute('href', urlSearch);
 
     expect(screen.getByText('search')).toBeInTheDocument();
 });

@@ -9,7 +9,8 @@ const useGetUserConfig = () => {
         isSubscribed = false,
         userEmail = '',
         userName = '',
-        userLastName = ''
+        userLastName = '',
+        userId = ''
     } = useGetUserData(SUBSCRIBED_HELPER.FOODIT);
 
     const { config: promotions } = useUserConfig(userType);
@@ -23,7 +24,8 @@ const useGetUserConfig = () => {
         email: userEmail,
         suscription: isSubscribed ? 'Suscriptor digital' : 'Sin suscripción',
         isSubscribed,
-        promotions
+        promotions,
+        id: userId
     };
 };
 

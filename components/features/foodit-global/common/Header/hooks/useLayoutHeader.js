@@ -13,6 +13,8 @@ export const useLayoutHeader = () => {
         [layoutsName.FooditRecipePaywall]: DEFAULT_MARGIN,
         [layoutsName.FooditFichaNota]: 'mb-0',
         [layoutsName.FooditNotePaywall]: 'mb-0',
+        [layoutsName.FooditChatIA]: 'mb-24',
+        [layoutsName.FooditBuscador]: 'mb-24',
         default: 'mb-40'
     };
 
