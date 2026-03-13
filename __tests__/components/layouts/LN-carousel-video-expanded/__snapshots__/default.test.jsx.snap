@@ -11,6 +11,22 @@ exports[`components - layouts - CarouselVideoExpanded - default renders correctl
       <div
         data-testid="share-video"
       />
+      <script
+        type="application/ld+json"
+      >
+        {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "LA NACION - Noticia",
+  "description": "“Alá y el islam son la verdadera religión”. El grafiti en una iglesia vandalizada en el bastión rebelde en Siria y la luz de esperanza que ven los cristianos",
+  "thumbnailUrl": [
+    ""
+  ],
+  "uploadDate": "",
+  "embedUrl": "",
+  "duration": "PT0M0S"
+}
+      </script>
     </div>
   </main>
 </DocumentFragment>

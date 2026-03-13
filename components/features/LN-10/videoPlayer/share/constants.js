@@ -10,7 +10,7 @@ export const SELECTORS = {
 };
 
 export const URL_TEMPLATE = {
-    BASE_PATH: '/carrousel/jwid',
+    BASE_PATH: '/video/jwid',
     SUFFIX: '/'
 };
 
