@@ -4,7 +4,7 @@ import {
     validateBannerConfig
 } from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
 import DivBannerSSR from 'private/common/banners/DivBannerSSR';
-import DynamicBanner from 'features/ui/ln/dynamicBanner/default';
+import Banner from 'features/ui/ln/banner/default';
 import { OPINION } from 'private/common/utils/subtypes/subtypeHelper';
 
 describe('Dynamic Banner Helper', () => {
@@ -199,10 +199,10 @@ describe('Dynamic Banner Helper', () => {
     });
 
     describe('Dynamic banner settings by subtype', () => {
-        it('returns DynamicBanner for opinion subtype', () => {
+        it('returns Banner for opinion subtype', () => {
             const settings = getDynamicBannerSettingsBySubtype(OPINION);
 
-            expect(settings.BannerComponent).toBe(DynamicBanner);
+            expect(settings.BannerComponent).toBe(Banner);
             expect(settings.maxBanners).toBe(4);
         });
 

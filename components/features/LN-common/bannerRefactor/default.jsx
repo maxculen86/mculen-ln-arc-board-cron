@@ -3,14 +3,16 @@ import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
 import {
     getBannerConfiguration,
-    shouldShowBanner
+    shouldHideBannerForSubscriberOnlyContent
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 import bannersRules from '../../../private/common/banners/bannersRules';
 import get from '../../../private/common/utils/get';
 import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
 
-const Banner = props => {
+// TODO(desarrollo): si LN/DS-Banner funciona correctamente,
+// alinear este feature con el mismo refactor (reutilizar helpers + simplificacion de render).
+function Banner(props) {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
     const {
@@ -26,16 +28,16 @@ const Banner = props => {
         { device: 'mobile', slotId: mobile },
         { device: 'tablet', slotId: tablet }
     ]
-        .map(bannerConfig => {
-            return bannerConfig.slotId
+        .map(bannerConfig =>
+            bannerConfig.slotId
                 ? getBannerConfiguration(
                       globalContent,
                       customFields,
                       globalContentConfig,
                       bannerConfig
                   )
-                : null;
-        })
+                : null
+        )
         .filter(item => item !== null);
 
     if (isAdmin) {
@@ -56,7 +58,10 @@ const Banner = props => {
     return (
         <>
             {bannersConfiguration.map(bannerConfiguration =>
-                !shouldShowBanner(soloNoSuscriptores, globalContent) ? (
+                !shouldHideBannerForSubscriberOnlyContent(
+                    soloNoSuscriptores,
+                    globalContent
+                ) ? (
                     <>
                         <DivBannerSSR
                             key={bannerConfiguration.slotName}
@@ -72,13 +77,11 @@ const Banner = props => {
                                 sticky
                             })}
                     </>
-                ) : (
-                    <></>
-                )
+                ) : null
             )}
         </>
     );
-};
+}
 
 Banner.label = 'LN-Common-BannerRefactor';
 Banner.propTypes = bannerPropTypes;
