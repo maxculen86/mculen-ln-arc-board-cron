@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWindowSize } from '@ln/hooks';
-import DrawerContainer from '../../../features/foodit-global/common/DrawerContainer/foodit';
-import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/constants';
+import DrawerContainer from '../../common/DrawerContainer/foodit';
+import { DRAWER } from '../../common/DrawerContainer/constants';
 import FilterBox from './filterBox';
 
 function DrawerBuscador({ toggleDrawer }) {

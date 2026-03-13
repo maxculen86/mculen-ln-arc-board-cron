@@ -5,7 +5,7 @@ import {
     getTag,
     transformedFilterNames,
     checkStateCheckbox
-} from '../../../../components/layouts/Foodit-buscador/_helpers';
+} from '../../../../components/features/foodit-global/Queryly/_helpers';
 
 describe('Tests - helpers - Foodit Buscador', () => {
     describe('Test - getQueryForFilters', () => {

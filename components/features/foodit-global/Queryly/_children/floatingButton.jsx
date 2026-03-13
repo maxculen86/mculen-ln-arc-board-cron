@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { SearchContext } from './searchContext';
-import FloatingGroupButton from '../../../features/foodit-global/common/floatingGroupButton/foodit';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import FloatingGroupButton from '../../common/floatingGroupButton/foodit';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 function FloatingButton({ toggleDrawer }) {
     const { appliedFilters = [] } = useContext(SearchContext);

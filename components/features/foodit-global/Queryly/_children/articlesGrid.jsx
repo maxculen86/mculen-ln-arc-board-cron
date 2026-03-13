@@ -6,17 +6,16 @@ import { useDrawer } from '@ln/common-ui-drawer';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { useWindowSize } from '@ln/hooks';
-import CommonCardFoodit from '../../../features/foodit-global/common/CommonCardFoodit/foodit';
-import { LoadMoreButton } from '../../../features/foodit/GrillaNotasAcu/helpers/loadMoreButton';
-import { getVariantBySubtype } from '../../../features/foodit-global/common/utils/notaFooditHelper';
+import CommonCardFoodit from '../../common/CommonCardFoodit/foodit';
+import { LoadMoreButton } from '../../../foodit/GrillaNotasAcu/helpers/loadMoreButton';
+import { getVariantBySubtype } from '../../common/utils/notaFooditHelper';
 import { getTag } from '../_helpers';
 import { SearchContext } from './searchContext';
-import { SkeletonResultdata } from '../../../features/foodit-global/common/skeletons/Buscador/resultdata';
-import { DRAWER } from '../../../features/foodit-global/common/DrawerContainer/constants';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import { SkeletonResultdata } from '../../common/skeletons/Buscador/resultdata';
+import { DRAWER } from '../../common/DrawerContainer/constants';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import DrawerBuscador from './drawerBuscador';
-import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
-import { trackResultClick } from '../hooks/useFetchSearchResults';
+import { RECETA } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 export default function ArticlesGrid() {
     const {
@@ -178,12 +177,7 @@ export default function ArticlesGrid() {
                             alt={title}
                             title={title}
                             sources={[]}
-                            linksProps={{
-                                href: link,
-                                title,
-                                onClick: () =>
-                                    trackResultClick({ query, target: link })
-                            }}
+                            linksProps={{ href: link, title }}
                             variant={getVariantBySubtype(subtype)}
                         />
                     )

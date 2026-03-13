@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageAssistant should match snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col md:flex-row pr-[32px] max-w-[500px] xl:max-w-[700px]"
+  >
+    <div
+      class="flex gap-4 shrink-0 pt-4"
+    >
+      <span
+        data-name="sprak"
+        data-size="20"
+        data-testid="icon"
+      />
+      <p
+        class="roboto roboto-bold text-16"
+      >
+        Foodit IA:
+      </p>
+    </div>
+    <div
+      class="roboto text-16 flex flex-col gap-8 [&_.italic]:not-italic [&_.italic]:text-base-default"
+      style="--text-10: 16px;"
+    >
+      <div
+        data-is-last="false"
+        data-testid="thread-message"
+      >
+        desc
+      </div>
+      <ul
+        class="flex flex-col pl-4 gap-8"
+      >
+        <li
+          class="flex gap-4 items-center
+"
+        >
+          <span
+            data-name="bullet-chat"
+            data-size="12"
+            data-testid="icon"
+          />
+          <a
+            class="text-accent-default roboto roboto-bold uppercase text-12"
+            data-testid="source-link"
+            href="https://a.com"
+          >
+            Fuente 1
+          </a>
+        </li>
+        <li
+          class="flex gap-4 items-center
+"
+        >
+          <span
+            data-name="bullet-chat"
+            data-size="12"
+            data-testid="icon"
+          />
+          <a
+            class="text-accent-default roboto roboto-bold uppercase text-12"
+            data-testid="source-link"
+            href="https://b.com"
+          >
+            Fuente 2
+          </a>
+        </li>
+      </ul>
+      <div
+        class="flex items-center gap-16 text-neutral-600 pt-8"
+      >
+        <p
+          class="font-secondary text-12"
+        >
+          ¿Te resultó útil la respuesta?
+        </p>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-button font-bold uppercase text-primary-default hover:bg-primary-lighten data-[disabled="true"]:text-primary-lighten hover:bg-transparent px-0"
+          data-disabled="false"
+          type="button"
+        >
+          <span
+            data-name="thumb"
+            data-size="16"
+            data-testid="icon"
+          />
+        </button>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-button font-bold uppercase text-primary-default hover:bg-primary-lighten data-[disabled="true"]:text-primary-lighten hover:bg-transparent px-0"
+          data-disabled="false"
+          type="button"
+        >
+          <span
+            data-name="thumb"
+            data-size="16"
+            data-testid="icon"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

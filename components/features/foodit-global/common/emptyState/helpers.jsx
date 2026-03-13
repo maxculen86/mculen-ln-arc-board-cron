@@ -50,9 +50,18 @@ export const descriptionByVariant = ({ layout, variant }) => {
             'bookmark'
         );
     }
+
+    function messageByLayout() {
+        const isFooditIA = layout === layoutsName.FooditChatIA;
+
+        return isFooditIA
+            ? 'Para ver la respuesta de Foodit IA es necesario que tengas una suscripción.'
+            : NEED_SUBSCRIPTION;
+    }
+
     const optionsDescription = {
-        'barrier-logged': NEED_SUBSCRIPTION,
-        'barrier-unlogged': NEED_SUBSCRIPTION,
+        'barrier-logged': messageByLayout(),
+        'barrier-unlogged': messageByLayout(),
         'empty-state': emptyStateMessage,
         404: (
             <span>

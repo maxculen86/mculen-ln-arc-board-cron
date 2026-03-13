@@ -16,20 +16,20 @@ jest.mock(
         ({ children }) => <div>{children}</div>
 );
 jest.mock(
-    '../../../../components/layouts/Foodit-buscador/_children/searchContext',
+    '../../../../components/features/foodit-global/Queryly/_children/searchContext',
     () =>
         ({ children }) => <div>{children}</div>
 );
 jest.mock(
-    '../../../../components/layouts/Foodit-buscador/_children/filterBox',
+    '../../../../components/features/foodit-global/Queryly/_children/filterBox',
     () => () => <div data-testid="filter-box" />
 );
 jest.mock(
-    '../../../../components/layouts/Foodit-buscador/_children/articlesGrid',
+    '../../../../components/features/foodit-global/Queryly/_children/articlesGrid',
     () => () => <div data-testid="articles-grid" />
 );
 jest.mock(
-    '../../../../components/layouts/Foodit-buscador/_children/drawerBuscador',
+    '../../../../components/features/foodit-global/Queryly/_children/drawerBuscador',
     () =>
         ({ toggleDrawer }) => (
             <div data-testid="drawer-buscador">

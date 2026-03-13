@@ -1,7 +1,7 @@
-import { Button } from '@ln/foodit-ui-button';
 import React from 'react';
+import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 export default function Chips({ text = '', actionClick = () => {} }) {
     return (
