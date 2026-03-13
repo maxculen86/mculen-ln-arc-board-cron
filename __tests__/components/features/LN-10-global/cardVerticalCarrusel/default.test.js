@@ -42,7 +42,8 @@ describe('components - features - LN-10-global - cardCarrusel - default', () => 
         badgeText: 'Test Badge',
         poster: 'poster.jpg',
         duration: 120,
-        videoId: 'video-id-123'
+        videoId: 'video-id-123',
+        shouldLoadPreview: true
     };
 
     beforeEach(() => {
