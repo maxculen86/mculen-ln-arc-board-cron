@@ -225,11 +225,13 @@ function SnippetNoticia({
         mainEntityOfPage: noteUrlWithSlash,
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
-        hasPart: {
-            '@type': 'WebPageElement',
-            isAccessibleForFree,
-            ...(cssSelector && { cssSelector })
-        },
+        ...(!isValidSection && {
+            hasPart: {
+                '@type': 'WebPageElement',
+                isAccessibleForFree,
+                ...(cssSelector && { cssSelector })
+            }
+        }),
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],
             name: 'Acceso Digital Monthly Test',
