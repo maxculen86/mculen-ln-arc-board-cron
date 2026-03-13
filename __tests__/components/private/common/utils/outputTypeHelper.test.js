@@ -9,7 +9,10 @@ import {
     addMetaNoIndexNoFollow,
     isUSALangHtml
 } from '../../../../../components/private/common/utils/outputTypeHelper';
-import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import {
+    AGENCIA,
+    RECETA
+} from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:context', Component => {
     return function (Component) {
@@ -388,6 +391,32 @@ describe('getTagTitle function test', () => {
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
+        test('Return meta robots no index no follow when subtype is agencia', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    subtype: AGENCIA
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return meta robots no index no follow when subtype is agencia outside agencias uri', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri:
+                        '/estados-unidos/prueba-borrar-2-nid12032026/?d=5495',
+                    subtype: AGENCIA
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return fragment when agencias uri does not have agencia subtype', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/agencias/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(null);
+        });
+
         test('Return meta robots no index no follow when the page is home-vivo', () => {
             expect(
                 addMetaNoIndexNoFollow({

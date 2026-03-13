@@ -28,6 +28,7 @@ import {
     getReviewAuthor,
     getReviewSchemaData
 } from './helpers/reviewSchemaHelper';
+import getElementsText from '../../../common/utils/getElementsText';
 import { PUBLISHING_PRINCIPLES } from './helpers/reviewSchemaConstants';
 
 const SUBTYPE_CONFIG = {
@@ -176,7 +177,6 @@ function SnippetNoticia({
         '@type': subtypeConfig.distributorAuthorType || 'Organization',
         name: subtypeConfig.distributorAuthorName || distributorName
     };
-
     const { authors } = extracDataFromCredits(by, { snippet: true });
     const { keywords } = extractDataFromTags(tags);
     const { thumbnailUrl, image } = extractDataFromPromoItems(
@@ -191,7 +191,12 @@ function SnippetNoticia({
     const trust = get(label, 'trust.text', 'Noticia Original');
     const hasAuthors = isNonEmptyArray(authors);
     const creators = authors.map(a => a.name);
-    const articleBody = getFirstParagraph(contentElements);
+    const firtsParagraph = getFirstParagraph(contentElements);
+    const isValidSection =
+        get(primarySection, '_id', '') === '/deportes/automovilismo';
+    const articleBody =
+        // TODO: Esto es una prueba que se aplicara solo en automovilismo, en base al resultado, el cambio se debe aplicar a todas las notas (usar getElementsText en lugar de getFirstParagraph)
+        isValidSection ? getElementsText(contentElements) : firtsParagraph;
     const datePublishedISO = createISODate(
         getPublishDate(firstPublishDate, displayDate)
     );
@@ -207,6 +212,11 @@ function SnippetNoticia({
         '@context': urlSchema,
         '@type': subtypeConfig.schemaType || 'NewsArticle',
         headline: headlineResolved,
+        ...(isValidSection && {
+            description:
+                get(globalContent, 'subheadlines.basic', firtsParagraph) ||
+                firtsParagraph
+        }),
         ...(articleBody && { articleBody }),
         url: noteUrl,
         dateCreated: createISODate(createdDate),
@@ -215,11 +225,13 @@ function SnippetNoticia({
         mainEntityOfPage: noteUrlWithSlash,
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
-        hasPart: {
-            '@type': 'WebPageElement',
-            isAccessibleForFree,
-            ...(cssSelector && { cssSelector })
-        },
+        ...(!isValidSection && {
+            hasPart: {
+                '@type': 'WebPageElement',
+                isAccessibleForFree,
+                ...(cssSelector && { cssSelector })
+            }
+        }),
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],
             name: 'Acceso Digital Monthly Test',
