@@ -35,13 +35,26 @@ exports[`components - private - LN - Nota - Receta  Test Recipient Receta 1`] = 
       "width": 391
     }
   },
-  "image": {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
-    "height": 855,
-    "width": 1280
-  }
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+      "width": 1200,
+      "height": 1200
+    }
+  ]
 }
   </script>
 </div>
