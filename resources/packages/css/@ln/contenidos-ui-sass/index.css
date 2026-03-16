@@ -4236,6 +4236,9 @@ strong:not(.--font-primary),
   .col-span-12_m {
     grid-column: span 12/span 12;
   }
+  .col-start-2_m {
+    grid-column-start: 2;
+  }
 }
 @media (min-width: 80rem) {
   .grid-cols-12_lg {

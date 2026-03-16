@@ -60,7 +60,11 @@ function Opinion({ children }) {
                     <WrapperBody id="cuerpo__nota" className="mb-24">
                         <Opinion.PreBody>
                             <DateAndReadingTime globalContent={globalContent} />
-                            {children[1]}
+                            {children?.[1] && (
+                                <div className="flex flex-col gap-24 pb-16">
+                                    {children[1]}
+                                </div>
+                            )}
                             <PreBody.Breadcrumb
                                 globalContent={globalContent}
                                 siteProperties={siteProperties}
