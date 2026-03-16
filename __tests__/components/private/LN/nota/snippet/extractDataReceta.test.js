@@ -174,8 +174,7 @@ describe('Test function extractDataFromPromoItems', () => {
             ],
             subtitle: 'Gentileza: Carat (Belcolade)',
             type: 'image',
-            url:
-                'https://resizer.glanacion.com/resizer/bHB42cAZV3OwE8ahuR1PL-RL9DM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
+            url: 'https://resizer.glanacion.com/resizer/bHB42cAZV3OwE8ahuR1PL-RL9DM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
             width: 2000
         },
         receta: {
@@ -197,14 +196,26 @@ describe('Test function extractDataFromPromoItems', () => {
             cookTime: '',
             counterPortion: 1,
             counterTime: '75',
-            image: {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url:
-                    'https://resizer.glanacion.com/resizer/bHB42cAZV3OwE8ahuR1PL-RL9DM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
-                height: 796,
-                width: 1280
-            },
+            image: [
+                {
+                    '@type': 'ImageObject',
+                    url: 'https://resizer.glanacion.com/resizer/swXZF8dV4tCLIGiHc7U4VEBYN6g=/1200x746/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
+                    width: 1200,
+                    height: 675
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: 'https://resizer.glanacion.com/resizer/swXZF8dV4tCLIGiHc7U4VEBYN6g=/1200x746/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
+                    width: 1200,
+                    height: 900
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: 'https://resizer.glanacion.com/resizer/swXZF8dV4tCLIGiHc7U4VEBYN6g=/1200x746/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q6R6LDNENRHUNHYFTJIO4U4RAQ.jpg',
+                    width: 1200,
+                    height: 1200
+                }
+            ],
             prepTime: ''
         });
     });
@@ -228,13 +239,26 @@ describe('Test function extractDataFromPromoItems', () => {
             cookTime: '',
             counterPortion: 2,
             counterTime: '',
-            image: {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url: PLACERHOLDER,
-                height: '800',
-                width: '1200'
-            },
+            image: [
+                {
+                    '@type': 'ImageObject',
+                    url: PLACERHOLDER,
+                    width: 1200,
+                    height: 675
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: PLACERHOLDER,
+                    width: 1200,
+                    height: 900
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: PLACERHOLDER,
+                    width: 1200,
+                    height: 1200
+                }
+            ],
             prepTime: ''
         });
     });

@@ -19,13 +19,26 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
     "isAccessibleForFree": true,
   },
   "headline": "Test title",
-  "image": {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "height": "800",
-    "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
-    "width": "1200",
-  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "height": 675,
+      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "height": 900,
+      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "height": 1200,
+      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+      "width": 1200,
+    },
+  ],
   "isAccessibleForFree": true,
   "isPartOf": {
     "@type": [
