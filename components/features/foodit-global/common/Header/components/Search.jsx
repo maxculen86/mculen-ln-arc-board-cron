@@ -54,30 +54,32 @@ export function Search({ className = '', ...r }) {
         []
     );
 
-    // add a space at the end to the query term to avoid the search engine from suggesting
-    const encodedQuery = encodeURIComponent(`${inputValue} `);
-    const urlSearch = `${SITE_FOODIT}/buscador/?query=${encodedQuery}`;
-    const urlChat = `${SITE_FOODIT}/chat/?query=${encodedQuery}`;
+    const urlSearch = `${SITE_FOODIT}/buscador/?query=`;
+    const urlChat = `${SITE_FOODIT}/chat/?query=`;
 
     const handleInputValue = e => {
         setTypedByUser(true);
         setInputValue(e.target.value);
     };
 
-    const startSearch = async () => {
+    const startSearch = async (toSearch = '') => {
         setLoading(true);
-        const query = typedByUser ? inputValue : '';
-        if (!isSubscribed) {
-            window.location.href = urlSearch;
-            return;
-        }
-        const { accessToken } = await getAuthTokens();
-        const resp = await searchFood({ query, userId, accessToken });
-        const { chat } = resp;
-        if (chat) {
-            window.location.href = urlChat;
+        const query = inputValue || toSearch;
+        const encodedQuery = encodeURIComponent(`${query} `);
+        // add a space at the end to the query term to avoid the search engine from suggesting
+        const redirectToChat = `${urlChat}${encodedQuery}`;
+        const redirectToSearch = `${urlSearch}${encodedQuery}`;
+        if (isSubscribed) {
+            const { accessToken } = await getAuthTokens();
+            const resp = await searchFood({
+                query: encodedQuery,
+                userId,
+                accessToken
+            });
+            const { chat } = resp;
+            window.location.href = chat ? redirectToChat : redirectToSearch;
         } else {
-            window.location.href = urlSearch;
+            window.location.href = redirectToChat;
         }
     };
 
