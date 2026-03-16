@@ -40,7 +40,7 @@ function DynamicBanner({ bannerConfiguration }) {
         hideForSubscriptor
     } = bannerConfiguration;
 
-    const wrapperBodyClassName = cx('w-auto', {
+    const wrapperBodyClassName = cx('w-auto mb-64', {
         'h-600 flex md:hidden': device === 'mobile',
         'h-300 hidden xl:flex': device === 'desktop'
     });

@@ -26,12 +26,12 @@ exports[`Image component renders correctly and matches snapshot 1`] = `
         class="py-8 space-x-8"
       >
         <span
-          class="font-normal text-base-default text-16 text-center leading-[110%] tracking-[-0.3px]"
+          class="font-normal text-base-default text-16 text-center leading-[140%] tracking-[-0.3px]"
         >
           Image caption
         </span>
         <span
-          class="font-normal text-base-light text-16 text-center leading-[110%] tracking-[-0.3px]"
+          class="font-normal text-base-light text-16 text-center leading-[140%] tracking-[-0.3px]"
         >
           Image credit
         </span>
