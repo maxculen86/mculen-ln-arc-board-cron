@@ -51,7 +51,7 @@ describe('Components - features - foodit-global - common - header - components -
         await waitFor(() => {
             const href = window.location.href;
             expect(href).toBe(
-                'https://foodit-lanacion.com.ar/buscador/?query=searching%20'
+                'https://foodit-lanacion.com.ar/chat/?query=searching%20'
             );
         });
     });

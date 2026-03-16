@@ -30,6 +30,7 @@ function LoginSubscribeButtons({
     });
     const refTooltipText = useRef(null);
 
+    const hideTooltip = comesFrom === 'ChatIA';
     const { categoryEvent, url } = getButtonCategory(comesFrom);
 
     const textByCategory = {
@@ -95,7 +96,11 @@ function LoginSubscribeButtons({
                     style={{ maxWidth: '200px' }}
                     role="tooltip"
                     aria-live="polite"
-                    visible={tooltipState.shouldShow && tooltipState.text}
+                    visible={
+                        !hideTooltip &&
+                        tooltipState.shouldShow &&
+                        tooltipState.text
+                    }
                     disableTrigger
                 >
                     <SubscribeButton
