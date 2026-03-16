@@ -304,4 +304,45 @@ describe('Test acumulados transformation with V2 Format', () => {
             total: 1
         });
     });
+    test('transform should NOT return banners for avisos funebres', () => {
+        const acumulado = [
+            {
+                tipoAcumulado: 1,
+                paginar: false,
+                titulo: 'Fúnebres',
+                acumuladoTotal: 2386,
+                banners: [
+                    { idSeccion: 402, index: 4 }
+                ],
+                notas: [
+                    {
+                        id: 'TEST123',
+                        templateId: '1',
+                        titulo: 'AVISO FÚNEBRE',
+                        fecha: '2026-03-01 00:00:00',
+                        url: '/avisos/funebres/test',
+                        enviarApps: true
+                    }
+                ]
+            }
+        ];
+
+        const result = acuTransformV2Format(
+            acumulado,
+            '/avisos/funebres',
+            true
+        );
+
+        expect(result.metadata).toEqual({
+            paginate: true,
+            title: 'Fúnebres',
+            total: 2386,
+            category: {
+                slug: '/avisos/funebres',
+                value: 'Fúnebres'
+            }
+        });
+
+        expect(result.metadata).not.toHaveProperty('banners');
+    });
 });
