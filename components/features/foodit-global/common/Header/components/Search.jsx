@@ -13,6 +13,7 @@ import { useListeningTimer } from '../hooks/helperSearch';
 import { searchFood } from '../_helpers';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
+import { useNavigationData } from '../hooks/useNavigationData';
 
 const getMicPermissionState = async () => {
     try {
@@ -29,16 +30,14 @@ const getMicPermissionState = async () => {
 };
 
 export function Search({ className = '', ...r }) {
-    const querySelected =
-        typeof window !== 'undefined'
-            ? new URLSearchParams(window?.location?.search).get('query')
-            : '';
-
-    const [inputValue, setInputValue] = useState(querySelected || '');
+    const [inputValue, setInputValue] = useState('');
     const [isMicPermissionPending, setIsMicPermissionPending] = useState(false);
     const [typedByUser, setTypedByUser] = useState(false);
     const { isSubscribed, id: userId } = useGetUserConfig();
     const [loading, setLoading] = useState(false);
+    const { termicasData = {} } = useNavigationData();
+
+    const hideChatIa = termicasData?.hide_chat_ia_foodit === 'true';
 
     const {
         listening: isListening,
@@ -149,8 +148,12 @@ export function Search({ className = '', ...r }) {
     const classnames = cx('foodit-search w-100 as-center', className);
     const classNameInput = cx(
         'text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide',
-        { 'icon-ia': !inputValue && !isListening }
+        { 'icon-ia': !inputValue && !isListening && !hideChatIa }
     );
+
+    const placeHolderText = hideChatIa
+        ? '¿Qué querés cocinar hoy?'
+        : 'Buscá o pregúntale a la IA';
 
     const shouldListen =
         isListening && isMicrophoneAvailable && !isMicPermissionPending;
@@ -165,9 +168,7 @@ export function Search({ className = '', ...r }) {
                         type="search"
                         enterKeyHint="search"
                         readOnly={shouldListen}
-                        placeholder={
-                            shouldListen ? '' : 'Buscá o pregúntale a la IA'
-                        }
+                        placeholder={shouldListen ? '' : placeHolderText}
                         value={inputValue}
                         onChange={handleInputValue}
                         onKeyDown={handleKeyDown}
