@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ArticlesGrid from '../../../../../components/layouts/Foodit-buscador/_children/articlesGrid';
-import { SearchContext } from '../../../../../components/layouts/Foodit-buscador/_children/searchContext';
+import ArticlesGrid from '../../../../../components/features/foodit-global/Queryly/_children/articlesGrid';
+import { SearchContext } from '../../../../../components/features/foodit-global/Queryly/_children/searchContext';
 import { useWindowSize } from '@ln/hooks';
 import { useDrawer } from '@ln/common-ui-drawer';
 

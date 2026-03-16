@@ -1,8 +1,18 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import FilterBox from '../../../../../components/layouts/Foodit-buscador/_children/filterBox';
-import { SearchContext } from '../../../../../components/layouts/Foodit-buscador/_children/searchContext';
+import FilterBox from '../../../../../components/features/foodit-global/Queryly/_children/filterBox';
+import { SearchContext } from '../../../../../components/features/foodit-global/Queryly/_children/searchContext';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        layout: 'otro-layout',
+        siteProperties: {
+            layoutsName: {
+                FooditChatIA: 'foodit-chat-ia'
+            }
+        }
+    }))
+}));
 describe('FilterBox Component', () => {
     const mockToggleDrawer = jest.fn();
     const mockApplyFilter = jest.fn();

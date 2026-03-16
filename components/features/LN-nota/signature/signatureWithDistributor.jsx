@@ -1,7 +1,6 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { Link } from '@ln/contenidos-ui-link';
-import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
 import formatDistributorName from '../../../private/LN/common/utils/formatDistributorName';
 
@@ -19,25 +18,25 @@ function SignatureWithDistributor({
 
     const signatureDistributorHtml = nombre =>
         nombre === 'LA NACION' || mode === 'custom' ? (
-            <Text className={cx('font-bold --xs', classNameSignature)}>
+            <span className={cx('text-16 font-bold', classNameSignature)}>
                 {nombre}
-            </Text>
+            </span>
         ) : (
             <div className="flex gap-4 ai-center">
                 <Link
                     href={`${SITE_LANACION}/distributor/${formatDistributorName(nombre)}/`}
                     title={nombre}
                 >
-                    <Text
-                        className={cx('font-bold --twoxs', classNameSignature)}
+                    <span
+                        className={cx('text-16 font-bold', classNameSignature)}
                     >
                         {nombre}
-                    </Text>
+                    </span>
                 </Link>
                 {showDisclaimer && (
-                    <Text className="text-12 text-neutral-light-800">
+                    <span className="text-12 text-neutral-light-800">
                         {subcategory}
-                    </Text>
+                    </span>
                 )}
             </div>
         );

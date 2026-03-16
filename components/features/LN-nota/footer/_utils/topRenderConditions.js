@@ -5,6 +5,7 @@ import {
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
 import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
+import { isEmptyObject } from '../../../../private/common/utils/isEmptyObject';
 
 export const shouldShowNoteFooterTopThemes = ({ subtype, tags }) =>
     subtype !== RECETA && tags?.length > 0;
@@ -23,10 +24,9 @@ export const shouldShowNoteFooterTopExternalSignature = ({
 };
 
 export const shouldShowNoteFooterTopSignature = ({
-    isOpinionLayout,
     showSignatureWithDistributor,
     hasAuthors
-}) => !isOpinionLayout && (showSignatureWithDistributor || hasAuthors);
+}) => showSignatureWithDistributor || hasAuthors;
 
 const getSignatureRenderingState = ({
     globalContent,
@@ -57,7 +57,7 @@ const getSignatureRenderingState = ({
 
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
-    const hasAuthors = author || authors.length > 0;
+    const hasAuthors = !isEmptyObject(author) || authors.length > 0;
 
     const showSignature = shouldShowNoteFooterTopSignature({
         isOpinionLayout,

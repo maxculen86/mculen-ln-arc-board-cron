@@ -63,6 +63,7 @@ export default {
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
     PERSONALIZACION_API_FOODIT:
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
+    API_IA_FOODIT: 'https://dp-foodit-chatbot.clanacion.com.ar',
     BOOKMARK_URL:
         'https://dev.lanacionar.arcpublishing.com/pf/mis-notas/?_website=la-nacion-ar',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',

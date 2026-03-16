@@ -14,7 +14,7 @@ function RawHtml(props) {
             <WrapperBody className="mb-64">
                 <HtmlPym
                     data={data}
-                    className="flex items-center justify-center min-w-0 overflow-hidden"
+                    className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
                 />
             </WrapperBody>
         );
@@ -23,7 +23,7 @@ function RawHtml(props) {
     return (
         <WrapperBody className="mb-64">
             <div
-                className="flex items-center justify-center min-w-0 overflow-hidden"
+                className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
                 id={`anexo-${idMedia}`}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: content }}

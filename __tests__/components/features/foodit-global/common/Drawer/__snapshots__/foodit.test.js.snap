@@ -50,9 +50,9 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
               class="m-auto w-100 relative"
             >
               <input
-                class="text-light-600 text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide"
+                class="text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide icon-ia"
                 enterkeyhint="search"
-                placeholder="¿Qué querés cocinar hoy?"
+                placeholder="Buscá o pregúntale a la IA"
                 type="search"
                 value=""
               />

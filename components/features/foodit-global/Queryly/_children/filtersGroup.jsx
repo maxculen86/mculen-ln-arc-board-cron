@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion } from '@ln/common-ui-accordion';
 import { cx } from '@ln/cva';
-import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CheckBoxList from './checkboxList';
 
 export default function FiltersGroup({

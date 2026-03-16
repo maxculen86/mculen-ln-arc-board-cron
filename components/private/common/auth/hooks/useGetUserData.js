@@ -8,6 +8,7 @@ const useGetUserData = (productPremiumToValidate = '') => {
         isSubscribed: false,
         userEmail: '',
         userName: '',
+        userId: '',
         userLastName: ''
     });
 
@@ -20,7 +21,8 @@ const useGetUserData = (productPremiumToValidate = '') => {
         isSubscribed = false,
         userEmail = '',
         userName = '',
-        userLastName = ''
+        userLastName = '',
+        userId = ''
     } = userData;
 
     return {
@@ -29,6 +31,7 @@ const useGetUserData = (productPremiumToValidate = '') => {
         userEmail,
         isSubscribed,
         userName,
+        userId,
         userLastName
     };
 };

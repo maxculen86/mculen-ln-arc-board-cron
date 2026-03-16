@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { waitFor } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
-import useFilterManager from '../../../../../components/layouts/Foodit-buscador/hooks/useFilterManager';
+import useFilterManager from '../../../../../components/features/foodit-global/Queryly/hooks/useFilterManager';
 
 global.fetch = jest.fn();
 jest.spyOn(console, 'error').mockImplementation(() => {});

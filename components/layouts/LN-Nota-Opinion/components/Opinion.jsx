@@ -81,7 +81,9 @@ function Opinion({ children }) {
                 {/* ---- BOTTOM ---- */}
                 <div className="sidebar__main">{children[4]}</div>
                 {/* ---- BOTTOM-TERCERA ---- */}
-                <div className="sidebar__aside">{children[5]}</div>
+                <div className="sidebar__aside hlp-tabletlm-none">
+                    {children[5]}
+                </div>
             </div>
         </>
     );
