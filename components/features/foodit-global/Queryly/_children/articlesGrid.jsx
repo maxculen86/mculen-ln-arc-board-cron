@@ -70,7 +70,7 @@ export default function ArticlesGrid() {
                         id="results_count"
                     >
                         <span className="prumo prumo-medium">{total}</span>{' '}
-                        resultados de: {query}
+                        resultados de: {decodeURIComponent(query)}
                     </div>
                     <div className="flex ai-center gap-8">
                         <div className="flex lg-none gap-8">

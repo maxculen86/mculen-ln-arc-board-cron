@@ -1,7 +1,4 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-danger */
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Consumer from 'fusion:consumer';
 import { cx } from '@ln/ds-cva';
 import {
@@ -9,7 +6,6 @@ import {
     useValidateComments
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
-import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import HeaderComments from '../../../private/LN/nota/comments/header';
@@ -18,19 +14,13 @@ import {
     isSubscribed,
     SUBSCRIBED_HELPER
 } from '../../../private/common/auth/helper/loginHelper';
-import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
-import { VIDEO_COMENTARIOS } from '../../../private/common/utils/subtypes/subtypeHelper';
-import { loadViafoura } from './helper';
+import useLoadViafouraComments from './hooks/useLoadViafouraComments';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
-const COMMENTS_SECTION_POSITION = '11';
-const COMMENTS_PAGE_POSITION = '00';
-const COMMENTS_DEFAULT_VALUE = '00';
-
 function CommentsViafouraFeature(props) {
-    const { outputType, globalContent } = props;
+    const { outputType, globalContent } = props || {};
 
-    const { subtype } = globalContent || {};
+    const { subtype, _id: articleId } = globalContent || {};
 
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const { messageType, shouldLoad, messageProps, setMessage } =
@@ -38,54 +28,21 @@ function CommentsViafouraFeature(props) {
     const termicaLivefyre = useTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
-    const [hasTrackedImpression, setHasTrackedImpression] = useState(false);
     const showComponent = shouldLoad && termicaLivefyre;
-    const articleId = globalContent?.id;
+    const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (isReady && !hasTrackedImpression) {
-            const position = `${COMMENTS_SECTION_POSITION}${COMMENTS_PAGE_POSITION}${COMMENTS_DEFAULT_VALUE}`;
-            addEventToDataLayerV2({
-                event: 'impressioncomentario',
-                ctr_brand: 'cajaComentarios',
-                ctr_position: position,
-                articleId
-            });
-            setHasTrackedImpression(true);
-        }
-    }, [isReady, hasTrackedImpression, articleId]);
-
-    useEffect(() => {
-        const runLoadViafoura = () =>
-            loadViafoura({
-                outputType,
-                getCookie,
-                subscription,
-                setIsReady,
-                setMessage
-            });
-
-        if (subtype === VIDEO_COMENTARIOS) {
-            runLoadViafoura();
-            return () => {};
-        }
-
-        const handleScrollForComments = () => {
-            const scrollPercentRounded = getScrollPercent();
-            // TODO: investigar si se puede usar con pixeles en vez de % para mayor exactitud
-            if (scrollPercentRounded > 90) {
-                runLoadViafoura();
-            }
-        };
-
-        if (showComponent) {
-            window.addEventListener('scroll', handleScrollForComments);
-        }
-        return () => {
-            if (showComponent) {
-                window.removeEventListener('scroll', handleScrollForComments);
-            }
-        };
+    useLoadViafouraComments({
+        outputType,
+        getCookie,
+        subscription,
+        setIsReady,
+        setMessage,
+        showComponent,
+        shouldLoad,
+        termicaLivefyre,
+        containerRef,
+        subtype,
+        articleId
     });
 
     if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC) {
@@ -110,7 +67,11 @@ function CommentsViafouraFeature(props) {
 
             {!isReady && <LoadingIcon className="--no-app" />}
 
-            <div className={viafouraClassName} data-testid="comments-viafoura">
+            <div
+                className={viafouraClassName}
+                data-testid="comments-viafoura"
+                ref={containerRef}
+            >
                 <vf-tray />
                 <vf-conversations
                     limit="15"

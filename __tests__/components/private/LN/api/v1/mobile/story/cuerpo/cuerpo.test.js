@@ -144,4 +144,20 @@ describe('Test Json Text del cuerpo de la nota', () => {
         expect(rating).toBeDefined();
         expect(rating.value).toBe(0.5);
     });
+
+    it('Debe colocar numeric_rating como primer elemento del cuerpo cuando exista', () => {
+        const articleConRating = {
+            subtype: '1',
+            content_elements: [
+                { type: 'text', content: 'Texto inicial' },
+                { type: 'numeric_rating', numeric_rating: 3.6 },
+                { type: 'text', content: 'Texto final' }
+            ]
+        };
+
+        const resp = Cuerpo(articleConRating);
+
+        expect(resp.elements[0]._t).toBe('numeric_rating');
+        expect(resp.elements[0].value).toBe(3.5);
+    });
 });

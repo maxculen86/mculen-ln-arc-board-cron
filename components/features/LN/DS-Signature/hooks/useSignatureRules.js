@@ -6,6 +6,7 @@ import { useSignature } from './useSignature';
 
 export const useSignatureRules = ({
     customFields: { position = 'Bottom' } = {},
+    ignoreDistributor = false,
     globalContent: {
         content_elements: contentElements = [],
         credits,
@@ -48,8 +49,10 @@ export const useSignatureRules = ({
     const authorId = get(creditsBy, '[0]._id', '');
 
     const shouldShowDistributor =
-        (withFirmaDistributor && name !== 'lanacionar') ||
-        (isExternalDistributor(name, category, authorId) && position === 'Top');
+        !ignoreDistributor &&
+        ((withFirmaDistributor && name !== 'lanacionar') ||
+            (isExternalDistributor(name, category, authorId) &&
+                position === 'Top'));
 
     const authorsText = getAuthorsListText(authors);
     const { author } = shouldShowDistributor

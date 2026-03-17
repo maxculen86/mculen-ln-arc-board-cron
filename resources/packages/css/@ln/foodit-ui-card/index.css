@@ -1,7 +1,7 @@
 .card a:hover {
   opacity: inherit;
 }
-.card[data-container=grid] a:hover .card-title, .card[data-container=related-content] a:hover .card-title {
+.card[data-container=grid] a:hover .card-title, .card[data-container=related-content] a:hover .card-title, .card[data-container=link] a:hover .card-title {
   color: var(--accent-lechuga);
   opacity: 0.8;
 }

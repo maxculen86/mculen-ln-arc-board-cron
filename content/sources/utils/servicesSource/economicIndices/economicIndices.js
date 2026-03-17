@@ -1,6 +1,7 @@
 import { LANACION_ECONOMIC_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
 import { handleHttpError } from '../../../../../components/private/common/utils/handleHttpError';
+import { getEconomicIndicesMetaData, VALID_SERVICE_ITEMS } from './_helpers';
 
 const ENDPOINTS = {
     merval: `${LANACION_ECONOMIC_URL}/acciones_merval.json`,
@@ -8,7 +9,7 @@ const ENDPOINTS = {
     bonos: `${LANACION_ECONOMIC_URL}/bonos.json`,
     adrs: `${LANACION_ECONOMIC_URL}/adrs.json`,
     cedears: `${LANACION_ECONOMIC_URL}/cedears.json`,
-    riesgoPais: `${LANACION_ECONOMIC_URL}/indices_monedas.json`
+    'riesgo-pais': `${LANACION_ECONOMIC_URL}/indices_monedas.json`
 };
 
 const getUri = ({ serviceItem = '' }) => {
@@ -30,7 +31,6 @@ const economicIndicesRequest = async ({ queryData } = {}) => {
         handleHttpError(response);
         const data = await response.json();
 
-        // Enviar transform en la respuesta de la request
         return {
             tableType: serviceItem,
             ...data
@@ -48,12 +48,13 @@ const economicIndicesRequest = async ({ queryData } = {}) => {
     }
 };
 
-/**
- * Transforma la respuesta - por ahora no existe transform
- */
-const transform = data => data;
-
-const resolve = ({ response = {} }) => transform(response);
+const resolve = ({ response = {} }) => {
+    const { serviceItem } = response;
+    return {
+        ...response,
+        metaData: getEconomicIndicesMetaData(serviceItem)
+    };
+};
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(
@@ -63,13 +64,13 @@ const reject = ({ error, uri, arcSite }) => {
     );
 };
 
-const getTemplates = serviceItem => serviceItem && 'detalle-indices';
+const getTemplates = serviceItem =>
+    VALID_SERVICE_ITEMS.includes(serviceItem) && 'detalle-indices';
 
 export default {
     getUri,
     request: economicIndicesRequest,
     resolve,
     reject,
-    transform,
     getTemplates
 };

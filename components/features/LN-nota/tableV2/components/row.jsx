@@ -5,20 +5,27 @@ import { cellVariants } from '../styles';
 import stripHtml from '../../../../private/common/utils/stripHtml';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-function TableRow({ row = [], rowIndex, headerLength }) {
+function TableRow({
+    row = [],
+    rowIndex,
+    headerLength,
+    stickyFirstCol,
+    isCentered,
+    className
+}) {
     return (
         <tr>
             {row.map((column, columnIndex) => (
                 <td
-                    className={cellVariants(
-                        {
-                            variant: 'body',
-                            withBg: rowIndex % 2 !== 0,
-                            withBorderLeft: columnIndex !== 0,
-                            withBorderRight: columnIndex !== headerLength - 1
-                        },
-                        'vertical-align-top'
-                    )}
+                    className={cellVariants({
+                        variant: 'body',
+                        withBg: rowIndex % 2 !== 0,
+                        withBorderLeft: columnIndex !== 0,
+                        withBorderRight: columnIndex !== headerLength - 1,
+                        isSticky: columnIndex === 0 && stickyFirstCol,
+                        isCentered,
+                        className
+                    })}
                     // TODO: Reemplazar con ID único desde el source, ARC no lo esta mandando en ._id (si no abrir ticket)
                     // eslint-disable-next-line react/no-array-index-key
                     key={`${column._id}-${columnIndex}`}

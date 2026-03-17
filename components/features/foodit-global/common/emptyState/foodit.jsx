@@ -22,12 +22,7 @@ function EmptyState({
     comesFrom = ''
 }) {
     const { isSubscribed } = useGetUserConfig();
-    const { contextPath, deployment, layout, siteProperties } = useAppContext();
-    const { layoutsName = {} } = siteProperties || {};
-
-    if (layout === layoutsName.FooditChatIA && comesFrom !== 'ChatIA') {
-        return null;
-    }
+    const { contextPath, deployment, layout } = useAppContext();
 
     const directionEmptyState = direction === 'row';
     const barrierEmptyState =

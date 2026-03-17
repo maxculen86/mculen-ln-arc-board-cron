@@ -43,3 +43,5 @@ export const buildSocialItems = socialLinks => {
         return items;
     }, []);
 };
+
+export default buildSocialItems;

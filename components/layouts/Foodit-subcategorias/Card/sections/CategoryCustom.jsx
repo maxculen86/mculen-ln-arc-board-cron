@@ -29,7 +29,7 @@ export function CategoryCustom({
                             <Category
                                 classnames={{
                                     container: classNames,
-                                    top: 'max-w-96'
+                                    top: 'max-w-78'
                                 }}
                                 key={title}
                                 container={container}
@@ -77,7 +77,7 @@ export function CategoryCustom({
                                 <Category
                                     classnames={{
                                         container: classNames,
-                                        top: 'max-w-96'
+                                        top: 'max-w-78'
                                     }}
                                     key={title}
                                     container={container}

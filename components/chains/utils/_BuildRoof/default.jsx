@@ -23,7 +23,8 @@ export default function BuildRoof(props) {
         links,
         navigationId = '',
         isAdmin,
-        isAFondo
+        isAFondo,
+        textProps
     } = props;
 
     const { contextPath, deployment } = useAppContext();
@@ -57,6 +58,7 @@ export default function BuildRoof(props) {
         href: titleLink,
         target: targetUrlSite,
         text: !logo && title,
+        textProps,
         title,
         'roof-group': 'left',
         assets: !hideArrow ? getAssetsLeft : null

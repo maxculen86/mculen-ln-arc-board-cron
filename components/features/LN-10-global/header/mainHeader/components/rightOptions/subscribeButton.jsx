@@ -12,7 +12,7 @@ import {
     getClassNameButtonSubscribe
 } from './_helper';
 import useTermica from '../../../../../../private/common/hooks/useTermica';
-import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function SubscribeButton() {
     const { isHome, sticky, userType, negative } = useHeaderContext();
@@ -50,7 +50,7 @@ export function SubscribeButton() {
                 window.location.href = `${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${window.btoa(
                     window.location.href
                 )}`;
-                addEventToDataLayer({
+                addEventToDataLayerV2({
                     category: 'home_ln10',
                     label: 'suscribite',
                     action: 'header_logo',

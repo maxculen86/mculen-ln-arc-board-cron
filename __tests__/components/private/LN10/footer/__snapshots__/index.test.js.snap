@@ -447,7 +447,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link text-start"
-            href="https://fundacionlanacion.org.ar/"
+            href="https://www.fundacionlanacion.org.ar/"
             rel="nofollow"
             target="_blank"
             title="Ir a Fundación LA NACION"

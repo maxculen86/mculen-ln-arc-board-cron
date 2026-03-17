@@ -1,4 +1,4 @@
-import { getOpeningMediaItems, getNormalizedImageData } from './helpers';
+import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
 
 const getResizedUrlsByProportion = (imageData, proportion) => {
     const { resizedUrls } = getNormalizedImageData(imageData || {});

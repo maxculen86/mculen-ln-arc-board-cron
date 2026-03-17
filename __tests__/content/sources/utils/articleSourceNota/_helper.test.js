@@ -21,7 +21,9 @@ import {
     removeErrosInterstitialLink,
     formatInterstitialLink,
     injectGlossaryInText,
-    configCallbackContentElements
+    configCallbackContentElements,
+    parseImageText,
+    sanitizeString
 } from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
 jest.mock(
@@ -521,6 +523,54 @@ describe('Tests articleSourceNota - _helper', () => {
             });
             expect(result.content).toStrictEqual(
                 '<a href="https://example.com">Link 1</a>'
+            );
+        });
+
+        it('should not replace anchor tags with hyphenated domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://masterassist-trip.axa-assistance.com.ar/">adolescencia</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://masterassist-trip.axa-assistance.com.ar/">adolescencia</a>'
+            );
+        });
+
+        it('should not replace anchor tags with amp entities and hyphenated domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://masterassist-trip.axa-assistance.com.ar/?utm_source=LaNacion&amp;utm_medium=referral">adolescencia</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://masterassist-trip.axa-assistance.com.ar/?utm_source=LaNacion&amp;utm_medium=referral">adolescencia</a>'
+            );
+        });
+
+        it('should not replace anchor tags with amp entities and simple domains', () => {
+            const textTypeElement = {
+                content:
+                    '<a href="https://example.com/?utm_source=LaNacion&amp;utm_medium=referral">primeros</a>'
+            };
+            const newValue = 'Replacement';
+            const result = replaceMalformedAnchorTags({
+                textTypeElement,
+                newValue
+            });
+
+            expect(result.content).toStrictEqual(
+                '<a href="https://example.com/?utm_source=LaNacion&amp;utm_medium=referral">primeros</a>'
             );
         });
 
@@ -1551,6 +1601,195 @@ describe('Tests articleSourceNota - _helper', () => {
 
             expect(result).toEqual({});
             expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('Tests parseImageText', () => {
+        it('should return a sanitized image object for a complete image input', () => {
+            const image = {
+                _id: '123',
+                caption: 'Valid caption',
+                subtitle: 'Valid subtitle',
+                additional_properties: {
+                    iptc_source: 'Valid source',
+                    other_prop: 'remains'
+                },
+                credits: {
+                    affiliation: [{ name: 'Affiliation Name', type: 'author' }],
+                    by: [
+                        {
+                            name: 'By Name',
+                            type: 'author',
+                            byline: 'Byline txt'
+                        }
+                    ]
+                }
+            };
+            const expected = {
+                _id: '123',
+                caption: 'Valid caption',
+                subtitle: 'Valid subtitle',
+                additional_properties: {
+                    iptc_source: 'Valid source',
+                    other_prop: 'remains'
+                },
+                credits: {
+                    affiliation: [{ name: 'Affiliation Name', type: 'author' }]
+                },
+                by: [
+                    {
+                        name: 'By Name',
+                        type: 'author',
+                        byline: 'Byline txt'
+                    }
+                ]
+            };
+            expect(parseImageText(image)).toEqual(expected);
+        });
+        it('should sanitize non-ASCII characters from text fields', () => {
+            const image = {
+                caption: 'Caption with áéí',
+                subtitle: 'Subtitle with ñ',
+                additional_properties: {
+                    iptc_source: 'Source with \t'
+                },
+                credits: {
+                    affiliation: [{ name: 'Name with ö', type: 'Type with ü' }],
+                    by: [
+                        {
+                            name: 'By with ç',
+                            type: 'Type with ß',
+                            byline: 'Byline with \r'
+                        }
+                    ]
+                }
+            };
+            const expected = {
+                caption: 'Caption with áéí',
+                subtitle: 'Subtitle with ñ',
+                additional_properties: {
+                    iptc_source: 'Source with \t'
+                },
+                credits: {
+                    affiliation: [{ name: 'Name with ö', type: 'Type with ü' }]
+                },
+                by: [
+                    {
+                        name: 'By with ç',
+                        type: 'Type with ß',
+                        byline: 'Byline with \r'
+                    }
+                ]
+            };
+            expect(parseImageText(image)).toEqual(expected);
+        });
+        it('should handle string missing values natively or gracefully', () => {
+            const image = {
+                caption: undefined,
+                subtitle: undefined,
+                additional_properties: { iptc_source: undefined },
+                credits: {
+                    affiliation: [{ name: undefined, type: undefined }],
+                    by: [
+                        {
+                            name: undefined,
+                            type: undefined,
+                            byline: undefined
+                        }
+                    ]
+                }
+            };
+            const expected = {
+                caption: '',
+                subtitle: '',
+                additional_properties: {
+                    iptc_source: ''
+                },
+                credits: {
+                    affiliation: [{ name: '', type: '' }]
+                },
+                by: [{ name: '', type: '', byline: '' }]
+            };
+            expect(parseImageText(image)).toEqual(expected);
+        });
+        it('should preserve other properties inside the image object', () => {
+            const image = {
+                url: 'http://example.com/image.jpg',
+                type: 'image',
+                width: 800,
+                height: 600
+            };
+            const result = parseImageText(image);
+            expect(result.url).toBe('http://example.com/image.jpg');
+            expect(result.type).toBe('image');
+            expect(result.width).toBe(800);
+            expect(result.height).toBe(600);
+        });
+        it('should handle missing credits or additional_properties completely', () => {
+            const image = {
+                _id: '123'
+            };
+            const expected = {
+                _id: '123',
+                caption: '',
+                subtitle: '',
+                additional_properties: {
+                    iptc_source: ''
+                },
+                credits: {
+                    affiliation: []
+                },
+                by: []
+            };
+            expect(parseImageText(image)).toEqual(expected);
+        });
+        it('should handle empty object', () => {
+            const image = {};
+            const expected = {
+                caption: '',
+                subtitle: '',
+                additional_properties: {
+                    iptc_source: ''
+                },
+                credits: {
+                    affiliation: []
+                },
+                by: []
+            };
+            expect(parseImageText(image)).toEqual(expected);
+        });
+    });
+
+    describe('Tests sanitizeString', () => {
+        it('should keep printable ASCII characters intact', () => {
+            const input =
+                'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 € !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~á, é, í, ó, ú, ñ, ç,¿, ¡ y ü';
+            expect(sanitizeString(input)).toBe(input);
+        });
+        it('should not delete characters, tabs, and new lines.', () => {
+            const input = 'Hello\tWorld\n\r!';
+            expect(sanitizeString(input)).toBe(`Hello\tWorld\n\r!`);
+        });
+        it('should remove nullish ASCII characters', () => {
+            const input = 'AFP\u0000';
+            expect(sanitizeString(input)).toBe('AFP');
+        });
+        it('should retain accents and symbols', () => {
+            const input = 'Café ñandú pingüino €123 &&';
+            expect(sanitizeString(input)).toBe(input);
+        });
+        it('should handle undefined gracefully and return an empty string', () => {
+            expect(sanitizeString(undefined)).toBe('');
+        });
+        it('should handle null gracefully and return an null', () => {
+            expect(sanitizeString(null)).toBe(null);
+        });
+        it('should handle empty string correctly', () => {
+            expect(sanitizeString('')).toBe('');
+        });
+        it('should throw an error for non-string, non-nullish inputs like numbers or objects', () => {
+            expect(sanitizeString(123)).toBe(123);
+            expect(sanitizeString(true)).toBeTruthy();
         });
     });
 });

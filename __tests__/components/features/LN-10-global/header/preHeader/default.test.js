@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import PreHeaderLN from '../../../../../../components/features/LN-10-global/header/preHeader/default';
 import { setWeatherData } from '../../../../../../components/features/LN-10-global/header/preHeader/__helper';
 import { EventsHelper } from '../../../../../../src/statics/common/js/eventsHelper';
@@ -165,7 +165,7 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         expect(preHeader).toMatchSnapshot();
     });
 
-    test('should register in dataLayer the click events of each link', () => {
+    test('should register in dataLayer the click events of each link', async () => {
         setWeatherData.mockImplementation(() => mock.weather);
 
         let eventsHelper = new EventsHelper();
@@ -175,6 +175,8 @@ describe('Components - Features - LN-10-global - header - preHeader - default', 
         eventsHelper.setEventsBrands();
         const links = screen.getAllByRole('link');
         links.forEach(link => link.click());
-        expect(window.dataLayer).toEqual(preHeaderEventLogResult);
+        await waitFor(() => {
+            expect(window.dataLayer).toEqual(preHeaderEventLogResult);
+        });
     });
 });

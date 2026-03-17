@@ -37,7 +37,7 @@ function ChatIaFoodit() {
     const INACTIVITY_MS = 30 * 60 * 1000;
 
     const query = getQueryParamValue('query', `${SITE_FOODIT}/${requestUri}`);
-    const queryUrl = query || '¿Qué es Foodit?';
+    const queryUrl = decodeURIComponent(query) || '¿Qué es Foodit?';
 
     const user = useGetUserConfig();
     const { isSubscribed } = user;
