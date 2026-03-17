@@ -25,6 +25,9 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <Breadcrumb globalContent={globalContent} className="lg-only" />
                 <OpeningRecipe article={globalContent} />
             </section>
+            <div className="-mb-16 lg-none">
+                <Breadcrumb globalContent={globalContent} />
+            </div>
             <Static htmlOnly persistent id="subtitle-mobile-recipe">
                 <Subtitle globalContent={globalContent} calssName="lg-none" />
             </Static>
@@ -52,7 +55,6 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <NutritionalInfo globalContent={globalContent} />
                 <hr className="sm-none" />
                 <RelatedContent globalContent={globalContent} />
-                <Breadcrumb globalContent={globalContent} className="lg-none" />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>

@@ -22,9 +22,12 @@ function BreadcrumbTooltip() {
                 }
                 className="flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 border border-all border-thin border-light-100 z-5"
             >
-                <Button title="Mostrar tooltip">
-                    <Icon size={16}>
-                        <IconSprite name="info" fill="#B3B3B3" />
+                <Button className="flex ai-center" title="Mostrar tooltip">
+                    <Icon size={24}>
+                        <IconSprite
+                            name="gluten-free"
+                            className="text-light-800"
+                        />
                     </Icon>
                 </Button>
             </Tooltip>
