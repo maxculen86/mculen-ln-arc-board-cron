@@ -1634,15 +1634,15 @@ describe('Tests articleSourceNota - _helper', () => {
                     other_prop: 'remains'
                 },
                 credits: {
-                    affiliation: [{ name: 'Affiliation Name', type: 'author' }]
-                },
-                by: [
-                    {
-                        name: 'By Name',
-                        type: 'author',
-                        byline: 'Byline txt'
-                    }
-                ]
+                    affiliation: [{ name: 'Affiliation Name', type: 'author' }],
+                    by: [
+                        {
+                            name: 'By Name',
+                            type: 'author',
+                            byline: 'Byline txt'
+                        }
+                    ]
+                }
             };
             expect(parseImageText(image)).toEqual(expected);
         });
@@ -1671,15 +1671,15 @@ describe('Tests articleSourceNota - _helper', () => {
                     iptc_source: 'Source with \t'
                 },
                 credits: {
-                    affiliation: [{ name: 'Name with ö', type: 'Type with ü' }]
-                },
-                by: [
-                    {
-                        name: 'By with ç',
-                        type: 'Type with ß',
-                        byline: 'Byline with \r'
-                    }
-                ]
+                    affiliation: [{ name: 'Name with ö', type: 'Type with ü' }],
+                    by: [
+                        {
+                            name: 'By with ç',
+                            type: 'Type with ß',
+                            byline: 'Byline with \r'
+                        }
+                    ]
+                }
             };
             expect(parseImageText(image)).toEqual(expected);
         });
@@ -1706,9 +1706,9 @@ describe('Tests articleSourceNota - _helper', () => {
                     iptc_source: ''
                 },
                 credits: {
-                    affiliation: [{ name: '', type: '' }]
-                },
-                by: [{ name: '', type: '', byline: '' }]
+                    affiliation: [{ name: '', type: '' }],
+                    by: [{ name: '', type: '', byline: '' }]
+                }
             };
             expect(parseImageText(image)).toEqual(expected);
         });
@@ -1737,9 +1737,9 @@ describe('Tests articleSourceNota - _helper', () => {
                     iptc_source: ''
                 },
                 credits: {
-                    affiliation: []
-                },
-                by: []
+                    affiliation: [],
+                    by: []
+                }
             };
             expect(parseImageText(image)).toEqual(expected);
         });
@@ -1752,9 +1752,9 @@ describe('Tests articleSourceNota - _helper', () => {
                     iptc_source: ''
                 },
                 credits: {
-                    affiliation: []
-                },
-                by: []
+                    affiliation: [],
+                    by: []
+                }
             };
             expect(parseImageText(image)).toEqual(expected);
         });
