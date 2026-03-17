@@ -90,6 +90,7 @@ export const parseImageText = (image = {}) => {
         },
         subtitle: sanitizeString(get(image, 'subtitle', '')),
         credits: {
+            ...image.credits,
             affiliation: get(image, 'credits.affiliation', []).map(element => {
                 const { name = '', type = '' } = element || {};
                 return {
@@ -101,6 +102,7 @@ export const parseImageText = (image = {}) => {
             by: get(image, 'credits.by', []).map(element => {
                 const { byline = '', type = '', name = '' } = element || {};
                 return {
+                    ...element,
                     byline: sanitizeString(byline),
                     type: sanitizeString(type),
                     name: sanitizeString(name)
