@@ -20,4 +20,32 @@ describe('Common - EpigrafeAndCreditsData', () => {
             'martin Lopez - LA NACION'
         );
     });
+
+    test('should handle undefined credits in by array', () => {
+        const dataWithUndefinedCredit = {
+            credits: {
+                by: [undefined, null]
+            },
+            additional_properties: {
+                iptc_source: 'LA NACION'
+            }
+        };
+        expect(EpigrafeAndCreditsData(dataWithUndefinedCredit)).toStrictEqual(
+            'LA NACION'
+        );
+    });
+
+    test('should handle empty by array', () => {
+        const dataWithEmptyBy = {
+            credits: {
+                by: []
+            },
+            additional_properties: {
+                iptc_source: 'LA NACION'
+            }
+        };
+        expect(EpigrafeAndCreditsData(dataWithEmptyBy)).toStrictEqual(
+            'LA NACION'
+        );
+    });
 });
