@@ -5,10 +5,7 @@ import {
     createBannerElement,
     createCardElement
 } from 'features/LN-nota/bodyCards/utils/bannerInsertion';
-import {
-    shouldInsertBanner,
-    buildGoogleTagBannerConfig
-} from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
+import { buildGoogleTagBannerConfig } from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
 
 // Test constants
 const DESKTOP_DEVICE = 'desktop';
@@ -36,10 +33,6 @@ jest.mock('private/common/banners/dynamicBanners/dynamicBannersHelper', () => {
         MAX_DYNAMIC_BANNERS: 5,
         BANNER_INSERT_INTERVAL: 4,
         SUPPORTED_DEVICES: ['desktop', 'mobile'],
-        shouldInsertBanner: jest.fn(
-            (itemIndex, bannerIndex) =>
-                (itemIndex + 1) % 4 === 0 && itemIndex >= 0 && bannerIndex <= 5
-        ),
         createDynamicBannerConfig,
         buildGoogleTagBannerConfig: (device, bannerIndex, globalContent) => {
             const bannerConfiguration = createDynamicBannerConfig(
@@ -63,42 +56,6 @@ describe('Banner Insertion Utilities', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-    });
-
-    describe('shouldInsertBanner', () => {
-        const FOURTH_CARD_INDEX = 3;
-        const EIGHTH_CARD_INDEX = 7;
-        const FIRST_BANNER_COUNT = 1;
-        const SECOND_BANNER_COUNT = 2;
-        const EXCEEDED_BANNER_LIMIT = 6;
-
-        it('should return true when inserting first banner at fourth card position', () => {
-            expect(
-                shouldInsertBanner(FOURTH_CARD_INDEX, FIRST_BANNER_COUNT)
-            ).toBe(true);
-        });
-
-        it('should return true when inserting second banner at eighth card position', () => {
-            expect(
-                shouldInsertBanner(EIGHTH_CARD_INDEX, SECOND_BANNER_COUNT)
-            ).toBe(true);
-        });
-
-        it('should return false for positions that are not multiples of four', () => {
-            const NON_BANNER_POSITIONS = [0, 1, 2, 4];
-
-            NON_BANNER_POSITIONS.forEach(position => {
-                expect(shouldInsertBanner(position, FIRST_BANNER_COUNT)).toBe(
-                    false
-                );
-            });
-        });
-
-        it('should return false when maximum banner limit is exceeded', () => {
-            expect(
-                shouldInsertBanner(FOURTH_CARD_INDEX, EXCEEDED_BANNER_LIMIT)
-            ).toBe(false);
-        });
     });
 
     describe('createRenderConfig', () => {

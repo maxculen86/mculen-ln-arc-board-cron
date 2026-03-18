@@ -24,7 +24,7 @@ export const getDynamicBannerSettingsBySubtype = subtype =>
     DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE[subtype] ??
     DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE.default;
 
-const DYNAMIC_BANNER_CONFIG = {
+const BASE_CONFIG = {
     dfpId: 133919216,
     desktop: {
         cinturon: {
@@ -60,15 +60,32 @@ const DYNAMIC_BANNER_CONFIG = {
     }
 };
 
-export const shouldInsertBanner = (itemIndex, bannerIndex, subtype = '') => {
-    const isInsertPosition =
-        (itemIndex + 1) % BANNER_INSERT_INTERVAL === 0 && itemIndex >= 0;
+const DYNAMIC_BANNER_CONFIG_BY_SUBTYPE = {
+    [OPINION]: {
+        ...BASE_CONFIG,
+        mobile: {
+            ...BASE_CONFIG.mobile,
+            caja: {
+                ...BASE_CONFIG.mobile.caja,
+                dimensions: [
+                    [300, 250],
+                    [300, 450],
+                    [320, 100],
+                    [320, 50],
+                    [320, 180],
+                    [360, 270],
+                    [1, 1]
+                ]
+            }
+        }
+    },
 
-    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
-    const withinLimit = bannerIndex <= maxBanners;
-
-    return isInsertPosition && withinLimit;
+    default: BASE_CONFIG
 };
+
+const getDynamicBannerConfigBySubtype = subtype =>
+    DYNAMIC_BANNER_CONFIG_BY_SUBTYPE[subtype] ??
+    DYNAMIC_BANNER_CONFIG_BY_SUBTYPE.default;
 
 export const createDynamicBannerConfig = (
     globalContent,
@@ -86,14 +103,15 @@ export const createDynamicBannerConfig = (
 
     const isDesktop = device === 'desktop';
     const slotId = `${isDesktop ? 'cinturon' : 'caja'}${bannerIndex}${deviceSuffix}`;
+    const bannerConfigBySubtype = getDynamicBannerConfigBySubtype(subtype);
 
     const referenceConfig = isDesktop
-        ? DYNAMIC_BANNER_CONFIG.desktop.cinturon
-        : DYNAMIC_BANNER_CONFIG.mobile.caja;
+        ? bannerConfigBySubtype.desktop?.cinturon
+        : bannerConfigBySubtype.mobile?.caja;
 
     if (!referenceConfig) return null;
 
-    const { dfpId } = DYNAMIC_BANNER_CONFIG;
+    const { dfpId } = bannerConfigBySubtype;
     const { dimensions, bidding: referenceBidding } = referenceConfig;
     const bidding = referenceBidding || { prebid: { enabled: true } };
 

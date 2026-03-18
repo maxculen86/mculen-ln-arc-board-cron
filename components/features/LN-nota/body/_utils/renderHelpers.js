@@ -3,10 +3,10 @@ import { BuildBanners } from '../_children/_buildBanners';
 import { processElement } from '../_children/_processElement';
 import get from '../../../../private/common/utils/get';
 import {
-    BANNER_INSERT_INTERVAL,
-    getDynamicBannersWithGPTConfigsForIndex,
-    shouldInsertBanner
+    getDynamicBannerSettingsBySubtype,
+    getDynamicBannersWithGPTConfigsForIndex
 } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
+import { getBannerStrategy } from './dynamicBannerStrategies';
 
 export const hasBodyBanners = (banners, dynamicBanners) =>
     Boolean(banners) || Boolean(dynamicBanners?.enabled);
@@ -14,6 +14,7 @@ export const hasBodyBanners = (banners, dynamicBanners) =>
 const renderDynamicBanners = ({
     globalContent,
     elementPosition,
+    bannerCounter,
     currentIndex,
     currentDevice,
     dynamicBanners,
@@ -21,10 +22,24 @@ const renderDynamicBanners = ({
 }) => {
     if (!dynamicBanners?.enabled) return null;
 
-    const bannerIndex = elementPosition / BANNER_INSERT_INTERVAL;
     const subtype = get(globalContent, 'subtype', '');
-    if (!shouldInsertBanner(elementPosition - 1, bannerIndex, subtype))
-        return null;
+    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+
+    const context = {
+        elementPosition,
+        itemIndex: elementPosition - 1,
+        bannerCounter,
+        maxBanners
+    };
+
+    const strategy = getBannerStrategy(subtype);
+    const bannerIndex = strategy.getBannerIndex(context);
+    const shouldInsert = strategy.shouldInsert({ ...context, bannerIndex });
+
+    if (!shouldInsert) return null;
+
+    // eslint-disable-next-line no-param-reassign
+    bannerCounter.current += 1;
 
     const dynamicBannersResult = getDynamicBannersWithGPTConfigsForIndex({
         globalContent,
@@ -47,6 +62,7 @@ export const renderWithBanners = (ComponentWithProps, config) => {
         elements,
         outputType,
         counter,
+        bannerCounter,
         element,
         currentIndex,
         dynamicBanners,
@@ -65,6 +81,7 @@ export const renderWithBanners = (ComponentWithProps, config) => {
     const dynamicBannerToRender = renderDynamicBanners({
         globalContent,
         elementPosition: counter,
+        bannerCounter,
         currentIndex,
         currentDevice,
         dynamicBanners,
@@ -119,6 +136,7 @@ export const renderElement = (
     globalContent,
     elements,
     counter,
+    bannerCounter,
     createComponentProps,
     bodyComponents,
     ruleConditions,
@@ -161,6 +179,7 @@ export const renderElement = (
             elements,
             outputType,
             counter: counter.current + 1,
+            bannerCounter,
             element,
             currentIndex,
             dynamicBanners,
