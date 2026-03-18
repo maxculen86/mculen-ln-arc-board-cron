@@ -19,7 +19,7 @@ const SERVICES = {
     default: defaultRequest
 };
 
-const sections = ['horoscopo', 'economia'];
+const sections = ['horoscopo'];
 
 const fetch = async (query, { cachedCall }) => {
     const {

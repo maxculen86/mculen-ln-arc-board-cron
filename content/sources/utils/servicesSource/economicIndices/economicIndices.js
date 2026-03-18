@@ -48,13 +48,19 @@ const economicIndicesRequest = async ({ queryData } = {}) => {
     }
 };
 
-const resolve = ({ response = {} }) => {
-    const { serviceItem } = response;
+const transform = data => {
+    const { serviceType, dataService, sectionSourceData, serviceItem } = data;
+
     return {
-        ...response,
+        serviceType,
+        serviceItem,
+        ...sectionSourceData,
+        dataService,
         metaData: getEconomicIndicesMetaData(serviceItem)
     };
 };
+
+const resolve = ({ response = {} }) => transform(response);
 
 const reject = ({ error, uri, arcSite }) => {
     logger.push(
@@ -71,6 +77,7 @@ export default {
     getUri,
     request: economicIndicesRequest,
     resolve,
+    transform,
     reject,
     getTemplates
 };
