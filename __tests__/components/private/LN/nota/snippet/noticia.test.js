@@ -37,6 +37,19 @@ const mockGlobalContent = {
 
 const mockContextPath = '/pf';
 const mockDeployment = value => value;
+const mockBodyContentElements = [
+    {
+        type: 'text',
+        content: 'Primer <b>parrafo</b>.'
+    },
+    {
+        type: 'image'
+    },
+    {
+        type: 'text',
+        content: 'Segundo parrafo.'
+    }
+];
 
 describe('SnippetNoticia', () => {
     describe('default subtype (NewsArticle)', () => {
@@ -122,6 +135,106 @@ describe('SnippetNoticia', () => {
 
             const script = container.querySelector('script');
             expect(script).not.toHaveAttribute('id');
+        });
+    });
+
+    describe('NewsArticle schema variations by primary section', () => {
+        const mockSectionContent = {
+            ...mockGlobalContent,
+            subheadlines: { basic: 'Bajada test' },
+            content_elements: mockBodyContentElements
+        };
+
+        it('should add description and full articleBody and omit hasPart for automovilismo', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockSectionContent,
+                        taxonomy: {
+                            primary_section: {
+                                name: 'Automovilismo',
+                                _id: '/deportes/automovilismo'
+                            },
+                            tags: []
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                description: 'Bajada test',
+                articleBody: 'Primer parrafo. Segundo parrafo.'
+            });
+            expect(jsonData.hasPart).toBeUndefined();
+        });
+
+        it('should add description and full articleBody and keep hasPart for horoscopo', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockSectionContent,
+                        taxonomy: {
+                            primary_section: {
+                                name: 'Horoscopo',
+                                _id: '/horoscopo'
+                            },
+                            tags: []
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                description: 'Bajada test',
+                articleBody: 'Primer parrafo. Segundo parrafo.',
+                hasPart: {
+                    '@type': 'WebPageElement',
+                    isAccessibleForFree: true,
+                    cssSelector: '.nota'
+                }
+            });
+        });
+
+        it('should omit hasPart and keep first paragraph articleBody for opinion section', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockSectionContent,
+                        taxonomy: {
+                            primary_section: {
+                                name: 'Opinion',
+                                _id: '/opinion'
+                            },
+                            tags: []
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.articleBody).toBe('Primer parrafo.');
+            expect(jsonData.description).toBeUndefined();
+            expect(jsonData.hasPart).toBeUndefined();
         });
     });
 
