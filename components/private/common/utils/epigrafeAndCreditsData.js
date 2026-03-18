@@ -5,10 +5,11 @@ const epigrafeAndCreditsData = (data = {}) => {
     const creditos =
         credits && credits.by !== undefined
             ? credits.by.map(credito => {
+                  if (!credito) return '';
                   const creditName = credito.name !== '' ? credito.name : '';
                   return credito.type === 'author'
                       ? creditName
-                      : credito.referent.id;
+                      : credito.referent?.id;
               })
             : null;
     const cred = (creditos && creditos.filter(el => el !== '')) || [];
