@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Dialog } from '@ln/common-ui-dialog';
@@ -26,6 +26,10 @@ function MenuSemanalDialog({
     const { isSubscribed, userType } = useGetUserConfig();
     const [selectedDay, setSelectedDay] = useState(null);
     const [selectedFood, setSelectedFood] = useState(null);
+
+    const selectedDayRef = useRef(null);
+    const selectedFoodRef = useRef(null);
+
     const countDayFood = dayFoodQuantities(weeklyMenu);
 
     const classContainer = cx(
@@ -38,13 +42,34 @@ function MenuSemanalDialog({
     const handleClose = () => {
         setSelectedDay(null);
         setSelectedFood(null);
+        selectedDayRef.current = null;
+        selectedFoodRef.current = null;
         onClose();
     };
 
-    const saveMenuWeekly = async () => {
-        handleClose();
+    const handleSetSelectedDay = useCallback(value => {
+        setSelectedDay(value);
+        selectedDayRef.current = value;
+    }, []);
+
+    const handleSetSelectedFood = useCallback(value => {
+        setSelectedFood(value);
+        selectedFoodRef.current = value;
+    }, []);
+
+    const saveMenuWeekly = useCallback(async () => {
+        const currentDay = selectedDayRef.current || selectedDay;
+        const currentFood = selectedFoodRef.current || selectedFood;
+
+        if (!currentDay || !currentFood) {
+            console.error(
+                '[MenuSemanalDialog] Missing required values for save'
+            );
+            return;
+        }
+
         const dayFoodSelected = countDayFood.find(
-            info => info.day === selectedDay && info.food === selectedFood
+            info => info.day === currentDay && info.food === currentFood
         );
         const canSave = get(dayFoodSelected, 'count', 0) < 3;
         if (!canSave) {
@@ -56,11 +81,17 @@ function MenuSemanalDialog({
             return;
         }
 
-        const result = await saveMenu({ article, selectedDay, selectedFood });
+        handleClose();
 
-        setWeeklyMenu(prevState => [...prevState, result]);
+        const result = await saveMenu({
+            article,
+            selectedDay: currentDay,
+            selectedFood: currentFood
+        });
 
-        if (result?.bookmarkId) {
+        if (result && result.bookmarkId) {
+            setWeeklyMenu(prevState => [...prevState, result]);
+
             addEventToDataLayerV2({
                 event: 'e_linkclick',
                 category: 'interaction',
@@ -70,7 +101,7 @@ function MenuSemanalDialog({
                 articleId: get(article, '_id', '')
             });
         }
-    };
+    }, [selectedDay, selectedFood, countDayFood, article, setWeeklyMenu]);
 
     const renderDialogHeader = (className, children) => (
         <Dialog.Header className={className}>
@@ -112,8 +143,8 @@ function MenuSemanalDialog({
                         <div className="flex flex-column gap-16 gap-24_md gap-32_lg">
                             <div className="border border-bottom border-thin border-light-100 pb-16 pb-24_md pb-32_lg">
                                 <SelectMenu
-                                    setSelectedDay={setSelectedDay}
-                                    setSelectedFood={setSelectedFood}
+                                    setSelectedDay={handleSetSelectedDay}
+                                    setSelectedFood={handleSetSelectedFood}
                                     selectedDay={selectedDay}
                                     selectedFood={selectedFood}
                                     articleId={get(article, '_id', '')}
@@ -121,12 +152,9 @@ function MenuSemanalDialog({
                                 />
                             </div>
                             <FooterMenu
-                                setSelectedDay={setSelectedDay}
-                                setSelectedFood={setSelectedFood}
-                                selectedDay={selectedDay}
-                                selectedFood={selectedFood}
                                 onClose={handleClose}
                                 saveMenuWeekly={saveMenuWeekly}
+                                isDisabled={!selectedDay || !selectedFood}
                             />
                         </div>
                     </Dialog.Body>
