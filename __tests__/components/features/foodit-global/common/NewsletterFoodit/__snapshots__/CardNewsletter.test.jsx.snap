@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardNewsletter renders correctly (snapshot) 1`] = `
+<div>
+  <section
+    class="flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
+  >
+    <div
+      class="foodit-placeholder bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px]"
+    >
+      <img
+        alt="Newsletter Foodit veggie"
+        class="image bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px] flex --cover"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="https://especialess3.lanacion.com.ar/LN/newsletter/landing/veggie.jpg"
+      />
+    </div>
+    <div
+      class="bg-[rgba(255,193,8,0.15)] w-full flex flex-column justify-center px-16 py-12 md:px-24 xl:px-32 gap-24"
+    >
+      <div
+        class="flex flex-column gap-12"
+      >
+        <div
+          class="flex gap-12 items-start"
+        >
+          <div>
+            <i
+              aria-hidden="true"
+              class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top size-24 data-[has-wrapper="true"]:p-12 pt-4"
+              data-has-wrapper="false"
+              role="presentation"
+            >
+              <svg
+                fill="currentColor"
+              >
+                <use
+                  href="pathDeployment/contextPath/resources/images/foodit-sprite-critical.svg#newsletter"
+                />
+              </svg>
+            </i>
+          </div>
+          <p
+            class="prumo prumo-semibold text-24"
+          >
+            Newsletter Foodit veggie
+          </p>
+          <span
+            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase mt-4"
+          >
+            NUEVO
+          </span>
+        </div>
+        <p
+          class="font-secondary text-body-md"
+        >
+          Con plantas, legumbres y semillas, una selección de deliciosas recetas vegetarianas y veganas.
+        </p>
+      </div>
+      <div
+        class="pb-4 md:pb-0"
+      >
+        <button
+          data-testid="selection-button"
+        >
+          Seleccionar
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;

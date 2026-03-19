@@ -71,7 +71,9 @@ export const TOAST = {
             ),
             EDIT_MENU: 'Podes ver los cambios aplicados en el menú semanal.',
             DELETE_MENU: 'Se quito del menú semanal',
-            DELETE_INGREDIENTS: 'se quitó de tu listado de compras.'
+            DELETE_INGREDIENTS: 'se quitó de tu listado de compras.',
+            SEND_NEWSLETTER: 'Pronto recibirás nuestro newsletter.',
+            UNSUBSCRIBE_NEWSLETTER: 'Ya no recibirás nuestro newsletter.'
         }
     },
     ERROR: {

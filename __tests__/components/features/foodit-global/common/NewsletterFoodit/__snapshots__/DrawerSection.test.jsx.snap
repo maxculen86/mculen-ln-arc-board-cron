@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerSections renders correctly (snapshot) 1`] = `
+<div>
+  <div
+    data-testid="drawer-root"
+    id="drawer-newsletter"
+    position="bottom"
+  >
+    <div
+      data-tw="true"
+    >
+      <div
+        class="bg-neutral-999 max-h-[260px] xl:max-h-[295px] mx-auto"
+        data-testid="drawer-content"
+      >
+        <div
+          class="flex items-center overflow-hidden"
+          data-testid="drawer-body"
+        >
+          <div
+            class="flex flex-col gap-24 gap-24 md:py-16 w-full max-w-[488px] md:min-w-[472px] xl:max-w-[456px] mx-auto"
+          >
+            <p
+              class="text-base-foreground text-heading-sm font-primary font-semibold"
+            >
+              Seleccionaste 0 newsletters:
+            </p>
+            <div
+              class="ds-formcontrol relative group flex flex-col gap-4 transition-colors text-base-default hover:not-focus-within:text-base-light focus-within:text-base-dark"
+              data-disabled="false"
+              data-error="false"
+              data-focused="false"
+              data-variant="input"
+            >
+              <div
+                class="flex gap-16 p-16 border rounded-formcontrol ring-inset focus-within:outline-none focus-within:ring-2 items-center group-data-[variant=textarea]:items-start cursor-text h-56 rounded-sm bg-white text-base-default"
+              >
+                <input
+                  aria-invalid="false"
+                  class="flex-1 outline-none bg-transparent min-w-0 group-has-[label.absolute]:placeholder:opacity-0 text-base-default"
+                  id="_r_0_"
+                  placeholder="Ingresá el mail"
+                  type="email"
+                  value=""
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md font-bold uppercase pointer-events-none bg-primary-default text-primary-foreground hover:bg-primary-light data-[disabled="true"]:bg-primary-lighten bg-subscription-default rounded-[4px]"
+                data-disabled="true"
+                disabled=""
+                style="--ds-icon-size: 20px;"
+              >
+                <p
+                  class="text-subscription-foreground"
+                >
+                  Recibir newsletters
+                </p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
