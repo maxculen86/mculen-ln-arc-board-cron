@@ -51,16 +51,7 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
   "keywords": [],
   "mainEntityOfPage": "https://www.lanacion.com.ar/news-test/",
   "publisher": {
-    "@type": "Organization",
-    "logo": {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "height": 60,
-      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600x60.jpg",
-      "width": 600,
-    },
-    "name": "LA NACION",
-    "url": "https://www.lanacion.com.ar",
+    "@id": "https://www.lanacion.com.ar/#organization",
   },
   "publishingPrinciples": "https://www.lanacion.com.ar/tema/the-trust-project-tid68036/",
   "thumbnailUrl": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",

@@ -5,6 +5,7 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
+import getOrganizationId from '../../../common/utils/getOrganizationId';
 import { isNonEmptyArray } from '../../../common/utils/dataValidation';
 import getNumericRatingValue from '../../../common/utils/getNumericRatingValue';
 import * as Trust from './constants';
@@ -29,7 +30,7 @@ import {
     getReviewSchemaData
 } from './helpers/reviewSchemaHelper';
 import getElementsText from '../../../common/utils/getElementsText';
-import { PUBLISHING_PRINCIPLES } from './helpers/reviewSchemaConstants';
+import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
 
 const SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY = [
     '/deportes/automovilismo',
@@ -93,56 +94,57 @@ const extracDataFromCredits = (by, config = {}) => {
     return { authors: authors.length ? authors : [] };
 };
 
-export const getTrustProject = trust => data => sponsored => {
+export const getTrustProject = (trust, host) => data => sponsored => {
+    const publishingPrinciplesUrl = getPublishingPrinciplesUrl(host);
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
             ...data,
             '@type': 'AdvertiserContentArticle',
-            publishingPrinciples: PUBLISHING_PRINCIPLES
+            publishingPrinciples: publishingPrinciplesUrl
         };
 
     switch (trust) {
         case Trust.TRUST_NOTICIA_ORIGINAL:
             return {
                 ...data,
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_NOTICIA:
             return {
                 ...data,
                 '@type': 'NewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_ANALISIS:
             return {
                 ...data,
                 '@type': 'AnalysisNewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_OPINION:
             return {
                 ...data,
                 '@type': 'OpinionNewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_EXPLICATIVO:
             return {
                 ...data,
                 '@type': 'BackgroundNewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_CONTRIBUCION_DE_LA_AUDIENCIA:
             return {
                 ...data,
                 '@type': 'AskPublicNewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         case Trust.TRUST_REVIEW:
             return {
                 ...data,
                 '@type': 'ReviewNewsArticle',
-                publishingPrinciples: PUBLISHING_PRINCIPLES
+                publishingPrinciples: publishingPrinciplesUrl
             };
         default:
             return { ...data };
@@ -178,9 +180,6 @@ function SnippetNoticia({
 
     const { name: distributorName } = distributor;
 
-    const LOGO_LN = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN-600x60.jpg'
-    );
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-1200x800.jpg'
     );
@@ -200,7 +199,11 @@ function SnippetNoticia({
 
     const headlineResolved =
         get(headlines, 'basic', '') || 'LA NACION - Noticia';
-    const noteUrl = `${SITE_LANACION}${canonicalUrl}`;
+    const schemaHost = get(siteProperties, 'host', SITE_LANACION).replace(
+        /\/+$/,
+        ''
+    );
+    const noteUrl = `${schemaHost}${canonicalUrl || ''}`;
     const noteUrlWithSlash = addForwardSlash(noteUrl);
     const trust = get(label, 'trust.text', 'Noticia Original');
     const hasAuthors = isNonEmptyArray(authors);
@@ -261,22 +264,13 @@ function SnippetNoticia({
         creator: creators,
         keywords,
         publisher: {
-            '@type': 'Organization',
-            name: `${siteProperties.title || ''}`,
-            url: `${SITE_LANACION || ''}`,
-            logo: {
-                '@context': urlSchema,
-                '@type': 'ImageObject',
-                url: `${LOGO_LN}`,
-                height: 60,
-                width: 600
-            }
+            '@id': getOrganizationId(siteProperties)
         },
         thumbnailUrl,
         image
     };
 
-    data = getTrustProject(trust)(data)(sponsored);
+    data = getTrustProject(trust, schemaHost)(data)(sponsored);
 
     const ratingValue = getNumericRatingValue(contentElements);
     const shouldRenderReviewSchema =

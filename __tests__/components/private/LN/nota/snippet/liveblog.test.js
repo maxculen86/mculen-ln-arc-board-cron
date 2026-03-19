@@ -2,14 +2,13 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SnippetLiveblog from '../../../../../../components/private/LN/nota/snippet/liveblog';
-import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM';
+import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM.json';
 import articleWithLiveBlogPowerUp from '../../../../../../__mocks__/data/articles/noDateArticleWithLiveBlogPowerUp.json';
 import {
     restMinutes,
     differenceInMinutes,
     addHours
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
-import { SITE_LANACION as SITE_LANACION_MOCK } from 'fusion:environment';
 
 jest.mock(
     '../../../../../../components/layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors',
@@ -33,7 +32,7 @@ jest.mock('fusion:environment', () => ({
 describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
     const baseProps = {
         siteProperties: { host: 'https://www.lanacion.com.ar' },
-        deployment: props => `${props}$LATEST`,
+        deployment: assetPath => `${assetPath}$LATEST`,
         contextPath: '',
         requestUri:
             '/arquitectura/nota-de-prueba-foto-al-100-nid25062020/?_website=la-nacion-ar',
@@ -76,24 +75,15 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
             url,
             coverageStartTime,
             coverageEndTime,
-            publisher: {
-                '@type': publisherType,
-                name: publisherName,
-                url: publisherUrl,
-                logo: {
-                    '@context': logoContext,
-                    '@type': logoType,
-                    url: logoUrl,
-                    height,
-                    width
-                }
-            }
+            publisher
         } = jsonData;
+
+        const publisherId = publisher['@id'];
 
         const {
             siteProperties: { host },
             globalContent: {
-                canonical_url,
+                canonical_url: canonicalUrl,
                 headlines: { meta_title: metaTitle },
                 first_publish_date: firstPublishDate,
                 display_date: displayDate
@@ -103,24 +93,57 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         expect(context).toBe('https://schema.org');
         expect(type).toBe('LiveBlogPosting');
         expect(headline).toBe(metaTitle);
-        expect(url).toBe(`${SITE_LANACION_MOCK}${canonical_url}`);
+        expect(url).toBe(`${host}${canonicalUrl}`);
         expect(coverageStartTime).toBe(
             new Date(firstPublishDate).toISOString()
         );
         expect(coverageEndTime).toBe(addHours(12, displayDate).toISOString());
 
-        expect(publisherType).toBe('Organization');
-        expect(publisherName).toBe('');
-        expect(publisherUrl).toBe(SITE_LANACION_MOCK);
-        expect(logoContext).toBe('https://schema.org');
-        expect(logoType).toBe('ImageObject');
-        expect(logoUrl).toBe(
-            'https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST'
-        );
-        expect(height).toBe(60);
-        expect(width).toBe(600);
+        expect(publisherId).toBe(`${host}/#organization`);
 
         expect(jsonData).toMatchSnapshot();
+    });
+
+    it('should normalize a trailing slash in the canonical host for schema urls', () => {
+        const propsWithTrailingSlashHost = {
+            ...baseProps,
+            siteProperties: { host: 'https://www.lanacion.com.ar/' }
+        };
+
+        render(<SnippetLiveblog {...propsWithTrailingSlashHost} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.url).toBe(
+            `https://www.lanacion.com.ar${propsWithTrailingSlashHost.globalContent.canonical_url}`
+        );
+        expect(jsonData.about.organizer.url).toBe(
+            'https://www.lanacion.com.ar/'
+        );
+        expect(jsonData.about.performer.url).toBe(
+            'https://www.lanacion.com.ar/'
+        );
+    });
+
+    it('should use the canonical host source for organizer and performer urls', () => {
+        const propsWithSandboxHost = {
+            ...baseProps,
+            siteProperties: { host: 'https://sandbox.lanacion.com.ar/' }
+        };
+
+        render(<SnippetLiveblog {...propsWithSandboxHost} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.url).toBe(
+            `https://sandbox.lanacion.com.ar${propsWithSandboxHost.globalContent.canonical_url}`
+        );
+        expect(jsonData.about.organizer.url).toBe(
+            'https://sandbox.lanacion.com.ar/'
+        );
+        expect(jsonData.about.performer.url).toBe(
+            'https://sandbox.lanacion.com.ar/'
+        );
     });
 
     test('Add minutes to first_publish_date in Liveblog', () => {
@@ -244,7 +267,7 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
 describe('Liveblog Snippet with liveblog power up', () => {
     const props = {
         siteProperties: { host: 'https://www.lanacion.com.ar' },
-        deployment: props => `${props}$LATEST`,
+        deployment: assetPath => `${assetPath}$LATEST`,
         contextPath: '',
         requestUri:
             '/arquitectura/nota-de-prueba-foto-al-100-nid25062020/?_website=la-nacion-ar',

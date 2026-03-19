@@ -1,53 +1,119 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useAppContext } from 'fusion:context';
 import Schemas from '../../../../../components/private/common/scriptManager/schemas';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
-
 jest.mock('fusion:environment', () => ({
+    ARC_STATIC: 'https://env-cdn.example.com',
     SITE_LANACION: 'https://www.lanacion.com.ar'
 }));
 
-const mockContext = {
-    contextPath: '/test-context',
-    deployment: jest.fn(path => path)
-};
-
 describe('Schemas Component', () => {
-    beforeEach(() => {
-        useAppContext.mockReturnValue(mockContext);
-    });
-
-    it('should render schema.org scripts when section is "home"', () => {
+    it('should render NewsMediaOrganization and WebSite scripts when section is "home"', () => {
         const { container } = render(<Schemas section="home" />);
 
         const scripts = container.querySelectorAll(
             'script[type="application/ld+json"]'
         );
+
         expect(scripts).toHaveLength(2);
 
-        const newsMediaScript = scripts[0].innerHTML;
-        const parsedNewsMedia = JSON.parse(newsMediaScript);
+        const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
         expect(parsedNewsMedia['@type']).toBe('NewsMediaOrganization');
-        expect(parsedNewsMedia.logo.url).toContain(
-            '/test-context/resources/images/placeholderLN-1280x1280.jpg'
-        );
-        expect(parsedNewsMedia.sameAs).toEqual([
-            'https://www.facebook.com/lanacion/',
-            'https://www.instagram.com/lanacioncom/',
-            'https://x.com/LANACION/'
-        ]);
 
-        const webSiteScript = scripts[1].innerHTML;
-        const parsedWebSite = JSON.parse(webSiteScript);
+        const parsedWebSite = JSON.parse(scripts[1].innerHTML);
         expect(parsedWebSite['@type']).toBe('WebSite');
-        expect(parsedWebSite.url).toBe('https://www.lanacion.com.ar/');
     });
 
-    it('should not render anything when section is not "home"', () => {
+    it('should render a valid organization ID when section is "nota"', () => {
+        const { container } = render(<Schemas section="nota" />);
+
+        const scripts = container.querySelectorAll(
+            'script[type="application/ld+json"]'
+        );
+        const newsMediaScript = scripts[0].innerHTML;
+        const parsedNewsMedia = JSON.parse(newsMediaScript);
+
+        expect(parsedNewsMedia['@id']).toBe(
+            'https://www.lanacion.com.ar/#organization'
+        );
+        expect(newsMediaScript).not.toContain('"@id": "null"');
+    });
+
+    it('should use a provided siteProperties host for all organization URLs', () => {
+        const { container } = render(
+            <Schemas
+                section="nota"
+                siteProperties={{ host: 'https://foodit.lanacion.com.ar' }}
+            />
+        );
+
+        const scripts = container.querySelectorAll(
+            'script[type="application/ld+json"]'
+        );
+        const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
+
+        expect(parsedNewsMedia['@id']).toBe(
+            'https://foodit.lanacion.com.ar/#organization'
+        );
+        expect(parsedNewsMedia.url).toBe('https://foodit.lanacion.com.ar/');
+        expect(parsedNewsMedia.diversityPolicy).toBe(
+            'https://foodit.lanacion.com.ar/sociedad/diversidad-redaccion-nid2413327/'
+        );
+        expect(parsedNewsMedia.ethicsPolicy).toBe(
+            'https://foodit.lanacion.com.ar/sociedad/la-nacion-mision-estructura-empresarial-principios-eticos-nid2393569/'
+        );
+        expect(parsedNewsMedia.publishingPrinciples).toBe(
+            'https://foodit.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/'
+        );
+        expect(parsedNewsMedia.verificationFactCheckingPolicy).toBe(
+            'https://foodit.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/'
+        );
+        expect(parsedNewsMedia.masthead).toBe(
+            'https://foodit.lanacion.com.ar/sociedad/equipo-editorial-la-nacion-nid2390490/'
+        );
+    });
+
+    it('should build logo URL dynamically from ARC_STATIC and deployment context', () => {
+        const { container } = render(
+            <Schemas
+                section="nota"
+                siteProperties={{ host: 'https://foodit.lanacion.com.ar' }}
+            />
+        );
+
+        const scripts = container.querySelectorAll(
+            'script[type="application/ld+json"]'
+        );
+        const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
+
+        const expectedLogoUrl =
+            'https://env-cdn.example.compathDeployment/contextPath/resources/images/placeholderLN-1280x1280.jpg';
+
+        expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
+        expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);
+    });
+
+    it('should use the same dynamic logo URL regardless of siteProperties', () => {
+        const { container } = render(
+            <Schemas
+                section="nota"
+                siteProperties={{ host: 'https://www.lanacion.com.ar' }}
+            />
+        );
+
+        const scripts = container.querySelectorAll(
+            'script[type="application/ld+json"]'
+        );
+        const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
+
+        const expectedLogoUrl =
+            'https://env-cdn.example.compathDeployment/contextPath/resources/images/placeholderLN-1280x1280.jpg';
+
+        expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
+        expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);
+    });
+
+    it('should not render anything when section is not "nota"', () => {
         const { container } = render(<Schemas section="news" />);
 
         expect(container.firstChild).toBeNull();
