@@ -7,7 +7,12 @@ import get from '../../private/common/utils/get';
 import config from '../../../properties/sites/foodit';
 
 const {
-    layoutsName: { FooditHome, FooditChatIA }
+    layoutsName: {
+        FooditHome,
+        FooditChatIA,
+        FooditFichaReceta,
+        FooditFichaNota
+    }
 } = config;
 
 // TODO: Borrar comentarios y agregar pages a la constante listOfAllowedSection cuales se quiera agregar tailwindcss. Por ej: { pageLayout: FooditHome }
@@ -18,7 +23,9 @@ export function GetCriticalCss({ layout, Resource, globalContent }) {
     }
     const listOfAllowedSection = [
         { pageLayout: FooditHome },
-        { pageLayout: FooditChatIA }
+        { pageLayout: FooditChatIA },
+        { pageLayout: FooditFichaReceta },
+        { pageLayout: FooditFichaNota }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

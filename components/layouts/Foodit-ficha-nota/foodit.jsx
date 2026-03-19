@@ -14,6 +14,7 @@ import IconSprite from '../../features/private-global/common/iconSprite/IconSpri
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
 import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
+import { NewsletterFoodit } from '../../features/foodit-global/common/Newsletter/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -109,6 +110,7 @@ function FichaNotaFoodit({ children = [], globalContent = {} }) {
                 </div>
             </div>
             <Breadcrumb globalContent={globalContent} />
+            <NewsletterFoodit />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );

@@ -11,6 +11,7 @@ import RelatedContent from '../../features/foodit/RelatedContent/foodit';
 import { NutritionalInfo } from '../../features/foodit-global/common/nutritionalInfo/foodit';
 import { AIImageDisclaimer } from '../../features/foodit-global/common/AIImageDisclaimer/foodit';
 import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
+import { NewsletterFoodit } from '../../features/foodit-global/common/Newsletter/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -55,6 +56,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <NutritionalInfo globalContent={globalContent} />
                 <hr className="sm-none" />
                 <RelatedContent globalContent={globalContent} />
+                <NewsletterFoodit />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>

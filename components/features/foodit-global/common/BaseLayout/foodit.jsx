@@ -20,6 +20,7 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../../private/common/auth/helper/loginHelper';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
+import DrawerSections from '../DrawerSections/foodit';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -101,6 +102,7 @@ function BaseLayout({ children }) {
                     arcSite={arcSite}
                     variant="snackBarDefault"
                 />
+                <DrawerSections />
             </div>
         </AuthInitializer>
     );
