@@ -1,33 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Icon } from '@ln/common-ui-icon';
-import { Button } from '@ln/foodit-ui-button';
 import { SITE_FOODIT } from 'fusion:environment';
 import { cx } from '@ln/cva';
 import SpeechRecognition, {
     useSpeechRecognition
 } from 'react-speech-recognition';
-import { Text } from '@ln/common-ui-text';
-import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { ButtonSearch } from './ButtonSearch';
-import { useListeningTimer } from '../hooks/helperSearch';
 import { searchFood } from '../_helpers';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
-import { useNavigationData } from '../hooks/useNavigationData';
-
-const getMicPermissionState = async () => {
-    try {
-        if (typeof navigator === 'undefined') return null;
-        if (!navigator.permissions?.query) return null;
-
-        const status = await navigator.permissions.query({
-            name: 'microphone'
-        });
-        return status?.state || null;
-    } catch {
-        return null;
-    }
-};
+import { ClearButton } from './ClearButton';
+import { InputContainer } from './inputContainer';
+import { getMicPermissionState } from './helpers/getMicPermissionState';
 
 export function Search({ className = '', ...r }) {
     const [inputValue, setInputValue] = useState('');
@@ -35,9 +18,6 @@ export function Search({ className = '', ...r }) {
     const [typedByUser, setTypedByUser] = useState(false);
     const { isSubscribed, id: userId } = useGetUserConfig();
     const [loading, setLoading] = useState(false);
-    const { termicasData = {} } = useNavigationData();
-
-    const hideChatIa = termicasData?.hide_chat_ia_foodit === 'true';
 
     const {
         listening: isListening,
@@ -148,63 +128,29 @@ export function Search({ className = '', ...r }) {
     }, [isListening]);
 
     const classnames = cx('foodit-search w-100 as-center', className);
-    const classNameInput = cx(
-        'text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide',
-        { 'icon-ia': !inputValue && !isListening && !hideChatIa }
-    );
-
-    const placeHolderText = hideChatIa
-        ? '¿Qué querés cocinar hoy?'
-        : 'Buscá o pregúntale a la IA';
-
     const shouldListen =
         isListening && isMicrophoneAvailable && !isMicPermissionPending;
 
-    const listeningTime = useListeningTimer(shouldListen);
     return (
         <div className={classnames} {...r}>
             <div className="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search">
                 <div className="m-auto w-100 relative">
-                    <input
-                        className={classNameInput}
-                        type="search"
-                        enterKeyHint="search"
-                        readOnly={shouldListen}
-                        placeholder={shouldListen ? '' : placeHolderText}
-                        value={inputValue}
-                        onChange={handleInputValue}
-                        onKeyDown={handleKeyDown}
+                    <InputContainer
+                        shouldListen={shouldListen}
+                        inputValue={inputValue}
+                        isListening={isListening}
+                        handleInputValue={handleInputValue}
+                        handleKeyDown={handleKeyDown}
                     />
-
-                    {shouldListen && (
-                        <div className="absolute top-0 flex">
-                            <Text className="flex gap-8 text-16">
-                                {listeningTime}
-                                <span className="text-light-600">
-                                    Escuchando...
-                                </span>
-                            </Text>
-                        </div>
-                    )}
                 </div>
 
-                {inputValue && typedByUser ? (
-                    <Button
-                        data-test-id="button-header-search"
-                        title="Borrar"
-                        iconOnly
-                        variant="link"
-                        className="px-12 py-8"
-                        onClick={() => {
-                            setInputValue('');
-                            setTypedByUser(false);
-                        }}
-                    >
-                        <Icon size={24}>
-                            <IconSprite name="close" />
-                        </Icon>
-                    </Button>
-                ) : null}
+                <ClearButton
+                    show={inputValue && typedByUser}
+                    onClear={() => {
+                        setInputValue('');
+                        setTypedByUser(false);
+                    }}
+                />
 
                 <ButtonSearch
                     isListening={isListening}
