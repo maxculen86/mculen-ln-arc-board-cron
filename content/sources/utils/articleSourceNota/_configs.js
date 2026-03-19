@@ -6,9 +6,9 @@ import {
 } from '../../../../components/private/LN/common/utils/addForwardSlash';
 import convertVideoArcToJw from './cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
+import buildGalleryEmbedData from './cachedCalls/buildGalleryEmbedData';
 import get from '../../../../components/private/common/utils/get';
 import gallerySource from '../../gallerySource';
-import { buildGalleryEmbedData } from './_helper';
 import { compose } from '../../../../components/private/common/utils/functional';
 import config from '../../../../properties/sites/la-nacion-ar';
 import { appendPageReferrerParam } from '../../../../components/private/LN/common/utils/pageReferrer';

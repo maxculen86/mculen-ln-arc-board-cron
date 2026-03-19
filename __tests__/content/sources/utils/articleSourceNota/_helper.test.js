@@ -1529,12 +1529,10 @@ describe('Tests articleSourceNota - _helper', () => {
             jest.resetModules();
             buildGalleryEmbedDataMock = jest.fn();
             jest.doMock(
-                '../../../../../content/sources/utils/articleSourceNota/_helper',
+                '../../../../../content/sources/utils/articleSourceNota/cachedCalls/buildGalleryEmbedData',
                 () => ({
-                    ...jest.requireActual(
-                        '../../../../../content/sources/utils/articleSourceNota/_helper'
-                    ),
-                    buildGalleryEmbedData: buildGalleryEmbedDataMock
+                    __esModule: true,
+                    default: buildGalleryEmbedDataMock
                 })
             );
             const configs = require('../../../../../content/sources/utils/articleSourceNota/_configs');
