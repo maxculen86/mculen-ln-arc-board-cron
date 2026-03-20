@@ -143,12 +143,9 @@ export function SelectMenu({
     );
 
     useEffect(() => {
-        if (menuToEdit) {
-            setSelectedDay(menuToEdit?.bookmarkGroup);
+        if (menuToEdit?.bookmarkGroup) {
+            setSelectedDay(menuToEdit.bookmarkGroup);
             setSelectedFood(menuToEdit?.bookmarkContent?.food);
-        } else {
-            setSelectedDay('');
-            setSelectedFood('');
         }
     }, [menuToEdit, setSelectedDay, setSelectedFood]);
 

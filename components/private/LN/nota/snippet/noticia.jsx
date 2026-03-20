@@ -31,6 +31,20 @@ import {
 import getElementsText from '../../../common/utils/getElementsText';
 import { PUBLISHING_PRINCIPLES } from './helpers/reviewSchemaConstants';
 
+const SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY = [
+    '/deportes/automovilismo',
+    '/horoscopo'
+];
+
+const SECTIONS_WITHOUT_HAS_PART = ['/deportes/automovilismo', '/opinion'];
+
+const matchesSection = (primarySectionId = '', sections = []) =>
+    sections.some(
+        section =>
+            primarySectionId === section ||
+            primarySectionId.startsWith(`${section}/`)
+    );
+
 const SUBTYPE_CONFIG = {
     [OPINION]: {
         schemaType: 'OpinionNewsArticle',
@@ -192,19 +206,25 @@ function SnippetNoticia({
     const hasAuthors = isNonEmptyArray(authors);
     const creators = authors.map(a => a.name);
     const firtsParagraph = getFirstParagraph(contentElements);
-    const isValidSection =
-        get(primarySection, '_id', '') === '/deportes/automovilismo';
-    const articleBody =
-        // TODO: Esto es una prueba que se aplicara solo en automovilismo, en base al resultado, el cambio se debe aplicar a todas las notas (usar getElementsText en lugar de getFirstParagraph)
-        isValidSection ? getElementsText(contentElements) : firtsParagraph;
+    const primarySectionId = get(primarySection, '_id', '');
+    const shouldIncludeDescriptionAndFullArticleBody = matchesSection(
+        primarySectionId,
+        SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY
+    );
+    const shouldIncludeHasPart = !matchesSection(
+        primarySectionId,
+        SECTIONS_WITHOUT_HAS_PART
+    );
+    const articleBody = shouldIncludeDescriptionAndFullArticleBody
+        ? getElementsText(contentElements)
+        : firtsParagraph;
     const datePublishedISO = createISODate(
         getPublishDate(firstPublishDate, displayDate)
     );
     const dateModifiedISO = createISODate(
         getModifiedDate(lastUpdatedDate, displayDate)
     );
-    const isAccessibleForFree =
-        contentCode === 'abierta' || contentCode === 'comun';
+    const isAccessibleForFree = contentCode !== 'cerrada';
     const cssSelector = subtypeConfig.cssSelector ?? '.nota';
     const includeSchemaId = subtypeConfig.includeSchemaId ?? true;
 
@@ -212,7 +232,7 @@ function SnippetNoticia({
         '@context': urlSchema,
         '@type': subtypeConfig.schemaType || 'NewsArticle',
         headline: headlineResolved,
-        ...(isValidSection && {
+        ...(shouldIncludeDescriptionAndFullArticleBody && {
             description:
                 get(globalContent, 'subheadlines.basic', firtsParagraph) ||
                 firtsParagraph
@@ -225,7 +245,7 @@ function SnippetNoticia({
         mainEntityOfPage: noteUrlWithSlash,
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
-        ...(!isValidSection && {
+        ...(shouldIncludeHasPart && {
             hasPart: {
                 '@type': 'WebPageElement',
                 isAccessibleForFree,

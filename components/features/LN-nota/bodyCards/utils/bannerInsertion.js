@@ -2,10 +2,11 @@ import React from 'react';
 import get from '../../../../private/common/utils/get';
 import {
     buildGoogleTagBannerConfig,
+    getDynamicBannerSettingsBySubtype,
     renderDynamicBanner,
-    SUPPORTED_DEVICES,
-    shouldInsertBanner
+    SUPPORTED_DEVICES
 } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
+import { getBannerStrategy } from '../../body/_utils/dynamicBannerStrategies';
 
 export const createBannerElement = (
     globalContent,
@@ -72,6 +73,8 @@ export const insertBannersIntoCards = (
     const googleTagConfigsArray = [];
     let bannerIndex = 1;
     const subtype = get(globalContent, 'subtype', '');
+    const strategy = getBannerStrategy(subtype);
+    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
 
     cardGroups.forEach((cardGroup, index) => {
         result.push(
@@ -84,7 +87,9 @@ export const insertBannersIntoCards = (
             )
         );
 
-        if (shouldInsertBanner(index, bannerIndex, subtype)) {
+        if (
+            strategy.shouldInsert({ itemIndex: index, bannerIndex, maxBanners })
+        ) {
             SUPPORTED_DEVICES.forEach(device => {
                 const bannerResult = createBannerElement(
                     globalContent,
@@ -120,7 +125,6 @@ export const createRenderConfig = (renderExpandedCard, outputType) => ({
 export default {
     insertBannersIntoCards,
     createRenderConfig,
-    shouldInsertBanner,
     createBannerElement,
     createCardElement
 };

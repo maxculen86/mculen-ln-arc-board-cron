@@ -16,7 +16,35 @@ const postWeeklyMenu = async ({ article, food, day }) => {
         tag
     } = article;
 
-    if (!token || !accessToken || !articleId || !day || !food) return null;
+    if (!token || !accessToken || !articleId || !day || !food) {
+        console.error('[postWeeklyMenu] Missing required fields:', {
+            token: !!token,
+            accessToken: !!accessToken,
+            articleId,
+            day,
+            food
+        });
+        return null;
+    }
+
+    const payload = {
+        bookmarkType: 'weeklyMenu',
+        bookmarkTypeId: `${articleId}-${day}-${food}`,
+        bookmarkGroup: day,
+        bookmarkParent: primarySection,
+        bookmarkContent: {
+            id: articleId,
+            image: {
+                resized_urls: resizedUrl,
+                url: getShortestImage(resizedUrl)
+            },
+            canonical_url: canonicalUrl,
+            food,
+            title,
+            variant,
+            tag
+        }
+    };
 
     try {
         const response = await fetch(
@@ -27,38 +55,21 @@ const postWeeklyMenu = async ({ article, food, day }) => {
                     'X-Token': token,
                     Authorization: accessToken
                 },
-                body: JSON.stringify({
-                    bookmarkType: 'weeklyMenu',
-                    bookmarkTypeId: `${articleId}-${day}-${food}`,
-                    bookmarkGroup: day,
-                    bookmarkParent: primarySection,
-                    bookmarkContent: {
-                        id: articleId,
-                        image: {
-                            resized_urls: resizedUrl,
-                            url: getShortestImage(resizedUrl)
-                        },
-                        canonical_url: canonicalUrl,
-                        food,
-                        title,
-                        variant,
-                        tag
-                    }
-                })
+                body: JSON.stringify(payload)
             }
         );
 
         if (!response.ok) {
+            const errorBody = await response.text();
             console.error(
-                `No se pudo guardar ${articleId} en menu semanal, HTTP error! status: ${response.status}`
+                `No se pudo guardar ${articleId} en menu semanal, HTTP error! status: ${response.status}`,
+                errorBody
             );
-            return {
-                bookmarkTypeId: articleId,
-                bookmarkId: response.bookmarkId
-            };
+            return null;
         }
 
-        return await response.json();
+        const jsonResponse = await response.json();
+        return jsonResponse;
     } catch (error) {
         console.error(`Error al realizar la solicitud POST:`, error);
         return null;
@@ -83,6 +94,7 @@ export const saveMenu = async ({ article, selectedDay, selectedFood }) => {
 
         return response;
     }
+
     addErrorToast();
     return '';
 };
