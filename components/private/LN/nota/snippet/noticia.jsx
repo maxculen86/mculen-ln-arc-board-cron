@@ -224,8 +224,7 @@ function SnippetNoticia({
     const dateModifiedISO = createISODate(
         getModifiedDate(lastUpdatedDate, displayDate)
     );
-    const isAccessibleForFree =
-        contentCode === 'abierta' || contentCode === 'comun';
+    const isAccessibleForFree = contentCode !== 'cerrada';
     const cssSelector = subtypeConfig.cssSelector ?? '.nota';
     const includeSchemaId = subtypeConfig.includeSchemaId ?? true;
 
