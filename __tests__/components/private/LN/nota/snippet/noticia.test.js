@@ -92,6 +92,60 @@ describe('SnippetNoticia', () => {
                     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
             });
         });
+
+        it('should set isAccessibleForFree as true when content_code is undefined', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        content_restrictions: {}
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                isAccessibleForFree: true,
+                hasPart: {
+                    '@type': 'WebPageElement',
+                    isAccessibleForFree: true,
+                    cssSelector: '.nota'
+                }
+            });
+        });
+
+        it('should set isAccessibleForFree as false when content_code is cerrada', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        content_restrictions: { content_code: 'cerrada' }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                isAccessibleForFree: false,
+                hasPart: {
+                    '@type': 'WebPageElement',
+                    isAccessibleForFree: false,
+                    cssSelector: '.nota'
+                }
+            });
+        });
     });
 
     describe('OPINION subtype', () => {
