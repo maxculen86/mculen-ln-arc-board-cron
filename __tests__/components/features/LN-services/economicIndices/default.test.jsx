@@ -104,9 +104,16 @@ describe('Components - features - LN-services - EconomicIndices - default', () =
 
         render(<EconomicIndices customFields={{ serviceItem: 'bonos' }} />);
 
-        expect(Content.useContent).toHaveBeenCalledWith(
+        const serviceSourceCall = Content.useContent.mock.calls.find(
+            ([args]) => args?.source === 'servicesSource'
+        );
+
+        expect(serviceSourceCall).toBeDefined();
+        expect(serviceSourceCall[0]).toEqual(
             expect.objectContaining({
+                source: 'servicesSource',
                 query: {
+                    id: '/economia/bonos',
                     service: 'economia',
                     serviceItem: 'bonos'
                 }

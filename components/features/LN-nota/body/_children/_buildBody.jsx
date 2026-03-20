@@ -29,6 +29,7 @@ const BuildBody = ({
         useCapitalIndex
     );
     const counter = { current: 0 };
+    const bannerCounter = { current: 0 };
 
     return elements.map((element, currentIndex) => {
         const renderedElement = renderElement(
@@ -42,6 +43,7 @@ const BuildBody = ({
             globalContent,
             elements,
             counter,
+            bannerCounter,
             createComponentProps,
             bodyComponents,
             ruleConditions,

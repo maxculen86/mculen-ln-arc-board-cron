@@ -2,6 +2,7 @@ import React from 'react';
 import { getTypeOfDevicev2 } from '@ln/utils';
 import Icon from '../../../ui/ln/icon/default';
 import useAccordionToggle from './useAccordionToggle';
+import isSSR from '../../../../private/LN/common/utils/isSSR';
 
 const BIO_MAX_LENGTH = 200;
 
@@ -21,13 +22,16 @@ function BiographyAccordion({
     shouldShowBiography,
     maxLength = BIO_MAX_LENGTH
 }) {
-    const deviceType = getTypeOfDevicev2({ breakpoints: { tablet: 1280 } });
+    if (!text || !shouldShowBiography) return null;
+
+    const deviceType = isSSR()
+        ? 'desktop'
+        : getTypeOfDevicev2({ breakpoints: { tablet: 1280 } });
+
     const conditionedMaxLength =
         deviceType === 'desktop' && maxLength < 1000 ? 1000 : maxLength;
 
     const { isOpen, wrapperRef, pRef, handleToggle } = useAccordionToggle();
-
-    if (!text || !shouldShowBiography) return null;
 
     if (text.length <= conditionedMaxLength) {
         return <p className="font-tertiary text-16">{text}</p>;

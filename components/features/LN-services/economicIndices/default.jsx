@@ -3,7 +3,10 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import { Text } from '@ln/contenidos-ui-text';
-import { transformInternals } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
+import {
+    getEconomicIndicesMetaData,
+    transformInternals
+} from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
 import TableV2 from '../../LN-nota/tableV2/default';
 import get from '../../../private/common/utils/get';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
@@ -12,18 +15,27 @@ import { useRoofData } from '../../../chains/utils/_helpers';
 
 function EconomicIndices(props) {
     const { customFields = {} } = props;
-    const globalServiceItem = get(
-        useAppContext(),
-        'globalContent.serviceItem',
-        ''
-    );
+    const appContext = useAppContext() || {};
+    const globalServiceItem = get(appContext, 'globalContent.serviceItem', '');
     const serviceItem = globalServiceItem || customFields.serviceItem || '';
+    const fallbackId = serviceItem
+        ? `/economia/${serviceItem}`
+        : '/economia/indices';
+    const contentId =
+        get(appContext, 'globalContent._id', '') ||
+        get(appContext, 'globalContentConfig.query.id', '') ||
+        fallbackId;
     const isHome = !globalServiceItem;
-    const roofData = useRoofData({ title: customFields.title });
+    const roofTitle =
+        customFields.title ||
+        getEconomicIndicesMetaData(serviceItem).breadcrumbName ||
+        'Índices';
+    const roofData = useRoofData({ title: roofTitle });
 
     const tableData = useContent({
         source: 'servicesSource',
         query: {
+            id: contentId,
             service: 'economia',
             serviceItem
         },
