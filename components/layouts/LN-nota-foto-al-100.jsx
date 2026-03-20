@@ -6,12 +6,12 @@ import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 import Toasts from '../features/LN-10-global/common/toasts/default';
+import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import '../../resources/dist/css/ln/pages/photo100.css';
 
 function lnNotaFotoAl100({
@@ -74,7 +74,7 @@ function lnNotaFotoAl100({
                 </div>
             </div>
             <Toasts />
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <Glossary />
             <InitControlGroup />

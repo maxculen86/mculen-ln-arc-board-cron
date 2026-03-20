@@ -3,9 +3,8 @@ import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
-
+import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import GlobalProvider from '../private/common/context/globalContext';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 
@@ -47,7 +46,7 @@ function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
                     </div>
                 </main>
             </div>
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />
         </GlobalProvider>

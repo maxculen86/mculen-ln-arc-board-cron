@@ -6,7 +6,7 @@ import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
-import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import AdsStrategySelector from '../../features/LN/common/adsManager/components/adsStrategySelector';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
@@ -78,7 +78,7 @@ function LNSportsHome(props) {
                         <Footer />
                     </div>
                 </div>
-                <LoadBannersSSR />
+                <AdsStrategySelector />
                 <PwaModal />
                 <InitControlGroup />
             </GlobalProviderAcu>

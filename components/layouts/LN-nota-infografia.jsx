@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import NotaMain from '../private/common/layouts/notaMain';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
@@ -35,7 +35,7 @@ function lnNotaInfografia({
             <NotaMain className={classNameNotaMain} outputType={outputType}>
                 {children}
             </NotaMain>
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />
         </GlobalProvider>

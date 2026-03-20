@@ -5,7 +5,7 @@ import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
-import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import AdsStrategySelector from '../../features/LN/common/adsManager/components/adsStrategySelector';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import ComTitle from '../../private/common/com-title';
 import InitControlGroup from '../helpers/initCtrlGrp';
@@ -65,7 +65,7 @@ function LNAcumuladoColumnistasLayout(props) {
                     <Footer />
                 </div>
             </div>
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />
         </GlobalProvider>

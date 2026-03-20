@@ -3,9 +3,9 @@ import Header from '../header/default';
 import { FooterBase } from '../footer/default';
 import ToastsContainer from '../../../ui/ln/toastsContainer/default';
 import InitControlGroup from '../../../../layouts/helpers/initCtrlGrp';
-import LoadBannersSSR from '../../../../private/common/banners/LoadBannersSSR';
 import DrawerSections from '../drawerSections/default';
 import Navbar from '../navBar/default';
+import AdsStrategySelector from '../adsManager/components/adsStrategySelector';
 // TODO: Crear componente con clases del DS.
 import PwaModal from '../../../LN-10-global/pwaModal/default';
 
@@ -30,8 +30,7 @@ function BaseLayout({ children, ...props }) {
                 <Navbar />
                 <PwaModal />
                 <InitControlGroup />
-                <LoadBannersSSR />
-
+                <AdsStrategySelector />
                 <ToastsContainer />
                 <DrawerSections />
             </div>
