@@ -1,13 +1,20 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/contenidos-ui-button';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import Static from 'fusion:static';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
+import { shouldHideLnRadio } from './_helpers';
 
-function LnRadio({ id: featureId }) {
-    const { contextPath, deployment } = useAppContext();
+function LnRadio({ id: featureId, customFields }) {
+    const { contextPath, deployment, isAdmin } = useAppContext() || {};
+    const { enabledDays = [], shouldSchedule = false } = customFields || {};
+
+    if (shouldHideLnRadio({ isAdmin, enabledDays, shouldSchedule }))
+        return null;
+
     const path = `${contextPath}/resources/images/ln-radio.webp`;
     const deploymentPath = deployment(path);
 
@@ -45,5 +52,35 @@ function LnRadio({ id: featureId }) {
 }
 
 LnRadio.label = 'LN10 Radio';
+
+LnRadio.propTypes = {
+    customFields: PropTypes.shape({
+        shouldSchedule: PropTypes.bool.tag({
+            name: 'Activar Calendarización',
+            description:
+                'Marque para mostrar en los días configurados. Desmarque para mostrar todos los días.',
+            defaultValue: false
+        }),
+        enabledDays: PropTypes.list.tag({
+            name: 'Días habilitados',
+            description:
+                'Ingrese los días de la semana en los que se desea mostrar la promoción (en minúsculas, sin tildes, ej: "miercoles")',
+            defaultValue: []
+        }),
+        variant: PropTypes.oneOf([
+            'fondo-negro',
+            'fondo-blanco',
+            'fondo-amarillo'
+        ]).tag({
+            name: 'Variante',
+            defaultValue: 'fondo-blanco',
+            labels: {
+                'fondo-negro': 'Fondo negro',
+                'fondo-blanco': 'Fondo blanco',
+                'fondo-amarillo': 'Fondo amarillo'
+            }
+        })
+    }).isRequired
+};
 
 export default LnRadio;
