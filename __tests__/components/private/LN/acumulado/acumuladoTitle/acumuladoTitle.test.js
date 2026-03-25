@@ -2,9 +2,13 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle/acumuladoTitle';
 
+const mockModCategory = jest.fn(({ category }) => (
+    <mod-category-mock category={category} />
+));
+
 jest.mock(
     '../../../../../../components/private/common/mod-category.jsx',
-    () => 'mod-category-mock'
+    () => props => mockModCategory(props)
 );
 
 jest.mock(
@@ -13,6 +17,10 @@ jest.mock(
 );
 
 describe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
+    beforeEach(() => {
+        mockModCategory.mockClear();
+    });
+
     it('Render OK', () => {
         const { container } = render(<AcumuladoTitle />);
         const category = container.querySelector('mod-category-mock[category]');
@@ -132,5 +140,45 @@ describe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
         );
 
         expect(categoryElement).toBeInTheDocument();
+    });
+
+    it('Validation navigation índices in internas', () => {
+        const props = {
+            globalContent: {
+                _id: '/economia/merval',
+                name: 'Merval',
+                node_type: 'section',
+                acumuladoGeneral: {
+                    hierarchy_navigation: 'indices'
+                }
+            },
+            navigation: [
+                {
+                    _id: '/economia/bonos',
+                    name: 'Bonos',
+                    node_type: 'section'
+                },
+                {
+                    _id: '/economia/merval',
+                    name: 'Merval',
+                    node_type: 'section'
+                },
+                {
+                    _id: '/economia/cedears',
+                    name: 'Cedears',
+                    node_type: 'section'
+                }
+            ]
+        };
+
+        render(<AcumuladoTitle {...props} />);
+
+        const { navigation = [] } = mockModCategory.mock.calls.at(-1)[0];
+
+        expect(navigation.map(item => item.textname)).toEqual([
+            'Índices',
+            'Bonos',
+            'Cedears'
+        ]);
     });
 });

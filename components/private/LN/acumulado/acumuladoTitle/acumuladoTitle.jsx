@@ -49,9 +49,33 @@ function AcumuladoTitle(props) {
             : '';
     const titleText = `${prefixText}${title}`;
 
+    const hierarchyNavigation = get(
+        props,
+        'globalContent.acumuladoGeneral.hierarchy_navigation',
+        ''
+    );
+    const isIndicesNavigation = hierarchyNavigation === 'indices';
+    const isIndicesInternal =
+        isIndicesNavigation && sectionId !== '/economia/indices';
+    const filteredIndicesNavigation = (navigationList || []).filter(
+        ({ _id: id }) => id !== sectionId && id !== '/economia/indices'
+    );
+    let navigationItems = filteredIndicesNavigation;
+
+    if (isIndicesInternal) {
+        navigationItems = [
+            {
+                _id: '/economia/indices',
+                name: 'Índices',
+                node_type: 'section'
+            },
+            ...filteredIndicesNavigation
+        ];
+    }
+
     const categories =
-        navigationList &&
-        navigationList.map(
+        navigationItems.length > 0 &&
+        navigationItems.map(
             ({
                 _id,
                 navigation,
