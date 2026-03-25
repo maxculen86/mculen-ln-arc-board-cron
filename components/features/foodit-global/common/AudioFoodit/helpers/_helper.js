@@ -137,11 +137,7 @@ function hasValidPreparationHeaders(contentElements, preparationHeaderIndex) {
             break;
         }
 
-        if (
-            element.type === 'header' &&
-            element.level === 4 &&
-            element.content?.toLowerCase().includes('para')
-        ) {
+        if (element.type === 'list' && element.items?.length > 0) {
             return true;
         }
     }
@@ -223,6 +219,12 @@ function processListsByTitle(validLists) {
     });
 
     return result;
+}
+
+export function cleanHtmlTags(content) {
+    if (!content) return '';
+
+    return content.replace(/<[^>]*>/g, '').trim();
 }
 
 export function getPreparationItems(contentElements) {
