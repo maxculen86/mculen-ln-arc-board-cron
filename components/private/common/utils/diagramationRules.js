@@ -365,7 +365,7 @@ const diagramationRules = diagramation => {
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                withMedia: false,
+                imageConfig: 'bombaVertical',
                 cardSize: size.fiveXL,
                 className: CENTER_TEXT_CLASS
             }
@@ -375,10 +375,10 @@ const diagramationRules = diagramation => {
                 variantsDisabled: variantsDisabledByType.authorLiveblogHtml,
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
-                withMedia: false,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
+                imageConfig: 'bombaVertical',
                 cardSize: size.fiveXL,
                 className: CENTER_TEXT_CLASS,
                 hideBadget: false

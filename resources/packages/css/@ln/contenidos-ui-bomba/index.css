@@ -116,7 +116,6 @@
   margin-top: 1rem;
 }
 .bomba.bombita .ln-card {
-  border-bottom: 0.0625rem solid var(--light-neutral-400);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
@@ -134,6 +133,30 @@
   margin-right: 0;
   padding-top: 1rem;
 }
+.bomba.bombita .child-0 .ln-card > .link .ln-placeholder {
+  aspect-ratio: 3/4;
+}
+@media (min-width: 48rem) {
+  .bomba.bombita .child-0 .ln-card > .link {
+    gap: 1.5rem;
+    flex-direction: row-reverse;
+  }
+  .bomba.bombita .child-0 .ln-card > .link .media-container,
+  .bomba.bombita .child-0 .ln-card > .link .description-container {
+    flex: 1;
+  }
+}
+@media (min-width: 80rem) {
+  .bomba.bombita .child-0 .ln-card > .link {
+    padding: 0;
+  }
+  .bomba.bombita .child-0 .ln-card > .link .media-container {
+    margin-right: 0;
+  }
+  .bomba.bombita .child-0 .ln-card > .link .media-container .ln-placeholder {
+    aspect-ratio: 1/1;
+  }
+}
 .bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card > .link .media-container {
   width: 100%;
   margin: 0;
@@ -146,6 +169,9 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 1.5rem;
+  }
+  .bomba.bombita.mas-4 .bomba-grid .child-0 .ln-card {
+    border-bottom: 0.0625rem solid var(--light-neutral-400);
   }
   .bomba.bombita.mas-4 .bomba-grid .child-0 {
     grid-column: span 12;
