@@ -1,6 +1,5 @@
 /* Custom Components */
 @layer components {
-
     /* Paragraph */
     .ds-custom-paragraph mark.hl_underline {
         background-color: transparent;
@@ -41,7 +40,6 @@
         white-space: normal !important;
         line-height: normal !important;
     }
-
 }
 
 /* Custom Header spacing */
@@ -55,6 +53,18 @@
 
 /* Banners */
 .ds-banner-background {
-    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
-    background-color: var(--light-neutral-0)
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
+    background-color: var(--light-neutral-0);
+}
+
+@theme {
+    --header-height: 57px;
+    --header-navbar-height: 61px;
 }

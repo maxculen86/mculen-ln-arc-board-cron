@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpeningImage50 snapshots minimal snapshot (only imgDefaultUrl) 1`] = `
+<section
+  class="relative w-screen -translate-x-1/2 left-1/2 bg-black-dark mock-section-height"
+  data-diagram="image-50-right-title-left"
+>
+  <div
+    class="flex flex-col items-center gap-40 h-full pt-40 md:pt-80 md:grid md:grid-cols-12 lg:pt-0 lg:gap-8 xl:grid-cols-16 xl:gap-32"
+  >
+    <div
+      class="flex flex-col flex-1 justify-center text-center gap-8 h-full px-16 md:px-32 md:col-span-10 md:col-start-2 lg:pt-80 lg:col-span-8 lg:col-start-3 xl:col-start-1 xl:col-end-9 xl:text-left xl:items-start xl:p-0 xl:pl-32 min-[1367px]:xl:max-w-552 min-[1367px]:justify-self-end"
+    >
+      <div
+        data-content="{}"
+        data-layout=""
+        data-testid="opening-addons"
+      />
+      <div
+        data-testid="opening-titles"
+      />
+    </div>
+    <div
+      class="w-full h-full md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-8 xl:col-start-9 overflow-hidden"
+    >
+      <img
+        class="w-full h-full object-cover"
+        data-testid="image-ui"
+        fetchpriority="high"
+        loading="eager"
+        src="https://example.com/image.jpg"
+      />
+    </div>
+  </div>
+</section>
+`;
+
+exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
+<section
+  class="relative w-screen -translate-x-1/2 left-1/2 bg-black-dark mock-section-height"
+  data-diagram="image-50-right-title-left"
+>
+  <div
+    class="flex flex-col items-center gap-40 h-full pt-40 md:pt-80 md:grid md:grid-cols-12 lg:pt-0 lg:gap-8 xl:grid-cols-16 xl:gap-32"
+  >
+    <div
+      class="flex flex-col flex-1 justify-center text-center gap-8 h-full px-16 md:px-32 md:col-span-10 md:col-start-2 lg:pt-80 lg:col-span-8 lg:col-start-3 xl:col-start-1 xl:col-end-9 xl:text-left xl:items-start xl:p-0 xl:pl-32 min-[1367px]:xl:max-w-552 min-[1367px]:justify-self-end"
+    >
+      <div
+        data-content="{"taxonomy":{"sections":[]}}"
+        data-layout="basic"
+        data-testid="opening-addons"
+      />
+      <div
+        data-testid="opening-titles"
+      >
+        <h1
+          class="text-display-sm pt-4"
+        >
+          Título principal
+        </h1>
+        <h2
+          class="text-display-sm pt-4"
+        >
+          Título secundario
+        </h2>
+      </div>
+      <p
+        class="prumo text-white text-subheading-md"
+      >
+        Bajada de prueba
+      </p>
+    </div>
+    <div
+      class="w-full h-full md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-8 xl:col-start-9 overflow-hidden"
+    >
+      <img
+        alt="Alt de prueba"
+        class="w-full h-full object-cover"
+        data-sources="[{"srcset":"image-800.jpg","media":"(min-width: 800px)"}]"
+        data-testid="image-ui"
+        fetchpriority="high"
+        loading="eager"
+        src="https://example.com/image.jpg"
+      />
+    </div>
+  </div>
+</section>
+`;
+
+exports[`OpeningImage50 snapshots snapshot without image 1`] = `
+<section
+  class="relative w-screen -translate-x-1/2 left-1/2 bg-black-dark mock-section-height"
+  data-diagram="image-50-right-title-left"
+>
+  <div
+    class="flex flex-col items-center gap-40 h-full pt-40 md:pt-80 md:grid md:grid-cols-12 lg:pt-0 lg:gap-8 xl:grid-cols-16 xl:gap-32"
+  >
+    <div
+      class="flex flex-col flex-1 justify-center text-center gap-8 h-full px-16 md:px-32 md:col-span-10 md:col-start-2 lg:pt-80 lg:col-span-8 lg:col-start-3 xl:col-start-1 xl:col-end-9 xl:text-left xl:items-start xl:p-0 xl:pl-32 min-[1367px]:xl:max-w-552 min-[1367px]:justify-self-end"
+    >
+      <div
+        data-content="{"taxonomy":{"sections":[]}}"
+        data-layout="basic"
+        data-testid="opening-addons"
+      />
+      <div
+        data-testid="opening-titles"
+      >
+        <h1
+          class="text-display-sm pt-4"
+        >
+          Título principal
+        </h1>
+        <h2
+          class="text-display-sm pt-4"
+        >
+          Título secundario
+        </h2>
+      </div>
+      <p
+        class="prumo text-white text-subheading-md"
+      >
+        Bajada de prueba
+      </p>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
+<section
+  class="relative w-screen -translate-x-1/2 left-1/2 bg-black-dark mock-section-height"
+  data-diagram="image-50-right-title-left"
+>
+  <div
+    class="flex flex-col items-center gap-40 h-full pt-40 md:pt-80 md:grid md:grid-cols-12 lg:pt-0 lg:gap-8 xl:grid-cols-16 xl:gap-32"
+  >
+    <div
+      class="flex flex-col flex-1 justify-center text-center gap-8 h-full px-16 md:px-32 md:col-span-10 md:col-start-2 lg:pt-80 lg:col-span-8 lg:col-start-3 xl:col-start-1 xl:col-end-9 xl:text-left xl:items-start xl:p-0 xl:pl-32 min-[1367px]:xl:max-w-552 min-[1367px]:justify-self-end"
+    >
+      <div
+        data-content="{"taxonomy":{"sections":[]}}"
+        data-layout="basic"
+        data-testid="opening-addons"
+      />
+      <div
+        data-testid="opening-titles"
+      >
+        <h1
+          class="text-display-sm pt-4"
+        >
+          Título principal
+        </h1>
+        <h2
+          class="text-display-sm pt-4"
+        >
+          Título secundario
+        </h2>
+      </div>
+    </div>
+    <div
+      class="w-full h-full md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-8 xl:col-start-9 overflow-hidden"
+    >
+      <img
+        alt="Alt de prueba"
+        class="w-full h-full object-cover"
+        data-sources="[{"srcset":"image-800.jpg","media":"(min-width: 800px)"}]"
+        data-testid="image-ui"
+        fetchpriority="high"
+        loading="eager"
+        src="https://example.com/image.jpg"
+      />
+    </div>
+  </div>
+</section>
+`;
