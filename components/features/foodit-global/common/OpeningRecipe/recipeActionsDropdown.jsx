@@ -78,7 +78,7 @@ export function RecipeActionsDropdown({
                         {countDayFood > 0 && (
                             <span
                                 style={{ fontStyle: 'normal' }}
-                                className="w-14 h-14 flex ai-center jc-center roboto roboto-bold text-8 top-0 right-0 translate-x-50 absolute rounded-circle bg-info-700 text-light-1"
+                                className="w-14 h-14 flex ai-center jc-center roboto roboto-bold text-8 top-0 right-0 translate-x-50 absolute rounded-circle bg-info-default text-light-1"
                             >
                                 {countDayFood}
                             </span>
