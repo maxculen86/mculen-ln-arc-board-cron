@@ -17,7 +17,8 @@ import {
 import {
     createISODate,
     getModifiedDate,
-    getPublishDate
+    getPublishDate,
+    getSanitizedDateCreated
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
 import {
     NOTICIA,
@@ -239,7 +240,7 @@ function SnippetNoticia({
         }),
         ...(articleBody && { articleBody }),
         url: noteUrl,
-        dateCreated: createISODate(createdDate),
+        dateCreated: getSanitizedDateCreated(createdDate, datePublishedISO),
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
         mainEntityOfPage: noteUrlWithSlash,
