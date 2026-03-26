@@ -30,7 +30,7 @@ exports[`CardInfo component should match snapshot 1`] = `
             class="flex flex-column text-center jc-center ai-center gap-4"
           >
             <span
-              class="text prumo prumo-semibold text-18"
+              class="text prumo prumo-semibold text-20"
             >
               Planificá tu semana
             </span>
@@ -61,7 +61,7 @@ exports[`CardInfo component should match snapshot 1`] = `
             class="flex flex-column text-center jc-center ai-center gap-4"
           >
             <span
-              class="text prumo prumo-semibold text-18"
+              class="text prumo prumo-semibold text-20"
             >
               Guardá tu receta favorita
             </span>
@@ -92,7 +92,7 @@ exports[`CardInfo component should match snapshot 1`] = `
             class="flex flex-column text-center jc-center ai-center gap-4"
           >
             <span
-              class="text prumo prumo-semibold text-18"
+              class="text prumo prumo-semibold text-20"
             >
               Agregá ingredientes a la lista de compras
             </span>
