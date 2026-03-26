@@ -44,23 +44,36 @@ describe('Test function extractDataFromPromoItems', () => {
                     }
                 ],
                 type: 'image',
-                url:
-                    'https://resizer.glanacion.com/resizer/w7O_gR-MENRvEiU2q-vXFHLcH-A=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png',
+                url: 'https://resizer.glanacion.com/resizer/w7O_gR-MENRvEiU2q-vXFHLcH-A=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png',
                 width: 768
             }
         };
 
+        const bigResizedUrl =
+            'https://resizer.glanacion.com/resizer/Fh6Ak-C6J7j34qoFkkstylQIlGQ=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png';
         expect(
             extractDataFromPromoItems(promoItems, PLACEHOLDER)
         ).toStrictEqual({
-            image: {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                height: 796,
-                url:
-                    'https://resizer.glanacion.com/resizer/Fh6Ak-C6J7j34qoFkkstylQIlGQ=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png',
-                width: 1280
-            },
+            image: [
+                {
+                    '@type': 'ImageObject',
+                    url: bigResizedUrl,
+                    width: 1200,
+                    height: 675
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: bigResizedUrl,
+                    width: 1200,
+                    height: 900
+                },
+                {
+                    '@type': 'ImageObject',
+                    url: bigResizedUrl,
+                    width: 1200,
+                    height: 1200
+                }
+            ],
             thumbnailUrl:
                 'https://resizer.glanacion.com/resizer/w7O_gR-MENRvEiU2q-vXFHLcH-A=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PDGFPZHDQZFPFJS5T7OODPTM2Y.png'
         });
@@ -69,13 +82,26 @@ describe('Test function extractDataFromPromoItems', () => {
     test("Function return test when it doesn't have an image.", () => {
         expect(extractDataFromPromoItems(undefined, PLACEHOLDER)).toStrictEqual(
             {
-                image: {
-                    '@context': 'https://schema.org',
-                    '@type': 'ImageObject',
-                    height: '800',
-                    url: PLACEHOLDER,
-                    width: '1200'
-                },
+                image: [
+                    {
+                        '@type': 'ImageObject',
+                        url: PLACEHOLDER,
+                        width: 1200,
+                        height: 675
+                    },
+                    {
+                        '@type': 'ImageObject',
+                        url: PLACEHOLDER,
+                        width: 1200,
+                        height: 900
+                    },
+                    {
+                        '@type': 'ImageObject',
+                        url: PLACEHOLDER,
+                        width: 1200,
+                        height: 1200
+                    }
+                ],
                 thumbnailUrl: PLACEHOLDER
             }
         );

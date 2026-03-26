@@ -241,21 +241,38 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   <div
                     class="flex h-100 ai-center"
                   >
-                    <button
-                      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
-                      data-test-id="button-header-search"
-                      data-variant="link"
-                      title="audio"
+                    <div
+                      class="relative w-max flex"
                     >
-                      <i
-                        class="icon --icon-24"
+                      <button
+                        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+                        data-test-id="button-header-search"
+                        data-variant="link"
+                        title="audio"
                       >
-                        <mock-icon
-                          fill=""
-                          name="audio"
-                        />
-                      </i>
-                    </button>
+                        <i
+                          class="icon --icon-24"
+                        >
+                          <mock-icon
+                            fill=""
+                            name="audio"
+                          />
+                        </i>
+                      </button>
+                      <div
+                        class="tooltip absolute text-16 p-8 rounded-4 shadow-float transition-regular w-max max-w-328 z-1 --with-arrow mt-8 top-100 right-0 py-4 flex ai-center max-w-134_lg ai-center bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100"
+                        data-position="bottom-right"
+                        data-visible="true"
+                        role="tooltip"
+                        style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
+                      >
+                        <span
+                          class="text-12"
+                        >
+                          ¡Nueva búsqueda por voz!
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1496,21 +1513,38 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
             <div
               class="flex h-100 ai-center"
             >
-              <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
-                data-test-id="button-header-search"
-                data-variant="link"
-                title="audio"
+              <div
+                class="relative w-max flex"
               >
-                <i
-                  class="icon --icon-24"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+                  data-test-id="button-header-search"
+                  data-variant="link"
+                  title="audio"
                 >
-                  <mock-icon
-                    fill=""
-                    name="audio"
-                  />
-                </i>
-              </button>
+                  <i
+                    class="icon --icon-24"
+                  >
+                    <mock-icon
+                      fill=""
+                      name="audio"
+                    />
+                  </i>
+                </button>
+                <div
+                  class="tooltip absolute text-16 p-8 rounded-4 shadow-float transition-regular w-max max-w-328 z-1 --with-arrow mt-8 top-100 right-0 py-4 flex ai-center max-w-134_lg ai-center bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100"
+                  data-position="bottom-right"
+                  data-visible="true"
+                  role="tooltip"
+                  style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
+                >
+                  <span
+                    class="text-12"
+                  >
+                    ¡Nueva búsqueda por voz!
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

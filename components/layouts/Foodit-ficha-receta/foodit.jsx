@@ -11,6 +11,7 @@ import RelatedContent from '../../features/foodit/RelatedContent/foodit';
 import { NutritionalInfo } from '../../features/foodit-global/common/nutritionalInfo/foodit';
 import { AIImageDisclaimer } from '../../features/foodit-global/common/AIImageDisclaimer/foodit';
 import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
+import { NewsletterFoodit } from '../../features/foodit-global/common/Newsletter/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -25,6 +26,9 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <Breadcrumb globalContent={globalContent} className="lg-only" />
                 <OpeningRecipe article={globalContent} />
             </section>
+            <div className="-mb-16 lg-none">
+                <Breadcrumb globalContent={globalContent} />
+            </div>
             <Static htmlOnly persistent id="subtitle-mobile-recipe">
                 <Subtitle globalContent={globalContent} calssName="lg-none" />
             </Static>
@@ -52,7 +56,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <NutritionalInfo globalContent={globalContent} />
                 <hr className="sm-none" />
                 <RelatedContent globalContent={globalContent} />
-                <Breadcrumb globalContent={globalContent} className="lg-none" />
+                <NewsletterFoodit />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>

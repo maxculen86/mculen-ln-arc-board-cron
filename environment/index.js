@@ -83,7 +83,6 @@ export default {
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     API_IA_FOODIT: 'https://foodit-chatbot.clanacion.com.ar',
     BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
-    AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://api-audios.lanacion.com.ar/status/',
     AUDIONEWS_APIKEY: 'xNztQwDUk11h4LPdzzEgvafWAqbFPadn5yxN3sr1',
     SEGMENTATION_API:

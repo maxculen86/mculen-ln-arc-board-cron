@@ -138,13 +138,13 @@ input[type=checkbox]:hover {
   }
 }
 
-.media-scroller.--carousel-category [data-scroller=track] {
-  --scroller-element-columns: 3;
-}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .media-scroller.--carousel-category [data-scroller=track] {
     grid-auto-columns: 147px;
   }
+}
+.media-scroller.--carousel-category [data-scroller=track] {
+  --scroller-element-columns: 3;
 }
 @media (min-width: 80rem) {
   .media-scroller.--carousel-category [data-scroller=track] {
@@ -2227,6 +2227,10 @@ strong {
   margin-bottom: -0.5rem;
 }
 
+.-mb-16 {
+  margin-bottom: -1rem;
+}
+
 .mb-4 {
   margin-bottom: 0.25rem;
 }
@@ -2904,7 +2908,7 @@ strong {
 }
 
 .viafoura.viafoura {
-  --primary-font: "Roboto", Georgia, serif;
+  --primary-font: 'Roboto', Georgia, serif;
   --x-small-font: 1.2;
   --medium-font: 1.2;
   --accent-color: var(--secondary-positive);
@@ -3004,11 +3008,6 @@ hr {
   border: thin solid var(--neutral-light-100);
 }
 
-.foodit-scrollbar {
-  /* Cambiamos el fondo cuando esté en active */
-  /* Ponemos un color de fondo y redondeamos las esquinas del track */
-  /* Cambiamos el fondo cuando esté en active o hover */
-}
 .foodit-scrollbar::-webkit-scrollbar {
   width: 0.5rem;
   /* Tamaño del scroll en vertical */
@@ -3018,12 +3017,21 @@ hr {
   background: var(--primary-positive);
   border-radius: 0.5rem;
 }
+.foodit-scrollbar {
+  /* Cambiamos el fondo cuando esté en active */
+}
 .foodit-scrollbar::-webkit-scrollbar-thumb:active {
   background-color: var(--primary-positive);
+}
+.foodit-scrollbar {
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
 }
 .foodit-scrollbar::-webkit-scrollbar-track {
   background: #f7f7f4;
   border-radius: 0.5rem;
+}
+.foodit-scrollbar {
+  /* Cambiamos el fondo cuando esté en active o hover */
 }
 .foodit-scrollbar::-webkit-scrollbar-track:hover, .foodit-scrollbar::-webkit-scrollbar-track:active {
   background: #e4e4e4;

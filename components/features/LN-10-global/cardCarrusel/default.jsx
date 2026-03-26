@@ -25,6 +25,7 @@ function CardCarruselContainer({
     layoutType,
     titleJwPlayer,
     variant,
+    shouldLoadPreview = false,
     ...viewabilityData
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -89,7 +90,7 @@ function CardCarruselContainer({
             >
                 <CardVideo.Media>
                     <Video
-                        src={previewVideoSrc}
+                        src={shouldLoadPreview ? previewVideoSrc : undefined}
                         poster={previewPosterImage}
                         isPlaying={isPlaying}
                         setIsPlaying={setIsPlaying}

@@ -15,6 +15,7 @@ import get from '../../../private/common/utils/get';
 import { getDataAttributesForViewability } from '../article/_helper';
 import useTermica from '../../../private/common/hooks/useTermica';
 import { useCajaCarruselContext } from '../../../chains/LN10_Caja_Carrusel/components/cajaCarruselContext';
+import useIntersectionObserver from '../../../common/hooks/useIntersectionObserver';
 
 function itemCarrusel({
     isAdmin,
@@ -35,10 +36,17 @@ function itemCarrusel({
     const getLayoutType = layoutName => layoutTypesForEvent[layoutName] || '';
 
     const sanitizedVideoId = checkForId(videoId) || '';
+    const { targetRef: viewportTargetRef, isIntersecting: isPreviewEligible } =
+        useIntersectionObserver({
+            hide: !sanitizedVideoId,
+            threshold: 0.1
+        });
+
+    const shouldFetchVideo = Boolean(sanitizedVideoId) && isPreviewEligible;
 
     const videoData =
         useContent({
-            source: sanitizedVideoId ? 'videosJwCarruselSource' : null,
+            source: shouldFetchVideo ? 'videosJwCarruselSource' : null,
             query: {
                 id: sanitizedVideoId,
                 website: 'la-nacion-ar',
@@ -62,8 +70,9 @@ function itemCarrusel({
         setPreferredVideoFile
     ]);
 
+    const validationVideo = shouldFetchVideo ? videoData : undefined;
     const error = validateItemCarrusel({
-        video: videoData,
+        video: validationVideo,
         videoId: sanitizedVideoId
     });
 
@@ -99,6 +108,10 @@ function itemCarrusel({
         );
     }
 
+    if (!isPreviewEligible && sanitizedVideoId) {
+        return <div ref={viewportTargetRef} data-feature-id={featureId} />;
+    }
+
     const cardProps = {
         'data-feature-id': featureId,
         title,
@@ -111,6 +124,7 @@ function itemCarrusel({
         videoId: sanitizedVideoId,
         layoutType: getLayoutType(layout),
         variant,
+        shouldLoadPreview: Boolean(isPreviewEligible && videoData?.posterVideo),
         ...extraOpts
     };
 

@@ -16,6 +16,7 @@ import { useRoofData } from '../../../chains/utils/_helpers';
 function EconomicIndices(props) {
     const { customFields = {} } = props;
     const appContext = useAppContext() || {};
+    const globalContentName = get(appContext, 'globalContent.name', '');
     const globalServiceItem = get(appContext, 'globalContent.serviceItem', '');
     const serviceItem = globalServiceItem || customFields.serviceItem || '';
     const fallbackId = serviceItem
@@ -28,6 +29,7 @@ function EconomicIndices(props) {
     const isHome = !globalServiceItem;
     const roofTitle =
         customFields.title ||
+        globalContentName ||
         getEconomicIndicesMetaData(serviceItem).breadcrumbName ||
         'Índices';
     const roofData = useRoofData({ title: roofTitle });

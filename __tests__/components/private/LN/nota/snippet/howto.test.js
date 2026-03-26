@@ -64,10 +64,12 @@ describe('Schema HowTo - SnippetHowTo', () => {
         expect(json.description).toBe('Bajada de la nota');
 
         expect(json.image).toBeDefined();
-        expect(json.image['@type']).toBe('ImageObject');
-        expect(json.image.url).toBe('https://cdn.example.com/imagen.jpg');
-        expect(json.image.width).toBe(1280);
-        expect(json.image.height).toBe(854);
+        expect(Array.isArray(json.image)).toBe(true);
+        expect(json.image).toHaveLength(3);
+        expect(json.image[0]['@type']).toBe('ImageObject');
+        expect(json.image[0].url).toBe('https://cdn.example.com/imagen.jpg');
+        expect(json.image[0].width).toBe(1200);
+        expect(json.image[0].height).toBe(675);
 
         expect(Array.isArray(json.step)).toBe(true);
         expect(json.step).toHaveLength(2);

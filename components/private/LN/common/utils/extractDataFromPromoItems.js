@@ -1,38 +1,20 @@
-import { adjustImageDimensions } from './adjustImageDimensions';
 import getBiggestImage from './getBiggestImage';
-import { updateResizedUrl } from './updateResizedUrl';
+import buildImageVariants from './buildImageVariants';
 
 export const urlSchema = 'https://schema.org';
 
 export const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
-    const { url, type, height, width } = basic || {};
+    const { url, type } = basic || {};
     const isImage = basic && type === 'image';
     let thumbnailUrl = PLACEHOLDER;
-    let image = {
-        '@context': urlSchema,
-        '@type': 'ImageObject',
-        url: PLACEHOLDER,
-        height: '800',
-        width: '1200'
-    };
+    let image = buildImageVariants(PLACEHOLDER);
 
     if (promoItems && isImage) {
-        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
-        const { newWidth, newHeight } = adjustImageDimensions(
-            bigWidth,
-            bigHeight
-        );
-        const newResizedUrl = updateResizedUrl(resizedUrl, newWidth, newHeight);
+        const { resizedUrl } = getBiggestImage(basic);
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
-        image = {
-            '@context': urlSchema,
-            '@type': 'ImageObject',
-            url: newResizedUrl ? `${newResizedUrl}` : `${pathImagen}`,
-            height: newHeight || height,
-            width: newWidth || width
-        };
+        image = buildImageVariants(resizedUrl || pathImagen);
     }
 
     return {

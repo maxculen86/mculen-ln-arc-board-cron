@@ -230,6 +230,22 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     });
 };
 
+/**
+ * Sanitiza dateCreated evitando que supere a datePublished.
+ * Notas migradas tienen created_date posterior a first_publish_date.
+ *
+ * @param {string} createdDate      - Fecha raw de globalContent.created_date (puede ser '')
+ * @param {string} datePublishedISO - ISO string ya calculado para datePublished
+ * @returns {string} ISO string sanitizado, o '' si createdDate es vacío/inválido
+ */
+export const getSanitizedDateCreated = (createdDate, datePublishedISO) => {
+    if (!createdDate) return '';
+    const createdDateISO = createISODate(createdDate);
+    if (!createdDateISO) return '';
+    if (createdDateISO > datePublishedISO) return datePublishedISO;
+    return createdDateISO;
+};
+
 export const generatePostObjectWithoutPowerUp = (
     globalContent,
     url,

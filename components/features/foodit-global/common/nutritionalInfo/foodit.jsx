@@ -90,7 +90,7 @@ export function NutritionalInfo({ globalContent = {} }) {
                     Información nutricional por porción
                 </Text>
                 <Tooltip
-                    position="top-center"
+                    position="top-right"
                     toggleOn="click"
                     style={{ maxWidth: '198px' }}
                     content={

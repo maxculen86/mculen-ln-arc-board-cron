@@ -66,7 +66,6 @@ export default {
     API_IA_FOODIT: 'https://qa-foodit-chatbot.clanacion.com.ar',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
-    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',
     AUDIONEWS_APIKEY: 'iviw9999Fp1pqX7e6c18n4VwvChUctzu1DraBnAE',
     SEGMENTATION_API:

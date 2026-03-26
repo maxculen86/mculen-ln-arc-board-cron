@@ -146,6 +146,31 @@ describe('SnippetNoticia', () => {
                 }
             });
         });
+
+        it('should use the canonical site host for the schema url', () => {
+            const siteProperties = {
+                ...mockSiteProperties,
+                host: 'https://www.lanacion.com.ar/'
+            };
+
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={siteProperties}
+                    globalContent={mockGlobalContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.url).toBe('https://www.lanacion.com.ar/news-test');
+            expect(jsonData.mainEntityOfPage).toBe(
+                'https://www.lanacion.com.ar/news-test/'
+            );
+        });
     });
 
     describe('OPINION subtype', () => {
@@ -366,12 +391,11 @@ describe('SnippetNoticia', () => {
                 '@context': 'https://schema.org',
                 '@graph': [
                     {
-                        '@type': 'NewsMediaOrganization',
-                        '@id': 'https://www.lanacion.com.ar/#organization'
-                    },
-                    {
                         '@type': 'Review',
                         '@id': 'https://www.lanacion.com.ar/espectaculos/cine/test-review/#review',
+                        publisher: {
+                            '@id': 'https://www.lanacion.com.ar/#organization'
+                        },
                         reviewRating: {
                             '@type': 'Rating',
                             ratingValue: '4.5',

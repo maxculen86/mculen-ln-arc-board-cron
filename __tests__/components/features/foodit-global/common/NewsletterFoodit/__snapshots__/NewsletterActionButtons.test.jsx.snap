@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsletterActionButton snapshots snapshot OFF 1`] = `
+<div>
+  <div>
+    <button
+      class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md font-bold uppercase py-8 md:py-12 h-[32px] md:h-[40px] rounded-[4px] bg-primary-default"
+      data-disabled="false"
+      style="--ds-icon-size: 20px;"
+    >
+      <i
+        class="icon --icon-12"
+      >
+        <i
+          class="text-accent-foreground"
+          data-testid="icon-sprite"
+          name="plus"
+        />
+      </i>
+      <p
+        class="text-accent-foreground"
+      >
+        RECIBIR NEWSLETTER
+      </p>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`NewsletterActionButton snapshots snapshot ON 1`] = `
+<div>
+  <div>
+    <button
+      class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 border h-40 px-16 text-label-md font-bold uppercase py-8 md:py-12 h-[32px] md:h-[40px] rounded-[4px] text-accent-default"
+      data-disabled="false"
+      style="--ds-icon-size: 20px;"
+    >
+      <i
+        class="icon --icon-12"
+      >
+        <i
+          class="text-secondary-positive"
+          data-testid="icon-sprite"
+          name="check-box"
+        />
+      </i>
+      <p
+        class="text-secondary-positive"
+      >
+        RECIBIENDO
+      </p>
+    </button>
+  </div>
+</div>
+`;

@@ -3,7 +3,6 @@ import { Dropdown } from '@ln/common-ui-dropdown';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Tooltip } from '@ln/common-ui-tooltip';
-import { useDisclosure } from '@ln/hooks';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { handleIngredientListButton } from '../../Body/PowerupsReceta/ingredientsBox/_helper';
 import { useIsInShoppingList } from '../../Body/PowerupsReceta/ingredientsBox/hooks/useIsInShoppingList';
@@ -15,7 +14,6 @@ import usePortions from '../../Body/PowerupsReceta/ingredientsBox/hooks/usePorti
 import useIngredientsList from '../../Body/PowerupsReceta/ingredientsBox/hooks/useIngredientsList';
 import get from '../../../../private/common/utils/get';
 import { renderItemCard } from './helper';
-import isSSR from '../../../../private/LN/common/utils/isSSR';
 
 export function RecipeActionsDropdown({
     handleOpen,
@@ -26,14 +24,6 @@ export function RecipeActionsDropdown({
     const title = get(article, 'headlines.basic', '');
     const canonicalUrl = get(article, 'canonical_url', '');
     const isSuscriptor = isSubscribed(SUBSCRIBED_HELPER.FOODIT);
-    const tooltipWasVisible =
-        !isSSR() && window?.localStorage.getItem('menu-semanal-tooltip');
-    const { isOpen, onClose } = useDisclosure(!tooltipWasVisible);
-
-    const handleVisibility = () => {
-        onClose();
-        window.localStorage.setItem('menu-semanal-tooltip', 'show');
-    };
 
     const { bookmarkId, setBookmarkId } = useIsInShoppingList(
         isSuscriptor,
@@ -125,71 +115,54 @@ export function RecipeActionsDropdown({
     );
 
     return (
-        <Tooltip
-            style={{ maxWidth: '109px' }}
-            content={
-                <div className="flex">
-                    <span className="text-12">¡Descubrí Menú semanal!</span>
-                </div>
-            }
-            className="flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100 z-5 w-max max-w-248"
-            disableTrigger
-            visible={isOpen}
-            position="right-center"
-        >
-            <Dropdown hideArrow className="print-hide">
-                <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
-                    <Button
-                        onClick={handleVisibility}
-                        title="Agregar"
-                        size={{ sm: 32, lg: 40 }}
-                    >
-                        <Icon size={16}>
-                            <IconSprite name="plus" />
-                        </Icon>
-                        AGREGAR
-                    </Button>
-                </Dropdown.Toggle>
-                <Dropdown.Menu
-                    alignment="left"
-                    className="bg-light-1 p-24 flex flex-column rounded-4 shadow-center"
-                >
-                    {options.map(({ id, text, icon, tooltip, action }) => (
-                        <li key={id} className="flex jc-center ai-center gap-8">
-                            {renderItemCard({
-                                text,
-                                icon,
-                                action,
-                                bookmarkId,
-                                articleId
-                            })}
-                            {bookmarkId !== null &&
-                                tooltip &&
-                                text.includes('lista de compras') && (
-                                    <Tooltip
-                                        position="bottom-center"
-                                        toggleOn="click"
-                                        style={{ maxWidth: '152px' }}
-                                        content={tooltip}
-                                        className="flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 border border-all border-thin border-light-100 z-5"
+        <Dropdown hideArrow className="print-hide">
+            <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
+                <Button title="Agregar" size={{ sm: 32, lg: 40 }}>
+                    <Icon size={16}>
+                        <IconSprite name="plus" />
+                    </Icon>
+                    AGREGAR
+                </Button>
+            </Dropdown.Toggle>
+            <Dropdown.Menu
+                alignment="left"
+                className="bg-light-1 p-24 flex flex-column rounded-4 shadow-center"
+            >
+                {options.map(({ id, text, icon, tooltip, action }) => (
+                    <li key={id} className="flex jc-center ai-center gap-8">
+                        {renderItemCard({
+                            text,
+                            icon,
+                            action,
+                            bookmarkId,
+                            articleId
+                        })}
+                        {bookmarkId !== null &&
+                            tooltip &&
+                            text.includes('lista de compras') && (
+                                <Tooltip
+                                    position="bottom-center"
+                                    toggleOn="click"
+                                    style={{ maxWidth: '152px' }}
+                                    content={tooltip}
+                                    className="flex rounded-4 shadow-center px-8 py-4 bg-secondary-positive text-light-1 border border-all border-thin border-light-100 z-5"
+                                >
+                                    <Button
+                                        title="Mostrar tooltip"
+                                        variant="link"
                                     >
-                                        <Button
-                                            title="Mostrar tooltip"
-                                            variant="link"
-                                        >
-                                            <Icon size={16}>
-                                                <IconSprite
-                                                    name="info"
-                                                    fill="#B3B3B3"
-                                                />
-                                            </Icon>
-                                        </Button>
-                                    </Tooltip>
-                                )}
-                        </li>
-                    ))}
-                </Dropdown.Menu>
-            </Dropdown>
-        </Tooltip>
+                                        <Icon size={16}>
+                                            <IconSprite
+                                                name="info"
+                                                fill="#B3B3B3"
+                                            />
+                                        </Icon>
+                                    </Button>
+                                </Tooltip>
+                            )}
+                    </li>
+                ))}
+            </Dropdown.Menu>
+        </Dropdown>
     );
 }
