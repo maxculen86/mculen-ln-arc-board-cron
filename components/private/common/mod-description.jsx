@@ -29,18 +29,17 @@ function ModDescription({
     },
     dataAuthors,
     categoryNote = '',
-    layoutPageBuilder
+    layoutPageBuilder,
+    rating
 }) {
     const withMarquee = !!(marquesina || authors);
     const { name: categoryName, path: categoryPath } = category || {};
 
-    const isHomeOrAcu =
-        layoutPageBuilder === 'LN-Home_Main' ||
-        layoutPageBuilder === 'LN-acumulado';
+    const isAcu = layoutPageBuilder === 'LN-acumulado';
 
     return (
         <section className="mod-description">
-            {isHomeOrAcu && getBadge(contentCode, label)}
+            {isAcu && getBadge(contentCode, label, rating)}
             {categoryNote && (
                 <Text
                     extraClass="category-note"

@@ -4,6 +4,7 @@ import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTe
 import ComHour from '../../common/com-hour';
 import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
+import getNumericRatingValue from '../../common/utils/getNumericRatingValue';
 import addRelatedImage from '../common/utils/addRelatedImage';
 import setAuthorsRender from '../../common/utils/setAuthorsRender';
 import unescapeHtml from '../../common/utils/unescapeHtml';
@@ -134,6 +135,9 @@ const ArticleAcum = forwardRef(
                     handleClick={handleClick}
                     isApertura={isApertura}
                     openBarrier={openBarrier}
+                    rating={getNumericRatingValue(
+                        get(_article, 'content_elements', [])
+                    )}
                 />
                 {children}
             </>

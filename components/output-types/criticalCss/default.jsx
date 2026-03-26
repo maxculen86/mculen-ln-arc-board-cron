@@ -13,7 +13,8 @@ const {
         LiveBlog,
         FotoAl100,
         Cards,
-        NotaOpinion
+        NotaOpinion,
+        Noticia
     }
 } = config;
 
@@ -32,7 +33,8 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         { pageLayout: LiveBlog },
         { pageLayout: FotoAl100 },
         { pageLayout: Cards },
-        { pageLayout: NotaOpinion }
+        { pageLayout: NotaOpinion },
+        { pageLayout: Noticia }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

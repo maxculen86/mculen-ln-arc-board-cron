@@ -99,4 +99,38 @@ describe('ACU Articles Transform', () => {
         expect(processVolanta).not.toHaveBeenCalled();
         expect(result.content_elements).toEqual([]);
     });
+
+    it('should normalize numeric_rating in the source response', async () => {
+        const mockData = {
+            content_elements: [
+                {
+                    headlines: { web: 'Test Headline 1' },
+                    label: { text: 'Label 1' },
+                    content_elements: [
+                        { type: 'text', content: 'Primer parrafo' },
+                        {
+                            type: 'numeric_rating',
+                            numeric_rating: 0
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const mockSiteProps = {
+            'arc-site': 'la-nacion-ar'
+        };
+
+        processVolanta.mockImplementation(result => result.label);
+
+        const result = await transform(mockData, mockSiteProps, jest.fn());
+
+        expect(result.content_elements[0].content_elements).toEqual([
+            { type: 'text', content: 'Primer parrafo' },
+            {
+                type: 'numeric_rating',
+                numeric_rating: 0.5
+            }
+        ]);
+    });
 });
