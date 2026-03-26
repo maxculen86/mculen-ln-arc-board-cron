@@ -23,7 +23,7 @@ function PostAuthor({ dataAuthor }) {
                 </Text>
             </div>
         );
-    return <SignatureWithAuthors {...dataAuthor} />;
+    return <SignatureWithAuthors {...dataAuthor} className="pb-16" />;
 }
 
 export default PostAuthor;
