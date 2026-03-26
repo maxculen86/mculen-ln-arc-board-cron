@@ -10,16 +10,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
   "@context": "https://schema.org",
   "@type": "LiveBlogPosting",
   "publisher": {
-    "@type": "Organization",
-    "name": "",
-    "url": "https://www.lanacion.com.ar",
-    "logo": {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
-      "height": 60,
-      "width": 600
-    }
+    "@id": "https://www.lanacion.com.ar/#organization"
   },
   "author": [
     {
@@ -376,16 +367,7 @@ exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema pr
     },
   ],
   "publisher": {
-    "@type": "Organization",
-    "logo": {
-      "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "height": 60,
-      "url": "https://arc-static.glanacion.com/resources/images/placeholderLN-600x60.jpg$LATEST",
-      "width": 600,
-    },
-    "name": "",
-    "url": "https://www.lanacion.com.ar",
+    "@id": "https://www.lanacion.com.ar/#organization",
   },
   "url": "https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/",
 }

@@ -4,7 +4,6 @@ import {
 } from '../../../../common/utils/dataValidation';
 import {
     ORGANIZATION_SCHEMA_ID,
-    REVIEW_LOGO_URL,
     SITE_LANACION_URL
 } from './reviewSchemaConstants';
 
@@ -36,16 +35,6 @@ export const getReviewSchemaData = ({
     return {
         '@context': 'https://schema.org',
         '@graph': [
-            {
-                '@type': 'NewsMediaOrganization',
-                '@id': ORGANIZATION_SCHEMA_ID,
-                name: 'LA NACION',
-                url: SITE_LANACION_URL,
-                logo: {
-                    '@type': 'ImageObject',
-                    url: REVIEW_LOGO_URL
-                }
-            },
             {
                 '@type': 'Review',
                 '@id': `${reviewUrl}#review`,

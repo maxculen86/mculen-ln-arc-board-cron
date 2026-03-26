@@ -13,6 +13,8 @@ import {
     generatePostObjectWithoutPowerUp
 } from '../../../common/utils/schema/liveBlog/generatePostObject';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
+import get from '../../../common/utils/get';
+import getOrganizationId from '../../../common/utils/getOrganizationId';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import { useLiveblogAuthors } from '../../../../layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors';
 
@@ -41,7 +43,12 @@ function SnippetLiveblog(props) {
 
     const { image } = extractDataFromPromoItems(promoItems, PLACEHOLDER);
 
-    const url = `${SITE_LANACION}${canonicalUrl || ''}`;
+    const schemaHost = get(siteProperties, 'host', SITE_LANACION).replace(
+        /\/+$/,
+        ''
+    );
+    const schemaHostWithSlash = addForwardSlash(schemaHost);
+    const url = `${schemaHost}${canonicalUrl || ''}`;
     const blogObjects =
         checkForLiveBlogElements === -1
             ? generatePostObjectWithoutPowerUp(globalContent, url, PLACEHOLDER)
@@ -65,16 +72,7 @@ function SnippetLiveblog(props) {
         '@context': urlSchema,
         '@type': 'LiveBlogPosting',
         publisher: {
-            '@type': 'Organization',
-            name: `${siteProperties.title || ''}`,
-            url: `${SITE_LANACION || ''}`,
-            logo: {
-                '@context': urlSchema,
-                '@type': 'ImageObject',
-                url: `${PLACEHOLDER}`,
-                height: 60,
-                width: 600
-            }
+            '@id': getOrganizationId(siteProperties)
         },
         ...(authorsArray.length > 0 && {
             author: authorsArray.map(author => ({
@@ -99,12 +97,12 @@ function SnippetLiveblog(props) {
             organizer: {
                 '@type': 'Organization',
                 name: 'La Nación',
-                url: addForwardSlash(SITE_LANACION)
+                url: schemaHostWithSlash
             },
             performer: {
                 '@type': 'Organization',
                 name: 'La Nación',
-                url: addForwardSlash(SITE_LANACION)
+                url: schemaHostWithSlash
             },
             eventstatus: 'https://schema.org/EventScheduled',
             eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
