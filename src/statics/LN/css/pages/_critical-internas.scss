@@ -355,12 +355,14 @@
     padding-right: 0;
     max-width: 100%;
 }
-#fusion-app > #wrapper:not(.sitemap):not(.html-libre.--transparent) {
+#fusion-app > #wrapper:not(.sitemap):not(.html-libre.--transparent),
+#fusion-app:not(.sitemap):not(.html-libre.--transparent) {
     position: relative;
     overflow-x: clip;
 }
 
-#fusion-app > #wrapper:not(.sitemap):not(.html-libre):before {
+#fusion-app > #wrapper:not(.sitemap):not(.html-libre):before,
+#fusion-app:not(.sitemap):not(.html-libre):before {
     content: '';
     height: 3.125rem;
     width: 100%;
@@ -384,7 +386,8 @@
 }
 
 @media (min-width: 768px) {
-    #fusion-app > #wrapper:not(.sitemap):not(.html-libre.--transparent):before {
+    #fusion-app > #wrapper:not(.sitemap):not(.html-libre.--transparent):before,
+    #fusion-app:not(.sitemap):not(.html-libre.--transparent):before {
         display: none;
     }
 }

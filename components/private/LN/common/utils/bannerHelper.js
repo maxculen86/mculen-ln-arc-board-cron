@@ -78,8 +78,10 @@ export const BANNERS_TABLET = [
     'quesale_tab'
 ];
 
-export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
-    soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
+export const shouldHideBannerForSubscriberOnlyContent = (
+    soloNoSuscriptores,
+    globalContent
+) => soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
 
 export const getBannerSectionDimensions = (section, slotName) => {
     if (!section || !slotName) return null;
