@@ -23,7 +23,8 @@ function SignatureWithAuthors({
     subtype,
     isNotaFooter = false,
     size = 16,
-    withAuthorRole = false
+    withAuthorRole = false,
+    className
 }) {
     if (!showSignatureWithAuthors) return null;
 
@@ -51,7 +52,11 @@ function SignatureWithAuthors({
 
     return (
         <div
-            className={cx('flex flex-wrap', !withAuthorRole && 'w-100 w-full')}
+            className={cx(
+                'flex flex-wrap',
+                !withAuthorRole && 'w-100 w-full',
+                className
+            )}
         >
             <div className={wrapperClasses}>
                 <Author
