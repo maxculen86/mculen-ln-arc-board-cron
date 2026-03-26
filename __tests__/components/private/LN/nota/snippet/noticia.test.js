@@ -50,6 +50,31 @@ const mockBodyContentElements = [
         content: 'Segundo parrafo.'
     }
 ];
+const mockBodyContentElementsWithList = [
+    {
+        type: 'text',
+        content: 'Primer <b>parrafo</b>.'
+    },
+    {
+        type: 'list',
+        items: [
+            {
+                _id: 'list-item-1',
+                type: 'text',
+                content: 'Primer bullet'
+            },
+            {
+                _id: 'list-item-2',
+                type: 'text',
+                content: 'Segundo <strong>bullet</strong>'
+            }
+        ]
+    },
+    {
+        type: 'text',
+        content: 'Segundo parrafo.'
+    }
+];
 
 describe('SnippetNoticia', () => {
     describe('default subtype (NewsArticle)', () => {
@@ -229,7 +254,7 @@ describe('SnippetNoticia', () => {
             expect(jsonData.hasPart).toBeUndefined();
         });
 
-        it('should add description and full articleBody and keep hasPart for horoscopo', () => {
+        it('should add description and full articleBody and omit hasPart for horoscopo', () => {
             const { container } = render(
                 <SnippetNoticia
                     siteProperties={mockSiteProperties}
@@ -254,16 +279,12 @@ describe('SnippetNoticia', () => {
 
             expect(jsonData).toMatchObject({
                 description: 'Bajada test',
-                articleBody: 'Primer parrafo. Segundo parrafo.',
-                hasPart: {
-                    '@type': 'WebPageElement',
-                    isAccessibleForFree: true,
-                    cssSelector: '.nota'
-                }
+                articleBody: 'Primer parrafo. Segundo parrafo.'
             });
+            expect(jsonData.hasPart).toBeUndefined();
         });
 
-        it('should omit hasPart and keep first paragraph articleBody for opinion section', () => {
+        it('should add description and full articleBody and omit hasPart for opinion section', () => {
             const { container } = render(
                 <SnippetNoticia
                     siteProperties={mockSiteProperties}
@@ -286,8 +307,74 @@ describe('SnippetNoticia', () => {
                 container.querySelector('script').innerHTML
             );
 
-            expect(jsonData.articleBody).toBe('Primer parrafo.');
-            expect(jsonData.description).toBeUndefined();
+            expect(jsonData).toMatchObject({
+                description: 'Bajada test',
+                articleBody: 'Primer parrafo. Segundo parrafo.'
+            });
+            expect(jsonData.hasPart).toBeUndefined();
+        });
+
+        it('should add description from first paragraph and full articleBody and omit hasPart for sociedad subsection', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        content_elements: mockBodyContentElements,
+                        taxonomy: {
+                            primary_section: {
+                                name: 'Sociedad',
+                                _id: '/sociedad/transito'
+                            },
+                            tags: []
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                description: 'Primer parrafo.',
+                articleBody: 'Primer parrafo. Segundo parrafo.'
+            });
+            expect(jsonData.hasPart).toBeUndefined();
+        });
+
+        it('should include list items in articleBody for sections with full articleBody', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        subheadlines: { basic: 'Bajada test' },
+                        content_elements: mockBodyContentElementsWithList,
+                        taxonomy: {
+                            primary_section: {
+                                name: 'Horoscopo',
+                                _id: '/horoscopo/escorpio'
+                            },
+                            tags: []
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                description: 'Bajada test',
+                articleBody:
+                    'Primer parrafo. Primer bullet Segundo bullet Segundo parrafo.'
+            });
             expect(jsonData.hasPart).toBeUndefined();
         });
     });
