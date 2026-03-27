@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useComponentContext } from 'fusion:context';
 import { changeConfigForPB } from '../_helper';
 import get from '../../../../private/common/utils/get';
+import getNumericRatingValue from '../../../../private/common/utils/getNumericRatingValue';
 
 import getInitialData from '../utils/data-processing/getInitialData';
 import useContentData from './useContentData';
@@ -129,10 +130,15 @@ const useArticleFeature = (featureId, customFields, searchableField) => {
         searchableFieldContent
     } = buildCardConfig(buildCardConfigData);
 
+    const rating = getNumericRatingValue(
+        get(finalTransformedArticle, 'content_elements', [])
+    );
+
     const articleData = {
         content: articleContent,
         transformed: finalTransformedArticle,
-        id: articleId
+        id: articleId,
+        rating
     };
 
     const editorConfig = {

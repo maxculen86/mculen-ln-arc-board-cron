@@ -54,7 +54,8 @@ const ModArticle = forwardRef(
             typeArticle = '',
             mobileImage,
             searchableField,
-            openBarrier
+            openBarrier,
+            rating
         },
         ref
     ) => {
@@ -163,6 +164,7 @@ const ModArticle = forwardRef(
                     dataAuthors={dataAuthors}
                     categoryNote={categoryNote}
                     layoutPageBuilder={layoutPageBuilder}
+                    rating={rating}
                 />
 
                 {isBookmark && (

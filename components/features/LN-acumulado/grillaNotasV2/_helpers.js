@@ -1,3 +1,4 @@
+import React from 'react';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import dateAndTimeUtil, {
     addHoursAndFormat
@@ -7,6 +8,8 @@ import unescapeHtml from '../../../private/common/utils/unescapeHtml';
 import config from '../../../../properties/sites/la-nacion-ar';
 import { formatText } from '../../../private/common/utils/sectionUtils';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
+import getNumericRatingValue from '../../../private/common/utils/getNumericRatingValue';
+import RatingBadge from '../../LN/common/ratingBadge/default';
 
 export const shouldStoreArticles = (articles, storedArticles) => {
     const firstArticleId = get(articles[0], '_id', '');
@@ -50,6 +53,7 @@ export const getCardPropsFromArticle = (
     const titleTextLong = unescapeHtml(get(headlines, 'basic', ''));
     const headlinesWeb = get(headlines, 'web', '');
     const lead = get(article, 'label.volanta.text', headlinesWeb);
+    const rating = getNumericRatingValue(get(article, 'content_elements', []));
     const badgeText = get(article, 'label.chapita.text', '');
     const badgeTypes = badgeText && 'negative';
     const href = get(article, 'website_url', '');
@@ -77,6 +81,9 @@ export const getCardPropsFromArticle = (
         lead: titleTextShort && lead,
         badgeText,
         badgeTypes,
+        ratingNode: rating ? (
+            <RatingBadge size={16} ratingProps={{ defaultValue: rating }} />
+        ) : null,
         href,
         displayDate,
         tags: finalTags,

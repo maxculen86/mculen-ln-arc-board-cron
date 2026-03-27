@@ -14,6 +14,7 @@ import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import validateSponsoredLink from '../validateSponsoredLink';
 import isNoteListenable from '../audioNews/helper';
+import { normalizeNumericRatingElements } from '../common/normalizeNumericRating';
 import {
     CARDS,
     FOTOAL100,
@@ -503,7 +504,7 @@ export const transform = async (response, query, cachedCall) => {
                 }
             })
         },
-        content_elements: [...contentElements],
+        content_elements: normalizeNumericRatingElements([...contentElements]),
         related_content: {
             ...get(result, 'related_content', {}),
             basic: relatedContentBasic

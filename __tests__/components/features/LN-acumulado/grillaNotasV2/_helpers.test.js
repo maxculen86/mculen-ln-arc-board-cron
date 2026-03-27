@@ -77,6 +77,22 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../../components/private/common/utils/getNumericRatingValue',
+    () => ({
+        __esModule: true,
+        default: jest.fn(() => null)
+    })
+);
+
+jest.mock(
+    '../../../../../components/features/LN/common/ratingBadge/default',
+    () => ({
+        __esModule: true,
+        default: jest.fn(() => null)
+    })
+);
+
 describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () => {
     describe('shouldStoreArticles', () => {
         it('returns false if articles is empty or article has no _id', () => {
@@ -215,6 +231,7 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
                 href: '/economia/prueba-liveblog-editorial-video-jw-nid20052025/',
                 displayDate: '10 de julio de 2025',
                 tags: ['economia'],
+                ratingNode: null,
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
