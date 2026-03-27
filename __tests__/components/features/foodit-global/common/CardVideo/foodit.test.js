@@ -55,6 +55,17 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../../../components/common/hooks/useIntersectionObserver',
+    () => ({
+        __esModule: true,
+        default: jest.fn(() => ({
+            targetRef: { current: null },
+            isIntersecting: false
+        }))
+    })
+);
+
 const isSSR = require('../../../../../../components/private/LN/common/utils/isSSR');
 
 const {
