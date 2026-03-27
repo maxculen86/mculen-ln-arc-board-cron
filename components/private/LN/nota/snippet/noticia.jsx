@@ -35,10 +35,17 @@ import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
 
 const SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY = [
     '/deportes/automovilismo',
-    '/horoscopo'
+    '/horoscopo',
+    '/opinion',
+    '/sociedad'
 ];
 
-const SECTIONS_WITHOUT_HAS_PART = ['/deportes/automovilismo', '/opinion'];
+const SECTIONS_WITHOUT_HAS_PART = [
+    '/deportes/automovilismo',
+    '/horoscopo',
+    '/opinion',
+    '/sociedad'
+];
 
 const matchesSection = (primarySectionId = '', sections = []) =>
     sections.some(
