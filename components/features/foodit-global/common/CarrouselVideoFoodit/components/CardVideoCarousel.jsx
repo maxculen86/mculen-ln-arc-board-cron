@@ -1,9 +1,10 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Icon } from '@ln/common-ui-icon';
 import { Image } from '@ln/foodit-ui-image';
 import { Text } from '@ln/common-ui-text';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
+import useIntersectionObserver from '../../../../../common/hooks/useIntersectionObserver';
 
 import isSSR from '../../../../../private/LN/common/utils/isSSR';
 
@@ -23,7 +24,12 @@ function CardCarouselVideo({
     cardPosition = 0
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
-    const videoRef = useRef(null);
+    const { targetRef: videoRef, isIntersecting: shouldPreload } =
+        useIntersectionObserver({
+            rootMargin: '100px',
+            threshold: 0.1
+        });
+
     const isDesktop = !isSSR() && window?.innerWidth > 1279;
     const { onOpenMediaScrollerExpanded, setCurrentIndex } =
         useCajaCarruselContext();
@@ -74,6 +80,7 @@ function CardCarouselVideo({
                         src={cardData?.image?.src}
                         alt={cardData?.image?.alt || 'Imagen poster de video'}
                         className={classNamePoster}
+                        loading="lazy"
                     />
 
                     {videoSrc && (
@@ -83,7 +90,9 @@ function CardCarouselVideo({
                             playsInline
                             loop
                             muted
-                            preload="metadata"
+                            preload={
+                                shouldPreload || isPlaying ? 'metadata' : 'none'
+                            }
                             autoPlay={false}
                             className={classNameVideo}
                         />
