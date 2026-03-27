@@ -30,11 +30,12 @@ describe('Opinion', () => {
         });
         render(
             <Opinion>
-                <div /> {/* children[0] */}
-                <div /> {/* children[1] */}
-                <p>Opinion text</p> {/* children[2] → CUERPO */}
-                <div /> {/* children[3] */}
-                <div /> {/* children[4] */}
+                <div />
+                <div />
+                <div />
+                <p>Opinion text </p>
+                <div />
+                <div />
             </Opinion>
         );
 

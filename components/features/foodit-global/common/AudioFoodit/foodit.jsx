@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { BEYONDWORDS_PROJECT_ID_FOODIT } from 'fusion:environment';
 import { Skeleton } from '@ln/common-ui-skeleton';
 import {
@@ -19,9 +19,15 @@ export function AudioFoodit({ article, setIsAudioPlaying }) {
     const hasCustomPreparacion = contentElements.some(
         element => element?.subtype === 'custom-preparacion'
     );
-    const stepList = hasCustomPreparacion
-        ? getSteps(contentElements)
-        : getPreparationItems(contentElements);
+
+    const stepList = useMemo(
+        () =>
+            hasCustomPreparacion
+                ? getSteps(contentElements)
+                : getPreparationItems(contentElements),
+        [contentElements, hasCustomPreparacion]
+    );
+
     const idArticle = get(article, '_id', '');
     const segmentContainer = useRef(null);
 

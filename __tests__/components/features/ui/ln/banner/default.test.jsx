@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import DynamicBanner from '../../../../../../components/features/ui/ln/dynamicBanner/default';
+import Banner from '../../../../../../components/features/ui/ln/banner/default';
 import { createDynamicBannerConfig } from '../../../../../../components/private/common/banners/dynamicBanners/dynamicBannersHelper';
 
-describe('components - features - ui - ln - dynamicBanner', () => {
+describe('components - features - ui - ln - banner', () => {
     it('renders required GPT data attributes from helper configuration', () => {
         const globalContent = {
             subtype: '3'
@@ -16,7 +16,7 @@ describe('components - features - ui - ln - dynamicBanner', () => {
         );
 
         const { container } = render(
-            <DynamicBanner bannerConfiguration={bannerConfiguration} />
+            <Banner bannerConfiguration={bannerConfiguration} />
         );
 
         const bannerDiv = container.querySelector('#cinturon1_dsk');
