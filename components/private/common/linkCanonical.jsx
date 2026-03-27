@@ -39,7 +39,11 @@ function LinkCanonicalAndAlternate(props = {}) {
     const contentCanonicalId = !mustUseSiteUrl && canonicalIdChecker(_id);
     const defaultCanonicalId = cleanedPath === '/' ? '' : `/${section}`;
 
-    const canonicalId = requestUri?.includes('/chefs-protagonistas')
+    const useCleanedPath = ['/chefs-protagonistas', '/distributor'].some(
+        segment => requestUri?.includes(segment)
+    );
+
+    const canonicalId = useCleanedPath
         ? cleanedPath
         : contentCanonicalId || defaultCanonicalId;
 
