@@ -12,6 +12,7 @@ function BreadcrumbTooltip() {
             <Tooltip
                 role="tooltip"
                 toggleOn="click"
+                position="bottom-right"
                 style={{ maxWidth: '248px' }}
                 content={
                     <span className="text-12">

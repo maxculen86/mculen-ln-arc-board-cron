@@ -23,7 +23,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
           ¡Uppps! Contenido en preparación
         </p>
         <p
-          class="text text-16 text-light-600 text-center md:text-left"
+          class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           <span>
             <span
@@ -64,7 +64,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-logged
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-600 text-center md:text-left"
+          class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -112,7 +112,7 @@ exports[`EmptyState component should match snapshot with variant "barrier-unlogg
           Exclusivo para suscriptores
         </p>
         <p
-          class="text text-16 text-light-600 text-center md:text-left"
+          class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           Para realizar esta acción es necesario que tengas una suscripción.
         </p>
@@ -168,7 +168,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           ¡Aún no hay nada por acá!
         </p>
         <p
-          class="text text-16 text-light-600 text-center md:text-left"
+          class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           <span>
             Presioná el botón
@@ -235,7 +235,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
           ¡Nada por acá!
         </p>
         <p
-          class="text text-16 text-light-600 text-center md:text-left"
+          class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           <span
             class="roboto text-16 text-light-600 text-center"
