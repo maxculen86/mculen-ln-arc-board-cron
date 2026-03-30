@@ -1,10 +1,9 @@
 const BANNER_CONFIG = {
     cabezal_dsk: {
-        wrapperClass: 'hidden xl:flex -translate-x-1/2 left-1/2 -mt-24'
+        wrapperClass: 'hidden xl:flex -translate-x-1/2 left-1/2'
     },
     cabezal_tab: {
-        wrapperClass:
-            'hidden md:flex xl:hidden -translate-x-1/2 left-1/2 -mt-24'
+        wrapperClass: 'hidden md:flex xl:hidden -translate-x-1/2 left-1/2'
     },
     sticky2_mob: {
         wrapperClass: 'flex md:hidden',

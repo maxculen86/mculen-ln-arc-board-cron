@@ -28,7 +28,7 @@ function Opinion({ children }) {
             {/* ---- APERTURA ---- */}
             {/* Componentes con tailwind - DS */}
             <div data-tw className="contents">
-                <Opinion.Opening className="w-full flex flex-col gap-40 mb-16">
+                <Opinion.Opening className="w-full flex flex-col gap-40 mt-24 mb-16">
                     <div className="flex flex-col items-center gap-40">
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
