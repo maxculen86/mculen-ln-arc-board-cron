@@ -42,9 +42,12 @@ export function Search({ className = '', ...r }) {
         setInputValue(e.target.value);
     };
 
-    const startSearch = async (toSearch = '') => {
+    const startSearch = async toSearch => {
         setLoading(true);
-        const query = inputValue || toSearch;
+        const query =
+            (typeof toSearch === 'string' && toSearch
+                ? toSearch
+                : inputValue) || '';
         const encodedQuery = encodeURIComponent(`${query} `);
         // add a space at the end to the query term to avoid the search engine from suggesting
         const redirectToChat = `${urlChat}${encodedQuery}`;
@@ -52,7 +55,7 @@ export function Search({ className = '', ...r }) {
         if (isSubscribed) {
             const { accessToken } = await getAuthTokens();
             const resp = await searchFood({
-                query: encodedQuery,
+                query,
                 userId,
                 accessToken
             });
@@ -122,8 +125,7 @@ export function Search({ className = '', ...r }) {
             setTypedByUser(false);
             setInputValue(transcript);
             SpeechRecognition.stopListening();
-            const encodedQueryListed = encodeURIComponent(`${transcript} `);
-            startSearch(encodedQueryListed);
+            startSearch(transcript);
         }
     }, [isListening]);
 
