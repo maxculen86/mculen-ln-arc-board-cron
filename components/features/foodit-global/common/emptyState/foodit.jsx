@@ -74,7 +74,7 @@ function EmptyState({
                     </Text>
                     <Text
                         as="p"
-                        className="text-16 text-light-600 text-center md:text-left"
+                        className="text-16 text-light-600 text-center text-start_md md:text-left"
                     >
                         {descriptionByVariant({ layout, variant })}
                     </Text>
