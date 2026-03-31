@@ -20,7 +20,8 @@ function DsBanner({
         desktop,
         mobile,
         tablet,
-        solo_no_suscriptores: soloNoSuscriptores
+        solo_no_suscriptores: soloNoSuscriptores,
+        theme
     } = customFields;
 
     const bannersConfiguration = buildBannersConfiguration({
@@ -41,6 +42,7 @@ function DsBanner({
                         slotName={bannerConfiguration.slotName}
                         dimensions={bannerConfiguration.dimensions}
                         targeting={bannerConfiguration.targeting}
+                        theme={theme}
                     />
                 ))}
             </>
@@ -64,10 +66,14 @@ function DsBanner({
                 });
 
                 return (
-                    <React.Fragment key={bannerConfiguration.slotName}>
+                    <div
+                        style={{ display: 'contents' }}
+                        key={bannerConfiguration.slotName}
+                        data-tw
+                    >
                         <Banner bannerConfiguration={bannerConfiguration} />
                         {bannerCustomScript}
-                    </React.Fragment>
+                    </div>
                 );
             })}
         </>

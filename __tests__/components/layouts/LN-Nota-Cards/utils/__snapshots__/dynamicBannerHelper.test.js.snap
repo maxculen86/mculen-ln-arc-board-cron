@@ -1,0 +1,588 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 1 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative hidden md:flex"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon1_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 2 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative hidden md:flex"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon2_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon2_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 3 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative hidden md:flex"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon3_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon3_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 4 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative hidden md:flex"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon4_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon4_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 5 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon5_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon5_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders desktop banner with dark theme 1`] = `
+<div>
+  <div
+    class="ds-banner bg-neutral-dark-1 relative hidden md:flex"
+    style="height: 300px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-999"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-neutral-1"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon1_dsk"
+      style="height: 300px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 1 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative md:hidden"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja1_mob"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 2 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative md:hidden"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja2_mob"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 3 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative md:hidden"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja3_mob"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 4 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background relative md:hidden"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja4_mob"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 5 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja5_mob"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 1 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_tablet/Nota/caja1_tab"
+      data-device="tablet"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja1_tab"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 2 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_tablet/Nota/caja2_tab"
+      data-device="tablet"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja2_tab"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 3 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_tablet/Nota/caja3_tab"
+      data-device="tablet"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja3_tab"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 4 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_tablet/Nota/caja4_tab"
+      data-device="tablet"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja4_tab"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 5 (slotId snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ds-banner ds-banner-background"
+    style="height: 600px;"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+    >
+      <span
+        class="uppercase text-12 text-center leading-[130%] text-base-default"
+      >
+        publicidad
+      </span>
+    </div>
+    <div
+      class="relative z-1 flex justify-center items-center w-full"
+      data-ad-unit-path="/133919216/la_nacion_tablet/Nota/caja5_tab"
+      data-device="tablet"
+      data-prebid-enabled="true"
+      data-size="[[300,450],[320,450],[280,450],[250,450],[300,250],[320,100],[300,600],[336,450],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="caja5_tab"
+      style="height: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Dynamic banner settings by subtype renders BannerWithWrapper for opinion subtype (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen"
+  >
+    <div
+      class="ds-banner ds-banner-background relative hidden md:flex"
+      style="height: 300px;"
+    >
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 z-1 py-6 px-8 rounded-16 bg-neutral-1"
+      >
+        <span
+          class="uppercase text-12 text-center leading-[130%] text-base-default"
+        >
+          publicidad
+        </span>
+      </div>
+      <div
+        class="relative z-1 flex justify-center items-center w-full"
+        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon1_dsk"
+        data-device="desktop"
+        data-prebid-enabled="true"
+        data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+        data-without-hide="true"
+        id="cinturon1_dsk"
+        style="height: 300px;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dynamic Banner Helper Dynamic banner settings by subtype renders DivBannerSSR for non-opinion subtype (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="ln-banner-container --cinturon1_dsk"
+  >
+    <div
+      class="ln-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cinturon1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[728,90],[920,100],[920,120],[920,170],[920,250],[920,300],[1260,300],[970,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{"sitio":"lanacion","seccion":"nota"}"
+      data-without-hide="true"
+      id="cinturon1_dsk"
+    />
+  </div>
+</DocumentFragment>
+`;

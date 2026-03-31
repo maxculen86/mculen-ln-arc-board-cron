@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - DS-Banner - BannerPBPlaceholder theme variants snapshots matches snapshot - dark 1`] = `
+<div>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="w-300 m-4 bg-neutral-800 text-neutral-100"
+      id="placeholder"
+    >
+      <h2>
+        Banner 
+      </h2>
+      <p>
+        Slot: la_nacion_mobile/Nota/sticky2_mob
+      </p>
+      <p>
+        Targeting: {"sitio":"lanacion","seccion":"nota"}
+      </p>
+      <p>
+        Dimensions: [[320,50]]
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - features - LN - DS-Banner - BannerPBPlaceholder theme variants snapshots matches snapshot - error (error string) 1`] = `
+<div>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="w-300 m-4 bg-error-default"
+      id="placeholder"
+    >
+      <h2>
+        Banner 
+        slot inválido
+      </h2>
+      <p>
+        Slot: la_nacion_mobile/Nota/sticky2_mob
+      </p>
+      <p>
+        Targeting: {"sitio":"lanacion","seccion":"nota"}
+      </p>
+      <p>
+        Dimensions: [[320,50]]
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - features - LN - DS-Banner - BannerPBPlaceholder theme variants snapshots matches snapshot - error (missDfpId) 1`] = `
+<div>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="no-dfpid w-300 m-4 bg-error-default"
+      id="placeholder"
+    >
+      FALTA DFP ID
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - features - LN - DS-Banner - BannerPBPlaceholder theme variants snapshots matches snapshot - light (default) 1`] = `
+<div>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="w-300 m-4 bg-neutral-200"
+      id="placeholder"
+    >
+      <h2>
+        Banner 
+      </h2>
+      <p>
+        Slot: la_nacion_mobile/Nota/sticky2_mob
+      </p>
+      <p>
+        Targeting: {"sitio":"lanacion","seccion":"nota"}
+      </p>
+      <p>
+        Dimensions: [[320,50]]
+      </p>
+    </div>
+  </div>
+</div>
+`;
