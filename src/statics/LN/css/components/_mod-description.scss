@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-description {
-    .ln-badge {
+    .ln-badge, .ln-rating-badge {
         position: absolute;
         top: px(-39);
         left: px(-8);
@@ -12,6 +12,9 @@
         @media ($media-m) {
             left: px(8);
         }
+    }
+    .ln-rating-badge.ln-rating-badge {
+        top: px(-48);     
     }
 }
 

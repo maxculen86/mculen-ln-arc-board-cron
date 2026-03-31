@@ -56,15 +56,14 @@ describe('components - features - LN - common - baseLayout', () => {
             expect(baseLayout).toBeInTheDocument();
             expect(screen.getByText('Test Content')).toBeInTheDocument();
         });
-        it('should render tag <main> with id content', () => {
-            render(
+        it('should render div with id main-content', () => {
+            const { container } = render(
                 <BaseLayout>
                     <div>Test Content</div>
                 </BaseLayout>
             );
-            const main = screen.getByRole('main');
-            expect(main).toBeInTheDocument();
-            expect(main).toHaveAttribute('id', 'content');
+            const mainContent = container.querySelector('#main-content');
+            expect(mainContent).toBeInTheDocument();
         });
     });
     describe('Snapshots', () => {

@@ -5,13 +5,13 @@ exports[`components - features - LN - common - baseLayout Snapshots should maint
   <div>
     <div
       class="overflow-x-clip min-h-100dvh flex flex-column --arial"
+      id="main-content"
     >
       <div
         data-testid="mock-header"
       />
       <main
         class="container-fluid flex flex-column flex-grow-1 gap-24 ai-start"
-        id="content"
       >
         <div>
           Test Content

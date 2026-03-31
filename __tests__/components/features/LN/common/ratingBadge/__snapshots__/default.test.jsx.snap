@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - common - ratingBadge matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="box-border rounded-full bg-neutral-1 border border-muted w-fit flex items-center py-8 px-12 h-32"
+    >
+      <div
+        data-size="16"
+        data-testid="mock-rating"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - features - LN - common - ratingBadge matches snapshot with size=20, ratingProps and containerProps 1`] = `
+<DocumentFragment>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="box-border rounded-full bg-neutral-1 border border-muted w-fit flex items-center py-12 px-16 h-44 mt-12 mb-16"
+    >
+      <div
+        data-size="20"
+        data-testid="mock-rating"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

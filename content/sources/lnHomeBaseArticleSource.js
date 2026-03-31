@@ -3,6 +3,7 @@ import getProperties from 'fusion:properties';
 import getRequest from './utils/getRequest';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
+import { normalizeNumericRatingElements } from './utils/common/normalizeNumericRating';
 import {
     getImageConfig,
     getUrlQuery,
@@ -27,16 +28,22 @@ const fetch = (query = {}, { cachedCall } = {}) => {
             Object.assign(response, newData);
 
             const translateSubtypeResponse = transformSubtype(response);
+            const normalizedResponse = {
+                ...translateSubtypeResponse,
+                content_elements: normalizeNumericRatingElements(
+                    get(translateSubtypeResponse, 'content_elements', [])
+                )
+            };
             const subtype = getArticleSubtype(
-                get(translateSubtypeResponse, 'subtype', null)
+                get(normalizedResponse, 'subtype', null)
             );
-            const label = processVolanta(translateSubtypeResponse);
+            const label = processVolanta(normalizedResponse);
 
             return {
-                ...translateSubtypeResponse,
-                ...addResizedUrls(translateSubtypeResponse, {
+                ...normalizedResponse,
+                ...addResizedUrls(normalizedResponse, {
                     ...getImageConfig({
-                        response: translateSubtypeResponse,
+                        response: normalizedResponse,
                         siteProperties,
                         imageConfig: query.imageConfig
                     }),

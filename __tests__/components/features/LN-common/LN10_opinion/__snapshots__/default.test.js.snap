@@ -105,32 +105,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Celina Chatruc"
+                      class="flex flex-column gap-4"
                     >
-                      <picture
-                        class="marquee-placeholder flex jc-center ai-center relative"
-                      >
-                        <img
-                          alt="Celina Chatruc"
-                          class="image marquee-img flex --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/VjOcNLPpTWMTXH79NkWuOzOmZWs=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/349d9032-c3ed-4e83-aaba-751f272c8bf1.png"
-                        />
-                      </picture>
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Celina Chatruc"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <picture
+                          class="marquee-placeholder flex jc-center ai-center relative"
                         >
-                          Por 
-                          <strong>
-                            Celina Chatruc
-                          </strong>
-                        </span>
+                          <img
+                            alt="Celina Chatruc"
+                            class="image marquee-img flex --cover"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/VjOcNLPpTWMTXH79NkWuOzOmZWs=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/349d9032-c3ed-4e83-aaba-751f272c8bf1.png"
+                          />
+                        </picture>
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Celina Chatruc
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -166,32 +170,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         Bullrich visita El Calafate y presenta libro
                       </h2>
                       <div
-                        class="marquee-container flex ai-center"
-                        title="Por Mariela Arias"
+                        class="flex flex-column gap-4"
                       >
-                        <picture
-                          class="marquee-placeholder flex jc-center ai-center relative"
-                        >
-                          <img
-                            alt="Mariela Arias"
-                            class="image marquee-img flex --cover"
-                            decoding="async"
-                            fetchpriority="low"
-                            loading="lazy"
-                            src="https://resizer.glanacion.com/resizer/g4VYwZ8Hijs79Uo1sktVzEm-tsI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7b02b8e3-1247-4b47-aa72-c7376081b387.png"
-                          />
-                        </picture>
                         <div
-                          class="marquee-text flex --font-2xs w-100 flex-column"
+                          class="marquee-container flex ai-center"
+                          title="Por Mariela Arias"
                         >
-                          <span
-                            class="text ln-text marquee"
+                          <picture
+                            class="marquee-placeholder flex jc-center ai-center relative"
                           >
-                            Por 
-                            <strong>
-                              Mariela Arias
-                            </strong>
-                          </span>
+                            <img
+                              alt="Mariela Arias"
+                              class="image marquee-img flex --cover"
+                              decoding="async"
+                              fetchpriority="low"
+                              loading="lazy"
+                              src="https://resizer.glanacion.com/resizer/g4VYwZ8Hijs79Uo1sktVzEm-tsI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7b02b8e3-1247-4b47-aa72-c7376081b387.png"
+                            />
+                          </picture>
+                          <div
+                            class="marquee-text flex --font-2xs w-100 flex-column"
+                          >
+                            <span
+                              class="text ln-text marquee"
+                            >
+                              Por 
+                              <strong>
+                                Mariela Arias
+                              </strong>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </section>
@@ -220,32 +228,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         Beliz-Cavallo, una alianza ya imposible
                       </h2>
                       <div
-                        class="marquee-container flex ai-center"
-                        title="Por Joaquín Morales Solá"
+                        class="flex flex-column gap-4"
                       >
-                        <picture
-                          class="marquee-placeholder flex jc-center ai-center relative"
-                        >
-                          <img
-                            alt="Joaquín Morales Solá"
-                            class="image marquee-img flex --cover"
-                            decoding="async"
-                            fetchpriority="low"
-                            loading="lazy"
-                            src="https://resizer.glanacion.com/resizer/dzh5nyJx0on_ewhKSXBKBavSnuw=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png"
-                          />
-                        </picture>
                         <div
-                          class="marquee-text flex --font-2xs w-100 flex-column"
+                          class="marquee-container flex ai-center"
+                          title="Por Joaquín Morales Solá"
                         >
-                          <span
-                            class="text ln-text marquee"
+                          <picture
+                            class="marquee-placeholder flex jc-center ai-center relative"
                           >
-                            Por 
-                            <strong>
-                              Joaquín Morales Solá
-                            </strong>
-                          </span>
+                            <img
+                              alt="Joaquín Morales Solá"
+                              class="image marquee-img flex --cover"
+                              decoding="async"
+                              fetchpriority="low"
+                              loading="lazy"
+                              src="https://resizer.glanacion.com/resizer/dzh5nyJx0on_ewhKSXBKBavSnuw=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png"
+                            />
+                          </picture>
+                          <div
+                            class="marquee-text flex --font-2xs w-100 flex-column"
+                          >
+                            <span
+                              class="text ln-text marquee"
+                            >
+                              Por 
+                              <strong>
+                                Joaquín Morales Solá
+                              </strong>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </section>
@@ -431,32 +443,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                         Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
                       </h2>
                       <div
-                        class="marquee-container flex ai-center"
-                        title="Por Francisco Jueguen"
+                        class="flex flex-column gap-4"
                       >
-                        <picture
-                          class="marquee-placeholder flex jc-center ai-center relative"
-                        >
-                          <img
-                            alt="Francisco Jueguen"
-                            class="image marquee-img flex --cover"
-                            decoding="async"
-                            fetchpriority="low"
-                            loading="lazy"
-                            src="https://resizer.glanacion.com/resizer/C4IikfKm6-8pBeC-UUl6_0N8rAw=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089241.png"
-                          />
-                        </picture>
                         <div
-                          class="marquee-text flex --font-2xs w-100 flex-column"
+                          class="marquee-container flex ai-center"
+                          title="Por Francisco Jueguen"
                         >
-                          <span
-                            class="text ln-text marquee"
+                          <picture
+                            class="marquee-placeholder flex jc-center ai-center relative"
                           >
-                            Por 
-                            <strong>
-                              Francisco Jueguen
-                            </strong>
-                          </span>
+                            <img
+                              alt="Francisco Jueguen"
+                              class="image marquee-img flex --cover"
+                              decoding="async"
+                              fetchpriority="low"
+                              loading="lazy"
+                              src="https://resizer.glanacion.com/resizer/C4IikfKm6-8pBeC-UUl6_0N8rAw=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089241.png"
+                            />
+                          </picture>
+                          <div
+                            class="marquee-text flex --font-2xs w-100 flex-column"
+                          >
+                            <span
+                              class="text ln-text marquee"
+                            >
+                              Por 
+                              <strong>
+                                Francisco Jueguen
+                              </strong>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </section>
@@ -490,23 +506,27 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                       Dólar libre. La jugada del Banco Central que impidió una suba mayor
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Javier Blanco, Diego Japas y José Del Rio"
+                      class="flex flex-column gap-4"
                     >
-                      <picture
-                        class="marquee-placeholder flex jc-center ai-center relative"
-                      />
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Javier Blanco, Diego Japas y José Del Rio"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <picture
+                          class="marquee-placeholder flex jc-center ai-center relative"
+                        />
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
                         >
-                          Por 
-                          <strong>
-                            Javier Blanco, Diego Japas y José Del Rio
-                          </strong>
-                        </span>
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Javier Blanco, Diego Japas y José Del Rio
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -539,32 +559,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                       El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Alan Soria Guadalupe"
+                      class="flex flex-column gap-4"
                     >
-                      <picture
-                        class="marquee-placeholder flex jc-center ai-center relative"
-                      >
-                        <img
-                          alt="Alan Soria Guadalupe"
-                          class="image marquee-img flex --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/NoyW7c4YoIHQ4QmAuiuwPclIzLg=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/9eb87bcc-8cb9-4632-8e99-0945ee6697a6.png"
-                        />
-                      </picture>
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Alan Soria Guadalupe"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <picture
+                          class="marquee-placeholder flex jc-center ai-center relative"
                         >
-                          Por 
-                          <strong>
-                            Alan Soria Guadalupe
-                          </strong>
-                        </span>
+                          <img
+                            alt="Alan Soria Guadalupe"
+                            class="image marquee-img flex --cover"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/NoyW7c4YoIHQ4QmAuiuwPclIzLg=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/9eb87bcc-8cb9-4632-8e99-0945ee6697a6.png"
+                          />
+                        </picture>
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Alan Soria Guadalupe
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -597,32 +621,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                       Una nueva prueba en vivo
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Javier Fuego Simondet"
+                      class="flex flex-column gap-4"
                     >
-                      <picture
-                        class="marquee-placeholder flex jc-center ai-center relative"
-                      >
-                        <img
-                          alt="Javier Fuego Simondet"
-                          class="image marquee-img flex --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/YxQXCJUlsX8WgJCVtpLdw89mZKA=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2c5ce33a-d9b3-43bf-8eb9-705b70081e77.png"
-                        />
-                      </picture>
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Javier Fuego Simondet"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <picture
+                          class="marquee-placeholder flex jc-center ai-center relative"
                         >
-                          Por 
-                          <strong>
-                            Javier Fuego Simondet
-                          </strong>
-                        </span>
+                          <img
+                            alt="Javier Fuego Simondet"
+                            class="image marquee-img flex --cover"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/YxQXCJUlsX8WgJCVtpLdw89mZKA=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2c5ce33a-d9b3-43bf-8eb9-705b70081e77.png"
+                          />
+                        </picture>
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Javier Fuego Simondet
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>
@@ -655,32 +683,36 @@ exports[`Tests - helpers - feature - Opinion should return feature 1`] = `
                       Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
                     </h2>
                     <div
-                      class="marquee-container flex ai-center"
-                      title="Por Patricia Osuna Gutiérrez"
+                      class="flex flex-column gap-4"
                     >
-                      <picture
-                        class="marquee-placeholder flex jc-center ai-center relative"
-                      >
-                        <img
-                          alt="Patricia Osuna Gutiérrez"
-                          class="image marquee-img flex --cover"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/JaK-x5J-Gtv0WsL0PnG8JXOAPYk=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/e9cd9db6-82f1-4de8-b34b-d6a30b2ce169.png"
-                        />
-                      </picture>
                       <div
-                        class="marquee-text flex --font-2xs w-100 flex-column"
+                        class="marquee-container flex ai-center"
+                        title="Por Patricia Osuna Gutiérrez"
                       >
-                        <span
-                          class="text ln-text marquee"
+                        <picture
+                          class="marquee-placeholder flex jc-center ai-center relative"
                         >
-                          Por 
-                          <strong>
-                            Patricia Osuna Gutiérrez
-                          </strong>
-                        </span>
+                          <img
+                            alt="Patricia Osuna Gutiérrez"
+                            class="image marquee-img flex --cover"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/JaK-x5J-Gtv0WsL0PnG8JXOAPYk=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/e9cd9db6-82f1-4de8-b34b-d6a30b2ce169.png"
+                          />
+                        </picture>
+                        <div
+                          class="marquee-text flex --font-2xs w-100 flex-column"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Patricia Osuna Gutiérrez
+                            </strong>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </section>

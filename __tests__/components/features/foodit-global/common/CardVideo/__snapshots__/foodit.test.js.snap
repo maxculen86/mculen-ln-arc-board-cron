@@ -21,6 +21,7 @@ exports[`CardCarouselVideo should match snapshot 1`] = `
           <img
             alt="Poster"
             class="poster-visible"
+            loading="lazy"
             src="https://example.com/a.jpg"
           />
         </div>
@@ -28,7 +29,7 @@ exports[`CardCarouselVideo should match snapshot 1`] = `
           class="video-hidden"
           loop=""
           playsinline=""
-          preload="metadata"
+          preload="none"
           src="https://example.com/a.mp4"
         />
       </div>

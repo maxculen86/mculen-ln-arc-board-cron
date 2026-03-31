@@ -59,6 +59,25 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         expect(modArticleMock.getAttribute('hour')).toBeTruthy();
     });
 
+    it('passes normalized rating to ModArticle when the article has numeric_rating', () => {
+        const articleWithRating = {
+            ...article,
+            content_elements: [
+                {
+                    type: 'numeric_rating',
+                    numeric_rating: 4.5
+                }
+            ]
+        };
+
+        const { container } = render(
+            <ArticleAcum {...props} article={articleWithRating} />
+        );
+        const modArticleMock = container.querySelector('mod-article-mock');
+
+        expect(modArticleMock.getAttribute('rating')).toBe('4.5');
+    });
+
     it('Validar que la hora en ComHour se muestre bien', () => {
         const { container } = render(
             <ComHour display_date="2020-06-02T15:28:04.694Z" />
