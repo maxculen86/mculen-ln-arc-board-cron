@@ -204,9 +204,12 @@ export const getData = ({
         get(globalContent, 'serviceType', '') === 'detalle-indices' ||
         requestUri?.startsWith('/economia/indices');
 
+    const isDistributor = get(globalContent, 'node_type') === 'distributor';
+
     const getPageUrl = () => {
         if (layout === 'LN-mapa-del-sitio') return '/mapa-del-sitio';
-        if (isEconomicIndicesPage) return requestUri?.split('?')[0];
+        if (isEconomicIndicesPage || isDistributor)
+            return requestUri?.split('?')[0];
         return contentUrl;
     };
 
