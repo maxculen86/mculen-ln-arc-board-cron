@@ -18,12 +18,12 @@ import '../../../../../resources/dist/css/ln/base/helpers-migration-ds.css';
 function BaseLayout({ children, ...props }) {
     return (
         <div {...props}>
-            <div className="overflow-x-clip min-h-100dvh flex flex-column --arial">
+            <div
+                className="overflow-x-clip min-h-100dvh flex flex-column --arial"
+                id="main-content"
+            >
                 <Header />
-                <main
-                    className="container-fluid flex flex-column flex-grow-1 gap-24 ai-start"
-                    id="content"
-                >
+                <main className="container-fluid flex flex-column flex-grow-1 gap-24 ai-start">
                     {children}
                 </main>
                 <FooterBase />

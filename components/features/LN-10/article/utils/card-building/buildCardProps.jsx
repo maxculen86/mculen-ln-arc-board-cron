@@ -1,8 +1,10 @@
+import React from 'react';
 import {
     getDataAttributesForViewability,
     getLiveblogTitles
 } from '../../_helper';
 import get from '../../../../../private/common/utils/get';
+import RatingBadge from '../../../../LN/common/ratingBadge/default';
 
 const buildCardProps = ({
     articleData,
@@ -14,7 +16,8 @@ const buildCardProps = ({
     const {
         content: articleContent,
         transformed: transformedArticle,
-        id: articleId
+        id: articleId,
+        rating = null
     } = articleData;
 
     const {
@@ -80,7 +83,10 @@ const buildCardProps = ({
         variant: finalVariant,
         liveblogList: getLiveblogTitles(articleContent),
         aspectRatio: get(chainData, 'config.aspectRatio', 'ratio-3-2'),
-        className: finalClassName
+        className: finalClassName,
+        ratingNode: rating ? (
+            <RatingBadge size={16} ratingProps={{ defaultValue: rating }} />
+        ) : null
     };
 };
 

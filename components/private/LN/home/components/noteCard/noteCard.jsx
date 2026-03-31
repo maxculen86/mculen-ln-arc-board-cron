@@ -3,6 +3,7 @@ import { getViewport } from '../../../common/utils/homeHelper';
 
 import ModArticle from '../../../../common/mod-article';
 import get from '../../../../common/utils/get';
+import getNumericRatingValue from '../../../../common/utils/getNumericRatingValue';
 import {
     transform,
     getWithMedia,
@@ -105,6 +106,9 @@ function NoteCard({
                 registerSuccessEvent={registerSuccessEvent}
                 mobileImage={mobileImage}
                 searchableField={searchableField}
+                rating={getNumericRatingValue(
+                    get(article, 'content_elements', [])
+                )}
             />
         )) ||
         null

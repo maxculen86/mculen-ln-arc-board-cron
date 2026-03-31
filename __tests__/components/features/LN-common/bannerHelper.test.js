@@ -7,7 +7,7 @@ import {
     queueGoogletagCommand,
     changeSegmentAdUnit,
     setCustomAdUnit,
-    shouldShowBanner
+    shouldHideBannerForSubscriberOnlyContent
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 
 jest.mock(
@@ -332,9 +332,11 @@ describe('common - utils - bannerHelper', () => {
         });
     });
 
-    describe('shouldShowBanner', () => {
+    describe('shouldHideBannerForSubscriberOnlyContent', () => {
         it('should return true when soloNoSuscriptores is true and subscription is "S"', () => {
-            const result = shouldShowBanner(true, { subscription: 'S' });
+            const result = shouldHideBannerForSubscriberOnlyContent(true, {
+                subscription: 'S'
+            });
             expect(result).toBe(true);
         });
     });

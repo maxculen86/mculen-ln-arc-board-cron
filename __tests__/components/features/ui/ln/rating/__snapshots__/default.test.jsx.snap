@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - ui - ln - rating matches snapshot with custom props 1`] = `
+<DocumentFragment>
+  <div
+    data-default-value="3.5"
+    data-precision="1"
+    data-testid="common-rating"
+    readonly=""
+    size="20"
+  />
+</DocumentFragment>
+`;
+
+exports[`components - features - ui - ln - rating matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <div
+    data-default-value="0.5"
+    data-precision="0.5"
+    data-testid="common-rating"
+  />
+</DocumentFragment>
+`;

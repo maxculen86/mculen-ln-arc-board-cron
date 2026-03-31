@@ -52,7 +52,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
             'LN-nota/liveblogEditorialBody',
             'LN/DS-Body',
             'LN-acumulado/grillaNotas',
-            'LN-common/bannerRefactor'
+            'LN-common/bannerRefactor',
+            'LN/DS-Banner'
         ].includes(e.type)
     );
 

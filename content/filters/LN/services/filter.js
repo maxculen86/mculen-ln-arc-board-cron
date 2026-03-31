@@ -5,6 +5,9 @@ import horoscope from './horoscope';
 import indices from './indices';
 
 export default `{
+    acumuladoGeneral {
+        hierarchy_navigation
+    }
     children {
         _id
         name

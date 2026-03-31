@@ -15,6 +15,7 @@ function LnNotaOpinion({ children }) {
 }
 
 const pageBuilderSections = [
+    'Banners',
     'Apertura',
     'Pre-Cuerpo',
     'Cuerpo',

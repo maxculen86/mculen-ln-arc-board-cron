@@ -31,7 +31,8 @@ function SnippetHowTo({ globalContent }) {
 
     const { promo_items: promoItems } = addRelatedImage(globalContent);
     const { image } = extractDataFromPromoItems(promoItems);
-    const hasValidImage = !!get(image, 'url', '');
+    const hasValidImage =
+        Array.isArray(image) && image.length > 0 && !!image[0]?.url;
     const noteTitle = get(headlines, 'basic', '');
     const noteDescription = get(subheadlines, 'basic', '');
 
@@ -70,14 +71,7 @@ function SnippetHowTo({ globalContent }) {
         '@type': 'HowTo',
         name: noteTitle,
         ...(noteDescription && { description: noteDescription }),
-        ...(hasValidImage && {
-            image: {
-                '@type': 'ImageObject',
-                url: image.url,
-                width: image.width,
-                height: image.height
-            }
-        }),
+        ...(hasValidImage && { image }),
         ...(steps.length > 0 ? { step: steps } : {})
     };
 

@@ -22,10 +22,13 @@ function Opinion({ children }) {
 
     return (
         <>
+            <div data-tw className="contents">
+                {children[0]}
+            </div>
             {/* ---- APERTURA ---- */}
             {/* Componentes con tailwind - DS */}
             <div data-tw className="contents">
-                <Opinion.Opening className="w-full flex flex-col gap-40 mb-16">
+                <Opinion.Opening className="w-full flex flex-col gap-40 mt-24 mb-16">
                     <div className="flex flex-col items-center gap-40">
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
@@ -60,9 +63,9 @@ function Opinion({ children }) {
                     <WrapperBody id="cuerpo__nota" className="mb-24">
                         <Opinion.PreBody>
                             <DateAndReadingTime globalContent={globalContent} />
-                            {children?.[1] && (
+                            {children?.[2] && (
                                 <div className="flex flex-col gap-24 pb-16">
-                                    {children[1]}
+                                    {children[2]}
                                 </div>
                             )}
                             <PreBody.Breadcrumb
@@ -72,21 +75,21 @@ function Opinion({ children }) {
                         </Opinion.PreBody>
                     </WrapperBody>
                     {/* ---- CUERPO ---- */}
-                    {children[2]}
+                    {children[3]}
                 </div>
             </div>
 
             {/* //TODO: migrar estructura a tailwind cuando se migre la estructura de la nota */}
             {/* ---- Post-Cuerpo ---- */}
             <div className="grid grid-cols-16_xl w-100 gap-x-16 md:gap-x-24 xl:gap-x-32">
-                <div className="col-span-3-center_xl">{children[3]}</div>
+                <div className="col-span-3-center_xl">{children[4]}</div>
             </div>
             <div className="w-100 flex">
                 {/* ---- BOTTOM ---- */}
-                <div className="sidebar__main">{children[4]}</div>
+                <div className="sidebar__main">{children[5]}</div>
                 {/* ---- BOTTOM-TERCERA ---- */}
                 <div className="sidebar__aside hlp-tabletlm-none">
-                    {children[5]}
+                    {children[6]}
                 </div>
             </div>
         </>

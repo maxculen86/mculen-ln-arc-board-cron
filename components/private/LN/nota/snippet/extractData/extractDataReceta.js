@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 import get from '../../../../common/utils/get';
-import { adjustImageDimensions } from '../../../common/utils/adjustImageDimensions';
 import getBiggestImage from '../../../common/utils/getBiggestImage';
-import { updateResizedUrl } from '../../../common/utils/updateResizedUrl';
+import buildImageVariants from '../../../common/utils/buildImageVariants';
 
 const nutritionInfo = [
     { name: 'Tamaño de porcion', property: 'servingSize' },
@@ -127,32 +126,16 @@ export const extractDataFromPromoItems = (promoItems, PLACERHOLDER) => {
     let cookTime = '';
     let counterPortion = '';
     let counterTime = '';
-    let image = {
-        '@context': 'https://schema.org',
-        '@type': 'ImageObject',
-        url: PLACERHOLDER,
-        height: '800',
-        width: '1200'
-    };
+    let image = buildImageVariants(PLACERHOLDER);
     let prepTime = '';
 
     if (promoItems) {
         const { basic = {}, receta } = promoItems;
-        const { type, url, height, width } = basic;
-        const { bigWidth, bigHeight } = getBiggestImage(basic);
-        const { newWidth, newHeight } = adjustImageDimensions(
-            bigWidth,
-            bigHeight
-        );
-        const newResizedUrl = updateResizedUrl(url, newWidth, newHeight);
+        const { type, url } = basic;
+        const { resizedUrl } = getBiggestImage(basic);
 
         if (type === 'image') {
-            image = {
-                ...image,
-                url: newResizedUrl || url,
-                height: newHeight || height,
-                width: newWidth || width
-            };
+            image = buildImageVariants(resizedUrl || url);
         }
 
         if (receta) {

@@ -11,12 +11,26 @@ exports[`Schema HowTo - SnippetHowTo Should render the schema correctly with How
   "@type": "HowTo",
   "name": "Nota de prueba para How to",
   "description": "Bajada de la nota",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://cdn.example.com/imagen.jpg",
-    "width": 1280,
-    "height": 854
-  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://cdn.example.com/imagen.jpg",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://cdn.example.com/imagen.jpg",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://cdn.example.com/imagen.jpg",
+      "width": 1200,
+      "height": 1200
+    }
+  ],
   "step": [
     {
       "@type": "HowToStep",

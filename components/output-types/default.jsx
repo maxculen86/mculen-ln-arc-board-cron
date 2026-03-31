@@ -272,7 +272,10 @@ function Default(props) {
                         />
                     )}
                 {!isEconomicIndicesPage(requestUri) && (
-                    <Schemas section={_nodeType} />
+                    <Schemas
+                        section={_nodeType}
+                        siteProperties={siteProperties}
+                    />
                 )}
                 <Favicon />
                 <link

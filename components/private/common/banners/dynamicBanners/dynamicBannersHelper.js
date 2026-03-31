@@ -1,6 +1,6 @@
 import React from 'react';
 import DivBannerSSR from '../DivBannerSSR';
-import DynamicBanner from '../../../../features/ui/ln/dynamicBanner/default';
+import Banner from '../../../../features/ui/ln/banner/default';
 import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
 import get from '../../utils/get';
 import { OPINION } from '../../utils/subtypes/subtypeHelper';
@@ -11,7 +11,7 @@ export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
 export const DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE = {
     [OPINION]: {
-        BannerComponent: DynamicBanner,
+        BannerComponent: Banner,
         maxBanners: 4
     },
     default: {

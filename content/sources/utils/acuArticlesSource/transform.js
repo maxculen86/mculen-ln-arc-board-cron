@@ -1,5 +1,6 @@
 import getPresets from '../presets';
 import get from '../../../../components/private/common/utils/get';
+import { normalizeNumericRatingElements } from '../common/normalizeNumericRating';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import { isFotoAl100orStorytelling } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 import { isNotRecommend } from '../collectionsHelper';
@@ -86,8 +87,8 @@ const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
             const numericRating = storyContentElements.find(
                 e => e.type === 'numeric_rating'
             );
-            const compactContentElements = [firstText, numericRating].filter(
-                Boolean
+            const compactContentElements = normalizeNumericRatingElements(
+                [firstText, numericRating].filter(Boolean)
             );
 
             return {

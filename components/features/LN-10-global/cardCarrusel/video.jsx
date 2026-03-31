@@ -33,6 +33,7 @@ function Video({ src, poster, isPlaying, setIsPlaying, ...rest }) {
                 playsInline
                 loop
                 muted
+                preload="none"
                 {...rest}
             />
         </>

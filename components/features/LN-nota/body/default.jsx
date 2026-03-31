@@ -6,6 +6,7 @@ import buildBodyCustomFields from './_utils/_buildBodyCustomFields';
 import BuildBody from './_children/_buildBody';
 import BaseBodyWrapper from './_children/BaseBodyWrapper';
 import registerScrollTracking from '../../LN/DS-Body/helpers/registerScrollTracking';
+import RenderRatingNote from '../../../private/common/layouts/renderRatingNote';
 
 function body({ customFields }) {
     const { outputType, globalContent = {} } = useAppContext();
@@ -19,6 +20,7 @@ function body({ customFields }) {
             noteId={_id}
             onRegisterScrollTrigger={registerScrollTracking}
         >
+            <RenderRatingNote />
             {BuildBody({
                 banners,
                 outputType,

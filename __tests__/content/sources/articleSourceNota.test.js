@@ -16,6 +16,7 @@ import responseHtmlLibreArticle from '../../../__mocks__/data/nota/cuerpo/notaHt
 import responseSoloAperturaMultimedia from '../../../__mocks__/data/articles/JLMPIDPYXFH3JPLFTZNJGONPNA.json';
 import responseAperturaBasic from '../../../__mocks__/data/articles/X7HUAP25GFAGDOZ3AHOXLQVL4Q.json';
 import responseBasic from '../../../__mocks__/data/articles/YJJ7JHAWNJFTDH2RLJ4QHUTA5A.json';
+import responseFotoAl100 from '../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM.json';
 
 const buildFetchResponse = (data, overrides = {}) =>
     Promise.resolve({
@@ -368,5 +369,99 @@ describe('Author Voice Data', () => {
         }).then(response => {
             expect(response.credits.by).toHaveLength(0);
         });
+    });
+});
+
+describe('Article source nota - gallery embed', () => {
+    const galleryEmbedElement = {
+        _id: 'gallery-embed-1',
+        type: 'custom_embed',
+        subtype: 'gallery-embed',
+        embed: {
+            config: {
+                galleryId: 'gallery-123',
+                diagram: 'horizontal',
+                count: 2,
+                isFotoAl100: true,
+                startPosition: 1,
+                videoPosition: '2',
+                video: {
+                    mp4: 'https://video.mp4',
+                    title: 'embedded-video'
+                }
+            }
+        }
+    };
+
+    it('should enrich gallery-embed for Foto al 100 notes', async () => {
+        mockRequestResponse.mockReturnValue(
+            buildFetchResponse({
+                ...responseFotoAl100,
+                content_elements: [galleryEmbedElement]
+            })
+        );
+
+        const cachedCall = jest.fn((cacheKey = '') => {
+            if (cacheKey === 'gallerySource') {
+                return Promise.resolve({
+                    content_elements: [
+                        {
+                            url: 'https://img-1',
+                            height: 10,
+                            width: 20,
+                            resized_urls: []
+                        },
+                        {
+                            url: 'https://img-2',
+                            height: 30,
+                            width: 40,
+                            resized_urls: []
+                        }
+                    ]
+                });
+            }
+
+            return Promise.resolve({ hash: 'signed-image' });
+        });
+
+        const response = await articleSourceFetch(query, { cachedCall });
+
+        expect(response.content_elements[0].embed.config.galleryImages).toEqual(
+            [
+                {
+                    url: 'https://img-1',
+                    height: 10,
+                    width: 20,
+                    resized_urls: []
+                },
+                {
+                    mp4: 'https://video.mp4',
+                    title: 'embedded-video',
+                    type: 'video'
+                }
+            ]
+        );
+    });
+
+    it('should keep gallery-embed inert for non Foto al 100 notes', async () => {
+        mockRequestResponse.mockReturnValue(
+            buildFetchResponse({
+                ...responseFotoAl100,
+                subtype: '1',
+                content_elements: [galleryEmbedElement]
+            })
+        );
+
+        const cachedCall = jest.fn(() =>
+            Promise.resolve({ hash: 'signed-image' })
+        );
+        const response = await articleSourceFetch(query, { cachedCall });
+
+        expect(response.content_elements[0]).toEqual({});
+        expect(cachedCall).not.toHaveBeenCalledWith(
+            'gallerySource',
+            expect.any(Function),
+            expect.any(Object)
+        );
     });
 });

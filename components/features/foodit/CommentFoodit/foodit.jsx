@@ -58,7 +58,7 @@ function CommentFoodit(props) {
                 <EmptyState
                     variant={getVariantBarrier(userType)}
                     direction="row"
-                    className="bg-positive mb-40"
+                    className="bg-positive mb-40 py-24"
                     comesFrom="CommentFoodit"
                 />
             )}
