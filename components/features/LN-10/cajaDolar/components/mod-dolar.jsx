@@ -9,11 +9,9 @@ import setClassName from '../../../../private/common/utils/setClassName';
 function ModDolar({
     data = [],
     informationAlt = 'BYMA',
-    providedAlt = 'InvertirOnline',
     oddOrEven = '',
     fillClass = '',
     logoByma = '',
-    logoIol = '',
     _id = ''
 }) {
     const pageDolarOficialHistorico =
@@ -60,19 +58,6 @@ function ModDolar({
                         alt={informationAlt}
                         src={logoByma}
                     />
-                    <span className="--fivexs">provista por</span>
-                    <ComLink
-                        link="https://www.invertironline.com/"
-                        classCondition="provider-data"
-                        title="Ir a Invertir Online"
-                        target="_blank"
-                    >
-                        <ComImage
-                            classCondition="logo iol"
-                            alt={providedAlt}
-                            src={logoIol}
-                        />
-                    </ComLink>
                 </div>
             </div>
         </>
