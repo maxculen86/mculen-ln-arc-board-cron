@@ -4,14 +4,23 @@ import Banner from '../../../../features/ui/ln/banner/default';
 import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
 import get from '../../utils/get';
 import { OPINION } from '../../utils/subtypes/subtypeHelper';
+import { WrapperBody } from '../../../../features/LN/common/wrapperBody/default';
 
 export const MAX_DYNAMIC_BANNERS = 5;
 export const BANNER_INSERT_INTERVAL = 4;
 export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
+export function BannerWithWrapper({ bannerConfiguration }) {
+    return (
+        <WrapperBody variant="banner">
+            <Banner bannerConfiguration={bannerConfiguration} />
+        </WrapperBody>
+    );
+}
+
 export const DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE = {
     [OPINION]: {
-        BannerComponent: Banner,
+        BannerComponent: BannerWithWrapper,
         maxBanners: 4
     },
     default: {
