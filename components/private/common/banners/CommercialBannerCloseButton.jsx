@@ -1,18 +1,9 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/contenidos-ui-button';
-import shouldDelayCommercialBannerCloseButton from './helpers/shouldDelayCommercialBannerCloseButton';
 import useCommercialButtonReady from './hooks/useCommercialButtonReady';
 
 function CommercialBannerCloseButton({ slotId, onClose }) {
-    const { requestUri = '' } = useAppContext();
-    const shouldDelayCommercialButton = shouldDelayCommercialBannerCloseButton({
-        slotId,
-        requestUri
-    });
-    const isCommercialButtonReady = useCommercialButtonReady(
-        shouldDelayCommercialButton
-    );
+    const isCommercialButtonReady = useCommercialButtonReady(slotId);
 
     return (
         <Button
