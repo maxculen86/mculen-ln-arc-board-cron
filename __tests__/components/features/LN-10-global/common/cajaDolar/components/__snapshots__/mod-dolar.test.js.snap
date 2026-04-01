@@ -293,18 +293,6 @@ exports[`When the _id !== "/economia/dolar-oficial-historico" Should match snaps
       >
         Información de
       </span>
-      <span
-        class="--fivexs"
-      >
-        provista por
-      </span>
-      <a
-        class="com-link provider-data"
-        href="https://www.invertironline.com/"
-        rel="nofollow"
-        target="_blank"
-        title="Ir a Invertir Online"
-      />
     </div>
   </div>
 </div>
@@ -596,18 +584,6 @@ exports[`When the _id === "/economia/dolar-oficial-historico" Should match the s
       >
         Información de
       </span>
-      <span
-        class="--fivexs"
-      >
-        provista por
-      </span>
-      <a
-        class="com-link provider-data"
-        href="https://www.invertironline.com/"
-        rel="nofollow"
-        target="_blank"
-        title="Ir a Invertir Online"
-      />
     </div>
   </div>
 </div>
