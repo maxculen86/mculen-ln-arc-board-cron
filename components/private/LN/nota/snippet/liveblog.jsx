@@ -17,6 +17,7 @@ import get from '../../../common/utils/get';
 import getOrganizationId from '../../../common/utils/getOrganizationId';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import { useLiveblogAuthors } from '../../../../layouts/LN-Nota-Liveblog_Editorial/components/body/authorBox/hook/useLiveblogAuthors';
+import { getLiveblogLocation } from './helpers/getLiveblogLocation';
 
 function SnippetLiveblog(props) {
     const { siteProperties, globalContent, contextPath, deployment } = props;
@@ -67,6 +68,8 @@ function SnippetLiveblog(props) {
     const { authors, shouldShow } = useLiveblogAuthors();
 
     const authorsArray = shouldShow ? authors : [];
+    const { addressLocality, addressRegion } =
+        getLiveblogLocation(globalContent);
 
     const data = {
         '@context': urlSchema,
@@ -90,8 +93,8 @@ function SnippetLiveblog(props) {
                 name: 'LA NACION',
                 address: {
                     '@type': 'PostalAddress',
-                    addressLocality: 'Buenos Aires',
-                    addressRegion: 'AR'
+                    addressLocality,
+                    addressRegion
                 }
             },
             organizer: {
