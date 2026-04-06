@@ -183,6 +183,54 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         );
     });
 
+    test('Should use the location label in the LiveBlog schema when it is present', () => {
+        const propsWithLocation = {
+            ...baseProps,
+            globalContent: {
+                ...baseProps.globalContent,
+                label: {
+                    ...baseProps.globalContent.label,
+                    location: {
+                        text: 'US | Washington'
+                    }
+                }
+            }
+        };
+
+        render(<SnippetLiveblog {...propsWithLocation} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.about.location.address.addressRegion).toBe('US');
+        expect(jsonData.about.location.address.addressLocality).toBe(
+            'Washington'
+        );
+    });
+
+    test('Should use the default location when the label is empty', () => {
+        const propsWithoutLocation = {
+            ...baseProps,
+            globalContent: {
+                ...baseProps.globalContent,
+                label: {
+                    ...baseProps.globalContent.label,
+                    location: {
+                        text: ''
+                    }
+                }
+            }
+        };
+
+        render(<SnippetLiveblog {...propsWithoutLocation} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.about.location.address.addressRegion).toBe('AR');
+        expect(jsonData.about.location.address.addressLocality).toBe(
+            'Buenos Aires'
+        );
+    });
+
     test('Should use the single author fallback headline when the post title is empty', () => {
         const propsWithSingleAuthorHeadline = {
             ...baseProps,

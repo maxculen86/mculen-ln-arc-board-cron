@@ -33,27 +33,6 @@ import {
 import getElementsText from '../../../common/utils/getElementsText';
 import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
 
-const SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY = [
-    '/deportes/automovilismo',
-    '/horoscopo',
-    '/opinion',
-    '/sociedad'
-];
-
-const SECTIONS_WITHOUT_HAS_PART = [
-    '/deportes/automovilismo',
-    '/horoscopo',
-    '/opinion',
-    '/sociedad'
-];
-
-const matchesSection = (primarySectionId = '', sections = []) =>
-    sections.some(
-        section =>
-            primarySectionId === section ||
-            primarySectionId.startsWith(`${section}/`)
-    );
-
 const SUBTYPE_CONFIG = {
     [OPINION]: {
         schemaType: 'OpinionNewsArticle',
@@ -217,18 +196,7 @@ function SnippetNoticia({
     const hasAuthors = isNonEmptyArray(authors);
     const creators = authors.map(a => a.name);
     const firtsParagraph = getFirstParagraph(contentElements);
-    const primarySectionId = get(primarySection, '_id', '');
-    const shouldIncludeDescriptionAndFullArticleBody = matchesSection(
-        primarySectionId,
-        SECTIONS_WITH_DESCRIPTION_AND_FULL_ARTICLE_BODY
-    );
-    const shouldIncludeHasPart = !matchesSection(
-        primarySectionId,
-        SECTIONS_WITHOUT_HAS_PART
-    );
-    const articleBody = shouldIncludeDescriptionAndFullArticleBody
-        ? getElementsText(contentElements)
-        : firtsParagraph;
+    const articleBody = getElementsText(contentElements) || firtsParagraph;
     const datePublishedISO = createISODate(
         getPublishDate(firstPublishDate, displayDate)
     );
@@ -236,18 +204,15 @@ function SnippetNoticia({
         getModifiedDate(lastUpdatedDate, displayDate)
     );
     const isAccessibleForFree = contentCode !== 'cerrada';
-    const cssSelector = subtypeConfig.cssSelector ?? '.nota';
     const includeSchemaId = subtypeConfig.includeSchemaId ?? true;
 
     let data = {
         '@context': urlSchema,
         '@type': subtypeConfig.schemaType || 'NewsArticle',
         headline: headlineResolved,
-        ...(shouldIncludeDescriptionAndFullArticleBody && {
-            description:
-                get(globalContent, 'subheadlines.basic', firtsParagraph) ||
-                firtsParagraph
-        }),
+        description:
+            get(globalContent, 'subheadlines.basic', firtsParagraph) ||
+            firtsParagraph,
         ...(articleBody && { articleBody }),
         url: noteUrl,
         dateCreated: getSanitizedDateCreated(createdDate, datePublishedISO),
@@ -256,13 +221,6 @@ function SnippetNoticia({
         mainEntityOfPage: noteUrlWithSlash,
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
-        ...(shouldIncludeHasPart && {
-            hasPart: {
-                '@type': 'WebPageElement',
-                isAccessibleForFree,
-                ...(cssSelector && { cssSelector })
-            }
-        }),
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],
             name: 'Acceso Digital Monthly Test',

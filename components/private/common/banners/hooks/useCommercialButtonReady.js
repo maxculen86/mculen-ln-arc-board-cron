@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const useCommercialButtonReady = shouldDelayComercialButton => {
+const useCommercialButtonReady = (slotId = '') => {
+    const shouldDelayComercialButton = slotId.includes('comercial');
     const [isComercialButtonReady, setIsComercialButtonReady] = useState(
         !shouldDelayComercialButton
     );
@@ -17,8 +18,7 @@ const useCommercialButtonReady = shouldDelayComercialButton => {
         const handleEnableButton = () => setIsComercialButtonReady(true);
         const enableButtonWhenPageIsReady = () => {
             if (typeof window.requestIdleCallback === 'function') {
-                idleCallbackId =
-                    window.requestIdleCallback(handleEnableButton);
+                idleCallbackId = window.requestIdleCallback(handleEnableButton);
                 return;
             }
 

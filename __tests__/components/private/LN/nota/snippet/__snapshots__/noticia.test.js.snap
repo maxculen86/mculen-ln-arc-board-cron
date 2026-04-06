@@ -13,11 +13,6 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
   "dateCreated": "2023-01-01T00:00:00.000Z",
   "dateModified": "2023-01-04T00:00:00.000Z",
   "datePublished": "2023-01-02T00:00:00.000Z",
-  "hasPart": {
-    "@type": "WebPageElement",
-    "cssSelector": ".nota",
-    "isAccessibleForFree": true,
-  },
   "headline": "Test title",
   "image": [
     {
