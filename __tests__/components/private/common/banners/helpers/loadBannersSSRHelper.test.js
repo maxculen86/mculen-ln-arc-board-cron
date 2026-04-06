@@ -70,10 +70,11 @@ describe('Banner resolvers', () => {
                 bannersInBody
             });
 
-            expect(getDynamicSlotIdsByDevice).toHaveBeenCalledWith(
-                'desktop',
-                OPINION
-            );
+            expect(getDynamicSlotIdsByDevice).toHaveBeenCalledWith({
+                device: 'desktop',
+                subtype: OPINION,
+                layout: undefined
+            });
             expect(bannersInBody).toEqual([
                 'cinturon1_dsk',
                 'cinturon2_dsk',

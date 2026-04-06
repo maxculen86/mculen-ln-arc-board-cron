@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import {
     createDynamicBannerConfig,
-    getDynamicBannerSettingsBySubtype,
+    getDynamicBannerSettings,
     validateBannerConfig,
     BannerWithWrapper
 } from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
@@ -27,10 +27,20 @@ describe('Dynamic Banner Helper', () => {
             };
 
             expect(
-                createDynamicBannerConfig(opinionContent, 'desktop', 4)
+                createDynamicBannerConfig(
+                    opinionContent,
+                    'desktop',
+                    4,
+                    'LN-Nota-Opinion'
+                )
             ).toBeDefined();
             expect(
-                createDynamicBannerConfig(opinionContent, 'desktop', 5)
+                createDynamicBannerConfig(
+                    opinionContent,
+                    'desktop',
+                    5,
+                    'LN-Nota-Opinion'
+                )
             ).toBeNull();
         });
 
@@ -232,16 +242,22 @@ describe('Dynamic Banner Helper', () => {
         });
     });
 
-    describe('Dynamic banner settings by subtype', () => {
+    describe('Dynamic banner settings by subtype and layout', () => {
         it('returns BannerWithWrapper for opinion subtype', () => {
-            const settings = getDynamicBannerSettingsBySubtype(OPINION);
+            const settings = getDynamicBannerSettings({
+                subtype: OPINION,
+                layout: 'LN-Nota-Opinion'
+            });
 
             expect(settings.BannerComponent).toBe(BannerWithWrapper);
             expect(settings.maxBanners).toBe(4);
         });
 
         it('returns DivBannerSSR for non-opinion subtype', () => {
-            const settings = getDynamicBannerSettingsBySubtype('14');
+            const settings = getDynamicBannerSettings({
+                subtype: '14',
+                layout: 'LN-Nota-Cards'
+            });
 
             expect(settings.BannerComponent).toBe(DivBannerSSR);
             expect(settings.maxBanners).toBe(5);

@@ -528,7 +528,7 @@ exports[`Dynamic Banner Helper Banner snapshots renders tablet banner index 5 (s
 </DocumentFragment>
 `;
 
-exports[`Dynamic Banner Helper Dynamic banner settings by subtype renders BannerWithWrapper for opinion subtype (snapshot) 1`] = `
+exports[`Dynamic Banner Helper Dynamic banner settings by subtype and layout renders BannerWithWrapper for opinion subtype (snapshot) 1`] = `
 <DocumentFragment>
   <div
     class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen"
@@ -565,7 +565,7 @@ exports[`Dynamic Banner Helper Dynamic banner settings by subtype renders Banner
 </DocumentFragment>
 `;
 
-exports[`Dynamic Banner Helper Dynamic banner settings by subtype renders DivBannerSSR for non-opinion subtype (snapshot) 1`] = `
+exports[`Dynamic Banner Helper Dynamic banner settings by subtype and layout renders DivBannerSSR for non-opinion subtype (snapshot) 1`] = `
 <DocumentFragment>
   <div
     class="ln-banner-container --cinturon1_dsk"

@@ -1,9 +1,11 @@
 import { cva, cx } from '@ln/ds-cva';
 
+const MB_CONTAINER = 'mb-40 md:mb-80';
+
 export const openingImage100Variants = {
     wrapper: cva('w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10', {
         variants: {
-            position: {
+            variant: {
                 below: 'text-center bottom-0 mb-80',
                 above: 'top-0 text-center mt-32',
                 left: '-translate-y-1/2 top-1/2 m-auto',
@@ -11,9 +13,9 @@ export const openingImage100Variants = {
             }
         }
     }),
-    container: cva('flex flex-col gap-8', {
+    container: cva(`flex flex-col gap-8 ${MB_CONTAINER}`, {
         variants: {
-            position: {
+            variant: {
                 below: 'm-auto max-w-835 px-24',
                 above: 'm-auto max-w-835 px-24',
                 left: 'max-w-552 px-24 md:pr-24 md:pl-24',
@@ -23,7 +25,7 @@ export const openingImage100Variants = {
     }),
     addons: cva('', {
         variants: {
-            position: {
+            variant: {
                 left: 'items-start'
             }
         }

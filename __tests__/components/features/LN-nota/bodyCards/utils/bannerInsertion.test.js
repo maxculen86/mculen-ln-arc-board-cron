@@ -175,7 +175,8 @@ describe('Banner Insertion Utilities', () => {
                 mockGlobalContent,
                 DESKTOP_DEVICE,
                 1,
-                'dynamic-banner-desktop-1-3'
+                'dynamic-banner-desktop-1-3',
+                undefined
             );
             expect(bannerResult.bannerElement.key).toBe(
                 'dynamic-banner-desktop-1-3'
@@ -238,25 +239,29 @@ describe('Banner Insertion Utilities', () => {
             mockGlobalContent,
             DESKTOP_DEVICE,
             1,
-            'dynamic-banner-desktop-1-3'
+            'dynamic-banner-desktop-1-3',
+            undefined
         ];
         const FIRST_MOBILE_BANNER_CALL_PARAMETERS = [
             mockGlobalContent,
             MOBILE_DEVICE,
             1,
-            'dynamic-banner-mobile-1-3'
+            'dynamic-banner-mobile-1-3',
+            undefined
         ];
         const SECOND_DESKTOP_BANNER_CALL_PARAMETERS = [
             mockGlobalContent,
             DESKTOP_DEVICE,
             2,
-            'dynamic-banner-desktop-2-7'
+            'dynamic-banner-desktop-2-7',
+            undefined
         ];
         const SECOND_MOBILE_BANNER_CALL_PARAMETERS = [
             mockGlobalContent,
             MOBILE_DEVICE,
             2,
-            'dynamic-banner-mobile-2-7'
+            'dynamic-banner-mobile-2-7',
+            undefined
         ];
 
         const renderConfig = {

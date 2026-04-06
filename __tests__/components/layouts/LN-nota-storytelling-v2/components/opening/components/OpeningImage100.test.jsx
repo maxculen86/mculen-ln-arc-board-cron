@@ -55,10 +55,10 @@ jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () => ({
         __esModule: true,
-        default: ({ titleH1, titleH2 }) => (
+        default: ({ h1Props, h2Props }) => (
             <div data-testid="opening-titles">
-                <h1>{titleH1}</h1>
-                <h2>{titleH2}</h2>
+                <h1>{h1Props?.text}</h1>
+                <h2>{h2Props?.text}</h2>
             </div>
         )
     })

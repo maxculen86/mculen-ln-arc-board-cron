@@ -40,7 +40,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
         outputType,
         isAdmin,
         globalContentConfig,
-        globalContent = {}
+        globalContent = {},
+        layout
     } = useAppContext();
     const device = useViewportSize();
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
@@ -97,6 +98,7 @@ function LoadBannersSSR({ blocksBanners = [] }) {
                             bannerInPB,
                             device,
                             subtype,
+                            layout,
                             bannersInBody,
                             suffix,
                             bannersToLoadFromDOM,
