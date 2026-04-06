@@ -38,7 +38,7 @@ describe('LoginSubscribeButtons', () => {
                 buttonSubscribeText:
                     userType === 'guest' ? 'Suscribite' : 'Subscribe',
                 buttonSubscribeHeader:
-                    userType === 'guest' ? 'SUSCRIBITE GRATIS' : 'Subscribe'
+                    userType === 'guest' ? 'Suscribite' : 'Subscribe'
             },
             userType
         });

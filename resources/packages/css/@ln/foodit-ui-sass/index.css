@@ -550,6 +550,11 @@ input[type=checkbox]:hover {
     border-width: 0;
   }
 }
+@media (min-width: 80rem) {
+  .border-all_lg {
+    border-style: solid;
+  }
+}
 .border.border-secondary-positive__hover:hover {
   border-color: var(--secondary-positive);
 }

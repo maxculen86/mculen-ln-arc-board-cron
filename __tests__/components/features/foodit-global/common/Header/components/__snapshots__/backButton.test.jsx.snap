@@ -3,7 +3,7 @@
 exports[`BackButton snapshot matches the snapshot when iconOnly=false 1`] = `
 <div>
   <div
-    class="pr-16 pr-24_md h-100 flex ai-center"
+    class="h-100 flex ai-center border border-all_lg border-thin rounded-4 border-secondary-positive p-8_lg"
   >
     <button
       data-testid="mock-button"
@@ -12,7 +12,7 @@ exports[`BackButton snapshot matches the snapshot when iconOnly=false 1`] = `
       variant="link"
     >
       <div
-        data-icon-size="24"
+        data-icon-size="20"
         data-testid="mock-icon"
       >
         <i
@@ -29,7 +29,7 @@ exports[`BackButton snapshot matches the snapshot when iconOnly=false 1`] = `
 exports[`BackButton snapshot matches the snapshot when iconOnly=true 1`] = `
 <div>
   <div
-    class="pr-24_md lg-only"
+    class="h-100 flex ai-center border border-all_lg border-thin rounded-4 border-secondary-positive p-8_lg"
   >
     <button
       data-testid="mock-button"
@@ -38,7 +38,7 @@ exports[`BackButton snapshot matches the snapshot when iconOnly=true 1`] = `
       variant="secondary"
     >
       <div
-        data-icon-size="16"
+        data-icon-size="20"
         data-testid="mock-icon"
       >
         <i
