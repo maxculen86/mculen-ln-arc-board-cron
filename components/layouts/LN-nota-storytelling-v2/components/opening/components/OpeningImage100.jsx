@@ -54,7 +54,10 @@ function OpeningImage100({
                             container: addonsClass
                         }}
                     />
-                    <OpeningTitles titleH1={title1} titleH2={title2} />
+                    <OpeningTitles
+                        h1Props={{ text: title1 }}
+                        h2Props={{ text: title2 }}
+                    />
                     {subheadline && (
                         <p className="prumo text-white text-subheading-md">
                             {subheadline}

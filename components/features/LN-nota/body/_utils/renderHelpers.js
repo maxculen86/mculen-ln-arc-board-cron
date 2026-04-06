@@ -3,7 +3,7 @@ import { BuildBanners } from '../_children/_buildBanners';
 import { processElement } from '../_children/_processElement';
 import get from '../../../../private/common/utils/get';
 import {
-    getDynamicBannerSettingsBySubtype,
+    getDynamicBannerSettings,
     getDynamicBannersWithGPTConfigsForIndex
 } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
 import { getBannerStrategy } from './dynamicBannerStrategies';
@@ -18,12 +18,17 @@ const renderDynamicBanners = ({
     currentIndex,
     currentDevice,
     dynamicBanners,
-    onDynamicBannersGoogletagConfig
+    onDynamicBannersGoogletagConfig,
+    layout
 }) => {
     if (!dynamicBanners?.enabled) return null;
 
     const subtype = get(globalContent, 'subtype', '');
-    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+    const { maxBanners } = getDynamicBannerSettings({
+        globalContent,
+        layout,
+        subtype
+    });
 
     const context = {
         elementPosition,
@@ -45,7 +50,8 @@ const renderDynamicBanners = ({
         globalContent,
         currentDevice,
         bannerIndex,
-        keyIndex: currentIndex
+        keyIndex: currentIndex,
+        layout
     });
 
     if (!dynamicBannersResult) return null;
@@ -67,7 +73,8 @@ export const renderWithBanners = (ComponentWithProps, config) => {
         currentIndex,
         dynamicBanners,
         currentDevice,
-        onDynamicBannersGoogletagConfig
+        onDynamicBannersGoogletagConfig,
+        layout
     } = config;
 
     const bannerToRender = BuildBanners({
@@ -85,7 +92,8 @@ export const renderWithBanners = (ComponentWithProps, config) => {
         currentIndex,
         currentDevice,
         dynamicBanners,
-        onDynamicBannersGoogletagConfig
+        onDynamicBannersGoogletagConfig,
+        layout
     });
 
     return (
@@ -142,7 +150,8 @@ export const renderElement = (
     ruleConditions,
     dynamicBanners,
     currentDevice,
-    onDynamicBannersGoogletagConfig
+    onDynamicBannersGoogletagConfig,
+    layout
 ) => {
     const { nodeType, Component } = processElement(
         element,
@@ -184,7 +193,8 @@ export const renderElement = (
             currentIndex,
             dynamicBanners,
             currentDevice,
-            onDynamicBannersGoogletagConfig
+            onDynamicBannersGoogletagConfig,
+            layout
         });
     }
 

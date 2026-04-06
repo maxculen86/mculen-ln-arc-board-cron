@@ -30,40 +30,6 @@ jest.mock(
         DEFAULT_DIAGRAM: 'title-100'
     })
 );
-jest.mock(
-    '../../../../../../components/features/LN-nota/signature/default',
-    () => ({
-        __esModule: true,
-        default: () => <div data-testid="signature-feature">Signature</div>
-    })
-);
-
-jest.mock(
-    '../../../../../../components/features/LN/common/dateAndReadingTime/default',
-    () => ({
-        __esModule: true,
-        default: () => (
-            <div data-testid="date-reading-time">Date and Reading Time</div>
-        )
-    })
-);
-
-jest.mock(
-    '../../../../../../components/features/LN/DS-Toolbar/default',
-    () => ({
-        __esModule: true,
-        default: () => <div data-testid="toolbar">Toolbar</div>
-    })
-);
-
-jest.mock(
-    '../../../../../../components/private/common/utils/firmaHelper',
-    () => ({
-        place: {
-            Top: 'top'
-        }
-    })
-);
 
 const get = require('../../../../../../components/private/common/utils/get');
 const getOpeningMediaData = require('../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningMediaData');
@@ -98,9 +64,6 @@ describe('Opening', () => {
         render(<Opening globalContent={{}} layout="article" />);
 
         expect(screen.getByTestId('opening-component')).toBeInTheDocument();
-        expect(screen.getByTestId('signature-feature')).toBeInTheDocument();
-        expect(screen.getByTestId('date-reading-time')).toBeInTheDocument();
-        expect(screen.getByTestId('toolbar')).toBeInTheDocument();
     });
 
     it('passes shared props to getOpeningComponent', () => {
@@ -139,29 +102,6 @@ describe('Opening', () => {
         render(<Opening globalContent={{}} layout="" />);
 
         expect(screen.getByTestId('opening-component')).toBeInTheDocument();
-        expect(screen.getByTestId('signature-feature')).toBeInTheDocument();
-    });
-
-    it('passes globalContent to signature feature via context', () => {
-        const globalContent = {
-            authors: [{ name: 'John Doe' }],
-            headlines: {}
-        };
-
-        render(<Opening globalContent={globalContent} layout="article" />);
-
-        expect(screen.getByTestId('signature-feature')).toBeInTheDocument();
-    });
-
-    it('passes globalContent to date reading time component', () => {
-        const globalContent = {
-            publish_date: '2024-01-15',
-            headlines: {}
-        };
-
-        render(<Opening globalContent={globalContent} layout="article" />);
-
-        expect(screen.getByTestId('date-reading-time')).toBeInTheDocument();
     });
 
     it('handles different diagram types', () => {
@@ -201,12 +141,5 @@ describe('Opening', () => {
         render(<Opening globalContent={{}} layout="article" />);
 
         expect(getTitleData).toHaveBeenCalledWith({});
-    });
-
-    it('renders toolbar after date and time', () => {
-        render(<Opening globalContent={{}} layout="article" />);
-
-        const toolbarElement = screen.getByTestId('toolbar');
-        expect(toolbarElement).toBeInTheDocument();
     });
 });

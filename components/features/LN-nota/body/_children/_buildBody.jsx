@@ -17,7 +17,8 @@ const BuildBody = ({
     ruleConditions,
     dynamicBanners,
     currentDevice,
-    onDynamicBannersGoogletagConfig
+    onDynamicBannersGoogletagConfig,
+    layout
 }) => {
     const elements = groupedElements || globalContent.content_elements;
     const finalSupportedTypes = supportedTypesOverride || supportedTypes;
@@ -49,7 +50,8 @@ const BuildBody = ({
             ruleConditions,
             dynamicBanners,
             currentDevice,
-            onDynamicBannersGoogletagConfig
+            onDynamicBannersGoogletagConfig,
+            layout
         );
 
         if (
