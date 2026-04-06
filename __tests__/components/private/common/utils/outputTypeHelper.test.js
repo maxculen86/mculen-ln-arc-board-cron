@@ -314,38 +314,56 @@ describe('Tests - metasFromSiteServices', () => {
 
 describe('getTagTitle function test', () => {
     describe('getTagTitle for note', () => {
-        test('Return when both titles are defined must be shortTitle', () => {
+        test('Return basicTitle when basic and short titles are defined', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    basicTitle: 'Titular de trabajo completo',
                     shortTitle: 'Titulo corto',
                     nodeType: 'nota',
                     siteProps: {},
                     metaTitle: ''
                 })
-            ).toBe('Titulo corto - LA NACION');
+            ).toBe('Titular de trabajo completo - LA NACION');
         });
-        test('Return when short title isnt defined, return basic title', () => {
+        test('Return basicTitle when short title is empty', () => {
             expect(
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    basicTitle: 'Titular de trabajo completo',
                     shortTitle: '',
                     nodeType: 'nota',
                     siteProps: {},
                     metaTitle: ''
                 })
-            ).toBe('Titulo de pagebuilder - LA NACION');
+            ).toBe('Titular de trabajo completo - LA NACION');
         });
-        test('When all titles are defined return meta_title', () => {
+        test('Return metaTitle when basic, short and meta titles are defined', () => {
             expect(
                 getTagTitle({
                     PBTitle: 'Titulo de pagebuilder - LA NACION',
-                    shortTitle: '',
+                    basicTitle: 'Titular de trabajo completo',
+                    shortTitle: 'Titulo corto',
                     nodeType: 'nota',
                     siteProps: {},
-                    metaTitle: 'I am the metaTile'
+                    metaTitle: 'I am the metaTitle'
                 })
-            ).toBe('I am the metaTile - LA NACION');
+            ).toBe('I am the metaTitle - LA NACION');
+        });
+        test('Keep special characters in basicTitle without truncation', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    basicTitle:
+                        'El que dijo que no y los dos principales candidatos: ya empezo la carrera para ser el nuevo DT; "LA NACION" | ¡?\'¿¡',
+                    shortTitle: 'Titulo corto',
+                    nodeType: 'nota',
+                    siteProps: {},
+                    metaTitle: ''
+                })
+            ).toBe(
+                'El que dijo que no y los dos principales candidatos: ya empezo la carrera para ser el nuevo DT; "LA NACION" | ¡?\'¿¡ - LA NACION'
+            );
         });
     });
 
@@ -374,20 +392,19 @@ describe('getTagTitle function test', () => {
             ).toBe('Titulo de pagebuilder - LA NACION');
         });
 
-        test('Return when PBtitle when the subtype is LIVEBLOG_EDITORIAL', () => {
-            const PBTitle =
-                'Titulo de pagebuilder (liveblog editorial) - LA NACION';
+        test('Return PBTitle when subtype is LIVEBLOG_EDITORIAL', () => {
             expect(
                 getTagTitle({
-                    PBTitle,
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle:
+                        'Titulo de pagebuilder (liveblog editorial) - LA NACION',
+                    basicTitle: 'Titulo de pagebuilder',
                     shortTitle: 'Titulo corto',
                     nodeType: 'nota',
                     siteProps: {},
                     metaTitle: '',
                     subtype: '11'
                 })
-            ).toBe(PBTitle);
+            ).toBe('Titulo de pagebuilder (liveblog editorial) - LA NACION');
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
