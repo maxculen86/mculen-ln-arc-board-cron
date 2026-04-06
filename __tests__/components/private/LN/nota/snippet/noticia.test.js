@@ -102,11 +102,6 @@ describe('SnippetNoticia', () => {
                 url: 'https://www.lanacion.com.ar/news-test',
                 articleSection: 'Test section',
                 isAccessibleForFree: true,
-                hasPart: {
-                    '@type': 'WebPageElement',
-                    isAccessibleForFree: true,
-                    cssSelector: '.nota'
-                },
                 author: {
                     '@type': 'Organization',
                     name: 'LA NACION'
@@ -116,6 +111,7 @@ describe('SnippetNoticia', () => {
                 publishingPrinciples:
                     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
             });
+            expect(jsonData.hasPart).toBeUndefined();
         });
 
         it('should set isAccessibleForFree as true when content_code is undefined', () => {
@@ -136,13 +132,9 @@ describe('SnippetNoticia', () => {
             );
 
             expect(jsonData).toMatchObject({
-                isAccessibleForFree: true,
-                hasPart: {
-                    '@type': 'WebPageElement',
-                    isAccessibleForFree: true,
-                    cssSelector: '.nota'
-                }
+                isAccessibleForFree: true
             });
+            expect(jsonData.hasPart).toBeUndefined();
         });
 
         it('should set isAccessibleForFree as false when content_code is cerrada', () => {
@@ -163,13 +155,9 @@ describe('SnippetNoticia', () => {
             );
 
             expect(jsonData).toMatchObject({
-                isAccessibleForFree: false,
-                hasPart: {
-                    '@type': 'WebPageElement',
-                    isAccessibleForFree: false,
-                    cssSelector: '.nota'
-                }
+                isAccessibleForFree: false
             });
+            expect(jsonData.hasPart).toBeUndefined();
         });
 
         it('should use the canonical site host for the schema url', () => {

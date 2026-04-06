@@ -203,6 +203,9 @@ const labels = `
             text
             display
         }
+        location {
+            ${label}
+        }
         mostrar_caja_dolar {
             ${label}
         }
