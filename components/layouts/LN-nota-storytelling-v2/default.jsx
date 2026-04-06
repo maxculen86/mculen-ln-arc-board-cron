@@ -8,14 +8,12 @@ function lnNotaStorytellingV2({ children, globalContent, layout }) {
     return (
         <GlobalProvider>
             <BaseLayout>
-                <div>
-                    {children[0]}
+                <div data-tw style={{ display: 'contents' }}>
                     <Opening globalContent={globalContent} layout={layout} />
+                    {children[0]}
                 </div>
-                <div>
-                    {/* Cuerpo */}
-                    {children[1]}
-                </div>
+                {/* Cuerpo */}
+                {children[1]}
                 <div>
                     {/* Bottom */}
                     {children[2]}

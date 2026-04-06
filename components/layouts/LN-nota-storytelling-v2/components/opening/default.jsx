@@ -1,14 +1,15 @@
 import React from 'react';
 import get from '../../../../private/common/utils/get';
-import DsSignature from '../../../../features/LN/DS-Signature/default';
-import ImageUI from '../../../../features/ui/ln/image/default';
-import { place } from '../../../../private/common/utils/firmaHelper';
 import getOpeningMediaData from './helpers/getOpeningMediaData';
-import OpeningAddons from './components/OpeningAddons';
-import OpeningTitles from './components/OpeningTitles';
 import { getTitleData } from './helpers/getTitleData';
-
-const DEFAULT_DIAGRAM = 'image-100-title-below';
+import SignatureFeature from '../../../../features/LN-nota/signature/default';
+import { place } from '../../../../private/common/utils/firmaHelper';
+import DateAndReadingTime from '../../../../features/LN/common/dateAndReadingTime/default';
+import Toolbar from '../../../../features/LN/DS-Toolbar/default';
+import {
+    DEFAULT_DIAGRAM,
+    getOpeningComponent
+} from './helpers/openingComponent';
 
 function Opening({ globalContent = {}, layout = '' }) {
     const promoItems = get(globalContent, 'promo_items', {});
@@ -24,35 +25,34 @@ function Opening({ globalContent = {}, layout = '' }) {
         diagram = DEFAULT_DIAGRAM
     } = getOpeningMediaData(promoItems, title1);
 
+    const sharedProps = {
+        diagram,
+        pictureSources,
+        imgDefaultUrl,
+        altText,
+        globalContent,
+        layout,
+        title1,
+        title2,
+        subheadline
+    };
+
     return (
-        <section className="" data-diagram={diagram}>
-            {imgDefaultUrl && (
-                <div className="">
-                    <ImageUI
-                        alt={altText}
-                        src={imgDefaultUrl}
-                        className="com-image"
-                        fetchPriority="high"
-                        loading="eager"
-                        sources={pictureSources}
+        <>
+            {getOpeningComponent(sharedProps)}
+            <div className="flex flex-col ai-center jc-center mx-auto mt-6 w-full max-w-635 gap-40">
+                <div className="flex flex-col ai-center gap-8">
+                    <SignatureFeature
+                        customFields={{
+                            position: place.Top,
+                            withAudio: false
+                        }}
                     />
+                    <DateAndReadingTime globalContent={globalContent} />
                 </div>
-            )}
-            <div className="">
-                <OpeningAddons globalContent={globalContent} layout={layout} />
-                <OpeningTitles title1={title1} title2={title2} />
-                {subheadline && <p className="">{subheadline}</p>}
-                <DsSignature
-                    customFields={{
-                        position: place.Top
-                    }}
-                    globalContent={globalContent}
-                    ignoreDistributor
-                    showDateTimeAndReadingTime
-                    showPhoto={false}
-                />
+                <Toolbar />
             </div>
-        </section>
+        </>
     );
 }
 
