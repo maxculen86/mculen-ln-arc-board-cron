@@ -34,8 +34,8 @@ jest.mock(
     () => jest.fn(() => <div>FloatingGroupButton</div>)
 );
 jest.mock(
-    '../../../../../../components/features/foodit-global/common/toasts/foodit',
-    () => jest.fn(() => <div>Toasts</div>)
+    '../../../../../../components/features/ui/foodit/toastContainer/foodit',
+    () => jest.fn(() => <div>ToastsContainer</div>)
 );
 jest.mock(
     '../../../../../../components/private/common/scriptManager/DataLayerInteracions',
@@ -95,7 +95,7 @@ describe('Components - Features - Foodit-global - Common -BaseLayout', () => {
         expect(getByText('Footer')).toBeInTheDocument();
         expect(getByText('DrawerMyAccount')).toBeInTheDocument();
         expect(getByText('Modal')).toBeInTheDocument();
-        expect(getByText('Toasts')).toBeInTheDocument();
+        expect(getByText('ToastsContainer')).toBeInTheDocument();
         expect(getByText('FloatingGroupButton')).toBeInTheDocument();
         expect(getByText('DataLayerInteractions')).toBeInTheDocument();
 

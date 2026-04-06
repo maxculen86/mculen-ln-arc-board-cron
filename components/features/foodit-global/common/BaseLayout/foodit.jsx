@@ -11,7 +11,6 @@ import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
 import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
-import Toasts from '../toasts/foodit';
 import DynamicStylesheetLoader from '../../../../output-types/criticalCss/dynamicStylesheetLoader';
 import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 import AuthInitializer from '../../../../private/common/auth/AuthInitializer';
@@ -21,6 +20,7 @@ import {
 } from '../../../../private/common/auth/helper/loginHelper';
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 import DrawerSections from '../DrawerSections/foodit';
+import ToastsContainer from '../../../ui/foodit/toastContainer/foodit';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
@@ -91,7 +91,7 @@ function BaseLayout({ children }) {
                 </Static>
                 <DataLayerInteractions />
                 <Modal />
-                <Toasts />
+                <ToastsContainer />
                 {showFloatingGroupButton && (
                     <FloatingGroupButton
                         {...getConfigByLayout(layout, [toggleRecetarioDrawer])}
