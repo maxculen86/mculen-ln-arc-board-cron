@@ -1,8 +1,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 
-function TikTokPixel({ location = 'head', id }) {
-    if (!id || location !== 'head') return null;
+function TikTokPixel({ id }) {
+    if (!id) return null;
 
     const initScript = `
 !function(w, d, t) {

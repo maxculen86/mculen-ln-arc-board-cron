@@ -58,8 +58,8 @@ describe('Datadog Component', () => {
         });
     });
 
-    test('renders Datadog scripts in the head location', () => {
-        const { container } = render(<Datadog location="head" />);
+    test('renders Datadog scripts', () => {
+        const { container } = render(<Datadog />);
 
         const containerScripts = container.querySelectorAll('script');
         const [logScript, rumScript] = containerScripts;
@@ -103,9 +103,10 @@ describe('Datadog Component', () => {
         );
     });
 
-    test('does not render scripts when location is not head', () => {
-        const { container } = render(<Datadog location="body" />);
+    test('renders scripts regardless of where it is placed', () => {
+        const { container } = render(<Datadog />);
 
-        expect(container.firstChild).toBeNull();
+        const scripts = container.querySelectorAll('script');
+        expect(scripts.length).toBeGreaterThan(0);
     });
 });

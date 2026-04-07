@@ -31,8 +31,8 @@ export function EjesHome() {
                         imageProps={{
                             ...imageProps,
                             src: assetsPath(imageProps.src),
-                            fetchPriority: index === 0 ? 'high' : 'low',
-                            loading: index === 0 ? 'eager' : 'lazy'
+                            loading: 'eager',
+                            fetchPriority: 'low'
                         }}
                         linkProps={{
                             ...linkProps,
