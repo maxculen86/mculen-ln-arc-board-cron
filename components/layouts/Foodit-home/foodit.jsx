@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Static from 'fusion:static';
 import classNames from 'classnames';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -12,24 +12,17 @@ const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2', 'Bloque-3'];
 function HomeFoodit({ children, isAdmin = false }) {
     const [opening, bloque1, bloque2, bloque3] = children;
     const sectionClasses = classNames('flex flex-column gap-40');
-    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        if (isAdmin) return;
-        createDifferVideosObserver();
-        if (document.readyState === 'complete') {
-            setShowModal(true);
-        } else {
-            window.addEventListener('load', () => setShowModal(true), {
-                once: true
-            });
+        if (!isAdmin) {
+            createDifferVideosObserver();
         }
     }, [isAdmin]);
 
     return (
         <BaseLayout>
             <UserBookmarks />
-            {showModal && BannersFoodit.modal_1x1()}
+            {BannersFoodit.modal_1x1()}
             <Static id="opening-home">
                 <EjesHome />
                 <section>{opening}</section>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SITE_FOODIT } from 'fusion:environment';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -64,13 +63,6 @@ function Foodit({
         isArcPreview
     });
 
-    let resizerOrigin = null;
-    try {
-        resizerOrigin = SITE_FOODIT ? new URL(SITE_FOODIT).origin : null;
-    } catch (error) {
-        console.warn('Error al obtener el origen del resizer', error);
-    }
-
     return (
         <html lang="es">
             <head>
@@ -79,9 +71,6 @@ function Foodit({
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
-                {resizerOrigin && (
-                    <link rel="preconnect" href={resizerOrigin} />
-                )}
                 <link
                     rel="manifest"
                     href={deployment(
@@ -105,16 +94,6 @@ function Foodit({
                     deployment={deployment}
                     contextPath={contextPath}
                 />
-                <GetFonts
-                    contextPath={contextPath}
-                    deployment={deployment}
-                    arcSite={arcSite}
-                />
-                <GetCriticalCss
-                    Resource={Resource}
-                    layout={layout}
-                    globalContent={globalContent}
-                />
                 <MetaFoodit
                     metaValue={metaValue}
                     globalContent={globalContent}
@@ -137,6 +116,16 @@ function Foodit({
                     site={site}
                     template={template}
                     requestUri={requestUri}
+                />
+                <GetFonts
+                    contextPath={contextPath}
+                    deployment={deployment}
+                    arcSite={arcSite}
+                />
+                <GetCriticalCss
+                    Resource={Resource}
+                    layout={layout}
+                    globalContent={globalContent}
                 />
                 <Syndication
                     type={type}

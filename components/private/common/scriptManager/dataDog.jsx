@@ -4,7 +4,7 @@ import { DATADOG_CONFIG } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 
-function Datadog() {
+function Datadog({ location = 'head' }) {
     const {
         deployment,
         arcSite = 'la-nacion-ar',
@@ -146,28 +146,30 @@ function Datadog() {
     };
 
     return (
-        <>
-            <script
-                async
-                type="text/javascript"
-                dangerouslySetInnerHTML={{ __html: scriptLog }}
-            />
-            <script
-                async
-                type="text/javascript"
-                dangerouslySetInnerHTML={{ __html: scriptRum }}
-            />
-            <script
-                async
-                id="script-configure-datadog-context"
-                data-obj={JSON.stringify(obj)}
-                defer
-                type="text/javascript"
-                src={deployment(
-                    `${contextPath}/resources/js/LN/configureDatadogContext.min.js`
-                )}
-            />
-        </>
+        location === 'head' && (
+            <>
+                <script
+                    async
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{ __html: scriptLog }}
+                />
+                <script
+                    async
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{ __html: scriptRum }}
+                />
+                <script
+                    async
+                    id="script-configure-datadog-context"
+                    data-obj={JSON.stringify(obj)}
+                    defer
+                    type="text/javascript"
+                    src={deployment(
+                        `${contextPath}/resources/js/LN/configureDatadogContext.min.js`
+                    )}
+                />
+            </>
+        )
     );
 }
 

@@ -1,8 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 
-function ComscoreFoodit({ config, configNoScript }) {
+function ComscoreFoodit({ config, configNoScript, location = 'head' }) {
     if (!config || !configNoScript) return null;
+    if (location !== 'head') return null;
 
     const script = `var _comscore = _comscore || [];
         _comscore.push(${JSON.stringify({

@@ -3,7 +3,7 @@ const BODYTOP = 'body-top';
 const HEAD = 'head';
 
 export default {
-    Datadog: { props: {}, location: [BODYBOTTOM] },
+    Datadog: { props: {}, location: [HEAD] },
     GTM: {
         props: { id: 'GTM-M5NBFQW9', excludeInArcPreview: true },
         location: [HEAD, BODYTOP]
@@ -19,7 +19,7 @@ export default {
                 cj: '1'
             }
         },
-        location: [BODYBOTTOM]
+        location: [HEAD]
     },
     SocialEmbeds: {
         props: {},
@@ -33,13 +33,10 @@ export default {
         props: {},
         location: [HEAD]
     },
-    Marfeel: { props: {}, location: [BODYBOTTOM] },
+    Marfeel: { props: {}, location: [HEAD] },
     Observable: { props: {}, location: [BODYBOTTOM] },
     DataModal: { props: {}, location: [BODYBOTTOM] },
     FooditEventsHelper: { props: {}, location: [BODYBOTTOM] },
-    TikTokPixel: {
-        props: { id: 'D23O82JC77UF7183BOFG' },
-        location: [BODYBOTTOM]
-    },
+    TikTokPixel: { props: { id: 'D23O82JC77UF7183BOFG' }, location: [HEAD] },
     GoogleOneTap: { props: {}, location: [HEAD] }
 };
