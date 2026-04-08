@@ -4,24 +4,21 @@ import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { Category } from '@ln/foodit-ui-category';
 import {
-    groupsParser,
-    itemGroupsParser,
     registerCardIndex,
-    resolveUrl,
-    validateCardCategory
+    validateCardCategory,
+    transformCategoryData
 } from './_helper';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 
-function CardCategory({ id: featureId, isAdmin = false, customFields }) {
+function CardCategory({ id: featureId, isAdmin, customFields }) {
     const {
         title = '',
         image = '',
         url = '',
-        query = '',
-        groups = [],
-        itemGroups = []
+        rapida = false,
+        facil = false
     } = customFields;
 
     const cardIndex = useMemo(() => registerCardIndex(featureId), [featureId]);
@@ -38,29 +35,14 @@ function CardCategory({ id: featureId, isAdmin = false, customFields }) {
         image,
         url,
         imageUrl,
-        query,
-        groups,
-        itemGroups
+        rapida,
+        facil
     });
 
-    const groupsParsered = groupsParser(groups);
-    const groupSelecteds = groupsParsered.join('|');
-
-    const itemGroupSelecteds = itemGroupsParser({
-        itemGroups,
-        groups: groupsParsered
-    })
-        .join('|')
-        .replaceAll(',', '^');
-
-    const urlCustom = resolveUrl({
-        query,
-        titleAcu: title,
-        groups: groupSelecteds,
-        itemGroups: itemGroupSelecteds,
-        featureId
-    });
-
+    const { modifiedTitle, modifiedUrl } = useMemo(
+        () => transformCategoryData({ title, url, rapida, facil }),
+        [title, url, rapida, facil]
+    );
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
@@ -69,19 +51,19 @@ function CardCategory({ id: featureId, isAdmin = false, customFields }) {
         <Static id={featureId}>
             <div className="h-100">
                 <Category
-                    title={title}
+                    title={modifiedTitle}
                     imageProps={{
                         src: imageUrl,
-                        alt: `Foto de ${title}`
+                        alt: `Foto de ${modifiedTitle}`
                     }}
                     linkProps={{
-                        href: url || urlCustom,
-                        title: `Ir a ${title}`
+                        href: modifiedUrl,
+                        title: `Ir a ${modifiedTitle}`
                     }}
                     data-test-id={`carousel-category-card-${featureId}`}
                     data-interaction="dataLayerInteraction"
                     data-event="navbar"
-                    data-button={title}
+                    data-button={modifiedTitle}
                     data-label={cardCategoryLabel}
                 />
             </div>
@@ -108,21 +90,17 @@ CardCategory.propTypes = {
             description: 'Ingrese aquí la url de la categoria',
             defaultValue: ''
         }),
-        query: PropTypes.string.tag({
-            label: 'Termino a buscar',
-            description: 'Ingrese aquí texto de busqueda',
-            defaultValue: ''
-        }),
-        groups: PropTypes.list.tag({
-            label: 'Grupos de busqueda',
-            description: 'Ingrese aquí los grupos de busqueda',
-            defaultValue: []
-        }),
-        itemGroups: PropTypes.list.tag({
-            label: 'Valores de los grupos de busqueda',
+        rapida: PropTypes.bool.tag({
+            name: 'Agregar filtro "Rápida"',
             description:
-                'Ingrese aquí los datos, si son multiples separe con coma',
-            defaultValue: []
+                'Modifica la url para agregar el filtro "Rápida" en la categoría',
+            defaultValue: false
+        }),
+        facil: PropTypes.bool.tag({
+            name: 'Agregar filtro "Fácil"',
+            description:
+                'Modifica la url para agregar el filtro "Fácil" en la categoría',
+            defaultValue: false
         })
     }).isRequired
 };

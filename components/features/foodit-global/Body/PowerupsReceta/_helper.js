@@ -1,16 +1,12 @@
 import { SITE_FOODIT } from 'fusion:environment';
 import get from '../../../../private/common/utils/get';
 
-const generateBaseUrlTag = (tagName = '', idArticle = '') => {
+const generateBaseUrlTag = (tagName = '') => {
     const tagPathTransformed = tagName.replace(/\s/g, '-').trim().toLowerCase();
-    return `${SITE_FOODIT}/tema/${tagPathTransformed}-${idArticle.toLowerCase()}/?query=recetas&title=${tagName}`;
+    return `${SITE_FOODIT}/tema/${tagPathTransformed}/?query=recetas&title=${tagName}`;
 };
 
-export const setUrlTag = ({
-    nameSection = '',
-    tagList = [],
-    idArticle = ''
-} = {}) => {
+export const setUrlTag = ({ nameSection = '', tagList = [] } = {}) => {
     if (tagList) {
         return tagList.map(tag => {
             const tagPath = get(tag, 'path', '');
@@ -19,7 +15,7 @@ export const setUrlTag = ({
                 tagPath && (tagPath.endsWith('/') ? tagPath : `${tagPath}/`);
 
             const tagPathWithQuery = !tagPath
-                ? `${generateBaseUrlTag(tag, idArticle)}&groups=${nameSection}&itemGroups=${tag}`
+                ? `${generateBaseUrlTag(tag)}&groups=${nameSection}&itemGroups=${tag}`
                 : '';
 
             return {
@@ -74,11 +70,10 @@ const getTagList = ({
     occasions = [],
     taxonomy = {},
     regions = [],
-    idArticle
+    hasVideo = false
 } = {}) => {
     const sectionsTags = setUrlTag({
-        tagList: get(taxonomy, 'sections', []),
-        idArticle
+        tagList: get(taxonomy, 'sections', [])
     });
 
     const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dietas'];
@@ -89,27 +84,34 @@ const getTagList = ({
 
     const cookingTypesTags = setUrlTag({
         nameSection: 'cookingtypes',
-        tagList: cookingTypes,
-        idArticle
+        tagList: cookingTypes
     });
 
     const occasionsTags = setUrlTag({
         nameSection: 'occasions',
-        tagList: occasions,
-        idArticle
+        tagList: occasions
     });
 
     const regionsTags = setUrlTag({
         nameSection: 'regions',
-        tagList: regions,
-        idArticle
+        tagList: regions
     });
+
+    const videoTag = hasVideo
+        ? [
+              {
+                  text: 'video',
+                  url: `${generateBaseUrlTag('Recetas con video')}&groups=video_jw|subtype&itemGroups=video_jw|7`
+              }
+          ]
+        : [];
 
     return [
         ...cookingTypesTags,
         ...occasionsTags,
         ...regionsTags,
-        ...filteredSectionsTags
+        ...filteredSectionsTags,
+        ...videoTag
     ];
 };
 
