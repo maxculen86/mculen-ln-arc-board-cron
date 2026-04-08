@@ -5,31 +5,9 @@ export function createScriptBanners() {
     );
 
     if (document && !scriptElement) {
-        const loadScript = () => {
-            const script = document.createElement('script');
-            script.src = scriptAddManager;
-            script.async = true;
-            document.body.appendChild(script);
-        };
-
-        const loadAfterFirstPaint = () => {
-            if (requestIdleCallback) {
-                requestIdleCallback(loadScript, { timeout: 2000 });
-            } else {
-                setTimeout(loadScript, 100);
-            }
-        };
-
-        const paints = performance.getEntriesByType('paint');
-        const hasFirstPaint =
-            paints && paints.some(p => p.name === 'first-contentful-paint');
-
-        if (hasFirstPaint || document.readyState === 'complete') {
-            loadAfterFirstPaint();
-        } else {
-            window.addEventListener('load', loadAfterFirstPaint, {
-                once: true
-            });
-        }
+        const script = document.createElement('script');
+        script.src = scriptAddManager;
+        script.async = true;
+        document.body.appendChild(script);
     }
 }

@@ -7,12 +7,29 @@ import { getHomeOpeningImages, getPromoItemsImages } from './_helper';
 import { PreloadAcuFirstImage } from './components/preloadAcuFirstImage';
 import get from '../../../../../private/common/utils/get';
 import filter from '../../../../../../content/filters/foodit/chefs';
+import { ejesHomeMock } from '../../subcategorias/helpers';
 
 const componentRequiredLayouts = {
-    'Foodit-home': ({ renderables, isAdmin }) => {
+    'Foodit-home': ({ renderables, isAdmin, contextPath, deployment }) => {
         const openingImages = getHomeOpeningImages(renderables, isAdmin);
 
-        return <PreloadImages resizedUrls={openingImages} />;
+        const assetsPath = file =>
+            deployment(
+                `${contextPath}/resources/foodit/assets/images/ejes/${file}`
+            );
+
+        const firstEjeImage =
+            ejesHomeMock.length > 0
+                ? [
+                      {
+                          resizedUrl: assetsPath(ejesHomeMock[0].imageProps.src)
+                      }
+                  ]
+                : [];
+
+        const criticalImages = [...openingImages, ...firstEjeImage];
+
+        return <PreloadImages resizedUrls={criticalImages} />;
     },
     'Foodit-acumulado': ({ globalContent }) => {
         const { _id: id = '', articles = [] } = globalContent;
