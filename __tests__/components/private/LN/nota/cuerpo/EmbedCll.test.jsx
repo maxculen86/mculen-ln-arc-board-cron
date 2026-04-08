@@ -117,6 +117,7 @@ describe('EmbedCll Component', () => {
         expect(
             iframe.getAttribute('src').startsWith(matchDetailWidgetUrl)
         ).toBeTruthy();
+
         const parentDiv = iframe.closest('div.com-anexo');
         expect(parentDiv).toBeInTheDocument();
         expect(parentDiv).toHaveClass('pym');
@@ -181,6 +182,39 @@ describe('EmbedCll Component', () => {
         expect(iframe).toHaveAttribute('title', iframeTitle);
         expect(
             iframe.getAttribute('src').startsWith(averageTableWidgetUrl)
+        ).toBeTruthy();
+
+        const parentDiv = iframe.closest('div.com-anexo');
+        expect(parentDiv).toBeInTheDocument();
+        expect(parentDiv).toHaveClass('pym');
+    });
+
+    it('should generate correct content when embedType is "isTopScorersTable"', () => {
+        const topScorersWidgetUrl =
+            'https://widget-canchallena.clanacion.com.ar/futbol/copa-argentina/goleadores/widget/';
+        const testData = {
+            embed: {
+                config: {
+                    widgetUrl: topScorersWidgetUrl,
+                    embedType: 'isTopScorersTable'
+                }
+            },
+            _id: '77777'
+        };
+        const { container } = render(<EmbedCll data={testData} />);
+
+        const htmlContent = container.querySelector('.com-embed.--html');
+        expect(htmlContent).toBeInTheDocument();
+
+        const wrapperDiv = htmlContent.querySelector('div.p-overflow_max767');
+        expect(wrapperDiv).toBeInTheDocument();
+        expect(wrapperDiv.className).toMatch(/p-overflow_max767/);
+
+        const iframe = container.querySelector('iframe');
+        expect(iframe).toBeInTheDocument();
+        expect(iframe).toHaveAttribute('title', iframeTitle);
+        expect(
+            iframe.getAttribute('src').startsWith(topScorersWidgetUrl)
         ).toBeTruthy();
 
         const parentDiv = iframe.closest('div.com-anexo');
