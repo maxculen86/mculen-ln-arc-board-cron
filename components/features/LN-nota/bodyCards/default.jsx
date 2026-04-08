@@ -26,7 +26,7 @@ import { scrollToGrid } from './_utils/bodyCardsHelper';
 import { queueGoogletagCommand } from '../../../private/LN/common/utils/bannerHelper';
 
 function BodyCards() {
-    const { outputType, globalContent = {} } = useAppContext();
+    const { outputType, globalContent = {}, layout } = useAppContext();
     const { _id, content_elements: contentElements } = globalContent;
     const gridRef = useRef(null);
     const device = useViewportSize();
@@ -79,9 +79,10 @@ function BodyCards() {
                 cardGroups,
                 globalContent,
                 renderConfig,
-                device
+                device,
+                layout
             ),
-        [cardGroups, globalContent, renderConfig, device]
+        [cardGroups, globalContent, renderConfig, device, layout]
     );
 
     useEffect(() => {

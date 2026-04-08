@@ -8,16 +8,20 @@ const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
     const specialSectionTitle = SECTION_TITLES[sectionSlug] ?? null;
 
     const title = specialSectionTitle || transformedAcu[0].titulo;
+    const isFunebre = sectionSlug == '/avisos/funebres'
 
     const metadata = {
         paginate: paginationValue,
-        title,
-        banners: transformedAcu[0].banners,
-        total: transformedAcu[0].acumuladoTotal,
-        category: {
-            slug: sectionSlug,
-            value: title
-        }
+        title
+    };
+    if (!isFunebre) {
+        metadata.banners = transformedAcu[0].banners;
+    }
+
+    metadata.total = transformedAcu[0].acumuladoTotal;
+    metadata.category = {
+        slug: sectionSlug,
+        value: title
     };
 
     delete transformedAcu[0].paginar;

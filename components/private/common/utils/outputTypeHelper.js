@@ -25,12 +25,12 @@ const nodeTypeTitles = {
                 : uncapitalizeFirstLetter(basicTitle)
         } - LA NACION`;
     },
-    nota: ({ PBTitle, shortTitle, metaTitle, subtype }) => {
+    nota: ({ PBTitle, basicTitle, metaTitle, subtype }) => {
         if (subtype === LIVEBLOG_EDITORIAL) {
             return PBTitle;
         }
         if (metaTitle) return `${metaTitle} - LA NACION`;
-        return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
+        return `${basicTitle} - LA NACION`;
     },
     home: ({ PBTitle, longTitle, defaultTitle }) =>
         longTitle || PBTitle || defaultTitle,
@@ -76,6 +76,7 @@ export const getTagTitle = ({
         nodeTypeTitles.default
     )({
         PBTitle,
+        basicTitle,
         shortTitle,
         longTitle,
         defaultTitle,

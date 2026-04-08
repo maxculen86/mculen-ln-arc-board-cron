@@ -31,7 +31,8 @@ function DsBody() {
                 bodyComponents: finalBodyComponents,
                 ruleConditions: finalRuleConditions,
                 dynamicBanners,
-                currentDevice: device
+                currentDevice: device,
+                layout
             })}
         </BaseBodyWrapper>
     );

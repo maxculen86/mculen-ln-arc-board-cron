@@ -10,6 +10,10 @@ const bannerPropTypes = {
         group: PropTypes.oneOf(['nota', 'acumulado', 'home']).tag({
             label: 'Ubicacion'
         }).isRequired,
+        theme: PropTypes.oneOf(['light', 'dark']).tag({
+            label: 'Tema',
+            defaultValue: 'light'
+        }),
         desktop: PropTypes.oneOf(BANNERS_DESKTOP),
         mobile: PropTypes.oneOf(BANNERS_MOBILE),
         tablet: PropTypes.oneOf(BANNERS_TABLET),

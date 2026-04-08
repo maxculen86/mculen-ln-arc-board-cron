@@ -57,7 +57,7 @@ function CardInfo() {
                                 <IconSprite name={iconName} critical />
                             </Icon>
                             <div className="flex flex-column text-center jc-center ai-center gap-4">
-                                <Text className="prumo prumo-semibold text-18">
+                                <Text className="prumo prumo-semibold text-20">
                                     {title}
                                 </Text>
                                 <Text className="roboto roboto-regular text-16 text-light-600">

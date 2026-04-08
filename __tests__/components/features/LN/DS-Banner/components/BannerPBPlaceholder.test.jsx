@@ -27,4 +27,34 @@ describe('components - features - LN - DS-Banner - BannerPBPlaceholder', () => {
 
         expect(screen.getByText('FALTA DFP ID')).toBeInTheDocument();
     });
+
+    describe('theme variants snapshots', () => {
+        it('matches snapshot - light (default)', () => {
+            const { container } = render(
+                <BannerPBPlaceholder {...baseProps} />
+            );
+            expect(container).toMatchSnapshot();
+        });
+
+        it('matches snapshot - dark', () => {
+            const { container } = render(
+                <BannerPBPlaceholder {...baseProps} theme="dark" />
+            );
+            expect(container).toMatchSnapshot();
+        });
+
+        it('matches snapshot - error (missDfpId)', () => {
+            const { container } = render(
+                <BannerPBPlaceholder {...baseProps} missDfpId />
+            );
+            expect(container).toMatchSnapshot();
+        });
+
+        it('matches snapshot - error (error string)', () => {
+            const { container } = render(
+                <BannerPBPlaceholder {...baseProps} error="slot inválido" />
+            );
+            expect(container).toMatchSnapshot();
+        });
+    });
 });

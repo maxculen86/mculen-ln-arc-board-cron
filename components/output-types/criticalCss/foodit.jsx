@@ -11,7 +11,13 @@ const {
         FooditHome,
         FooditChatIA,
         FooditFichaReceta,
-        FooditFichaNota
+        FooditFichaNota,
+        FooditListadoCompras,
+        FooditRecetario,
+        FooditAcumulado,
+        FooditMenuSemanal,
+        FooditChef,
+        FooditBuscador
     }
 } = config;
 
@@ -25,7 +31,13 @@ export function GetCriticalCss({ layout, Resource, globalContent }) {
         { pageLayout: FooditHome },
         { pageLayout: FooditChatIA },
         { pageLayout: FooditFichaReceta },
-        { pageLayout: FooditFichaNota }
+        { pageLayout: FooditFichaNota },
+        { pageLayout: FooditListadoCompras },
+        { pageLayout: FooditRecetario },
+        { pageLayout: FooditAcumulado },
+        { pageLayout: FooditMenuSemanal },
+        { pageLayout: FooditChef },
+        { pageLayout: FooditBuscador }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

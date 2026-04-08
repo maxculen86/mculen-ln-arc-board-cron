@@ -30,7 +30,7 @@ function BuildAudioPlayerRender({ audioPlayerData }) {
                         transitionOut: 'fadeOutUp'
                     }}
                 >
-                    <div className="bottom-0 fixed w-full bg-neutral-1 left-1/2 -translate-x-1/2 md:max-w-640 p-16 shadow-center z-50">
+                    <div className="bottom-0 fixed w-full bg-neutral-1 left-1/2 -translate-x-1/2 md:max-w-640 p-16 shadow-center z-110">
                         <div className="flex flex-col gap-12">
                             <Button
                                 variant="ghost"

@@ -37,8 +37,8 @@ function MainSaveRecipe(props) {
                     label={currentCollectionId || 'Seleccionar colección'}
                     floatingLabelText="Colección"
                     openClassName="border-secondary-positive"
-                    className="roboto roboto-regular text-12"
-                    hoverClassName="border-accent-lechuga__hover"
+                    className="roboto roboto-regular text-12 border-secondary-positive__focus border-accent-lechuga__hover"
+                    hoverClassName="border-secondary-positive__focus"
                     listClassName="text-12 roboto roboto-regular shadow-modal bg-white p-16 rounded-8 border border-all border-thin border-light-100"
                     onChange={handleSelectChange}
                     floatingLabelProps={{
@@ -84,7 +84,7 @@ function MainSaveRecipe(props) {
                             className: 'bg-white'
                         }}
                         error={Boolean(error?.hasError)}
-                        errorClassName="border-danger-600"
+                        errorClassName="border-error-default border-error-light__hover border-error-dark__focus"
                         errorMessage={<ErrorMessage message={error?.message} />}
                         closable
                     />
@@ -93,5 +93,4 @@ function MainSaveRecipe(props) {
         </div>
     );
 }
-
 export default MainSaveRecipe;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpeningAddons snapshots snapshot  1`] = `
+<div>
+  <div
+    class="flex items-center justify-center gap-8 flex-col md:flex-row"
+  >
+    <span
+      data-testid="badge"
+      data-type="subscriber"
+    >
+      Suscriptores
+    </span>
+  </div>
+</div>
+`;

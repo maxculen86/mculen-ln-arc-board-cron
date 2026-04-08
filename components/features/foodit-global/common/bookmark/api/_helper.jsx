@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@ln/foodit-ui-link';
-import renderToast from '../../../../private-global/common/utils/renderToast';
+import renderToasts from '../../../../ui/foodit/toastContainer/renderToast';
 
 export const TOAST = {
     SUCCESS: {
@@ -78,7 +78,7 @@ export const TOAST = {
     },
     ERROR: {
         TITLE: '¡Uppps!',
-        VARIANT: 'danger',
+        VARIANT: 'error',
         MESSAGE: {
             GENERIC: 'Parece que hubo un problema',
             LIMIT_BOOKMARKS: 'Se alcanzó el limite de 150 recetas guardadas.',
@@ -87,18 +87,20 @@ export const TOAST = {
     }
 };
 
-export const addToast = ({ variant, title, message }) => {
-    renderToast({
-        variant,
+export const addToast = ({ title, message }) => {
+    renderToasts({
+        color: TOAST.SUCCESS.VARIANT,
         title,
-        message
+        description: message,
+        className: 'font-secondary'
     });
 };
 
 export const addErrorToast = () => {
-    renderToast({
-        variant: TOAST.ERROR.VARIANT,
+    renderToasts({
+        color: TOAST.ERROR.VARIANT,
         title: TOAST.ERROR.TITLE,
-        message: TOAST.ERROR.MESSAGE.GENERIC
+        description: TOAST.ERROR.MESSAGE.GENERIC,
+        className: 'font-secondary'
     });
 };
