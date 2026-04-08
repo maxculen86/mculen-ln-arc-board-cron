@@ -85,23 +85,19 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
         expect(preloadAcuFirstImage).toHaveAttribute('data-id', 'test-id');
     });
 
-    it('renders PreloadImages with opening images + first eje image for layout "Foodit-home"', () => {
+    it('renders PreloadImages with only opening images for layout "Foodit-home"', () => {
         const renderables = [{}, {}];
         const mockOpeningUrls = [
             { resizedUrl: 'opening-url1' },
             { resizedUrl: 'opening-url2' }
         ];
-        const mockCombinedImages = [
+        const mockImages = [
             { mediaPreload: '(min-width: 600px)', href: 'opening-url1' },
-            { mediaPreload: '(max-width: 599px)', href: 'opening-url2' },
-            {
-                mediaPreload: '(min-width: 320px)',
-                href: 'https://example.com/pf/resources/foodit/assets/images/ejes/eje1.jpg'
-            }
+            { mediaPreload: '(max-width: 599px)', href: 'opening-url2' }
         ];
 
         getHomeOpeningImages.mockReturnValue(mockOpeningUrls);
-        getImagesToLoadWithPicture.mockReturnValue(mockCombinedImages);
+        getImagesToLoadWithPicture.mockReturnValue(mockImages);
 
         render(
             <PreloadFooditImages
@@ -114,21 +110,12 @@ describe('Components - Features - Foodit-global - Common - Image - PreloadFoodit
         );
 
         expect(getHomeOpeningImages).toHaveBeenCalledWith(renderables, false);
-
-        expect(mockDeployment).toHaveBeenCalledWith(
-            '/pf/resources/foodit/assets/images/ejes/eje1.jpg'
+        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(
+            true,
+            mockOpeningUrls
         );
-
-        expect(getImagesToLoadWithPicture).toHaveBeenCalledWith(true, [
-            ...mockOpeningUrls,
-            {
-                resizedUrl:
-                    'https://example.com/pf/resources/foodit/assets/images/ejes/eje1.jpg'
-            }
-        ]);
-
-        expect(preload).toHaveBeenCalledTimes(mockCombinedImages.length);
-        mockCombinedImages.forEach((image, index) => {
+        expect(preload).toHaveBeenCalledTimes(mockImages.length);
+        mockImages.forEach((image, index) => {
             expect(preload).toHaveBeenNthCalledWith(
                 index + 1,
                 image.href,

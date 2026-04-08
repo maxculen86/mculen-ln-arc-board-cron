@@ -38,14 +38,15 @@ describe('components - private - common - scriptManager - ComscoreFoodit', () =>
         expect(container2.firstChild).toBeNull();
     });
 
-    it('does not render anything if location is not "head"', () => {
+    it('renders script and noscript elements regardless of location', () => {
         const { container } = render(
             <ComscoreFoodit
                 config={mockConfig}
                 configNoScript={mockConfigNoScript}
-                location="body"
+                location="body-bottom"
             />
         );
-        expect(container.firstChild).toBeNull();
+        expect(container.querySelector('#comscore')).toBeInTheDocument();
+        expect(container.querySelector('noscript')).toBeInTheDocument();
     });
 });
