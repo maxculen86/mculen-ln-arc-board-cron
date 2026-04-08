@@ -1,51 +1,63 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { Icon } from '@ln/common-ui-icon';
-import { Button } from '@ln/contenidos-ui-button';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import Static from 'fusion:static';
-import IconSprite from '../../private-global/common/iconSprite/IconSprite';
-import { shouldHideLnRadio } from './_helpers';
+import Button from '../../ui/ln/button/default';
+import Icon from '../../ui/ln/icon/default';
+import Divider from '../../ui/ln/divider/default';
+import { DEFAULT_VARIANT, shouldHideLnRadio, logoImage } from './_helpers';
+import { containerClassname, buttonClassname, titleClassname } from './styles';
 
 function LnRadio({ id: featureId, customFields }) {
     const { contextPath, deployment, isAdmin } = useAppContext() || {};
-    const { enabledDays = [], shouldSchedule = false } = customFields || {};
+    const {
+        enabledDays = [],
+        shouldSchedule = false,
+        variant
+    } = customFields || {};
 
     if (shouldHideLnRadio({ isAdmin, enabledDays, shouldSchedule }))
         return null;
 
-    const path = `${contextPath}/resources/images/ln-radio.webp`;
-    const deploymentPath = deployment(path);
+    const logoPath = logoImage[variant] || logoImage[DEFAULT_VARIANT];
+    const logoDeploymentPath = deployment(`${contextPath}${logoPath}`);
 
     return (
         <Static id={featureId}>
-            <div className="mt-72 pt-24 border border-top border-thin border-neutral-light-900">
-                <div className="flex ai-center jc-between pb-16">
-                    <div className="flex gap-16 ai-center text-20">
-                        <Adaptableimage
-                            src={deploymentPath}
-                            alt="Imagen de radio"
-                            height={71}
-                        />
-                        <span className="sm-none text-neutral-light-900">
-                            El mundo necesita más música
-                        </span>
+            <div data-tw>
+                <div className="w-full mt-72 pt-24 border-t border-neutral-950">
+                    <div className={containerClassname({ variant })}>
+                        <div className="flex gap-16 items-center z-10">
+                            <img
+                                src={logoDeploymentPath}
+                                alt="Imagen de radio"
+                                className="h-48 md:h-71"
+                            />
+                            <span className={titleClassname({ variant })}>
+                                El mundo necesita más música
+                            </span>
+                        </div>
+                        <Button
+                            title="Ir a escuchar más música"
+                            className={buttonClassname({ variant })}
+                            textTransform="uppercase"
+                            variant="ghost"
+                            href="https://masmusica.lanacion.com.ar/"
+                            target="_blank"
+                            rounded="custom"
+                            color="custom"
+                            size="custom"
+                        >
+                            Escuchá + música
+                            <Icon
+                                size={20}
+                                className="hidden md:block"
+                                name="play-filled"
+                            />
+                        </Button>
                     </div>
-                    <Button
-                        title="Ir a escuchar más música"
-                        className="uppercase bg-neutral-light-999 rounded-80 text-ln-radio text-12"
-                        variant="custom"
-                        href="https://masmusica.lanacion.com.ar/"
-                        target="_blank"
-                    >
-                        Escuchá + música
-                        <Icon size={20} className="sm-none">
-                            <IconSprite name="mediaPlay" />
-                        </Icon>
-                    </Button>
+                    <Divider />
                 </div>
-                <hr className="w-100" />
             </div>
         </Static>
     );
