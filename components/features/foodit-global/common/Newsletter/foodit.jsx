@@ -27,7 +27,7 @@ export function NewsletterFoodit() {
     }, [token, accessToken]);
 
     return (
-        <div>
+        <div data-test-id="container-newsletter-foodit">
             <RoofFoodit
                 title={{
                     text: 'No te pierdas ninguna receta',
