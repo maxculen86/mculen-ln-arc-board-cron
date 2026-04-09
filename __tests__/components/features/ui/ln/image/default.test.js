@@ -67,6 +67,29 @@ describe('components - features - ui - ln - image', () => {
             expect(image).toHaveAttribute('id', 'custom-id');
             expect(image).toHaveAttribute('data-custom', 'test-value');
         });
+
+        it('should render a plain img when renderImgOnly is enabled', () => {
+            render(
+                <Image
+                    {...commonProps}
+                    renderImgOnly
+                    alt="Hero image"
+                    srcSet="test.jpg 420w, hero.jpg 1200w"
+                    sizes="100vw"
+                />
+            );
+
+            const image = getByTestId('ds-image');
+            expect(image.tagName).toBe('IMG');
+            expect(image).toHaveAttribute(
+                'srcset',
+                'test.jpg 420w, hero.jpg 1200w'
+            );
+            expect(image).toHaveAttribute('sizes', '100vw');
+            expect(
+                screen.queryByTestId('image-placeholder')
+            ).not.toBeInTheDocument();
+        });
     });
 
     describe('DOM Structure Tracking', () => {

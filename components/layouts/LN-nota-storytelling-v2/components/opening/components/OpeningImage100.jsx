@@ -7,8 +7,11 @@ import { openingImage100Variants, sectionHeight } from './styles';
 
 function OpeningImage100({
     diagram,
-    pictureSources,
-    imgDefaultUrl,
+    src,
+    srcset,
+    sizes,
+    width,
+    height,
     altText,
     globalContent = {},
     layout = '',
@@ -32,17 +35,21 @@ function OpeningImage100({
             )}
             data-diagram={diagram}
         >
-            {imgDefaultUrl && (
+            {src && (
                 <ImageUI
                     alt={altText}
-                    src={imgDefaultUrl}
+                    src={src}
+                    srcSet={srcset}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
+                    renderImgOnly
                     classnames={{
                         wrapper: 'opacity-60',
                         image: 'w-full h-full object-cover overflow-hidden'
                     }}
                     fetchPriority="high"
                     loading="eager"
-                    sources={pictureSources}
                 />
             )}
             <div className={wrapperClass}>

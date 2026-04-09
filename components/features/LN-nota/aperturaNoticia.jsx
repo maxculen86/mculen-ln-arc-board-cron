@@ -42,6 +42,7 @@ function AperturaNoticia(props) {
                         scriptForZoom={scriptForZoom}
                         autoplay={false}
                         isApertura
+                        isAperturaNota
                         outputType={outputType}
                         parrafo={firstText || 'LA NACION'}
                         tituloNota={tituloNota}

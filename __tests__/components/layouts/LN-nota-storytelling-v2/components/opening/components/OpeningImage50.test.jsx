@@ -9,17 +9,49 @@ jest.mock('@ln/ds-cva', () => ({
 jest.mock(
     '../../../../../../../components/features/ui/ln/image/default',
     () =>
-        ({ alt, src, className, fetchPriority, loading, sources }) => (
-            <img
-                data-testid="image-ui"
-                alt={alt}
-                src={src}
-                className={className}
-                fetchPriority={fetchPriority}
-                loading={loading}
-                data-sources={JSON.stringify(sources)}
-            />
-        )
+        ({
+            alt,
+            src,
+            srcSet,
+            sizes,
+            width,
+            height,
+            className,
+            fetchPriority,
+            loading,
+            renderImgOnly = false,
+            sources = []
+        }) => {
+            const image = (
+                <img
+                    data-testid="image-ui"
+                    alt={alt}
+                    src={src}
+                    srcSet={srcSet}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
+                    className={className}
+                    fetchPriority={fetchPriority}
+                    loading={loading}
+                />
+            );
+
+            if (renderImgOnly) return image;
+
+            return (
+                <picture>
+                    {sources.map((source, idx) => (
+                        <source
+                            key={idx}
+                            srcSet={source.srcset}
+                            media={source.media}
+                        />
+                    ))}
+                    {image}
+                </picture>
+            );
+        }
 );
 
 jest.mock(
@@ -57,8 +89,11 @@ jest.mock(
 );
 
 const defaultProps = {
-    pictureSources: [{ srcset: 'image-800.jpg', media: '(min-width: 800px)' }],
-    imgDefaultUrl: 'https://example.com/image.jpg',
+    src: 'https://example.com/image.jpg',
+    srcset: 'image-375.jpg 375w, image-1200.jpg 1200w',
+    sizes: '(max-width: 767px) 375px, 1200px',
+    width: 1200,
+    height: 675,
     altText: 'Alt de prueba',
     globalContent: { taxonomy: { sections: [] } },
     layout: 'basic',
@@ -124,9 +159,7 @@ describe('OpeningImage50', () => {
         });
 
         it('does not render titles when title1 and title2 are empty', () => {
-            render(
-                <OpeningImage50 imgDefaultUrl="https://example.com/image.jpg" />
-            );
+            render(<OpeningImage50 src="https://example.com/image.jpg" />);
             expect(screen.queryByRole('heading', { level: 1 })).toBeNull();
             expect(screen.queryByRole('heading', { level: 2 })).toBeNull();
         });
@@ -153,7 +186,7 @@ describe('OpeningImage50', () => {
     });
 
     describe('image', () => {
-        it('renders ImageUI when imgDefaultUrl has value', () => {
+        it('renders ImageUI when src has value', () => {
             renderComponent();
             const img = screen.getByTestId('image-ui');
             expect(img).toBeInTheDocument();
@@ -168,21 +201,34 @@ describe('OpeningImage50', () => {
             expect(img).toHaveAttribute('loading', 'eager');
         });
 
-        it('passes pictureSources to ImageUI', () => {
+        it('passes responsive image attributes to ImageUI', () => {
             renderComponent();
             const img = screen.getByTestId('image-ui');
-            expect(JSON.parse(img.getAttribute('data-sources'))).toEqual([
-                { srcset: 'image-800.jpg', media: '(min-width: 800px)' }
-            ]);
+            expect(img).toHaveAttribute(
+                'srcset',
+                'image-375.jpg 375w, image-1200.jpg 1200w'
+            );
+            expect(img).toHaveAttribute(
+                'sizes',
+                '(max-width: 767px) 375px, 1200px'
+            );
         });
 
-        it('does not render ImageUI when imgDefaultUrl is empty', () => {
-            renderComponent({ imgDefaultUrl: '' });
+        it('renders a plain img without picture sources', () => {
+            const { container } = renderComponent();
+
+            expect(screen.getByTestId('image-ui')).toBeInTheDocument();
+            expect(container.querySelector('picture')).not.toBeInTheDocument();
+            expect(container.querySelectorAll('source')).toHaveLength(0);
+        });
+
+        it('does not render ImageUI when src is empty', () => {
+            renderComponent({ src: '' });
             expect(screen.queryByTestId('image-ui')).toBeNull();
         });
 
-        it('does not render ImageUI when imgDefaultUrl is undefined', () => {
-            renderComponent({ imgDefaultUrl: undefined });
+        it('does not render ImageUI when src is undefined', () => {
+            renderComponent({ src: undefined });
             expect(screen.queryByTestId('image-ui')).toBeNull();
         });
     });
@@ -194,7 +240,7 @@ describe('OpeningImage50', () => {
         });
 
         it('snapshot without image', () => {
-            const { container } = renderComponent({ imgDefaultUrl: '' });
+            const { container } = renderComponent({ src: '' });
             expect(container.firstChild).toMatchSnapshot();
         });
 
@@ -203,9 +249,9 @@ describe('OpeningImage50', () => {
             expect(container.firstChild).toMatchSnapshot();
         });
 
-        it('minimal snapshot (only imgDefaultUrl)', () => {
+        it('minimal snapshot (only src)', () => {
             const { container } = render(
-                <OpeningImage50 imgDefaultUrl="https://example.com/image.jpg" />
+                <OpeningImage50 src="https://example.com/image.jpg" />
             );
             expect(container.firstChild).toMatchSnapshot();
         });

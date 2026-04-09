@@ -1,3 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpeningImage100 snapshot  1`] = `undefined`;
+exports[`OpeningImage100 snapshot  1`] = `
+<div>
+  <section
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-height))]"
+    data-diagram="title-100"
+  >
+    <img
+      alt="Article image"
+      class="w-full h-full object-cover overflow-hidden"
+      data-fetch-priority="high"
+      data-loading="eager"
+      height="576"
+      sizes="(max-width: 500px) 500px, 1024px"
+      src="image-default.jpg"
+      srcset="image-small.jpg 500w, image-large.jpg 1024w"
+      width="1024"
+    />
+    <div
+      class="w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10"
+    >
+      <div
+        class="flex flex-col gap-8 mb-40 md:mb-80"
+      >
+        <div
+          data-testid="opening-addons"
+        >
+          OpeningAddons
+        </div>
+        <div
+          data-testid="opening-titles"
+        >
+          <h1>
+            Main Title
+          </h1>
+          <h2>
+            Subtitle
+          </h2>
+        </div>
+        <p
+          class="prumo text-white text-subheading-md"
+        >
+          This is the subheadline
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+`;

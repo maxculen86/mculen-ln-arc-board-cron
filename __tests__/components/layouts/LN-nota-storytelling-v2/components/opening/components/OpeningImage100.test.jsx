@@ -16,28 +16,45 @@ jest.mock(
         default: ({
             alt,
             src,
+            srcSet,
+            sizes,
+            width,
+            height,
             classnames,
             fetchPriority,
             loading,
-            sources
-        }) => (
-            <picture>
-                {sources?.map((source, idx) => (
-                    <source
-                        key={idx}
-                        srcSet={source.srcset}
-                        media={source.media}
-                    />
-                ))}
+            renderImgOnly = false,
+            sources = []
+        }) => {
+            const image = (
                 <img
                     alt={alt}
                     src={src}
+                    srcSet={srcSet}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
                     className={classnames?.image}
                     data-fetch-priority={fetchPriority}
                     data-loading={loading}
                 />
-            </picture>
-        )
+            );
+
+            if (renderImgOnly) return image;
+
+            return (
+                <picture>
+                    {sources.map((source, idx) => (
+                        <source
+                            key={idx}
+                            srcSet={source.srcset}
+                            media={source.media}
+                        />
+                    ))}
+                    {image}
+                </picture>
+            );
+        }
     })
 );
 
@@ -67,11 +84,11 @@ jest.mock(
 describe('OpeningImage100', () => {
     const mockProps = {
         diagram: 'title-100',
-        pictureSources: [
-            { srcset: 'image-small.jpg 500w', media: '(max-width: 500px)' },
-            { srcset: 'image-large.jpg 1024w', media: '(min-width: 501px)' }
-        ],
-        imgDefaultUrl: 'image-default.jpg',
+        src: 'image-default.jpg',
+        srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
+        sizes: '(max-width: 500px) 500px, 1024px',
+        width: 1024,
+        height: 576,
         altText: 'Article image',
         globalContent: { id: 'article-123' },
         layout: 'image-100-title',
@@ -94,21 +111,27 @@ describe('OpeningImage100', () => {
         const img = screen.getByAltText('Article image');
         expect(img).toHaveAttribute('data-fetch-priority', 'high');
         expect(img).toHaveAttribute('data-loading', 'eager');
+        expect(img).toHaveAttribute(
+            'srcset',
+            'image-small.jpg 500w, image-large.jpg 1024w'
+        );
+        expect(img).toHaveAttribute(
+            'sizes',
+            '(max-width: 500px) 500px, 1024px'
+        );
     });
 
-    it('should render responsive images with sources', () => {
-        render(<OpeningImage100 {...mockProps} />);
+    it('should render a plain img without picture sources', () => {
+        const { container } = render(<OpeningImage100 {...mockProps} />);
 
-        const sources = screen
-            .getAllByRole('img')[0]
-            .parentElement.querySelectorAll('source');
-        expect(sources).toHaveLength(2);
-        expect(sources[0]).toHaveAttribute('srcset', 'image-small.jpg 500w');
-        expect(sources[1]).toHaveAttribute('srcset', 'image-large.jpg 1024w');
+        const img = screen.getByAltText('Article image');
+        expect(container.querySelector('picture')).not.toBeInTheDocument();
+        expect(container.querySelectorAll('source')).toHaveLength(0);
+        expect(img.tagName).toBe('IMG');
     });
 
-    it('should not render image when imgDefaultUrl is empty', () => {
-        render(<OpeningImage100 {...mockProps} imgDefaultUrl="" />);
+    it('should not render image when src is empty', () => {
+        render(<OpeningImage100 {...mockProps} src="" />);
 
         expect(screen.queryByAltText('Article image')).not.toBeInTheDocument();
     });
@@ -166,8 +189,11 @@ describe('OpeningImage100', () => {
         render(
             <OpeningImage100
                 diagram="title-100"
-                pictureSources={[]}
-                imgDefaultUrl="image.jpg"
+                src="image.jpg"
+                srcset="image.jpg 1200w"
+                sizes="100vw"
+                width={1200}
+                height={675}
                 altText="Image"
                 globalContent={{}}
                 layout=""
@@ -213,7 +239,7 @@ describe('OpeningImage100', () => {
         );
     });
     it('snapshot ', () => {
-        const { container } = <OpeningImage100 {...mockProps} />;
+        const { container } = render(<OpeningImage100 {...mockProps} />);
         expect(container).toMatchSnapshot();
     });
 });

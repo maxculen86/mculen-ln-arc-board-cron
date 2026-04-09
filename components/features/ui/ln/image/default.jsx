@@ -10,7 +10,15 @@ import { cx } from '@ln/ds-cva';
  * @param {ImageProps} props
  * @returns {React.ReactElement}
  */
-function Image({ className, classnames, objectFit = 'contain', ...props }) {
+function Image({
+    className,
+    classnames,
+    objectFit = 'contain',
+    renderImgOnly = false,
+    sources,
+    style,
+    ...props
+}) {
     const imageRef = useRef(null);
 
     // TODO: implementar estado en la lib @ln/ds-common-image, tenemos esto provisorio ya que no esta ejecutando el onError correctamente cuando rehidrata el componente.
@@ -23,23 +31,41 @@ function Image({ className, classnames, objectFit = 'contain', ...props }) {
         }
     }, []);
 
+    const imageClassName = cx(
+        'h-full w-full',
+        { 'opacity-0': error },
+        className,
+        classnames?.image
+    );
+
+    if (renderImgOnly) {
+        return (
+            // Usamos esto para que ESLint no marque error: `alt` llega por props.
+            // eslint-disable-next-line jsx-a11y/alt-text
+            <img
+                ref={imageRef}
+                decoding="async"
+                className={imageClassName}
+                style={{ objectFit, ...style }}
+                {...props}
+            />
+        );
+    }
+
     return (
         <CommonImage
             ref={imageRef}
             objectFit={objectFit}
+            sources={sources}
             classnames={{
-                image: cx(
-                    'h-full w-full',
-                    { 'opacity-0': error },
-                    className,
-                    classnames?.image
-                ),
+                image: imageClassName,
                 placeholder: cx(
                     'bg-[url("/pf/resources/images/ln-placeholder.svg")] bg-no-repeat bg-center bg-[length:67px]',
                     classnames?.placeholder
                 ),
                 wrapper: cx('h-full w-full', classnames?.wrapper)
             }}
+            style={style}
             {...props}
         />
     );
