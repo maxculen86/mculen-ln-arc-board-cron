@@ -2691,6 +2691,9 @@ strong:not(.--font-primary),
   .pt-72_l {
     padding-top: 4.5rem;
   }
+  .pt-80_l {
+    padding-top: 5rem;
+  }
   .pt-89_l {
     padding-top: 5.5625rem;
   }

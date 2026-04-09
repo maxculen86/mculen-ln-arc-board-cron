@@ -14,7 +14,7 @@ function LiveBlogEditorial({ children }) {
         <BaseLayout className="liveblog-editorial">
             <main className="relative" style={{ paddingTop: '0' }}>
                 {/* ---- BANNERS ---- */}
-                <div className="bg-neutral-dark-1 w-100 pt-65 -mt-65 pt-118_m -mt-87_m mt-0_l pt-72_l pb-24_m">
+                <div className="bg-neutral-dark-1 w-100 pt-65 -mt-65 pt-118_m -mt-87_m -mt-57_l pt-80_l pb-24_m">
                     {children[0]}
                 </div>
                 {/* ---- APERTURA ---- */}
