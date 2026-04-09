@@ -41,6 +41,10 @@ function LoginSubscribeButtons({
     const subscribeButtonText =
         textByCategory[categoryEvent] ?? buttonSubscribeText;
 
+    const shouldHideLoginButtonInHeader =
+        comesFrom === 'HeaderFoodit' &&
+        subscribeButtonText?.toLowerCase().trim() !== 'suscribite';
+
     const tooltipText = termicasData?.tooltip_subscribe_foodit_text || '';
     const tooltipShow = termicasData?.tooltip_subscribe_foodit_show === 'true';
 
@@ -110,14 +114,16 @@ function LoginSubscribeButtons({
                     />
                 </Tooltip>
             )}
-            {buttonLogginText && categoryEvent !== 'home' && (
-                <LoginButton
-                    classNameButtons={classNameButtons}
-                    buttonLogginText={buttonLogginText}
-                    handleLoginClick={handleLoginClick}
-                    loginClassName={loginClassName}
-                />
-            )}
+            {buttonLogginText &&
+                categoryEvent !== 'home' &&
+                !shouldHideLoginButtonInHeader && (
+                    <LoginButton
+                        classNameButtons={classNameButtons}
+                        buttonLogginText={buttonLogginText}
+                        handleLoginClick={handleLoginClick}
+                        loginClassName={loginClassName}
+                    />
+                )}
         </>
     );
 }

@@ -33,13 +33,8 @@ export function BackButton({ variant = 'link', iconOnly }) {
         window.history.back();
     };
 
-    const classNameContainer =
-        variant === 'link'
-            ? 'pr-16 pr-24_md h-100 flex ai-center'
-            : 'pr-24_md lg-only';
-
     return (
-        <div className={classNameContainer}>
+        <div className="h-100 flex ai-center border border-all_lg border-thin rounded-4 border-secondary-positive p-8_lg">
             <Button
                 onClick={handleClick}
                 title="Ir atrás"
@@ -47,7 +42,7 @@ export function BackButton({ variant = 'link', iconOnly }) {
                 iconOnly={iconOnly}
                 size={32}
             >
-                <Icon size={iconOnly ? 16 : 24}>
+                <Icon size={20}>
                     <IconSprite
                         className="text-primary-positive"
                         name="arrow-left"
