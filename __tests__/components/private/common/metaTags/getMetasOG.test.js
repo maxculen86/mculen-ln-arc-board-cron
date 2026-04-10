@@ -45,6 +45,10 @@ jest.mock('fusion:environment', () => {
     };
 });
 
+jest.mock('fusion:properties', () => () => ({
+    host: 'https://www.lanacion.com.ar'
+}));
+
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
         expect(typeof getMetasOG).toEqual('function');
