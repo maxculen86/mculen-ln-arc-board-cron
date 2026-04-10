@@ -7,9 +7,11 @@ import { preload } from 'react-dom';
 import get from '../../get';
 import {
     LinkImagePreload,
+    LinkResponsiveImagePreload,
     wikiImagesWithWWW,
     replaceAllUrlsResizerObject
 } from '../../../../LN/common/utils/mediaHelper';
+import { buildOpeningImage } from '../../../../LN/common/utils/openingImageHelper';
 import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import capitalizeFirstLetter from '../../capitalizeFirstLetter';
 import ImagePreloadlAcu from '../../../../LN/acumulado/imagePreloadAcu';
@@ -27,6 +29,7 @@ import { getResizedUrls, getResizerUrlJw } from './_helper';
 import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 import { shouldPreloadForSubtype } from '../../subtypes/subtypeHelper';
 import getOpeningResizedUrls from '../../../../../layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls';
+import { buildStorytellingOpeningImage } from '../../../../../layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningMediaData';
 import siteProperties from '../../../../../../properties/sites/la-nacion-ar';
 
 const STORYTELLING_V2_LAYOUT = get(
@@ -34,6 +37,14 @@ const STORYTELLING_V2_LAYOUT = get(
     'layoutsName.StoryTellingV2',
     ''
 );
+const NOTICIA_LAYOUT = get(siteProperties, 'layoutsName.Noticia', '');
+const OPINION_LAYOUT = get(siteProperties, 'layoutsName.NotaOpinion', '');
+
+const RESPONSIVE_HERO_LAYOUTS = [
+    NOTICIA_LAYOUT,
+    OPINION_LAYOUT,
+    STORYTELLING_V2_LAYOUT
+].filter(Boolean);
 
 function GetDataToLinkImage({
     data = {},
@@ -63,6 +74,30 @@ function GetDataToLinkImage({
     const sectionData = {
         Nota: () => {
             if (!shouldPreloadForSubtype(subtype)) return <></>;
+
+            let openingImage = null;
+
+            if (layout === STORYTELLING_V2_LAYOUT) {
+                openingImage = buildStorytellingOpeningImage(
+                    promoItems,
+                    get(data, 'headlines.basic', '')
+                );
+            } else if (
+                RESPONSIVE_HERO_LAYOUTS.includes(layout) &&
+                basic?.type === 'image'
+            ) {
+                openingImage = buildOpeningImage(basic);
+            }
+
+            if (openingImage?.srcset) {
+                return (
+                    <LinkResponsiveImagePreload
+                        href={openingImage.src}
+                        srcSet={openingImage.srcset}
+                        sizes={openingImage.sizes}
+                    />
+                );
+            }
 
             const resizedUrls =
                 layout === STORYTELLING_V2_LAYOUT

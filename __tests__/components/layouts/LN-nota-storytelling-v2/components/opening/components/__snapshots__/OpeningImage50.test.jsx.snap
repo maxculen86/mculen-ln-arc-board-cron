@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpeningImage50 snapshots minimal snapshot (only imgDefaultUrl) 1`] = `
+exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
 <section
   class="relative w-screen -translate-x-1/2 left-1/2 bg-black-dark mock-section-height"
   data-diagram="image-50-right-title-left"
@@ -77,11 +77,14 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
       <img
         alt="Alt de prueba"
         class="w-full h-full object-cover"
-        data-sources="[{"srcset":"image-800.jpg","media":"(min-width: 800px)"}]"
         data-testid="image-ui"
         fetchpriority="high"
+        height="675"
         loading="eager"
+        sizes="(max-width: 767px) 375px, 1200px"
         src="https://example.com/image.jpg"
+        srcset="image-375.jpg 375w, image-1200.jpg 1200w"
+        width="1200"
       />
     </div>
   </div>
@@ -165,11 +168,14 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
       <img
         alt="Alt de prueba"
         class="w-full h-full object-cover"
-        data-sources="[{"srcset":"image-800.jpg","media":"(min-width: 800px)"}]"
         data-testid="image-ui"
         fetchpriority="high"
+        height="675"
         loading="eager"
+        sizes="(max-width: 767px) 375px, 1200px"
         src="https://example.com/image.jpg"
+        srcset="image-375.jpg 375w, image-1200.jpg 1200w"
+        width="1200"
       />
     </div>
   </div>

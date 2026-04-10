@@ -6,7 +6,8 @@ import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/repl
 import { getImageData } from '../../../../../features/LN/common/image/_helpers/getImageData';
 
 function ImageArticle(props) {
-    const { image, href, active, isApertura, searchableField } = props;
+    const { image, href, active, isApertura, isAperturaNota, searchableField } =
+        props;
 
     const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
 
@@ -19,14 +20,18 @@ function ImageArticle(props) {
 
     const sourceActive = active ? sourcesZoom : sources;
 
-    const imageData = getImageData({
-        ...wwwImage,
-        resized_urls: sourceActive
-    });
+    const imageData = getImageData(
+        {
+            ...wwwImage,
+            resized_urls: sourceActive
+        },
+        { isAperturaNota }
+    );
 
     if (!imageData) return null;
 
-    const { src, width, height, alt, pictureSources } = imageData;
+    const { src, srcset, sizes, width, height, alt, pictureSources } =
+        imageData;
 
     return (
         <ComPicture href={href}>
@@ -46,6 +51,8 @@ function ImageArticle(props) {
                     searchableField={searchableField}
                     fetchPriority={isApertura ? 'high' : 'low'}
                     loading={isApertura ? 'eager' : 'lazy'}
+                    srcSet={srcset}
+                    sizes={sizes}
                     sources={pictureSources}
                 />
             </div>
