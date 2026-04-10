@@ -3,7 +3,7 @@
 exports[`OpeningImage100 snapshot  1`] = `
 <div>
   <section
-    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-height))]"
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
     data-diagram="title-100"
   >
     <img

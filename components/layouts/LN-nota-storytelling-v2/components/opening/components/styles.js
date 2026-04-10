@@ -33,6 +33,6 @@ export const openingImage100Variants = {
 };
 
 export const sectionHeight = cx(
-    'h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))]',
-    'xl:h-[calc(100dvh-var(--header-height))]'
+    'h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))]',
+    'xl:h-[calc(100dvh-var(--header-sticky-height))]'
 );
