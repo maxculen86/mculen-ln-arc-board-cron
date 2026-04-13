@@ -3,8 +3,15 @@ import { render } from '@testing-library/react';
 import Schemas from '../../../../../components/private/common/scriptManager/schemas';
 
 jest.mock('fusion:environment', () => ({
-    ARC_STATIC: 'https://env-cdn.example.com',
+    ARC_STATIC: 'https://arc-static.glanacion.com',
     SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        contextPath: '/pf',
+        deployment: value => `${value}?d=5634`
+    }))
 }));
 
 describe('Schemas Component', () => {
@@ -73,7 +80,7 @@ describe('Schemas Component', () => {
         );
     });
 
-    it('should build logo URL dynamically from ARC_STATIC and deployment context', () => {
+    it('should keep the logo URL on ARC_STATIC for non-LN hosts', () => {
         const { container } = render(
             <Schemas
                 section="nota"
@@ -87,13 +94,13 @@ describe('Schemas Component', () => {
         const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
 
         const expectedLogoUrl =
-            'https://env-cdn.example.compathDeployment/contextPath/resources/images/placeholderLN-1280x1280.jpg';
+            'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1280x1280.jpg?d=5634';
 
         expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
         expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);
     });
 
-    it('should use the same dynamic logo URL regardless of siteProperties', () => {
+    it('should use the canonical LN host for the logo URL', () => {
         const { container } = render(
             <Schemas
                 section="nota"
@@ -107,7 +114,7 @@ describe('Schemas Component', () => {
         const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
 
         const expectedLogoUrl =
-            'https://env-cdn.example.compathDeployment/contextPath/resources/images/placeholderLN-1280x1280.jpg';
+            'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1280x1280.jpg?d=5634';
 
         expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
         expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);

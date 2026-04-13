@@ -15,6 +15,7 @@ import {
     extractDataFromPromoItems,
     urlSchema
 } from '../../common/utils/extractDataFromPromoItems';
+import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import {
     createISODate,
     getModifiedDate,
@@ -30,6 +31,11 @@ import {
     getReviewAuthor,
     getReviewSchemaData
 } from './helpers/reviewSchemaHelper';
+import {
+    buildPrimaryImageOfPage,
+    buildMainEntityFromTags,
+    getSchemaImages
+} from './helpers/newsArticleSchemaHelper';
 import getElementsText from '../../../common/utils/getElementsText';
 import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
 
@@ -179,10 +185,25 @@ function SnippetNoticia({
     };
     const { authors } = extracDataFromCredits(by, { snippet: true });
     const { keywords } = extractDataFromTags(tags);
-    const { thumbnailUrl, image } = extractDataFromPromoItems(
-        promoItems,
+    const promoItemsWithWWW = {
+        ...promoItems,
+        ...(get(promoItems, 'basic.type') === 'image' && {
+            basic: replaceUrlResizerToWWW(get(promoItems, 'basic', {}))
+        })
+    };
+    const { thumbnailUrl } = extractDataFromPromoItems(
+        promoItemsWithWWW,
         PLACEHOLDER
     );
+    const schemaImages = getSchemaImages({
+        promoItems,
+        contentElements,
+        placeholder: PLACEHOLDER
+    });
+    const primaryImageOfPage = buildPrimaryImageOfPage({
+        basicImage: get(promoItems, 'basic', {}),
+        placeholder: PLACEHOLDER
+    });
 
     const headlineResolved =
         get(headlines, 'basic', '') || 'LA NACION - Noticia';
@@ -197,6 +218,10 @@ function SnippetNoticia({
     const creators = authors.map(a => a.name);
     const firtsParagraph = getFirstParagraph(contentElements);
     const articleBody = getElementsText(contentElements) || firtsParagraph;
+    const mainEntity = buildMainEntityFromTags({
+        tags,
+        host: schemaHost
+    });
     const datePublishedISO = createISODate(
         getPublishDate(firstPublishDate, displayDate)
     );
@@ -218,7 +243,11 @@ function SnippetNoticia({
         dateCreated: getSanitizedDateCreated(createdDate, datePublishedISO),
         datePublished: datePublishedISO,
         dateModified: dateModifiedISO,
-        mainEntityOfPage: noteUrlWithSlash,
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': noteUrlWithSlash,
+            ...(primaryImageOfPage && { primaryImageOfPage })
+        },
         articleSection: subtypeConfig.articleSection || name,
         isAccessibleForFree,
         isPartOf: {
@@ -229,11 +258,12 @@ function SnippetNoticia({
         author: hasAuthors ? authors : distributorAuthor,
         creator: creators,
         keywords,
+        ...(mainEntity && { mainEntity }),
         publisher: {
             '@id': getOrganizationId(siteProperties)
         },
         thumbnailUrl,
-        image
+        image: schemaImages
     };
 
     data = getTrustProject(trust, schemaHost)(data)(sponsored);

@@ -9,8 +9,11 @@ import get from '../utils/get';
 function Schemas({ section = '', siteProperties = {} }) {
     const { contextPath, deployment } = useAppContext();
     const logoPath = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
-    const logoUrl = `${ARC_STATIC}${deployment(logoPath)}`;
     const canonicalHost = get(siteProperties, 'host', SITE_LANACION);
+    const isLanacionHost =
+        new URL(canonicalHost).hostname === new URL(SITE_LANACION).hostname;
+    const logoBaseHost = isLanacionHost ? canonicalHost : ARC_STATIC;
+    const logoUrl = `${logoBaseHost}${deployment(logoPath)}`;
     const siteUrl = addForwardSlash(canonicalHost);
     const organizationId =
         getOrganizationId(siteProperties) ||
