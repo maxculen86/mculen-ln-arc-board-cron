@@ -35,6 +35,7 @@ import { GetFonts } from './criticalCss/getFonts';
 import removeExtraSpaces from '../private/common/utils/removeExtraSpaces';
 import SchemaPageview from '../features/LN-10-global/common/schemas/schemaPageView/default';
 import ScriptRegisterPageview from '../private/common/scriptManager/scriptRegisterPageview';
+import LinkRSS from './Helper/linkRSS';
 
 const lnBuscador = 'LN-buscador';
 
@@ -284,6 +285,7 @@ function Default(props) {
                         `${contextPath}/resources/json/LN/manifest.json`
                     )}
                 />
+                <LinkRSS globalContent={globalContent} _nodeType={_nodeType} />
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
