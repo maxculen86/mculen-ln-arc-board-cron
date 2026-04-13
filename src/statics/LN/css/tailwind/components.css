@@ -65,6 +65,6 @@
 }
 
 @theme {
-    --header-height: 57px;
+    --header-sticky-height: 57px;
     --header-navbar-height: 61px;
 }

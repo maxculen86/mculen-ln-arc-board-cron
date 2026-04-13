@@ -3,7 +3,7 @@
 exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
 <div>
   <div
-    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-height))]"
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
     data-diagram="image-panoramic"
   >
     <img
@@ -48,7 +48,7 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
 exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
 <div>
   <div
-    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-height))]"
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
     data-diagram="image-panoramic"
   >
     <img
@@ -141,7 +141,7 @@ exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
 exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
 <div>
   <div
-    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-height))]"
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
     data-diagram="image-panoramic"
   >
     <img
