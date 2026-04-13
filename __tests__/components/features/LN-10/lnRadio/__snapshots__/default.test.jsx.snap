@@ -1,54 +1,156 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Features - LaNacion - 10 - Radio should match snapshot 1`] = `
+exports[`Features - LaNacion - 10 - Radio black background variant should match snapshot 1`] = `
 <div>
   <div>
     <div
-      class="mt-72 pt-24 border border-top border-thin border-neutral-light-900"
+      data-tw="true"
     >
       <div
-        class="flex ai-center jc-between pb-16"
+        class="w-full mt-72 pt-24 border-t border-neutral-950"
       >
         <div
-          class="flex gap-16 ai-center text-20"
+          class="relative flex items-center justify-between gap-24 py-32 px-16 md:p-32 bg-[url("/pf/resources/images/ln-fondo-radio-negro.webp")]"
         >
-          <img
-            alt="Imagen de radio"
-            class="image flex --cover"
-            decoding="async"
-            fetchpriority="low"
-            height="71"
-            loading="lazy"
-            src="pathDeployment/contextPath/resources/images/ln-radio.webp"
-          />
-          <span
-            class="sm-none text-neutral-light-900"
+          <div
+            class="flex gap-16 items-center z-10"
           >
-            El mundo necesita más música
-          </span>
-        </div>
-        <a
-          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent h-40 px-16 py-12 uppercase bg-neutral-light-999 rounded-80 text-ln-radio text-12 --custom"
-          data-variant="custom"
-          href="https://masmusica.lanacion.com.ar/"
-          rel="nofollow"
-          target="_blank"
-          title="Ir a escuchar más música"
-          type="button"
-        >
-          Escuchá + música
-          <i
-            class="icon sm-none --icon-20"
-          >
-            <mock-icon
-              name="mediaPlay"
+            <img
+              alt="Imagen de radio"
+              class="h-48 md:h-71"
+              src="/test-path/resources/images/ln-radio-blanco.svg"
             />
-          </i>
-        </a>
+            <span
+              class="hidden md:block text-body-lg text-neutral-1"
+            >
+              El mundo necesita más música
+            </span>
+          </div>
+          <button
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-[#D6E903] text-base-default"
+            data-disabled="false"
+            href="https://masmusica.lanacion.com.ar/"
+            target="_blank"
+            title="Ir a escuchar más música"
+          >
+            Escuchá + música
+            <mock-ds-common-icon
+              class="hidden md:block"
+              name="play-filled"
+              size="20"
+            />
+          </button>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          class="ds-divider border-0 bg-muted w-full h-1"
+          role="separator"
+        />
       </div>
-      <hr
-        class="w-100"
-      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Features - LaNacion - 10 - Radio white background variant should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      data-tw="true"
+    >
+      <div
+        class="w-full mt-72 pt-24 border-t border-neutral-950"
+      >
+        <div
+          class="relative flex items-center justify-between gap-24 py-32 px-16 md:p-32"
+        >
+          <div
+            class="flex gap-16 items-center z-10"
+          >
+            <img
+              alt="Imagen de radio"
+              class="h-48 md:h-71"
+              src="/test-path/resources/images/ln-radio.svg"
+            />
+            <span
+              class="hidden md:block text-body-lg font-bold"
+            >
+              El mundo necesita más música
+            </span>
+          </div>
+          <button
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-black-default text-ln-radio"
+            data-disabled="false"
+            href="https://masmusica.lanacion.com.ar/"
+            target="_blank"
+            title="Ir a escuchar más música"
+          >
+            Escuchá + música
+            <mock-ds-common-icon
+              class="hidden md:block"
+              name="play-filled"
+              size="20"
+            />
+          </button>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          class="ds-divider border-0 bg-muted w-full h-1"
+          role="separator"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Features - LaNacion - 10 - Radio yellow background variant should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      data-tw="true"
+    >
+      <div
+        class="w-full mt-72 pt-24 border-t border-neutral-950"
+      >
+        <div
+          class="relative flex items-center justify-between gap-24 py-32 px-16 md:p-32 bg-[url("/pf/resources/images/ln-fondo-radio-amarillo.webp")]"
+        >
+          <div
+            class="flex gap-16 items-center z-10"
+          >
+            <img
+              alt="Imagen de radio"
+              class="h-48 md:h-71"
+              src="/test-path/resources/images/ln-radio.svg"
+            />
+            <span
+              class="hidden md:block text-body-lg font-bold"
+            >
+              El mundo necesita más música
+            </span>
+          </div>
+          <button
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-black-default text-ln-radio"
+            data-disabled="false"
+            href="https://masmusica.lanacion.com.ar/"
+            target="_blank"
+            title="Ir a escuchar más música"
+          >
+            Escuchá + música
+            <mock-ds-common-icon
+              class="hidden md:block"
+              name="play-filled"
+              size="20"
+            />
+          </button>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          class="ds-divider border-0 bg-muted w-full h-1"
+          role="separator"
+        />
+      </div>
     </div>
   </div>
 </div>
