@@ -497,6 +497,38 @@ describe('Case return getImageProps', () => {
         expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
     });
 
+    it('uses 1200w resized_urls entry with real height from URL for og image', () => {
+        const promoItemsBasic = {
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            type: 'image',
+            height: '800',
+            width: '800',
+            additional_properties: { mime_type: 'image/png' },
+            embed: {},
+            caption: 'image description',
+            resized_urls: [
+                {
+                    resizedUrl:
+                        'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=420&height=280',
+                    option: { width: 420, height: 280 }
+                },
+                {
+                    resizedUrl:
+                        'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=1200&height=800',
+                    option: { width: 1200, height: 675 }
+                }
+            ]
+        };
+        const output = {
+            url: 'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=1200&height=800',
+            width: '1200',
+            height: '800',
+            alt: 'image description',
+            type: 'image/png'
+        };
+        expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
+    });
+
     it('if the promoItemsBasic object exists and includes the embed object, it is a JW video and should return the poster', () => {
         const promoItemsBasicWithJwVideo = {
             url: 'https://cdn.jwplayer.com/v2/media/fSuIciiV/poster.jpg?width=720',

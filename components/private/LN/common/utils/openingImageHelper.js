@@ -1,42 +1,6 @@
-import { updateResizedUrl } from './updateResizedUrl';
-
-export const OPENING_IMAGE_FALLBACK = {
-    width: 1200,
-    height: 675
-};
-
 const getAlt = imageData => {
     const { alt_text: altText, caption, titleText } = imageData || {};
     return altText || caption || titleText || '';
-};
-
-const hasResizeParams = (url = '') =>
-    typeof url === 'string' &&
-    url.includes('width=') &&
-    url.includes('height=');
-
-const updateOpeningResizedUrl = (url, newWidth, newHeight) => {
-    const updatedUrl = updateResizedUrl(url, newWidth, newHeight);
-
-    if (updatedUrl !== url) return updatedUrl;
-
-    try {
-        const urlObj = new URL(url);
-        const updatedPathname = urlObj.pathname.replace(
-            /=\/(\d+)x(\d+)\//,
-            `=/${newWidth}x${newHeight}/`
-        );
-
-        if (updatedPathname === urlObj.pathname) {
-            return url;
-        }
-
-        urlObj.pathname = updatedPathname;
-
-        return urlObj.toString();
-    } catch (e) {
-        return url;
-    }
 };
 
 const getMediaCondition = (option = {}) =>
@@ -74,18 +38,6 @@ export const getOpeningImageSizes = (resizedUrls = []) => {
     return sizeEntries.join(', ') || undefined;
 };
 
-const getBaseResizedUrl = imageData => {
-    const { url = '', resized_urls: resizedUrls = [] } = imageData || {};
-
-    if (hasResizeParams(url)) return url;
-
-    const resizedWithParams = resizedUrls.find(({ resizedUrl = '' }) =>
-        hasResizeParams(resizedUrl)
-    );
-
-    return resizedWithParams?.resizedUrl || url;
-};
-
 const getResponsiveEntries = (resizedUrls = []) =>
     resizedUrls
         .filter(({ resizedUrl, option: { width } = {} }) => resizedUrl && width)
@@ -100,70 +52,10 @@ const getResponsiveEntries = (resizedUrls = []) =>
                 ) === index
         );
 
-const getOpeningFallbackEntry = imageData => {
-    const { resized_urls: resizedUrls = [] } = imageData || {};
-    const existing = getResponsiveEntries(resizedUrls).find(
-        ({ option: { width } = {} }) =>
-            Number(width) === OPENING_IMAGE_FALLBACK.width
-    );
-
-    if (existing?.resizedUrl) {
-        return {
-            option: {
-                ...existing.option,
-                width: OPENING_IMAGE_FALLBACK.width,
-                height: OPENING_IMAGE_FALLBACK.height
-            },
-            resizedUrl: updateOpeningResizedUrl(
-                existing.resizedUrl,
-                OPENING_IMAGE_FALLBACK.width,
-                OPENING_IMAGE_FALLBACK.height
-            )
-        };
-    }
-
-    const baseResizedUrl = getBaseResizedUrl(imageData);
-
-    if (!baseResizedUrl) return null;
-
-    return {
-        option: {
-            width: OPENING_IMAGE_FALLBACK.width,
-            height: OPENING_IMAGE_FALLBACK.height
-        },
-        resizedUrl: updateOpeningResizedUrl(
-            baseResizedUrl,
-            OPENING_IMAGE_FALLBACK.width,
-            OPENING_IMAGE_FALLBACK.height
-        )
-    };
-};
-
-const getOpeningImageResizedUrls = imageData => {
-    if (!imageData?.url) return [];
-
-    const responsiveEntries = getResponsiveEntries(
-        imageData.resized_urls || []
-    );
-    const fallbackEntry = getOpeningFallbackEntry(imageData);
-    const entriesWithoutFallback = responsiveEntries.filter(
-        ({ option: { width } = {} }) =>
-            Number(width) !== OPENING_IMAGE_FALLBACK.width
-    );
-
-    if (!fallbackEntry?.resizedUrl) {
-        return responsiveEntries;
-    }
-
-    return [...entriesWithoutFallback, fallbackEntry].sort(
-        (a, b) => Number(a.option?.width || 0) - Number(b.option?.width || 0)
-    );
-};
-
 export const buildOpeningImage = imageData => {
     if (!imageData?.url) return null;
 
-    const resizedUrls = getOpeningImageResizedUrls(imageData);
+    const resizedUrls = getResponsiveEntries(imageData.resized_urls || []);
     const srcset = resizedUrls
         .map(
             ({ resizedUrl, option: { width } = {} }) =>
@@ -172,17 +64,18 @@ export const buildOpeningImage = imageData => {
         .join(', ');
     const fallback =
         resizedUrls.find(
-            ({ option: { width } = {} }) =>
-                width === OPENING_IMAGE_FALLBACK.width
-        ) || {};
+            ({ option: { width } = {} }) => Number(width) === 1200
+        ) ||
+        resizedUrls[resizedUrls.length - 1] ||
+        {};
 
     return {
         alt: getAlt(imageData),
         src: fallback.resizedUrl || imageData.url,
         srcset: srcset || undefined,
         sizes: getOpeningImageSizes(resizedUrls),
-        width: OPENING_IMAGE_FALLBACK.width,
-        height: OPENING_IMAGE_FALLBACK.height,
+        width: fallback.option?.width,
+        height: fallback.option?.height,
         pictureSources: []
     };
 };
