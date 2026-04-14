@@ -117,6 +117,27 @@ export const getImageProps = (
         } = promoItemsBasic;
 
         if (type === 'image' && isEmptyObject(embed)) {
+            const resizedEntry = (promoItemsBasic.resized_urls || []).find(
+                ({ option: { width: w } = {} }) => Number(w) === 1200
+            );
+
+            if (resizedEntry?.resizedUrl) {
+                const realHeight =
+                    resizedEntry.resizedUrl.match(/height=(\d+)/)?.[1];
+
+                return {
+                    url: resizedEntry.resizedUrl,
+                    height:
+                        realHeight ||
+                        String(
+                            resizedEntry.option?.height || DEFAULTS.ogHeight
+                        ),
+                    width: String(resizedEntry.option?.width || DEFAULTS.width),
+                    type: mimeType,
+                    alt: getImageAltText(promoItemsBasic)
+                };
+            }
+
             const promoItemsBasicWithWWW =
                 replaceUrlResizerToWWW(promoItemsBasic);
             const promoItemsBasicUrl = get(promoItemsBasicWithWWW, 'url', url);

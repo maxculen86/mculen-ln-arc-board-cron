@@ -105,15 +105,15 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
 
         expect(result).toMatchObject({
             alt: 'mobile caption',
-            src: 'https://example.com/image?width=1200&height=675',
-            srcset: 'https://example.com/image?width=420&height=630 420w, https://example.com/image?width=770&height=1155 770w, https://example.com/image?width=1200&height=675 1200w, https://example.com/image?width=1920&height=1280 1920w',
+            src: 'https://example.com/image?width=1200&height=800',
+            srcset: 'https://example.com/image?width=420&height=630 420w, https://example.com/image?width=770&height=1155 770w, https://example.com/image?width=1200&height=800 1200w, https://example.com/image?width=1920&height=1280 1920w',
             sizes: '(min-width: 1440px) 1920px, (min-width: 1024px) and (max-width: 1439px) 1200px, (min-width: 768px) and (max-width: 1023px) 770px, (max-width: 767px) 420px, 420px',
             width: 1200,
-            height: 675
+            height: 800
         });
     });
 
-    it('should generate the 1200 fallback when the current storytelling variants do not include it', () => {
+    it('should use the largest available entry as fallback when no 1200 entry exists', () => {
         mediaHelpers.getNormalizedImageData
             .mockReturnValueOnce({
                 resizedUrls: [],
@@ -136,11 +136,10 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
         const result = buildStorytellingOpeningImage({}, 'headline');
 
         expect(result.src).toBe(
-            'https://example.com/image?width=1200&height=675'
+            'https://example.com/image?width=1920&height=1280'
         );
-        expect(result.srcset).toContain(
-            'https://example.com/image?width=1200&height=675 1200w'
-        );
-        expect(result.height).toBe(675);
+        expect(result.srcset).not.toContain('1200w');
+        expect(result.width).toBe(1920);
+        expect(result.height).toBe(1280);
     });
 });

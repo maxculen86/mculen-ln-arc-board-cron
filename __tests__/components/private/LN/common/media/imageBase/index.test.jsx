@@ -15,10 +15,21 @@ describe('Tests component - imageBase', () => {
             resized_urls: [
                 {
                     option: {
-                        height: 407,
-                        media: '(min-width: 1280px)',
+                        height: 675,
                         media_preload: '(min-width: 1280px)',
                         minScreenWidth: 1280,
+                        width: 1200
+                    },
+                    resizedUrl:
+                        'https://www.lanacion.com.ar/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
+                },
+                {
+                    option: {
+                        height: 407,
+                        media: '(min-width: 1280px)',
+                        media_preload:
+                            '(min-width: 768px and max-width: 1279px)',
+                        minScreenWidth: 768,
                         width: 608
                     },
                     resizedUrl:
@@ -27,9 +38,7 @@ describe('Tests component - imageBase', () => {
                 {
                     option: {
                         height: 250,
-                        media_preload:
-                            '(min-width: 375px) and (max-width: 768px)',
-                        minScreenWidth: 375,
+                        media_preload: '(max-width: 767px)',
                         width: 375
                     },
                     resizedUrl:
@@ -60,13 +69,13 @@ describe('Tests component - imageBase', () => {
             expect(container.querySelector('picture')).not.toBeInTheDocument();
             expect(img).toHaveAttribute(
                 'src',
-                'https://www.lanacion.com.ar/resizer/UQhUqLALzHkgpU5EWwe0ll_g_zk=/1200x675/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
+                'https://www.lanacion.com.ar/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
             );
             expect(img).toHaveAttribute('width', '1200');
             expect(img).toHaveAttribute('height', '675');
         });
 
-        test('should return a srcset with current widths plus 1200 fallback', () => {
+        test('should return a srcset with responsive entries from imageConfig', () => {
             const { container } = render(<ImageArticle {...props} />);
             const img = screen.getByRole('img');
             const srcset = img.getAttribute('srcset');
@@ -77,10 +86,10 @@ describe('Tests component - imageBase', () => {
             expect(srcset).toContain('375w');
             expect(srcset).toContain('/608x405/');
             expect(srcset).toContain('608w');
-            expect(srcset).toContain('/1200x675/');
+            expect(srcset).toContain('/1200x800/');
             expect(srcset).toContain('1200w');
             expect(sizes).toBe(
-                '(min-width: 1280px) 608px, (min-width: 375px) and (max-width: 768px) 375px, 375px'
+                '(min-width: 1280px) 1200px, (min-width: 768px and max-width: 1279px) 608px, (max-width: 767px) 375px, 375px'
             );
         });
 
@@ -128,7 +137,7 @@ describe('Tests component - imageBase', () => {
             expect(srcset).toContain('/375x250/');
             expect(srcset).toContain('/500x250/');
             expect(srcset).toContain('500w');
-            expect(srcset).toContain('/1200x675/');
+            expect(srcset).toContain('/1200x800/');
         });
 
         test('should return the attributes fetchpriority low and loading lazy when is not opening', () => {
