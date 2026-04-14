@@ -126,16 +126,3 @@
 .box-articles {
     margin-bottom: px(64);
 }
-
-
-.pt-80_l {
-    @media ($media-l) {
-        padding-top: 80px;
-    }
-}
-
-.-mt-56_l {
-    @media ($media-l) {
-        margin-top: -56px;
-    }
-}
