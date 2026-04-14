@@ -15,8 +15,8 @@ function LoginSubscribeButtons({
     classNameButtons = '',
     termicasData = {
         tooltip_subscribe_foodit_text: '',
-        tooltip_subscribe_foodit_show: false,
-        hide_subscribe_button_foodit: false
+        tooltip_subscribe_foodit_show: 'false',
+        hide_subscribe_button_foodit: 'false'
     },
     comesFrom = '',
     loginClassName = 'roboto-regular'
