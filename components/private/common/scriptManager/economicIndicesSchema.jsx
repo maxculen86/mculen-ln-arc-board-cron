@@ -49,9 +49,6 @@ function EconomicIndicesSchema() {
                         item: {
                             '@type': 'FinancialProduct',
                             name: item.name,
-                            ...(item.tickerSymbol && {
-                                tickerSymbol: item.tickerSymbol
-                            }),
                             ...(item.isFirst && {
                                 brand: { '@type': 'Brand', name: 'LA NACION' }
                             })
