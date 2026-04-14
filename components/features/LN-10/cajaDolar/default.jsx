@@ -44,7 +44,6 @@ function CajaDolar({ id: featureId }) {
             oddOrEven={oddOrEven}
             fillClass={fillClass}
             logoByma={getAssetsPath(contextPath)(deployment)('logo-byma.svg')}
-            logoIol={getAssetsPath(contextPath)(deployment)('logo-iol.svg')}
         />
     ) : (
         // TODO: Se desactiva esta regla en esta linea dado que al devolver null dentro de un static, el componente se rompe. Refactorizar componente para evitar guardar este componente en una variable.

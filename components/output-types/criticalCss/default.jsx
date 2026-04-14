@@ -14,7 +14,8 @@ const {
         FotoAl100,
         Cards,
         NotaOpinion,
-        Noticia
+        Noticia,
+        StoryTellingV2
     }
 } = config;
 
@@ -34,7 +35,10 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
         { pageLayout: FotoAl100 },
         { pageLayout: Cards },
         { pageLayout: NotaOpinion },
-        { pageLayout: Noticia }
+        { pageLayout: Noticia },
+        {
+            pageLayout: StoryTellingV2
+        }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

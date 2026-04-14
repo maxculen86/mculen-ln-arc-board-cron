@@ -45,44 +45,43 @@ describe('Tests component - imageBase', () => {
         outputType: 'default',
         zoom: false,
         isApertura: true,
+        isAperturaNota: true,
         isValidSection: true,
         isVertical: false
     };
 
-    describe('Cases with tag Picture', () => {
-        test('should return a link with the an image with picture', () => {
+    describe('Opening hero', () => {
+        test('should return a link with a responsive img instead of picture', () => {
             const { container } = render(<ImageArticle {...props} />);
+            const img = screen.getByRole('img');
 
             expect(screen.getByRole('link')).toBeDefined();
-            expect(screen.getByRole('img')).toBeDefined();
-            expect(container.querySelector('picture')).toBeDefined();
-            expect(container).toMatchSnapshot();
+            expect(img).toBeDefined();
+            expect(container.querySelector('picture')).not.toBeInTheDocument();
+            expect(img).toHaveAttribute(
+                'src',
+                'https://www.lanacion.com.ar/resizer/UQhUqLALzHkgpU5EWwe0ll_g_zk=/1200x675/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
+            );
+            expect(img).toHaveAttribute('width', '1200');
+            expect(img).toHaveAttribute('height', '675');
         });
 
-        test('should return a source tag for each resized image with the attributes media and srset', () => {
+        test('should return a srcset with current widths plus 1200 fallback', () => {
             const { container } = render(<ImageArticle {...props} />);
-            const resultImage = [
-                {
-                    media: '(min-width: 1280px)',
-                    srcset: 'https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/608x405/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
-                },
-                {
-                    media: '(min-width: 375px)',
-                    srcset: 'https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg'
-                }
-            ];
+            const img = screen.getByRole('img');
+            const srcset = img.getAttribute('srcset');
+            const sizes = img.getAttribute('sizes');
 
-            expect(container.querySelectorAll('source')).toHaveLength(2);
-
-            resultImage.forEach(({ media, srcset }) => {
-                expect(
-                    container.querySelector(`[media="${media}"]`)
-                ).toBeDefined();
-
-                expect(
-                    container.querySelector(`[srcset="${srcset}"]`)
-                ).toBeDefined();
-            });
+            expect(container.querySelectorAll('source')).toHaveLength(0);
+            expect(srcset).toContain('/375x250/');
+            expect(srcset).toContain('375w');
+            expect(srcset).toContain('/608x405/');
+            expect(srcset).toContain('608w');
+            expect(srcset).toContain('/1200x675/');
+            expect(srcset).toContain('1200w');
+            expect(sizes).toBe(
+                '(min-width: 1280px) 608px, (min-width: 375px) and (max-width: 768px) 375px, 375px'
+            );
         });
 
         test('should return the attributes loading eager and fetchpriority high when the is opening is true', () => {
@@ -123,15 +122,13 @@ describe('Tests component - imageBase', () => {
             };
 
             const { container } = render(<ImageArticle {...properties} />);
+            const srcset = screen.getByRole('img').getAttribute('srcset');
 
-            const resultImageWithPixelDensity =
-                'https://www.lanacion.com.ar/resizer/m7nbZlY2_AfrOIcxMPTEiZs5sok=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg, https://www.lanacion.com.ar/resizer/9JkXATNcqzYXNsQ2bYSGvpitwUA=/500x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WQXXYZCSIFH2FIOME64UDJKN64.jpg 2x';
-
-            expect(
-                container.querySelector(
-                    `[srcset="${resultImageWithPixelDensity}"]`
-                )
-            ).toBeDefined();
+            expect(container.querySelectorAll('source')).toHaveLength(0);
+            expect(srcset).toContain('/375x250/');
+            expect(srcset).toContain('/500x250/');
+            expect(srcset).toContain('500w');
+            expect(srcset).toContain('/1200x675/');
         });
 
         test('should return the attributes fetchpriority low and loading lazy when is not opening', () => {
@@ -146,7 +143,7 @@ describe('Tests component - imageBase', () => {
         });
     });
 
-    describe('Cases without tag picture', () => {
+    describe('Linked hero rendering', () => {
         const properties = { ...props, isValidSection: false };
 
         test('should return the attributes fetchpriority low and loading lazy when is not opening ', () => {
@@ -173,12 +170,13 @@ describe('Tests component - imageBase', () => {
             ).toBeDefined();
         });
 
-        test('The image should be wrapped in a link', () => {
+        test('The image should be wrapped in a link without picture markup', () => {
             const { container } = render(<ImageArticle {...properties} />);
+            const img = screen.getByRole('img');
 
             expect(screen.getByRole('link')).toBeDefined();
-
-            expect(container).toMatchSnapshot();
+            expect(container.querySelector('picture')).not.toBeInTheDocument();
+            expect(img).toHaveAttribute('srcset');
         });
     });
 });

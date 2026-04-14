@@ -4,7 +4,14 @@ import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet
 
 jest.mock('fusion:environment', () => ({
     ARC_STATIC: 'https://arc-static.glanacion.com',
-    SITE_LANACION: 'https://www.lanacion.com.ar'
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    API_ENV: 'sandbox',
+    IS_STAGING: 'false'
+}));
+
+jest.mock('fusion:properties', () => () => ({
+    host: 'https://www.lanacion.com.ar'
 }));
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
@@ -75,6 +82,40 @@ const mockBodyContentElementsWithList = [
         content: 'Segundo parrafo.'
     }
 ];
+
+const mockPromoImage = {
+    type: 'image',
+    url: 'https://sandbox-resizer.glanacion.com/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=880&height=586&quality=70&smart=true',
+    caption:
+        'El 28 de septiembre de 2004, Rafael Juniors Solich asesinó a tres compañeros en una escuela de Carmen de Patagones',
+    resized_urls: [
+        {
+            resizedUrl:
+                'https://sandbox-resizer.glanacion.com/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=880&height=586&quality=70&smart=true',
+            option: {
+                width: 880,
+                height: 586
+            }
+        }
+    ]
+};
+
+const mockBodyImage = {
+    type: 'image',
+    url: 'https://sandbox-resizer.glanacion.com/resizer/v2/un-alumno-ingreso-armado-a-un-colegio-de-santa-fe-EILA5UAAWFGPFHPQID4T42RSF4.jpg?auth=9e502bc440814e8ea6270c5065a0773a95513c44263675b901b3b9af24bc894d&width=768&height=432&quality=70&smart=true',
+    caption:
+        'Un alumno ingresó armado a un colegio de Santa Fe y mató a un compañero',
+    resized_urls: [
+        {
+            resizedUrl:
+                'https://sandbox-resizer.glanacion.com/resizer/v2/un-alumno-ingreso-armado-a-un-colegio-de-santa-fe-EILA5UAAWFGPFHPQID4T42RSF4.jpg?auth=9e502bc440814e8ea6270c5065a0773a95513c44263675b901b3b9af24bc894d&width=768&height=432&quality=70&smart=true',
+            option: {
+                width: 768,
+                height: 432
+            }
+        }
+    ]
+};
 
 describe('SnippetNoticia', () => {
     describe('default subtype (NewsArticle)', () => {
@@ -180,9 +221,36 @@ describe('SnippetNoticia', () => {
             );
 
             expect(jsonData.url).toBe('https://www.lanacion.com.ar/news-test');
-            expect(jsonData.mainEntityOfPage).toBe(
-                'https://www.lanacion.com.ar/news-test/'
+            expect(jsonData.mainEntityOfPage).toMatchObject({
+                '@type': 'WebPage',
+                '@id': 'https://www.lanacion.com.ar/news-test/'
+            });
+        });
+
+        it('should render the full schema image structure when promo and body images exist', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        promo_items: {
+                            basic: mockPromoImage
+                        },
+                        content_elements: [
+                            { type: 'text', content: 'Primer parrafo.' },
+                            mockBodyImage
+                        ]
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
             );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchSnapshot();
         });
     });
 

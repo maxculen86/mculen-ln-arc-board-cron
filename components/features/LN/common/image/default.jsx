@@ -6,9 +6,10 @@ import ImageUI from '../../../ui/ln/image/default';
 import { Caption } from '../caption/default';
 import { WrapperBody } from '../wrapperBody/default';
 
-function Image({ data, fetchPriority, loading }) {
+function Image({ data, fetchPriority, loading, isAperturaNota = false }) {
     const { caption, credit } = getEpigrafe(data, true);
-    const { src, width, height, alt, pictureSources } = getImageData(data);
+    const { src, srcset, sizes, width, height, alt, pictureSources } =
+        getImageData(data, { isAperturaNota });
 
     const isVertical = height > width;
     const _className = cx(
@@ -27,7 +28,10 @@ function Image({ data, fetchPriority, loading }) {
                             alt={alt}
                             height={height}
                             src={src}
+                            srcSet={srcset}
+                            sizes={sizes}
                             sources={pictureSources}
+                            renderImgOnly={isAperturaNota}
                             loading={loading}
                             fetchPriority={fetchPriority}
                         />

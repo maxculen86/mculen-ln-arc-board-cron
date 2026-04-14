@@ -1,7 +1,10 @@
+import React from 'react';
+import { render } from '@testing-library/react';
 import {
     createDynamicBannerConfig,
-    getDynamicBannerSettingsBySubtype,
-    validateBannerConfig
+    getDynamicBannerSettings,
+    validateBannerConfig,
+    BannerWithWrapper
 } from 'private/common/banners/dynamicBanners/dynamicBannersHelper';
 import DivBannerSSR from 'private/common/banners/DivBannerSSR';
 import Banner from 'features/ui/ln/banner/default';
@@ -24,10 +27,20 @@ describe('Dynamic Banner Helper', () => {
             };
 
             expect(
-                createDynamicBannerConfig(opinionContent, 'desktop', 4)
+                createDynamicBannerConfig(
+                    opinionContent,
+                    'desktop',
+                    4,
+                    'LN-Nota-Opinion'
+                )
             ).toBeDefined();
             expect(
-                createDynamicBannerConfig(opinionContent, 'desktop', 5)
+                createDynamicBannerConfig(
+                    opinionContent,
+                    'desktop',
+                    5,
+                    'LN-Nota-Opinion'
+                )
             ).toBeNull();
         });
 
@@ -198,19 +211,80 @@ describe('Dynamic Banner Helper', () => {
         });
     });
 
-    describe('Dynamic banner settings by subtype', () => {
-        it('returns Banner for opinion subtype', () => {
-            const settings = getDynamicBannerSettingsBySubtype(OPINION);
+    describe('Banner snapshots', () => {
+        const devices = ['desktop', 'mobile', 'tablet'];
 
-            expect(settings.BannerComponent).toBe(Banner);
+        devices.forEach(device => {
+            for (let i = 1; i <= 5; i++) {
+                it(`renders ${device} banner index ${i} (slotId snapshot)`, () => {
+                    const config = createDynamicBannerConfig(
+                        mockGlobalContent,
+                        device,
+                        i
+                    );
+                    const { asFragment } = render(
+                        <Banner bannerConfiguration={config} />
+                    );
+                    expect(asFragment()).toMatchSnapshot();
+                });
+            }
+        });
+
+        it('renders desktop banner with dark theme', () => {
+            const config = {
+                ...createDynamicBannerConfig(mockGlobalContent, 'desktop', 1),
+                theme: 'dark'
+            };
+            const { container } = render(
+                <Banner bannerConfiguration={config} />
+            );
+            expect(container).toMatchSnapshot();
+        });
+    });
+
+    describe('Dynamic banner settings by subtype and layout', () => {
+        it('returns BannerWithWrapper for opinion subtype', () => {
+            const settings = getDynamicBannerSettings({
+                subtype: OPINION,
+                layout: 'LN-Nota-Opinion'
+            });
+
+            expect(settings.BannerComponent).toBe(BannerWithWrapper);
             expect(settings.maxBanners).toBe(4);
         });
 
         it('returns DivBannerSSR for non-opinion subtype', () => {
-            const settings = getDynamicBannerSettingsBySubtype('14');
+            const settings = getDynamicBannerSettings({
+                subtype: '14',
+                layout: 'LN-Nota-Cards'
+            });
 
             expect(settings.BannerComponent).toBe(DivBannerSSR);
             expect(settings.maxBanners).toBe(5);
+        });
+
+        it('renders BannerWithWrapper for opinion subtype (snapshot)', () => {
+            const config = createDynamicBannerConfig(
+                mockGlobalContent,
+                'desktop',
+                1
+            );
+            const { asFragment } = render(
+                <BannerWithWrapper bannerConfiguration={config} />
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('renders DivBannerSSR for non-opinion subtype (snapshot)', () => {
+            const config = createDynamicBannerConfig(
+                mockGlobalContent,
+                'desktop',
+                1
+            );
+            const { asFragment } = render(
+                <DivBannerSSR bannerConfiguration={config} />
+            );
+            expect(asFragment()).toMatchSnapshot();
         });
     });
 });

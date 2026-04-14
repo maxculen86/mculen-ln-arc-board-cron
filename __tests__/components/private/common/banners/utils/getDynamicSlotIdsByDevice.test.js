@@ -15,7 +15,7 @@ jest.mock(
 
 describe('getDynamicSlotIdsByDevice', () => {
     it('returns desktop dynamic slot ids', () => {
-        const result = getDynamicSlotIdsByDevice('desktop');
+        const result = getDynamicSlotIdsByDevice({ device: 'desktop' });
 
         expect(result).toEqual(
             Array.from(
@@ -26,7 +26,7 @@ describe('getDynamicSlotIdsByDevice', () => {
     });
 
     it('returns mobile dynamic slot ids', () => {
-        const result = getDynamicSlotIdsByDevice('mobile');
+        const result = getDynamicSlotIdsByDevice({ device: 'mobile' });
 
         expect(result).toEqual(
             Array.from(
@@ -37,7 +37,11 @@ describe('getDynamicSlotIdsByDevice', () => {
     });
 
     it('returns opinion dynamic slot ids with max 4 banners on desktop', () => {
-        const result = getDynamicSlotIdsByDevice('desktop', OPINION);
+        const result = getDynamicSlotIdsByDevice({
+            device: 'desktop',
+            subtype: OPINION,
+            layout: 'LN-Nota-Opinion'
+        });
 
         expect(result).toEqual([
             'cinturon1_dsk',
@@ -49,13 +53,13 @@ describe('getDynamicSlotIdsByDevice', () => {
     });
 
     it('returns an empty array for unsupported device', () => {
-        expect(getDynamicSlotIdsByDevice('tablet')).toEqual([]);
-        expect(getDynamicSlotIdsByDevice(undefined)).toEqual([]);
-        expect(getDynamicSlotIdsByDevice(null)).toEqual([]);
+        expect(getDynamicSlotIdsByDevice({ device: 'tablet' })).toEqual([]);
+        expect(getDynamicSlotIdsByDevice({ device: undefined })).toEqual([]);
+        expect(getDynamicSlotIdsByDevice({ device: null })).toEqual([]);
     });
 
     it('respects MAX_DYNAMIC_BANNERS limit', () => {
-        const result = getDynamicSlotIdsByDevice('desktop');
+        const result = getDynamicSlotIdsByDevice({ device: 'desktop' });
 
         expect(result).toHaveLength(MAX_DYNAMIC_BANNERS);
     });

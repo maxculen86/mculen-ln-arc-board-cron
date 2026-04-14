@@ -1,7 +1,8 @@
 import React from 'react';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { useAppContext } from 'fusion:context';
-import ImageUI from '../../../../../features/ui/ln/image/default';
+import { Divider } from '@ln/ds-common-divider';
+import { cx } from '@ln/ds-cva';
 import LinkUI from '../../../../../features/ui/ln/link/default';
 import get from '../../../../../private/common/utils/get';
 import {
@@ -12,20 +13,27 @@ import {
 import getTargetAndRelIfExternal from '../../../../../private/common/utils/getTargetAndRelIfExternal';
 import { appendPageReferrerParam } from '../../../../../private/LN/common/utils/pageReferrer';
 
-function OpeningAddons({ globalContent = {}, layout = '' }) {
+function OpeningAddons({
+    globalContent = {},
+    layout = '',
+    classnames = {},
+    diagram = ''
+}) {
     const { deployment, contextPath } = useAppContext();
     const sections = get(globalContent, 'taxonomy.sections', []);
     const tags = get(globalContent, 'taxonomy.tags', []);
     const distributorName = get(globalContent, 'distributor.name', 'LA NACION');
     const aFondoLogo = getAFondoLogo(tags, layout);
-    const logoData = aFondoLogo || getSectionLogo(sections, layout, distributorName) || {};
+    const logoData =
+        aFondoLogo || getSectionLogo(sections, layout, distributorName) || {};
     const {
         logoName = '',
         path = '',
         color = true,
         isExternal = false
     } = logoData;
-    const sponsor = !color && logoName ? `${logoName}-blanco` : logoName;
+    const withColor = ['image-panoramic'].includes(diagram) || color;
+    const sponsor = !withColor && logoName ? `${logoName}-blanco` : logoName;
     const logoAlt = dictionaryAlt[logoName] || logoName;
 
     const { target, rel } = getTargetAndRelIfExternal(isExternal);
@@ -42,11 +50,18 @@ function OpeningAddons({ globalContent = {}, layout = '' }) {
         'cerrada';
 
     const hasAddons = Boolean(sponsor) || showContentLab || isSubscriberContent;
-
+    const showDividerSponsor =
+        sponsor && (showContentLab || isSubscriberContent);
+    const showDividerContentLab = showContentLab && isSubscriberContent;
     if (!hasAddons) return null;
 
     return (
-        <div className="">
+        <div
+            className={cx(
+                'flex items-center justify-center gap-8 flex-col md:flex-row',
+                classnames.container
+            )}
+        >
             {/* Brands */}
             {sponsor &&
                 (decoratedPath ? (
@@ -56,27 +71,38 @@ function OpeningAddons({ globalContent = {}, layout = '' }) {
                         target={target}
                         rel={rel}
                     >
-                        <ImageUI
+                        <img
                             src={deployment(
                                 `${contextPath}/resources/images/${sponsor}.svg`
                             )}
                             alt={logoAlt}
-                            className=""
                         />
                     </LinkUI>
                 ) : (
-                    <ImageUI
+                    <img
                         src={deployment(
                             `${contextPath}/resources/images/${sponsor}.svg`
                         )}
                         alt={logoAlt}
-                        className=""
                     />
                 ))}
 
+            {showDividerSponsor && (
+                <Divider className="hidden md:block" direction="vertical" />
+            )}
+
             {/* Content Lab */}
             {showContentLab && (
-                <span className="">{`Content LAB para ${advertiser}`}</span>
+                <span
+                    className={cx(
+                        'font-bold text-16 text-white',
+                        classnames.contentLab
+                    )}
+                >{`Content LAB para ${advertiser}`}</span>
+            )}
+
+            {showDividerContentLab && (
+                <Divider className="hidden md:block" direction="vertical" />
             )}
 
             {/* Suscriptores */}

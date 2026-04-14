@@ -20,7 +20,18 @@ jest.mock(
 
 jest.mock('../../../../../../components/features/ui/ln/image/default', () => ({
     __esModule: true,
-    default: ({ src, alt, width, height, sources, loading, fetchPriority }) => (
+    default: ({
+        src,
+        alt,
+        width,
+        height,
+        sources,
+        srcSet,
+        sizes,
+        renderImgOnly,
+        loading,
+        fetchPriority
+    }) => (
         <img
             data-testid="image-media"
             src={src}
@@ -30,6 +41,9 @@ jest.mock('../../../../../../components/features/ui/ln/image/default', () => ({
             loading={loading}
             fetchpriority={fetchPriority}
             data-sources={JSON.stringify(sources)}
+            {...(srcSet ? { 'data-srcset': srcSet } : {})}
+            {...(sizes ? { 'data-sizes': sizes } : {})}
+            {...(renderImgOnly ? { 'data-render-img-only': 'true' } : {})}
         />
     )
 }));
@@ -102,5 +116,33 @@ describe('Image component', () => {
         const img = getByTestId('image-media');
         expect(img).toHaveAttribute('loading', 'eager');
         expect(img).toHaveAttribute('fetchpriority', 'high');
+    });
+
+    it('renders hero openings as plain img with srcset and no picture sources', () => {
+        getImageData.mockReturnValue({
+            src: `${resizedUrlMock}&fallback=1200`,
+            srcset: `${resizedUrlMock} 420w, ${resizedUrlMock}&fallback=1200 1200w`,
+            sizes: '(min-width: 768px) 880px, 420px',
+            width: 1200,
+            height: 675,
+            alt: 'Hero alt',
+            pictureSources: []
+        });
+
+        const { getByTestId } = render(
+            <Image data={dataMock} isAperturaNota />
+        );
+
+        const img = getByTestId('image-media');
+        expect(img).toHaveAttribute('data-render-img-only', 'true');
+        expect(img).toHaveAttribute(
+            'data-srcset',
+            `${resizedUrlMock} 420w, ${resizedUrlMock}&fallback=1200 1200w`
+        );
+        expect(img).toHaveAttribute(
+            'data-sizes',
+            '(min-width: 768px) 880px, 420px'
+        );
+        expect(img).toHaveAttribute('data-sources', '[]');
     });
 });

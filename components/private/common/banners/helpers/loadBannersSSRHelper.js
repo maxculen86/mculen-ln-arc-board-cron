@@ -10,12 +10,13 @@ export const resolveDynamicBodyBanners = ({
     device,
     bannersToLoadFromDOM,
     bannersInBody,
-    subtype = ''
+    subtype = '',
+    layout
 }) => {
     const dynamicSlotIds =
         subtype === LIVEBLOG_EDITORIAL
             ? getLiveblogDynamicSlotIdsByDevice(device)
-            : getDynamicSlotIdsByDevice(device, subtype);
+            : getDynamicSlotIdsByDevice({ device, subtype, layout });
 
     const bannersInDom = bannersToLoadFromDOM
         .map(banner => banner.opt_div)

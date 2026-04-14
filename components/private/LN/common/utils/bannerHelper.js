@@ -316,7 +316,7 @@ export const getBannerConfiguration = (
     globalContentConfig = {},
     bannerConfig = {}
 ) => {
-    const { group: slotGroup } = customFields;
+    const { group: slotGroup, theme = 'light' } = customFields;
     const { device, slotId } = bannerConfig;
     const { siteProperties } = useAppContext();
 
@@ -385,7 +385,8 @@ export const getBannerConfiguration = (
         slotGroup,
         dfpId,
         classes: buildBannerClasses(config, customFields),
-        targeting: config.targeting
+        targeting: config.targeting,
+        theme
     };
 
     // Si en adServer hay una seccion (ej: campo) para segmentar banner, se cambia el slotName

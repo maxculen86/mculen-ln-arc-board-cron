@@ -1,12 +1,22 @@
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 
-function OpeningTitles({ title1 = '', title2 = '' }) {
-    if (!title1 && !title2) return null;
+function OpeningTitles({ h1Props, h2Props }) {
+    if (!h1Props?.text && !h2Props?.text) return null;
+
+    const h1ClassName = cx(
+        'prumo prumo-extra text-white text-display-md',
+        h1Props?.className
+    );
+    const h2ClassName = cx(
+        'prumo text-white text-display-md',
+        h2Props?.className
+    );
 
     return (
         <>
-            {title1 && <h1 className="">{title1}</h1>}
-            {title2 && <h2 className="">{title2}</h2>}
+            {h1Props?.text && <h1 className={h1ClassName}>{h1Props.text}</h1>}
+            {h2Props?.text && <h2 className={h2ClassName}>{h2Props.text}</h2>}
         </>
     );
 }

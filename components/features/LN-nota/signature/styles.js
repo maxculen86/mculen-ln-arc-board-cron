@@ -1,13 +1,16 @@
 import { cva } from '@ln/cva';
 import {
     VIDEO_VERTICAL,
+    STORYTELLING,
     CARDS,
     Subtypes
 } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { place } from '../../../private/common/utils/firmaHelper';
 
 const subtypes = Subtypes.map(({ id }) => id);
-const subtypesNotVertical = subtypes.filter(id => id !== VIDEO_VERTICAL);
+const withMargin = subtypes.filter(
+    id => ![VIDEO_VERTICAL, STORYTELLING].includes(id)
+);
 const subtypesNotCards = subtypes.filter(id => id !== CARDS);
 
 export const signatureClasses = cva(
@@ -23,7 +26,7 @@ export const signatureClasses = cva(
         compoundVariants: [
             {
                 position: place.Top,
-                subtype: subtypesNotVertical,
+                subtype: withMargin,
                 className: ['mb-16', 'mb-24_m']
             },
             {
@@ -64,7 +67,7 @@ export const signatureWithAuthorsClasses = cva(
             {
                 position: place.Top,
                 withAuthorRole: false,
-                subtype: subtypesNotVertical,
+                subtype: withMargin,
                 className: 'mb-16'
             },
             {

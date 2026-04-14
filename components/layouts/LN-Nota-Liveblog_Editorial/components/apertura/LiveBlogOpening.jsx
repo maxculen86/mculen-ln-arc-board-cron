@@ -4,7 +4,7 @@ import OpeningMedia from './OpeningMedia';
 
 function LiveBlogOpening({ children }) {
     return (
-        <div className="bg-neutral-dark-1 pt-65 -mt-65 pt-118_m -mt-87_m mt-0_l pt-112_l">
+        <div className="bg-neutral-dark-1">
             <div className="lay px-0_max767 px-40_xl">
                 <div className="row">
                     <div className="grid gap-24 pb-16 pb-24_m pb-32_lg w-100 grid-cols-12_m px-24_m grid-cols-16_lg gap-32_lg px-32_xl">

@@ -90,6 +90,10 @@ input[type=checkbox]:hover {
   --accent-mandarina: #f65a22;
   --background-positive: #f3f0eb;
   --accent-vino-light: #e4c1d2;
+  --muted: #e5e5e5;
+  --info-default: #715e11;
+  --error-dark: #300c0c;
+  --error-light: #ef8b91;
   --feedback-info-700: #2F3A4E;
   --feedback-danger-500: #C61B25;
   --feedback-danger-600: #99151D;
@@ -510,6 +514,15 @@ input[type=checkbox]:hover {
 .border.border-danger-600 {
   border-color: var(--feedback-danger-600);
 }
+.border.border-error-default {
+  border-color: var(--accent-tomate);
+}
+.border.border-error-dark {
+  border-color: var(--error-dark);
+}
+.border.border-error-light {
+  border-color: var(--error-light);
+}
 .border.border-thin {
   border-width: thin;
 }
@@ -543,9 +556,16 @@ input[type=checkbox]:hover {
 .border.border-accent-lechuga__hover:hover {
   border-color: var(--accent-lechuga);
 }
+.border.border-error-light__hover:hover {
+  border-color: var(--error-light);
+}
 
 .border.border-secondary-positive__focus:focus {
   border-color: var(--secondary-positive);
+}
+
+.border.border-error-dark__focus:focus {
+  border-color: var(--error-dark);
 }
 
 .border-spinner {
@@ -598,6 +618,10 @@ input[type=checkbox]:hover {
   color: var(--neutral-dark-800);
 }
 
+.text-accent-vino {
+  color: var(--accent-vino);
+}
+
 .text-accent-positive {
   color: var(--accent-positive);
 }
@@ -624,6 +648,10 @@ input[type=checkbox]:hover {
 
 .text-danger-600 {
   color: var(--feedback-danger-600);
+}
+
+.text-muted {
+  color: var(--muted);
 }
 
 .text-neutral-light-1 {
@@ -696,6 +724,10 @@ input[type=checkbox]:hover {
 
 .bg-danger-500 {
   background: var(--feedback-danger-500);
+}
+
+.bg-info-default {
+  background: var(--info-default);
 }
 
 .bg-info-700 {

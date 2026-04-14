@@ -845,7 +845,8 @@ describe('common - utils - bannerHelper', () => {
                 slotId: 'caja1_dsk',
                 slotGroup: 'nota',
                 dfpId: 133919216,
-                classes: ''
+                classes: '',
+                theme: 'light'
             };
 
             const configCaja1 = getBannerConfiguration(
@@ -880,7 +881,8 @@ describe('common - utils - bannerHelper', () => {
                 slotName: 'la_nacion_mobile/Nota/1x1_mob',
                 slotGroup: 'nota',
                 dfpId: 133919216,
-                classes: 'none '
+                classes: 'none ',
+                theme: 'light'
             };
 
             const config1x1SinSuscripcion = getBannerConfiguration(
@@ -929,7 +931,8 @@ describe('common - utils - bannerHelper', () => {
                 slotId: 'adhesion_mob',
                 slotGroup: 'nota',
                 dfpId: 133919216,
-                classes: '--fixed --close none '
+                classes: '--fixed --close none ',
+                theme: 'light'
             };
 
             customFields = {

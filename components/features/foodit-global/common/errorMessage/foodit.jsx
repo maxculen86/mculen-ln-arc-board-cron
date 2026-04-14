@@ -7,9 +7,9 @@ export function ErrorMessage({ message = '' }) {
     if (!message) return null;
 
     return (
-        <div className="flex gap-8 text-danger-600 text-12 roboto roboto-regular">
+        <div className="flex gap-8 text-accent-vino text-12 roboto roboto-regular">
             <Icon size={16}>
-                <IconSprite name="danger" fill="#99151D" />
+                <IconSprite name="danger" />
             </Icon>
             <Text className="text-12">{message}</Text>
         </div>

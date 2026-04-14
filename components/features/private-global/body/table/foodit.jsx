@@ -12,7 +12,7 @@ function TableComponent({ data = {} }) {
                     <tr className="flex border border-bottom border-light-300">
                         {header?.map(({ _id: headerId, content }) => (
                             <th
-                                className="flex ai-center gap-8 px-16 py-12 min-w-116 prumo prumo-semibold"
+                                className="flex ai-center gap-8 px-16 py-12 text-20 prumo prumo-semibold w-160"
                                 key={headerId}
                             >
                                 {content}
@@ -33,7 +33,7 @@ function TableComponent({ data = {} }) {
                             {row.map(({ _id: rowId, content }) => (
                                 // eslint-disable-next-line jsx-a11y/control-has-associated-label
                                 <td
-                                    className="flex ai-center py-12 px-16 white-space-nowrap white-space-normal_md min-w-116 h-72"
+                                    className="flex ai-center py-12 px-16 break-word white-space-normal w-160 h-72"
                                     key={rowId}
                                 >
                                     <span

@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
+<div>
+  <div
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
+    data-diagram="image-panoramic"
+  >
+    <img
+      class="w-full h-full object-cover"
+      data-fetch-priority="high"
+      data-loading="eager"
+      data-testid="image-ui"
+      height="675"
+      sizes="100vw"
+      src="https://example.com/image.jpg"
+      srcset="https://example.com/image.jpg 1200w"
+      width="1200"
+    />
+  </div>
+  <section
+    class="w-full"
+    data-diagram="image-panoramic"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1 />
+        <h2 />
+      </div>
+      <hr
+        class="max-w-80 my-40 border-black-default"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</div>
+`;
+
+exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
+<div>
+  <div
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
+    data-diagram="image-panoramic"
+  >
+    <img
+      alt="Panoramic image"
+      class="w-full h-full object-cover"
+      data-fetch-priority="high"
+      data-loading="eager"
+      data-testid="image-ui"
+      height="576"
+      sizes="(max-width: 500px) 500px, 1024px"
+      src="image-panoramic.jpg"
+      srcset="image-small.jpg 500w, image-large.jpg 1024w"
+      width="1024"
+    />
+  </div>
+  <section
+    class="w-full"
+    data-diagram="image-panoramic"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1>
+          Main Title
+        </h1>
+        <h2>
+          Subtitle
+        </h2>
+      </div>
+      <p
+        class="prumo text-subheading-md text-center max-w-635"
+      >
+        This is the subheadline
+      </p>
+      <hr
+        class="max-w-80 my-40 border-black-default"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</div>
+`;
+
+exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
+<div>
+  <section
+    class="w-full"
+    data-diagram="image-panoramic"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1>
+          Main Title
+        </h1>
+        <h2>
+          Subtitle
+        </h2>
+      </div>
+      <p
+        class="prumo text-subheading-md text-center max-w-635"
+      >
+        This is the subheadline
+      </p>
+      <hr
+        class="max-w-80 my-40 border-black-default"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</div>
+`;
+
+exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
+<div>
+  <div
+    class="w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2 h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
+    data-diagram="image-panoramic"
+  >
+    <img
+      alt="Panoramic image"
+      class="w-full h-full object-cover"
+      data-fetch-priority="high"
+      data-loading="eager"
+      data-testid="image-ui"
+      height="576"
+      sizes="(max-width: 500px) 500px, 1024px"
+      src="image-panoramic.jpg"
+      srcset="image-small.jpg 500w, image-large.jpg 1024w"
+      width="1024"
+    />
+  </div>
+  <section
+    class="w-full"
+    data-diagram="image-panoramic"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1>
+          Main Title
+        </h1>
+        <h2>
+          Subtitle
+        </h2>
+      </div>
+      <hr
+        class="max-w-80 my-40 border-black-default"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</div>
+`;

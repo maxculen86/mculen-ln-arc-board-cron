@@ -32,8 +32,8 @@ function BarrierRequiresSubscription({
         >
             <Modal.Portal>
                 <div data-tw>
-                    <Modal.Overlay />
-                    <Modal.Content className="data-[open=true]:z-50 bg-base-default text-base-foreground rounded-4">
+                    <Modal.Overlay className="z-110" />
+                    <Modal.Content className="data-[open=true]:z-111 bg-base-default text-base-foreground rounded-4">
                         <Modal.Body>
                             <Modal.CloseButton
                                 containerClassName="ml-auto"

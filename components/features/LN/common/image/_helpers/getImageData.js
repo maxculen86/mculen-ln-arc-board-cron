@@ -2,9 +2,14 @@ import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../../../private/LN/common/utils/mediaHelper';
+import { buildOpeningImage } from '../../../../../private/LN/common/utils/openingImageHelper';
 
-export const getImageData = data => {
+export const getImageData = (data, { isAperturaNota = false } = {}) => {
     if (!data?.url) return null;
+
+    if (isAperturaNota) {
+        return buildOpeningImage(data);
+    }
 
     const {
         alt_text: altText,

@@ -12,9 +12,11 @@ function LiveBlogEditorial({ children }) {
 
     return (
         <BaseLayout className="liveblog-editorial">
-            <main id="content" className="relative" style={{ paddingTop: '0' }}>
+            <main className="relative" style={{ paddingTop: '0' }}>
                 {/* ---- BANNERS ---- */}
-                {children[0]}
+                <div className="bg-neutral-dark-1 w-100 pt-65 -mt-65 pt-118_m -mt-87_m -mt-57_l pt-80_l pb-24_m">
+                    {children[0]}
+                </div>
                 {/* ---- APERTURA ---- */}
                 <LiveBlogEditorial.Opening data={dataEpigraph}>
                     <LiveBlogOpening.Description data={dataDescripcion} />

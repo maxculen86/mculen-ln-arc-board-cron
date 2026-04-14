@@ -218,12 +218,14 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             const image = container.querySelector('img');
             const figcaption = container.querySelector('figcaption');
 
-            const shortestImage = aperturaImage.resized_urls[0].resizedUrl;
+            const heroFallback =
+                'https://resizer.glanacion.com/resizer/-xDflM1Ic1RxJc06uhR2rL-gr8U=/1200x675/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg';
 
             expect(contentImage).toHaveLength(2);
             expect(image).toBeDefined();
             expect(figcaption).toBeDefined();
-            expect(image.getAttribute('src')).toStrictEqual(shortestImage);
+            expect(image.getAttribute('src')).toStrictEqual(heroFallback);
+            expect(image.getAttribute('srcset')).toContain('1200w');
             expect(image.getAttribute('loading')).toStrictEqual('eager');
             expect(image.getAttribute('alt')).toStrictEqual(
                 aperturaImage.caption

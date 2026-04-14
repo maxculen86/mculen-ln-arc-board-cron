@@ -2,7 +2,7 @@ import React from 'react';
 import get from '../../../../private/common/utils/get';
 import {
     buildGoogleTagBannerConfig,
-    getDynamicBannerSettingsBySubtype,
+    getDynamicBannerSettings,
     renderDynamicBanner,
     SUPPORTED_DEVICES
 } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
@@ -12,14 +12,16 @@ export const createBannerElement = (
     globalContent,
     device,
     bannerIndex,
-    cardIndex
+    cardIndex,
+    layout
 ) => {
     const bannerKey = `dynamic-banner-${device}-${bannerIndex}-${cardIndex}`;
     const banner = renderDynamicBanner(
         globalContent,
         device,
         bannerIndex,
-        bannerKey
+        bannerKey,
+        layout
     );
 
     if (!banner) return null;
@@ -27,7 +29,8 @@ export const createBannerElement = (
     const googleTagConfig = buildGoogleTagBannerConfig(
         device,
         bannerIndex,
-        globalContent
+        globalContent,
+        layout
     );
     if (!googleTagConfig) return null;
 
@@ -66,7 +69,8 @@ export const insertBannersIntoCards = (
     cardGroups,
     globalContent,
     renderConfig,
-    currentDevice
+    currentDevice,
+    layout
 ) => {
     const { renderExpandedCard, outputType } = renderConfig;
     const result = [];
@@ -74,7 +78,11 @@ export const insertBannersIntoCards = (
     let bannerIndex = 1;
     const subtype = get(globalContent, 'subtype', '');
     const strategy = getBannerStrategy(subtype);
-    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+    const { maxBanners } = getDynamicBannerSettings({
+        globalContent,
+        layout,
+        subtype
+    });
 
     cardGroups.forEach((cardGroup, index) => {
         result.push(
@@ -95,7 +103,8 @@ export const insertBannersIntoCards = (
                     globalContent,
                     device,
                     bannerIndex,
-                    index
+                    index,
+                    layout
                 );
 
                 if (bannerResult) {

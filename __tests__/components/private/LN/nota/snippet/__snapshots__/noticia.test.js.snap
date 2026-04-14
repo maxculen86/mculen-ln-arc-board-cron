@@ -21,16 +21,87 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
       "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
       "width": 1200,
     },
+  ],
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": [
+      "CreativeWork",
+      "Product",
+    ],
+    "name": "Acceso Digital Monthly Test",
+    "productID": "lanacion.com.ar:acceso_digital",
+  },
+  "keywords": [],
+  "mainEntityOfPage": {
+    "@id": "https://www.lanacion.com.ar/news-test/",
+    "@type": "WebPage",
+  },
+  "publisher": {
+    "@id": "https://www.lanacion.com.ar/#organization",
+  },
+  "publishingPrinciples": "https://www.lanacion.com.ar/tema/the-trust-project-tid68036/",
+  "thumbnailUrl": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+  "url": "https://www.lanacion.com.ar/news-test",
+}
+`;
+
+exports[`SnippetNoticia default subtype (NewsArticle) should render the full schema image structure when promo and body images exist 1`] = `
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "articleBody": "Primer parrafo.",
+  "articleSection": "Test section",
+  "author": {
+    "@type": "Organization",
+    "name": "LA NACION",
+  },
+  "creator": [],
+  "dateCreated": "2023-01-01T00:00:00.000Z",
+  "dateModified": "2023-01-04T00:00:00.000Z",
+  "datePublished": "2023-01-02T00:00:00.000Z",
+  "description": "Primer parrafo.",
+  "headline": "Test title",
+  "image": [
     {
       "@type": "ImageObject",
-      "height": 900,
-      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+      "caption": "El 28 de septiembre de 2004, Rafael Juniors Solich asesinó a tres compañeros en una escuela de Carmen de Patagones",
+      "height": 675,
+      "url": "https://www.lanacion.com.ar/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=1200&height=675&quality=70&smart=true",
       "width": 1200,
     },
     {
       "@type": "ImageObject",
+      "caption": "El 28 de septiembre de 2004, Rafael Juniors Solich asesinó a tres compañeros en una escuela de Carmen de Patagones",
+      "height": 900,
+      "url": "https://www.lanacion.com.ar/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=1200&height=900&quality=70&smart=true",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "caption": "El 28 de septiembre de 2004, Rafael Juniors Solich asesinó a tres compañeros en una escuela de Carmen de Patagones",
       "height": 1200,
-      "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+      "url": "https://www.lanacion.com.ar/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=1200&height=1200&quality=70&smart=true",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "caption": "Un alumno ingresó armado a un colegio de Santa Fe y mató a un compañero",
+      "height": 675,
+      "url": "https://www.lanacion.com.ar/resizer/v2/un-alumno-ingreso-armado-a-un-colegio-de-santa-fe-EILA5UAAWFGPFHPQID4T42RSF4.jpg?auth=9e502bc440814e8ea6270c5065a0773a95513c44263675b901b3b9af24bc894d&width=1200&height=675&quality=70&smart=true",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "caption": "Un alumno ingresó armado a un colegio de Santa Fe y mató a un compañero",
+      "height": 900,
+      "url": "https://www.lanacion.com.ar/resizer/v2/un-alumno-ingreso-armado-a-un-colegio-de-santa-fe-EILA5UAAWFGPFHPQID4T42RSF4.jpg?auth=9e502bc440814e8ea6270c5065a0773a95513c44263675b901b3b9af24bc894d&width=1200&height=900&quality=70&smart=true",
+      "width": 1200,
+    },
+    {
+      "@type": "ImageObject",
+      "caption": "Un alumno ingresó armado a un colegio de Santa Fe y mató a un compañero",
+      "height": 1200,
+      "url": "https://www.lanacion.com.ar/resizer/v2/un-alumno-ingreso-armado-a-un-colegio-de-santa-fe-EILA5UAAWFGPFHPQID4T42RSF4.jpg?auth=9e502bc440814e8ea6270c5065a0773a95513c44263675b901b3b9af24bc894d&width=1200&height=1200&quality=70&smart=true",
       "width": 1200,
     },
   ],
@@ -44,12 +115,22 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
     "productID": "lanacion.com.ar:acceso_digital",
   },
   "keywords": [],
-  "mainEntityOfPage": "https://www.lanacion.com.ar/news-test/",
+  "mainEntityOfPage": {
+    "@id": "https://www.lanacion.com.ar/news-test/",
+    "@type": "WebPage",
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "description": "El 28 de septiembre de 2004, Rafael Juniors Solich asesinó a tres compañeros en una escuela de Carmen de Patagones",
+      "height": 675,
+      "url": "https://www.lanacion.com.ar/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=1200&height=675&quality=85&smart=true",
+      "width": 1200,
+    },
+  },
   "publisher": {
     "@id": "https://www.lanacion.com.ar/#organization",
   },
   "publishingPrinciples": "https://www.lanacion.com.ar/tema/the-trust-project-tid68036/",
-  "thumbnailUrl": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
+  "thumbnailUrl": "https://www.lanacion.com.ar/resizer/v2/el-28-de-septiembre-de-2004-rafael-juniors-solich-3YRGESSOH5A5TBN5HGJBCFH42M.png?auth=822e93af946ad74abe52eb6f306bb3d63ad3c455f8eaabaa4a14b14f67a9d3d7&width=880&height=586&quality=70&smart=true",
   "url": "https://www.lanacion.com.ar/news-test",
 }
 `;

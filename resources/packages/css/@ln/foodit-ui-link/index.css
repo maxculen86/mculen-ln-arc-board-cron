@@ -9,6 +9,7 @@
 }
 .link.foodit-link:hover {
   color: var(--accent-lechuga);
+  opacity: 1;
 }
 .link.foodit-link .icon {
   transition: inherit;

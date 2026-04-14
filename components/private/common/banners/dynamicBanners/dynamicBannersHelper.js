@@ -3,26 +3,66 @@ import DivBannerSSR from '../DivBannerSSR';
 import Banner from '../../../../features/ui/ln/banner/default';
 import { suffixDevice } from '../../../LN/common/utils/bannerHelper';
 import get from '../../utils/get';
-import { OPINION } from '../../utils/subtypes/subtypeHelper';
+import { OPINION, STORYTELLING } from '../../utils/subtypes/subtypeHelper';
+import { WrapperBody } from '../../../../features/LN/common/wrapperBody/default';
+import isAllowedSection from '../../../LN/common/utils/isAllowedSection';
+import siteProperties from '../../../../../properties/sites/la-nacion-ar';
+
+const {
+    layoutsName: { StoryTellingV2, NotaOpinion }
+} = siteProperties || {};
 
 export const MAX_DYNAMIC_BANNERS = 5;
 export const BANNER_INSERT_INTERVAL = 4;
 export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
-export const DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE = {
-    [OPINION]: {
-        BannerComponent: Banner,
-        maxBanners: 4
+export function BannerWithWrapper({ bannerConfiguration }) {
+    return (
+        <WrapperBody variant="banner">
+            <Banner bannerConfiguration={bannerConfiguration} />
+        </WrapperBody>
+    );
+}
+
+const DYNAMIC_BANNER_RULES = [
+    {
+        listOfAllowedSection: [{ subtype: OPINION, pageLayout: NotaOpinion }],
+        settings: {
+            BannerComponent: BannerWithWrapper,
+            maxBanners: 4
+        }
     },
-    default: {
-        BannerComponent: DivBannerSSR,
-        maxBanners: MAX_DYNAMIC_BANNERS
+    {
+        listOfAllowedSection: [
+            { subtype: STORYTELLING, pageLayout: StoryTellingV2 }
+        ],
+        settings: {
+            BannerComponent: BannerWithWrapper,
+            maxBanners: 4
+        }
     }
+];
+
+const DEFAULT_BANNER_SETTINGS = {
+    BannerComponent: DivBannerSSR,
+    maxBanners: MAX_DYNAMIC_BANNERS
 };
 
-export const getDynamicBannerSettingsBySubtype = subtype =>
-    DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE[subtype] ??
-    DYNAMIC_BANNER_SETTINGS_BY_SUBTYPE.default;
+export const getDynamicBannerSettings = ({
+    globalContent,
+    layout,
+    subtype
+} = {}) => {
+    const matched = DYNAMIC_BANNER_RULES.find(({ listOfAllowedSection }) =>
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            layout,
+            subtype
+        })
+    );
+    return matched?.settings ?? DEFAULT_BANNER_SETTINGS;
+};
 
 const BASE_CONFIG = {
     dfpId: 133919216,
@@ -90,12 +130,17 @@ const getDynamicBannerConfigBySubtype = subtype =>
 export const createDynamicBannerConfig = (
     globalContent,
     device,
-    bannerIndex
+    bannerIndex,
+    layout
 ) => {
     if (!globalContent || !device || !bannerIndex) return null;
 
     const subtype = get(globalContent, 'subtype', '');
-    const { maxBanners } = getDynamicBannerSettingsBySubtype(subtype);
+    const { maxBanners } = getDynamicBannerSettings({
+        globalContent,
+        layout,
+        subtype
+    });
     if (bannerIndex > maxBanners) return null;
 
     const deviceSuffix = suffixDevice[device];
@@ -167,18 +212,24 @@ export const renderDynamicBanner = (
     globalContent,
     device,
     bannerIndex,
-    key
+    key,
+    layout
 ) => {
     const bannerConfiguration = createDynamicBannerConfig(
         globalContent,
         device,
-        bannerIndex
+        bannerIndex,
+        layout
     );
 
     if (!bannerConfiguration) return null;
 
     const subtype = get(globalContent, 'subtype', '');
-    const { BannerComponent } = getDynamicBannerSettingsBySubtype(subtype);
+    const { BannerComponent } = getDynamicBannerSettings({
+        globalContent,
+        layout,
+        subtype
+    });
 
     return (
         <BannerComponent key={key} bannerConfiguration={bannerConfiguration} />
@@ -188,12 +239,14 @@ export const renderDynamicBanner = (
 export const buildGoogleTagBannerConfig = (
     device,
     bannerIndex,
-    globalContent
+    globalContent,
+    layout
 ) => {
     const bannerConfiguration = createDynamicBannerConfig(
         globalContent,
         device,
-        bannerIndex
+        bannerIndex,
+        layout
     );
 
     if (!bannerConfiguration) return null;
@@ -205,12 +258,17 @@ export const getDynamicBannersWithGPTConfigsForIndex = ({
     globalContent,
     currentDevice,
     bannerIndex,
-    keyIndex
+    keyIndex,
+    layout
 }) => {
     if (!globalContent || !bannerIndex) return null;
 
     const subtype = get(globalContent, 'subtype', '');
-    const { BannerComponent } = getDynamicBannerSettingsBySubtype(subtype);
+    const { BannerComponent } = getDynamicBannerSettings({
+        globalContent,
+        layout,
+        subtype
+    });
     const resolvedKeyIndex = keyIndex ?? bannerIndex;
     const bannerDivs = [];
     let googleTagConfig = null;
@@ -220,7 +278,8 @@ export const getDynamicBannersWithGPTConfigsForIndex = ({
         const bannerConfiguration = createDynamicBannerConfig(
             globalContent,
             device,
-            bannerIndex
+            bannerIndex,
+            layout
         );
 
         if (!bannerConfiguration) return;

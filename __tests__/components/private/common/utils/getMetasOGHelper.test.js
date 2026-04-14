@@ -38,6 +38,10 @@ jest.mock('fusion:environment', () => ({
     SITE_LANACION: 'https://www.lanacion.com.ar'
 }));
 
+jest.mock('fusion:properties', () => () => ({
+    host: 'https://www.lanacion.com.ar'
+}));
+
 describe('Test return functions by getMetasOGHelper', () => {
     it('Test return default function getAppId', () => {
         const siteProperties = undefined;
