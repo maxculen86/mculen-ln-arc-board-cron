@@ -50,8 +50,11 @@ describe('Opening', () => {
             title2: 'Article Subtitle'
         });
         getOpeningMediaData.mockReturnValue({
-            pictureSources: [],
-            imgDefaultUrl: 'image.jpg',
+            src: 'image.jpg',
+            srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
+            sizes: '100vw',
+            width: 1024,
+            height: 576,
             altText: 'article image',
             diagram: 'title-100'
         });
@@ -72,8 +75,11 @@ describe('Opening', () => {
         expect(getOpeningComponent).toHaveBeenCalledWith(
             expect.objectContaining({
                 diagram: 'title-100',
-                pictureSources: [],
-                imgDefaultUrl: 'image.jpg',
+                src: 'image.jpg',
+                srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
+                sizes: '100vw',
+                width: 1024,
+                height: 576,
                 altText: 'article image',
                 globalContent: expect.any(Object),
                 layout: 'article',
@@ -106,8 +112,11 @@ describe('Opening', () => {
 
     it('handles different diagram types', () => {
         getOpeningMediaData.mockReturnValue({
-            pictureSources: [],
-            imgDefaultUrl: 'image.jpg',
+            src: 'image.jpg',
+            srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
+            sizes: '100vw',
+            width: 1024,
+            height: 576,
             altText: 'article image',
             diagram: 'image-panoramic'
         });

@@ -13,24 +13,49 @@ jest.mock(
     '../../../../../../../components/features/ui/ln/image/default',
     () => ({
         __esModule: true,
-        default: ({ alt, src, className, fetchPriority, loading, sources }) => (
-            <picture data-testid="image-picture">
-                {sources?.map((source, idx) => (
-                    <source
-                        key={idx}
-                        srcSet={source.srcset}
-                        media={source.media}
-                    />
-                ))}
+        default: ({
+            alt,
+            src,
+            srcSet,
+            sizes,
+            width,
+            height,
+            className,
+            fetchPriority,
+            loading,
+            renderImgOnly = false,
+            sources = []
+        }) => {
+            const image = (
                 <img
+                    data-testid="image-ui"
                     alt={alt}
                     src={src}
+                    srcSet={srcSet}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
                     className={className}
                     data-fetch-priority={fetchPriority}
                     data-loading={loading}
                 />
-            </picture>
-        )
+            );
+
+            if (renderImgOnly) return image;
+
+            return (
+                <picture data-testid="image-picture">
+                    {sources.map((source, idx) => (
+                        <source
+                            key={idx}
+                            srcSet={source.srcset}
+                            media={source.media}
+                        />
+                    ))}
+                    {image}
+                </picture>
+            );
+        }
     })
 );
 
@@ -67,11 +92,11 @@ jest.mock(
 
 describe('OpeningImagePanoramic', () => {
     const mockProps = {
-        pictureSources: [
-            { srcset: 'image-small.jpg 500w', media: '(max-width: 500px)' },
-            { srcset: 'image-large.jpg 1024w', media: '(min-width: 501px)' }
-        ],
-        imgDefaultUrl: 'image-panoramic.jpg',
+        src: 'image-panoramic.jpg',
+        srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
+        sizes: '(max-width: 500px) 500px, 1024px',
+        width: 1024,
+        height: 576,
         altText: 'Panoramic image',
         globalContent: { id: 'article-123' },
         layout: 'image-panoramic',
@@ -96,12 +121,20 @@ describe('OpeningImagePanoramic', () => {
         const img = screen.getByAltText('Panoramic image');
         expect(img).toHaveAttribute('data-fetch-priority', 'high');
         expect(img).toHaveAttribute('data-loading', 'eager');
+        expect(img).toHaveAttribute(
+            'srcset',
+            'image-small.jpg 500w, image-large.jpg 1024w'
+        );
+        expect(img).toHaveAttribute(
+            'sizes',
+            '(max-width: 500px) 500px, 1024px'
+        );
     });
 
-    it('should not render panoramic image when imgDefaultUrl is empty', () => {
-        render(<OpeningImagePanoramic {...mockProps} imgDefaultUrl="" />);
+    it('should not render panoramic image when src is empty', () => {
+        render(<OpeningImagePanoramic {...mockProps} src="" />);
 
-        expect(screen.queryByTestId('image-picture')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
     });
 
     it('should render all components in horizontal section', () => {
@@ -156,12 +189,12 @@ describe('OpeningImagePanoramic', () => {
         );
     });
 
-    it('should render responsive panoramic image with sources', () => {
-        render(<OpeningImagePanoramic {...mockProps} />);
+    it('should render a plain panoramic img without picture sources', () => {
+        const { container } = render(<OpeningImagePanoramic {...mockProps} />);
 
-        const picture = screen.getByTestId('image-picture');
-        const sources = picture.querySelectorAll('source');
-        expect(sources).toHaveLength(2);
+        expect(screen.getByTestId('image-ui')).toBeInTheDocument();
+        expect(container.querySelector('picture')).not.toBeInTheDocument();
+        expect(container.querySelectorAll('source')).toHaveLength(0);
     });
 
     it('should pass diagram prop to OpeningAddons', () => {
@@ -193,8 +226,11 @@ describe('OpeningImagePanoramic', () => {
     it('should render with minimal props', () => {
         render(
             <OpeningImagePanoramic
-                pictureSources={[]}
-                imgDefaultUrl="image.jpg"
+                src="image.jpg"
+                srcset="image.jpg 1200w"
+                sizes="100vw"
+                width={1200}
+                height={675}
                 altText="Image"
                 globalContent={{}}
                 layout=""
@@ -229,23 +265,35 @@ describe('OpeningImagePanoramic', () => {
 
     describe('snapshots', () => {
         it('snapshot with all props', () => {
-            const { container } = <OpeningImagePanoramic {...mockProps} />;
+            const { container } = render(
+                <OpeningImagePanoramic {...mockProps} />
+            );
             expect(container).toMatchSnapshot();
         });
 
         it('snapshot without image', () => {
-            const { container } = <OpeningImagePanoramic imgDefaultUrl="" />;
+            const { container } = render(
+                <OpeningImagePanoramic {...mockProps} src="" />
+            );
             expect(container).toMatchSnapshot();
         });
 
         it('snapshot without subheadline', () => {
-            const { container } = <OpeningImagePanoramic subheadline="" />;
+            const { container } = render(
+                <OpeningImagePanoramic {...mockProps} subheadline="" />
+            );
             expect(container).toMatchSnapshot();
         });
 
-        it('minimal snapshot (only imgDefaultUrl)', () => {
+        it('minimal snapshot (only src)', () => {
             const { container } = render(
-                <OpeningImagePanoramic imgDefaultUrl="https://example.com/image.jpg" />
+                <OpeningImagePanoramic
+                    src="https://example.com/image.jpg"
+                    srcset="https://example.com/image.jpg 1200w"
+                    sizes="100vw"
+                    width={1200}
+                    height={675}
+                />
             );
             expect(container).toMatchSnapshot();
         });

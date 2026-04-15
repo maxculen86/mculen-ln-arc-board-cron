@@ -1,5 +1,6 @@
 import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
+import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';
@@ -91,9 +92,15 @@ export const getImageProps = (
             width = '',
             additional_properties: { mime_type: mimeType = '' } = {}
         } = acuOgImg;
+        const acuOgImgWithWWW = replaceUrlResizerToWWW({
+            type: 'image',
+            url,
+            resized_urls: []
+        });
+        const acuOgImgUrl = get(acuOgImgWithWWW, 'url', url);
 
         return {
-            url,
+            url: acuOgImgUrl,
             height,
             width,
             type: mimeType,
@@ -110,11 +117,41 @@ export const getImageProps = (
         } = promoItemsBasic;
 
         if (type === 'image' && isEmptyObject(embed)) {
+            const promoItemsBasicWithWWW =
+                replaceUrlResizerToWWW(promoItemsBasic);
+
+            const resizedEntry = (
+                promoItemsBasicWithWWW.resized_urls || []
+            ).find(({ option: { width: w } = {} }) => Number(w) === 1200);
+
+            if (resizedEntry?.resizedUrl) {
+                const realHeight =
+                    resizedEntry.resizedUrl.match(/height=(\d+)/)?.[1];
+
+                return {
+                    url: resizedEntry.resizedUrl,
+                    height:
+                        realHeight ||
+                        String(
+                            resizedEntry.option?.height || DEFAULTS.ogHeight
+                        ),
+                    width: String(resizedEntry.option?.width || DEFAULTS.width),
+                    type: mimeType,
+                    alt: getImageAltText(promoItemsBasic)
+                };
+            }
+
+            const promoItemsBasicUrl = get(promoItemsBasicWithWWW, 'url', url);
             let newUrl;
-            newUrl = modifyUrlParam(url, 'width', DEFAULTS.width);
+            newUrl = modifyUrlParam(
+                promoItemsBasicUrl,
+                'width',
+                DEFAULTS.width
+            );
             newUrl = modifyUrlParam(newUrl, 'height', DEFAULTS.ogHeight);
             newUrl = modifyUrlParam(newUrl, 'quality', DEFAULTS.quality);
             newUrl = modifyUrlParam(newUrl, 'smart', true);
+
             return {
                 url: newUrl,
                 height: DEFAULTS.ogHeight,

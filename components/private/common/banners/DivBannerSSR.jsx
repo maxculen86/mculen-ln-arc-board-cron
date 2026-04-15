@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Closebutton } from '@ln/common-ui-closebutton';
+import { Button } from '@ln/contenidos-ui-button';
 import classNames from 'classnames';
 import flatArray from '../utils/flatArray';
 import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 import get from '../utils/get';
-import CommercialBannerCloseButton from './CommercialBannerCloseButton';
 
 import '../../../../resources/dist/css/ln/modules/mod-banner.css';
 
@@ -28,6 +28,17 @@ function DivBannerSSR({ bannerConfiguration }) {
     const [isHidden, setIsHidden] = useState(false);
 
     const handleHideBanner = () => setIsHidden(true);
+
+    const comercialButton = (
+        <Button
+            onClick={handleHideBanner}
+            variant="primary"
+            dataEvent="LinkClick"
+            dataSection="Comercial-home"
+            id={`${slotId}_btnCloseAd`}
+            label="CERRAR"
+        />
+    );
     const bannersNoApp = [
         'cabezal_dsk',
         'cabezal_tab',
@@ -64,10 +75,7 @@ function DivBannerSSR({ bannerConfiguration }) {
                 // eslint-disable-next-line react/jsx-no-useless-fragment
                 <>
                     {slotId.includes('comercial') ? (
-                        <CommercialBannerCloseButton
-                            slotId={slotId}
-                            onClose={handleHideBanner}
-                        />
+                        comercialButton
                     ) : (
                         <Closebutton
                             onClick={handleHideBanner}

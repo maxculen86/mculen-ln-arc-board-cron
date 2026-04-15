@@ -15,16 +15,22 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
     const { title1, title2 } = getTitleData(headlines);
 
     const {
-        pictureSources,
-        imgDefaultUrl,
+        src,
+        srcset,
+        sizes,
+        width,
+        height,
         altText,
         diagram = DEFAULT_DIAGRAM
     } = getOpeningMediaData(promoItems, title1);
 
     const sharedProps = {
         diagram,
-        pictureSources,
-        imgDefaultUrl,
+        src,
+        srcset,
+        sizes,
+        width,
+        height,
         altText,
         globalContent,
         layout,

@@ -22,6 +22,7 @@ function Media({
     outputType,
     handleClick,
     isApertura,
+    isAperturaNota,
     parrafo,
     tituloNota,
     active,
@@ -91,6 +92,7 @@ function Media({
                         outputType={outputType}
                         zoom={zoom}
                         isApertura={isApertura}
+                        isAperturaNota={isAperturaNota}
                         searchableField={searchableField}
                         authors={authors}
                     />

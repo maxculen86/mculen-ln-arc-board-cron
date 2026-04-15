@@ -180,6 +180,23 @@ export function LinkImagePreload({ resizedUrls = [] }) {
     return null;
 }
 
+export function LinkResponsiveImagePreload({
+    href = '',
+    srcSet = '',
+    sizes = ''
+}) {
+    if (!srcSet) return null;
+
+    preload(href, {
+        as: 'image',
+        fetchPriority: 'high',
+        imageSrcSet: srcSet,
+        ...(sizes && { imageSizes: sizes })
+    });
+
+    return null;
+}
+
 export const wikiImagesWithWWW = data => {
     const { image = {} } = data;
     const { resizedUrls = [] } = image;

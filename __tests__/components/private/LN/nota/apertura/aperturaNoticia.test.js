@@ -122,12 +122,13 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
         resized_urls: [
             {
                 option: {
-                    height: 206,
-                    media_preload: '(max-width: 375px)',
-                    width: 309
+                    height: 675,
+                    media_preload: '(min-width: 1280px)',
+                    minScreenWidth: 1280,
+                    width: 1200
                 },
                 resizedUrl:
-                    'https://resizer.glanacion.com/resizer/TDFZYvddG7P4p8LrPAuWmlwvddI=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg'
+                    'https://resizer.glanacion.com/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg'
             },
             {
                 option: {
@@ -137,6 +138,15 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                 },
                 resizedUrl:
                     'https://resizer.glanacion.com/resizer/5cgnX52cF07G6vJsBMTP1jh5ifg=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg'
+            },
+            {
+                option: {
+                    height: 206,
+                    media_preload: '(max-width: 375px)',
+                    width: 309
+                },
+                resizedUrl:
+                    'https://resizer.glanacion.com/resizer/TDFZYvddG7P4p8LrPAuWmlwvddI=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg'
             }
         ],
         type: 'image',
@@ -218,12 +228,14 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             const image = container.querySelector('img');
             const figcaption = container.querySelector('figcaption');
 
-            const shortestImage = aperturaImage.resized_urls[0].resizedUrl;
+            const heroFallback =
+                'https://resizer.glanacion.com/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg';
 
             expect(contentImage).toHaveLength(2);
             expect(image).toBeDefined();
             expect(figcaption).toBeDefined();
-            expect(image.getAttribute('src')).toStrictEqual(shortestImage);
+            expect(image.getAttribute('src')).toStrictEqual(heroFallback);
+            expect(image.getAttribute('srcset')).toContain('1200w');
             expect(image.getAttribute('loading')).toStrictEqual('eager');
             expect(image.getAttribute('alt')).toStrictEqual(
                 aperturaImage.caption

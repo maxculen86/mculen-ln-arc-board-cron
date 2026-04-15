@@ -6,7 +6,7 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import GlobalProvider from '../private/common/context/globalContext';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import InitControlGroup from './helpers/initCtrlGrp';
 import Toasts from '../features/LN-10-global/common/toasts/default';
 import '../../resources/dist/css/ln/pages/video.css';
@@ -95,7 +95,7 @@ function lnNotaVideo({ children, globalContent, layout }) {
                 </div>
             </div>
             <Toasts />
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />
         </GlobalProvider>

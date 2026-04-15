@@ -10,7 +10,7 @@ import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
-import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import AdsStrategySelector from '../../features/LN/common/adsManager/components/adsStrategySelector';
 import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
@@ -216,7 +216,7 @@ function LNAcumuladoLayout(props) {
                     </div>
                 </div>
                 <Toasts />
-                <LoadBannersSSR />
+                <AdsStrategySelector />
                 <PwaModal />
                 <InitControlGroup />
             </GlobalProviderAcu>

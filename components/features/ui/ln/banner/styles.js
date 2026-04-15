@@ -34,11 +34,11 @@ export const bannerPlaceholderVariants = {
     })
 };
 
-export const bannerWrapperVariants = cva('ds-banner', {
+export const bannerWrapperVariants = cva('ds-banner ds-banner-background', {
     variants: {
         theme: {
-            light: 'ds-banner-background',
-            dark: 'bg-neutral-dark-1'
+            light: '',
+            dark: 'bg-neutral-999'
         },
         slotId: {
             cabezal_dsk: cx(

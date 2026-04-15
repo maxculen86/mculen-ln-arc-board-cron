@@ -5,9 +5,9 @@ import Header from '../../header/default';
 import Footer from '../../../../private/LN10/footer';
 import Glossary from '../../glossary/default';
 import PwaModal from '../../pwaModal/default';
-import LoadBannersSSR from '../../../../private/common/banners/LoadBannersSSR';
 import InitControlGroup from '../../../../layouts/helpers/initCtrlGrp';
 import Toasts from '../toasts/default';
+import AdsStrategySelector from '../../../LN/common/adsManager/components/adsStrategySelector';
 
 export function BaseLayout({ children, className = '' }) {
     const { layout } = useAppContext();
@@ -22,7 +22,7 @@ export function BaseLayout({ children, className = '' }) {
             </div>
             <Toasts />
             <Glossary showGlossary={showGlossary} />
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />
         </div>

@@ -7,8 +7,11 @@ import OpeningTitles from './OpeningTitles';
 import { sectionHeight } from './styles';
 
 function OpeningImagePanoramic({
-    pictureSources,
-    imgDefaultUrl,
+    src,
+    srcset,
+    sizes,
+    width,
+    height,
     altText,
     globalContent = {},
     layout = '',
@@ -21,7 +24,7 @@ function OpeningImagePanoramic({
 
     return (
         <>
-            {imgDefaultUrl && (
+            {src && (
                 <div
                     className={cx(
                         'w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2',
@@ -31,11 +34,15 @@ function OpeningImagePanoramic({
                 >
                     <ImageUI
                         alt={altText}
-                        src={imgDefaultUrl}
+                        src={src}
+                        srcSet={srcset}
+                        sizes={sizes}
+                        width={width}
+                        height={height}
                         className="w-full h-full object-cover"
+                        renderImgOnly
                         fetchPriority="high"
                         loading="eager"
-                        sources={pictureSources}
                     />
                 </div>
             )}

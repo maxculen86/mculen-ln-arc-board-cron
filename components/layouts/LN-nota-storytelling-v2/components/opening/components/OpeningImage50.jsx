@@ -6,8 +6,11 @@ import OpeningTitles from './OpeningTitles';
 import { sectionHeight } from './styles';
 
 function OpeningImage50({
-    pictureSources,
-    imgDefaultUrl,
+    src,
+    srcset,
+    sizes,
+    width,
+    height,
     altText,
     globalContent = {},
     layout = '',
@@ -55,15 +58,19 @@ function OpeningImage50({
                         </p>
                     )}
                 </div>
-                {imgDefaultUrl && (
+                {src && (
                     <div className="w-full h-full md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-8 xl:col-start-9 overflow-hidden">
                         <ImageUI
                             alt={altText}
-                            src={imgDefaultUrl}
+                            src={src}
+                            srcSet={srcset}
+                            sizes={sizes}
+                            width={width}
+                            height={height}
                             className="w-full h-full object-cover"
+                            renderImgOnly
                             fetchPriority="high"
                             loading="eager"
-                            sources={pictureSources}
                         />
                     </div>
                 )}
