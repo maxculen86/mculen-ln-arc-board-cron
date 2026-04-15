@@ -168,7 +168,7 @@ exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 5 (
 exports[`Dynamic Banner Helper Banner snapshots renders desktop banner with dark theme 1`] = `
 <div>
   <div
-    class="ds-banner bg-neutral-dark-1 relative hidden md:flex"
+    class="ds-banner ds-banner-background bg-neutral-999 relative hidden md:flex"
     style="height: 300px;"
   >
     <div

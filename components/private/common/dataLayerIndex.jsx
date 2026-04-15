@@ -7,6 +7,7 @@ import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPage
 import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
 import ChefsPageView from '../../features/foodit-global/common/dataLayer/chefsPageView';
 import EjesHomePageView from '../../features/foodit-global/common/dataLayer/ejesHomePageView';
+import ChatIaPageView from '../../features/foodit-global/common/dataLayer/chatIaPageView';
 import DataLayerOrigin from '../../features/foodit-global/common/dataLayer/origin';
 
 const config = {
@@ -36,7 +37,8 @@ const config = {
         'Foodit-acumulado': AcusPageView,
         'Foodit-buscador': AcusPageView,
         'Foodit-acumulado-chef': ChefsPageView,
-        'Foodit-subcategorias': EjesHomePageView
+        'Foodit-subcategorias': EjesHomePageView,
+        'Foodit-chat-ia': ChatIaPageView
     }
 };
 

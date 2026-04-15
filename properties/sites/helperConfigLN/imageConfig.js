@@ -78,10 +78,18 @@ const contentElementSizesThreeTwo = {
 const promoItemsSizes = {
     sizes: [
         {
+            width: 1200,
+            height: 675,
+            minScreenWidth: 1280,
+            media_preload: setMediaCondition({ minWidth: 1280 }),
+            useFullSize: true,
+            proportion: '3:2'
+        },
+        {
             width: 880,
             height: 587,
             minScreenWidth: 768,
-            media_preload: setMediaCondition({ minWidth: 768 }),
+            media_preload: setMediaCondition({ minWidth: 768, maxWidth: 1279 }),
             useFullSize: true,
             proportion: '3:2'
         },
@@ -1023,12 +1031,21 @@ export default {
             promo_items: {
                 sizes: [
                     {
+                        width: 1200,
+                        height: 675,
+                        minScreenWidth: 1280,
+                        media_preload: setMediaCondition({ minWidth: 1280 }),
+                        useFullSize: true,
+                        proportion: '16:9'
+                    },
+                    {
                         minScreenWidth: 768,
                         width: 717,
                         height: 404,
                         proportion: '16:9',
                         media_preload: setMediaCondition({
-                            minWidth: 768
+                            minWidth: 768,
+                            maxWidth: 1279
                         })
                     },
                     {
@@ -1044,13 +1061,24 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        minScreenWidth: 1024,
+                        minScreenWidth: 1280,
                         width: 1260,
                         height: 708,
                         proportion: '16:9',
                         media_preload: setMediaCondition({
-                            minWidth: 1024
+                            minWidth: 1280
                         })
+                    },
+                    {
+                        width: 1200,
+                        height: 675,
+                        minScreenWidth: 1024,
+                        media_preload: setMediaCondition({
+                            minWidth: 1024,
+                            maxWidth: 1279
+                        }),
+                        useFullSize: true,
+                        proportion: '16:9'
                     },
                     {
                         minScreenWidth: 768,

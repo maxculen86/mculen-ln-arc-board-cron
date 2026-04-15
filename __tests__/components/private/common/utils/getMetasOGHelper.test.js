@@ -35,7 +35,9 @@ jest.mock(
 );
 
 jest.mock('fusion:environment', () => ({
-    SITE_LANACION: 'https://www.lanacion.com.ar'
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    API_ENV: 'sandbox'
 }));
 
 jest.mock('fusion:properties', () => () => ({
@@ -493,6 +495,65 @@ describe('Case return getImageProps', () => {
             height: '675',
             alt: 'image description',
             type: 'image/png'
+        };
+        expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
+    });
+
+    it('uses 1200w resized_urls entry with real height from URL for og image', () => {
+        const promoItemsBasic = {
+            url: 'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png',
+            type: 'image',
+            height: '800',
+            width: '800',
+            additional_properties: { mime_type: 'image/png' },
+            embed: {},
+            caption: 'image description',
+            resized_urls: [
+                {
+                    resizedUrl:
+                        'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=420&height=280',
+                    option: { width: 420, height: 280 }
+                },
+                {
+                    resizedUrl:
+                        'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=1200&height=800',
+                    option: { width: 1200, height: 675 }
+                }
+            ]
+        };
+        const output = {
+            url: 'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.png?auth=abc&width=1200&height=800',
+            width: '1200',
+            height: '800',
+            alt: 'image description',
+            type: 'image/png'
+        };
+        expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
+    });
+
+    it('replaces resizer domain with www domain for 1200w resized_urls entry', () => {
+        const promoItemsBasic = {
+            url: 'https://sandbox-resizer.glanacion.com/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.jfif?auth=abc',
+            type: 'image',
+            height: '800',
+            width: '1200',
+            additional_properties: { mime_type: 'image/jpeg' },
+            embed: {},
+            caption: 'image description',
+            resized_urls: [
+                {
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.jfif?auth=abc&width=1200&height=800&quality=70&smart=true',
+                    option: { width: 1200, height: 675 }
+                }
+            ]
+        };
+        const output = {
+            url: 'https://www.lanacion.com.ar/resizer/v2/7Y2TB3CA3VAUFPUPWJSKH7HIFI.jfif?auth=abc&width=1200&height=800&quality=70&smart=true',
+            width: '1200',
+            height: '800',
+            alt: 'image description',
+            type: 'image/jpeg'
         };
         expect(getImageProps({}, promoItemsBasic, '', '')).toEqual(output);
     });

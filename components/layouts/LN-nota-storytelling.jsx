@@ -9,13 +9,13 @@ import {
     getSectionLogo,
     getAFondoLogo
 } from '../private/common/utils/sectionUtils';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import get from '../private/common/utils/get';
 import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 import Toasts from '../features/LN-10-global/common/toasts/default';
+import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import '../../resources/dist/css/ln/pages/storytelling.css';
 
 function lnNotaStorytelling({
@@ -89,7 +89,7 @@ function lnNotaStorytelling({
                 </div>
             </div>
             <Toasts />
-            <LoadBannersSSR />
+            <AdsStrategySelector />
             <PwaModal />
             <Glossary />
             <InitControlGroup />
