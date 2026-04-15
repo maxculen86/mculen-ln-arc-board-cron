@@ -117,9 +117,12 @@ export const getImageProps = (
         } = promoItemsBasic;
 
         if (type === 'image' && isEmptyObject(embed)) {
-            const resizedEntry = (promoItemsBasic.resized_urls || []).find(
-                ({ option: { width: w } = {} }) => Number(w) === 1200
-            );
+            const promoItemsBasicWithWWW =
+                replaceUrlResizerToWWW(promoItemsBasic);
+
+            const resizedEntry = (
+                promoItemsBasicWithWWW.resized_urls || []
+            ).find(({ option: { width: w } = {} }) => Number(w) === 1200);
 
             if (resizedEntry?.resizedUrl) {
                 const realHeight =
@@ -138,8 +141,6 @@ export const getImageProps = (
                 };
             }
 
-            const promoItemsBasicWithWWW =
-                replaceUrlResizerToWWW(promoItemsBasic);
             const promoItemsBasicUrl = get(promoItemsBasicWithWWW, 'url', url);
             let newUrl;
             newUrl = modifyUrlParam(
