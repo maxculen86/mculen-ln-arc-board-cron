@@ -2,8 +2,17 @@ import { renderHook, act } from '@testing-library/react';
 import loadJWPlayerScript from '../../../../../../components/chains/utils/loadJWPlayerScript';
 import { useJWPlayer } from '../../../../../../components/features/LN-common/shareVideo/hooks/useJWPlayer';
 
+jest.mock('fusion:content', () => ({
+    useContent: jest.fn(() => ({ duration: null, title: null }))
+}));
+
 jest.mock('../../../../../../components/chains/utils/loadJWPlayerScript', () =>
     jest.fn()
+);
+
+jest.mock(
+    '../../../../../../components/private/common/videoPlayerJw/utils/helperJw',
+    () => ({ onJwPlayerReady: jest.fn() })
 );
 
 describe('Components - features - LN-common - shareVideo - hooks - useJWPlayer', () => {
@@ -51,7 +60,8 @@ describe('Components - features - LN-common - shareVideo - hooks - useJWPlayer',
 
     it('should set up player only once if script is loaded', () => {
         const mockSetMute = jest.fn();
-        const mockSetup = jest.fn(() => ({ setMute: mockSetMute }));
+        const mockOn = jest.fn();
+        const mockSetup = jest.fn(() => ({ setMute: mockSetMute, on: mockOn }));
 
         global.window.jwplayer = jest.fn(() => ({
             setup: mockSetup
