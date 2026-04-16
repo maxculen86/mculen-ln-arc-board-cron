@@ -48,6 +48,7 @@ describe('features - LN-nota - TableV2', () => {
         it('Should show table with correct amount of rows', () => {
             const { container } = render(<TableV2 data={mockTableData} />);
             expect(container).not.toBeEmptyDOMElement();
+            expect(screen.getByTestId('table-container')).toBeInTheDocument();
             expect(screen.queryByRole('table')).toBeTruthy();
             expect(screen.queryAllByRole('row')).toHaveLength(4); // 1 header + 3 body rows
             expect(screen.queryAllByRole('rowgroup')).toHaveLength(2); // thead + tbody
