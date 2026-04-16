@@ -5,6 +5,9 @@ import { useContent } from 'fusion:content';
 import * as helpers from '../../../../../components/features/foodit/CardCategory/_helper';
 
 jest.mock('fusion:consumer', () => Component => Component);
+jest.mock('fusion:environment', () => ({
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+}));
 
 jest.mock(
     '../../../../../components/features/foodit/CardCategory/_helper',
@@ -57,7 +60,10 @@ describe('Components - features - foodit - CardCategory', () => {
 
         expect(screen.getByText('Titulo')).toBeInTheDocument();
         expect(screen.getByAltText('Foto de Titulo')).toBeInTheDocument();
-        expect(screen.getByRole('link')).toHaveAttribute('href', '/recetas');
+        expect(screen.getByRole('link')).toHaveAttribute(
+            'href',
+            'https://foodit.lanacion.com.ar/recetas'
+        );
         expect(helpers.registerCardIndex).toHaveBeenCalledWith(
             'test-feature-id'
         );
@@ -71,8 +77,7 @@ describe('Components - features - foodit - CardCategory', () => {
             customFields: {
                 title: 'Titulo',
                 image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
-                url: '',
-                query: 'carne'
+                url: '/tema/viandas/?query=recetas&title=Viandas&groups=cookingType&itemGroups=Viandas'
             }
         };
 
@@ -82,7 +87,7 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(screen.getByAltText('Foto de Titulo')).toBeInTheDocument();
         expect(screen.getByRole('link')).toHaveAttribute(
             'href',
-            '/tema/titulo-abc-000/?query=carne&title=Titulo'
+            'https://foodit.lanacion.com.ar/tema/viandas/?query=recetas&title=Viandas&groups=cookingType&itemGroups=Viandas'
         );
     });
 
@@ -275,7 +280,7 @@ describe('Components - features - foodit - CardCategory', () => {
         expect(categoryElement).toBeInTheDocument();
         expect(categoryElement.closest('a')).toHaveAttribute(
             'href',
-            'https://test-url.com'
+            'https://foodit.lanacion.com.ar/'
         );
     });
 
@@ -305,7 +310,7 @@ describe('Components - features - foodit - CardCategory', () => {
 
         expect(screen.getByRole('link')).toHaveAttribute(
             'href',
-            'https://test-url.com'
+            'https://foodit.lanacion.com.ar/'
         );
     });
 
@@ -340,7 +345,10 @@ describe('Components - features - foodit - CardCategory', () => {
         );
 
         const link = screen.getByRole('link', { name: /snapshot title/i });
-        expect(link).toHaveAttribute('href', '/recetas');
+        expect(link).toHaveAttribute(
+            'href',
+            'https://foodit.lanacion.com.ar/recetas'
+        );
 
         const image = screen.getByRole('img', {
             name: 'Foto de Snapshot Title'
@@ -349,5 +357,88 @@ describe('Components - features - foodit - CardCategory', () => {
             'src',
             'https://sandbox-resizer.glanacion.com/resizer/v2/E74GZJYWCBEBRBQY4JKVS2UYZA.jpg?auth=c9fd48c08e2932ae4055beea8a378eb28a7555181528b1a5479d4ca745fab031&width=150&height=150&quality=85&smart=true'
         );
+    });
+
+    describe('Filters - facil & rapida', () => {
+        it('applies "fácil" filter correctly', () => {
+            useContent.mockReturnValue(fooditCategoryImageSource);
+            const props = {
+                id: 'test-facil',
+                isAdmin: false,
+                customFields: {
+                    title: 'Vianda',
+                    image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
+                    url: '/tema/vianda/?query=recetas&title=Vianda&groups=occasions&itemGroups=Vianda',
+                    facil: true
+                }
+            };
+
+            render(<CardCategory {...props} />);
+
+            expect(screen.getByText('Vianda fácil')).toBeInTheDocument();
+            const link = screen.getByRole('link');
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('/tema/vianda-facil/')
+            );
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('itemGroups=Vianda%7Cfacil')
+            );
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('title=Vianda+f%C3%A1cil')
+            );
+        });
+
+        it('applies "rápida" filter correctly', () => {
+            useContent.mockReturnValue(fooditCategoryImageSource);
+            const props = {
+                id: 'test-rapida',
+                isAdmin: false,
+                customFields: {
+                    title: 'Vianda',
+                    image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
+                    url: '/tema/vianda/?query=recetas&title=Vianda&groups=occasions&itemGroups=Vianda',
+                    rapida: true
+                }
+            };
+
+            render(<CardCategory {...props} />);
+
+            expect(screen.getByText('Vianda rápida')).toBeInTheDocument();
+            const link = screen.getByRole('link');
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('/tema/vianda-rapida/')
+            );
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('itemGroups=Vianda%7Crapida')
+            );
+            expect(link).toHaveAttribute(
+                'href',
+                expect.stringContaining('title=Vianda+r%C3%A1pida')
+            );
+        });
+
+        it('renders warning when both filters are applied and isAdmin is true', () => {
+            const props = {
+                id: 'test-both',
+                isAdmin: true,
+                customFields: {
+                    title: 'Vianda',
+                    image: 'E74GZJYWCBEBRBQY4JKVS2UYZA',
+                    url: '/tema/vianda/',
+                    facil: true,
+                    rapida: true
+                }
+            };
+
+            render(<CardCategory {...props} />);
+            expect(
+                screen.getByText('No se pueden aplicar ambos filtros')
+            ).toBeInTheDocument();
+        });
     });
 });
