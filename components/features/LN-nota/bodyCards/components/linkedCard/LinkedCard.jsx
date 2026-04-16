@@ -8,13 +8,24 @@ import LinkedCardContent from './LinkedCardContent';
 import LinkedCardHeading from './LinkedCardHeading';
 import LinkedCardDescription from './LinkedCardDescription';
 
-function LinkedCard({ children, variant, cardColor, className, ...rest }) {
+function LinkedCard({
+    children,
+    variant,
+    cardColor,
+    className,
+    gridColumns,
+    ...rest
+}) {
     const variantClass = cardVariant({ variant });
 
     const _className = cx('linked-card', variantClass, className);
 
     return (
-        <LinkedCardProvider variant={variant} cardColor={cardColor}>
+        <LinkedCardProvider
+            gridColumns={gridColumns}
+            variant={variant}
+            cardColor={cardColor}
+        >
             <div data-testid="linked-card" className={_className} {...rest}>
                 {children}
             </div>

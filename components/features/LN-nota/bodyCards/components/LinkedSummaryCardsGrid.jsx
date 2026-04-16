@@ -29,6 +29,7 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
     if (!cards.length) return null;
 
     const gridCardSmall = cx(
+        gridColumns === 5 && 'grid-cols-20_lg gap-16_lg',
         gridColumns === 4 && 'grid-cols-16_lg',
         gridColumns === 3 && 'grid-cols-12_lg',
         'grid grid-cols-8 row-gap-16 grid-cols-12_m gap-32_m grid-auto-rows-1'
@@ -51,6 +52,7 @@ function LinkedSummaryCardsGrid({ cards = [], gridColumns }) {
                         data-testid="card-small"
                         onCardClick={() => scrollToCard(cardId)}
                         variant="collapsed"
+                        gridColumns={gridColumns}
                     />
                 );
             })}
