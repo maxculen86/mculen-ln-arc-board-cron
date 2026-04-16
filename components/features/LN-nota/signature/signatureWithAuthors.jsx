@@ -31,6 +31,7 @@ function SignatureWithAuthors({
     const authorNames = getAuthorData(author, authors, 'name');
     const authorLinks = getAuthorData(author, authors, 'link');
     const hasMultipleAuthors = Array.isArray(authors) && authors.length > 1;
+    const authorAlt = Array.isArray(authorNames) ? authorNames[0] : authorNames;
 
     const variant = showVariantIa ? 'ia' : 'default';
     const iconAudio = showVariantIa ? (
@@ -70,6 +71,7 @@ function SignatureWithAuthors({
                     icon={iconAudio}
                     prefix={prefix}
                     negative={isNegativeSubtype}
+                    alt={authorAlt}
                     classnames={{
                         authorSection: 'uppercase',
                         authorName: isNegativeSubtype && 'text-blue-300',
