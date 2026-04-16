@@ -63,8 +63,8 @@ function BodyCards() {
         registerScrollTrigger({
             id: 'scroll-body-GA',
             type: 'percentage',
-            threshold: 10,
-            thresholdStep: 10,
+            threshold: 25,
+            thresholdStep: 25,
             callback: scrollCallback
         });
 

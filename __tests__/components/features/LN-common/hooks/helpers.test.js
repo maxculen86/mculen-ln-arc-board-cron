@@ -87,16 +87,16 @@ describe('Components - features - LN-common -  hooks - helpers', () => {
             expect(callback).toHaveBeenCalledTimes(1);
         });
 
-        it('should fire 10 %, 20 % and 30 % when percentage jumps to 35 %', () => {
-            // Cuando salta al 30 % del área total de una, por ejemplo, en una pantalla grande donde el usuario ya puede ver el 30 % del contenido.
+        it('should fire 25 % when percentage jumps to 35 %', () => {
+            // Cuando salta al 35 % del área total de una, por ejemplo, en una pantalla grande donde el usuario ya puede ver el 35 % del contenido.
 
             const callback = jest.fn();
             const listeners = [
                 {
                     id: 'scroll-Nota',
                     type: 'percentage',
-                    threshold: 10,
-                    thresholdStep: 10,
+                    threshold: 25,
+                    thresholdStep: 25,
                     callback: callback
                 }
             ];
@@ -104,7 +104,7 @@ describe('Components - features - LN-common -  hooks - helpers', () => {
 
             runTriggers(listeners, 0, 35, alreadyDispatched);
 
-            expect(callback.mock.calls.map(c => c[0])).toEqual([10, 20, 30]);
+            expect(callback.mock.calls.map(c => c[0])).toEqual([25]);
         });
 
         it('should fire a single percentage callback when no step is provided', () => {

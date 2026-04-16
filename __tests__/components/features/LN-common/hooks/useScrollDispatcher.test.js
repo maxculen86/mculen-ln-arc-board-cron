@@ -26,17 +26,17 @@ const HookHost = () => {
         });
 
         start.getBoundingClientRect = () => ({
-            top: 0,
+            top: 0 - window.scrollY,
             height: 0,
-            bottom: 0,
+            bottom: 0 - window.scrollY,
             left: 0,
             right: 0,
             width: 0
         });
         end.getBoundingClientRect = () => ({
-            top: 1000,
+            top: 1000 - window.scrollY,
             height: 200,
-            bottom: 1200,
+            bottom: 1200 - window.scrollY,
             left: 0,
             right: 0,
             width: 0
@@ -54,14 +54,14 @@ const HookHost = () => {
         registerScrollTrigger({
             id: 'test-trigger',
             type: 'percentage',
-            threshold: 10,
-            thresholdStep: 10,
+            threshold: 25,
+            thresholdStep: 25,
             callback: p => window.__fired.push(p)
         });
         registerScrollTrigger({
             id: 'test-trigger2',
             type: 'percentage',
-            threshold: 20,
+            threshold: 50,
             callback: p => window.__fired.push(p)
         });
     }, []);
@@ -69,7 +69,15 @@ const HookHost = () => {
     return null;
 };
 
+beforeEach(() => {
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => {
+        cb();
+        return 0;
+    });
+});
+
 afterEach(() => {
+    window.requestAnimationFrame.mockRestore?.();
     cleanup();
     delete window.__fired;
 });
@@ -92,7 +100,7 @@ describe('Components - features - LN-common -  hooks - useScrollDispatcher', () 
         ).toHaveLength(1);
     });
 
-    it('should fire the 10 % callback when bottom of viewport crosses the threshold', async () => {
+    it('should fire the 25 % callback when bottom of viewport crosses the threshold', async () => {
         Object.defineProperty(window, 'innerHeight', {
             configurable: true,
             value: 100
@@ -100,15 +108,15 @@ describe('Components - features - LN-common -  hooks - useScrollDispatcher', () 
         window.__fired = [];
         render(<HookHost />);
 
-        const scrollYneededToReach10Percent = Math.max(
+        const scrollYneededToReach25Percent = Math.max(
             0,
-            120 - window.innerHeight
+            1200 * 0.25 - window.innerHeight
         );
-        dispatchScroll(scrollYneededToReach10Percent);
+        dispatchScroll(scrollYneededToReach25Percent);
 
         await waitFor(() => {
-            expect(window.__fired).toContain(10);
-            expect(window.__fired).not.toContain(20);
+            expect(window.__fired).toContain(25);
+            expect(window.__fired).not.toContain(50);
         });
     });
 });
