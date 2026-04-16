@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import { useDisclosure } from '@ln/hooks';
 
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import {
@@ -27,6 +26,7 @@ import WhatsappShareButton from './components/whatsappShareButton';
 import Divider from '../../ui/ln/divider/default';
 import BuildAudioPlayerRender from './components/buildAudioPlayerRender';
 import useNativeShare from './hooks/useNaviteShare';
+import IaSummary from '../common/iaSummary/default';
 import useAudioPlayer from './hooks/useAudioPlayer';
 
 function ToolBar({ customFields: { hideSummary = false } = {} }) {
@@ -45,11 +45,9 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const [isShareOpen, setIsShareOpen] = useState(false);
     const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 
-    const {
-        isOpen: isBarrierOpen,
-        onOpen: openBarrier,
-        onClose: closeBarrier
-    } = useDisclosure(false);
+    const [isBarrierOpen, setIsBarrierOpen] = useState(false);
+    const openBarrier = () => setIsBarrierOpen(true);
+    const closeBarrier = () => setIsBarrierOpen(false);
 
     const { token, accessToken } = useAuthManager();
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
@@ -158,6 +156,7 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
                 </div>
             </div>
             <BuildAudioPlayerRender audioPlayerData={audioPlayerData} />
+            <IaSummary {...iaSummary} />
         </ToolbarProvider>
     );
 }

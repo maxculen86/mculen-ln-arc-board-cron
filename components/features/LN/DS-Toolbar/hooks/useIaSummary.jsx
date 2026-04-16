@@ -25,7 +25,7 @@ const useIaSummary = ({
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const openIa = () => {
+    const onOpen = () => {
         if (!suscription) {
             openBarrier?.();
             return;
@@ -41,7 +41,7 @@ const useIaSummary = ({
         });
     };
 
-    const closeIa = () => {
+    const onClose = () => {
         setIsOpen(false);
 
         addEventToDataLayerV2({
@@ -56,8 +56,8 @@ const useIaSummary = ({
         shouldShowSummary,
         isOpen,
         summaryData,
-        openIa,
-        closeIa
+        onOpen,
+        onClose
     };
 };
 
