@@ -12,5 +12,6 @@ cotizaciones {
     cotizacion_actual
     cotizacion_cierre
     cotizacion_apertura
+    habilitado
 }
 `;

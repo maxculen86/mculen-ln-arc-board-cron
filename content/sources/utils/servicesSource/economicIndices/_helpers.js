@@ -289,8 +289,9 @@ export const transformInternals = (data, isHome) => {
         cotizaciones = []
     } = data || {};
 
-    let items = cotizaciones;
-
+    let items = cotizaciones.filter(
+        item => get(item, 'habilitado', false) === true
+    );
     if (isHome) {
         items = filterForHome(items, tableType);
     } else if (tableType === 'riesgo-pais') {
