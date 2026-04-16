@@ -2,6 +2,7 @@
 
 exports[`Tests transformVideosJW should handle empty data object 1`] = `
 {
+  "duration": undefined,
   "image": undefined,
   "images": [],
   "mediaid": undefined,
@@ -76,6 +77,7 @@ exports[`Tests transformVideosJW should handle empty data object 1`] = `
 
 exports[`Tests transformVideosJW should transform data correctly with complete data and query  1`] = `
 {
+  "duration": undefined,
   "image": "https://cdn.jwplayer.com/v2/media/DXpufCFv/poster.jpg?width=720",
   "images": [
     {
