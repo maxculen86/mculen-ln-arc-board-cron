@@ -73,7 +73,7 @@ const buildInstanceConfig = ({
 };
 
 const setupPlayerInstance = async ({ config, initialMode, facade }) => {
-    const { playerId, mediaId, title, hasAutoplay } = config || {};
+    const { playerId, mediaId, title, hasAutoplay, duration } = config || {};
     if (!playerId || !mediaId) return;
 
     await loadLibrary(playerId);
@@ -99,6 +99,7 @@ const setupPlayerInstance = async ({ config, initialMode, facade }) => {
     handleVideoEventsScript(
         title || '',
         mediaId,
+        duration,
         initialMode,
         getVerticalPlayer(playerId) ? 'vertical' : 'horizontal'
     );

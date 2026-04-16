@@ -42,8 +42,18 @@ export function extractVideoData(data) {
         mediaid = '',
         sources = [],
         images = [],
-        image = ''
+        image = '',
+        duration: rawDuration
     } = firstVideo || {};
+
+    // Normalize duration: JW delivers either a numeric seconds value (new videos)
+    // or a milliseconds string (old videos). Always return a milliseconds string.
+    let duration;
+    if (typeof rawDuration === 'number') {
+        duration = String(rawDuration * 1000);
+    } else {
+        duration = rawDuration;
+    }
 
     return {
         playerId,
@@ -55,7 +65,8 @@ export function extractVideoData(data) {
         sources,
         images,
         fallbackImage: image,
-        firstVideo
+        firstVideo,
+        duration
     };
 }
 
@@ -124,7 +135,8 @@ export function buildVideoConfig({
     playlist,
     hasAutoplay = false,
     tagsUrl = '',
-    arcSite = ''
+    arcSite = '',
+    duration
 }) {
     return {
         title,
@@ -134,7 +146,8 @@ export function buildVideoConfig({
         hasAutoplay: Boolean(hasAutoplay),
         autostart: true,
         tagsUrl,
-        arcSite
+        arcSite,
+        duration
     };
 }
 

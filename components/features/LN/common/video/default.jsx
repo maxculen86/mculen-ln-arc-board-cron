@@ -46,7 +46,8 @@ function VideoPlayer({ data, hasAutoplay = false }) {
         sources,
         images,
         fallbackImage,
-        firstVideo
+        firstVideo,
+        duration
     } = videoData;
     const { arcSite, deployment, contextPath, globalContent } = useAppContext();
     const subtype = get(globalContent, 'subtype', '');
@@ -63,7 +64,8 @@ function VideoPlayer({ data, hasAutoplay = false }) {
         playlist: playlistConfig,
         hasAutoplay,
         tagsUrl,
-        arcSite
+        arcSite,
+        duration
     });
     const showCaption = shouldShowFigureCaption({
         isPromoItemVideo,
