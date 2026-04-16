@@ -17,6 +17,16 @@ export const VERTICAL_PLAYER_IDS = [
 ];
 
 /**
+ * Normalize JW duration to a milliseconds string.
+ * JW delivers either a numeric seconds value (new videos) or a milliseconds string (old videos).
+ * @param {number|string} duration
+ * @returns {string}
+ */
+export function normalizeJwDuration(duration) {
+    return typeof duration === 'number' ? String(duration * 1000) : duration;
+}
+
+/**
  * Extrae datos del video desde la estructura anidada embed.config.videoJw
  * @param {Object} data - Objeto de datos con estructura embed.config
  * @returns {Object} Datos del video extraídos y aplanados
@@ -46,15 +56,6 @@ export function extractVideoData(data) {
         duration: rawDuration
     } = firstVideo || {};
 
-    // Normalize duration: JW delivers either a numeric seconds value (new videos)
-    // or a milliseconds string (old videos). Always return a milliseconds string.
-    let duration;
-    if (typeof rawDuration === 'number') {
-        duration = String(rawDuration * 1000);
-    } else {
-        duration = rawDuration;
-    }
-
     return {
         playerId,
         title,
@@ -66,7 +67,7 @@ export function extractVideoData(data) {
         images,
         fallbackImage: image,
         firstVideo,
-        duration
+        duration: normalizeJwDuration(rawDuration)
     };
 }
 

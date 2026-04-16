@@ -3,7 +3,10 @@ import { useCajaCarruselContext } from '../cajaCarruselContext';
 import { useVideoJwCustomSettings } from '../hooks';
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
-import { buildTagsUrl } from '../../../../private/common/videoPlayerJw/utils/helperJw';
+import {
+    buildTagsUrl,
+    onJwPlayerReady
+} from '../../../../private/common/videoPlayerJw/utils/helperJw';
 import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
 import {
     registerJwVideoControlsTracking,
@@ -21,7 +24,9 @@ function JwVideoPlayer({
     isLoadedScriptJw,
     origin = '',
     variant = 'vertical',
-    roofData = {}
+    roofData = {},
+    duration,
+    titleJwPlayer
 }) {
     const { currentIndex, preferredVideoFiles } = useCajaCarruselContext();
 
@@ -96,6 +101,13 @@ function JwVideoPlayer({
                                 }
                             });
                         }
+                    });
+                });
+
+                playerRef.current.on('ready', () => {
+                    onJwPlayerReady(playerRef.current, {
+                        currentTitle: titleJwPlayer,
+                        duration: duration * 1000
                     });
                 });
 
