@@ -10,7 +10,8 @@ describe('content - sources - utils -getVideoJwDataHome', () => {
                     images: [{ src: 'poster.jpg' }],
                     mediaid: 'GVSSDClx',
                     title: 'Título de prueba',
-                    tracks: [{ file: 'subtitulos.vtt' }]
+                    tracks: [{ file: 'subtitulos.vtt' }],
+                    duration: 120
                 }
             ]
         };
@@ -22,7 +23,8 @@ describe('content - sources - utils -getVideoJwDataHome', () => {
             images: [{ src: 'poster.jpg' }],
             mediaid: 'GVSSDClx',
             title: 'Título de prueba',
-            tracks: [{ file: 'subtitulos.vtt' }]
+            tracks: [{ file: 'subtitulos.vtt' }],
+            duration: 120
         });
     });
 
@@ -34,7 +36,8 @@ describe('content - sources - utils -getVideoJwDataHome', () => {
             images: [],
             mediaid: undefined,
             title: 'Video sin título',
-            tracks: []
+            tracks: [],
+            duration: undefined
         });
     });
 });

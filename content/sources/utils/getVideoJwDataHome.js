@@ -7,7 +7,8 @@ export const getVideoJwDataHome = videoData => {
             images = [],
             mediaid,
             title = 'Video sin título',
-            tracks = []
+            tracks = [],
+            duration
         } = {}
     ] = playlist;
 
@@ -18,6 +19,7 @@ export const getVideoJwDataHome = videoData => {
         images,
         mediaid,
         title,
-        tracks
+        tracks,
+        duration
     };
 };

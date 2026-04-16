@@ -12,7 +12,8 @@ import { videoContainerExpandedClasses } from './styles';
 
 const JwVideoContainer = forwardRef(
     ({ handleNextCallback, isLastVideo, listVideoData = [], variant }, ref) => {
-        const { onCloseMediaScrollerExpanded } = useCajaCarruselContext();
+        const { onCloseMediaScrollerExpanded, videoMetadata } =
+            useCajaCarruselContext();
 
         const [showLeyendSwipeUp, setShowLeyendSwipeUp] = useState(isLastVideo);
 
@@ -123,6 +124,10 @@ const JwVideoContainer = forwardRef(
                                         origin={origin}
                                         variant={variant}
                                         roofData={roofData}
+                                        duration={videoMetadata?.[id]?.duration}
+                                        titleJwPlayer={
+                                            videoMetadata?.[id]?.titleJwPlayer
+                                        }
                                     />
                                 )}
                             </div>

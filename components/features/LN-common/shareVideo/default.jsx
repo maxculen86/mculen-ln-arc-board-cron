@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import { useVideoJwCustomSettings } from '../../../chains/LN10_Caja_Carrusel/components/hooks';
-import { useJWPlayer } from './hooks/useJWPlayer';
 import VideoShareButton from './components/VideoShareButton';
 import VideoShare from './components/VideoShare';
 import VideoShareMedia from './components/VideoShareMedia';
@@ -13,7 +12,7 @@ import { shareVideoClasses } from './styles';
 
 // TODO cambiar variant por context
 function ShareVideo({ videoId, variant = 'vertical' }) {
-    const { playerRef } = useJWPlayer(videoId);
+    const playerRef = useRef(null);
     useVideoJwCustomSettings({
         isInView: true,
         loading: false,
@@ -42,7 +41,13 @@ function ShareVideo({ videoId, variant = 'vertical' }) {
                     isHorizontal={variant === 'horizontal'}
                 />
             </div>
-            <VideoShare.Media id={videoId} variant={variant} />
+            <VideoShare.Media
+                id={videoId}
+                variant={variant}
+                onPlayerRef={ref => {
+                    playerRef.current = ref.current;
+                }}
+            />
         </VideoShare>
     );
 }

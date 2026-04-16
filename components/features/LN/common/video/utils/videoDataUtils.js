@@ -17,6 +17,16 @@ export const VERTICAL_PLAYER_IDS = [
 ];
 
 /**
+ * Normalize JW duration to a milliseconds string.
+ * JW delivers either a numeric seconds value (new videos) or a milliseconds string (old videos).
+ * @param {number|string} duration
+ * @returns {string}
+ */
+export function normalizeJwDuration(duration) {
+    return typeof duration === 'number' ? String(duration * 1000) : duration;
+}
+
+/**
  * Extrae datos del video desde la estructura anidada embed.config.videoJw
  * @param {Object} data - Objeto de datos con estructura embed.config
  * @returns {Object} Datos del video extraídos y aplanados
@@ -42,7 +52,8 @@ export function extractVideoData(data) {
         mediaid = '',
         sources = [],
         images = [],
-        image = ''
+        image = '',
+        duration: rawDuration
     } = firstVideo || {};
 
     return {
@@ -55,7 +66,8 @@ export function extractVideoData(data) {
         sources,
         images,
         fallbackImage: image,
-        firstVideo
+        firstVideo,
+        duration: normalizeJwDuration(rawDuration)
     };
 }
 
@@ -124,7 +136,8 @@ export function buildVideoConfig({
     playlist,
     hasAutoplay = false,
     tagsUrl = '',
-    arcSite = ''
+    arcSite = '',
+    duration
 }) {
     return {
         title,
@@ -134,7 +147,8 @@ export function buildVideoConfig({
         hasAutoplay: Boolean(hasAutoplay),
         autostart: true,
         tagsUrl,
-        arcSite
+        arcSite,
+        duration
     };
 }
 

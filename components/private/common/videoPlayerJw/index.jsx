@@ -57,7 +57,8 @@ const videoPlayerJW = ({
         epigraphTitle,
         mediaId,
         sources,
-        firstVideo
+        firstVideo,
+        duration
     } = videoData;
 
     const { arcSite, deployment, contextPath, globalContent, layout } =
@@ -116,7 +117,8 @@ const videoPlayerJW = ({
         playlist: playlistForConfig,
         hasAutoplay,
         tagsUrl,
-        arcSite
+        arcSite,
+        duration
     });
 
     return (
