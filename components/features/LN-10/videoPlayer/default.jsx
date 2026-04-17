@@ -33,7 +33,7 @@ function LN10VideoPlayer({
 
     const roof = getViewabilityRoof(chainId, renderables, parentCustomFields);
 
-    const { title, mediaId, videoFile, playlist } = videoData || {};
+    const { title, mediaId, videoFile, playlist, duration } = videoData || {};
 
     const termicaCajaSegmentada = useTermica('caja_segmentada');
     const { boxPosition, layout } = getChainConfig({
@@ -77,6 +77,7 @@ function LN10VideoPlayer({
         mediaId: id,
         playerId: 'tMVdYMxO',
         title,
+        duration,
         withAutoplay: true,
         roof,
         instanceConfig: {

@@ -1,7 +1,7 @@
 export const newsletters = [
     {
         id: 243,
-        title: 'Newsletter Foodit',
+        title: 'Planificá tu semana',
         badge: 'LUNES',
         description:
             'Mantente motivado y creativo en la cocina con recetas fáciles, ricas y originales seleccionadas por nuestra editora.',

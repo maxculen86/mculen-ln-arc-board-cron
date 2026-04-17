@@ -1,12 +1,20 @@
 import { useCallback, useRef, useState } from 'react';
+import { useContent } from 'fusion:content';
 import loadJWPlayerScript from '../../../../chains/utils/loadJWPlayerScript';
 import { markProgrammaticMute } from '../../../../private/common/utils/videoPlayerHelper';
+import { onJwPlayerReady } from '../../../../private/common/videoPlayerJw/utils/helperJw';
 
 export function useJWPlayer(videoId) {
     const [isScriptLoaded, setIsScriptLoaded] = useState(false);
     const hasStartedLoadingRef = useRef(false);
     const playerRef = useRef(null);
     const playerId = 'OSRCuuxn';
+
+    const { duration, title } =
+        useContent({
+            source: videoId ? 'videosJwCarruselSource' : null,
+            query: { id: videoId, website: 'la-nacion-ar' }
+        }) || null;
 
     const loadPlayer = useCallback(() => {
         if (!hasStartedLoadingRef.current) {
@@ -23,6 +31,12 @@ export function useJWPlayer(videoId) {
                 image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
                 width: '100%',
                 allowFullscreen: false
+            });
+            playerRef.current.on('ready', () => {
+                onJwPlayerReady(playerRef.current, {
+                    currentTitle: title,
+                    duration: duration * 1000
+                });
             });
             if (playerRef.current) {
                 markProgrammaticMute(playerRef.current);

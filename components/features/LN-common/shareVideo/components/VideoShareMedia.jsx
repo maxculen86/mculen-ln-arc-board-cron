@@ -15,11 +15,16 @@ import { getWWWResizedUrls } from '../../../../private/common/utils/image/getDat
 import { buttonShowPlayerClasses, videoShareMediaClasses } from '../styles';
 
 // TODO cambiar variant por context
-function VideoShareMedia({ id, variant = 'vertical' }) {
+function VideoShareMedia({ id, variant = 'vertical', onPlayerRef }) {
     const { globalContent } = useAppContext();
     const containerRef = useRef(null);
     const [showPlayer, setShowPlayer] = useState(false);
-    const { loadPlayer, setupPlayer, isScriptLoaded } = useJWPlayer(id);
+    const { loadPlayer, setupPlayer, isScriptLoaded, playerRef } =
+        useJWPlayer(id);
+
+    useEffect(() => {
+        if (onPlayerRef) onPlayerRef(playerRef);
+    }, []);
 
     const promoItems = get(globalContent, 'promo_items', {});
     const resizedUrls = getWWWResizedUrls(promoItems);

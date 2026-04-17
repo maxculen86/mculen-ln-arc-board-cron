@@ -13,7 +13,10 @@ import { addEventToDataLayerV2 } from '../../../../components/private/LN/common/
 import { registerJwVideoControlsTracking } from '../../../../components/private/common/utils/videoPlayerHelper';
 import { videoContainer } from '../../../../components/features/LN-10/videoPlayer/share/utils';
 import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
-import { getVerticalPlayer } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
+import {
+    getVerticalPlayer,
+    onJwPlayerReady
+} from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 const trackingCleanupByMediaId = new Map();
 
@@ -32,7 +35,8 @@ window.addEventListener('load', function () {
             playerId,
             withAutoplay,
             videoId,
-            roof
+            roof,
+            duration
         } = config || {};
 
         const videoOrientation = getVerticalPlayer(playerId)
@@ -79,6 +83,13 @@ window.addEventListener('load', function () {
                         }
                     });
                     trackingCleanupByMediaId.set(mediaId, cleanupTracking);
+
+                    instance.on('ready', () =>
+                        onJwPlayerReady(instance, {
+                            currentTitle: title,
+                            duration
+                        })
+                    );
 
                     instance.on('play', (e = {}) => {
                         if (skipPlayForSeek) {

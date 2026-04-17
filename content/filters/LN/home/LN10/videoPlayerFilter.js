@@ -2,6 +2,7 @@ export default `
     {
         mediaid,
         poster,
+        duration,
         sources {
             file,
             type,
