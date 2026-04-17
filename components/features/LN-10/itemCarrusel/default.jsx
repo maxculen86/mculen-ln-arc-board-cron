@@ -25,7 +25,8 @@ function itemCarrusel({
     layout,
     variant = 'vertical'
 }) {
-    const { setPreferredVideoFile } = useCajaCarruselContext();
+    const { setPreferredVideoFile, setVideoMetadata } =
+        useCajaCarruselContext();
     const { layoutsName = {} } = siteConfig || {};
 
     const layoutTypesForEvent = {
@@ -54,6 +55,9 @@ function itemCarrusel({
             }
         }) || null;
 
+    const duration = videoData?.duration;
+    const titleJwPlayer = videoData?.title;
+
     const shouldUsePreferredMp4 = variant === 'horizontal';
     const preferredMp4 = shouldUsePreferredMp4
         ? pickPreferredMp4(videoData?.sources)
@@ -69,6 +73,14 @@ function itemCarrusel({
         preferredMp4,
         setPreferredVideoFile
     ]);
+
+    useEffect(() => {
+        if (!sanitizedVideoId || !videoData) return;
+        setVideoMetadata(sanitizedVideoId, {
+            duration,
+            titleJwPlayer
+        });
+    }, [sanitizedVideoId, duration, titleJwPlayer]);
 
     const validationVideo = shouldFetchVideo ? videoData : undefined;
     const error = validateItemCarrusel({
@@ -115,11 +127,11 @@ function itemCarrusel({
     const cardProps = {
         'data-feature-id': featureId,
         title,
-        titleJwPlayer: videoData?.title,
+        titleJwPlayer,
         badgeText: chapita,
         poster: videoData?.poster,
         src: videoData?.posterVideo,
-        duration: videoData?.duration,
+        duration,
         cardPosition,
         videoId: sanitizedVideoId,
         layoutType: getLayoutType(layout),

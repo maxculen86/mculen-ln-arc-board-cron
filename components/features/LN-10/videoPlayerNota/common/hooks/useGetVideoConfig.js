@@ -14,7 +14,8 @@ const useGetVideoData = ({ videoId, imageConfig, staticMode = false }) => {
         staticMode,
         filter: videoPlayerFilter
     });
-    const { title, sources, mediaid, poster, resizedImages } = videoData || {};
+    const { title, sources, mediaid, poster, resizedImages, duration } =
+        videoData || {};
 
     return {
         title,
@@ -22,7 +23,8 @@ const useGetVideoData = ({ videoId, imageConfig, staticMode = false }) => {
         poster,
         mediaId: mediaid,
         resizedImages,
-        playlist: [{ sources, mediaid }]
+        playlist: [{ sources, mediaid }],
+        duration: duration * 1000
     };
 };
 

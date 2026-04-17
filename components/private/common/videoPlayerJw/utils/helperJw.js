@@ -83,9 +83,22 @@ export const getAlternativeDescription = (uploadDate, noteTitle) => {
         : baseDescription;
 };
 
+export const onJwPlayerReady = (
+    playerInstance,
+    { currentTitle = '', duration = 0 } = {}
+) => {
+    const contentTypeValue = duration >= 600000 ? 'vc12' : 'vc11';
+    // eslint-disable-next-line no-underscore-dangle
+    window?.ns_?.ComscoreJWPlayerPlugin(playerInstance, {
+        publisherId: '6906398',
+        labelmapping: `c3="lanacion.com.ar", c4="*null", c6="*null", ns_st_pu="La Nación", ns_st_pr="${currentTitle}", ns_st_ct="${contentTypeValue}", ns_st_cl="${duration}"`
+    });
+};
+
 export const handleVideoEventsScript = (
     title,
     idVideo,
+    duration,
     initialVideoMode = '',
     videoOrientation = 'horizontal'
 ) => {
@@ -113,6 +126,7 @@ export const handleVideoEventsScript = (
     });
 
     player.on('ready', () => {
+        onJwPlayerReady(player, { currentTitle, duration });
         const element = document.querySelector('.video-player');
         if (element) element.classList.remove('bg-black');
     });

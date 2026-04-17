@@ -1,21 +1,13 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
-import scriptVideoValidator from './scriptVideoValidator';
 
-function ComscoreVideo(props) {
-    const { location, globalContent, deployment, contextPath } = props;
-    const loadVideo = scriptVideoValidator(globalContent);
-
+function ComscoreVideo() {
     return (
-        location === 'body-top' &&
-        loadVideo && (
-            <script
-                defer
-                id="ComscoreVideo"
-                src={deployment(`${contextPath}/resources/js/comscore.js`)}
-            />
-        )
+        <script
+            defer
+            id="comscore-video-metrix"
+            src="https://census-web.scorecardresearch.com/plugins/streaming-jwplayer/v2/current.js"
+        />
     );
 }
 
-export default Consumer(ComscoreVideo);
+export default ComscoreVideo;
