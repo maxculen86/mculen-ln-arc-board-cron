@@ -16,6 +16,7 @@ function TableV2({
 
     return (
         <div
+            data-testid="table-container"
             className={cx([
                 'container-table',
                 'overflow-x-auto',
