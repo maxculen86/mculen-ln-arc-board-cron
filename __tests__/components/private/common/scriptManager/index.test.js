@@ -167,6 +167,7 @@ describe('getScriptsToLoad', () => {
             'EventsHelper',
             'FundingChoices',
             'TikTokPixel',
+            'FacebookPixel',
             'GoogleOneTap'
         ]);
         expect(Object.keys(result)).toEqual([
@@ -196,6 +197,7 @@ describe('getScriptsToLoad', () => {
             'EventsHelper',
             'FundingChoices',
             'TikTokPixel',
+            'FacebookPixel',
             'GoogleOneTap'
         ]);
         expect(result.Datadog).toBeDefined();
@@ -230,6 +232,7 @@ describe('getScriptsToLoad', () => {
             'EventsHelper',
             'FundingChoices',
             'TikTokPixel',
+            'FacebookPixel',
             'GoogleOneTap',
             'MetaRobots'
         ]);
