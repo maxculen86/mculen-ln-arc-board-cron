@@ -1,4 +1,7 @@
-import { DEFAULT_LOCATION, getLiveblogLocation } from '../getLiveblogLocation';
+import {
+    DEFAULT_LOCATION,
+    getLiveblogLocation
+} from '../../../../../../../components/private/LN/nota/snippet/helpers/getLiveblogLocation';
 
 describe('getLiveblogLocation', () => {
     it('returns the configured location when the label uses pipes', () => {
