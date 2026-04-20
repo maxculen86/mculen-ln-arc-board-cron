@@ -9,7 +9,6 @@ import { createStrictContext } from '@ln/ds-core-hooks';
  * @property {string} userName - Nombre del usuario
  * @property {string} userLastName - Apellido del usuario
  * @property {string} position - Posición del header
- * @property {string} appearance - Apariencia del header
  * @property {boolean} isHome - Si la página es la home, para evitar varias validaciones en distintos componentes del header
 
 /**

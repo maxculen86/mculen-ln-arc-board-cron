@@ -18,8 +18,6 @@ function OpenInApp() {
     const { globalContent } = useAppContext();
     const { canonical_url: currentUrl = '' } = globalContent || {};
 
-    // TODO: ajustar variante negativa cuando este dark-theme implementado en el DS.
-
     const { userType } = useHeaderContext();
 
     const device = getTypeOfDevice({ breakpoints: { sm: 768 } });
@@ -43,7 +41,7 @@ function OpenInApp() {
                 href={getAppLink(currentUrl)}
                 title="Abrir en app"
                 variant="outline"
-                color="black"
+                color="secondary"
                 id="btnabrirenapp"
                 asChild
                 onClick={() => {
