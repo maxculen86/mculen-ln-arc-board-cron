@@ -48,12 +48,14 @@ export const linkOptions = [
     )
 ];
 
+const LOGOUT_TEXT = 'Cerrar sesión';
+
 export const buttonLogout = {
-    text: 'Cerrar sesión',
-    title: 'Cerrar sesión',
+    text: LOGOUT_TEXT,
+    title: LOGOUT_TEXT,
     target: '_self',
     onClick: e => {
-        handleEventsLinks(e, 'Cerrar sesión');
+        handleEventsLinks(e, LOGOUT_TEXT);
         logout(() => {
             eraseCookie('contentVariant');
             // eslint-disable-next-line no-undef
