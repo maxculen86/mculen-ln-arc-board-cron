@@ -21,19 +21,6 @@ exports[`Components - Features - foodit-global - Common - Header - component - r
           />
         </div>
       </button>
-      <div
-        class="tooltip absolute text-16 p-8 rounded-4 shadow-float transition-regular w-max max-w-328 z-1 --with-arrow mt-8 top-100 right-0 notification-drawer-tooltip"
-        data-position="bottom-right"
-        data-visible="true"
-        role="tooltip"
-        style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
-      >
-        <p
-          class="text w-107 w-141_md text-center"
-        >
-          Aquí encontrarás todas nuestras notificaciones
-        </p>
-      </div>
     </div>
   </div>
 </div>
