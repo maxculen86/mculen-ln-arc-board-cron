@@ -104,6 +104,18 @@ describe('storyCommon', () => {
         expect(result).toHaveProperty('template');
     });
 
+    it('should always return an object with id and template', () => {
+        const input = {
+            _id: 'id',
+            subtype: '12',
+            website_url: 'url',
+            taxonomy: { primary_section: {} }
+        };
+        const result = storyCommon(input, []);
+        expect(result).toHaveProperty('id');
+        expect(result.template).toBe('5');
+    });
+
     it('When the note contains a table, sendToApps and openingMode should follow Composer configuration', () => {
         const notaConTabla = {
             ...baseNota,

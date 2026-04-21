@@ -1,18 +1,19 @@
-import get from '../../../../../common/utils/get';
-import sentToApps from '../label/sentToApps';
-import ModificadorTemplate from './modificadorTemplate';
-import Relacionados from './relacionados';
-import getIa from './ia';
-import Metadata from './metadata';
-import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../category';
-import { openComments } from './comments';
 import {
     calcReadingMinutes,
     isExcludedSubtype
 } from '../../../../../../features/LN-10-global/common/readingTime/_helpers';
-import getOpeningMode from '../label/openingMode';
+import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
+import get from '../../../../../common/utils/get';
+import { getPrincipalCategory } from '../category';
 import { getDomainCLL } from '../domain';
+import getOpeningMode from '../label/openingMode';
+import sentToApps from '../label/sentToApps';
+import { openComments } from './comments';
+import getIa from './ia';
+import Metadata from './metadata';
+import ModificadorTemplate from './modificadorTemplate';
+import Relacionados from './relacionados';
+import { getStoryTemplate } from './template';
 
 export const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -93,7 +94,7 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const resp = {
         id,
-        template: template === '6' || template === '13' ? '1' : template,
+        template: getStoryTemplate(template) || template,
         url,
         readingTime:
             readingMinutes !== 0 && !isExcludedSubtype(subtype)
