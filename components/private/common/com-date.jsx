@@ -6,7 +6,7 @@ function ComDate({ display_date: displayDate, size }) {
     const { date } = dateAndTimeUtil(displayDate);
 
     return (
-        <time className={`com-date ${size || '--twoxs'}`} dateTime={`${date}`}>
+        <time className={`com-date ${size || '--twoxs'}`} dateTime={date}>
             {date}
         </time>
     );
