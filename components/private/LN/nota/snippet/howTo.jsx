@@ -3,12 +3,10 @@ import { SITE_LANACION } from 'fusion:environment';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import get from '../../../common/utils/get';
 import addRelatedImage from '../../common/utils/addRelatedImage';
-import {
-    extractDataFromPromoItems,
-    urlSchema
-} from '../../common/utils/extractDataFromPromoItems';
+import { urlSchema } from '../../common/utils/extractDataFromPromoItems';
 import { addForwardSlash } from '../../common/utils/addForwardSlash';
 import removeHtmlTags from '../../../common/utils/removeHtmlTags';
+import { getSchemaImages } from './helpers/howToSchemaHelper';
 
 const findNextTextAfterPowerUp = (startIndex, elements = []) =>
     elements
@@ -30,7 +28,7 @@ function SnippetHowTo({ globalContent }) {
     } = globalContent || {};
 
     const { promo_items: promoItems } = addRelatedImage(globalContent);
-    const { image } = extractDataFromPromoItems(promoItems);
+    const image = getSchemaImages({ promoItems });
     const hasValidImage =
         Array.isArray(image) && image.length > 0 && !!image[0]?.url;
     const noteTitle = get(headlines, 'basic', '');
