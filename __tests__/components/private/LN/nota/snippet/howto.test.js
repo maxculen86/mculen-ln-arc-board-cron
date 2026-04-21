@@ -4,10 +4,32 @@ import '@testing-library/jest-dom';
 import SnippetHowTo from '../../../../../../components/private/LN/nota/snippet/howTo';
 
 jest.mock('fusion:environment', () => ({
-    SITE_LANACION: 'https://www.lanacion.com.ar'
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    API_ENV: 'sandbox',
+    IS_STAGING: 'false'
+}));
+
+jest.mock('fusion:properties', () => () => ({
+    host: 'https://www.lanacion.com.ar'
 }));
 
 describe('Schema HowTo - SnippetHowTo', () => {
+    const mainImage = {
+        type: 'image',
+        url: 'https://sandbox-resizer.glanacion.com/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg?auth=7a24f315ff0594117de65452390274be7b51170a66ac5b275eef1352935cb7f8&width=880&height=586&quality=70&smart=true',
+        resized_urls: [
+            {
+                resizedUrl:
+                    'https://sandbox-resizer.glanacion.com/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg?auth=7a24f315ff0594117de65452390274be7b51170a66ac5b275eef1352935cb7f8&width=880&height=586&quality=70&smart=true',
+                option: {
+                    width: 880,
+                    height: 586
+                }
+            }
+        ]
+    };
+
     const globalContent = {
         canonical_url: '/autos/nota-de-prueba-para-how-to-nid10092025/',
         headlines: { basic: 'Nota de prueba para How to' },
@@ -36,12 +58,7 @@ describe('Schema HowTo - SnippetHowTo', () => {
             }
         ],
         promo_items: {
-            basic: {
-                url: 'https://cdn.example.com/imagen.jpg',
-                width: 1280,
-                height: 854,
-                type: 'image'
-            }
+            basic: mainImage
         }
     };
 
@@ -67,9 +84,22 @@ describe('Schema HowTo - SnippetHowTo', () => {
         expect(Array.isArray(json.image)).toBe(true);
         expect(json.image).toHaveLength(3);
         expect(json.image[0]['@type']).toBe('ImageObject');
-        expect(json.image[0].url).toBe('https://cdn.example.com/imagen.jpg');
+
+        const firstImageUrl = new URL(json.image[0].url);
+        expect(`${firstImageUrl.origin}${firstImageUrl.pathname}`).toBe(
+            'https://www.lanacion.com.ar/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg'
+        );
+        expect(firstImageUrl.searchParams.get('width')).toBe('1200');
+        expect(firstImageUrl.searchParams.get('height')).toBe('675');
         expect(json.image[0].width).toBe(1200);
         expect(json.image[0].height).toBe(675);
+
+        json.image.forEach(imageObject => {
+            expect(imageObject.url).not.toContain(
+                'sandbox-resizer.glanacion.com'
+            );
+            expect(imageObject.url).toContain('www.lanacion.com.ar');
+        });
 
         expect(Array.isArray(json.step)).toBe(true);
         expect(json.step).toHaveLength(2);
