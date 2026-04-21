@@ -1,5 +1,5 @@
 import { cx } from '@ln/ds-cva';
-import get from '../../../../../private/common/utils/get';
+import get from '../../../../private/common/utils/get';
 
 export const extractGalleryEmbedData = (element = {}) => {
     if (!element || typeof element !== 'object') return {};

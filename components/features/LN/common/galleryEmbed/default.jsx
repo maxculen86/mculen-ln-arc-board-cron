@@ -1,19 +1,20 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import { extractGalleryEmbedData, getAspectRatioClass } from './_helper';
-import { isFotoAl100 } from '../../../body/_utils/helpers';
+import { extractGalleryEmbedData, getAspectRatioClass } from './helpers';
+
 import {
     galleryContainerVariant,
     galleryEmbedItemVariant,
     galleryGridVariant
 } from './styles';
-import ImageGallery from './components/ImageGallery';
+import Gallery from './components/Gallery';
+import { isFotoAl100orStorytelling } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
-function ImageGalleryEmbed(props) {
+function GalleryEmbed(props) {
     const { globalContent = {} } = useAppContext() || {};
-    const { subtype, type } = globalContent;
+    const { subtype } = globalContent;
 
-    if (!isFotoAl100(subtype, type)) return null;
+    if (!isFotoAl100orStorytelling(subtype)) return null;
 
     const { data = {} } = props;
     const galleryData = extractGalleryEmbedData(data);
@@ -36,10 +37,7 @@ function ImageGalleryEmbed(props) {
         embedItemClass: galleryEmbedItemVariant({ isFotoAl100Flag }),
         aspectRatio: getAspectRatioClass(diagram)
     };
-
-    return <ImageGallery {...viewProps} />;
+    return <Gallery {...viewProps} />;
 }
 
-ImageGalleryEmbed.arcType = 'gallery-embed';
-
-export default ImageGalleryEmbed;
+export default GalleryEmbed;

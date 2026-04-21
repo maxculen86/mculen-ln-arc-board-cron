@@ -127,9 +127,9 @@ export const configCallbackCustomEmbed = {
         cachedCall,
         element,
         arcSite,
-        isFotoAl100Note
+        isShowGalleryEmbed
     } = {}) => {
-        if (!isFotoAl100Note) return {};
+        if (!isShowGalleryEmbed) return {};
 
         return buildGalleryEmbedData({
             element,
@@ -148,7 +148,7 @@ export const configCallbackContentElements = {
         cachedCall,
         element,
         arcSite,
-        isFotoAl100Note
+        isShowGalleryEmbed
     } = {}) => {
         const selectedCallback =
             configCallbackCustomEmbed[get(element, 'subtype', '')];
@@ -157,7 +157,7 @@ export const configCallbackContentElements = {
                 cachedCall,
                 element,
                 arcSite,
-                isFotoAl100Note
+                isShowGalleryEmbed
             });
         }
         return element;

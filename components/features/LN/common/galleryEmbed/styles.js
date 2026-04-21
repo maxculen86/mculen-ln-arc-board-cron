@@ -1,6 +1,6 @@
 import { cva } from '@ln/ds-cva';
 
-export const galleryGridVariant = cva('grid gap-[16px]', {
+export const galleryGridVariant = cva('grid gap-16', {
     variants: {
         diagram: {
             'wide-single': '',
@@ -33,9 +33,9 @@ export const galleryGridVariant = cva('grid gap-[16px]', {
             'vertical-three': '[&>img]:aspect-[2/3] md:grid-cols-3',
             'vertical-single-centered': `
                 [&>img]:aspect-[2/3]
-                md:grid-cols-12 md:[&>*]:col-span-6 md:[&>*]:col-start-4 md:[&>*]:max-w-[482px] md:[&>*]:mx-auto
-                lg:[&>*]:max-w-[615px]
-                xl:[grid-template-columns:repeat(14,minmax(0,1fr))] xl:[&>*]:col-span-8 xl:[&>*]:col-start-4 xl:[&>*]:max-w-[629px]
+                md:grid-cols-12 md:[&>*]:col-span-6 md:[&>*]:col-start-4 md:[&>*]:max-w-482 md:[&>*]:mx-auto
+                lg:[&>*]:max-w-615
+                xl:[grid-template-columns:repeat(14,minmax(0,1fr))] xl:[&>*]:col-span-8 xl:[&>*]:col-start-4 xl:[&>*]:max-w-629
             `
         }
     }
@@ -45,7 +45,7 @@ export const galleryContainerVariant = cva('', {
     variants: {
         isFotoAl100Flag: {
             true: '',
-            false: 'container lay px-0 px-16_l'
+            false: 'mx-auto w-full max-w-1340 lg:px-16'
         }
     }
 });
@@ -53,8 +53,8 @@ export const galleryContainerVariant = cva('', {
 export const galleryEmbedItemVariant = cva('gallery-embed__item', {
     variants: {
         isFotoAl100Flag: {
-            true: 'grid-col-1',
-            false: 'grid-col-1 grid-col-2-12_md grid-col-1-1_lg px-58_lg grid-col-2-16_min1366 px-0_min1366'
+            true: 'col-span-full',
+            false: 'col-span-full xl:px-58 2xl:col-start-2 2xl:col-end-16 2xl:px-0'
         }
     }
 });

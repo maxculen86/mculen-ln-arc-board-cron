@@ -2,6 +2,7 @@ import { defaultRuleConditions } from '../../../LN-nota/body/_utils/_bodyRules';
 import { DEFAULT_BODY_COMPONENTS } from '../../../LN-nota/body/_utils/_bodyElementRules';
 // TODO: Ir importando los componentes de DS-Body/components para dividir responsabilidades. ej: HowTo.
 import HowTo from '../components/howTo/default';
+import GalleryEmbed from '../components/galleryEmbed/default';
 import Text from '../../common/text/default';
 import List from '../../common/list/default';
 import RawHtml from '../../common/rawHtml/default';
@@ -27,7 +28,8 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     PullQuote,
     Interstitial,
     HowTo,
-    Heading
+    Heading,
+    GalleryEmbed
 ];
 
 const BASE_BODY_CONFIG = {

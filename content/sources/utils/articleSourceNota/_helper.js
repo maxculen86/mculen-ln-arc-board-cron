@@ -446,7 +446,7 @@ export const transform = async (response, query, cachedCall) => {
                       []
                   )
                 : [],
-        isFotoAl100Note: subtype === FOTOAL100
+        isShowGalleryEmbed: isFotoAl100orStorytelling(subtype)
     };
 
     const [promoItems, contentElements, relatedContentBasic] =
