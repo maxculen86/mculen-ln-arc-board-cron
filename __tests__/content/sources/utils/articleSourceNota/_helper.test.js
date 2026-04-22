@@ -1543,19 +1543,19 @@ describe('Tests articleSourceNota - _helper', () => {
             jest.resetModules();
         });
 
-        it('should return empty object when isFotoAl100Note is false', async () => {
+        it('should return empty object when isShowGalleryEmbed is false', async () => {
             const result = await configCallbackCustomEmbed['gallery-embed']({
                 cachedCall: jest.fn(),
                 element: { subtype: 'gallery-embed' },
                 arcSite: 'la-nacion-ar',
-                isFotoAl100Note: false
+                isShowGalleryEmbed: false
             });
 
             expect(result).toEqual({});
             expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
         });
 
-        it('should return empty object when isFotoAl100Note is undefined', async () => {
+        it('should return empty object when isShowGalleryEmbed is undefined', async () => {
             const result = await configCallbackCustomEmbed['gallery-embed']({
                 cachedCall: jest.fn(),
                 element: { subtype: 'gallery-embed' },
@@ -1566,7 +1566,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(buildGalleryEmbedDataMock).not.toHaveBeenCalled();
         });
 
-        it('should call buildGalleryEmbedData when isFotoAl100Note is true', async () => {
+        it('should call buildGalleryEmbedData when isShowGalleryEmbed is true', async () => {
             const mockElement = { subtype: 'gallery-embed' };
             const mockCachedCall = jest.fn();
             const mockArcSite = 'la-nacion-ar';
@@ -1581,7 +1581,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 cachedCall: mockCachedCall,
                 element: mockElement,
                 arcSite: mockArcSite,
-                isFotoAl100Note: true
+                isShowGalleryEmbed: true
             });
 
             expect(buildGalleryEmbedDataMock).toHaveBeenCalledTimes(1);
