@@ -8,7 +8,10 @@ import getTooltip from '../../../private/LN/common/utils/getTooltip';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import Signature from './_children/signature';
 import Themes from './_children/themes';
-import { getSectionLogo } from '../../../private/common/utils/sectionUtils';
+import {
+    getCustomSectionLogo,
+    getSectionLogo
+} from '../../../private/common/utils/sectionUtils';
 import { isInvalidLogo } from './_utils/helper';
 import { RECETA } from '../../../private/common/utils/subtypes/subtypeHelper';
 import {
@@ -42,7 +45,9 @@ function Footer(props) {
     const tooltip = getTooltip(trust, siteService);
 
     const { name } = distributor || {};
-    const logoData = getSectionLogo(sections, layout, name);
+    const logoData =
+        getSectionLogo(sections, layout, name) ||
+        getCustomSectionLogo({ sections, layout });
 
     const showDivider = !isInvalidLogo(logoData) && !isInvalid;
     const showLogoOrTrust = !isInvalidLogo(logoData) || !isInvalid;

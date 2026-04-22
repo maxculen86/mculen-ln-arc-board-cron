@@ -2,7 +2,8 @@ import React from 'react';
 
 import {
     dictionaryAlt,
-    getSectionLogo
+    getSectionLogo,
+    getCustomSectionLogo
 } from '../../../common/utils/sectionUtils';
 import ModSponsor from '../../../common/mod-sponsor';
 import ComLogo from '../../../common/com-logo';
@@ -18,7 +19,9 @@ function LogoBaseContainer({
     tooltip = ''
 }) {
     const { name: distributorName } = distributor || {};
-    const sectionData = getSectionLogo(sections, layout, distributorName);
+    const sectionData =
+        getSectionLogo(sections, layout, distributorName) ||
+        getCustomSectionLogo({ sections, layout });
 
     const { path, logoName, color, isExternal } = sectionData || {
         path: null,

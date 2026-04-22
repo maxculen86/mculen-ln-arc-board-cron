@@ -2,6 +2,8 @@
 import { SITE_LANACION } from 'fusion:environment';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 
+const { layoutsName = {} } = siteProperties || {};
+
 export const getFirstParentSection = section => {
     if (section && section._id) {
         const parents = section._id.split('/').filter(x => x !== '');
@@ -99,6 +101,8 @@ export const getLogoData = sections => {
 };
 
 export const dictionaryAlt = {
+    comunidad: 'LN Fundación',
+    'comunidad-blanco': 'LN Fundación',
     hola: 'Revista Hola',
     jardin: 'Revista Jardin',
     brando: 'Revista Brando',
@@ -121,7 +125,6 @@ export const dictionaryAlt = {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    const { layoutsName = {} } = siteProperties || {};
     const { logoName, path, isExternal } = getLogoData(sections);
     const color = !(
         layout === layoutsName.StoryTelling ||
@@ -167,7 +170,6 @@ export const hasAFondoTag = tags =>
     Array.isArray(tags) && tags.some(tag => tag && tag.slug === A_FONDO_SLUG);
 
 export const getAFondoLogo = (tags, layout) => {
-    const { layoutsName = {} } = siteProperties || {};
     const validLayouts = [
         layoutsName.StoryTelling,
         layoutsName.StoryTellingV2,
@@ -183,6 +185,40 @@ export const getAFondoLogo = (tags, layout) => {
         logoName: 'a-fondo-logo',
         path: A_FONDO_PATH,
         color: !isWhiteLogo,
+        isExternal: false
+    };
+};
+
+// TODO: Pendiente migrar validaciones de getSectionLogo a SECTION_LOGO_CONFIG. Requiere análisis de todos los consumers antes de avanzar. Ver: openspec/section-logo-refactor.md
+const SECTION_LOGO_CONFIG = [
+    {
+        sectionId: '/comunidad',
+        validLayouts: [
+            layoutsName.Noticia,
+            layoutsName.StoryTelling,
+            layoutsName.StoryTellingV2
+        ],
+        foregroundLayouts: [layoutsName.Noticia],
+        logoName: 'fundacion-ln',
+        path: '/comunidad'
+    }
+];
+
+export const getCustomSectionLogo = ({ sections, layout } = {}) => {
+    const hasSectionId = sectionId =>
+        Array.isArray(sections) && sections.some(s => s && s._id === sectionId);
+
+    const config = SECTION_LOGO_CONFIG.find(
+        ({ sectionId, validLayouts }) =>
+            validLayouts.includes(layout) && hasSectionId(sectionId)
+    );
+
+    if (!config) return null;
+
+    return {
+        logoName: config.logoName,
+        path: config.path,
+        color: config.foregroundLayouts.includes(layout),
         isExternal: false
     };
 };
