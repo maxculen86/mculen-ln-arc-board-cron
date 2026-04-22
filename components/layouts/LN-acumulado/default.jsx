@@ -48,6 +48,8 @@ function LNAcumuladoLayout(props) {
 
     const sectionStyleName = get(style, 'section_style_name', '');
 
+    const ACUMULADO_LAYOUT = 'LN-acumulado';
+
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
@@ -115,9 +117,9 @@ function LNAcumuladoLayout(props) {
     );
 
     const listOfAllowedSection = [
-        { section: '/revista-hola', pageLayout: 'LN-acumulado' },
-        { section: '/revista-lugares', pageLayout: 'LN-acumulado' },
-        { section: '/videos', pageLayout: 'LN-acumulado' }
+        { section: '/revista-hola', pageLayout: ACUMULADO_LAYOUT },
+        { section: '/revista-lugares', pageLayout: ACUMULADO_LAYOUT },
+        { section: '/videos', pageLayout: ACUMULADO_LAYOUT }
     ];
     const classNameMain = cx({
         '--header-fixed-margin': !isAllowedSection({
