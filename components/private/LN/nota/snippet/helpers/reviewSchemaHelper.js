@@ -7,8 +7,23 @@ import {
     SITE_LANACION_URL
 } from './reviewSchemaConstants';
 
-const isMovieReview = canonicalUrl =>
-    isValidString(canonicalUrl) && canonicalUrl.includes('/espectaculos/cine/');
+const REVIEW_ITEM_TYPE_RULES = [
+    { path: '/espectaculos/cine/', type: 'Movie' },
+    { path: '/espectaculos/musica/', type: 'MusicEvent' },
+    { path: '/espectaculos/series-de-tv/', type: 'TVSeries' },
+    { path: '/espectaculos/teatro/', type: 'TheaterEvent' }
+];
+
+const DEFAULT_REVIEW_ITEM_TYPE = 'CreativeWork';
+
+const getReviewItemType = canonicalUrl => {
+    if (!isValidString(canonicalUrl)) return DEFAULT_REVIEW_ITEM_TYPE;
+
+    return (
+        REVIEW_ITEM_TYPE_RULES.find(({ path }) => canonicalUrl.includes(path))
+            ?.type || DEFAULT_REVIEW_ITEM_TYPE
+    );
+};
 
 export const getReviewAuthor = ({
     authors,
@@ -30,7 +45,7 @@ export const getReviewSchemaData = ({
     datePublished,
     ratingValue
 }) => {
-    const itemType = isMovieReview(canonicalUrl) ? 'Movie' : 'Thing';
+    const itemType = getReviewItemType(canonicalUrl);
 
     return {
         '@context': 'https://schema.org',
