@@ -35,9 +35,10 @@ function JwVideoPlayer({
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
     const isDesktop = !isSSR() && window?.innerWidth > 1279;
-    const shouldUsePreferredFile = isDesktop && variant === 'horizontal';
-    const urlAds = urlForPrerollAds();
     const videoFile = preferredVideoFiles?.[videoId];
+    const shouldUsePreferredFile =
+        isDesktop && variant === 'horizontal' && !!videoFile;
+    const urlAds = urlForPrerollAds();
 
     useEffect(() => {
         if (isInView) setLoading(false);
@@ -45,10 +46,6 @@ function JwVideoPlayer({
 
     useEffect(() => {
         if (playerRef.current || !shouldInstanceVideo || !isLoadedScriptJw) {
-            return;
-        }
-
-        if (shouldUsePreferredFile && !videoFile) {
             return;
         }
 

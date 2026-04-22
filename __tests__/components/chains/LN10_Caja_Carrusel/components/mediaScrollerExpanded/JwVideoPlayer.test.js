@@ -159,6 +159,85 @@ describe('components - chains - ln10_caja_carrusel - components - JwVideoPlayer'
         });
     });
 
+    describe('desktop horizontal carousel', () => {
+        const originalInnerWidth = window.innerWidth;
+
+        beforeEach(() => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: 1440
+            });
+        });
+
+        afterEach(() => {
+            Object.defineProperty(window, 'innerWidth', {
+                writable: true,
+                configurable: true,
+                value: originalInnerWidth
+            });
+        });
+
+        it('renders the player via CDN fallback when preferredVideoFiles is empty', () => {
+            useCajaCarruselContext.mockReturnValue({
+                currentIndex: 0,
+                preferredVideoFiles: {}
+            });
+
+            const { container } = render(
+                <JwVideoPlayer {...defaultProps} variant="horizontal" />
+            );
+
+            expect(
+                container.querySelector('#test-video-id')
+            ).toBeInTheDocument();
+            expect(setupPlayer).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    shouldUsePreferredFile: false,
+                    videoFile: undefined
+                })
+            );
+        });
+
+        it('calls setupPlayer with shouldUsePreferredFile false when videoFile is absent', () => {
+            useCajaCarruselContext.mockReturnValue({
+                currentIndex: 0,
+                preferredVideoFiles: {}
+            });
+
+            render(<JwVideoPlayer {...defaultProps} variant="horizontal" />);
+
+            expect(setupPlayer).toHaveBeenCalledWith({
+                playerId: 'test-video-id',
+                videoId: 'test-video-id',
+                videoFile: undefined,
+                shouldUsePreferredFile: false,
+                urlAds: 'https://ads.test',
+                counterVideo: undefined
+            });
+        });
+
+        it('calls setupPlayer with shouldUsePreferredFile true when preferredVideoFiles has the video', () => {
+            useCajaCarruselContext.mockReturnValue({
+                currentIndex: 0,
+                preferredVideoFiles: {
+                    'test-video-id': 'https://cdn.test/preferred.mp4'
+                }
+            });
+
+            render(<JwVideoPlayer {...defaultProps} variant="horizontal" />);
+
+            expect(setupPlayer).toHaveBeenCalledWith({
+                playerId: 'test-video-id',
+                videoId: 'test-video-id',
+                videoFile: 'https://cdn.test/preferred.mp4',
+                shouldUsePreferredFile: true,
+                urlAds: 'https://ads.test',
+                counterVideo: undefined
+            });
+        });
+    });
+
     it('should match snapshot, div with id for build video', () => {
         const { container } = render(<JwVideoPlayer {...defaultProps} />);
         expect(container).toMatchSnapshot();
