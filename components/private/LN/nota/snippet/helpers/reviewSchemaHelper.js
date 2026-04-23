@@ -9,19 +9,15 @@ import {
 
 const REVIEW_ITEM_TYPE_RULES = [
     { path: '/espectaculos/cine/', type: 'Movie' },
-    { path: '/espectaculos/musica/', type: 'MusicEvent' },
-    { path: '/espectaculos/series-de-tv/', type: 'TVSeries' },
-    { path: '/espectaculos/teatro/', type: 'TheaterEvent' }
+    { path: '/espectaculos/series-de-tv/', type: 'TVSeries' }
 ];
 
-const DEFAULT_REVIEW_ITEM_TYPE = 'CreativeWork';
-
 const getReviewItemType = canonicalUrl => {
-    if (!isValidString(canonicalUrl)) return DEFAULT_REVIEW_ITEM_TYPE;
+    if (!isValidString(canonicalUrl)) return null;
 
     return (
         REVIEW_ITEM_TYPE_RULES.find(({ path }) => canonicalUrl.includes(path))
-            ?.type || DEFAULT_REVIEW_ITEM_TYPE
+            ?.type || null
     );
 };
 
@@ -46,6 +42,7 @@ export const getReviewSchemaData = ({
     ratingValue
 }) => {
     const itemType = getReviewItemType(canonicalUrl);
+    if (!itemType) return null;
 
     return {
         '@context': 'https://schema.org',

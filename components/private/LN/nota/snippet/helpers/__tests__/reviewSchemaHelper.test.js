@@ -15,11 +15,14 @@ const baseReviewData = {
     ratingValue: 4
 };
 
-const getItemReviewed = canonicalUrl =>
+const getReviewData = canonicalUrl =>
     getReviewSchemaData({
         ...baseReviewData,
         canonicalUrl
-    })['@graph'][0].itemReviewed;
+    });
+
+const getItemReviewed = canonicalUrl =>
+    getReviewData(canonicalUrl)['@graph'][0].itemReviewed;
 
 describe('reviewSchemaHelper', () => {
     describe('getReviewSchemaData', () => {
@@ -29,26 +32,6 @@ describe('reviewSchemaHelper', () => {
 
             expect(getItemReviewed(canonicalUrl)).toEqual({
                 '@type': 'Movie',
-                name: baseReviewData.headline
-            });
-        });
-
-        it('uses MusicEvent review item type for musica articles', () => {
-            const canonicalUrl =
-                'https://www.lanacion.com.ar/espectaculos/musica/lollapalooza-el-festival-que-revoluciona-la-musica-global-nid25032025/';
-
-            expect(getItemReviewed(canonicalUrl)).toEqual({
-                '@type': 'MusicEvent',
-                name: baseReviewData.headline
-            });
-        });
-
-        it('uses TheaterEvent review item type for teatro articles', () => {
-            const canonicalUrl =
-                'https://www.lanacion.com.ar/espectaculos/teatro/pedro-alfonso-con-la-llegada-del-coronavirus-se-me-fue-la-creatividad-nid28102021/';
-
-            expect(getItemReviewed(canonicalUrl)).toEqual({
-                '@type': 'TheaterEvent',
                 name: baseReviewData.headline
             });
         });
@@ -63,28 +46,19 @@ describe('reviewSchemaHelper', () => {
             });
         });
 
-        it('uses CreativeWork as default when article section does not have a specific type', () => {
+        it('returns null for article section does not have a specific type', () => {
             const canonicalUrl =
                 'https://www.lanacion.com.ar/espectaculos/danza/el-duende-de-la-danza-nid301916/';
 
-            expect(getItemReviewed(canonicalUrl)).toEqual({
-                '@type': 'CreativeWork',
-                name: baseReviewData.headline
-            });
+            expect(getReviewData(canonicalUrl)).toBeNull();
         });
 
-        it('uses CreativeWork as default when canonical url is empty', () => {
-            expect(getItemReviewed('')).toEqual({
-                '@type': 'CreativeWork',
-                name: baseReviewData.headline
-            });
+        it('returns null when canonical url is empty', () => {
+            expect(getReviewData('')).toBeNull();
         });
 
-        it('uses CreativeWork as default when canonical url is invalid', () => {
-            expect(getItemReviewed(null)).toEqual({
-                '@type': 'CreativeWork',
-                name: baseReviewData.headline
-            });
+        it('returns null when canonical url is invalid', () => {
+            expect(getReviewData(null)).toBeNull();
         });
     });
 });
