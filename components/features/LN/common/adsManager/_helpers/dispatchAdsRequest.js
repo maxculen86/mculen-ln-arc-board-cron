@@ -4,7 +4,6 @@ import { defineSlot } from '../../../../../private/LN/common/utils/bannerHelper'
 import isWebview from '../../../../../private/common/utils/isWebview';
 
 const dispatchAdsRequest = bannersToLoad => {
-    googletag.pubads().disableInitialLoad();
     let batchCalled = false;
     function callAdserver(_headerBiddingSlots, fallback = false) {
         if (batchCalled) return;
@@ -18,6 +17,7 @@ const dispatchAdsRequest = bannersToLoad => {
     }
 
     googletag.cmd.push(() => {
+        googletag.pubads().disableInitialLoad();
         const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
