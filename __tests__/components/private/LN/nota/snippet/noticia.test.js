@@ -672,7 +672,7 @@ describe('SnippetNoticia', () => {
             );
 
             expect(reviewNode.itemReviewed).toMatchObject({
-                '@type': 'Thing',
+                '@type': 'CreativeWork',
                 name: 'Test title'
             });
         });
