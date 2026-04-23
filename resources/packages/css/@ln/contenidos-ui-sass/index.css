@@ -445,6 +445,7 @@ a {
   --adivinanzas: #81b6e2;
   --cruci-experto: #666666;
   --combinadas: #bb1e69;
+  --entre-letras: #B3C1E3;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1204,6 +1205,10 @@ a {
   background: var(--combinadas);
 }
 
+.bg-entre-letras {
+  background: var(--entre-letras);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1354,6 +1359,10 @@ a {
 
 .bg-combinadas__hover:hover {
   background: var(--combinadas);
+}
+
+.bg-entre-letras__hover:hover {
+  background: var(--entre-letras);
 }
 
 .bg-secondary__hover:hover {
@@ -4485,6 +4494,10 @@ strong:not(.--font-primary),
   }
 }
 @media (min-width: 80rem) {
+  .grid-cols-20_lg {
+    grid-template-columns: repeat(20, 1fr);
+    grid-column-gap: 16px;
+  }
   .grid-cols-16_lg {
     grid-template-columns: repeat(16, 1fr);
     grid-column-gap: 32px;

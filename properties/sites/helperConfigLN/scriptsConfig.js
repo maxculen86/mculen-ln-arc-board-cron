@@ -100,5 +100,6 @@ export default {
     ScriptJwVideoHome: {
         props: {},
         location: [BODYBOTTOM]
-    }
+    },
+    FacebookPixel: { props: { id: '492459597522335' }, location: [HEAD] }
 };
