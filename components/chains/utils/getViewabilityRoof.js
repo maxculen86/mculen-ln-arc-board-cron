@@ -13,6 +13,8 @@ const searchPrev = (index, chains) => {
     if (prevIndex >= 0) {
         return searchPrev(prevIndex, chains);
     }
+
+    return undefined;
 };
 
 const getViewabilityRoof = (

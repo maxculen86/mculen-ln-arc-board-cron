@@ -53,8 +53,7 @@ export const generateUrlWithToken = async (
     }
 
     const queryString = params.toString();
-    const result = queryString ? `${baseUrl}?${queryString}` : url;
-    return result;
+    return queryString ? `${baseUrl}?${queryString}` : url;
 };
 
 export const handleIframeProps = async (

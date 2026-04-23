@@ -29,6 +29,7 @@ function VideoItemComponent({
 }) {
     const { currentIndex } = useCajaCarruselContext();
     const isActive = currentIndex === index;
+    const titleSuffix = title ? `: ${title}` : '';
 
     return (
         <li
@@ -36,7 +37,7 @@ function VideoItemComponent({
             className="scroll-snap-align-start scroll-snap-stop-always scroll-snap-align-center_md ratio-9-16 h-100dvh w-100 w-fit_md js-center flex"
             role="group"
             aria-roledescription="slide"
-            aria-label={`${index + 1} de ${totalVideos}${title ? `: ${title}` : ''}`}
+            aria-label={`${index + 1} de ${totalVideos}${titleSuffix}`}
             aria-current={isActive ? 'true' : undefined}
         >
             <div className="flex h-100 w-100 ratio-9-16 relative py-16_md">

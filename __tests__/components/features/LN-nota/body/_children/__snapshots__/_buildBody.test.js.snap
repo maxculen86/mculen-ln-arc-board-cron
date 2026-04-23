@@ -3308,6 +3308,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
       </h3>
       <div
         class="table-wrapper --two-columns"
+        data-testid="table-container"
       >
         <table
           class="table"
@@ -6738,6 +6739,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       </h3>
       <div
         class="table-wrapper --two-columns"
+        data-testid="table-container"
       >
         <table
           class="table"
@@ -10168,6 +10170,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       </h3>
       <div
         class="table-wrapper --two-columns"
+        data-testid="table-container"
       >
         <table
           class="table"

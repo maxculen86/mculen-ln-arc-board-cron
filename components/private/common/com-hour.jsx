@@ -13,7 +13,9 @@ function ComHour({
     const { time: fallbackTime } = dateAndTimeUtil(displayDate);
     const time = adjustedTime || fallbackTime;
     return textEdicionImpresa !== 'Impresa' ? (
-        <time className={`com-hour ${size || '--twoxs'}`}>{time}</time>
+        <time className={`com-hour ${size || '--twoxs'}`} dateTime={time}>
+            {time}
+        </time>
     ) : null;
 }
 

@@ -21,16 +21,18 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
 
     const handleClick = () => {
         onOpen();
-        addEventToDataLayerV2({
-            event: 'page_listened',
-            origin: 'receta',
-            title,
-            rest: {
-                autor_nombre: article?.credits?.by[0]?.name || 'N/A',
-                nota_id_arc: article?._id || 'N/A',
-                seccion: 'ficha_receta'
-            }
-        });
+        if (isSubscribed) {
+            addEventToDataLayerV2({
+                event: 'page_listened',
+                origin: 'receta',
+                title,
+                rest: {
+                    autor_nombre: article?.credits?.by[0]?.name || 'N/A',
+                    nota_id_arc: article?._id || 'N/A',
+                    seccion: 'ficha_receta'
+                }
+            });
+        }
     };
 
     return (

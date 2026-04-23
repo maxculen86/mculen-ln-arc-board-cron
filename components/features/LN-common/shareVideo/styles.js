@@ -1,5 +1,8 @@
 import { cva } from '@ln/cva';
 
+const RATIO_9_16 = 'ratio-9-16';
+const RATIO_16_9 = 'ratio-16-9';
+
 export const carouselVideoExpandedClasses = cva(
     ['carousel-video-expanded', 'w-100', 'h-100dvh'],
     {
@@ -28,7 +31,7 @@ export const videoShareClasses = cva(
     {
         variants: {
             variant: {
-                vertical: ['vertical', 'w-fit_md', 'py-16_m', 'ratio-9-16'],
+                vertical: ['vertical', 'w-fit_md', 'py-16_m', RATIO_9_16],
                 horizontal: [
                     'horizontal',
                     'max-w-100dvw',
@@ -36,7 +39,7 @@ export const videoShareClasses = cva(
                     'grid-col-12_m',
                     'grid-col-3-15_lg',
                     'gap-16_lg',
-                    'ratio-16-9',
+                    RATIO_16_9,
                     'jc-center',
                     'flex-column',
                     'relative'
@@ -76,8 +79,8 @@ export const videoShareMediaClasses = cva(
     {
         variants: {
             variant: {
-                vertical: ['ratio-9-16', 'jc-center', 'h-100'],
-                horizontal: ['ratio-16-9', 'max-w-100dvw']
+                vertical: [RATIO_9_16, 'jc-center', 'h-100'],
+                horizontal: [RATIO_16_9, 'max-w-100dvw']
             }
         }
     }
@@ -88,8 +91,8 @@ export const buttonShowPlayerClasses = cva(
     {
         variants: {
             variant: {
-                vertical: ['ratio-9-16'],
-                horizontal: ['ratio-16-9']
+                vertical: [RATIO_9_16],
+                horizontal: [RATIO_16_9]
             }
         }
     }

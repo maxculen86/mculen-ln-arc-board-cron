@@ -34,6 +34,7 @@ const config = {
         'Foodit-chef': PageViewDataLayer,
         'Foodit-compras': AutogestionPageView,
         'Foodit-recetario': AutogestionPageView,
+        'Foodit-menu-semanal': AutogestionPageView,
         'Foodit-acumulado': AcusPageView,
         'Foodit-buscador': AcusPageView,
         'Foodit-acumulado-chef': ChefsPageView,

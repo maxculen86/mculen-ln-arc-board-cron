@@ -4,14 +4,13 @@ const createHash = data => {
 
     return crypto.subtle
         ? crypto.subtle.digest('SHA-256', dataBuffer).then(hashBuffer => {
-              if (hashBuffer) {
-                  const hashArray = Array.from(new Uint8Array(hashBuffer));
-                  return hashArray
-                      .map(byte => byte.toString(16).padStart(2, '0'))
-                      .join('');
-              }
+              if (!hashBuffer) return null;
+              const hashArray = Array.from(new Uint8Array(hashBuffer));
+              return hashArray
+                  .map(byte => byte.toString(16).padStart(2, '0'))
+                  .join('');
           })
-        : Promise.reject('crypto.subtle only works on HTTPS');
+        : Promise.reject(new Error('crypto.subtle only works on HTTPS'));
 };
 
 export default createHash;

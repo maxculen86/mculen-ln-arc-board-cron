@@ -17,7 +17,10 @@ export function CardNewsletter({
     const { isSubscribed } = useGetUserConfig();
 
     return (
-        <section className="flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8">
+        <section
+            className="flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
+            data-test-id={`card-newsletter-${id}`}
+        >
             <Image
                 className="bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px]"
                 src={image}

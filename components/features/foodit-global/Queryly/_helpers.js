@@ -19,16 +19,16 @@ export const getCustomFiltersGroups = (sections = []) => {
                 const { key } = currentValue;
                 const dietaSectionsGroup = [
                     'Vegetariana',
-                    'Sin Gluten',
+                    'Sin gluten',
                     'Keto',
-                    'Sin Lactosa',
+                    'Sin lactosa',
                     'Vegana'
                 ];
                 const saladasSectionGroups = [
                     'Arroz',
                     'Tartas',
                     'Pollo',
-                    'Pizza y Empanadas',
+                    'Pizza y empanadas',
                     'Pastas',
                     'Pescados',
                     'Carnes',
@@ -50,7 +50,7 @@ export const getCustomFiltersGroups = (sections = []) => {
                 const otherSectionGroup = [
                     'Fácil',
                     'Saludable',
-                    'Bajo Costo',
+                    'Bajo costo',
                     'Rápida',
                     'Bebidas',
                     'De autor'

@@ -10,14 +10,12 @@ function BodyTop({ children, dateTime }) {
                 <BreadcrumbArticle className="mb-0 pb-16" />
                 <StaticContentV2 htmlOnly>
                     <ul className="com-date flex jc-start ai-center --bullet-list_12 w-100 pb-12 pb-0_m">
-                        {[date, time].map(item => (
-                            <li
-                                key={item}
-                                className="flex ai-center text-neutral-light-700"
-                            >
-                                <time>{item}</time>
-                            </li>
-                        ))}
+                        <li className="flex ai-center text-neutral-light-700">
+                            <time dateTime={date}>{date}</time>
+                        </li>
+                        <li className="flex ai-center text-neutral-light-700">
+                            <time dateTime={time}>{time}</time>
+                        </li>
                     </ul>
                 </StaticContentV2>
                 {children}

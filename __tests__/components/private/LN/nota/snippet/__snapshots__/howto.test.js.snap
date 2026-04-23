@@ -14,19 +14,19 @@ exports[`Schema HowTo - SnippetHowTo Should render the schema correctly with How
   "image": [
     {
       "@type": "ImageObject",
-      "url": "https://cdn.example.com/imagen.jpg",
+      "url": "https://www.lanacion.com.ar/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg?auth=7a24f315ff0594117de65452390274be7b51170a66ac5b275eef1352935cb7f8&width=1200&height=675&quality=70&smart=true",
       "width": 1200,
       "height": 675
     },
     {
       "@type": "ImageObject",
-      "url": "https://cdn.example.com/imagen.jpg",
+      "url": "https://www.lanacion.com.ar/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg?auth=7a24f315ff0594117de65452390274be7b51170a66ac5b275eef1352935cb7f8&width=1200&height=900&quality=70&smart=true",
       "width": 1200,
       "height": 900
     },
     {
       "@type": "ImageObject",
-      "url": "https://cdn.example.com/imagen.jpg",
+      "url": "https://www.lanacion.com.ar/resizer/v2/trucos-infalibles-para-que-la-ropa-H24GG3QQW5HDRGOCO3J47SSIHI.jpg?auth=7a24f315ff0594117de65452390274be7b51170a66ac5b275eef1352935cb7f8&width=1200&height=1200&quality=70&smart=true",
       "width": 1200,
       "height": 1200
     }

@@ -9,7 +9,7 @@ import tableRecipeRaw from '../../../../../../__mocks__/data/nota/cuerpo/table/t
 import tableRecipeConverted from '../../../../../../__mocks__/data/nota/cuerpo/table/tableRecipeConverted.json';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -32,6 +32,7 @@ describe('features - LaNacion - Nota - Table', () => {
         it('Should show table with correct ammount of rows', () => {
             const { container } = render(<Table data={tableNote} />);
             expect(container).not.toBeEmptyDOMElement();
+            expect(screen.getByTestId('table-container')).toBeInTheDocument();
             expect(screen.queryByRole('table')).toBeTruthy();
             expect(screen.queryAllByRole('row')).toHaveLength(4);
             expect(screen.queryAllByRole('rowgroup')).toHaveLength(2);

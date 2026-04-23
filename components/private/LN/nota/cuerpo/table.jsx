@@ -15,7 +15,7 @@ function Table({ data = {}, extraClass = '' }) {
     });
 
     return (
-        <div className={_className}>
+        <div className={_className} data-testid="table-container">
             <table className="table">
                 <thead>
                     <tr>

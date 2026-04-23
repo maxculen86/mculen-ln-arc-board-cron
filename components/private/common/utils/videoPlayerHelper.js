@@ -104,6 +104,11 @@ export const registerJwVideoControlsTracking = ({
 
     const handleSeek = event => {
         onSeek?.(event);
+        addEventToDataLayerV2({
+            event: 'videoSeek',
+            videoName: `${currentTitle}`,
+            videoID: `${currentId}`
+        });
 
         if (isBackwardTenSeconds(event)) {
             pushVideoControlEvent({
@@ -174,6 +179,12 @@ export const registerJwVideoControlsTracking = ({
         relatedPlugin?.on?.('open', handleRelatedOpen);
     };
 
+    player.on('seek', handleSeek);
+    player.on('mute', handleMute);
+    player.on('volume', handleVolume);
+    player.on('levelsChanged', handleLevelsChanged);
+    player.on('fullscreen', handleFullscreen);
+    player.on('playlistItem', updateCurrentMedia);
     player.on('relatedReady', handleRelatedReady);
 
     updateCurrentMedia(player.getPlaylistItem?.());

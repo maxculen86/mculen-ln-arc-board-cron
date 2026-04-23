@@ -3,9 +3,9 @@ export const HEADER_VARIANTS = {
         DEFAULT: 'default',
         STICKY: 'sticky'
     },
-    APPEARANCE: {
-        LIGHT_THEME: 'light',
-        DARK_THEME: 'dark'
+    THEME: {
+        LIGHT: 'light',
+        DARK: 'dark'
     },
     ANIMATION_IN: 'fadeInDown 0.3s ease-out'
 };

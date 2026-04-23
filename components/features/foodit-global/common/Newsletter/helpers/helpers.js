@@ -32,7 +32,7 @@ export const getNewsletters = async ({ accessToken, token }) => {
     const responseNewsletter = await response.json();
 
     const idsInteresados = newsletters.map(newsletter => newsletter.id);
-    const resultado = responseNewsletter.reduce((acc, item) => {
+    return responseNewsletter.reduce((acc, item) => {
         const id = item?.servicio?.id;
 
         if (id && idsInteresados.includes(id)) {
@@ -41,7 +41,6 @@ export const getNewsletters = async ({ accessToken, token }) => {
 
         return acc;
     }, {});
-    return resultado;
 };
 
 export const postNewsletter = async ({
@@ -57,17 +56,13 @@ export const postNewsletter = async ({
     };
     const data = { ...servicios, ...(email && { email }) };
 
-    const response = await fetch(
-        'https://api-newsletters.lanacion.com.ar/v3/Suscripciones',
-        {
-            method: 'POST',
-            headers: {
-                Authorization: accessToken,
-                'X-Token': token,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }
-    );
-    return response;
+    return fetch('https://api-newsletters.lanacion.com.ar/v3/Suscripciones', {
+        method: 'POST',
+        headers: {
+            Authorization: accessToken,
+            'X-Token': token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
 };

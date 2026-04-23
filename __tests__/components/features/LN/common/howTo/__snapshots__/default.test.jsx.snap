@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - common - howTo renders correctly with valid props (snapshot) 1`] = `
+<DocumentFragment>
+  <section
+    aria-labelledby="_r_2_"
+    class="flex flex-col gap-32 py-16"
+  >
+    <hr
+      aria-orientation="horizontal"
+      class="ds-divider border-0 bg-muted w-full h-1"
+      role="separator"
+    />
+    <div
+      class="flex items-center gap-8 font-primary text-subheading-md"
+    >
+      <div
+        aria-hidden="true"
+        class="w-40 flex items-center justify-center"
+      >
+        <span
+          class="font-w-semibold"
+        >
+          2
+        </span>
+      </div>
+      <svg
+        aria-hidden="true"
+        fill="none"
+        focusable="false"
+        height="34"
+        viewBox="0 0 9 34"
+        width="9"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.75 0V13.2727L6.75 17.2727L0.75 22V34"
+          stroke="#B2B2B2"
+          stroke-width="1.5"
+        />
+      </svg>
+      <h3
+        class="font-w-bold pl-4"
+        id="_r_2_"
+      >
+        Preparar los ingredientes
+      </h3>
+    </div>
+  </section>
+</DocumentFragment>
+`;

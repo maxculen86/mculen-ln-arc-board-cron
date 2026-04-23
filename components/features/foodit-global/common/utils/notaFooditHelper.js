@@ -44,7 +44,7 @@ export const getHighestPriorityTag = (sections = []) => {
     }, '');
 };
 
-const articleHasVideo = article => {
+export const articleHasVideo = article => {
     const videoContentElement = article?.content_elements?.find(
         contentElement => contentElement?.subtype === 'video_jw'
     );
