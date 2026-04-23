@@ -595,6 +595,10 @@ describe('SnippetNoticia', () => {
                         publisher: {
                             '@id': 'https://www.lanacion.com.ar/#organization'
                         },
+                        itemReviewed: {
+                            '@type': 'Movie',
+                            name: 'Test title'
+                        },
                         reviewRating: {
                             '@type': 'Rating',
                             ratingValue: '4.5',
@@ -610,6 +614,7 @@ describe('SnippetNoticia', () => {
             const reviewContent = {
                 ...mockGlobalContent,
                 subtype: '1',
+                canonical_url: '/espectaculos/cine/test-review',
                 content_elements: [
                     {
                         type: 'numeric_rating',
@@ -642,7 +647,7 @@ describe('SnippetNoticia', () => {
             });
         });
 
-        it('should set itemReviewed as Thing for non-cine urls', () => {
+        it('should NOT render Schema_Review for non-eligible review urls', () => {
             const reviewContent = {
                 ...mockGlobalContent,
                 subtype: '1',
@@ -664,17 +669,7 @@ describe('SnippetNoticia', () => {
                 />
             );
 
-            const reviewSchemaData = JSON.parse(
-                container.querySelector('#Schema_Review').innerHTML
-            );
-            const reviewNode = reviewSchemaData['@graph'].find(
-                node => node['@type'] === 'Review'
-            );
-
-            expect(reviewNode.itemReviewed).toMatchObject({
-                '@type': 'CreativeWork',
-                name: 'Test title'
-            });
+            expect(container.querySelector('#Schema_Review')).toBeNull();
         });
 
         it('should NOT render Schema_Review for non-NOTICIA subtype', () => {
