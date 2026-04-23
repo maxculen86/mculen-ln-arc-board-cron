@@ -4,7 +4,7 @@ import { SITE_FOODIT } from 'fusion:environment';
 
 import { TRANSLATE_LAYOUTS } from './_helpers';
 
-const AutogestionPageView = ({ globalContent = {} }) => {
+function AutogestionPageView({ globalContent = {} }) {
     const { _id } = globalContent;
 
     const {
@@ -22,13 +22,13 @@ const AutogestionPageView = ({ globalContent = {} }) => {
             data-id={_id || 'N/A'}
             data-url={`${SITE_FOODIT}${requestUri.split('?')[0]}`}
             data-section={TRANSLATE_LAYOUTS[layout]}
-            data-content-type={'autogestion'}
-            data-title={'N/A'}
+            data-content-type="autogestion"
+            data-title="N/A"
             src={deployment(
                 `${contextPath}/resources/js/LN/dataLayerPageView.min.js`
             )}
         />
     );
-};
+}
 
 export default AutogestionPageView;

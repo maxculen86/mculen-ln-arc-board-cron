@@ -41,8 +41,8 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             expect(result.current).toHaveProperty('shouldShowSummary');
             expect(result.current).toHaveProperty('isOpen');
             expect(result.current).toHaveProperty('summaryData');
-            expect(result.current).toHaveProperty('openIa');
-            expect(result.current).toHaveProperty('closeIa');
+            expect(result.current).toHaveProperty('onOpen');
+            expect(result.current).toHaveProperty('onClose');
         });
 
         it('isOpen is false initially', () => {
@@ -124,12 +124,12 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
         });
     });
 
-    describe('openIa', () => {
+    describe('onOpen', () => {
         it('sets isOpen to true when user is subscribed', () => {
             const { result } = renderHook(() => useIaSummary(defaultProps));
 
             act(() => {
-                result.current.openIa();
+                result.current.onOpen();
             });
 
             expect(result.current.isOpen).toBe(true);
@@ -146,7 +146,7 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             );
 
             act(() => {
-                result.current.openIa();
+                result.current.onOpen();
             });
 
             expect(openBarrier).toHaveBeenCalled();
@@ -164,7 +164,7 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
 
             expect(() => {
                 act(() => {
-                    result.current.openIa();
+                    result.current.onOpen();
                 });
             }).not.toThrow();
         });
@@ -173,7 +173,7 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             const { result } = renderHook(() => useIaSummary(defaultProps));
 
             act(() => {
-                result.current.openIa();
+                result.current.onOpen();
             });
 
             expect(addEventToDataLayerV2).toHaveBeenCalledWith({
@@ -190,25 +190,25 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             );
 
             act(() => {
-                result.current.openIa();
+                result.current.onOpen();
             });
 
             expect(addEventToDataLayerV2).not.toHaveBeenCalled();
         });
     });
 
-    describe('closeIa', () => {
+    describe('onClose', () => {
         it('sets isOpen to false', () => {
             const { result } = renderHook(() => useIaSummary(defaultProps));
 
             act(() => {
-                result.current.openIa();
+                result.current.onOpen();
             });
 
             expect(result.current.isOpen).toBe(true);
 
             act(() => {
-                result.current.closeIa();
+                result.current.onClose();
             });
 
             expect(result.current.isOpen).toBe(false);
@@ -218,7 +218,7 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             const { result } = renderHook(() => useIaSummary(defaultProps));
 
             act(() => {
-                result.current.closeIa();
+                result.current.onClose();
             });
 
             expect(addEventToDataLayerV2).toHaveBeenCalledWith({

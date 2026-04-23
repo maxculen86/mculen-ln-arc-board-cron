@@ -7,7 +7,7 @@ import { OBSERVABLE_EVENTS } from '../../../../utils/constants';
 function SectionButton() {
     return (
         <Button
-            iconLeft={<IconSprite name="menu" />}
+            iconLeft={<IconSprite name="menu" size={24} />}
             variant="ghost"
             color="secondary"
             onClick={() => {

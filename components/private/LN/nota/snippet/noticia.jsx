@@ -38,6 +38,7 @@ import {
 } from './helpers/newsArticleSchemaHelper';
 import getElementsText from '../../../common/utils/getElementsText';
 import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
+import { getContentLocation } from './helpers/getContentLocation';
 
 const SUBTYPE_CONFIG = {
     [OPINION]: {
@@ -222,6 +223,7 @@ function SnippetNoticia({
         tags,
         host: schemaHost
     });
+    const contentLocation = getContentLocation(globalContent);
     const datePublishedISO = createISODate(
         getPublishDate(firstPublishDate, displayDate)
     );
@@ -259,6 +261,7 @@ function SnippetNoticia({
         creator: creators,
         keywords,
         ...(mainEntity && { mainEntity }),
+        contentLocation,
         publisher: {
             '@id': getOrganizationId(siteProperties)
         },

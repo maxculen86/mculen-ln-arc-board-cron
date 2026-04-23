@@ -13,7 +13,7 @@ describe('createHash util', () => {
         });
 
         await expect(createHash()).rejects.toEqual(
-            'crypto.subtle only works on HTTPS'
+            new Error('crypto.subtle only works on HTTPS')
         );
     });
 

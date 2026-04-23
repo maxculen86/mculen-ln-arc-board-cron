@@ -4,16 +4,11 @@ import { useVideoJwCustomSettings } from '../hooks';
 import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 import {
-    buildTagsUrl,
-    onJwPlayerReady
-} from '../../../../private/common/videoPlayerJw/utils/helperJw';
-import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
-import {
     registerJwVideoControlsTracking,
     markProgrammaticMute,
     registerVideoResumeTracking
 } from '../../../../private/common/utils/videoPlayerHelper';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { registerPlayerEvents, setupPlayer } from './jwVideoPlayerHelper';
 
 function JwVideoPlayer({
     videoId,
@@ -40,117 +35,62 @@ function JwVideoPlayer({
     const isInView = currentIndex === index;
     const shouldInstanceVideo = !loading && isInView;
     const isDesktop = !isSSR() && window?.innerWidth > 1279;
-    const shouldUsePreferredFile = isDesktop && variant === 'horizontal';
-    const urlAds = urlForPrerollAds();
     const videoFile = preferredVideoFiles?.[videoId];
+    const shouldUsePreferredFile =
+        isDesktop && variant === 'horizontal' && !!videoFile;
+    const urlAds = urlForPrerollAds();
 
     useEffect(() => {
         if (isInView) setLoading(false);
     }, [currentIndex]);
 
     useEffect(() => {
-        const urlWithPermutiveSegment = buildTagsUrl(urlAds);
-        if (
-            !playerRef.current &&
-            shouldInstanceVideo &&
-            isLoadedScriptJw &&
-            (!shouldUsePreferredFile || videoFile)
-        ) {
-            const playerInstance = window?.jwplayer?.(videoId);
-            const fallbackMp4File = `https://cdn.jwplayer.com/videos/${videoId}.mp4`;
-            const fileToPlay = shouldUsePreferredFile
-                ? videoFile
-                : fallbackMp4File;
-            playerRef.current = playerInstance?.setup({
-                file: fileToPlay,
-                image: `https://cdn.jwplayer.com/v2/media/${videoId}/poster.jpg`,
-                width: '100%',
-                allowFullscreen: false,
-                ...getAdsConfigVideoJw({
-                    adsUrl: urlWithPermutiveSegment,
-                    customValidation: counterVideo === 3
-                })
-            });
-            if (playerRef.current) {
-                sentProgressRef.current = new Set();
-
-                markProgrammaticMute(playerRef.current);
-                playerRef.current.setMute(
-                    window?.localStorage?.getItem('jwplayer.mute') === 'true'
-                );
-
-                playerRef.current.on('time', e => {
-                    const percent = Math.floor(
-                        (e.currentTime / e.duration) * 100
-                    );
-
-                    const percentages = [25, 50, 75];
-
-                    percentages.forEach(percentage => {
-                        if (
-                            percent >= percentage &&
-                            !sentProgressRef.current.has(percentage)
-                        ) {
-                            sentProgressRef.current.add(percentage);
-
-                            addEventToDataLayerV2({
-                                event: String(percentage),
-                                rest: {
-                                    videoID: String(videoId || ''),
-                                    videoName: String(title || '')
-                                }
-                            });
-                        }
-                    });
-                });
-
-                playerRef.current.on('ready', () => {
-                    onJwPlayerReady(playerRef.current, {
-                        currentTitle: titleJwPlayer,
-                        duration: duration * 1000
-                    });
-                });
-
-                playerRef.current.on('complete', () => {
-                    if (!sentProgressRef.current.has(100)) {
-                        sentProgressRef.current.add(100);
-
-                        addEventToDataLayerV2({
-                            event: '100',
-                            rest: {
-                                videoID: String(videoId || ''),
-                                videoName: String(title || '')
-                            }
-                        });
-                    }
-
-                    handleNextCallback();
-                });
-
-                playerRef.current.on('play', () => {
-                    handleEventSwipeVideo({
-                        videoIdObserved: videoId,
-                        videoTitle: title,
-                        origin,
-                        roofData
-                    });
-                });
-            }
-
-            controlsCleanupRef.current?.();
-            controlsCleanupRef.current = registerJwVideoControlsTracking({
-                player: playerRef.current,
-                defaultTitle: title,
-                defaultId: videoId
-            });
-
-            resumeCleanupRef.current?.();
-            resumeCleanupRef.current = registerVideoResumeTracking({
-                player: playerRef.current,
-                defaultTitle: title,
-                defaultId: videoId
-            });
+        if (playerRef.current || !shouldInstanceVideo || !isLoadedScriptJw) {
+            return;
         }
+
+        playerRef.current = setupPlayer({
+            playerId: videoId,
+            videoId,
+            videoFile,
+            shouldUsePreferredFile,
+            urlAds,
+            counterVideo
+        });
+
+        if (!playerRef.current) {
+            return;
+        }
+
+        sentProgressRef.current = new Set();
+        markProgrammaticMute(playerRef.current);
+        playerRef.current.setMute(
+            window?.localStorage?.getItem('jwplayer.mute') === 'true'
+        );
+        registerPlayerEvents({
+            player: playerRef.current,
+            sentProgressRef,
+            videoId,
+            title,
+            handleNextCallback,
+            origin,
+            roofData,
+            titleJwPlayer,
+            duration
+        });
+        controlsCleanupRef.current?.();
+        controlsCleanupRef.current = registerJwVideoControlsTracking({
+            player: playerRef.current,
+            defaultTitle: title,
+            defaultId: videoId
+        });
+
+        resumeCleanupRef.current?.();
+        resumeCleanupRef.current = registerVideoResumeTracking({
+            player: playerRef.current,
+            defaultTitle: title,
+            defaultId: videoId
+        });
     }, [
         shouldInstanceVideo,
         isLoadedScriptJw,
@@ -162,7 +102,10 @@ function JwVideoPlayer({
         title,
         origin,
         counterVideo,
-        variant
+        variant,
+        roofData,
+        titleJwPlayer,
+        duration
     ]);
 
     useVideoJwCustomSettings({

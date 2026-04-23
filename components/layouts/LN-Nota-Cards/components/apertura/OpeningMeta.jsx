@@ -15,14 +15,12 @@ function OpeningMeta({ children, data = {} }) {
             id="openingMeta"
         >
             <ul className="com-date text-label-md flex justify-start items-center --bullet-list_4 pb-0">
-                {[date, time].map(item => (
-                    <li
-                        key={item}
-                        className="flex items-center text-neutral-light-600"
-                    >
-                        <time>{item}</time>
-                    </li>
-                ))}
+                <li className="flex items-center text-neutral-light-600">
+                    <time dateTime={date}>{date}</time>
+                </li>
+                <li className="flex items-center text-neutral-light-600">
+                    <time dateTime={time}>{time}</time>
+                </li>
             </ul>
             {children}
         </div>

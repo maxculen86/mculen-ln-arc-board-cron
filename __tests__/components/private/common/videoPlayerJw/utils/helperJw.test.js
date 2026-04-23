@@ -11,7 +11,17 @@ import {
 
 jest.mock('../../../../../../components/private/common/utils/scheduleTask');
 
+const VIDEO_NAME = '¿A qué debe su particular apariencia el Palacio de aguas?';
+const VIDEO_ID = 'aomrvRI3';
+const NEXT_VIDEO_NAME = 'El Obelisco: historia y secretos de un icono porteño';
+const NEXT_VIDEO_ID = 'bQp9xYt2';
+
 describe('Components - Private - Common - videoPlayerJw - Utils', () => {
+    beforeEach(() => {
+        window.dataLayer = [];
+        scheduleTask.mockImplementation(callback => callback());
+    });
+
     it('transforms images correctly', () => {
         const inputData = [
             { src: 'image1.jpg', width: 480 },
@@ -61,8 +71,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         window.isInDatalayerEvent = jest.fn(() => false);
         window.addEventToDataLayerV2 = jest.fn();
 
-        const title = 'Test Title';
-        const idVideo = 'testId';
+        const title = VIDEO_NAME;
+        const idVideo = VIDEO_ID;
 
         handleVideoEventsScript(title, idVideo);
 
@@ -87,6 +97,118 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             'complete',
             expect.any(Function)
         );
+    });
+
+    it('fires quartiles when playback crosses the threshold even if exact percent is skipped', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.time({ currentTime: 26, duration: 100 });
+        events.time({ currentTime: 51, duration: 100 });
+        events.time({ currentTime: 76, duration: 100 });
+
+        expect(window.dataLayer).toEqual([
+            {
+                event: '25',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: '50',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: '75',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            }
+        ]);
+    });
+
+    it('does not backfill quartiles immediately after a seek forward', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.time({ currentTime: 26, duration: 100 });
+        events.seek({
+            currentTime: 26,
+            position: 26,
+            offset: 60,
+            duration: 100
+        });
+        events.time({ currentTime: 60, duration: 100 });
+        events.time({ currentTime: 76, duration: 100 });
+
+        expect(window.dataLayer).toEqual([
+            {
+                event: '25',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: 'videoSeek',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: '75',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            }
+        ]);
+    });
+
+    it('resets quartile tracking when playlist item changes', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.time({ currentTime: 30, duration: 100 });
+        events.playlistItem({
+            title: NEXT_VIDEO_NAME,
+            mediaid: NEXT_VIDEO_ID
+        });
+        events.time({ currentTime: 30, duration: 100 });
+
+        expect(window.dataLayer).toEqual([
+            {
+                event: '25',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: '25',
+                videoName: NEXT_VIDEO_NAME,
+                videoID: NEXT_VIDEO_ID
+            }
+        ]);
     });
 
     describe('getJWScript function', () => {
@@ -114,15 +236,16 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         beforeEach(() => {
             jest.clearAllMocks();
+            window.dataLayer = [];
         });
 
         it('should setup JWPlayer and handle video events on click', () => {
             jest.useFakeTimers();
-            const title = 'Test Title';
+            const title = VIDEO_NAME;
             const player = 'testPlayer';
             const playlist = ['video1', 'video2'];
             const hasAutoplay = true;
-            const idVideo = 'testId';
+            const idVideo = VIDEO_ID;
             const tagsUrl = 'testUrl';
 
             const mockScheduleTask = jest.fn(callback => callback());
@@ -145,18 +268,18 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(window.dataLayer).toStrictEqual([
                 {
                     event: 'videoDisplay',
-                    videoName: 'Test Title',
-                    videoID: 'testId'
+                    videoName: VIDEO_NAME,
+                    videoID: VIDEO_ID
                 }
             ]);
         });
 
         it('should add event listener if autoplay is false', () => {
-            const title = 'Test Title';
+            const title = VIDEO_NAME;
             const player = 'testPlayer';
             const playlist = ['video1', 'video2'];
             const hasAutoplay = false;
-            const idVideo = 'testId';
+            const idVideo = VIDEO_ID;
             const tagsUrl = 'testUrl';
 
             getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
@@ -170,8 +293,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             expect(window.dataLayer).toStrictEqual([
                 {
                     event: 'videoDisplay',
-                    videoName: 'Test Title',
-                    videoID: 'testId'
+                    videoName: VIDEO_NAME,
+                    videoID: VIDEO_ID
                 }
             ]);
         });

@@ -3,21 +3,26 @@ import { useEffect, useState } from 'react';
 import { HEADER_VARIANTS } from '../constants';
 import { getHeaderValidations } from '../helpers';
 
-const handleSentinelIntersection = (entries, callback) => {
+const handleSentinelIntersection = (
+    entries,
+    callback,
+    { positionDefault, darkTheme }
+) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // sentinel visible
-            callback(prev => ({
-                ...prev,
-                position: HEADER_VARIANTS.POSITION.DEFAULT
-            }));
-        } else {
-            // sentinel not visible
-            callback(prev => ({
-                ...prev,
-                position: HEADER_VARIANTS.POSITION.STICKY
-            }));
-        }
+        callback(prev => {
+            const theme =
+                darkTheme && entry.isIntersecting
+                    ? HEADER_VARIANTS.THEME.DARK
+                    : HEADER_VARIANTS.THEME.LIGHT;
+
+            if (!positionDefault) return { ...prev, theme };
+
+            const position = entry.isIntersecting
+                ? HEADER_VARIANTS.POSITION.DEFAULT
+                : HEADER_VARIANTS.POSITION.STICKY;
+
+            return { position, theme };
+        });
     });
 };
 
@@ -33,19 +38,17 @@ const useHeader = () => {
         }
     );
 
-    const defaultVariants = {
+    const [{ position, theme }, setVariants] = useState({
         position: shouldBePositionDefault
             ? HEADER_VARIANTS.POSITION.DEFAULT
             : HEADER_VARIANTS.POSITION.STICKY,
-        appearance: shouldBeDarkTheme
-            ? HEADER_VARIANTS.APPEARANCE.DARK_THEME
-            : HEADER_VARIANTS.APPEARANCE.LIGHT_THEME
-    };
-
-    const [headerVariants, setHeaderVariants] = useState(defaultVariants);
+        theme: shouldBeDarkTheme
+            ? HEADER_VARIANTS.THEME.DARK
+            : HEADER_VARIANTS.THEME.LIGHT
+    });
 
     useEffect(() => {
-        if (!shouldBePositionDefault) return undefined;
+        if (!shouldBePositionDefault && !shouldBeDarkTheme) return undefined;
 
         const isDesktop = window.innerWidth >= 1279;
 
@@ -56,7 +59,11 @@ const useHeader = () => {
         if (!sentinelElement) return undefined;
 
         const observer = new IntersectionObserver(
-            entries => handleSentinelIntersection(entries, setHeaderVariants),
+            entries =>
+                handleSentinelIntersection(entries, setVariants, {
+                    positionDefault: shouldBePositionDefault,
+                    darkTheme: shouldBeDarkTheme
+                }),
             {
                 threshold: 0,
                 rootMargin: '0px'
@@ -68,17 +75,16 @@ const useHeader = () => {
         return () => {
             observer.disconnect();
         };
-    }, [shouldBePositionDefault]);
+    }, [shouldBePositionDefault, shouldBeDarkTheme]);
 
     const animation =
-        shouldBePositionDefault &&
-        headerVariants.position === HEADER_VARIANTS.POSITION.STICKY
+        shouldBePositionDefault && position === HEADER_VARIANTS.POSITION.STICKY
             ? HEADER_VARIANTS.ANIMATION_IN
             : undefined;
 
     return {
-        position: headerVariants.position,
-        appearance: headerVariants.appearance,
+        position,
+        theme,
         animation
     };
 };

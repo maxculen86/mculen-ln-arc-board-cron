@@ -81,30 +81,28 @@ export default function transformMenuData({
     return menuItems;
 }
 
+const getAuthHeaders = accessToken => ({
+    'Content-Type': 'application/json',
+    'x-authorization': accessToken
+});
+
 export const searchFood = async ({ query, userId, accessToken }) => {
     const response = await fetch(`${API_IA_FOODIT}/api/search`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-authorization': `${accessToken}`
-        },
+        headers: getAuthHeaders(accessToken),
         body: JSON.stringify({
             query,
             user_id: userId
         })
     });
 
-    const responseSearch = await response.json();
-    return responseSearch;
+    return response.json();
 };
 
 export const createSessionChat = async ({ accessToken }) => {
     const response = await fetch(`${API_IA_FOODIT}/api/session`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-authorization': `${accessToken}`
-        }
+        headers: getAuthHeaders(accessToken)
     });
 
     const sessionResponse = await response.json();
@@ -119,17 +117,12 @@ export const createSessionChat = async ({ accessToken }) => {
 export const sendChatMessage = async ({ sessionId, message, accessToken }) => {
     const response = await fetch(`${API_IA_FOODIT}/api/chat`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-authorization': `${accessToken}`
-        },
+        headers: getAuthHeaders(accessToken),
         body: JSON.stringify({
             session_id: sessionId,
             message
         })
     });
 
-    const chatMessageResponse = await response.json();
-
-    return chatMessageResponse;
+    return response.json();
 };

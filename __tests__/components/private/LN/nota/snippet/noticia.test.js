@@ -155,6 +155,62 @@ describe('SnippetNoticia', () => {
             expect(jsonData.hasPart).toBeUndefined();
         });
 
+        it('should include contentLocation built from K&L Location label', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        label: {
+                            ...mockGlobalContent.label,
+                            location: { text: 'US | Michigan' }
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.contentLocation).toEqual({
+                '@type': 'Place',
+                name: 'Michigan',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Michigan',
+                    addressCountry: 'US'
+                }
+            });
+        });
+
+        it('should fall back to the default contentLocation when K&L Location is missing', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={mockGlobalContent}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.contentLocation).toEqual({
+                '@type': 'Place',
+                name: 'Buenos Aires',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Buenos Aires',
+                    addressCountry: 'AR'
+                }
+            });
+        });
+
         it('should set isAccessibleForFree as true when content_code is undefined', () => {
             const { container } = render(
                 <SnippetNoticia
@@ -616,7 +672,7 @@ describe('SnippetNoticia', () => {
             );
 
             expect(reviewNode.itemReviewed).toMatchObject({
-                '@type': 'Thing',
+                '@type': 'CreativeWork',
                 name: 'Test title'
             });
         });

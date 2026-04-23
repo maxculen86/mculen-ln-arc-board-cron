@@ -49,6 +49,7 @@ window.addEventListener('load', function () {
         let currentId = mediaId || '';
         let skipPlayForSeek = false;
         let wasPaused = false;
+        let shouldAutoplayNextPlaylistItem = false;
 
         const setInstancePlayer = () =>
             loadJWPlayerScript(playerId, () => {
@@ -75,10 +76,17 @@ window.addEventListener('load', function () {
                             skipPlayForSeek = true;
                         },
                         onPlaylistItem: ({ title: newTitle, id: newId }) => {
+                            const isNewPlaylistItem =
+                                Boolean(currentId) && newId !== currentId;
+
                             currentTitle = newTitle;
                             currentId = newId;
                             skipPlayForSeek = false;
-                            initialMode = null;
+                            initialMode =
+                                isNewPlaylistItem &&
+                                shouldAutoplayNextPlaylistItem
+                                    ? 'autoplay'
+                                    : null;
                             wasPaused = false;
                         }
                     });
@@ -103,7 +111,7 @@ window.addEventListener('load', function () {
                                 event: 'videoResume',
                                 rest: {
                                     videoName: currentTitle,
-                                    videoID: videoId
+                                    videoID: currentId
                                 }
                             });
                             return;
@@ -116,12 +124,13 @@ window.addEventListener('load', function () {
                         const mode =
                             initialMode ?? (isAutoplay ? 'autoplay' : 'manual');
                         initialMode = null;
+                        shouldAutoplayNextPlaylistItem = false;
 
                         addEventToDataLayerV2({
                             event: 'videoPlay',
                             rest: {
                                 videoName: currentTitle,
-                                videoID: videoId,
+                                videoID: currentId,
                                 mode,
                                 videoOrientation,
                                 category_video: roof
@@ -135,7 +144,7 @@ window.addEventListener('load', function () {
                         ) {
                             productClickFromClientVideoJW(
                                 articleElement,
-                                title || '',
+                                currentTitle || '',
                                 mode
                             );
                         }
@@ -153,9 +162,10 @@ window.addEventListener('load', function () {
                         wasPaused = true;
                         handleVideoStop(articleElement, videoState);
                     });
-                    instance.on('complete', () =>
-                        handleVideoStop(articleElement, videoState)
-                    );
+                    instance.on('complete', () => {
+                        shouldAutoplayNextPlaylistItem = true;
+                        handleVideoStop(articleElement, videoState);
+                    });
 
                     const jwVisibilityAndMetarefreshHandler =
                         createJWVisibilityAndMetarefreshCallback(

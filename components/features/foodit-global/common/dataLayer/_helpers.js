@@ -10,7 +10,8 @@ export const TRANSLATE_LAYOUTS = {
     'Foodit-ficha-nota': 'nota',
     'Foodit-chef': 'chefs_protagonistas',
     'Foodit-compras': 'lista_de_compras',
-    'Foodit-recetario': 'recetario'
+    'Foodit-recetario': 'recetario',
+    'Foodit-menu-semanal': 'Mi_menu_semanal'
 };
 
 export const DESCUBRIR_SECTIONS = [

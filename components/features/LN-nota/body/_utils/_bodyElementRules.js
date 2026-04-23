@@ -18,7 +18,10 @@ import Interstitial from '../../../LN-10-global/common/body/interstitial/default
 import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
 import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
 import HowToBody from '../../howTo/body';
-import imageGalleryEmbed from '../../private/body/imageGalleryEmbed/default';
+
+// Se unifica con el componente de DS-Body/components/galleryEmbed/default
+import GalleryEmbed from '../components-ds/galleyEmbed/default';
+
 // utils
 import { selectRule } from './_bodyRules';
 import TableV2 from '../../tableV2/default';
@@ -44,7 +47,7 @@ export const DEFAULT_BODY_COMPONENTS = [
     PowerUpLiveBlog,
     EmbedCll,
     HowToBody,
-    imageGalleryEmbed
+    GalleryEmbed
 ];
 
 const resolveBodyComponents = bodyComponents =>

@@ -1,5 +1,6 @@
 /* Custom Components */
 @layer components {
+
     /* Paragraph */
     .ds-custom-paragraph mark.hl_underline {
         background-color: transparent;
@@ -53,18 +54,18 @@
 
 /* Banners */
 .ds-banner-background {
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 4px,
-        rgba(0, 0, 0, 0.15) 6px
-    );
-    background-color: var(--light-neutral-0);
+    background: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 4px,
+            rgba(0, 0, 0, 0.15) 6px);
+    background-color: var(--color-neutral-1);
 }
 
 @theme {
     --header-sticky-height: 57px;
     --header-navbar-height: 61px;
+    /* 1366px */
+    --breakpoint-2xl: 85.375rem;
 }

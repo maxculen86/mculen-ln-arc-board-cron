@@ -1,5 +1,5 @@
 import get from '../../../../../components/private/common/utils/get';
-import { extractGalleryEmbedData } from '../../../../../components/features/LN-nota/private/body/imageGalleryEmbed/_helper';
+import { extractGalleryEmbedData } from '../../../../../components/features/LN/common/galleryEmbed/helpers';
 
 const buildGalleryEmbedData = async ({
     element,

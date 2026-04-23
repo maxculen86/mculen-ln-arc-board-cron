@@ -9,10 +9,12 @@ function Avatar() {
 
     const isSubscribed = userType === USER_TYPES.SUBSCRIBED;
     const backgroundClassName = cx(
-        'border border-[#E5E5E5]',
-        isSubscribed ? 'bg-neutral-999' : 'bg-neutral-100'
+        'border border-muted',
+        isSubscribed ? 'bg-highlight-foreground' : 'bg-neutral-100'
     );
-    const textClassName = cx('font-bold', { 'text-[#FFC108]': isSubscribed });
+    const textClassName = cx('font-bold', {
+        'text-highlight-default': isSubscribed
+    });
 
     return (
         <div className="flex items-center gap-8">
@@ -23,14 +25,12 @@ function Avatar() {
                     className: textClassName
                 }}
             />
-            <div className="flex flex-col gap-4 max-w-115">
-                <span className="text-body-sm font-bold overflow-hidden text-ellipsis whitespace-nowrap">
+            <div className="flex flex-col gap-4 max-w-115 text-label-sm ">
+                <span className="text-base-default font-bold overflow-hidden text-ellipsis whitespace-nowrap">
                     {userEmail}
                 </span>
-                <span className="text-label-sm text-secondary-default overflow-hidden text-ellipsis whitespace-nowrap  text-start">
-                    {isSubscribed
-                        ? 'Suscriptor digital'
-                        : 'Sin suscripción digital'}
+                <span className="text-base-light overflow-hidden text-ellipsis whitespace-nowrap text-start">
+                    {isSubscribed ? 'Suscripción digital' : 'Sin suscripción'}
                 </span>
             </div>
         </div>

@@ -53,8 +53,12 @@ function SubscribeButton({ isHome }) {
                 <a
                     href={`${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${currentUrlCallback}`}
                 >
-                    <div className="max-lg:hidden flex items-center justify-center h-16 w-16 rounded-full bg-subscription bg-neutral-999">
-                        <Icon size={8} name="vip-crow" fill="#FFC108" />
+                    <div className="max-lg:hidden flex items-center justify-center h-16 w-16 rounded-full bg-highlight-foreground">
+                        <Icon
+                            size={8}
+                            name="vip-crow"
+                            fill="var(--color-highlight-default)"
+                        />
                     </div>
                     <SubscribeButtonText
                         termicaValues={termicaValues}

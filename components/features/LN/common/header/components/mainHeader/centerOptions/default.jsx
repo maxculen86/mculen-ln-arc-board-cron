@@ -5,7 +5,7 @@ import Link from '../../../../../../ui/ln/link/default';
 import Logo from './Logo';
 
 function CenterOptions() {
-    const { position, appearance, isHome } = useHeaderContext();
+    const { position, isHome } = useHeaderContext();
 
     // TODO: aplicar el bannerLogo de la home cuando se migre este componente
     const Component = isHome ? 'h1' : 'div';
@@ -13,15 +13,14 @@ function CenterOptions() {
         <Link
             href="/"
             className={centerOptionsVariants({
-                position,
-                appearance
+                position
             })}
         >
             <Component>
                 {isHome && (
                     <span className="invisible absolute">LA NACION</span>
                 )}
-                <Logo appearance={appearance} />
+                <Logo />
             </Component>
         </Link>
     );

@@ -68,8 +68,7 @@ const postWeeklyMenu = async ({ article, food, day }) => {
             return null;
         }
 
-        const jsonResponse = await response.json();
-        return jsonResponse;
+        return await response.json();
     } catch (error) {
         console.error(`Error al realizar la solicitud POST:`, error);
         return null;

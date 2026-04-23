@@ -8,6 +8,7 @@ import { Tags } from './ingredientsBox/tags';
 import { SummaryBox } from './summaryBox/foodit';
 import get from '../../../../private/common/utils/get';
 import getTagList, { getListsFromPowerup } from './_helper';
+import { articleHasVideo } from '../../common/utils/notaFooditHelper';
 
 export function PowerupsReceta({ article = {} }) {
     const {
@@ -34,7 +35,8 @@ export function PowerupsReceta({ article = {} }) {
         occasions,
         taxonomy,
         regions,
-        idArticle: _id
+        article,
+        hasVideo: articleHasVideo(article)
     });
 
     const { nutritionLists, ingredientsLists } =

@@ -225,7 +225,8 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
                 var_semanal: 2.1,
                 var_mensual: -1.2,
                 cotizacion_actual: 100,
-                cotizacion_cierre: 98
+                cotizacion_cierre: 98,
+                habilitado: true
             },
             {
                 ticket: 'ALUA',
@@ -233,7 +234,8 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
                 var_semanal: 1.5,
                 var_mensual: 0.8,
                 cotizacion_actual: 50,
-                cotizacion_cierre: 45
+                cotizacion_cierre: 45,
+                habilitado: true
             }
         ];
 
@@ -296,8 +298,8 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
         it('should apply home filter when isHome is true', () => {
             const cotizaciones = [
-                { ticket: 'DIA_US', var_diaria: 1 },
-                { ticket: 'OTHER', var_diaria: 2 }
+                { ticket: 'DIA_US', var_diaria: 1, habilitado: true },
+                { ticket: 'OTHER', var_diaria: 2, habilitado: true }
             ];
             const data = { tableType: 'etf', cotizaciones };
 
@@ -308,8 +310,8 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
         it('should filter riesgo-pais correctly', () => {
             const cotizaciones = [
-                { ticket: 'RIESGO PAIS', var_diaria: 1 },
-                { ticket: 'OTRO', var_diaria: 2 }
+                { ticket: 'RIESGO PAIS', var_diaria: 1, habilitado: true },
+                { ticket: 'OTRO', var_diaria: 2, habilitado: true }
             ];
             const data = { tableType: 'riesgo-pais', cotizaciones };
 
@@ -329,7 +331,8 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
                         cotizacion_cierre: 98,
                         var_diaria: 2,
                         var_semanal: 1,
-                        var_mensual: -1
+                        var_mensual: -1,
+                        habilitado: true
                     }
                 ]
             };
@@ -341,6 +344,89 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
             expect(row[0]).toEqual({ _id: '', content: 'TEST', type: 'text' });
             expect(row[1].type).toBe('text');
             expect(row[1].content).toContain('<strong>');
+        });
+
+        describe('filtro habilitado', () => {
+            it('should hide rows with habilitado === false', () => {
+                const data = {
+                    tableType: 'adrs',
+                    cotizaciones: [
+                        { ticket: 'TWTR', var_diaria: 1, habilitado: true },
+                        { ticket: 'UTX', var_diaria: 0, habilitado: false }
+                    ]
+                };
+
+                const result = transformInternals(data, false);
+
+                expect(result.rows).toHaveLength(1);
+                expect(result.rows[0][0].content).toBe('TWTR');
+            });
+
+            it('should hide rows when habilitado field is missing', () => {
+                const data = {
+                    tableType: 'merval',
+                    cotizaciones: [
+                        { ticket: 'GGAL', var_diaria: 1, habilitado: true },
+                        { ticket: 'NOFIELD', var_diaria: 2 }
+                    ]
+                };
+
+                const result = transformInternals(data, false);
+
+                expect(result.rows).toHaveLength(1);
+                expect(result.rows[0][0].content).toBe('GGAL');
+            });
+
+            it('should hide rows with habilitado null or undefined', () => {
+                const data = {
+                    tableType: 'merval',
+                    cotizaciones: [
+                        { ticket: 'A', var_diaria: 1, habilitado: null },
+                        { ticket: 'B', var_diaria: 2, habilitado: undefined },
+                        { ticket: 'C', var_diaria: 3, habilitado: true }
+                    ]
+                };
+
+                const result = transformInternals(data, false);
+
+                expect(result.rows).toHaveLength(1);
+                expect(result.rows[0][0].content).toBe('C');
+            });
+
+            it('should apply habilitado filter before home top-5 for merval', () => {
+                const cotizaciones = [
+                    { ticket: 'A', var_diaria: 100, habilitado: false },
+                    { ticket: 'B', var_diaria: 10, habilitado: true },
+                    { ticket: 'C', var_diaria: 8, habilitado: true },
+                    { ticket: 'D', var_diaria: 6, habilitado: true },
+                    { ticket: 'E', var_diaria: 4, habilitado: true },
+                    { ticket: 'F', var_diaria: 2, habilitado: true }
+                ];
+                const data = { tableType: 'merval', cotizaciones };
+
+                const result = transformInternals(data, true);
+
+                expect(result.rows).toHaveLength(5);
+                const tickets = result.rows.map(row => row[0].content);
+                expect(tickets).not.toContain('A');
+            });
+
+            it('should hide riesgo-pais row when habilitado is false', () => {
+                const data = {
+                    tableType: 'riesgo-pais',
+                    cotizaciones: [
+                        {
+                            ticket: 'RIESGO PAIS',
+                            var_diaria: 1,
+                            habilitado: false
+                        }
+                    ]
+                };
+
+                const result = transformInternals(data, false);
+
+                expect(result.rows).toHaveLength(0);
+            });
         });
     });
 });
