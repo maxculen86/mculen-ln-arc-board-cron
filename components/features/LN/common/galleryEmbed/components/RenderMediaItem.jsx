@@ -5,6 +5,7 @@ import { getImagesToLoadWithPicture } from '../../../../../private/LN/common/uti
 
 function RenderMediaItem({ element, aspectRatio }) {
     const { mp4, poster, alt, url, resized_urls: resizedUrls } = element || {};
+    const imageAlt = typeof alt === 'string' ? alt.trim() : '';
 
     if (element?.type === 'video') {
         return (
@@ -27,7 +28,7 @@ function RenderMediaItem({ element, aspectRatio }) {
     return (
         <div>
             <Image
-                alt={alt || 'Imagen de la galería'}
+                alt={imageAlt}
                 src={url}
                 className={cx('object-cover', aspectRatio)}
                 sources={getImagesToLoadWithPicture(false, resizedUrls)}

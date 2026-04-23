@@ -432,7 +432,8 @@ describe('Article source nota - gallery embed', () => {
                     url: 'https://img-1',
                     height: 10,
                     width: 20,
-                    resized_urls: []
+                    resized_urls: [],
+                    alt: ''
                 },
                 {
                     mp4: 'https://video.mp4',
