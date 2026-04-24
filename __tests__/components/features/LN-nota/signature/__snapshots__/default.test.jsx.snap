@@ -92,6 +92,73 @@ exports[`components - feature - LN-nota - signature - default renders with distr
 </DocumentFragment>
 `;
 
+exports[`components - feature - LN-nota - signature - default renders with storytelling layout adds margin classes 1`] = `
+<DocumentFragment>
+  <div
+    class="signature flex flex-column container-center-100 brand-color mb-16 mb-24_m"
+  >
+    <div
+      class="flex jc-between ai-center"
+    >
+      <div
+        class="flex flex-wrap w-100 w-full"
+      >
+        <div
+          class="signature-with-authors flex flex-wrap flex-column flex-row_m ai-center_m ai-start  gap-16 w-100 w-full"
+        >
+          <div
+            class="flex inline-flex ai-center gap-12"
+          >
+            <a
+              class="link ln-link"
+              href="/autor/mariano-grondona/"
+              target="_self"
+              title="Ir a notas de Mariano Grondona"
+            >
+              <div>
+                <img
+                  class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="https://bucket.glanacion.com/anexos/fotos/85/2089285.png"
+                />
+              </div>
+            </a>
+            <div
+              class="flex j-center py-4 flex-column-reverse gap-8 py-4 text-neutral-light-600"
+            >
+              <span
+                class="text text-14 text-neutral-light-600 uppercase"
+              >
+                LA NACION
+              </span>
+              <span>
+                <span>
+                  <a
+                    class="link ln-link"
+                    href="/autor/mariano-grondona/"
+                    target="_self"
+                    title="Ir a notas de Mariano Grondona"
+                  >
+                    <strong>
+                      Mariano Grondona
+                    </strong>
+                  </a>
+                </span>
+              </span>
+            </div>
+          </div>
+          <button>
+            Escuchar Nota
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`components - feature - LN-nota - signature - default renders without signature when no authors or distributor 1`] = `
 <DocumentFragment>
   <div>
