@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Popper } from '@ln/ds-common-popper';
+import React from 'react';
+import { Dropdown } from '@ln/ds-common-dropdown';
 import Link from '../../../../../../../ui/ln/link/default';
 import Divider from '../../../../../../../ui/ln/divider/default';
 import { useHeaderContext } from '../../../../context';
@@ -8,44 +8,39 @@ import Avatar from './Avatar';
 import Icon from '../../../../../../../ui/ln/icon/default';
 import { USER_TYPES } from '../../../../../utils/constants';
 
+function DataTwWrapper({ children }) {
+    return <div data-tw>{children}</div>;
+}
+
 function MenuUser() {
-    // TODO: componente sin definicion, por eso se uso directamente el popper, al definirse pasar al facade
     const { userType } = useHeaderContext();
-    const [isOpen, setIsOpen] = useState(false);
 
     if (userType === USER_TYPES.UNLOGGED) return null;
 
     return (
         <div className="max-lg:hidden flex h-40">
-            <Popper
+            <Dropdown
                 placement="bottom"
                 triggerOn="hover"
                 hoverDelay={100}
-                open={isOpen}
-                onOpenChange={setIsOpen}
+                border
+                arrow
             >
-                <Popper.Trigger className="flex items-center cursor-pointer">
+                <Dropdown.Trigger className="group flex items-center gap-8 cursor-pointer">
                     <Avatar />
                     <Icon
                         name="arrow-down"
                         size={16}
-                        className="transition-transform duration-200 text-secondary-default"
-                        style={{
-                            transform: isOpen
-                                ? 'rotate(180deg)'
-                                : 'rotate(0deg)'
-                        }}
+                        className="transition-transform duration-200 text-secondary-default group-aria-expanded:rotate-180"
                     />
-                </Popper.Trigger>
+                </Dropdown.Trigger>
                 {/* TODO: quitar data-theme explicito en light, cuando se rediseñe el componente */}
-                <Popper.Content
-                    className="bg-neutral-1 shadow-center w-full rounded-4 p-12 text-14"
+                <Dropdown.Content
+                    customWidth
+                    className="bg-neutral-1 w-full rounded-4 p-12 text-14 outline-none z-1"
+                    customWrapper={DataTwWrapper}
                     data-theme="light"
                 >
-                    <div
-                        className="absolute bg-neutral-1 w-8 h-8 rotate-45 -top-4 left-1/2 -translate-x-1/2"
-                        aria-hidden="true"
-                    />
                     <nav>
                         <ul className="flex flex-col">
                             {linkOptions.map(
@@ -81,8 +76,8 @@ function MenuUser() {
                     >
                         <button type="button">{buttonLogout.text}</button>
                     </Link>
-                </Popper.Content>
-            </Popper>
+                </Dropdown.Content>
+            </Dropdown>
         </div>
     );
 }
