@@ -4,7 +4,10 @@ import AdsManager from '../default';
 import LoadBannersSSR from '../../../../../private/common/banners/LoadBannersSSR';
 import isAllowedSection from '../../../../../private/LN/common/utils/isAllowedSection';
 
-const listOfAllowedSection = [{ section: '/salud' }];
+const listOfAllowedSection = [
+    { section: '/salud' },
+    { section: '/estados-unidos' }
+];
 // TODO: Una vez que se migren todas las secciones, eliminar el isAllowedSection y mostrar siempre AdsManager
 function AdsStrategySelector() {
     const { globalContent } = useAppContext() || {};
