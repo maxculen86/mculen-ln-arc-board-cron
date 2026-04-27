@@ -7,16 +7,15 @@ import useFilterState from './useFilter';
 import useFetchSearchResults from './useFetchSearchResults';
 import usePagination from './useSearchPagination';
 
-const useFilterManager = () => {
+const useFilterManager = ({ dynamicQuery } = {}) => {
     const { requestUri } = useAppContext();
 
     const { filters, applyFilter, removeFilters, appliedFilters } =
         useFilterState({});
     const { getNextPage, resetPage, page } = usePagination();
-    const queryUrl = getQueryParamValue(
-        'query',
-        `${SITE_FOODIT}/${requestUri}`
-    );
+    const queryUrl =
+        dynamicQuery ||
+        getQueryParamValue('query', `${SITE_FOODIT}/${requestUri}`);
 
     const concatFilters = useMemo(() => getQueryForFilters(filters), [filters]);
 
