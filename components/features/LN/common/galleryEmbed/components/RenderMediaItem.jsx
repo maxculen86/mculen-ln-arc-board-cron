@@ -5,7 +5,8 @@ import { getImagesToLoadWithPicture } from '../../../../../private/LN/common/uti
 
 function RenderMediaItem({ element, aspectRatio }) {
     const { mp4, poster, alt, url, resized_urls: resizedUrls } = element || {};
-    const imageAlt = typeof alt === 'string' ? alt.trim() : '';
+    const imageAlt =
+        typeof alt === 'string' ? alt.trim() : 'Imagen de la galería';
 
     if (element?.type === 'video') {
         return (
@@ -17,7 +18,7 @@ function RenderMediaItem({ element, aspectRatio }) {
                 loop
                 playsInline
                 className={cx(
-                    'w-full h-full object-contain bg-neutral-50',
+                    'w-full h-full object-cover bg-neutral-50',
                     aspectRatio
                 )}
                 aria-hidden="true"
