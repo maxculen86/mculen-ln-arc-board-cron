@@ -186,7 +186,7 @@ describe('SnippetNoticia', () => {
             });
         });
 
-        it('should fall back to the default contentLocation when K&L Location is missing', () => {
+        it('should omit contentLocation from the schema when K&L Location is missing', () => {
             const { container } = render(
                 <SnippetNoticia
                     siteProperties={mockSiteProperties}
@@ -200,15 +200,7 @@ describe('SnippetNoticia', () => {
                 container.querySelector('script').innerHTML
             );
 
-            expect(jsonData.contentLocation).toEqual({
-                '@type': 'Place',
-                name: 'Buenos Aires',
-                address: {
-                    '@type': 'PostalAddress',
-                    addressLocality: 'Buenos Aires',
-                    addressCountry: 'AR'
-                }
-            });
+            expect(jsonData.contentLocation).toBeUndefined();
         });
 
         it('should set isAccessibleForFree as true when content_code is undefined', () => {

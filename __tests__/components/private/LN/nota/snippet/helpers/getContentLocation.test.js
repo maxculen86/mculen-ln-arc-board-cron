@@ -1,7 +1,4 @@
-import {
-    DEFAULT_CONTENT_LOCATION,
-    getContentLocation
-} from '../../../../../../../components/private/LN/nota/snippet/helpers/getContentLocation';
+import { getContentLocation } from '../../../../../../../components/private/LN/nota/snippet/helpers/getContentLocation';
 
 describe('getContentLocation', () => {
     it('returns a Place built from K&L Location when the label uses pipes', () => {
@@ -44,7 +41,7 @@ describe('getContentLocation', () => {
         });
     });
 
-    it('returns the default Place when the label is empty', () => {
+    it('returns undefined when the label is empty', () => {
         const globalContent = {
             label: {
                 location: {
@@ -53,12 +50,10 @@ describe('getContentLocation', () => {
             }
         };
 
-        expect(getContentLocation(globalContent)).toEqual(
-            DEFAULT_CONTENT_LOCATION
-        );
+        expect(getContentLocation(globalContent)).toBeUndefined();
     });
 
-    it('returns the default Place when the label is malformed', () => {
+    it('returns undefined when the label is malformed', () => {
         const globalContent = {
             label: {
                 location: {
@@ -67,16 +62,14 @@ describe('getContentLocation', () => {
             }
         };
 
-        expect(getContentLocation(globalContent)).toEqual(
-            DEFAULT_CONTENT_LOCATION
-        );
+        expect(getContentLocation(globalContent)).toBeUndefined();
     });
 
-    it('returns the default Place when label is missing', () => {
-        expect(getContentLocation({})).toEqual(DEFAULT_CONTENT_LOCATION);
+    it('returns undefined when label is missing', () => {
+        expect(getContentLocation({})).toBeUndefined();
     });
 
-    it('returns the default Place when the label text is not a string', () => {
+    it('returns undefined when the label text is not a string', () => {
         const globalContent = {
             label: {
                 location: {
@@ -85,8 +78,6 @@ describe('getContentLocation', () => {
             }
         };
 
-        expect(getContentLocation(globalContent)).toEqual(
-            DEFAULT_CONTENT_LOCATION
-        );
+        expect(getContentLocation(globalContent)).toBeUndefined();
     });
 });

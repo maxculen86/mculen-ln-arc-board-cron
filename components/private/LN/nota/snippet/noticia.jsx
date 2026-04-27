@@ -261,7 +261,7 @@ function SnippetNoticia({
         creator: creators,
         keywords,
         ...(mainEntity && { mainEntity }),
-        contentLocation,
+        ...(contentLocation && { contentLocation }),
         publisher: {
             '@id': getOrganizationId(siteProperties)
         },
