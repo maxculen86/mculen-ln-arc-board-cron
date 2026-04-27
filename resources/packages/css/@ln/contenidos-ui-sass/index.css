@@ -5302,6 +5302,10 @@ hr.vertical {
   white-space: nowrap;
 }
 
+.white-space-normal {
+  white-space: normal;
+}
+
 .-transform-50 {
   transform: translateX(-50%);
   -webkit-transform: translate(-50%);
