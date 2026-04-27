@@ -292,7 +292,6 @@ function Default(props) {
                 />
                 {addMetaNoIndexNoFollow({
                     requestUri,
-                    subtype,
                     distributorName
                 })}
                 <OpeningRawHTML
