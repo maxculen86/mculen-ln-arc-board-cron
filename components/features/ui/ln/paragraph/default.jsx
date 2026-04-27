@@ -3,8 +3,15 @@ import { cx } from '@ln/ds-cva';
 
 const isLetter = (text = '') => text.match(/^[A-Za-z]/);
 
-function Paragraph({ content = '', capital = false, className = '' } = {}) {
+function Paragraph({
+    content = '',
+    capital = false,
+    className = '',
+    // eslint-disable-next-line no-unused-vars
+    alignment = ''
+} = {}) {
     if (!content) return null;
+    // TODO Front: aplicar clase de alineado segun alignment ('left' | 'center' | 'right') proveniente de Composer y borrar el eslint-disable de arriba
     return (
         <p
             className={cx(

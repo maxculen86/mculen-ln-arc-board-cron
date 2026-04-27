@@ -6,8 +6,11 @@ function ComParagraph({
     size = '',
     capital = '',
     content,
-    classCondition = ''
+    classCondition = '',
+    // eslint-disable-next-line no-unused-vars
+    alignment = ''
 }) {
+    // TODO Front: aplicar clase de alineado segun alignment ('left' | 'center' | 'right') proveniente de Composer y borrar el eslint-disable de arriba
     return (
         <p
             className={`com-paragraph ${classCondition} ${capital} ${size}`}
