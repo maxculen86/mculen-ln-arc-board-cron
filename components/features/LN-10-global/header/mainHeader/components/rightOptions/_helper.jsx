@@ -19,7 +19,10 @@ export const termicaValuesSubscribe = [
 ];
 
 export const getClassNameButtonSubscribe = ({ class_tooltip, negative }) => ({
-    tooltipClassName: classNames('--mobile-none', class_tooltip),
+    tooltipClassName: classNames(
+        '--mobile-none max-w-165 white-space-normal',
+        class_tooltip
+    ),
     subscribeButtonClassName: classNames('relative text-neutral-light-800', {
         '--negative': negative
     })
