@@ -6,11 +6,12 @@ import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/repl
 
 export const buildPrimaryImageOfPage = ({
     basicImage = {},
-    placeholder = ''
+    placeholder = '',
+    acuOgImg = {}
 }) => {
     if (get(basicImage, 'type') !== 'image') return null;
 
-    const ogImageData = getImageProps({}, basicImage, placeholder, '');
+    const ogImageData = getImageProps(acuOgImg, basicImage, placeholder, '');
     const description = get(basicImage, 'caption', '');
 
     return {

@@ -152,7 +152,8 @@ function SnippetNoticia({
     deployment
 }) {
     const { type } = globalContent;
-    const { promo_items: promoItems } = addRelatedImage(globalContent);
+    const { promo_items: promoItems, acuOgImg = {} } =
+        addRelatedImage(globalContent);
     if (type !== 'story') return null;
 
     const {
@@ -203,7 +204,8 @@ function SnippetNoticia({
     });
     const primaryImageOfPage = buildPrimaryImageOfPage({
         basicImage: get(promoItems, 'basic', {}),
-        placeholder: PLACEHOLDER
+        placeholder: PLACEHOLDER,
+        acuOgImg
     });
 
     const headlineResolved =
