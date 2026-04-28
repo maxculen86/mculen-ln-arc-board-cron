@@ -11,7 +11,7 @@ export const VALID_SERVICE_ITEMS = [
 export const HOME_SCHEMA_ITEMS = [
     { name: 'Índice Merval', isFirst: true },
     { name: 'Dólar MEP' },
-    { name: 'Dow Jones', tickerSymbol: 'Dow Jones' }
+    { name: 'Dow Jones' }
 ];
 
 export const getAssetName = item => {
@@ -85,10 +85,9 @@ export const buildBreadcrumbSchema = (siteUrl, pageUrl, breadcrumbName) => ({
     ]
 });
 
-const buildFinancialProduct = (name, ticket, isFirst = false) => ({
+const buildFinancialProduct = (name, isFirst = false) => ({
     '@type': 'FinancialProduct',
     name,
-    tickerSymbol: ticket,
     ...(isFirst && { brand: { '@type': 'Brand', name: 'LA NACION' } })
 });
 
@@ -98,11 +97,7 @@ export const buildItemListElement = (cotizaciones = []) =>
         .map((item, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            item: buildFinancialProduct(
-                getAssetName(item),
-                get(item, 'ticket', ''),
-                index === 0
-            )
+            item: buildFinancialProduct(getAssetName(item), index === 0)
         }));
 
 export const buildRiesgoPaisMainEntity = dataService => {
@@ -294,8 +289,9 @@ export const transformInternals = (data, isHome) => {
         cotizaciones = []
     } = data || {};
 
-    let items = cotizaciones;
-
+    let items = cotizaciones.filter(
+        item => get(item, 'habilitado', false) === true
+    );
     if (isHome) {
         items = filterForHome(items, tableType);
     } else if (tableType === 'riesgo-pais') {

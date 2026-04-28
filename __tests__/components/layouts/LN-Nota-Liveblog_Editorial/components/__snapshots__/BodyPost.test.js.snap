@@ -4,6 +4,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
 <div>
   <div
     class="accordion relative w-100 flex flex-column-reverse border-secondary-positive__hover"
+    style="overflow: hidden;"
   >
     <button
       class="accordion-header transition-regular flex ai-center jc-between w-100 gap-4 text-blue-500"
@@ -39,6 +40,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
     >
       <div
         class="accordion-body-content overflow-hidden"
+        style="min-width: 0;"
       >
         <p
           class="com-paragraph   --s"
@@ -55,6 +57,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
 <div>
   <div
     class="accordion relative w-100 flex flex-column-reverse border-secondary-positive__hover"
+    style="overflow: hidden;"
   >
     <button
       class="accordion-header transition-regular flex ai-center jc-between w-100 gap-4 text-blue-500 --selected"
@@ -90,6 +93,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
     >
       <div
         class="accordion-body-content overflow-hidden"
+        style="min-width: 0;"
       >
         <p
           class="com-paragraph   --s"

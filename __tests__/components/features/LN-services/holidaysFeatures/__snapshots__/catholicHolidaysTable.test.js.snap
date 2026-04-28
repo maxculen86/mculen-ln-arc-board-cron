@@ -14,6 +14,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
   </section>
   <div
     class="table-wrapper --holidays"
+    data-testid="table-container"
   >
     <table
       class="table"
@@ -135,6 +136,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
   </section>
   <div
     class="table-wrapper --holidays"
+    data-testid="table-container"
   >
     <table
       class="table"
@@ -179,6 +181,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
   </section>
   <div
     class="table-wrapper --two-columns --holidays"
+    data-testid="table-container"
   >
     <table
       class="table"

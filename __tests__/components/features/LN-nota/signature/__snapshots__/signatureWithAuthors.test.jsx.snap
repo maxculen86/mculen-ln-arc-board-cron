@@ -121,6 +121,7 @@ exports[`components - feature - LN-nota - signature - signatureWithAuthors shoul
         >
           <div>
             <img
+              alt="Pablo Lisotto"
               class="image rounded-circle w-70 h-70 bg-neutral-dark-50 flex --cover"
               decoding="async"
               fetchpriority="low"

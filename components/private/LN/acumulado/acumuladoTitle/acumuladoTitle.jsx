@@ -29,6 +29,8 @@ const setUrl = ({
     return SITE_LANACION;
 };
 
+const INDICES_SECTION_ID = '/economia/indices';
+
 function AcumuladoTitle(props) {
     const { outputType, idLogoImage = '', colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
@@ -56,16 +58,16 @@ function AcumuladoTitle(props) {
     );
     const isIndicesNavigation = hierarchyNavigation === 'indices';
     const isIndicesInternal =
-        isIndicesNavigation && sectionId !== '/economia/indices';
+        isIndicesNavigation && sectionId !== INDICES_SECTION_ID;
     const filteredIndicesNavigation = (navigationList || []).filter(
-        ({ _id: id }) => id !== sectionId && id !== '/economia/indices'
+        ({ _id: id }) => id !== sectionId && id !== INDICES_SECTION_ID
     );
     let navigationItems = filteredIndicesNavigation;
 
     if (isIndicesInternal) {
         navigationItems = [
             {
-                _id: '/economia/indices',
+                _id: INDICES_SECTION_ID,
                 name: 'Índices',
                 node_type: 'section'
             },

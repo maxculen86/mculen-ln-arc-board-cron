@@ -48,6 +48,7 @@ describe('features - LN-nota - TableV2', () => {
         it('Should show table with correct amount of rows', () => {
             const { container } = render(<TableV2 data={mockTableData} />);
             expect(container).not.toBeEmptyDOMElement();
+            expect(screen.getByTestId('table-container')).toBeInTheDocument();
             expect(screen.queryByRole('table')).toBeTruthy();
             expect(screen.queryAllByRole('row')).toHaveLength(4); // 1 header + 3 body rows
             expect(screen.queryAllByRole('rowgroup')).toHaveLength(2); // thead + tbody
@@ -160,9 +161,10 @@ describe('features - LN-nota - TableV2', () => {
         });
 
         it('Should apply default classnames when no custom provided', () => {
-            const { container } = render(<TableV2 data={mockTableData} />);
-            expect(container.querySelector('.container-table')).toBeTruthy();
-            expect(container.querySelector('.overflow-x-auto')).toBeTruthy();
+            const { getByTestId } = render(<TableV2 data={mockTableData} />);
+            const table = getByTestId('table-container');
+            expect(table).toHaveClass('container-table');
+            expect(table).toHaveStyle('overflow-x: auto');
         });
     });
 

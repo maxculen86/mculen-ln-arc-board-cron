@@ -103,18 +103,32 @@ export const handleVideoEventsScript = (
     videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
+    const percentagesToCheck = [25, 50, 75];
     let currentTitle = title;
     let currentId = idVideo;
     let firstPlay = true;
     let skipPlayForSeek = false;
     let wasPaused = false;
+    let trackedPercentages = new Set();
+    let lastPlaybackPercent = 0;
+    let ignoreNextTimeEvent = false;
+
+    const calculatePercent = (currentTime = 0, videoDuration = 0) => {
+        if (!videoDuration) return 0;
+        return Math.floor((currentTime / videoDuration) * 100);
+    };
 
     registerJwVideoControlsTracking({
         player,
         defaultTitle: currentTitle,
         defaultId: currentId,
-        onSeek: () => {
+        onSeek: event => {
             skipPlayForSeek = true;
+            lastPlaybackPercent = calculatePercent(
+                event?.offset,
+                event?.duration
+            );
+            ignoreNextTimeEvent = true;
         },
         onPlaylistItem: ({ title: newTitle, id: newId }) => {
             currentTitle = newTitle;
@@ -122,6 +136,9 @@ export const handleVideoEventsScript = (
             firstPlay = true;
             skipPlayForSeek = false;
             wasPaused = false;
+            trackedPercentages = new Set();
+            lastPlaybackPercent = 0;
+            ignoreNextTimeEvent = false;
         }
     });
 
@@ -175,14 +192,24 @@ export const handleVideoEventsScript = (
     });
 
     player.on('time', e => {
-        const percent = Math.floor((e.currentTime / e.duration) * 100);
-        const percentagesToCheck = [25, 50, 75];
+        if (!e?.duration) return;
+
+        const percent = calculatePercent(e.currentTime, e.duration);
+
+        if (ignoreNextTimeEvent) {
+            lastPlaybackPercent = percent;
+            ignoreNextTimeEvent = false;
+            return;
+        }
 
         percentagesToCheck.forEach(percentage => {
             if (
+                !trackedPercentages.has(percentage) &&
                 !isInDatalayerEvent(percentage.toString(), `${currentId}`) &&
-                percent === percentage
+                lastPlaybackPercent < percentage &&
+                percent >= percentage
             ) {
+                trackedPercentages.add(percentage);
                 addEventToDataLayerV2({
                     event: percentage.toString(),
                     videoName: `${currentTitle}`,
@@ -190,6 +217,8 @@ export const handleVideoEventsScript = (
                 });
             }
         });
+
+        lastPlaybackPercent = percent;
     });
 
     player.on('complete', () => {

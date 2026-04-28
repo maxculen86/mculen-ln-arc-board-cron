@@ -18,7 +18,7 @@ export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
 export function BannerWithWrapper({ bannerConfiguration }) {
     return (
-        <WrapperBody variant="banner">
+        <WrapperBody variant="full-screen">
             <Banner bannerConfiguration={bannerConfiguration} />
         </WrapperBody>
     );

@@ -22,7 +22,7 @@ function SearchButton() {
                         });
                     }}
                 >
-                    <IconSprite name="search" />
+                    <IconSprite name="search" size={24} />
                 </label>
             </Button>
             <GetQuerylyScript />

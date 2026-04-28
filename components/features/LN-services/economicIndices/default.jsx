@@ -77,7 +77,11 @@ function EconomicIndices(props) {
                     header: 'index-table-header'
                 }}
             />
-            <Text as="p" className="text-10 pt-12 pb-8">
+            <Text
+                data-testid="last-update-table"
+                as="p"
+                className="text-10 pt-12 pb-8"
+            >
                 Actualización general del panel: {horaActualizacion} |{' '}
                 {fechaActualizacion}
             </Text>

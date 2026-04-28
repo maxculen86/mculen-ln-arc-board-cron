@@ -105,45 +105,58 @@ const defaultProps = {
 };
 
 describe('AudioRecipe', () => {
+    beforeEach(() => {
+        addEventToDataLayerV2.mockClear();
+    });
+
     test.each([
-        // 4 test cases for each user type and subscription status combination
         ['subscribed logged user', 'logged', true],
-        ['non-subscribed logged user', 'logged', false],
-        ['subscribed unlogged user', 'unlogged', true],
-        ['non-subscribed unlogged user', 'unlogged', false]
-    ])('tracks event for %s', async (_, userType, isSubscribed) => {
-        useGetUserConfig.mockReturnValue({
-            userType,
-            isSubscribed
-        });
+        ['subscribed unlogged user', 'unlogged', true]
+    ])(
+        'fires page_listened event for %s',
+        async (_, userType, isSubscribed) => {
+            useGetUserConfig.mockReturnValue({ userType, isSubscribed });
 
-        render(<AudioRecipe {...defaultProps} />);
+            render(<AudioRecipe {...defaultProps} />);
+            fireEvent.click(screen.getByTitle('escuchar receta'));
 
-        const button = screen.getByTitle('escuchar receta');
-        fireEvent.click(button);
-
-        await waitFor(() => {
-            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-                event: 'page_listened',
-                origin: 'receta',
-                title: defaultProps.title,
-                rest: {
-                    autor_nombre: defaultProps.article.credits.by[0].name,
-                    nota_id_arc: defaultProps.article._id,
-                    seccion: 'ficha_receta'
-                }
+            await waitFor(() => {
+                expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+                    event: 'page_listened',
+                    origin: 'receta',
+                    title: defaultProps.title,
+                    rest: {
+                        autor_nombre: defaultProps.article.credits.by[0].name,
+                        nota_id_arc: defaultProps.article._id,
+                        seccion: 'ficha_receta'
+                    }
+                });
             });
-        });
 
-        // Verify the correct UI is shown based on subscription status
-        if (isSubscribed) {
             expect(screen.getByTestId('audio-foodit')).toBeInTheDocument();
             expect(screen.queryByTestId('empty-state')).not.toBeInTheDocument();
-        } else {
+        }
+    );
+
+    test.each([
+        ['non-subscribed logged user', 'logged', false],
+        ['non-subscribed unlogged user', 'unlogged', false]
+    ])(
+        'does not fire page_listened event for %s',
+        async (_, userType, isSubscribed) => {
+            useGetUserConfig.mockReturnValue({ userType, isSubscribed });
+
+            render(<AudioRecipe {...defaultProps} />);
+            fireEvent.click(screen.getByTitle('escuchar receta'));
+
+            await waitFor(() => {
+                expect(addEventToDataLayerV2).not.toHaveBeenCalled();
+            });
+
             expect(
                 screen.queryByTestId('audio-foodit')
             ).not.toBeInTheDocument();
             expect(screen.getByTestId('empty-state')).toBeInTheDocument();
         }
-    });
+    );
 });

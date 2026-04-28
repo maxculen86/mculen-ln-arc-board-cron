@@ -20,6 +20,13 @@ function Opinion({ children }) {
     const mediaData = getMediaData(promoItems);
     const { text, attribution } = getMediaFigCaption(mediaData);
 
+    const tags = get(globalContent, 'taxonomy.tags', []);
+    const ANALYSIS_TAG_SLUG = 'analisis-tid63578';
+    const includesAnalysisTag = tags.some(
+        ({ slug }) => slug === ANALYSIS_TAG_SLUG
+    );
+    const sectionLabel = includesAnalysisTag ? 'ANÁLISIS' : 'OPINIÓN';
+
     return (
         <>
             <div data-tw className="contents">
@@ -33,12 +40,14 @@ function Opinion({ children }) {
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
                                 <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
-                                    OPINIÓN
+                                    {sectionLabel}
                                 </span>
-                                <Opening.Authors
-                                    className="max-w-636"
-                                    authorsConcat={authorsConcat}
-                                />
+                                {includesAnalysisTag && (
+                                    <Opening.Authors
+                                        className="max-w-636"
+                                        authorsConcat={authorsConcat}
+                                    />
+                                )}
                             </div>
                             <div className="mt-1 w-64 md:col-span-12 lg:col-span-16">
                                 <Divider />

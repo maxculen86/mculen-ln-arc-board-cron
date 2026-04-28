@@ -1,5 +1,26 @@
 import get from '../../../../../components/private/common/utils/get';
-import { extractGalleryEmbedData } from '../../../../../components/features/LN-nota/private/body/imageGalleryEmbed/_helper';
+import { extractGalleryEmbedData } from '../../../../../components/features/LN/common/galleryEmbed/helpers';
+
+const getMeaningfulText = value =>
+    typeof value === 'string' && !/^https?:\/\//i.test(value)
+        ? value.trim()
+        : '';
+
+const getGalleryImageAlt = image => {
+    const altCandidates = [
+        get(image, 'alt_text', ''),
+        get(image, 'caption', ''),
+        get(image, 'subtitle', ''),
+        get(image, 'title', ''),
+        get(image, 'credits.by.0.byline', ''),
+        get(image, 'credits.by.0.name', ''),
+        get(image, 'owner.byline', ''),
+        get(image, 'owner.name', ''),
+        get(image, 'additional_properties.originalName', '')
+    ];
+
+    return altCandidates.map(getMeaningfulText).find(Boolean) || '';
+};
 
 const buildGalleryEmbedData = async ({
     element,
@@ -28,7 +49,8 @@ const buildGalleryEmbedData = async ({
         url: get(img, 'url', ''),
         height: get(img, 'height', 0),
         width: get(img, 'width', 0),
-        resized_urls: get(img, 'resized_urls', [])
+        resized_urls: get(img, 'resized_urls', []),
+        alt: getGalleryImageAlt(img)
     }));
 
     const video = get(element, 'embed.config.video', {});

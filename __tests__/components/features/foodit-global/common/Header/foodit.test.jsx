@@ -6,6 +6,8 @@ import { useContent } from 'fusion:content';
 import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 import useGetUserData from '../../../../../../components/private/common/auth/hooks/useGetUserData';
 import { useNavigationData } from '../../../../../../components/features/foodit-global/common/Header/hooks/useNavigationData';
+import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
+import LoginSubscribeButtons from '../../../../../../components/features/foodit-global/common/SubscribeLoginButton/foodit';
 
 jest.mock('../../../../../../components/private/LN/common/utils/isSSR', () =>
     jest.fn(() => false)
@@ -58,6 +60,11 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../../../components/features/foodit-global/hooks/useGetUserConfig',
+    () => jest.fn()
+);
+
 describe('Components - Features - foodit-global - Common - HeaderFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
         layout: 'Foodit-home',
@@ -70,6 +77,22 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
     beforeEach(() => {
         useNavigationData.mockReturnValue({ categories: [] });
+
+        useGetUserConfig.mockReturnValue({
+            promotions: {
+                buttonLogginText: 'INICIÁ SESIÓN',
+                buttonSubscribeText: 'SUSCRIBITE',
+                buttonSubscribeHeader: 'SUSCRIBITE GRATIS'
+            },
+            userType: 'unlogged',
+            initials: '',
+            initialsClassName: '',
+            suscription: false
+        });
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     // TODO: testear comportamiento topnavigation cuando se defina el contenido
@@ -79,7 +102,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     //     expect(header.classList.contains('fixed')).toBeTruthy();
     // });
 
-    it('should return buttons login and button suscribed when the user is unlogged', () => {
+    it('should return only subscribe button when the user is unlogged (if subscribe button is different from "suscribite")', () => {
         useNavigationData.mockReturnValue({
             categories: menuCategories
         });
@@ -101,9 +124,44 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             />
         );
 
-        expect(screen.getAllByText('INICIÁ SESIÓN')).toHaveLength(1);
+        const loginButton = screen.queryByRole('button', {
+            name: /iniciá sesión/i
+        });
+        expect(loginButton).toBeInTheDocument();
+        expect(loginButton.closest('div')).toHaveClass('sm-none');
+
         expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(1);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should render login button in HeaderFoodit when subscribe text is exactly "Suscribite"', () => {
+        useGetUserConfig.mockReturnValue({
+            promotions: {
+                buttonLogginText: 'INICIÁ SESIÓN',
+                buttonSubscribeText: 'SUSCRIBITE',
+                buttonSubscribeHeader: 'Suscribite'
+            },
+            userType: 'unlogged',
+            initials: '',
+            initialsClassName: '',
+            suscription: false
+        });
+
+        render(
+            <HeaderFoodit
+                layout="Foodit-home"
+                layoutsName={{
+                    FooditHome: 'Foodit-home',
+                    FooditAcumulado: 'Foodit-acumulado'
+                }}
+            />
+        );
+
+        expect(
+            screen.getByRole('button', { name: /iniciá sesión/i })
+        ).toBeInTheDocument();
+
+        expect(screen.getByTestId('button-suscribe')).toBeInTheDocument();
     });
 
     describe('Desktop menu behavior', () => {
@@ -677,12 +735,25 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
     it('should show the user avatar with the initials of their name when the user is logged and subscribed to foodit.', () => {
         useContent.mockReturnValue(menuCategories);
+
         useGetUserData.mockReturnValue({
             userType: 'subscribed',
             userEmail: 'hola@mundo.com',
             userName: 'Hola',
             userLastName: 'Mundo',
             isSubscribed: true
+        });
+
+        useGetUserConfig.mockReturnValue({
+            promotions: {
+                buttonLogginText: 'INICIÁ SESIÓN',
+                buttonSubscribeText: 'SUSCRIBITE',
+                buttonSubscribeHeader: 'SUSCRIBITE GRATIS'
+            },
+            userType: 'subscribed',
+            initials: 'HM',
+            initialsClassName: '',
+            suscription: true
         });
 
         render(
@@ -700,12 +771,25 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
     it('Should show the initials and button "SUSCRIBITE" when the user is not sucribed', () => {
         useContent.mockReturnValue(menuCategories);
+
         useGetUserData.mockReturnValue({
             userType: 'logged',
             userEmail: 'hola@mundo.com',
             userName: '',
             userLastName: '',
             isSubscribed: false
+        });
+
+        useGetUserConfig.mockReturnValue({
+            promotions: {
+                buttonLogginText: 'INICIÁ SESIÓN',
+                buttonSubscribeText: 'SUSCRIBITE',
+                buttonSubscribeHeader: 'SUSCRIBITE GRATIS'
+            },
+            userType: 'logged',
+            initials: 'HO',
+            initialsClassName: '',
+            suscription: false
         });
 
         render(

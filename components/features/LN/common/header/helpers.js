@@ -11,7 +11,7 @@ export const getHeaderValidations = ({
             [layoutsName.HomeLN10].includes(validation)
         ),
         shouldBeDarkTheme: validationBy.some(validation =>
-            [layoutsName.Video].includes(validation)
+            [layoutsName.Video, layoutsName.StoryTellingV2].includes(validation)
         )
     };
 };

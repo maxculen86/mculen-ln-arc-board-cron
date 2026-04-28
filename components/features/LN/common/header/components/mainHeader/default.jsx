@@ -7,13 +7,12 @@ import RightOptions from './rightOptions/default';
 import CenterOptions from './centerOptions/default';
 
 function MainHeader() {
-    const { position, appearance } = useHeaderContext();
+    const { position } = useHeaderContext();
 
     return (
         <CommonHeader.Col
             className={wrapperMainHeaderVariants({
-                position,
-                appearance
+                position
             })}
         >
             <CommonHeader.Grid>

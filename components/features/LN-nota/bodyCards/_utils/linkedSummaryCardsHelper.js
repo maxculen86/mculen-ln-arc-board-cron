@@ -88,6 +88,7 @@ export const getCardRenderData = (group, cardIndex) => {
 };
 
 export const getGridColumns = totalCards => {
+    if (totalCards % 5 === 0) return 5;
     if (totalCards <= 0) return 3;
     if (totalCards % 4 === 0) return 4;
     if (totalCards % 3 === 1) return 4;

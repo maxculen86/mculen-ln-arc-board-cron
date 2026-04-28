@@ -16,6 +16,7 @@ function PostExpandable({
         <Accordion
             visible={isOpen}
             className="flex flex-column-reverse border-secondary-positive__hover"
+            style={{ overflow: 'hidden' }}
         >
             <Accordion.Header
                 onClick={onToggle}
@@ -32,7 +33,7 @@ function PostExpandable({
                     {label}
                 </Text>
             </Accordion.Header>
-            <Accordion.Body>
+            <Accordion.Body style={{ minWidth: 0 }}>
                 <BuildBody
                     groupedElements={hiddenTextItems}
                     outputType={outputType}

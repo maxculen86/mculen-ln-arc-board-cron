@@ -18,7 +18,7 @@ export const cardsContainerVariant = cva(
         variants: {
             variant: {
                 collapsed:
-                    'text-center shadow-card-template transition-regular shadow-card-template__hover bg-cards-nota rounded-4 border border-all border-1 border-neutral-light-100 gap-8 p-12 p-24_m flex-grow-1 h-100 w-300_min1366',
+                    'text-center shadow-card-template transition-regular shadow-card-template__hover bg-cards-nota rounded-4 border border-all border-1 border-neutral-light-100 gap-8 p-12 p-24_m flex-grow-1 h-100',
                 expanded: 'expanded-card gap-16 gap-24_m'
             }
         }

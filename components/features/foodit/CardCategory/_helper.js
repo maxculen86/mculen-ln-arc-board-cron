@@ -1,15 +1,20 @@
+import { SITE_FOODIT } from 'fusion:environment';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 const cardRegistry = new Map();
+
+const FILTERS_CONFIG = {
+    facil: { slug: 'facil', label: 'fácil' },
+    rapida: { slug: 'rapida', label: 'rápida' }
+};
 
 export const validateCardCategory = ({
     title = '',
     image = '',
     url = '',
-    query = '',
-    groups = [],
-    itemGroups = [],
-    imageUrl
+    imageUrl,
+    rapida = false,
+    facil = false
 }) => {
     const rules = [
         {
@@ -21,82 +26,100 @@ export const validateCardCategory = ({
             message: 'Se requiere el id de una imagen'
         },
         {
-            validation: groups.length !== itemGroups.length,
-            message:
-                'Los grupos y los valores deben tener la misma cantidad ya que estan relacionadas'
-        },
-        {
-            validation: !url && !query,
-            message: `Se requiere una url o un termino de busqueda`
+            validation: !url,
+            message: `Se requiere una url`
         },
         {
             validation: !imageUrl,
             message: 'No se encontro imagen'
+        },
+        {
+            validation: rapida && facil,
+            message: 'No se pueden aplicar ambos filtros'
         }
     ];
 
     return pageBuilderValidator(rules);
 };
 
-export const groupsParser = (groups = []) => {
-    const groupsText = {
-        'ingrediente principal': 'main_ingredients',
-        seccion: 'section',
-        'tipo de coccion': 'cookingtypes',
-        ocasion: 'occasions',
-        region: 'regions',
-        subtipo: 'subtype',
-        estado: 'content_code',
-        video: 'video_jw'
-    };
-
-    return groups.map((group = '') => groupsText[group.toLowerCase()] || '');
+const getActiveFilter = ({ rapida, facil }) => {
+    if (facil) return FILTERS_CONFIG.facil;
+    if (rapida) return FILTERS_CONFIG.rapida;
+    return null;
 };
 
-export const itemGroupsParser = ({ groups = [], itemGroups = [] } = {}) => {
-    const indexSubtype = groups.indexOf('subtype');
-    const indexVideo = groups.indexOf('video_jw');
+const appendSearchParam = (searchParams, key, value, separator = '|') => {
+    const currentRaw = searchParams.get(key) || '';
+    const values = currentRaw.split(separator).map(v => v.trim().toLowerCase());
 
-    const itemGroupsText = {
-        receta: '7',
-        nota: '4',
-        si: 'video_jw'
-    };
+    if (!values.includes(value.toLowerCase())) {
+        const newValue = currentRaw
+            ? `${currentRaw}${separator}${value}`
+            : value;
+        searchParams.set(key, newValue);
+    }
+};
 
-    return itemGroups.map((itemGroup = '', index = 0) => {
-        if (indexSubtype === index || indexVideo === index) {
-            return itemGroupsText[itemGroup.toLowerCase()] || '';
+const transformUrl = ({ url, filter }) => {
+    if (!url) return url;
+
+    try {
+        const baseDomain = SITE_FOODIT || 'https://foodit.lanacion.com.ar';
+        const parser = new URL(url, baseDomain);
+        const relativePart = `${parser.pathname}${parser.search}${parser.hash}`;
+        const urlObj = new URL(relativePart, baseDomain);
+
+        if (!urlObj.pathname.includes('/tema/')) {
+            return urlObj.toString();
         }
-        return itemGroup;
-    });
+
+        if (!filter) {
+            return urlObj.toString();
+        }
+
+        const { slug, label } = filter;
+
+        let pathname = urlObj.pathname.replace(/\/$/, '');
+        const hasTrailingSlash = urlObj.pathname.endsWith('/');
+
+        const slugRegex = new RegExp(`-${slug}$`, 'i');
+        if (!slugRegex.test(pathname)) {
+            pathname = `${pathname}-${slug}`;
+        }
+
+        urlObj.pathname = hasTrailingSlash ? `${pathname}/` : pathname;
+
+        appendSearchParam(urlObj.searchParams, 'groups', 'section');
+        appendSearchParam(urlObj.searchParams, 'itemGroups', slug);
+        appendSearchParam(urlObj.searchParams, 'title', label, ' ');
+
+        return urlObj.toString();
+    } catch (e) {
+        console.error('[transformCategoryData] Failed to parse URL:', url, e);
+        return url;
+    }
 };
-export const resolveUrl = ({
-    query,
-    titleAcu = '',
-    groups,
-    itemGroups,
-    featureId = ''
-} = {}) => {
-    const transformTitleToPath = titleAcu
-        .replace(/\s/g, '-')
-        .trim()
-        .toLowerCase();
-    const baseUrl = `/tema/${transformTitleToPath}-${featureId.toLowerCase()}/?query=${encodeURIComponent(query)}`;
 
-    const queryParams = [];
+export const transformCategoryData = ({ title, url, rapida, facil }) => {
+    const activeFilter = getActiveFilter({ rapida, facil });
 
-    if (titleAcu) {
-        queryParams.push(`title=${encodeURIComponent(titleAcu)}`);
-    }
-    if (groups) {
-        queryParams.push(`groups=${encodeURIComponent(groups)}`);
-    }
-    if (itemGroups) {
-        queryParams.push(`itemGroups=${encodeURIComponent(itemGroups)}`);
+    const modifiedUrl = transformUrl({ url, filter: activeFilter });
+
+    let modifiedTitle = title;
+
+    if (activeFilter?.label) {
+        const { label } = activeFilter;
+        const labelRegex = new RegExp(`\\b${label}\\b`, 'i');
+
+        if (title && !labelRegex.test(title)) {
+            modifiedTitle = `${title} ${label}`;
+        }
     }
 
-    const queryString = queryParams.join('&');
-    return `${baseUrl}&${queryString}`;
+    return {
+        modifiedTitle,
+        modifiedUrl
+    };
 };
 
 export const registerCardIndex = featureId => {

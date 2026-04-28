@@ -4,7 +4,7 @@ import { normalizeCardColor } from '../_utils/linkedSummaryCardsHelper';
 import LinkedCard from './linkedCard/LinkedCard';
 
 const LinkedSummaryCardSmall = memo(
-    ({ data, onCardClick = undefined, variant, ...r }) => {
+    ({ data, onCardClick = undefined, variant, gridColumns, ...r }) => {
         const cardNumber = get(data, 'embed.config.cardNumber', '');
         const title = get(data, 'embed.config.title', '');
         const description = get(data, 'embed.config.description', '');
@@ -23,6 +23,7 @@ const LinkedSummaryCardSmall = memo(
                 {...r}
                 className={isClickable ? 'cursor-pointer' : undefined}
                 onClick={() => isClickable && onCardClick(cardId)}
+                gridColumns={gridColumns}
             >
                 <LinkedCard.Container>
                     <LinkedCard.Heading title={title} number={cardNumber} />

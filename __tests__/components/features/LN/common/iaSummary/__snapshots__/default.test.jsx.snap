@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN - common - iaSummary snapshots matches snapshot when closed (isOpen=false) 1`] = `<DocumentFragment />`;
+
+exports[`Components - features - LN - common - iaSummary snapshots matches snapshot when open with default props 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Resumen de lectura con IA"
+    class="bg-neutral-50 p-16 flex flex-col gap-16"
+  >
+    <div
+      class="flex flex-col w-full"
+    >
+      <div
+        class="flex items-center gap-8 text-[var(--ia-tools)] pb-2 border-b-2 border-[var(--ia-tools)] w-fit"
+      >
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="article"
+          size="24"
+        />
+        <h2
+          class="text-20 font-bold"
+        >
+          Resumen de lectura
+        </h2>
+      </div>
+      <div
+        class="ml-auto order-first"
+      >
+        <button
+          aria-label="Cerrar resumen IA"
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-bold uppercase aspect-1/1 text-secondary-default hover:bg-secondary-lighten data-[disabled="true"]:text-secondary-lighten"
+          data-disabled="false"
+          style="--ds-icon-size: 20px;"
+        >
+          <mock-ds-common-icon
+            aria-hidden="true"
+            name="close"
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      direction="vertical"
+      size="16"
+    >
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          First summary point
+        </span>
+      </li>
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Second summary point
+        </span>
+      </li>
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Third summary point
+        </span>
+      </li>
+    </ul>
+    <footer
+      class="flex items-center gap-4"
+    >
+      <mock-ds-common-icon
+        aria-hidden="true"
+        name="ia-star"
+        size="16"
+        type="color"
+      />
+      <span
+        class="text-small-lg"
+      >
+        Realizado con Inteligencia Artificial
+      </span>
+    </footer>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - common - iaSummary snapshots matches snapshot with HTML content in summary items 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Resumen de lectura con IA"
+    class="bg-neutral-50 p-16 flex flex-col gap-16"
+  >
+    <div
+      class="flex flex-col w-full"
+    >
+      <div
+        class="flex items-center gap-8 text-[var(--ia-tools)] pb-2 border-b-2 border-[var(--ia-tools)] w-fit"
+      >
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="article"
+          size="24"
+        />
+        <h2
+          class="text-20 font-bold"
+        >
+          Resumen de lectura
+        </h2>
+      </div>
+      <div
+        class="ml-auto order-first"
+      >
+        <button
+          aria-label="Cerrar resumen IA"
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-bold uppercase aspect-1/1 text-secondary-default hover:bg-secondary-lighten data-[disabled="true"]:text-secondary-lighten"
+          data-disabled="false"
+          style="--ds-icon-size: 20px;"
+        >
+          <mock-ds-common-icon
+            aria-hidden="true"
+            name="close"
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      direction="vertical"
+      size="16"
+    >
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          <strong>
+            Bold point
+          </strong>
+        </span>
+      </li>
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Plain point
+        </span>
+      </li>
+    </ul>
+    <footer
+      class="flex items-center gap-4"
+    >
+      <mock-ds-common-icon
+        aria-hidden="true"
+        name="ia-star"
+        size="16"
+        type="color"
+      />
+      <span
+        class="text-small-lg"
+      >
+        Realizado con Inteligencia Artificial
+      </span>
+    </footer>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - common - iaSummary snapshots matches snapshot with a single summary item 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Resumen de lectura con IA"
+    class="bg-neutral-50 p-16 flex flex-col gap-16"
+  >
+    <div
+      class="flex flex-col w-full"
+    >
+      <div
+        class="flex items-center gap-8 text-[var(--ia-tools)] pb-2 border-b-2 border-[var(--ia-tools)] w-fit"
+      >
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="article"
+          size="24"
+        />
+        <h2
+          class="text-20 font-bold"
+        >
+          Resumen de lectura
+        </h2>
+      </div>
+      <div
+        class="ml-auto order-first"
+      >
+        <button
+          aria-label="Cerrar resumen IA"
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-bold uppercase aspect-1/1 text-secondary-default hover:bg-secondary-lighten data-[disabled="true"]:text-secondary-lighten"
+          data-disabled="false"
+          style="--ds-icon-size: 20px;"
+        >
+          <mock-ds-common-icon
+            aria-hidden="true"
+            name="close"
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      direction="vertical"
+      size="16"
+    >
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Single summary point
+        </span>
+      </li>
+    </ul>
+    <footer
+      class="flex items-center gap-4"
+    >
+      <mock-ds-common-icon
+        aria-hidden="true"
+        name="ia-star"
+        size="16"
+        type="color"
+      />
+      <span
+        class="text-small-lg"
+      >
+        Realizado con Inteligencia Artificial
+      </span>
+    </footer>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - common - iaSummary snapshots matches snapshot with custom className 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Resumen de lectura con IA"
+    class="bg-neutral-50 p-16 flex flex-col gap-16 rounded-lg mt-8"
+  >
+    <div
+      class="flex flex-col w-full"
+    >
+      <div
+        class="flex items-center gap-8 text-[var(--ia-tools)] pb-2 border-b-2 border-[var(--ia-tools)] w-fit"
+      >
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="article"
+          size="24"
+        />
+        <h2
+          class="text-20 font-bold"
+        >
+          Resumen de lectura
+        </h2>
+      </div>
+      <div
+        class="ml-auto order-first"
+      >
+        <button
+          aria-label="Cerrar resumen IA"
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-bold uppercase aspect-1/1 text-secondary-default hover:bg-secondary-lighten data-[disabled="true"]:text-secondary-lighten"
+          data-disabled="false"
+          style="--ds-icon-size: 20px;"
+        >
+          <mock-ds-common-icon
+            aria-hidden="true"
+            name="close"
+          />
+        </button>
+      </div>
+    </div>
+    <ul
+      direction="vertical"
+      size="16"
+    >
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          First summary point
+        </span>
+      </li>
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Second summary point
+        </span>
+      </li>
+      <li>
+        <mock-ds-common-icon
+          aria-hidden="true"
+          name="bullet-filled"
+        />
+        <span
+          class="text-body-md"
+        >
+          Third summary point
+        </span>
+      </li>
+    </ul>
+    <footer
+      class="flex items-center gap-4"
+    >
+      <mock-ds-common-icon
+        aria-hidden="true"
+        name="ia-star"
+        size="16"
+        type="color"
+      />
+      <span
+        class="text-small-lg"
+      >
+        Realizado con Inteligencia Artificial
+      </span>
+    </footer>
+  </section>
+</DocumentFragment>
+`;

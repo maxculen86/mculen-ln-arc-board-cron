@@ -9,6 +9,14 @@ beforeEach(() => {
     jest.clearAllMocks();
     window.scrollTo = jest.fn();
     window.scrollY = 500;
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => {
+        cb(performance.now() + 10000);
+        return 1;
+    });
+});
+
+afterEach(() => {
+    window.requestAnimationFrame.mockRestore();
 });
 
 describe('bodyCardsHelper - scrollToGrid', () => {
@@ -27,10 +35,10 @@ describe('bodyCardsHelper - scrollToGrid', () => {
 
         scrollToGrid(gridRef);
 
-        expect(window.scrollTo).toHaveBeenCalledWith({
-            top: 200 + 500 - HEADER_OFFSET,
-            behavior: 'smooth'
-        });
+        expect(window.scrollTo).toHaveBeenCalledWith(
+            0,
+            200 + 500 - HEADER_OFFSET
+        );
     });
 });
 
@@ -53,10 +61,10 @@ describe('bodyCardsHelper - scrollToCard', () => {
 
         scrollToCard('test-card');
 
-        expect(window.scrollTo).toHaveBeenCalledWith({
-            top: 300 + 500 - HEADER_OFFSET,
-            behavior: 'smooth'
-        });
+        expect(window.scrollTo).toHaveBeenCalledWith(
+            0,
+            300 + 500 - HEADER_OFFSET
+        );
 
         document.body.removeChild(mockElement);
     });

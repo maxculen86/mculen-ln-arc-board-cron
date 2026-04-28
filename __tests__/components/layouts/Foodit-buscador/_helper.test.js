@@ -32,7 +32,7 @@ describe('Tests - helpers - Foodit Buscador', () => {
         it('should group sections correctly', () => {
             const sections = [
                 { key: 'Vegetariana' },
-                { key: 'Pizza y Empanadas' },
+                { key: 'Pizza y empanadas' },
                 { key: 'Tortas' },
                 { key: 'Fácil' }
             ];
@@ -41,7 +41,7 @@ describe('Tests - helpers - Foodit Buscador', () => {
 
             expect(result).toEqual({
                 diet: [{ key: 'Vegetariana', facetedKey: 'section' }],
-                salty: [{ key: 'Pizza y Empanadas', facetedKey: 'section' }],
+                salty: [{ key: 'Pizza y empanadas', facetedKey: 'section' }],
                 sweets: [{ key: 'Tortas', facetedKey: 'section' }],
                 others: [{ key: 'Fácil', facetedKey: 'section' }]
             });

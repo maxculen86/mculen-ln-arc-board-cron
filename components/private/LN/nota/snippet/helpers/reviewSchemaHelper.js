@@ -7,8 +7,19 @@ import {
     SITE_LANACION_URL
 } from './reviewSchemaConstants';
 
-const isMovieReview = canonicalUrl =>
-    isValidString(canonicalUrl) && canonicalUrl.includes('/espectaculos/cine/');
+const REVIEW_ITEM_TYPE_RULES = [
+    { path: '/espectaculos/cine/', type: 'Movie' },
+    { path: '/espectaculos/series-de-tv/', type: 'TVSeries' }
+];
+
+const getReviewItemType = canonicalUrl => {
+    if (!isValidString(canonicalUrl)) return null;
+
+    return (
+        REVIEW_ITEM_TYPE_RULES.find(({ path }) => canonicalUrl.includes(path))
+            ?.type || null
+    );
+};
 
 export const getReviewAuthor = ({
     authors,
@@ -30,7 +41,8 @@ export const getReviewSchemaData = ({
     datePublished,
     ratingValue
 }) => {
-    const itemType = isMovieReview(canonicalUrl) ? 'Movie' : 'Thing';
+    const itemType = getReviewItemType(canonicalUrl);
+    if (!itemType) return null;
 
     return {
         '@context': 'https://schema.org',

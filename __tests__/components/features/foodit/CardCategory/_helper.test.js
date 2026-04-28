@@ -1,9 +1,11 @@
 import {
     validateCardCategory,
-    groupsParser,
-    itemGroupsParser,
-    resolveUrl
+    transformCategoryData
 } from '../../../../../components/features/foodit/CardCategory/_helper';
+
+jest.mock('fusion:environment', () => ({
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+}));
 
 describe('Components - features - foodit - CardCategory - Helper', () => {
     describe('validateCardCategory', () => {
@@ -12,9 +14,6 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
                 title: '',
                 image: 'ABCD',
                 url: '/recetas',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: ['arroz'],
                 imageUrl:
                     'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true'
             });
@@ -30,9 +29,6 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
                 title: 'Titulo',
                 image: '',
                 url: '/recetas',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: ['item1'],
                 imageUrl:
                     'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true'
             });
@@ -43,40 +39,18 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
             });
         });
 
-        it('should return an error if groups and itemGroups lengths do not match', () => {
-            const result = validateCardCategory({
-                title: 'Titulo',
-                image: 'image-id',
-                url: '/recetas',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: [],
-                imageUrl:
-                    'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true'
-            });
-
-            expect(result).toEqual({
-                type: 'warning',
-                message:
-                    'Los grupos y los valores deben tener la misma cantidad ya que estan relacionadas'
-            });
-        });
-
-        it('should return an error if both url and query are missing', () => {
+        it('should return an error if url are missing', () => {
             const result = validateCardCategory({
                 title: 'Titulo',
                 image: 'image-id',
                 url: '',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: ['item1'],
                 imageUrl:
                     'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true'
             });
 
             expect(result).toEqual({
                 type: 'warning',
-                message: 'Se requiere una url o un termino de busqueda'
+                message: 'Se requiere una url'
             });
         });
 
@@ -84,10 +58,7 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
             const result = validateCardCategory({
                 title: 'Titulo',
                 image: 'image-id',
-                url: '/recetas',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: ['item1'],
+                url: '/tema/recetas',
                 imageUrl: ''
             });
 
@@ -97,14 +68,28 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
             });
         });
 
+        it('should return an error if both rapida and facil are true', () => {
+            const result = validateCardCategory({
+                title: 'Titulo',
+                image: 'image-id',
+                url: '/tema/recetas',
+                imageUrl:
+                    'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true',
+                rapida: true,
+                facil: true
+            });
+
+            expect(result).toEqual({
+                type: 'warning',
+                message: 'No se pueden aplicar ambos filtros'
+            });
+        });
+
         it('should return null if all validations pass', () => {
             const result = validateCardCategory({
                 title: 'Titulo',
                 image: 'image-id',
-                url: '/recetas',
-                query: '',
-                groups: ['seccion'],
-                itemGroups: ['item1'],
+                url: '/tema/recetas',
                 imageUrl:
                     'https://sandbox-resizer.glanacion.com/resizer/v2/VREQPEQX7RERPGAETJDWPQFNSA.jpg?auth=8e7b9e6cb6a4ea66e049ca96d8fd5344726e3185288fb16e4fda492da9109f25&width=174&height=116&quality=70&smart=true'
             });
@@ -113,73 +98,110 @@ describe('Components - features - foodit - CardCategory - Helper', () => {
         });
     });
 
-    describe('groupsParser', () => {
-        it('should parse group names to corresponding keys', () => {
-            const groups = ['ingrediente principal', 'seccion', 'ocasion'];
-            const result = groupsParser(groups);
+    describe('transformCategoryData', () => {
+        const baseUrl =
+            'https://foodit.lanacion.com.ar/tema/vianda/?query=recetas&title=Vianda&groups=occasions&itemGroups=Vianda';
+        const title = 'Vianda';
 
-            expect(result).toEqual([
-                'main_ingredients',
-                'section',
-                'occasions'
-            ]);
+        it('should return original data if no filters are applied', () => {
+            const result = transformCategoryData({
+                title,
+                url: baseUrl,
+                rapida: false,
+                facil: false
+            });
+            expect(result).toEqual({
+                modifiedTitle: title,
+                modifiedUrl: baseUrl
+            });
         });
 
-        it('should return an empty string for unrecognized group names', () => {
-            const groups = ['unrecognized'];
-            const result = groupsParser(groups);
+        it('should transform data correctly when facil is true', () => {
+            const result = transformCategoryData({
+                title,
+                url: baseUrl,
+                rapida: false,
+                facil: true
+            });
+            expect(result.modifiedTitle).toBe('Vianda fácil');
 
-            expect(result).toEqual(['']);
+            const url = new URL(result.modifiedUrl);
+            expect(url.pathname).toBe('/tema/vianda-facil/');
+            expect(url.searchParams.get('groups')).toBe('occasions|section');
+            expect(url.searchParams.get('itemGroups')).toBe('Vianda|facil');
+            expect(url.searchParams.get('title')).toBe('Vianda fácil');
         });
 
-        it('should handle empty groups array', () => {
-            const result = groupsParser([]);
-            expect(result).toEqual([]);
-        });
-    });
-
-    describe('itemGroupsParser', () => {
-        it('should parse item groups with special cases for "subtype" and "video_jw"', () => {
-            const input = {
-                groups: ['subtype', 'video_jw'],
-                itemGroups: ['receta', 'si']
-            };
-            const result = itemGroupsParser(input);
-
-            expect(result).toEqual(['7', 'video_jw']);
+        it('should not duplicate labels if already present in title', () => {
+            const titleWithFilter = 'Vianda fácil';
+            const result = transformCategoryData({
+                title: titleWithFilter,
+                url: baseUrl,
+                rapida: false,
+                facil: true
+            });
+            expect(result.modifiedTitle).toBe('Vianda fácil');
         });
 
-        it('should handle unrecognized item groups', () => {
-            const input = {
-                groups: ['seccion'],
-                itemGroups: ['unknown']
-            };
-            const result = itemGroupsParser(input);
-
-            expect(result).toEqual(['unknown']);
-        });
-
-        it('should return an empty array for no item groups', () => {
-            const result = itemGroupsParser({ groups: [], itemGroups: [] });
-            expect(result).toEqual([]);
-        });
-    });
-
-    describe('resolveUrl', () => {
-        it('should generate a URL with all query parameters', () => {
-            const input = {
-                query: 'mockQuery',
-                titleAcu: 'Titulo',
-                groups: 'seccion|tipo de coccion',
-                itemGroups: 'item1^item2',
-                featureId: '000AAABBBCCC'
-            };
-
-            const result = resolveUrl(input);
-
-            expect(result).toEqual(
-                '/tema/titulo-000aaabbbccc/?query=mockQuery&title=Titulo&groups=seccion%7Ctipo%20de%20coccion&itemGroups=item1%5Eitem2'
+        it('should not duplicate slug if already present in pathname', () => {
+            const urlWithSlug =
+                'https://foodit.lanacion.com.ar/tema/vianda-facil/';
+            const result = transformCategoryData({
+                title,
+                url: urlWithSlug,
+                rapida: false,
+                facil: true
+            });
+            expect(result.modifiedUrl).toBe(
+                'https://foodit.lanacion.com.ar/tema/vianda-facil/?groups=section&itemGroups=facil&title=f%C3%A1cil'
             );
+            expect(result.modifiedUrl).toBe(
+                'https://foodit.lanacion.com.ar/tema/vianda-facil/?groups=section&itemGroups=facil&title=f%C3%A1cil'
+            );
+        });
+
+        it('should transform data correctly when rapida is true', () => {
+            const result = transformCategoryData({
+                title,
+                url: baseUrl,
+                rapida: true,
+                facil: false
+            });
+            expect(result.modifiedTitle).toBe('Vianda rápida');
+
+            const url = new URL(result.modifiedUrl);
+            expect(url.pathname).toBe('/tema/vianda-rapida/');
+            expect(url.searchParams.get('groups')).toBe('occasions|section');
+            expect(url.searchParams.get('itemGroups')).toBe('Vianda|rapida');
+            expect(url.searchParams.get('title')).toBe('Vianda rápida');
+        });
+
+        it('should handle relative URLs correctly', () => {
+            const relativeUrl =
+                '/tema/vianda/?query=recetas&title=Vianda&groups=occasions&itemGroups=Vianda';
+            const result = transformCategoryData({
+                title,
+                url: relativeUrl,
+                rapida: false,
+                facil: true
+            });
+
+            expect(result.modifiedUrl).toContain('/tema/vianda-facil/');
+            expect(result.modifiedUrl).toContain('itemGroups=Vianda%7Cfacil');
+            expect(result.modifiedUrl).toContain('title=Vianda+f%C3%A1cil');
+        });
+        it('should not modify URLs or title that do not contain "/tema/"', () => {
+            const nonTemaUrl =
+                'https://foodit.lanacion.com.ar/seccion/recetas/?query=test';
+            const result = transformCategoryData({
+                title,
+                url: nonTemaUrl,
+                rapida: false,
+                facil: true
+            });
+
+            expect(result.modifiedUrl).toBe(nonTemaUrl);
+            expect(result.modifiedTitle).toBe('Vianda fácil');
         });
     });
 });

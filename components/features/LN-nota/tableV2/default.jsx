@@ -16,15 +16,16 @@ function TableV2({
 
     return (
         <div
+            data-testid="table-container"
             className={cx([
                 'container-table',
-                'overflow-x-auto',
                 'contenidos-scrollbar scrollbar-4',
                 'pb-12',
                 !stickyFirstCol && 'w-800_l max-w-100_l',
                 withMargin && 'mb-32',
                 classnames.container
             ])}
+            style={{ overflowX: 'auto' }}
         >
             <table
                 className="table-v2 p-0"

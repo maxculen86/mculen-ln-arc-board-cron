@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - Features - foodit-global - Common - HeaderFoodit should return buttons login and button suscribed when the user is unlogged 1`] = `
+exports[`Components - Features - foodit-global - Common - HeaderFoodit should return only subscribe button when the user is unlogged (if subscribe button is different from "suscribite") 1`] = `
 <div>
   <div
     class="common-header-container z-15 w-100 sticky top-0 print-hide mb-12 mb-40_lg"
@@ -171,18 +171,22 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   </span>
                 </button>
               </div>
-              <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
-                data-test-id="button-login"
-                data-variant="link"
-                title="INICIÁ SESIÓN"
+              <div
+                class="sm-none"
               >
-                <span
-                  class="roboto roboto-regular"
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-test-id="button-login"
+                  data-variant="link"
+                  title="INICIÁ SESIÓN"
                 >
-                  INICIÁ SESIÓN
-                </span>
-              </button>
+                  <span
+                    class="roboto roboto-regular"
+                  >
+                    INICIÁ SESIÓN
+                  </span>
+                </button>
+              </div>
               <div
                 class="lg-only"
               >
