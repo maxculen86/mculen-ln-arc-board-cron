@@ -124,9 +124,11 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
             />
         );
 
-        expect(
-            screen.queryByRole('button', { name: /iniciá sesión/i })
-        ).not.toBeInTheDocument();
+        const loginButton = screen.queryByRole('button', {
+            name: /iniciá sesión/i
+        });
+        expect(loginButton).toBeInTheDocument();
+        expect(loginButton.closest('div')).toHaveClass('sm-none');
 
         expect(screen.getAllByText('SUSCRIBITE GRATIS')).toHaveLength(1);
         expect(container).toMatchSnapshot();

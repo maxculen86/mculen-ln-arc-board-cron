@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { cx } from '@ln/cva';
 import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
@@ -86,6 +87,10 @@ function LoginSubscribeButtons({
         setTooltipState({ text: '', shouldShow: false });
     });
 
+    const classContainerLoginButton = cx(
+        shouldHideLoginButtonInHeader && 'sm-none'
+    );
+
     return (
         <>
             {!hideSubscribeButtons && buttonSubscribeText && (
@@ -114,16 +119,16 @@ function LoginSubscribeButtons({
                     />
                 </Tooltip>
             )}
-            {buttonLogginText &&
-                categoryEvent !== 'home' &&
-                !shouldHideLoginButtonInHeader && (
+            {buttonLogginText && categoryEvent !== 'home' && (
+                <div className={classContainerLoginButton}>
                     <LoginButton
                         classNameButtons={classNameButtons}
                         buttonLogginText={buttonLogginText}
                         handleLoginClick={handleLoginClick}
                         loginClassName={loginClassName}
                     />
-                )}
+                </div>
+            )}
         </>
     );
 }

@@ -172,6 +172,22 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </button>
               </div>
               <div
+                class="sm-none"
+              >
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
+                  data-test-id="button-login"
+                  data-variant="link"
+                  title="INICIÁ SESIÓN"
+                >
+                  <span
+                    class="roboto roboto-regular"
+                  >
+                    INICIÁ SESIÓN
+                  </span>
+                </button>
+              </div>
+              <div
                 class="lg-only"
               >
                 <div
