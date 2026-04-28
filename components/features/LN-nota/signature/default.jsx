@@ -18,6 +18,7 @@ import isExternalDistributor from '../../../private/common/utils/isExternalDistr
 import { signatureClasses } from './styles';
 import GoogleButton from '../../LN-10-global/common/googleButton/default';
 import useTermica from '../../../private/common/hooks/useTermica';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 function SignatureFeature(props) {
     const {
@@ -30,8 +31,10 @@ function SignatureFeature(props) {
             _id,
             isListenable,
             subtype
-        }
+        },
+        layout
     } = props;
+
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
@@ -91,13 +94,22 @@ function SignatureFeature(props) {
         />
     );
 
+    const { layoutsName = {} } = siteConfig || {};
+
     const classNameContainer =
-        hasVisibleContent && signatureClasses({ position, subtype });
+        hasVisibleContent &&
+        signatureClasses({
+            position,
+            subtype,
+            className: cx({
+                'mb-16 mb-24_m': layout === layoutsName.StoryTelling
+            })
+        });
 
     return (
         <SignatureContextProvider>
             <div className={classNameContainer}>
-                <div className="flex jc-between ai-center">
+                <div className={cx('flex jc-between ai-center', {})}>
                     <SignatureWithDistributor
                         name={name}
                         mode={mode}

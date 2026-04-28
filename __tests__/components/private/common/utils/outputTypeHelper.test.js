@@ -408,30 +408,29 @@ describe('getTagTitle function test', () => {
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
-        test('Return meta robots no index no follow when subtype is agencia', () => {
+        test('Return fragment when subtype is agencia outside agencias section', () => {
             expect(
                 addMetaNoIndexNoFollow({
+                    requestUri: '/estados-unidos/prueba-borrar-2-nid12032026/',
                     subtype: AGENCIA
+                })
+            ).toStrictEqual(null);
+        });
+
+        test('Return meta robots no index no follow when the page is agencias', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/agencias/nota-de-prueba-nid123456/'
                 })
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
-        test('Return meta robots no index no follow when subtype is agencia outside agencias uri', () => {
-            expect(
-                addMetaNoIndexNoFollow({
-                    requestUri:
-                        '/estados-unidos/prueba-borrar-2-nid12032026/?d=5495',
-                    subtype: AGENCIA
-                })
-            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
-        });
-
-        test('Return fragment when agencias uri does not have agencia subtype', () => {
+        test('Return meta robots no index no follow when agencias page is acumulado', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     requestUri: '/agencias/?_website=la-nacion-ar'
                 })
-            ).toStrictEqual(null);
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
         test('Return meta robots no index no follow when the page is home-vivo', () => {

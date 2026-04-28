@@ -194,6 +194,16 @@ describe('components - feature - LN-nota - signature - default', () => {
         expect(asFragment()).toMatchSnapshot();
     });
 
+    it('renders with storytelling layout adds margin classes', () => {
+        const props = {
+            ...defaultProps,
+            layout: 'LN-nota-storytelling'
+        };
+
+        const { asFragment } = render(<SignatureFeature {...props} />);
+        expect(asFragment()).toMatchSnapshot();
+    });
+
     it('should not render the audio player if withAudio is false', () => {
         const props = {
             ...defaultProps,
