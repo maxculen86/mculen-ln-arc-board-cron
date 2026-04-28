@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery snapshot of Gallery with images and caption 1`] = `
+<section
+  aria-labelledby="gallery-caption"
+  class="gallery-embed grid grid-cols-8 mb-64 md:grid-cols-12 md:gap-24 xl:grid-cols-16 xl:gap-32 mt-32 mock-container"
+>
+  <div
+    class="gallery-embed__item"
+  >
+    <div
+      class="grid gap-16"
+    >
+      <div
+        data-id="img1"
+        data-testid="media-item"
+      />
+      <div
+        data-id="img2"
+        data-testid="media-item"
+      />
+    </div>
+    <div
+      class="px-16 py-8 md:text-center"
+    >
+      <span
+        class="text-16 tracking-[-0.32px]"
+        id="gallery-caption"
+      >
+        Gallery caption
+      </span>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`components - features - LN - common - galleryEmbed - default snapshot of GalleryEmbed with valid data 1`] = `
+<section
+  aria-labelledby="gallery-caption"
+  class="gallery-embed grid grid-cols-8 mb-64 md:grid-cols-12 md:gap-24 xl:grid-cols-16 xl:gap-32 mt-32 mx-auto w-full max-w-1340 lg:px-16"
+>
+  <div
+    class="gallery-embed__item col-span-full xl:px-58 2xl:col-start-2 2xl:col-end-16 2xl:px-0"
+  >
+    <div
+      class="grid gap-16 md:grid-cols-2"
+    >
+      <div
+        data-id="img1"
+        data-testid="media-item"
+      />
+      <div
+        data-id="img2"
+        data-testid="media-item"
+      />
+    </div>
+    <div
+      class="px-16 py-8 md:text-center"
+    >
+      <span
+        class="text-16 tracking-[-0.32px]"
+        id="gallery-caption"
+      >
+        Gallery caption
+      </span>
+    </div>
+  </div>
+</section>
+`;
