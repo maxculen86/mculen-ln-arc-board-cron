@@ -118,6 +118,7 @@ exports[`components - feature - LN-nota - signature - default renders with story
             >
               <div>
                 <img
+                  alt="Mariano Grondona"
                   class="image rounded-circle w-70 h-70 bg-neutral-light-50 flex --cover"
                   decoding="async"
                   fetchpriority="low"
