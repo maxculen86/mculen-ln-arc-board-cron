@@ -8,6 +8,7 @@ import get from '../../../../../private/common/utils/get';
 import {
     dictionaryAlt,
     getSectionLogo,
+    getCustomSectionLogo,
     getAFondoLogo
 } from '../../../../../private/common/utils/sectionUtils';
 import getTargetAndRelIfExternal from '../../../../../private/common/utils/getTargetAndRelIfExternal';
@@ -25,7 +26,10 @@ function OpeningAddons({
     const distributorName = get(globalContent, 'distributor.name', 'LA NACION');
     const aFondoLogo = getAFondoLogo(tags, layout);
     const logoData =
-        aFondoLogo || getSectionLogo(sections, layout, distributorName) || {};
+        aFondoLogo ||
+        getSectionLogo(sections, layout, distributorName) ||
+        getCustomSectionLogo({ sections, layout }) ||
+        {};
     const {
         logoName = '',
         path = '',

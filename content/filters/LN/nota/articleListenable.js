@@ -332,6 +332,7 @@ const galleryEmbed = `
         height
         width
         id
+        alt
         poster
         mp4
         type

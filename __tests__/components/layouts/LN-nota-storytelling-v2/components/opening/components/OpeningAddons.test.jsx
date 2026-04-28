@@ -56,7 +56,9 @@ jest.mock(
         },
         getAFondoLogo: (tags, layout) => {
             return tags?.[0]?._mockedAFondoLogo || null;
-        }
+        },
+        getCustomSectionLogo: ({ sections } = {}) =>
+            sections?.[0]?._mockedCustomLogo || null
     })
 );
 

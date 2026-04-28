@@ -161,9 +161,10 @@ describe('features - LN-nota - TableV2', () => {
         });
 
         it('Should apply default classnames when no custom provided', () => {
-            const { container } = render(<TableV2 data={mockTableData} />);
-            expect(container.querySelector('.container-table')).toBeTruthy();
-            expect(container.querySelector('.overflow-x-auto')).toBeTruthy();
+            const { getByTestId } = render(<TableV2 data={mockTableData} />);
+            const table = getByTestId('table-container');
+            expect(table).toHaveClass('container-table');
+            expect(table).toHaveStyle('overflow-x: auto');
         });
     });
 
