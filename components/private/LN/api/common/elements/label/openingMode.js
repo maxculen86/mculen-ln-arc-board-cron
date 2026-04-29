@@ -1,8 +1,9 @@
 import get from '../../../../../common/utils/get';
 import {
-    LIVEBLOG_EDITORIAL,
-    HTMLLIBRECLL,
+    CARDS,
     HTMLLIBRE,
+    HTMLLIBRECLL,
+    LIVEBLOG_EDITORIAL,
     RECETA,
     VIDEOAL100
 } from '../../../../../common/utils/subtypes/subtypeHelper';
@@ -17,14 +18,22 @@ const HARDCODED_WEBVIEW_SUBTYPES = [
     LIVEBLOG_EDITORIAL,
     HTMLLIBRE,
     RECETA,
-    VIDEOAL100
+    VIDEOAL100,
+    CARDS
 ];
 
 const getOpeningMode = dataNota => {
     const subtype = get(dataNota, 'subtype', '');
-    const enviarApps = get(dataNota, 'label.enviar_a_apps.text', null)?.toLowerCase();
+    const enviarApps = get(
+        dataNota,
+        'label.enviar_a_apps.text',
+        null
+    )?.toLowerCase();
 
-    if (HARDCODED_WEBVIEW_SUBTYPES.includes(subtype) && enviarApps === 'browser') {
+    if (
+        HARDCODED_WEBVIEW_SUBTYPES.includes(subtype) &&
+        enviarApps === 'browser'
+    ) {
         return OpeningMode.ExternalBrowser;
     }
     if (HARDCODED_WEBVIEW_SUBTYPES.includes(subtype)) {
