@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet/noticia';
+import { useContent } from 'fusion:content';
 
 jest.mock('fusion:environment', () => ({
     ARC_STATIC: 'https://arc-static.glanacion.com',
@@ -686,6 +687,83 @@ describe('SnippetNoticia', () => {
             );
 
             expect(container.querySelector('#Schema_Review')).toBeNull();
+        });
+    });
+
+    describe('acuOgImg - primaryImageOfPage in final JSON-LD', () => {
+        const mockAcuOgImg = {
+            url: 'https://www.lanacion.com.ar/custom-og.jpg',
+            height: '630',
+            width: '1200',
+            additional_properties: { mime_type: 'image/jpeg' }
+        };
+
+        const globalContentWithAcuOgImg = {
+            ...mockGlobalContent,
+            promo_items: {
+                basic: {
+                    type: 'image',
+                    url: 'https://sandbox-resizer.glanacion.com/promo-img.jpg',
+                    caption: 'Promo caption'
+                }
+            },
+            acumuladoColor: { id_logo_compartir: 'logo-id-123' }
+        };
+
+        beforeEach(() => {
+            useContent.mockReturnValueOnce(mockAcuOgImg);
+        });
+
+        afterEach(() => {
+            useContent.mockReset();
+        });
+
+        it('uses acuOgImg URL in primaryImageOfPage for NewsArticle', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={globalContentWithAcuOgImg}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('#Schema_NewsArticle').innerHTML
+            );
+
+            expect(jsonData['@type']).toBe('NewsArticle');
+            expect(jsonData.mainEntityOfPage.primaryImageOfPage).toMatchObject({
+                '@type': 'ImageObject',
+                url: 'https://www.lanacion.com.ar/custom-og.jpg',
+                width: 1200,
+                height: 630
+            });
+        });
+
+        it('uses acuOgImg URL in primaryImageOfPage for OpinionNewsArticle', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...globalContentWithAcuOgImg,
+                        subtype: '3'
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const script = container.querySelector('script');
+            const jsonData = JSON.parse(script.innerHTML);
+
+            expect(jsonData['@type']).toBe('OpinionNewsArticle');
+            expect(jsonData.mainEntityOfPage.primaryImageOfPage).toMatchObject({
+                '@type': 'ImageObject',
+                url: 'https://www.lanacion.com.ar/custom-og.jpg',
+                width: 1200,
+                height: 630
+            });
         });
     });
 });
