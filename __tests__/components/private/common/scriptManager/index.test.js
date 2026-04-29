@@ -165,7 +165,6 @@ describe('getScriptsToLoad', () => {
             'DataModal',
             'FooditEventsHelper',
             'EventsHelper',
-            'FundingChoices',
             'TikTokPixel',
             'FacebookPixel',
             'GoogleOneTap'
@@ -195,7 +194,6 @@ describe('getScriptsToLoad', () => {
             'DataModal',
             'FooditEventsHelper',
             'EventsHelper',
-            'FundingChoices',
             'TikTokPixel',
             'FacebookPixel',
             'GoogleOneTap'
@@ -230,7 +228,6 @@ describe('getScriptsToLoad', () => {
             'DataModal',
             'FooditEventsHelper',
             'EventsHelper',
-            'FundingChoices',
             'TikTokPixel',
             'FacebookPixel',
             'GoogleOneTap',
