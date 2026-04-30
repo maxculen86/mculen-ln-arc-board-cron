@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 
 import { SITE_FOODIT } from 'fusion:environment';
@@ -23,7 +23,7 @@ import { cleanUrl } from '../../../features/foodit-global/common/dataLayer/_help
 import { getAuthTokens } from '../../../private/common/auth/helper/loginHelper';
 import { EmptyStateChat } from './emptyStateChat';
 
-function ChatIaFoodit() {
+function ChatIaFoodit({ onSearchTermChange }) {
     const [sessionId, setSessionId] = useState('');
     const [showSkeleton, setShowSkeleton] = useState(true);
 
@@ -80,6 +80,22 @@ function ChatIaFoodit() {
         },
         initialMessages
     });
+    const hasKeywords = msg =>
+        msg.message_type === 'input' && msg.response_chat?.keywords?.length > 0;
+    const lastInputWithKeywords = useMemo(
+        () => runtime.messages?.findLast(hasKeywords) ?? null,
+        [runtime.messages]
+    );
+    const lastKeywords = useMemo(
+        () => lastInputWithKeywords?.response_chat?.keywords?.slice(0, 2) ?? [],
+        [lastInputWithKeywords]
+    );
+
+    useEffect(() => {
+        if (lastKeywords.length > 0 && onSearchTermChange) {
+            onSearchTermChange(lastKeywords.join(' / '));
+        }
+    }, [lastKeywords, onSearchTermChange]);
 
     useEffect(() => {
         setShowSkeleton(false);
