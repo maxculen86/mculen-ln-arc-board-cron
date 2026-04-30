@@ -27,11 +27,11 @@ describe('Mocks & factory', () => {
     it.each([
         [
             'Tutoriales de cocina salada',
-            '/tema/tutorial-cocina-salada-yixuf3anyvavjkt5tghbolewzq/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada'
+            '/tema/tutorial-cocina-salada/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada'
         ],
         [
             'Tutoriales de pastelería',
-            '/tema/tutorial-pasteler%C3%ADa-qat7qtvzy5dmzd6opl4ap2d2se/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa'
+            '/tema/tutorial-pasteler%C3%ADa/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa'
         ],
         ['Masterclass de chef', '/masterclass/'],
         ['Guías de cocina', '/guias-de-cocina/'],
