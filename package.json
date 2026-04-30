@@ -152,7 +152,7 @@
         "@ln/hooks": "1.1.2",
         "@ln/lib-newsletter": "1.4.1",
         "@ln/lib-personalizacion": "1.3.3",
-        "@ln/mini-paywall": "1.8.0",
+        "@ln/mini-paywall": "1.8.1",
         "@ln/segmentacion-control-group": "1.3.0",
         "@ln/theme-base": "2.0.2",
         "@ln/theme-foodit": "1.0.2",
