@@ -5,8 +5,7 @@ import BaseLayout from '../../features/LN/common/baseLayout/default';
 import GlobalProvider from '../../private/common/context/globalContext';
 import { WrapperBody } from '../../features/LN/common/wrapperBody/default';
 import Breadcrumb from '../../features/LN/common/breadcrumb/default';
-import SignatureFeature from '../../features/LN-nota/signature/default';
-import { place } from '../../private/common/utils/firmaHelper';
+import StorytellingSignature from './components/StorytellingSignature';
 import DateAndReadingTime from '../../features/LN/common/dateAndReadingTime/default';
 import Divider from '../../features/ui/ln/divider/default';
 
@@ -31,11 +30,8 @@ function LnNotaStorytellingV2({
                         {/* Pre-Cuerpo - DS */}
                         <WrapperBody id="cuerpo__nota" className="mb-24">
                             <div className="flex flex-col ai-center gap-8 mb-40">
-                                <SignatureFeature
-                                    customFields={{
-                                        position: place.Top,
-                                        withAudio: false
-                                    }}
+                                <StorytellingSignature
+                                    globalContent={globalContent}
                                 />
                                 <DateAndReadingTime
                                     globalContent={globalContent}

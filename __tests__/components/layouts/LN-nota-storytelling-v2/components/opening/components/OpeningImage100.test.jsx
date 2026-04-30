@@ -72,8 +72,8 @@ jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () => ({
         __esModule: true,
-        default: ({ h1Props, h2Props }) => (
-            <div data-testid="opening-titles">
+        default: ({ h1Props, h2Props, baseClassName }) => (
+            <div data-testid="opening-titles" data-base-class={baseClassName}>
                 <h1>{h1Props?.text}</h1>
                 <h2>{h2Props?.text}</h2>
             </div>
@@ -83,7 +83,7 @@ jest.mock(
 
 describe('OpeningImage100', () => {
     const mockProps = {
-        diagram: 'title-100',
+        diagram: 'title-below',
         src: 'image-default.jpg',
         srcset: 'image-small.jpg 500w, image-large.jpg 1024w',
         sizes: '(max-width: 500px) 500px, 1024px',
@@ -167,13 +167,28 @@ describe('OpeningImage100', () => {
         expect(titles).toHaveTextContent('Subtitle');
     });
 
+    it('passes hero-title-fluid baseClassName to OpeningTitles', () => {
+        render(<OpeningImage100 {...mockProps} />);
+        expect(screen.getByTestId('opening-titles')).toHaveAttribute(
+            'data-base-class',
+            'font-primary hero-title-fluid'
+        );
+    });
+
+    it('renders subheadline with hero-subheading-fluid class', () => {
+        render(<OpeningImage100 {...mockProps} />);
+        const p = screen.getByText('This is the subheadline');
+        expect(p.tagName).toBe('P');
+        expect(p).toHaveClass('hero-subheading-fluid');
+    });
+
     it('should have correct section structure with aria attributes', () => {
         const { container } = render(<OpeningImage100 {...mockProps} />);
 
         const section = container.querySelector('section');
         expect(section).toBeInTheDocument();
         expect(section).toHaveClass('bg-black-dark', 'overflow-hidden');
-        expect(section).toHaveAttribute('data-diagram', 'title-100');
+        expect(section).toHaveAttribute('data-diagram', 'title-below');
     });
 
     it('should apply variant-specific classes based on diagram', () => {

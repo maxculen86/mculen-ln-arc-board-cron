@@ -1,10 +1,8 @@
 import React from 'react';
 import { Divider } from '@ln/ds-common-divider';
-import { cx } from '@ln/ds-cva';
 import ImageUI from '../../../../../features/ui/ln/image/default';
 import OpeningAddons from './OpeningAddons';
 import OpeningTitles from './OpeningTitles';
-import { sectionHeight } from './styles';
 
 function OpeningImagePanoramic({
     src,
@@ -21,32 +19,33 @@ function OpeningImagePanoramic({
     diagram
 }) {
     const titleClass = 'text-base-dark text-center';
+    const dataDiagram = 'image-panoramic';
 
     return (
         <>
             {src && (
                 <div
-                    className={cx(
-                        'w-screen h-screen overflow-hidden relative left-1/2 -translate-x-1/2',
-                        sectionHeight
-                    )}
-                    data-diagram="image-panoramic"
+                    className="w-screen overflow-hidden relative left-1/2 -translate-x-1/2"
+                    data-diagram={dataDiagram}
                 >
-                    <ImageUI
-                        alt={altText}
-                        src={src}
-                        srcSet={srcset}
-                        sizes={sizes}
-                        width={width}
-                        height={height}
-                        className="w-full h-full object-cover"
-                        renderImgOnly
-                        fetchPriority="high"
-                        loading="eager"
-                    />
+                    <div className="w-full min-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56">
+                        <ImageUI
+                            alt={altText}
+                            src={src}
+                            srcSet={srcset}
+                            sizes={sizes}
+                            width={width}
+                            height={height}
+                            className="object-cover opacity-60"
+                            renderImgOnly
+                            fetchPriority="high"
+                            loading="eager"
+                        />
+                        <div className="absolute inset-0 bg-black-dark -z-1" />
+                    </div>
                 </div>
             )}
-            <section className="w-full" data-diagram="image-panoramic">
+            <section className="w-full" data-diagram={dataDiagram}>
                 <div className="flex flex-col items-center justify-center gap-12 max-w-835 m-auto">
                     <OpeningAddons
                         globalContent={globalContent}
@@ -57,6 +56,7 @@ function OpeningImagePanoramic({
                         diagram={diagram}
                     />
                     <OpeningTitles
+                        baseClassName="font-primary hero-title-fluid"
                         h1Props={{
                             text: title1,
                             className: titleClass
@@ -67,11 +67,11 @@ function OpeningImagePanoramic({
                         }}
                     />
                     {subheadline && (
-                        <p className="prumo text-subheading-md text-center max-w-635">
+                        <p className="font-primary hero-subheading-fluid text-center max-w-635">
                             {subheadline}
                         </p>
                     )}
-                    <Divider className="max-w-80 my-40 border-black-default" />
+                    <Divider className="max-w-80 mt-28 mb-16" color="black" />
                 </div>
             </section>
         </>

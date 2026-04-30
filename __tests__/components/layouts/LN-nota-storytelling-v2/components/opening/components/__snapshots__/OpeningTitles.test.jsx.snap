@@ -1,7 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpeningTitles snapshots snapshot with all props 1`] = `undefined`;
+exports[`OpeningTitles snapshots returns null without props 1`] = `<div />`;
 
-exports[`OpeningTitles snapshots snapshot without h2props 1`] = `undefined`;
+exports[`OpeningTitles snapshots snapshot with all props 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col"
+  >
+    <h1
+      class="font-primary text-display-md font-w-extrabold custom-h1"
+    >
+      Main Title
+    </h1>
+    <h2
+      class="font-primary text-display-md custom-h2"
+    >
+      Subtitle
+    </h2>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`OpeningTitles snapshots without props 1`] = `<div />`;
+exports[`OpeningTitles snapshots snapshot with only h1Props 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col"
+  >
+    <h1
+      class="font-primary text-display-md font-w-extrabold custom-h1"
+    >
+      Main Title
+    </h1>
+  </div>
+</DocumentFragment>
+`;
