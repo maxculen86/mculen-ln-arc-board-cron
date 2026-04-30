@@ -42,18 +42,23 @@ function LnRadio({ id: featureId, customFields }) {
                             className={buttonClassname({ variant })}
                             textTransform="uppercase"
                             variant="ghost"
-                            href="https://masmusica.lanacion.com.ar/"
-                            target="_blank"
                             rounded="custom"
                             color="custom"
                             size="custom"
+                            asChild
                         >
-                            Escuchá + música
-                            <Icon
-                                size={20}
-                                className="hidden md:block"
-                                name="play-filled"
-                            />
+                            <a
+                                href="https://masmusica.lanacion.com.ar/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Escuchá + música
+                                <Icon
+                                    size={20}
+                                    className="hidden md:block"
+                                    name="play-filled"
+                                />
+                            </a>
                         </Button>
                     </div>
                     <Divider />
