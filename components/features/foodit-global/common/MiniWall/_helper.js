@@ -40,6 +40,7 @@ export const addToCartEvent = ({
     canalVenta,
     formaContacto,
     tieneClub,
+    esMultiproducto,
     items: { id, name, category, category2, category3, price }
 }) => {
     const redirect = {
@@ -58,6 +59,7 @@ export const addToCartEvent = ({
                 forma_contacto: formaContacto,
                 tieneClub,
                 card_comprimida: false,
+                es_multiproducto: esMultiproducto,
                 items: [
                     {
                         item_id: id,
