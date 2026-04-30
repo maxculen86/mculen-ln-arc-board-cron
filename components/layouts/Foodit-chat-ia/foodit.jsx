@@ -6,6 +6,7 @@ import { DRAWER } from '../../features/foodit-global/common/DrawerContainer/cons
 import QuerylySearch from '../../features/foodit-global/Queryly/foodit';
 import ChatIaFoodit from './_children/ChatFoodit';
 import { useNavigationData } from '../../features/foodit-global/common/Header/hooks/useNavigationData';
+import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
 
 export default function FooditChatIA() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -18,6 +19,7 @@ export default function FooditChatIA() {
 
     return (
         <BaseLayout>
+            {BannersFoodit.modal_1x1()}
             {!hideChatIa && (
                 <ChatIaFoodit onSearchTermChange={setSearchQuery} />
             )}

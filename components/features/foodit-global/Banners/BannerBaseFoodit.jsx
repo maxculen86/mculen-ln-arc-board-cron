@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
 
 import { getTypeOfDevice } from '@ln/hooks';
@@ -24,6 +24,11 @@ export function BannerBaseFoodit({ bannerType }) {
         styleBanner = ''
     } = devices[device];
 
+    const targetings = useMemo(
+        () => (isSSR() ? {} : getTargetings({ contentType: layout })),
+        [layout]
+    );
+
     if (isSSR()) {
         return (
             <div className={classParent}>
@@ -32,12 +37,7 @@ export function BannerBaseFoodit({ bannerType }) {
         );
     }
 
-    const adManagerError = useAdManager(
-        slotId,
-        size,
-        divId,
-        getTargetings({ contentType: layout })
-    );
+    const adManagerError = useAdManager(slotId, size, divId, targetings);
 
     if (adManagerError) {
         console.error('Error al cargar el banner:', adManagerError);

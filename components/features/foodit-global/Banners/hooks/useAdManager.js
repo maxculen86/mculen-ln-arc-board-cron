@@ -1,11 +1,15 @@
 /* eslint-disable no-undef */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createScriptBanners } from '../_helpers/bannersScript';
 
 export function useAdManager(slotId, size, divId, targetings) {
     const [error, setError] = useState(null);
+    const initialized = useRef(false);
 
     useEffect(() => {
+        if (initialized.current) return;
+        initialized.current = true;
+
         createScriptBanners();
 
         window.googletag = window.googletag || { cmd: [] };
