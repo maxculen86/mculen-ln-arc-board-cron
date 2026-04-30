@@ -1,6 +1,6 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
-import { Popper } from '@ln/ds-common-popper';
+import { Dropdown } from '@ln/ds-common-dropdown';
 import { Link } from '@ln/ds-common-link';
 import { cx } from '@ln/ds-cva';
 import { SHARE_OPTIONS } from '../_helpers';
@@ -13,6 +13,10 @@ import useShareOptions from '../hooks/useShareOptions';
 
 const resolveValue = (value, props) =>
     typeof value === 'function' ? value(props) : value;
+
+function DataTwWrapper({ children }) {
+    return <div data-tw>{children}</div>;
+}
 
 function ShareDesktopTrigger({
     isShareOpen,
@@ -37,14 +41,15 @@ function ShareDesktopTrigger({
     if (isSSR()) return <ShareCustomGhostButton className="max-xl:hidden" />;
 
     return (
-        <Popper
+        <Dropdown
             placement="bottom"
             open={isShareOpen}
             onOpenChange={e => setIsShareOpen(e)}
-            className="max-xl:hidden"
+            arrow
+            border
         >
-            <Popper.Trigger
-                className="flex"
+            <Dropdown.Trigger
+                className="flex max-xl:hidden"
                 title="Compartir"
                 onClick={() =>
                     addEventToDataLayerV2({
@@ -56,8 +61,12 @@ function ShareDesktopTrigger({
                 }
             >
                 <ShareCustomGhostButton />
-            </Popper.Trigger>
-            <Popper.Content className="bg-base-foreground shadow-center w-200 rounded-4 p-16 border border-muted">
+            </Dropdown.Trigger>
+            <Dropdown.Content
+                customWidth
+                customWrapper={DataTwWrapper}
+                className="bg-base-foreground shadow-center w-200 rounded-4 p-16 border border-muted z-1"
+            >
                 <div className="flex flex-grow mb-12">
                     <Button
                         variant="ghost"
@@ -98,8 +107,8 @@ function ShareDesktopTrigger({
                         );
                     })}
                 </ul>
-            </Popper.Content>
-        </Popper>
+            </Dropdown.Content>
+        </Dropdown>
     );
 }
 
