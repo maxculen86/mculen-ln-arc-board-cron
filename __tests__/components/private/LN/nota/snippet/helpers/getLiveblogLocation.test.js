@@ -1,7 +1,4 @@
-import {
-    DEFAULT_LOCATION,
-    getLiveblogLocation
-} from '../../../../../../../components/private/LN/nota/snippet/helpers/getLiveblogLocation';
+import { getLiveblogLocation } from '../../../../../../../components/private/LN/nota/snippet/helpers/getLiveblogLocation';
 
 describe('getLiveblogLocation', () => {
     it('returns the configured location when the label uses pipes', () => {
@@ -34,7 +31,7 @@ describe('getLiveblogLocation', () => {
         });
     });
 
-    it('returns the default location when the label is empty', () => {
+    it('returns undefined when the label is empty', () => {
         const globalContent = {
             label: {
                 location: {
@@ -43,10 +40,10 @@ describe('getLiveblogLocation', () => {
             }
         };
 
-        expect(getLiveblogLocation(globalContent)).toEqual(DEFAULT_LOCATION);
+        expect(getLiveblogLocation(globalContent)).toBeUndefined();
     });
 
-    it('returns the default location when the label is malformed', () => {
+    it('returns undefined when the label is malformed', () => {
         const globalContent = {
             label: {
                 location: {
@@ -55,6 +52,10 @@ describe('getLiveblogLocation', () => {
             }
         };
 
-        expect(getLiveblogLocation(globalContent)).toEqual(DEFAULT_LOCATION);
+        expect(getLiveblogLocation(globalContent)).toBeUndefined();
+    });
+
+    it('returns undefined when label is missing', () => {
+        expect(getLiveblogLocation({})).toBeUndefined();
     });
 });
