@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN - DS-Toolbar - components - shareDesktopTrigger ShareCustomGhostButton snapshots matches snapshot with className 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-8 h-40 px-16 text-label-md rounded-button text-black-default hover:bg-black-lighten data-[disabled="true"]:text-black-lighten max-xl:hidden"
+  >
+    <span
+      data-testid="icon-reply"
+    />
+    <span
+      class="text-label-sm font-bold"
+    >
+      Compartir
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - DS-Toolbar - components - shareDesktopTrigger ShareCustomGhostButton snapshots matches snapshot without className 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-8 h-40 px-16 text-label-md rounded-button text-black-default hover:bg-black-lighten data-[disabled="true"]:text-black-lighten"
+  >
+    <span
+      data-testid="icon-reply"
+    />
+    <span
+      class="text-label-sm font-bold"
+    >
+      Compartir
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - DS-Toolbar - components - shareDesktopTrigger ShareDesktopTrigger snapshots matches snapshot in SSR mode 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-8 h-40 px-16 text-label-md rounded-button text-black-default hover:bg-black-lighten data-[disabled="true"]:text-black-lighten max-xl:hidden"
+  >
+    <span
+      data-testid="icon-reply"
+    />
+    <span
+      class="text-label-sm font-bold"
+    >
+      Compartir
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - DS-Toolbar - components - shareDesktopTrigger ShareDesktopTrigger snapshots matches snapshot with dropdown closed 1`] = `
+<DocumentFragment>
+  <div
+    data-open="false"
+    data-testid="dropdown"
+  >
+    <div
+      class="flex max-xl:hidden"
+      data-testid="dropdown-trigger"
+      title="Compartir"
+    >
+      <div
+        class="flex items-center gap-8 h-40 px-16 text-label-md rounded-button text-black-default hover:bg-black-lighten data-[disabled="true"]:text-black-lighten"
+      >
+        <span
+          data-testid="icon-reply"
+        />
+        <span
+          class="text-label-sm font-bold"
+        >
+          Compartir
+        </span>
+      </div>
+    </div>
+    <div
+      data-testid="dropdown-content"
+    >
+      <div
+        class="flex flex-grow mb-12"
+      >
+        <button
+          data-testid="button"
+          title="Cerrar"
+        >
+          <span
+            data-size="16"
+            data-testid="icon-close"
+          />
+        </button>
+      </div>
+      <ul
+        class="flex flex-column gap-20 z-10"
+      >
+        <li>
+          <div
+            class="flex items-center gap-8 text-secondary-default"
+            data-color="custom"
+            data-testid="link"
+          >
+            <span
+              data-size="20"
+              data-testid="icon-file-copy"
+            />
+            <button
+              type="button"
+            >
+              Copiar enlace
+            </button>
+          </div>
+        </li>
+        <li>
+          <div
+            class="flex items-center gap-8"
+            data-color="facebook"
+            data-testid="link"
+          >
+            <span
+              data-size="20"
+              data-testid="icon-facebook"
+            />
+            <button
+              type="button"
+            >
+              Facebook
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - DS-Toolbar - components - shareDesktopTrigger ShareDesktopTrigger snapshots matches snapshot with dropdown open 1`] = `
+<DocumentFragment>
+  <div
+    data-open="true"
+    data-testid="dropdown"
+  >
+    <div
+      class="flex max-xl:hidden"
+      data-testid="dropdown-trigger"
+      title="Compartir"
+    >
+      <div
+        class="flex items-center gap-8 h-40 px-16 text-label-md rounded-button text-black-default hover:bg-black-lighten data-[disabled="true"]:text-black-lighten"
+      >
+        <span
+          data-testid="icon-reply"
+        />
+        <span
+          class="text-label-sm font-bold"
+        >
+          Compartir
+        </span>
+      </div>
+    </div>
+    <div
+      data-testid="dropdown-content"
+    >
+      <div
+        class="flex flex-grow mb-12"
+      >
+        <button
+          data-testid="button"
+          title="Cerrar"
+        >
+          <span
+            data-size="16"
+            data-testid="icon-close"
+          />
+        </button>
+      </div>
+      <ul
+        class="flex flex-column gap-20 z-10"
+      >
+        <li>
+          <div
+            class="flex items-center gap-8 text-secondary-default"
+            data-color="custom"
+            data-testid="link"
+          >
+            <span
+              data-size="20"
+              data-testid="icon-file-copy"
+            />
+            <button
+              type="button"
+            >
+              Copiar enlace
+            </button>
+          </div>
+        </li>
+        <li>
+          <div
+            class="flex items-center gap-8"
+            data-color="facebook"
+            data-testid="link"
+          >
+            <span
+              data-size="20"
+              data-testid="icon-facebook"
+            />
+            <button
+              type="button"
+            >
+              Facebook
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

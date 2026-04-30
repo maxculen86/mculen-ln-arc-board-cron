@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useWindowSize } from '@ln/hooks';
 import { useDrawer } from '@ln/common-ui-drawer';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -9,6 +9,7 @@ import { useNavigationData } from '../../features/foodit-global/common/Header/ho
 import { BannersFoodit } from '../../features/foodit-global/Banners/foodit';
 
 export default function FooditChatIA() {
+    const [searchQuery, setSearchQuery] = useState('');
     const { toggleDrawer } = useDrawer({ id: DRAWER.BUSCADOR });
     const { width } = useWindowSize();
     const isMobile = useMemo(() => width !== 0 && width < 1280, [width]);
@@ -19,8 +20,14 @@ export default function FooditChatIA() {
     return (
         <BaseLayout>
             {BannersFoodit.modal_1x1()}
-            {!hideChatIa && <ChatIaFoodit />}
-            <QuerylySearch isMobile={isMobile} toggleDrawer={toggleDrawer} />
+            {!hideChatIa && (
+                <ChatIaFoodit onSearchTermChange={setSearchQuery} />
+            )}
+            <QuerylySearch
+                isMobile={isMobile}
+                toggleDrawer={toggleDrawer}
+                query={searchQuery}
+            />
         </BaseLayout>
     );
 }

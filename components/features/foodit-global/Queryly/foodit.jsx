@@ -6,13 +6,13 @@ import FilterBox from './_children/filterBox';
 import FloatingButton from './_children/floatingButton';
 import QuerylyContext from './_children/searchContext';
 
-function QuerylySearch({ isMobile, toggleDrawer }) {
+function QuerylySearch({ isMobile, toggleDrawer, query }) {
     const { layout, siteProperties } = useAppContext();
     const { layoutsName = {} } = siteProperties || {};
     const isLayoutChatIa = layout === layoutsName.FooditChatIA;
 
     return (
-        <QuerylyContext>
+        <QuerylyContext dynamicQuery={query}>
             <section
                 id="queryly_advanced_container"
                 className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg relative"

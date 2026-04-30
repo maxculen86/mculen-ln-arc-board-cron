@@ -2,14 +2,14 @@
   "aprende-en-la-cocina": [
     {
       "title": "Tutoriales de cocina salada",
-      "href": "/tema/tutorial-cocina-salada-yixuf3anyvavjkt5tghbolewzq/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada",
+      "href": "/tema/tutorial-cocina-salada/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada",
       "trackingLabel": "tutoriales_de_cocina_salada",
       "src": "tutoriales-salada.webp",
       "classNames": "min-h-100 min-h-80_lg"
     },
     {
       "title": "Tutoriales de pastelería",
-      "href": "/tema/tutorial-pasteler%C3%ADa-qat7qtvzy5dmzd6opl4ap2d2se/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa",
+      "href": "/tema/tutorial-pasteler%C3%ADa/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa",
       "trackingLabel": "tutoriales_de_pasteleria",
       "src": "tutoriales-pasteleria.webp",
       "classNames": "min-h-100 min-h-80_lg"
