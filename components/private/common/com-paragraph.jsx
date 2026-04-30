@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import '../../../resources/dist/css/ln/components/com-paragraph.css';
 
 function ComParagraph({
@@ -7,13 +8,17 @@ function ComParagraph({
     capital = '',
     content,
     classCondition = '',
-    // eslint-disable-next-line no-unused-vars
     alignment = ''
 }) {
-    // TODO Front: aplicar clase de alineado segun alignment ('left' | 'center' | 'right') proveniente de Composer y borrar el eslint-disable de arriba
     return (
         <p
-            className={`com-paragraph ${classCondition} ${capital} ${size}`}
+            className={cx(
+                'com-paragraph',
+                classCondition,
+                capital,
+                size,
+                alignment && `text-${alignment}`
+            )}
             dangerouslySetInnerHTML={{
                 __html: content
             }}

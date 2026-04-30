@@ -43,7 +43,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
         style="min-width: 0;"
       >
         <p
-          class="com-paragraph   --s"
+          class="com-paragraph --s"
         >
           Texto oculto
         </p>
@@ -96,7 +96,7 @@ exports[`Components - layouts - LN-Nota-Liveblog_Editorial - components - body -
         style="min-width: 0;"
       >
         <p
-          class="com-paragraph   --s"
+          class="com-paragraph --s"
         >
           Texto oculto
         </p>

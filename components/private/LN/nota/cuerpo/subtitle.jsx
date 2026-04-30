@@ -20,7 +20,7 @@ const getLegacyHeadingConfig = level => ({
 });
 
 function Subtitle({ data }) {
-    const { level, content } = data;
+    const { level, content, alignment } = data;
 
     const config = getLegacyHeadingConfig(level);
 
@@ -32,6 +32,7 @@ function Subtitle({ data }) {
             content={content}
             weight={config.weight}
             font={config.font}
+            alignment={alignment}
         />
     );
 }

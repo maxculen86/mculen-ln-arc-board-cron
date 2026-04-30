@@ -90,7 +90,7 @@ describe('BuildBody', () => {
         expect(container).toMatchSnapshot();
         /* paragraph */
         expect(container.querySelector(`p`).getAttribute('class')).toEqual(
-            'com-paragraph  --capital --s'
+            'com-paragraph --capital --s'
         );
         expect(
             container.querySelectorAll(`p[class*="com-paragraph"]`)

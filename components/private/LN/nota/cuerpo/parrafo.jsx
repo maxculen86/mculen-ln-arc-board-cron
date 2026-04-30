@@ -10,8 +10,7 @@ function Parrafo(props) {
         size = '--s',
         classCondition = ''
     } = props;
-    const content = data.content || '';
-    const alignment = data.alignment || '';
+    const { content = '', alignment = '' } = data || {};
 
     // eslint-disable-next-line react/jsx-no-useless-fragment
     if (content === '<br/>') return <></>;

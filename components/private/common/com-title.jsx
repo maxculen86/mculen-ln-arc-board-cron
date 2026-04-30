@@ -1,6 +1,6 @@
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import ComLink from './com-link';
-import setClassName from './utils/setClassName';
 import '../../../resources/dist/css/ln/components/com-title.css';
 
 function ComTitle({
@@ -14,19 +14,21 @@ function ComTitle({
     link,
     preTitle = '',
     customTitle = '',
-    style
+    style,
+    alignment
 }) {
     if (!content) return null;
 
     const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
 
-    const classes = setClassName({
-        baseClass: 'com-title',
-        fontFamily: font || '--font-primary',
-        size: size || '--l',
-        weight: weight || '--font-medium',
-        classCondition
-    });
+    const classes = cx(
+        'com-title',
+        font || '--font-primary',
+        size || '--l',
+        weight || '--font-medium',
+        classCondition,
+        alignment && `text-${alignment}`
+    );
 
     const _content = lead ? `${lead} ${content}` : `${content}`;
 

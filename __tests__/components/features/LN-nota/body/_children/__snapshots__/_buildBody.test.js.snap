@@ -3,7 +3,7 @@
 exports[`BuildBody should render all body elements for default 1`] = `
 <div>
   <p
-    class="com-paragraph  --capital --s"
+    class="com-paragraph --capital --s"
   >
     Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu, facilisis mattis imperdiet suscipit sodales pharetra posuere penatibus turpis, fusce viverra metus euismod 
     <strong>
@@ -57,7 +57,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Commodo 
     <a
@@ -153,7 +153,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     , mi sociosqu lectus varius gravida laoreet nam natoque.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Tipo de letra normal
   </p>
@@ -175,7 +175,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Tipo de letra negrita
@@ -199,14 +199,14 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Tipo de letra cursiva
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Tipo de letra subrayado
@@ -230,7 +230,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -256,7 +256,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -265,7 +265,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -291,7 +291,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -302,7 +302,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_red"
@@ -328,7 +328,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -339,7 +339,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -350,7 +350,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -361,7 +361,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_tblue"
@@ -374,7 +374,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_blue"
@@ -387,7 +387,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -400,7 +400,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -415,7 +415,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -429,7 +429,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     en lista ordenada
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -447,7 +447,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -465,7 +465,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -483,7 +483,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -505,7 +505,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -527,7 +527,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -553,7 +553,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -566,7 +566,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </a>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Lista desordenada
@@ -861,7 +861,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -1154,52 +1154,52 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 5.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 6.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 7.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 8.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 9.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 10.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 11.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 12.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 13.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -1209,7 +1209,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     Subtitulo 1
   </h2>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -1232,7 +1232,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     Subtitulo 2
   </h3>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -1288,7 +1288,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     Subtitulo 3
   </h4>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
@@ -1466,12 +1466,12 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo mas largo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista desordenada
   </p>
@@ -1589,7 +1589,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -1755,7 +1755,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un 
     <a
@@ -1770,28 +1770,28 @@ exports[`BuildBody should render all body elements for default 1`] = `
     .
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Esto es italic.
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Esto es bold.
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Esto es underline.
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -1800,7 +1800,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -1809,7 +1809,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Inicio del parrafo en Cursiva. 
@@ -1825,7 +1825,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -1834,7 +1834,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -1845,7 +1845,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -2007,7 +2007,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </div>
   </section>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es otro párrafo.
   </p>
@@ -3434,7 +3434,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
 exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] = `
 <div>
   <p
-    class="com-paragraph  --capital --s"
+    class="com-paragraph --capital --s"
   >
     Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu, facilisis mattis imperdiet suscipit sodales pharetra posuere penatibus turpis, fusce viverra metus euismod 
     <strong>
@@ -3488,7 +3488,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Commodo 
     <a
@@ -3584,7 +3584,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     , mi sociosqu lectus varius gravida laoreet nam natoque.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Tipo de letra normal
   </p>
@@ -3606,7 +3606,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Tipo de letra negrita
@@ -3630,14 +3630,14 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Tipo de letra cursiva
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Tipo de letra subrayado
@@ -3661,7 +3661,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -3687,7 +3687,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -3696,7 +3696,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -3722,7 +3722,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -3733,7 +3733,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_red"
@@ -3759,7 +3759,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -3770,7 +3770,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -3781,7 +3781,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -3792,7 +3792,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_tblue"
@@ -3805,7 +3805,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_blue"
@@ -3818,7 +3818,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -3831,7 +3831,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -3846,7 +3846,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3860,7 +3860,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     en lista ordenada
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3878,7 +3878,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3896,7 +3896,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3914,7 +3914,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3936,7 +3936,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3958,7 +3958,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3984,7 +3984,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -3997,7 +3997,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </a>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Lista desordenada
@@ -4292,7 +4292,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -4585,52 +4585,52 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 5.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 6.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 7.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 8.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 9.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 10.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 11.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 12.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 13.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -4640,7 +4640,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     Subtitulo 1
   </h2>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -4663,7 +4663,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     Subtitulo 2
   </h3>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -4719,7 +4719,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     Subtitulo 3
   </h4>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
@@ -4897,12 +4897,12 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo mas largo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista desordenada
   </p>
@@ -5020,7 +5020,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -5186,7 +5186,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un 
     <a
@@ -5201,28 +5201,28 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     .
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Esto es italic.
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Esto es bold.
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Esto es underline.
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -5231,7 +5231,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -5240,7 +5240,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Inicio del parrafo en Cursiva. 
@@ -5256,7 +5256,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -5265,7 +5265,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -5276,7 +5276,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -5438,7 +5438,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </div>
   </section>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es otro párrafo.
   </p>
@@ -6865,7 +6865,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
 exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] = `
 <div>
   <p
-    class="com-paragraph  --capital --s"
+    class="com-paragraph --capital --s"
   >
     Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu, facilisis mattis imperdiet suscipit sodales pharetra posuere penatibus turpis, fusce viverra metus euismod 
     <strong>
@@ -6919,7 +6919,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Commodo 
     <a
@@ -7015,7 +7015,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     , mi sociosqu lectus varius gravida laoreet nam natoque.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Tipo de letra normal
   </p>
@@ -7037,7 +7037,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Tipo de letra negrita
@@ -7061,14 +7061,14 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Tipo de letra cursiva
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Tipo de letra subrayado
@@ -7092,7 +7092,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -7118,7 +7118,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -7127,7 +7127,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -7153,7 +7153,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -7164,7 +7164,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_red"
@@ -7190,7 +7190,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     />
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -7201,7 +7201,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -7212,7 +7212,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -7223,7 +7223,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_tblue"
@@ -7236,7 +7236,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_blue"
@@ -7249,7 +7249,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -7262,7 +7262,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -7277,7 +7277,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7291,7 +7291,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     en lista ordenada
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7309,7 +7309,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7327,7 +7327,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7345,7 +7345,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7367,7 +7367,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7389,7 +7389,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7415,7 +7415,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <a
       class="com-link break-word"
@@ -7428,7 +7428,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </a>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Lista desordenada
@@ -7723,7 +7723,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -8016,52 +8016,52 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 5.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 6.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 7.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 8.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 9.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 10.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 11.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 12.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Párrafo 13.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -8071,7 +8071,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     Subtitulo 1
   </h2>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -8094,7 +8094,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     Subtitulo 2
   </h3>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
@@ -8150,7 +8150,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     Subtitulo 3
   </h4>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo. Lorem ipsum dolor sit amet, 
     <a
@@ -8328,12 +8328,12 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un párrafo mas largo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista desordenada
   </p>
@@ -8451,7 +8451,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </li>
   </ul>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Lista ordenada
   </p>
@@ -8617,7 +8617,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </section>
   </div>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es un 
     <a
@@ -8632,28 +8632,28 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     .
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Esto es italic.
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <strong>
       Esto es bold.
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       Esto es underline.
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <u>
       <strong>
@@ -8662,7 +8662,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </u>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <strong>
@@ -8671,7 +8671,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       Inicio del parrafo en Cursiva. 
@@ -8687,7 +8687,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </strong>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -8696,7 +8696,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <em>
       <u>
@@ -8707,7 +8707,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     <mark
       class="hl_underline"
@@ -8869,7 +8869,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </div>
   </section>
   <p
-    class="com-paragraph   --s"
+    class="com-paragraph --s"
   >
     Esto es otro párrafo.
   </p>
