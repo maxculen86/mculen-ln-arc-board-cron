@@ -138,3 +138,312 @@ exports[`components - private - common - mod-category Mod category snapshot and 
   </div>
 </div>
 `;
+
+exports[`components - private - common - mod-category SocialNetwork rendering ModCategory - Snapshot with socials 1`] = `
+<DocumentFragment>
+  <div
+    class="mod-categories"
+  >
+    <div
+      class="mod-logo"
+    >
+      <h1>
+        <span>
+          Economía
+        </span>
+        <img
+          alt="Economía"
+          class="com-image "
+          decoding="async"
+          fetchpriority="high"
+          height="150"
+          loading="eager"
+          src="https://sandbox.lanacion.com.ar/mock-www-resized.jpeg"
+          width="200"
+        />
+      </h1>
+    </div>
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute none mb-16 bottom-0 left--16 bg-white --custom"
+      data-variant="custom"
+      id="left-arrow"
+      style="color: rgb(216, 62, 44);"
+      type="button"
+    >
+      <i
+        class="icon"
+      >
+        <mock-icon
+          name="arrowLeft"
+        />
+      </i>
+    </button>
+    <ul
+      class="com-unordered --no-scrollbar  --category --font-primary --l --font-medium"
+    >
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/dolar-hoy/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Dólar hoy"
+        >
+          Dólar hoy
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/economia/indices/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Índices"
+        >
+          Índices
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/economia/campo/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Campo"
+        >
+          Campo
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/economia/negocios/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Negocios"
+        >
+          Negocios
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/tema/emprendedores-tid53673/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Emprendedores"
+        >
+          Emprendedores
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/propiedades/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Propiedades"
+        >
+          Propiedades
+        </a>
+      </li>
+    </ul>
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute none mb-16 bottom-0 right--16 bg-white --custom"
+      data-variant="custom"
+      id="right-arrow"
+      style="color: rgb(216, 62, 44);"
+      type="button"
+    >
+      <i
+        class="icon"
+      >
+        <mock-icon
+          name="arrowRight"
+        />
+      </i>
+    </button>
+    <script
+      async=""
+      id="mod-navigation"
+      type="text/javascript"
+    />
+  </div>
+  <div
+    data-tw="true"
+  >
+    <a
+      data-testid="social-instagram"
+      href="https://instagram.com/lanacion"
+      title="Ir a Instagram"
+    >
+      <span>
+        instagram
+      </span>
+    </a>
+    <a
+      data-testid="social-tiktok"
+      href="https://tiktok.com/@lanacion"
+      title="Ir a TikTok"
+    >
+      <span>
+        tiktok
+      </span>
+    </a>
+    <a
+      data-testid="social-whatsapp"
+      href="https://wa.me/541234567890"
+      title="Ir a WhatsApp"
+    >
+      <span>
+        whatsapp
+      </span>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`components - private - common - mod-category SocialNetwork rendering ModCategory - Snapshot without socials 1`] = `
+<DocumentFragment>
+  <div
+    class="mod-categories"
+  >
+    <div
+      class="mod-logo"
+    >
+      <h1>
+        <span>
+          Economía
+        </span>
+        <img
+          alt="Economía"
+          class="com-image "
+          decoding="async"
+          fetchpriority="high"
+          height="150"
+          loading="eager"
+          src="https://sandbox.lanacion.com.ar/mock-www-resized.jpeg"
+          width="200"
+        />
+      </h1>
+    </div>
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute none mb-16 bottom-0 left--16 bg-white --custom"
+      data-variant="custom"
+      id="left-arrow"
+      style="color: rgb(216, 62, 44);"
+      type="button"
+    >
+      <i
+        class="icon"
+      >
+        <mock-icon
+          name="arrowLeft"
+        />
+      </i>
+    </button>
+    <ul
+      class="com-unordered --no-scrollbar  --category --font-primary --l --font-medium"
+    >
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/dolar-hoy/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Dólar hoy"
+        >
+          Dólar hoy
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/economia/indices/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Índices"
+        >
+          Índices
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/economia/campo/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Campo"
+        >
+          Campo
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/economia/negocios/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Negocios"
+        >
+          Negocios
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="https://www.lanacion.com.ar/tema/emprendedores-tid53673/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Emprendedores"
+        >
+          Emprendedores
+        </a>
+      </li>
+      <li
+        class="item"
+      >
+        <a
+          class="com-link"
+          href="/propiedades/"
+          style="color: rgb(216, 62, 44);"
+          title="Ir a Propiedades"
+        >
+          Propiedades
+        </a>
+      </li>
+    </ul>
+    <button
+      class="button ln-button font-bold border border-thin rounded-4 gap-8 border-transparent absolute none mb-16 bottom-0 right--16 bg-white --custom"
+      data-variant="custom"
+      id="right-arrow"
+      style="color: rgb(216, 62, 44);"
+      type="button"
+    >
+      <i
+        class="icon"
+      >
+        <mock-icon
+          name="arrowRight"
+        />
+      </i>
+    </button>
+    <script
+      async=""
+      id="mod-navigation"
+      type="text/javascript"
+    />
+  </div>
+</DocumentFragment>
+`;

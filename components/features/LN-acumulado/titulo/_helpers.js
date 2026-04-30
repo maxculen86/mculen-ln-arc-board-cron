@@ -1,9 +1,18 @@
 import PropTypes from 'fusion:prop-types';
 
 const SOCIAL_MEDIA = {
-    instagram: 'Instagram',
-    tiktok: 'TikTok',
-    whatsapp: 'WhatsApp'
+    instagram: {
+        label: 'Instagram',
+        icon: 'instagram'
+    },
+    tiktok: {
+        label: 'TikTok',
+        icon: 'tiktok'
+    },
+    whatsapp: {
+        label: 'WhatsApp',
+        icon: 'whatsapp'
+    }
 };
 const SOCIAL_SLOTS = 3;
 
@@ -15,7 +24,7 @@ export const buildSocialCustomFields = () =>
             ...acc,
             [`socialMedia${n}`]: PropTypes.oneOf(Object.keys(SOCIAL_MEDIA)).tag(
                 {
-                    labels: SOCIAL_MEDIA,
+                    labels: SOCIAL_MEDIA.label,
                     label: 'Red Social',
                     group
                 }
@@ -29,6 +38,7 @@ export const buildSocialCustomFields = () =>
 
 export const getSocialsFromCustomFields = (customFields = {}) =>
     Array.from({ length: SOCIAL_SLOTS }, (_, i) => ({
-        socialMedia: customFields[`socialMedia${i + 1}`],
-        link: customFields[`link${i + 1}`]
-    })).filter(({ socialMedia, link }) => socialMedia && link);
+        name: customFields[`socialMedia${i + 1}`],
+        href: customFields[`link${i + 1}`],
+        icon: SOCIAL_MEDIA[customFields[`socialMedia${i + 1}`]]?.icon
+    })).filter(({ name, href, icon }) => name && href && icon);
