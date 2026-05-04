@@ -207,6 +207,10 @@ function SnippetNoticia({
         placeholder: PLACEHOLDER,
         acuOgImg
     });
+    const fallbackReviewImage = schemaImages[0] || {};
+    const reviewImage =
+        get(primaryImageOfPage, 'url', '') ||
+        get(fallbackReviewImage, 'url', '');
 
     const headlineResolved =
         get(headlines, 'basic', '') || 'LA NACION - Noticia';
@@ -283,7 +287,8 @@ function SnippetNoticia({
               headline: headlineResolved,
               author: getReviewAuthor({ authors, hasAuthors }),
               datePublished: datePublishedISO,
-              ratingValue
+              ratingValue,
+              image: reviewImage
           })
         : null;
     return (
