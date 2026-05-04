@@ -32,6 +32,7 @@ function LnRadio({ id: featureId, customFields }) {
                                 src={logoDeploymentPath}
                                 alt="Imagen de radio"
                                 className="h-48 md:h-71"
+                                loading="lazy"
                             />
                             <span className={titleClassname({ variant })}>
                                 El mundo necesita más música

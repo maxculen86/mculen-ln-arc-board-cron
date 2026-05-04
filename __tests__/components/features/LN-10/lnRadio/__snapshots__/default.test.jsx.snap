@@ -18,6 +18,7 @@ exports[`Features - LaNacion - 10 - Radio black background variant should match 
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio-blanco.svg"
             />
             <span
@@ -70,6 +71,7 @@ exports[`Features - LaNacion - 10 - Radio white background variant should match 
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio.svg"
             />
             <span
@@ -122,6 +124,7 @@ exports[`Features - LaNacion - 10 - Radio yellow background variant should match
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio.svg"
             />
             <span
