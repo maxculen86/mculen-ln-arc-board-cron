@@ -27,11 +27,43 @@ jest.mock('../../../../content/sources/utils/replaceUrlResizerToWWW', () =>
     }))
 );
 
+jest.mock(
+    '../../../../components/private/common/social-network',
+    () =>
+        ({ href, icon, name }) => (
+            <a
+                href={href}
+                title={`Ir a ${name}`}
+                data-testid={`social-${icon}`}
+            >
+                <span>{icon}</span>
+            </a>
+        )
+);
+
 describe('components - private - common - mod-category', () => {
     Context.useAppContext = jest.fn(() => ({
         deployment: jest.fn(),
         contextPath: '/pf'
     }));
+
+    const socials = [
+        {
+            name: 'Instagram',
+            href: 'https://instagram.com/lanacion',
+            icon: 'instagram'
+        },
+        {
+            name: 'TikTok',
+            href: 'https://tiktok.com/@lanacion',
+            icon: 'tiktok'
+        },
+        {
+            name: 'WhatsApp',
+            href: 'https://wa.me/541234567890',
+            icon: 'whatsapp'
+        }
+    ];
 
     const props = {
         revista: 'QJFKLBWXHVGUFA3O65BIHPFILA',
@@ -180,6 +212,107 @@ describe('components - private - common - mod-category', () => {
             expect(modCategoriesDiv).toBeInTheDocument();
             expect(modCategoriesDiv).toHaveClass('mod-categories');
             expect(modCategoriesDiv).not.toHaveClass('--no-app');
+        });
+    });
+
+    describe('SocialNetwork rendering', () => {
+        it('should not render social networks when socials is undefined', () => {
+            const propsWithoutSocials = {
+                ...props,
+                socials: undefined
+            };
+
+            const { queryByTestId } = render(
+                <ModCategory {...propsWithoutSocials} />
+            );
+
+            expect(queryByTestId('social-instagram')).not.toBeInTheDocument();
+        });
+
+        it('should not render social networks when socials is empty array', () => {
+            const propsWithEmptySocials = {
+                ...props,
+                socials: []
+            };
+
+            const { queryByTestId } = render(
+                <ModCategory {...propsWithEmptySocials} />
+            );
+
+            expect(queryByTestId('social-instagram')).not.toBeInTheDocument();
+        });
+
+        it('should render single social network (Instagram)', () => {
+            const propsWithSocials = {
+                ...props,
+                socials: [
+                    {
+                        name: 'Instagram',
+                        href: 'https://instagram.com/lanacion',
+                        icon: 'instagram'
+                    }
+                ]
+            };
+
+            const { getByTestId } = render(
+                <ModCategory {...propsWithSocials} />
+            );
+
+            const instagramLink = getByTestId('social-instagram');
+            expect(instagramLink).toBeInTheDocument();
+            expect(instagramLink.getAttribute('href')).toBe(
+                'https://instagram.com/lanacion'
+            );
+            expect(instagramLink.getAttribute('title')).toBe('Ir a Instagram');
+        });
+
+        it('should render multiple social networks (Instagram, TikTok, WhatsApp)', () => {
+            const propsWithSocials = {
+                ...props,
+                socials
+            };
+
+            const { getByTestId } = render(
+                <ModCategory {...propsWithSocials} />
+            );
+
+            const instagramLink = getByTestId('social-instagram');
+            const tiktokLink = getByTestId('social-tiktok');
+            const whatsappLink = getByTestId('social-whatsapp');
+
+            expect(instagramLink).toBeInTheDocument();
+            expect(tiktokLink).toBeInTheDocument();
+            expect(whatsappLink).toBeInTheDocument();
+
+            expect(instagramLink.getAttribute('href')).toBe(
+                'https://instagram.com/lanacion'
+            );
+            expect(instagramLink.getAttribute('title')).toBe('Ir a Instagram');
+
+            expect(tiktokLink.getAttribute('href')).toBe(
+                'https://tiktok.com/@lanacion'
+            );
+            expect(tiktokLink.getAttribute('title')).toBe('Ir a TikTok');
+
+            expect(whatsappLink.getAttribute('href')).toBe(
+                'https://wa.me/541234567890'
+            );
+            expect(whatsappLink.getAttribute('title')).toBe('Ir a WhatsApp');
+        });
+
+        it('ModCategory - Snapshot with socials', () => {
+            const propsWithSocials = {
+                ...props,
+                socials
+            };
+            const { asFragment } = render(
+                <ModCategory {...propsWithSocials} />
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
+        it('ModCategory - Snapshot without socials', () => {
+            const { asFragment } = render(<ModCategory {...props} />);
+            expect(asFragment()).toMatchSnapshot();
         });
     });
 });
