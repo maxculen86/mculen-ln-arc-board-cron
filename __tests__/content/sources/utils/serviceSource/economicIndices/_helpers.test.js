@@ -99,12 +99,63 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
         it('should return positive span for positive values', () => {
             const result = formatVariation(5.5);
-            expect(result).toBe('<span class="index-positive">5.5 %</span>');
+            expect(result).toBe(
+                '<span class="index-arrow-up index-positive">5.5 %</span>'
+            );
         });
 
         it('should return negative span for negative values', () => {
             const result = formatVariation(-3.2);
-            expect(result).toBe('<span class="index-negative">3.2 %</span>');
+            expect(result).toBe(
+                '<span class="index-arrow-down index-negative">3.2 %</span>'
+            );
+        });
+
+        it('should return negative class for positive value with riesgo-pais tableType', () => {
+            const result = formatVariation(5.5, 'riesgo-pais');
+            expect(result).toContain('index-arrow-up');
+            expect(result).toContain('index-negative');
+            expect(result).toContain('5.5 %');
+        });
+
+        it('should return positive class for negative value with riesgo-pais tableType', () => {
+            const result = formatVariation(-3.2, 'riesgo-pais');
+            expect(result).toContain('index-arrow-down');
+            expect(result).toContain('index-positive');
+            expect(result).toContain('3.2 %');
+        });
+
+        it('should return neutral class for zero with riesgo-pais tableType', () => {
+            const result = formatVariation(0, 'riesgo-pais');
+            expect(result).toBe('<span class="index-neutral">0.0 %</span>');
+        });
+
+        it('should return positive span for positive value with empty tableType', () => {
+            const result = formatVariation(5.5, '');
+            expect(result).toBe(
+                '<span class="index-arrow-up index-positive">5.5 %</span>'
+            );
+        });
+
+        it('should return negative span for negative value with null tableType', () => {
+            const result = formatVariation(-3.2, null);
+            expect(result).toBe(
+                '<span class="index-arrow-down index-negative">3.2 %</span>'
+            );
+        });
+
+        it('should return positive span for positive value with undefined tableType', () => {
+            const result = formatVariation(5.5, undefined);
+            expect(result).toBe(
+                '<span class="index-arrow-up index-positive">5.5 %</span>'
+            );
+        });
+
+        it('should return negative span for negative value with invalid tableType', () => {
+            const result = formatVariation(-3.2, 'invalid');
+            expect(result).toBe(
+                '<span class="index-arrow-down index-negative">3.2 %</span>'
+            );
         });
     });
 

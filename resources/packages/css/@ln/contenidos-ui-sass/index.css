@@ -4010,6 +4010,14 @@ strong:not(.--font-primary),
   text-align: start;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
 @media (min-width: 48rem) {
   .text-start_m {
     text-align: start;
@@ -5521,17 +5529,23 @@ body:has(.disable-body-scroll) {
 .index-positive {
   color: var(--success-default);
 }
-.index-positive::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="%2300a06a" fill-rule="evenodd" d="m12 10.828-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z" clip-rule="evenodd"/></svg>');
-}
 
 .index-negative {
   color: var(--error-default);
 }
-.index-negative::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="%23e3313b" fill-rule="evenodd" d="M12.364 12.95 17.314 8l1.414 1.414-6.364 6.364L6 9.414 7.414 8z" clip-rule="evenodd"/></svg>');
-}
 
 .index-neutral::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="%23333" d="M7 8.5h11v2H7zM7 13.5h11v2H7z"/></svg>');
+}
+
+.index-arrow-down::before {
+  background-color: currentColor;
+  -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12.364 12.95 17.314 8l1.414 1.414-6.364 6.364L6 9.414 7.414 8z" clip-rule="evenodd"/></svg>') center no-repeat;
+          mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12.364 12.95 17.314 8l1.414 1.414-6.364 6.364L6 9.414 7.414 8z" clip-rule="evenodd"/></svg>') center no-repeat;
+}
+
+.index-arrow-up::before {
+  background-color: currentColor;
+  -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m12 10.828-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z" clip-rule="evenodd"/></svg>') center no-repeat;
+          mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m12 10.828-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z" clip-rule="evenodd"/></svg>') center no-repeat;
 }
