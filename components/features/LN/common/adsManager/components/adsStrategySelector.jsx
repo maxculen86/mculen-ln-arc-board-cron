@@ -6,7 +6,8 @@ import isAllowedSection from '../../../../../private/LN/common/utils/isAllowedSe
 
 const listOfAllowedSection = [
     { section: '/salud' },
-    { section: '/estados-unidos' }
+    { section: '/ciencia' },
+    { section: '/tecnologia' }
 ];
 // TODO: Una vez que se migren todas las secciones, eliminar el isAllowedSection y mostrar siempre AdsManager
 function AdsStrategySelector() {
