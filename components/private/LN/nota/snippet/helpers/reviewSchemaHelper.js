@@ -39,10 +39,13 @@ export const getReviewSchemaData = ({
     headline,
     author,
     datePublished,
-    ratingValue
+    ratingValue,
+    image
 }) => {
     const itemType = getReviewItemType(canonicalUrl);
     if (!itemType) return null;
+
+    const imageUrl = isValidString(image) ? image.trim() : '';
 
     return {
         '@context': 'https://schema.org',
@@ -57,7 +60,8 @@ export const getReviewSchemaData = ({
                 datePublished,
                 itemReviewed: {
                     '@type': itemType,
-                    name: headline
+                    name: headline,
+                    ...(imageUrl && { image: imageUrl })
                 },
                 reviewRating: {
                     '@type': 'Rating',
