@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN-Private-Common-ComLinkList with a filled list matches snapshot 1`] = `
+<div>
+  <ul
+    class="com-unordered --no-scrollbar"
+  >
+    <li
+      class="item"
+    >
+      <a
+        class="com-link"
+        href="http://www.google.com"
+        rel="nofollow"
+        target="_blank"
+        title="LN Link Custom"
+      >
+        LN Link Custom
+      </a>
+    </li>
+    <li
+      class="item"
+    >
+      <a
+        class="com-link"
+        href="/revista-ohlala"
+        target=""
+        title="OHLALA"
+      >
+        OHLALA
+      </a>
+    </li>
+  </ul>
+</div>
+`;
