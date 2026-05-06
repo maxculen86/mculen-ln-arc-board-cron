@@ -40,7 +40,7 @@ function AperturaNoticia(props) {
                         withZoom="--zoom"
                         idMedia={idMedia}
                         scriptForZoom={scriptForZoom}
-                        autoplay={false}
+                        hasAutoplay
                         isApertura
                         isAperturaNota
                         outputType={outputType}

@@ -3,9 +3,18 @@ import Context from 'fusion:context';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Media from '../../../../components/private/LN/common/media';
+import VideoPlayerJW from '../../../../components/private/common/videoPlayerJw';
 import image from '../../../../__mocks__/data/images/OTTprogramImage.json';
 import { getEpigrafe } from '../../../../components/private/LN/common/utils/mediaHelper';
 import EpigrafeAndCreditsData from '../../../../components/private/common/utils/epigrafeAndCreditsData';
+
+jest.mock('../../../../components/private/common/videoPlayerJw', () => {
+    const React = require('react');
+
+    return jest.fn(() =>
+        React.createElement('div', { 'data-testid': 'video-player-jw' })
+    );
+});
 
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn(() => ({
@@ -14,6 +23,10 @@ jest.mock('fusion:context', () => ({
 }));
 
 describe('Private - LN - Common - Media', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('Dibuja el tag loading lazy', () => {
         const { container } = render(
             <Media
@@ -136,6 +149,22 @@ describe('Private - LN - Common - Media', () => {
         expect(EpigrafeAndCreditsData(basicImage)).toEqual('Mariano Grondona');
         expect(EpigrafeAndCreditsData(basivVideo.promo_items.basic)).toEqual(
             'Shutterstock'
+        );
+    });
+
+    it('should not force autoplay for video_jw by default', () => {
+        render(
+            <Media
+                mediaData={{ type: 'video_jw', _id: 'aomrvRI3' }}
+                outputType="default"
+            />
+        );
+
+        expect(screen.getByTestId('video-player-jw')).toBeInTheDocument();
+        expect(VideoPlayerJW.mock.calls[0][0]).toEqual(
+            expect.objectContaining({
+                hasAutoplay: false
+            })
         );
     });
 });
