@@ -675,6 +675,7 @@ export default `
         units
         url
         content,
+        alignment,
         numeric_rating,
         units,
         additional_properties {
