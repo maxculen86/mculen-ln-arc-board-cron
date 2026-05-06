@@ -12,7 +12,8 @@ export function CardNewsletter({
     badge,
     image,
     id,
-    suscribed
+    suscribed,
+    category
 }) {
     const { isSubscribed } = useGetUserConfig();
 
@@ -47,9 +48,15 @@ export function CardNewsletter({
                         <NewsletterSubscriptionButton
                             id={id}
                             suscribed={suscribed}
+                            title={title}
+                            category={category}
                         />
                     ) : (
-                        <NewsletterSelectionButton id={id} title={title} />
+                        <NewsletterSelectionButton
+                            id={id}
+                            title={title}
+                            category={category}
+                        />
                     )}
                 </div>
             </div>

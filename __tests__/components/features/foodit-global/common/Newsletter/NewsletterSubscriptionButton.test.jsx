@@ -54,6 +54,14 @@ jest.mock(
     })
 );
 
+const mockAddEventToDataLayerV2 = jest.fn();
+jest.mock(
+    '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: (...args) => mockAddEventToDataLayerV2(...args)
+    })
+);
+
 describe('NewsletterSubscriptionButton', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -163,6 +171,49 @@ describe('NewsletterSubscriptionButton', () => {
 
         expect(screen.getByText('Recibir newsletter')).toBeInTheDocument();
         expect(mockAddToast).not.toHaveBeenCalled();
+    });
+
+    it('dispatches dataLayer event when subscribing successfully', async () => {
+        mockPostNewsletter.mockResolvedValueOnce({ ok: true });
+        render(
+            <NewsletterSubscriptionButton
+                id={243}
+                suscribed={false}
+                title="Planificá tu semana"
+                category="nota"
+            />
+        );
+
+        fireEvent.click(screen.getByTestId('action-button'));
+
+        await waitFor(() => {
+            expect(mockAddEventToDataLayerV2).toHaveBeenCalledWith({
+                event: 'e_linkclick',
+                action: 'newsletter',
+                category: 'nota',
+                label: 'Planificá tu semana'
+            });
+        });
+    });
+
+    it('does not dispatch dataLayer event when unsubscribing', async () => {
+        mockPostNewsletter.mockResolvedValueOnce({ ok: true });
+        render(
+            <NewsletterSubscriptionButton
+                id={243}
+                suscribed
+                title="Planificá tu semana"
+                category="nota"
+            />
+        );
+
+        fireEvent.click(screen.getByTestId('action-button'));
+
+        await waitFor(() => {
+            expect(mockPostNewsletter).toHaveBeenCalled();
+        });
+
+        expect(mockAddEventToDataLayerV2).not.toHaveBeenCalled();
     });
 
     it('shows error toast when postNewsletter throws', async () => {
