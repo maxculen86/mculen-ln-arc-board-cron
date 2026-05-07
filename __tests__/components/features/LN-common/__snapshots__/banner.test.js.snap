@@ -6,7 +6,7 @@ exports[`common - utils - bannerHelper getBannerConfiguration => Deberia traer l
   "baseElement": <body>
     <div>
       <div
-        class="ln-banner-container --adhesion_mob --fixed --close none "
+        class="ln-banner-container --no-app --adhesion_mob --fixed --close none "
       >
         <div
           class="ln-banner"
@@ -49,7 +49,7 @@ exports[`common - utils - bannerHelper getBannerConfiguration => Deberia traer l
   </body>,
   "container": <div>
     <div
-      class="ln-banner-container --adhesion_mob --fixed --close none "
+      class="ln-banner-container --no-app --adhesion_mob --fixed --close none "
     >
       <div
         class="ln-banner"
@@ -149,7 +149,7 @@ exports[`common - utils - bannerHelper getBannerConfiguration => Deberia traer l
   "baseElement": <body>
     <div>
       <div
-        class="ln-banner-container --cabezal_dsk --sticky  --no-app"
+        class="ln-banner-container --no-app --cabezal_dsk --sticky "
       >
         <div
           class="ln-banner"
@@ -176,7 +176,7 @@ exports[`common - utils - bannerHelper getBannerConfiguration => Deberia traer l
   </body>,
   "container": <div>
     <div
-      class="ln-banner-container --cabezal_dsk --sticky  --no-app"
+      class="ln-banner-container --no-app --cabezal_dsk --sticky "
     >
       <div
         class="ln-banner"

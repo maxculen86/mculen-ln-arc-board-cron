@@ -40,4 +40,21 @@ describe('components - features - ui - ln - banner', () => {
         expect(bannerDiv).toHaveAttribute('data-prebid-enabled', 'true');
         expect(bannerDiv).toHaveAttribute('data-subscription', 'false');
     });
+
+    it('always renders --no-app class on the wrapper element', () => {
+        const globalContent = {
+            subtype: '3'
+        };
+        const bannerConfiguration = createDynamicBannerConfig(
+            globalContent,
+            'desktop',
+            1
+        );
+
+        const { container } = render(
+            <Banner bannerConfiguration={bannerConfiguration} />
+        );
+
+        expect(container.firstChild).toHaveClass('--no-app');
+    });
 });
