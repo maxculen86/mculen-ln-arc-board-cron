@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from '@ln/ds-common-divider';
-import ImageUI from '../../../../../features/ui/ln/image/default';
+import OpeningMedia from './OpeningMedia';
 import OpeningAddons from './OpeningAddons';
 import OpeningTitles from './OpeningTitles';
 
@@ -11,6 +11,8 @@ function OpeningImagePanoramic({
     width,
     height,
     altText,
+    videoUrl,
+    posterUrl,
     globalContent = {},
     layout = '',
     title1 = '',
@@ -23,25 +25,22 @@ function OpeningImagePanoramic({
 
     return (
         <>
-            {src && (
+            {(videoUrl || src) && (
                 <div
                     className="w-screen overflow-hidden relative left-1/2 -translate-x-1/2"
                     data-diagram={dataDiagram}
                 >
-                    <div className="w-full min-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56">
-                        <ImageUI
-                            alt={altText}
+                    <div className="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56">
+                        <OpeningMedia
+                            videoUrl={videoUrl}
+                            posterUrl={posterUrl}
                             src={src}
-                            srcSet={srcset}
+                            srcset={srcset}
                             sizes={sizes}
                             width={width}
                             height={height}
-                            className="object-cover opacity-60"
-                            renderImgOnly
-                            fetchPriority="high"
-                            loading="eager"
+                            altText={altText}
                         />
-                        <div className="absolute inset-0 bg-black-dark -z-1" />
                     </div>
                 </div>
             )}

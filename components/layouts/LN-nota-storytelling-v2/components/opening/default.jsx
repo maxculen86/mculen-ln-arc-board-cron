@@ -21,6 +21,8 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         width,
         height,
         altText,
+        videoUrl,
+        posterUrl,
         diagram = DEFAULT_DIAGRAM
     } = getOpeningMediaData(promoItems, title1);
 
@@ -32,6 +34,8 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         width,
         height,
         altText,
+        videoUrl,
+        posterUrl,
         globalContent,
         layout,
         title1,

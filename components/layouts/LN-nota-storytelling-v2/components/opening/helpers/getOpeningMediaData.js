@@ -2,6 +2,7 @@ import get from '../../../../../private/common/utils/get';
 import { buildOpeningImage } from '../../../../../private/LN/common/utils/openingImageHelper';
 import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
 import getOpeningResizedUrls from './getOpeningResizedUrls';
+import { getVideoData } from '../../../../../features/private-global/common/utils/getVideoData';
 
 const resolveAltText = ({ mobile, desktop, headline }) =>
     mobile.caption ||
@@ -38,13 +39,21 @@ export const buildStorytellingOpeningImage = (
 };
 
 const getOpeningMediaData = (promoItems = {}, headline = '') => {
-    const openingImage =
-        buildStorytellingOpeningImage(promoItems, headline) || {};
     const diagram = get(
         promoItems,
         'custom_storytelling_opening.embed.config.diagram',
         'image-100-title-below'
     );
+
+    const videoJw = get(promoItems, 'video_jw', null);
+
+    if (videoJw) {
+        const { videoUrl, posterUrl } = getVideoData(videoJw);
+        return { videoUrl, posterUrl, diagram };
+    }
+
+    const openingImage =
+        buildStorytellingOpeningImage(promoItems, headline) || {};
 
     return {
         src: openingImage.src,

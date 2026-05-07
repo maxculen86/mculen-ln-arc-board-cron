@@ -7,10 +7,10 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
     data-diagram="image-panoramic"
   >
     <div
-      class="w-full min-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
+      class="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
     >
       <img
-        class="object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -19,9 +19,6 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
         src="https://example.com/image.jpg"
         srcset="https://example.com/image.jpg 1200w"
         width="1200"
-      />
-      <div
-        class="absolute inset-0 bg-black-dark -z-1"
       />
     </div>
   </div>
@@ -61,11 +58,11 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
     data-diagram="image-panoramic"
   >
     <div
-      class="w-full min-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
+      class="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
     >
       <img
         alt="Panoramic image"
-        class="object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -74,9 +71,6 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
         src="image-panoramic.jpg"
         srcset="image-small.jpg 500w, image-large.jpg 1024w"
         width="1024"
-      />
-      <div
-        class="absolute inset-0 bg-black-dark -z-1"
       />
     </div>
   </div>
@@ -165,11 +159,11 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
     data-diagram="image-panoramic"
   >
     <div
-      class="w-full min-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
+      class="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
     >
       <img
         alt="Panoramic image"
-        class="object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -178,9 +172,6 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
         src="image-panoramic.jpg"
         srcset="image-small.jpg 500w, image-large.jpg 1024w"
         width="1024"
-      />
-      <div
-        class="absolute inset-0 bg-black-dark -z-1"
       />
     </div>
   </div>

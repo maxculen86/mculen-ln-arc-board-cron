@@ -26,7 +26,7 @@ exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none"
+      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
         class="w-full h-full object-cover opacity-60"
@@ -82,7 +82,7 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none"
+      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
         alt="Alt de prueba"
@@ -142,6 +142,9 @@ exports[`OpeningImage50 snapshots snapshot without image 1`] = `
         </p>
       </div>
     </div>
+    <div
+      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
+    />
   </div>
 </section>
 `;
@@ -183,7 +186,7 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none"
+      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
         alt="Alt de prueba"
