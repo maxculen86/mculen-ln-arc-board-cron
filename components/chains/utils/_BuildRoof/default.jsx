@@ -7,6 +7,7 @@ import hasDataRoof from './_helper/hasDataRoof';
 import { CHAIN_STYLE, VERTICALS } from '../common/_helpers-WebApi';
 import { getAssetsLeft, getAssetsRight } from './_helper/assets';
 import { targetUrlRedirect } from '../targetUrlRedirect';
+import resolveButtonLogo from './_helper/resolveButtonLogo';
 
 export default function BuildRoof(props) {
     const {
@@ -64,6 +65,8 @@ export default function BuildRoof(props) {
         assets: !hideArrow ? getAssetsLeft : null
     };
 
+    const resolvedButtonLogo = resolveButtonLogo({ buttonLogo, isFoodit });
+
     const propsRight = hasDataRoof({ chainStyle }) && {
         navData: links
             ? links.map(item => ({
@@ -71,7 +74,7 @@ export default function BuildRoof(props) {
                   target: targetUrlRedirect(item.href)
               }))
             : [],
-        buttonLogo: isFoodit ? '' : buttonLogo,
+        buttonLogo: resolvedButtonLogo,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
         hrefButton: linkButton,

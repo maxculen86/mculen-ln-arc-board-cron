@@ -152,7 +152,8 @@ function SnippetNoticia({
     deployment
 }) {
     const { type } = globalContent;
-    const { promo_items: promoItems } = addRelatedImage(globalContent);
+    const { promo_items: promoItems, acuOgImg = {} } =
+        addRelatedImage(globalContent);
     if (type !== 'story') return null;
 
     const {
@@ -203,8 +204,13 @@ function SnippetNoticia({
     });
     const primaryImageOfPage = buildPrimaryImageOfPage({
         basicImage: get(promoItems, 'basic', {}),
-        placeholder: PLACEHOLDER
+        placeholder: PLACEHOLDER,
+        acuOgImg
     });
+    const fallbackReviewImage = schemaImages[0] || {};
+    const reviewImage =
+        get(primaryImageOfPage, 'url', '') ||
+        get(fallbackReviewImage, 'url', '');
 
     const headlineResolved =
         get(headlines, 'basic', '') || 'LA NACION - Noticia';
@@ -281,7 +287,8 @@ function SnippetNoticia({
               headline: headlineResolved,
               author: getReviewAuthor({ authors, hasAuthors }),
               datePublished: datePublishedISO,
-              ratingValue
+              ratingValue,
+              image: reviewImage
           })
         : null;
     return (

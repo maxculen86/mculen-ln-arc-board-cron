@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuUser snapshots should match snapshot when LOGGED 1`] = `
+<div>
+  <div
+    class="max-lg:hidden flex h-40"
+  >
+    <div
+      data-testid="dropdown"
+    >
+      <div
+        data-testid="dropdown-trigger"
+      >
+        <div
+          data-testid="avatar"
+        />
+        <span
+          data-testid="icon-arrow-down"
+        />
+      </div>
+      <div
+        class="bg-neutral-1 w-full rounded-4 p-12 text-14 outline-none z-1"
+        data-testid="dropdown-content"
+        data-theme="light"
+      >
+        <nav>
+          <ul
+            class="flex flex-col"
+          >
+            <li
+              class="hover:bg-[#e7f0ff] rounded-4"
+            >
+              <a
+                class="p-12 w-full"
+                href="/mis-notas/"
+                target="_self"
+              >
+                Mis notas
+              </a>
+            </li>
+            <li
+              class="hover:bg-[#e7f0ff] rounded-4"
+            >
+              <a
+                class="p-12 w-full"
+                href="/mi-cuenta/"
+                target="_self"
+              >
+                Mi cuenta
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr
+          data-testid="divider"
+        />
+        <a
+          class="text-error-default hover:bg-[#e7f0ff] rounded-4 p-12 w-full"
+          title="Cerrar sesión"
+        >
+          <button
+            type="button"
+          >
+            Cerrar sesión
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuUser snapshots should match snapshot when SUBSCRIBED 1`] = `
+<div>
+  <div
+    class="max-lg:hidden flex h-40"
+  >
+    <div
+      data-testid="dropdown"
+    >
+      <div
+        data-testid="dropdown-trigger"
+      >
+        <div
+          data-testid="avatar"
+        />
+        <span
+          data-testid="icon-arrow-down"
+        />
+      </div>
+      <div
+        class="bg-neutral-1 w-full rounded-4 p-12 text-14 outline-none z-1"
+        data-testid="dropdown-content"
+        data-theme="light"
+      >
+        <nav>
+          <ul
+            class="flex flex-col"
+          >
+            <li
+              class="hover:bg-[#e7f0ff] rounded-4"
+            >
+              <a
+                class="p-12 w-full"
+                href="/mis-notas/"
+                target="_self"
+              >
+                Mis notas
+              </a>
+            </li>
+            <li
+              class="hover:bg-[#e7f0ff] rounded-4"
+            >
+              <a
+                class="p-12 w-full"
+                href="/mi-cuenta/"
+                target="_self"
+              >
+                Mi cuenta
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr
+          data-testid="divider"
+        />
+        <a
+          class="text-error-default hover:bg-[#e7f0ff] rounded-4 p-12 w-full"
+          title="Cerrar sesión"
+        >
+          <button
+            type="button"
+          >
+            Cerrar sesión
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MenuUser snapshots should match snapshot when UNLOGGED 1`] = `<div />`;

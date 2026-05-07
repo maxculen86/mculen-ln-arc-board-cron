@@ -2,11 +2,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
-import Title from '../../private/LN/acumulado/acumuladoTitle';
-import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
+import Title from '../../../private/LN/acumulado/acumuladoTitle';
+import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
+import {
+    buildSocialCustomFields,
+    getSocialsFromCustomFields
+} from './_helpers';
 
 function TitleFeature(props) {
-    const { id: featureId = '' } = props;
+    const { id: featureId = '', customFields } = props;
     const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
     const {
         hidesectionslist = 'false',
@@ -14,7 +18,6 @@ function TitleFeature(props) {
     } = acumuladoGeneral || {};
     const { id_logo_image: idLogoImage, navigation_color: navigationColor } =
         acumuladoColor || {};
-
     const Component = (
         <Title
             hideCategories={hidesectionslist}
@@ -22,6 +25,7 @@ function TitleFeature(props) {
             colorCategory={navigationColor}
             colorTags={navigationColor}
             idLogoImage={idLogoImage}
+            socials={getSocialsFromCustomFields(customFields)}
             {...props}
         />
     );
@@ -38,7 +42,8 @@ TitleFeature.propTypes = {
         replaceTitle: PropTypes.string.tag({
             label: 'Reemplazar titulo',
             defaultValue: undefined
-        })
+        }),
+        ...buildSocialCustomFields()
     }).isRequired
 };
 

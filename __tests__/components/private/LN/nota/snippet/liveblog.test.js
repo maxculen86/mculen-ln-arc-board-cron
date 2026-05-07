@@ -207,7 +207,7 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         );
     });
 
-    test('Should use the default location when the label is empty', () => {
+    test('Should not include location in the LiveBlog schema when the label is empty', () => {
         const propsWithoutLocation = {
             ...baseProps,
             globalContent: {
@@ -225,10 +225,15 @@ describe('Schema LiveBlogPosting - SnippetLiveblog', () => {
         const schemaScript = document.getElementById('Schema_LiveBlog');
         const jsonData = JSON.parse(schemaScript.textContent);
 
-        expect(jsonData.about.location.address.addressRegion).toBe('AR');
-        expect(jsonData.about.location.address.addressLocality).toBe(
-            'Buenos Aires'
-        );
+        expect(jsonData.about).not.toHaveProperty('location');
+    });
+
+    test('Should not include location in the LiveBlog schema when the location label is missing', () => {
+        render(<SnippetLiveblog {...baseProps} />);
+        const schemaScript = document.getElementById('Schema_LiveBlog');
+        const jsonData = JSON.parse(schemaScript.textContent);
+
+        expect(jsonData.about).not.toHaveProperty('location');
     });
 
     test('Should use the single author fallback headline when the post title is empty', () => {

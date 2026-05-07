@@ -32,6 +32,7 @@ function LnRadio({ id: featureId, customFields }) {
                                 src={logoDeploymentPath}
                                 alt="Imagen de radio"
                                 className="h-48 md:h-71"
+                                loading="lazy"
                             />
                             <span className={titleClassname({ variant })}>
                                 El mundo necesita más música
@@ -42,18 +43,23 @@ function LnRadio({ id: featureId, customFields }) {
                             className={buttonClassname({ variant })}
                             textTransform="uppercase"
                             variant="ghost"
-                            href="https://masmusica.lanacion.com.ar/"
-                            target="_blank"
                             rounded="custom"
                             color="custom"
                             size="custom"
+                            asChild
                         >
-                            Escuchá + música
-                            <Icon
-                                size={20}
-                                className="hidden md:block"
-                                name="play-filled"
-                            />
+                            <a
+                                href="https://masmusica.lanacion.com.ar/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Escuchá + música
+                                <Icon
+                                    size={20}
+                                    className="hidden md:block"
+                                    name="play-filled"
+                                />
+                            </a>
                         </Button>
                     </div>
                     <Divider />

@@ -3,7 +3,7 @@ import Paragraph from '../../../ui/ln/paragraph/default';
 import { WrapperBody } from '../wrapperBody/default';
 
 function Text({ data = {}, capital = false, className = '' } = {}) {
-    const { content = '' } = data;
+    const { content = '', alignment = '' } = data;
 
     if (content === '<br/>') return null;
 
@@ -13,6 +13,7 @@ function Text({ data = {}, capital = false, className = '' } = {}) {
                 content={content}
                 capital={capital}
                 className={className}
+                alignment={alignment}
             />
         </WrapperBody>
     );

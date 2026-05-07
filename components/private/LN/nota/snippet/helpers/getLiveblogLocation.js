@@ -1,19 +1,14 @@
 import get from '../../../../common/utils/get';
 
-const DEFAULT_LOCATION = {
-    addressLocality: 'Buenos Aires',
-    addressRegion: 'AR'
-};
-
 const getLiveblogLocation = globalContent => {
     const rawLocation = get(globalContent, 'label.location.text', '').trim();
 
-    if (!rawLocation) return DEFAULT_LOCATION;
+    if (!rawLocation) return undefined;
 
     const [addressRegion = '', addressLocality = ''] =
         rawLocation.split(/\s*[|>]\s*/);
 
-    if (!addressRegion || !addressLocality) return DEFAULT_LOCATION;
+    if (!addressRegion || !addressLocality) return undefined;
 
     return {
         addressLocality,
@@ -21,4 +16,4 @@ const getLiveblogLocation = globalContent => {
     };
 };
 
-export { DEFAULT_LOCATION, getLiveblogLocation };
+export { getLiveblogLocation };

@@ -1,5 +1,11 @@
 import getOpeningMode from '../../../../../../../../components/private/LN/api/common/elements/label/openingMode';
-import { LIVEBLOG_EDITORIAL, HTMLLIBRE, RECETA, VIDEOAL100 } from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import {
+    CARDS,
+    LIVEBLOG_EDITORIAL,
+    HTMLLIBRE,
+    RECETA,
+    VIDEOAL100
+} from '../../../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('components - private - LN - api - common - elements - label - openingMode', () => {
     describe('getOpeningMode function test', () => {
@@ -85,7 +91,8 @@ describe('components - private - LN - api - common - elements - label - openingM
             { name: 'LIVEBLOG_EDITORIAL', value: LIVEBLOG_EDITORIAL },
             { name: 'HTMLLIBRE', value: HTMLLIBRE },
             { name: 'RECETA', value: RECETA },
-            { name: 'VIDEOAL100', value: VIDEOAL100 }
+            { name: 'VIDEOAL100', value: VIDEOAL100 },
+            { name: 'CARDS', value: CARDS }
         ];
 
         test.each(HARDCODED_SUBTYPES)(
@@ -114,5 +121,4 @@ describe('components - private - LN - api - common - elements - label - openingM
             }
         );
     });
-
 });

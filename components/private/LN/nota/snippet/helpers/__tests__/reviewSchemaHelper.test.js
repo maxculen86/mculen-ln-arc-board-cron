@@ -15,9 +15,13 @@ const baseReviewData = {
     ratingValue: 4
 };
 
+const reviewImage =
+    'https://www.lanacion.com.ar/resizer/v2/IF63X2J3BJDMFFOA7UW4XWCGLA.png?auth=07dad78ceae2be1a021893b30431541eb4840d371741624b27d39911b0750fb9&width=1200&height=800&quality=70&smart=true';
+
 const getReviewData = canonicalUrl =>
     getReviewSchemaData({
         ...baseReviewData,
+        image: reviewImage,
         canonicalUrl
     });
 
@@ -32,7 +36,8 @@ describe('reviewSchemaHelper', () => {
 
             expect(getItemReviewed(canonicalUrl)).toEqual({
                 '@type': 'Movie',
-                name: baseReviewData.headline
+                name: baseReviewData.headline,
+                image: reviewImage
             });
         });
 
@@ -42,7 +47,8 @@ describe('reviewSchemaHelper', () => {
 
             expect(getItemReviewed(canonicalUrl)).toEqual({
                 '@type': 'TVSeries',
-                name: baseReviewData.headline
+                name: baseReviewData.headline,
+                image: reviewImage
             });
         });
 

@@ -1,9 +1,9 @@
-import { cva } from '@ln/cva';
+import { cva } from '@ln/ds-cva';
 
 export const sectionVariants = cva('flex', {
     variants: {
         section: {
-            'pre-apertura': 'lay-container',
+            'pre-apertura': 'lay-container pl-8',
             apertura: 'w-100 max-w-1366 -mt-16 mx-auto p-0'
         }
     },

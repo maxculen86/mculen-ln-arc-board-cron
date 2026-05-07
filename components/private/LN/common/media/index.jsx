@@ -32,7 +32,9 @@ function Media({
     insideBody,
     withMobileImage,
     searchableField,
-    authors
+    authors,
+    hasAutoplay,
+    autoplay
 }) {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -66,6 +68,7 @@ function Media({
             : () => {
                   // This is intentional
               };
+    const videoHasAutoplay = Boolean(hasAutoplay ?? autoplay);
 
     if (mediaData) {
         const mediaTypeComponents = {
@@ -110,7 +113,7 @@ function Media({
                     data={mediaData}
                     parrafo={parrafo}
                     tituloNota={tituloNota}
-                    hasAutoplay
+                    hasAutoplay={videoHasAutoplay}
                 />
             )
         };

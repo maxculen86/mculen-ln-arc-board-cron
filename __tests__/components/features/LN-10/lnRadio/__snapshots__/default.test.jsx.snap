@@ -18,6 +18,7 @@ exports[`Features - LaNacion - 10 - Radio black background variant should match 
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio-blanco.svg"
             />
             <span
@@ -26,10 +27,11 @@ exports[`Features - LaNacion - 10 - Radio black background variant should match 
               El mundo necesita más música
             </span>
           </div>
-          <button
+          <a
             class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-[#D6E903] text-base-default"
             data-disabled="false"
             href="https://masmusica.lanacion.com.ar/"
+            rel="noreferrer"
             target="_blank"
             title="Ir a escuchar más música"
           >
@@ -39,7 +41,7 @@ exports[`Features - LaNacion - 10 - Radio black background variant should match 
               name="play-filled"
               size="20"
             />
-          </button>
+          </a>
         </div>
         <hr
           aria-orientation="horizontal"
@@ -70,6 +72,7 @@ exports[`Features - LaNacion - 10 - Radio white background variant should match 
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio.svg"
             />
             <span
@@ -78,10 +81,11 @@ exports[`Features - LaNacion - 10 - Radio white background variant should match 
               El mundo necesita más música
             </span>
           </div>
-          <button
+          <a
             class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-black-default text-ln-radio"
             data-disabled="false"
             href="https://masmusica.lanacion.com.ar/"
+            rel="noreferrer"
             target="_blank"
             title="Ir a escuchar más música"
           >
@@ -91,7 +95,7 @@ exports[`Features - LaNacion - 10 - Radio white background variant should match 
               name="play-filled"
               size="20"
             />
-          </button>
+          </a>
         </div>
         <hr
           aria-orientation="horizontal"
@@ -122,6 +126,7 @@ exports[`Features - LaNacion - 10 - Radio yellow background variant should match
             <img
               alt="Imagen de radio"
               class="h-48 md:h-71"
+              loading="lazy"
               src="/test-path/resources/images/ln-radio.svg"
             />
             <span
@@ -130,10 +135,11 @@ exports[`Features - LaNacion - 10 - Radio yellow background variant should match
               El mundo necesita más música
             </span>
           </div>
-          <button
+          <a
             class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase rounded-80 text-12 md:text-16 z-10 px-16 py-12 bg-black-default text-ln-radio"
             data-disabled="false"
             href="https://masmusica.lanacion.com.ar/"
+            rel="noreferrer"
             target="_blank"
             title="Ir a escuchar más música"
           >
@@ -143,7 +149,7 @@ exports[`Features - LaNacion - 10 - Radio yellow background variant should match
               name="play-filled"
               size="20"
             />
-          </button>
+          </a>
         </div>
         <hr
           aria-orientation="horizontal"

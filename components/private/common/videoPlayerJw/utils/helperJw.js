@@ -106,9 +106,11 @@ export const handleVideoEventsScript = (
     const percentagesToCheck = [25, 50, 75];
     let currentTitle = title;
     let currentId = idVideo;
+    let currentInitialMode = initialVideoMode;
     let firstPlay = true;
     let skipPlayForSeek = false;
     let wasPaused = false;
+    let shouldAutoplayNextPlaylistItem = false;
     let trackedPercentages = new Set();
     let lastPlaybackPercent = 0;
     let ignoreNextTimeEvent = false;
@@ -131,11 +133,17 @@ export const handleVideoEventsScript = (
             ignoreNextTimeEvent = true;
         },
         onPlaylistItem: ({ title: newTitle, id: newId }) => {
+            const isNewPlaylistItem = Boolean(currentId) && newId !== currentId;
+
             currentTitle = newTitle;
             currentId = newId;
+            if (isNewPlaylistItem && shouldAutoplayNextPlaylistItem) {
+                currentInitialMode = 'autoplay';
+            }
             firstPlay = true;
             skipPlayForSeek = false;
             wasPaused = false;
+            shouldAutoplayNextPlaylistItem = false;
             trackedPercentages = new Set();
             lastPlaybackPercent = 0;
             ignoreNextTimeEvent = false;
@@ -165,14 +173,15 @@ export const handleVideoEventsScript = (
         }
 
         let mode;
-        if (firstPlay && initialVideoMode) {
-            mode = initialVideoMode;
+        if (firstPlay && currentInitialMode) {
+            mode = currentInitialMode;
         } else {
             const reason = e.playReason;
             const isAutoplay = reason === 'autostart' || reason === 'viewable';
             mode = isAutoplay ? 'autoplay' : 'manual';
         }
         firstPlay = false;
+        currentInitialMode = '';
 
         addEventToDataLayerV2({
             event: 'videoPlay',
@@ -222,6 +231,7 @@ export const handleVideoEventsScript = (
     });
 
     player.on('complete', () => {
+        shouldAutoplayNextPlaylistItem = true;
         if (!isInDatalayerEvent('videoComplete', `${currentId}`)) {
             addEventToDataLayerV2({
                 event: 'videoComplete',
@@ -302,6 +312,7 @@ export const getJWScript = (
             handleVideoEventsScript(
                 title,
                 idVideo,
+                0,
                 initialVideoMode,
                 videoOrientation
             );

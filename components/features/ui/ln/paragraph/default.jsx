@@ -1,17 +1,23 @@
 import React from 'react';
-import { cx } from '@ln/ds-cva';
+import { paragraphVariants } from './styles';
 
 const isLetter = (text = '') => text.match(/^[A-Za-z]/);
 
-function Paragraph({ content = '', capital = false, className = '' } = {}) {
+function Paragraph({
+    content = '',
+    capital = false,
+    className = '',
+    alignment = ''
+} = {}) {
     if (!content) return null;
+
     return (
         <p
-            className={cx(
-                'ds-custom-paragraph font-tertiary text-20 leading-[150%] tracking-[-0.1px]',
-                capital && isLetter(content) && 'editorial-drop-cap',
+            className={paragraphVariants({
+                alignment,
+                capital: capital && isLetter(content),
                 className
-            )}
+            })}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
                 __html: content

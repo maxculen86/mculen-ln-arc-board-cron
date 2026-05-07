@@ -1,3 +1,4 @@
+import { cx } from '@ln/ds-cva';
 import get from '../../../../../components/private/common/utils/get';
 
 export const VALID_SERVICE_ITEMS = [
@@ -238,12 +239,22 @@ export const wrapStrong = value =>
         ? '-'
         : `<strong>${formatNumber(value)}</strong>`;
 
-const getVariationClass = value => {
-    if (value > 0) return 'positive';
-    if (value < 0) return 'negative';
-    return 'neutral';
+const INVERTED_VARIATION_TYPES = ['riesgo-pais'];
+
+const getVariationClass = (value, tableType) => {
+    if (!value) {
+        return 'index-neutral';
+    }
+    const isColorInverted = INVERTED_VARIATION_TYPES.includes(tableType);
+    const isPositive = isColorInverted ? value < 0 : value > 0;
+    const classes = cx(
+        value > 0 ? 'index-arrow-up' : 'index-arrow-down',
+        isPositive ? 'index-positive' : 'index-negative'
+    );
+
+    return classes;
 };
-export const formatVariation = value => {
+export const formatVariation = (value, tableType = '') => {
     const num = parseFloat(value);
 
     const isInvalid =
@@ -252,10 +263,10 @@ export const formatVariation = value => {
         value === '' ||
         Number.isNaN(num);
 
-    const variant = getVariationClass(num);
+    const variantClass = getVariationClass(num, tableType);
     const text = isInvalid ? '-' : `${Math.abs(num).toFixed(1)} %`;
 
-    return `<span class="index-${variant}">${text}</span>`;
+    return `<span class="${variantClass}">${text}</span>`;
 };
 
 export const HOME_FILTERS = {
@@ -319,17 +330,17 @@ export const transformInternals = (data, isHome) => {
         },
         {
             _id: '',
-            content: formatVariation(get(item, 'var_diaria', '')),
+            content: formatVariation(get(item, 'var_diaria', ''), tableType),
             type: 'text'
         },
         {
             _id: '',
-            content: formatVariation(get(item, 'var_semanal', '')),
+            content: formatVariation(get(item, 'var_semanal', ''), tableType),
             type: 'text'
         },
         {
             _id: '',
-            content: formatVariation(get(item, 'var_mensual', '')),
+            content: formatVariation(get(item, 'var_mensual', ''), tableType),
             type: 'text'
         }
     ]);

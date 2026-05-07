@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN - common - components - RenderMediaItem image element snapshot of image element 1`] = `
+<div>
+  <img
+    alt="Gallery image"
+    class="object-cover aspect-[3/2]"
+    data-testid="image-ui"
+    src="https://example.com/image.jpg"
+  />
+</div>
+`;
+
+exports[`components - features - LN - common - components - RenderMediaItem video element snapshot of video element 1`] = `
+<video
+  aria-hidden="true"
+  autoplay=""
+  class="w-full h-full object-cover bg-neutral-50 aspect-[3/2]"
+  loop=""
+  playsinline=""
+  poster="https://example.com/poster.jpg"
+  src="https://example.com/video.mp4"
+/>
+`;

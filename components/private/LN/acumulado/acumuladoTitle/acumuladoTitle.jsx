@@ -33,6 +33,7 @@ const INDICES_SECTION_ID = '/economia/indices';
 
 function AcumuladoTitle(props) {
     const { outputType, idLogoImage = '', colorCategory } = props;
+    const socialNetworks = get(props, 'socials', []);
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
 
@@ -113,6 +114,7 @@ function AcumuladoTitle(props) {
             outputType={outputType}
             url={url}
             sectionId={sectionId}
+            socials={socialNetworks}
         />
     );
 }

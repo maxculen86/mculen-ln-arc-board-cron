@@ -1,151 +1,89 @@
 import Consumer from 'fusion:consumer';
+import transformLnAcuApi from '../../../../content/sources/utils/lnAcuSources/api/helper';
 import calculatePaginationValue from '../../../../content/sources/utils/pageSource/acumulados/common/calculatePaginationValue';
 import acuTransformV2Format from '../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 import { enumTypeError } from '../../../private/LN/api/common/enums/enumTypeError';
-import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
-import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
-import browser from '../../../private/common/utils/browser';
+import { BackendLnError } from '../../../private/LN/api/common/models/backendLnError';
 import get from '../../../private/common/utils/get';
-import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import { getNewAcuElements } from '../AccumulatedSectionsV1/helper-api';
-
-const DEFAULT_SIZE = 30;
-const SECTION_ULTIMAS_NOTICIAS = '/ultimas-noticias';
-const SECTION_SUSCRIPTORES = '/suscriptores';
-const API = {
-    mobile: {
-        1: IndexAcuV1Mobile,
-        2: IndexAcuV1Mobile
-    },
-    global: {
-        1: IndexAcuV1,
-        2: IndexAcuV2
-    }
-};
-const getQueryElement = (
-    sectionId,
-    size,
-    page,
-    sections,
-    restriction,
-    arcSite,
-    distributorId
-) => {
-    const normalizedSectionId = sectionId?.toLowerCase();
-    const baseResponse = {
-        page,
-        imageConfig: 'm',
-        api: true,
-        'arc-site': arcSite,
-        apiTransform: 'transformLnAcuApi',
-        size: size || DEFAULT_SIZE
-    };
-
-    const excludeSourceOrigin =
-        restriction === 'false' ? 'ArcImporter-LnData' : '';
-
-    if (normalizedSectionId === SECTION_SUSCRIPTORES) {
-        return {
-            ...baseResponse,
-            tagId: 'la-nacion-cerca',
-            sourceOrigin: 'composer'
-        };
-    }
-
-    if (normalizedSectionId === SECTION_ULTIMAS_NOTICIAS && sections) {
-        const sectionsFormatted = `("${sections.join('"+OR+"')}")`;
-        return {
-            ...baseResponse,
-            sectionsIds: sectionsFormatted,
-            sourceOrigin: 'composer'
-        };
-    }
-
-    if (distributorId) {
-        return {
-            ...baseResponse,
-            excludeSourceOrigin,
-            distributorId
-        };
-    }
-
-    return {
-        ...baseResponse,
-        sectionId,
-        excludeSourceOrigin
-    };
-};
+import {
+    DEFAULT_PAGE,
+    DEFAULT_SIZE,
+    SECTION_SUSCRIPTORES,
+    buildAcuData,
+    buildLnAcuBySectionQuery,
+    isDeepPagination,
+    isDistributorSource,
+    resolveIndexTransform,
+    resolveTitle,
+    warnIfMissingSectionData
+} from './helper';
 
 // URL de ejemplo: http://localhost/api/mobile/v2/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/mobile\/v2\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
+// Resolver: ^\/api\/mobile\/v2\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependerá del customField "paramUrlId" configurado
 class Accumulated {
     constructor(props) {
         this.props = props;
         const {
             arcSite,
             globalContent,
+            globalContentConfig = {},
             isAdmin,
+            requestUri,
             customFields: {
-                size: sizeCf = 30,
-                page: pageCf = 1,
+                size: sizeCf = DEFAULT_SIZE,
+                page: pageCf = DEFAULT_PAGE,
                 paramUrlId = 'params',
-                sections,
+                sections = [],
                 sectionId: featureSectionId = null
             }
         } = props;
 
         this.state = {};
-        this.sizeCf = sizeCf;
+        warnIfMissingSectionData(globalContent);
 
         const id = get(globalContent, '_id', null);
         const distributorId = get(globalContent, 'distributorId', null);
         const distributorSlug = get(globalContent, 'slug', null);
-        const { size, page } = getSizesFrom(
+        const source = get(globalContentConfig, 'source', null);
+        this.query = buildLnAcuBySectionQuery({
+            arcSite,
+            globalContent,
             isAdmin,
             sizeCf,
             pageCf,
             paramUrlId,
-            this.props.requestUri
-        );
-
-        const restriction = get(
-            this.props.globalContent,
-            'acumuladoGeneral.mostrar_en_acu_apps',
-            'true'
-        );
-
-        this.query = getQueryElement(
-            featureSectionId || id,
-            size,
-            page,
             sections,
-            restriction,
-            arcSite,
-            distributorId
-        );
+            requestUri,
+            featureSectionId,
+            distributorId,
+            source
+        });
 
-        this.sectionId = distributorId
+        this.sectionId = isDistributorSource(source, distributorId)
             ? distributorSlug
             : featureSectionId || id;
 
+        this.fetch(this.query, { featureSectionId, arcSite });
+    }
+
+    fetch(query, { featureSectionId, arcSite } = {}) {
         this.fetchContent({
             acuArticlesSourceSection: {
-                source: 'apiLnAcuSource',
-                query: this.query
+                source: 'acuArticlesSourceV2',
+                query
             }
         });
 
         if (featureSectionId) {
-            const queryParams = {
-                id: featureSectionId,
-                website: arcSite,
-                api: 'true'
-            };
             this.fetchContent({
                 sectionSource: {
                     source: 'sectionSource',
-                    query: queryParams
+                    query: {
+                        id: featureSectionId,
+                        website: arcSite,
+                        api: 'true'
+                    }
                 }
             });
         }
@@ -159,12 +97,6 @@ class Accumulated {
                 sectionSource
             } = this.state || {};
 
-            const {
-                arcSite,
-                globalContent: { name },
-                requestUri
-            } = this.props;
-
             if (
                 !acuArticlesSourceSection ||
                 !acuArticlesSourceSection.content_elements
@@ -172,68 +104,77 @@ class Accumulated {
                 return null;
             }
 
-            let newAcuArticlesSourceSection = { ...acuArticlesSourceSection };
+            const {
+                arcSite,
+                globalContent,
+                globalContentConfig = {},
+                requestUri
+            } = this.props;
+            const { name } = globalContent || {};
+            const routeParams = get(globalContent, 'query', {}) || {};
 
-            newAcuArticlesSourceSection = await getNewAcuElements(
-                newAcuArticlesSourceSection,
+            const transformed = await transformLnAcuApi(
+                acuArticlesSourceSection,
+                this.query
+            );
+
+            const newAcuArticlesSourceSection = await getNewAcuElements(
+                { ...transformed },
                 acuArticlesSourceSection,
                 this.query,
                 arcSite
             );
 
-            let title = get(
-                sectionSource || this.props.globalContent,
-                'acumuladoGeneral.hierarchy_navigation',
-                null
-            );
+            const indexAcu = resolveIndexTransform(routeParams, requestUri);
+            if (typeof indexAcu !== 'function') {
+                throw new Error('Accumulated: index transformer missing');
+            }
 
-            if (title == null) title = sectionSource?.name || name;
-
-            const acuData = {
-                tipoAcumulado: 1,
-                name: title,
-                articles: newAcuArticlesSourceSection.content_elements,
-                paginator: newAcuArticlesSourceSection.next,
-                total: newAcuArticlesSourceSection.count,
-                configuration
-            };
-
-            if (acuData.slug === '/suscriptores') {
+            const acuData = buildAcuData({
+                title: resolveTitle(
+                    routeParams,
+                    globalContent,
+                    name,
+                    sectionSource
+                ),
+                configuration,
+                routeParams,
+                elements: newAcuArticlesSourceSection
+            });
+            if (this.sectionId === SECTION_SUSCRIPTORES) {
                 acuData.name = 'Suscriptores';
             }
 
-            const indexAcu =
-                API[browser.getApiType(requestUri)][
-                    browser.getApiVersion(requestUri)
-                ];
             const transformedAcu = indexAcu(acuData);
 
-            if (this.query.page * this.query.size - this.query.size > 16) {
+            const page = Number(this.query.page);
+            const size = Number(this.query.size);
+
+            if (isDeepPagination(page, size)) {
                 delete transformedAcu[0].banners;
             }
 
             const paginationValue = calculatePaginationValue(
                 transformedAcu[0].acumuladoTotal,
-                this.query.size,
-                this.query.page
+                Number.isNaN(size) ? DEFAULT_SIZE : size,
+                Number.isNaN(page) ? DEFAULT_PAGE : page
             );
+
+            const slugForPayload =
+                get(globalContentConfig, 'query.sectionId', '') ||
+                this.sectionId;
 
             return acuTransformV2Format(
                 transformedAcu,
-                this.sectionId,
+                slugForPayload,
                 paginationValue
             );
         } catch (err) {
             console.error(
-                JSON.stringify({
-                    customType: enumTypeError.featureError,
-                    log_details: {
-                        error: JSON.stringify(err || {}),
-                        message: err.message,
-                        query: this.query
-                    },
-                    name: 'BackendLnError'
-                })
+                new BackendLnError(
+                    `Accumulated - msj: ${err.message} - Error: ${JSON.stringify(err || {})}`,
+                    enumTypeError.featureError
+                )
             );
             return { Success: false, Message: err.message };
         }

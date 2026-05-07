@@ -211,6 +211,86 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         ]);
     });
 
+    it('tracks next playlist item as autoplay after a manual first video completes', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID, 0, 'manual', 'vertical');
+
+        events.play({});
+        events.complete();
+        events.playlistItem({
+            title: NEXT_VIDEO_NAME,
+            mediaid: NEXT_VIDEO_ID
+        });
+        events.play({});
+
+        expect(window.dataLayer).toEqual([
+            {
+                event: 'videoPlay',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID,
+                mode: 'manual',
+                videoOrientation: 'vertical'
+            },
+            {
+                event: 'videoComplete',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
+                event: 'videoPlay',
+                videoName: NEXT_VIDEO_NAME,
+                videoID: NEXT_VIDEO_ID,
+                mode: 'autoplay',
+                videoOrientation: 'vertical'
+            }
+        ]);
+    });
+
+    it('keeps the first manual play mode when the initial playlist item is received before play', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(
+            VIDEO_NAME,
+            VIDEO_ID,
+            0,
+            'manual',
+            'horizontal'
+        );
+
+        events.playlistItem({
+            title: VIDEO_NAME,
+            mediaid: VIDEO_ID
+        });
+        events.play({ playReason: 'autostart' });
+
+        expect(window.dataLayer).toEqual([
+            {
+                event: 'videoPlay',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID,
+                mode: 'manual',
+                videoOrientation: 'horizontal'
+            }
+        ]);
+    });
+
     describe('getJWScript function', () => {
         document.getElementById = jest.fn().mockReturnValue({
             addEventListener: jest.fn(),

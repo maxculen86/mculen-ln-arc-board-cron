@@ -6,6 +6,8 @@ import LnRadio from '../../../../../components/features/LN-10/lnRadio/default';
 import isTodayEnabled from '../../../../../components/chains/utils/isTodayEnabled';
 import { shouldHideLnRadio } from '../../../../../components/features/LN-10/lnRadio/_helpers';
 
+const RADIO_URL = 'https://masmusica.lanacion.com.ar/';
+
 jest.mock('fusion:consumer', Component => {
     return function (Component) {
         return props => <Component {...props} />;
@@ -90,16 +92,18 @@ describe('Features - LaNacion - 10 - Radio', () => {
 
         it('should render texts and links', () => {
             render(<LnRadio {...props} />);
-            const buttonLink = screen.getByText('Escuchá + música');
+            const ctaLink = screen.getByRole('link', {
+                name: /Escuchá \+ música/
+            });
+            const title = screen.getByText('El mundo necesita más música');
+            const cta = screen.getByText('Escuchá + música');
 
-            expect(
-                screen.getByText('El mundo necesita más música')
-            ).toBeInTheDocument();
-            expect(buttonLink).toBeInTheDocument();
-            expect(buttonLink).toHaveAttribute(
-                'href',
-                'https://masmusica.lanacion.com.ar/'
-            );
+            expect(title).toBeInTheDocument();
+            expect(cta).toBeInTheDocument();
+            expect(ctaLink).toHaveAttribute('href', RADIO_URL);
+            expect(ctaLink).toHaveAttribute('target', '_blank');
+            expect(ctaLink).toContainElement(cta);
+            expect(ctaLink).not.toContainElement(title);
         });
 
         it('should match snapshot', () => {
@@ -118,16 +122,18 @@ describe('Features - LaNacion - 10 - Radio', () => {
 
         it('should render texts and links', () => {
             render(<LnRadio {...props} />);
-            const buttonLink = screen.getByText('Escuchá + música');
+            const ctaLink = screen.getByRole('link', {
+                name: /Escuchá \+ música/
+            });
+            const title = screen.getByText('El mundo necesita más música');
+            const cta = screen.getByText('Escuchá + música');
 
-            expect(
-                screen.getByText('El mundo necesita más música')
-            ).toBeInTheDocument();
-            expect(buttonLink).toBeInTheDocument();
-            expect(buttonLink).toHaveAttribute(
-                'href',
-                'https://masmusica.lanacion.com.ar/'
-            );
+            expect(title).toBeInTheDocument();
+            expect(cta).toBeInTheDocument();
+            expect(ctaLink).toHaveAttribute('href', RADIO_URL);
+            expect(ctaLink).toHaveAttribute('target', '_blank');
+            expect(ctaLink).toContainElement(cta);
+            expect(ctaLink).not.toContainElement(title);
         });
 
         it('should match snapshot', () => {
@@ -146,16 +152,18 @@ describe('Features - LaNacion - 10 - Radio', () => {
 
         it('should render texts and links', () => {
             render(<LnRadio {...props} />);
-            const buttonLink = screen.getByText('Escuchá + música');
+            const ctaLink = screen.getByRole('link', {
+                name: /Escuchá \+ música/
+            });
+            const title = screen.getByText('El mundo necesita más música');
+            const cta = screen.getByText('Escuchá + música');
 
-            expect(
-                screen.getByText('El mundo necesita más música')
-            ).toBeInTheDocument();
-            expect(buttonLink).toBeInTheDocument();
-            expect(buttonLink).toHaveAttribute(
-                'href',
-                'https://masmusica.lanacion.com.ar/'
-            );
+            expect(title).toBeInTheDocument();
+            expect(cta).toBeInTheDocument();
+            expect(ctaLink).toHaveAttribute('href', RADIO_URL);
+            expect(ctaLink).toHaveAttribute('target', '_blank');
+            expect(ctaLink).toContainElement(cta);
+            expect(ctaLink).not.toContainElement(title);
         });
 
         it('should match snapshot', () => {
