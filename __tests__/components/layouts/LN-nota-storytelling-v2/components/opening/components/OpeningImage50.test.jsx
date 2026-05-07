@@ -69,8 +69,8 @@ jest.mock(
 jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () =>
-        ({ h1Props, h2Props }) => (
-            <div data-testid="opening-titles">
+        ({ h1Props, h2Props, baseClassName }) => (
+            <div data-testid="opening-titles" data-base-class={baseClassName}>
                 {h1Props?.text && (
                     <h1 className={h1Props.className}>{h1Props.text}</h1>
                 )}
@@ -79,13 +79,6 @@ jest.mock(
                 )}
             </div>
         )
-);
-
-jest.mock(
-    '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/styles',
-    () => ({
-        sectionHeight: 'mock-section-height'
-    })
 );
 
 const defaultProps = {
@@ -117,10 +110,15 @@ describe('OpeningImage50', () => {
             );
         });
 
-        it('Applies sectionHeight to section', () => {
+        it('Applies correct classes to section', () => {
             const { container } = renderComponent();
-            expect(container.querySelector('section')).toHaveClass(
-                'mock-section-height'
+            const section = container.querySelector('section');
+            expect(section).toHaveClass(
+                'relative',
+                'w-[calc(100vw+2px)]',
+                '-translate-x-[calc(50%+1px)]',
+                'left-1/2',
+                'bg-black-dark'
             );
         });
 
@@ -148,13 +146,11 @@ describe('OpeningImage50', () => {
             ).toBeInTheDocument();
         });
 
-        it('Applies same CSS class to h1 and h2', () => {
+        it('passes hero-title-fluid baseClassName to OpeningTitles', () => {
             renderComponent();
-            expect(screen.getByRole('heading', { level: 1 })).toHaveClass(
-                'text-display-sm pt-4'
-            );
-            expect(screen.getByRole('heading', { level: 2 })).toHaveClass(
-                'text-display-sm pt-4'
+            expect(screen.getByTestId('opening-titles')).toHaveAttribute(
+                'data-base-class',
+                'font-primary hero-title-fluid'
             );
         });
 
@@ -170,7 +166,11 @@ describe('OpeningImage50', () => {
             renderComponent({ subheadline: 'Una bajada' });
             const p = screen.getByText('Una bajada');
             expect(p.tagName).toBe('P');
-            expect(p).toHaveClass('prumo', 'text-white', 'text-subheading-md');
+            expect(p).toHaveClass(
+                'font-primary',
+                'text-neutral-1',
+                'hero-subheading-fluid'
+            );
         });
 
         it('does not render paragraph when subheadline is empty', () => {
@@ -230,6 +230,34 @@ describe('OpeningImage50', () => {
         it('does not render ImageUI when src is undefined', () => {
             renderComponent({ src: undefined });
             expect(screen.queryByTestId('image-ui')).toBeNull();
+        });
+    });
+
+    describe('image opacity', () => {
+        it('renders the image with opacity classes', () => {
+            const { container } = renderComponent();
+            const img = container.querySelector('.opacity-60');
+            expect(img).toBeInTheDocument();
+            expect(img).toHaveClass(
+                'w-full',
+                'h-full',
+                'object-cover',
+                'opacity-60'
+            );
+        });
+
+        it('does not render image with opacity when src is empty', () => {
+            const { container } = renderComponent({ src: '' });
+            expect(
+                container.querySelector('.opacity-60')
+            ).not.toBeInTheDocument();
+        });
+
+        it('does not render image with opacity when src is undefined', () => {
+            const { container } = renderComponent({ src: undefined });
+            expect(
+                container.querySelector('.opacity-60')
+            ).not.toBeInTheDocument();
         });
     });
 

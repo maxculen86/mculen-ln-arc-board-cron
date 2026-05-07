@@ -30,7 +30,7 @@ function OpeningImage100({
     return (
         <section
             className={cx(
-                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark',
+                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56',
                 sectionHeight
             )}
             data-diagram={diagram}
@@ -45,8 +45,7 @@ function OpeningImage100({
                     height={height}
                     renderImgOnly
                     classnames={{
-                        wrapper: 'opacity-60',
-                        image: 'w-full h-full object-cover overflow-hidden'
+                        image: 'opacity-60 object-cover overflow-hidden'
                     }}
                     fetchPriority="high"
                     loading="eager"
@@ -62,11 +61,12 @@ function OpeningImage100({
                         }}
                     />
                     <OpeningTitles
-                        h1Props={{ text: title1 }}
-                        h2Props={{ text: title2 }}
+                        baseClassName="font-primary hero-title-fluid"
+                        h1Props={{ text: title1, className: 'text-neutral-1' }}
+                        h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="prumo text-white text-subheading-md">
+                        <p className="font-primary text-neutral-1 hero-subheading-fluid">
                             {subheadline}
                         </p>
                     )}

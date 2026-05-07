@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StorytellingSignature snapshots matches snapshot with a single author 1`] = `
+<DocumentFragment>
+  <div
+    class="flex jc-center w-full"
+  >
+    <span
+      data-testid="author"
+    >
+      Jane Doe
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StorytellingSignature snapshots matches snapshot with multiple authors 1`] = `
+<DocumentFragment>
+  <div
+    class="flex jc-center w-full"
+  >
+    <span
+      data-testid="author"
+    >
+      Jane Doe, John Smith
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StorytellingSignature snapshots matches snapshot with no authors 1`] = `<DocumentFragment />`;

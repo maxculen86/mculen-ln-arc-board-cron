@@ -76,12 +76,37 @@ describe('OpeningTitles', () => {
         const h2 = screen.getByRole('heading', { level: 2 });
 
         expect(h1).toHaveClass(
-            'prumo',
-            'prumo-extra',
-            'text-white',
+            'font-primary',
+            'font-w-extrabold',
             'text-display-md'
         );
-        expect(h2).toHaveClass('prumo', 'text-white', 'text-display-md');
+        expect(h2).toHaveClass('font-primary', 'text-display-md');
+    });
+
+    it('should apply custom baseClassName when provided', () => {
+        const h1Props = { text: 'Main Title' };
+        const h2Props = { text: 'Subtitle' };
+
+        render(
+            <OpeningTitles
+                baseClassName="font-primary hero-title-fluid"
+                h1Props={h1Props}
+                h2Props={h2Props}
+            />
+        );
+
+        const h1 = screen.getByRole('heading', { level: 1 });
+        const h2 = screen.getByRole('heading', { level: 2 });
+
+        expect(h1).toHaveClass(
+            'font-primary',
+            'hero-title-fluid',
+            'font-w-extrabold'
+        );
+        expect(h1).not.toHaveClass('text-display-md');
+
+        expect(h2).toHaveClass('font-primary', 'hero-title-fluid');
+        expect(h2).not.toHaveClass('text-display-md');
     });
 
     it('should merge custom classes with default classes', () => {
@@ -93,8 +118,8 @@ describe('OpeningTitles', () => {
         const h1 = screen.getByRole('heading', { level: 1 });
         const h2 = screen.getByRole('heading', { level: 2 });
 
-        expect(h1).toHaveClass('text-left', 'prumo', 'text-white');
-        expect(h2).toHaveClass('text-center', 'prumo', 'text-white');
+        expect(h1).toHaveClass('text-left', 'font-primary');
+        expect(h2).toHaveClass('text-center', 'font-primary');
     });
 
     it('should handle text with special characters', () => {
@@ -113,19 +138,19 @@ describe('OpeningTitles', () => {
         it('snapshot with all props', () => {
             const h1Props = { text: 'Main Title', className: 'custom-h1' };
             const h2Props = { text: 'Subtitle', className: 'custom-h2' };
-            const { container } = (
+            const { asFragment } = render(
                 <OpeningTitles h1Props={h1Props} h2Props={h2Props} />
             );
-            expect(container).toMatchSnapshot();
+            expect(asFragment()).toMatchSnapshot();
         });
 
-        it('snapshot without h2props', () => {
+        it('snapshot with only h1Props', () => {
             const h1Props = { text: 'Main Title', className: 'custom-h1' };
-            const { container } = <OpeningTitles h1Props={h1Props} />;
-            expect(container).toMatchSnapshot();
+            const { asFragment } = render(<OpeningTitles h1Props={h1Props} />);
+            expect(asFragment()).toMatchSnapshot();
         });
 
-        it('without props', () => {
+        it('returns null without props', () => {
             const { container } = render(<OpeningTitles />);
             expect(container).toMatchSnapshot();
         });

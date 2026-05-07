@@ -41,6 +41,26 @@
         white-space: normal !important;
         line-height: normal !important;
     }
+
+    /* Fix zoom Windows 150% — hero template */
+    .hero-title-fluid {
+        /* min(vw, vh): el vh achica el texto cuando el viewport es bajo (ej. 150% OS zoom: 1920x1080 → 1280x720) */
+        font-size: clamp(var(--text-40), min(0.5rem + 4.7vw, 7.5vh), var(--text-68)) !important;
+        --tw-leading: 100% !important;
+        line-height: 100% !important;
+        --tw-tracking: -1.6px !important;
+        letter-spacing: -1.6px !important;
+        --vf-opsz: 50 !important;
+    }
+
+    .hero-subheading-fluid {
+        font-size: clamp(var(--text-20), min(0.5rem + 1.25vw, 2.5vh), var(--text-24)) !important;
+        --tw-leading: 110% !important;
+        line-height: 110% !important;
+        --tw-tracking: -0.3px !important;
+        letter-spacing: -0.3px !important;
+        --vf-opsz: 50 !important;
+    }
 }
 
 /* Custom Header spacing */
