@@ -222,9 +222,8 @@ export const convertArgentinaTimeToGMT = (date, time) => {
     }
 
     try {
-        const localDateTime = new Date(`${date}T${time}`);
-        const gmtDateTime = addHours(3, localDateTime);
-        return gmtDateTime.toISOString();
+        const localDateTime = new Date(`${date}T${time}-03:00`);
+        return localDateTime.toISOString();
     } catch (error) {
         return '';
     }

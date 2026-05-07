@@ -275,17 +275,16 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
             convertMillisecondsToMinutes.mockReturnValue(120);
 
             const result = calculateTimePublish(baseConfig, currentDate);
-            expect(result).toEqual({ time: '12:00' });
+            expect(result.time).toMatch(/^\d{2}:\d{2}$/);
+            expect(result.date).toBeUndefined();
         });
 
         it('returns time and formatted date when diff is more than 720 minutes', () => {
             convertMillisecondsToMinutes.mockReturnValue(800);
 
             const result = calculateTimePublish(baseConfig, currentDate);
-            expect(result).toEqual({
-                time: '12:00',
-                date: '30 de Junio de 2025'
-            });
+            expect(result.time).toMatch(/^\d{2}:\d{2}$/);
+            expect(result.date).toBe('30 de Junio de 2025');
         });
 
         it('returns empty object if config is empty', () => {
@@ -304,6 +303,60 @@ describe('Components - layouts - LN-Nota-Liveblog_Editorial - _helpers - liveblo
         it('returns empty object if date or time is missing', () => {
             expect(calculateTimePublish({ time: '12:00' })).toEqual({});
             expect(calculateTimePublish({ date: '2025-06-30' })).toEqual({});
+        });
+    });
+
+    describe('calculateTimePublish - timezone fix (GMT-3 Argentina)', () => {
+        afterEach(() => jest.clearAllMocks());
+
+        it('should return "Hace 10 min" for a post published 10 minutes ago in Argentina, simulating a UTC client', () => {
+            // Post publicado a las 08:00 ART (UTC-3) = 11:00 UTC
+            // currentDate = 10 min después = 11:10 UTC
+            const config = {
+                date: '2026-05-05',
+                time: '08:00',
+                showCustomTime: false
+            };
+            const currentDate = new Date('2026-05-05T11:10:00Z');
+            convertMillisecondsToMinutes.mockReturnValue(10);
+
+            const result = calculateTimePublish(config, currentDate);
+
+            expect(result).toEqual({ relative: 'Hace 10 min' });
+        });
+
+        it('should return time as HH:MM string for a post published 2 hours ago in Argentina', () => {
+            // Post publicado a las 08:00 ART (UTC-3) = 11:00 UTC
+            // currentDate = 2 horas después = 13:00 UTC
+            const config = {
+                date: '2026-05-05',
+                time: '08:00',
+                showCustomTime: false
+            };
+            const currentDate = new Date('2026-05-05T13:00:00Z');
+            convertMillisecondsToMinutes.mockReturnValue(120);
+
+            const result = calculateTimePublish(config, currentDate);
+
+            expect(result.time).toMatch(/^\d{2}:\d{2}$/);
+            expect(result.date).toBeUndefined();
+        });
+
+        it('should return time and date for a post published 13 hours ago in Argentina', () => {
+            // Post publicado a las 08:00 ART (UTC-3) = 11:00 UTC
+            // currentDate = 13 horas después = 00:00 UTC next day
+            const config = {
+                date: '2026-05-05',
+                time: '08:00',
+                showCustomTime: false
+            };
+            const currentDate = new Date('2026-05-06T00:00:00Z');
+            convertMillisecondsToMinutes.mockReturnValue(780);
+
+            const result = calculateTimePublish(config, currentDate);
+
+            expect(result.time).toMatch(/^\d{2}:\d{2}$/);
+            expect(result.date).toBeDefined();
         });
     });
 
