@@ -95,7 +95,8 @@ export function popUpCompartirMailTo(notaId, dominio) {
 }
 
 export function openGoogleDiscoverFollow() {
-    const googleFollowUrl = 'https://profile.google.com/cp/CgkvbS8wNm5xYno';
+    const googleFollowUrl =
+        'https://www.google.com/preferences/source?q=lanacion.com.ar';
     window.open(googleFollowUrl, '_blank', 'noopener,noreferrer');
 }
 
