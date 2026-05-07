@@ -3,7 +3,8 @@ import {
     shareWhatsAppMobile,
     isLN10IAHidden,
     popUpCompartirNotaTW,
-    copyToClipboard
+    copyToClipboard,
+    openGoogleDiscoverFollow
 } from '../../../../../../components/private/LN/common/utils/shareHelper';
 
 const windowOpenMock = jest.fn();
@@ -31,6 +32,18 @@ beforeEach(() => {
 });
 
 describe('private - LN - common - utils - shareHelper', () => {
+    describe('openGoogleDiscoverFollow', () => {
+        it('should open the official Google Preferences source URL', () => {
+            openGoogleDiscoverFollow();
+
+            expect(windowOpenMock).toHaveBeenCalledWith(
+                'https://www.google.com/preferences/source?q=lanacion.com.ar',
+                '_blank',
+                'noopener,noreferrer'
+            );
+        });
+    });
+
     describe('shareWhatsAppDesktop', () => {
         it('should open a new window with the correct URL', () => {
             const notaId = '123';
