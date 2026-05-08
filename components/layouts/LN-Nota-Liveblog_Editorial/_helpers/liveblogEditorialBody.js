@@ -84,7 +84,7 @@ export const calculateTimePublish = (config = {}, currentDate = new Date()) => {
     const { date: dateC, time: timeToUse, showCustomTime } = config;
     if (showCustomTime || !dateC || !timeToUse) return {};
 
-    const publishDate = new Date(`${dateC}T${timeToUse}`);
+    const publishDate = new Date(`${dateC}T${timeToUse}-03:00`);
 
     const diffMs = currentDate.getTime() - publishDate.getTime();
     const diffMinutes = convertMillisecondsToMinutes(diffMs);
@@ -93,16 +93,19 @@ export const calculateTimePublish = (config = {}, currentDate = new Date()) => {
         return { relative: `Hace ${diffMinutes} min` };
     }
 
-    const match = timeToUse.match(/\d{2}:\d{2}/);
-    const time = match ? match[0] : null;
+    const localTime = publishDate.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
 
     if (diffMinutes <= 720) {
-        return { time };
+        return { time: localTime };
     }
 
     const date = formatDateToSpanish(dateC);
 
-    return { time, date };
+    return { time: localTime, date };
 };
 
 const normalizeAuthorsData = (authors = []) =>

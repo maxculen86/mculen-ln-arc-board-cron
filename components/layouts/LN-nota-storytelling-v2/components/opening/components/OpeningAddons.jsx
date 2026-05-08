@@ -3,8 +3,8 @@ import { Badge } from '@ln/contenidos-ui-badge';
 import { useAppContext } from 'fusion:context';
 import { Divider } from '@ln/ds-common-divider';
 import { cx } from '@ln/ds-cva';
-import LinkUI from '../../../../../features/ui/ln/link/default';
 import get from '../../../../../private/common/utils/get';
+import LogoImage from '../../../../../features/ui/ln/logoImage/default';
 import {
     dictionaryAlt,
     getSectionLogo,
@@ -67,29 +67,19 @@ function OpeningAddons({
             )}
         >
             {/* Brands */}
-            {sponsor &&
-                (decoratedPath ? (
-                    <LinkUI
-                        href={decoratedPath}
-                        title={logoAlt}
-                        target={target}
-                        rel={rel}
-                    >
-                        <img
-                            src={deployment(
-                                `${contextPath}/resources/images/${sponsor}.svg`
-                            )}
-                            alt={logoAlt}
-                        />
-                    </LinkUI>
-                ) : (
-                    <img
-                        src={deployment(
-                            `${contextPath}/resources/images/${sponsor}.svg`
-                        )}
-                        alt={logoAlt}
-                    />
-                ))}
+            {sponsor && (
+                <LogoImage
+                    src={deployment(
+                        `${contextPath}/resources/images/${sponsor}.svg`
+                    )}
+                    logoName={sponsor}
+                    size="sm"
+                    alt={logoAlt}
+                    href={decoratedPath}
+                    target={target}
+                    rel={rel}
+                />
+            )}
 
             {showDividerSponsor && (
                 <Divider className="hidden md:block" direction="vertical" />

@@ -3,7 +3,25 @@
     --shadow-center: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
 }
 
-/* Header sticky animation */
+
+
+/*
+ * x-utilities — overrides fuera del DS (@ln/ds-*)
+ * Prefijo "x-" para identificar lo que vive por fuera de las buenas prácticas del sistema.
+ * grep "x-" para inventariar. Revisar con diseño antes de escalar.
+ */
+
+@utility x-pl-container-start {
+    padding-left: calc(max(0px, (100vw - 1366px) / 2) + 32px);
+}
+
+@utility x-full-bleed {
+    width: 100vw;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+/* Animación sticky del header */
 @keyframes fadeOutDown {
     0% {
         opacity: 1;
@@ -29,7 +47,7 @@
 }
 
 
-/* Custom classes for avoid conflicts with DS [until-390-none, --mobile-none]*/
+/* Clases legacy para evitar conflictos con el DS [until-390-none, --mobile-none] */
 .until-390-none {
     @media (max-width: 767px) {
         display: none;

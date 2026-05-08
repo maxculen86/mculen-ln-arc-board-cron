@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - ui - ln - logoBase - default snapshots should match snapshot for img with known dimensions 1`] = `
+<DocumentFragment>
+  <img
+    alt="La Nacion"
+    fetchpriority="low"
+    loading="lazy"
+    src="/resources/images/la-nacion.svg"
+    style="width: 215px; height: 21px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`components - feature - ui - ln - logoBase - default snapshots should match snapshot for img with unknown logoName 1`] = `
+<DocumentFragment>
+  <img
+    alt="Unknown"
+    fetchpriority="low"
+    loading="lazy"
+    src="/resources/images/unknown.svg"
+    style="width: auto;"
+  />
+</DocumentFragment>
+`;
+
+exports[`components - feature - ui - ln - logoBase - default snapshots should match snapshot for img wrapped in anchor with target and rel 1`] = `
+<DocumentFragment>
+  <a
+    href="https://ext.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="La Nacion"
+      fetchpriority="low"
+      loading="lazy"
+      src="/resources/images/la-nacion.svg"
+      style="width: 215px; height: 21px;"
+    />
+  </a>
+</DocumentFragment>
+`;
+
+exports[`components - feature - ui - ln - logoBase - default snapshots should match snapshot when src is empty (returns null) 1`] = `<DocumentFragment />`;
