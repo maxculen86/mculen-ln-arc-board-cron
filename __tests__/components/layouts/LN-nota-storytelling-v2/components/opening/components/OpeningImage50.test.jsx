@@ -17,11 +17,13 @@ jest.mock(
             width,
             height,
             className,
+            classnames,
             fetchPriority,
             loading,
             renderImgOnly = false,
             sources = []
         }) => {
+            const imgClass = classnames?.image || className;
             const image = (
                 <img
                     data-testid="image-ui"
@@ -31,7 +33,7 @@ jest.mock(
                     sizes={sizes}
                     width={width}
                     height={height}
-                    className={className}
+                    className={imgClass}
                     fetchPriority={fetchPriority}
                     loading={loading}
                 />
@@ -258,6 +260,36 @@ describe('OpeningImage50', () => {
             expect(
                 container.querySelector('.opacity-60')
             ).not.toBeInTheDocument();
+        });
+    });
+
+    describe('video', () => {
+        it('should render a video element when videoUrl is provided', () => {
+            const { container } = renderComponent({
+                src: '',
+                videoUrl: 'https://cdn.jwplayer.com/video.mp4',
+                posterUrl: 'https://cdn.jwplayer.com/poster.jpg'
+            });
+            expect(container.querySelector('video')).toBeInTheDocument();
+        });
+
+        it('should not render image when videoUrl is provided', () => {
+            renderComponent({ videoUrl: 'https://cdn.jwplayer.com/video.mp4' });
+            expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
+        });
+
+        it('should render video with cover classes', () => {
+            const { container } = renderComponent({
+                src: '',
+                videoUrl: 'https://cdn.jwplayer.com/video.mp4'
+            });
+            const video = container.querySelector('video');
+            expect(video).toHaveClass(
+                'w-full',
+                'h-full',
+                'object-cover',
+                'opacity-60'
+            );
         });
     });
 

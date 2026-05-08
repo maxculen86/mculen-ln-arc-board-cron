@@ -1,6 +1,6 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
-import ImageUI from '../../../../../features/ui/ln/image/default';
+import OpeningMedia from './OpeningMedia';
 import OpeningAddons from './OpeningAddons';
 import OpeningTitles from './OpeningTitles';
 
@@ -11,6 +11,8 @@ function OpeningImage50({
     width,
     height,
     altText,
+    videoUrl,
+    posterUrl,
     globalContent = {},
     layout = '',
     title1 = '',
@@ -57,22 +59,18 @@ function OpeningImage50({
                         )}
                     </div>
                 </div>
-                {src && (
-                    <div className="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none">
-                        <ImageUI
-                            alt={altText}
-                            src={src}
-                            srcSet={srcset}
-                            sizes={sizes}
-                            width={width}
-                            height={height}
-                            className="w-full h-full object-cover opacity-60"
-                            renderImgOnly
-                            fetchPriority="high"
-                            loading="eager"
-                        />
-                    </div>
-                )}
+                <div className="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden">
+                    <OpeningMedia
+                        videoUrl={videoUrl}
+                        posterUrl={posterUrl}
+                        src={src}
+                        srcset={srcset}
+                        sizes={sizes}
+                        width={width}
+                        height={height}
+                        altText={altText}
+                    />
+                </div>
             </div>
         </section>
     );

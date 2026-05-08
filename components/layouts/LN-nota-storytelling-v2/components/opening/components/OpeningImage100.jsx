@@ -1,6 +1,6 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
-import ImageUI from '../../../../../features/ui/ln/image/default';
+import OpeningMedia from './OpeningMedia';
 import OpeningAddons from './OpeningAddons';
 import OpeningTitles from './OpeningTitles';
 import { openingImage100Variants, sectionHeight } from './styles';
@@ -13,6 +13,8 @@ function OpeningImage100({
     width,
     height,
     altText,
+    videoUrl,
+    posterUrl,
     globalContent = {},
     layout = '',
     title1 = '',
@@ -22,9 +24,7 @@ function OpeningImage100({
     const variant = diagram.split('title-')[1];
 
     const wrapperClass = openingImage100Variants.wrapper({ variant });
-    const containerClass = openingImage100Variants.container({
-        variant
-    });
+    const containerClass = openingImage100Variants.container({ variant });
     const addonsClass = openingImage100Variants.addons({ variant });
 
     return (
@@ -35,22 +35,16 @@ function OpeningImage100({
             )}
             data-diagram={diagram}
         >
-            {src && (
-                <ImageUI
-                    alt={altText}
-                    src={src}
-                    srcSet={srcset}
-                    sizes={sizes}
-                    width={width}
-                    height={height}
-                    renderImgOnly
-                    classnames={{
-                        image: 'opacity-60 object-cover overflow-hidden'
-                    }}
-                    fetchPriority="high"
-                    loading="eager"
-                />
-            )}
+            <OpeningMedia
+                videoUrl={videoUrl}
+                posterUrl={posterUrl}
+                src={src}
+                srcset={srcset}
+                sizes={sizes}
+                width={width}
+                height={height}
+                altText={altText}
+            />
             <div className={wrapperClass}>
                 <div className={containerClass}>
                     <OpeningAddons

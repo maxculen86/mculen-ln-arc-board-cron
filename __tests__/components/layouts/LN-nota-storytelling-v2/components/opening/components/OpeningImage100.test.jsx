@@ -253,8 +253,82 @@ describe('OpeningImage100', () => {
             'bg-black-dark'
         );
     });
-    it('snapshot ', () => {
-        const { container } = render(<OpeningImage100 {...mockProps} />);
-        expect(container).toMatchSnapshot();
+    describe('video', () => {
+        it('should render a video element when videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImage100
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                    posterUrl="https://cdn.jwplayer.com/poster.jpg"
+                />
+            );
+            expect(container.querySelector('video')).toBeInTheDocument();
+        });
+
+        it('should not render image when videoUrl is provided', () => {
+            render(
+                <OpeningImage100
+                    {...mockProps}
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            expect(
+                screen.queryByAltText('Article image')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should render video with cover classes', () => {
+            const { container } = render(
+                <OpeningImage100
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            const video = container.querySelector('video');
+            expect(video).toHaveClass(
+                'w-full',
+                'h-full',
+                'object-cover',
+                'opacity-60'
+            );
+        });
+
+        it('should not render media when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImage100 {...mockProps} src="" videoUrl="" />
+            );
+            expect(container.querySelector('video')).not.toBeInTheDocument();
+            expect(
+                screen.queryByAltText('Article image')
+            ).not.toBeInTheDocument();
+        });
+    });
+
+    describe('snapshots', () => {
+        it('matches snapshot with image', () => {
+            const { container } = render(<OpeningImage100 {...mockProps} />);
+            expect(container).toMatchSnapshot();
+        });
+
+        it('matches snapshot with video', () => {
+            const { container } = render(
+                <OpeningImage100
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                    posterUrl="https://cdn.jwplayer.com/poster.jpg"
+                />
+            );
+            expect(container).toMatchSnapshot();
+        });
+
+        it('matches snapshot without media', () => {
+            const { container } = render(
+                <OpeningImage100 {...mockProps} src="" videoUrl="" />
+            );
+            expect(container).toMatchSnapshot();
+        });
     });
 });
