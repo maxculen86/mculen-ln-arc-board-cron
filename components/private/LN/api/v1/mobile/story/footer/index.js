@@ -29,6 +29,8 @@ const buildFooter = article => {
     }
     if (!isTrust) footer.push({ _t: 'trust' });
 
+    footer.push({ _t: 'comments' });
+
     const path = get(article, 'taxonomy.primary_section.path', null);
     const zocalo = getZocaloAppsProps(path);
     if (zocalo) {

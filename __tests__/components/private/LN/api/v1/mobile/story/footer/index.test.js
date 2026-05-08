@@ -21,26 +21,24 @@ describe('buildFooter', () => {
         jest.resetAllMocks();
     });
 
-    it('should return null when there is nothing to add', () => {
+    it('should return comments when there is nothing else to add except hidden trust', () => {
         const article = {
             label: {
                 trust: { text: 'No Mostrar Trust' }
             }
         };
         const result = buildFooter(article);
-        expect(result).toBeNull();
+        expect(result).toEqual([{ _t: 'comments' }]);
     });
 
     it('should add authors if they exist', () => {
         Author.mockReturnValue({
-
             id: 'mock-autor',
             slug: 'mock-autor',
             valor: 'mock autor',
             rol: null,
             tipo: 1,
             imagen: '/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F061af271-6cd0-4f47-a5f9-93473f33602a.jpg?auth=4268b107544d24e0e8a6f4db2b749ff4ead28c128035448e968d33b2ded4d03b&width=80&quality=70&smart=false'
-
         });
 
         const article = {
@@ -101,7 +99,8 @@ describe('buildFooter', () => {
                         imagen: '/resizer/v2/https%3A%2F%2Fauthor-service-images-prod-us-east-1.publishing.aws.arc.pub%2Flanacionar%2F061af271-6cd0-4f47-a5f9-93473f33602a.jpg?auth=4268b107544d24e0e8a6f4db2b749ff4ead28c128035448e968d33b2ded4d03b&width=80&quality=70&smart=false'
                     }
                 ]
-            }
+            },
+            { _t: 'comments' }
         ]);
     });
 
@@ -128,7 +127,8 @@ describe('buildFooter', () => {
                     url: '/distributor/el-pais/',
                     legend: '@Ediciones El Pais, S.L.U.'
                 }
-            }
+            },
+            { _t: 'comments' }
         ]);
     });
 
@@ -146,7 +146,7 @@ describe('buildFooter', () => {
         const result = buildFooter(article);
 
         expect(getDistributor).toHaveBeenCalled();
-        expect(result).toBeNull();
+        expect(result).toEqual([{ _t: 'comments' }]);
     });
 
     it('should not add distributor when it is lanacionar', () => {
@@ -163,7 +163,7 @@ describe('buildFooter', () => {
         const result = buildFooter(article);
 
         expect(getDistributor).toHaveBeenCalled();
-        expect(result).toBeNull();
+        expect(result).toEqual([{ _t: 'comments' }]);
     });
 
     it('should add trust as true if it does not contain "nomostrartrust"', () => {
@@ -175,7 +175,7 @@ describe('buildFooter', () => {
 
         const result = buildFooter(article);
 
-        expect(result).toEqual([{ _t: 'trust' }]);
+        expect(result).toEqual([{ _t: 'trust' }, { _t: 'comments' }]);
     });
 
     it('should add trust as false if it contains "nomostrartrust"', () => {
@@ -187,7 +187,7 @@ describe('buildFooter', () => {
 
         const result = buildFooter(article);
 
-        expect(result).toBeNull();
+        expect(result).toEqual([{ _t: 'comments' }]);
     });
 
     it('should add authors + distributor + trust together', () => {
@@ -273,7 +273,8 @@ describe('buildFooter', () => {
                     legend: '@Ediciones El Pais, S.L.U.'
                 }
             },
-            { _t: 'trust' }
+            { _t: 'trust' },
+            { _t: 'comments' }
         ]);
     });
 
@@ -287,11 +288,13 @@ describe('buildFooter', () => {
 
         const result = buildFooter(article);
 
-        expect(result).toEqual([{ _t: 'card', id: 'canchallena' }]);
+        expect(result).toEqual([
+            { _t: 'card', id: 'canchallena' },
+            { _t: 'comments' }
+        ]);
     });
 
-
-    it('should append zocalo card after trust when path matches', () => {
+    it('should append zocalo card after comments when path matches', () => {
         getZocaloAppsProps.mockReturnValue({
             _t: 'card',
             id: 'canchallena'
@@ -312,6 +315,7 @@ describe('buildFooter', () => {
 
         expect(result).toEqual([
             { _t: 'trust' },
+            { _t: 'comments' },
             { _t: 'card', id: 'canchallena' }
         ]);
     });
