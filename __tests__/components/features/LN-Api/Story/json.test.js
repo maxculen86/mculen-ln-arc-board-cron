@@ -191,6 +191,7 @@ describe('components - features - LN-Api - Story - json.js', () => {
             const result = objArticle.render();
             expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
             expect(result.footer).toStrictEqual([
+                { _t: 'comments' },
                 {
                     _t: 'card',
                     id: 'foodit'
@@ -206,6 +207,7 @@ describe('components - features - LN-Api - Story - json.js', () => {
             const result = objArticle.render();
             expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
             expect(result.footer).toStrictEqual([
+                { _t: 'comments' },
                 {
                     _t: 'card',
                     id: 'canchallena'
@@ -221,6 +223,7 @@ describe('components - features - LN-Api - Story - json.js', () => {
             const result = objArticle.render();
             expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
             expect(result.footer).toStrictEqual([
+                { _t: 'comments' },
                 {
                     _t: 'card',
                     id: 'ln_juegos'
@@ -228,13 +231,13 @@ describe('components - features - LN-Api - Story - json.js', () => {
             ]);
         });
 
-        test('should not return property footer', () => {
+        test('should return footer with only comments when section has no zocalo card', () => {
             const objArticle = new story.default(props);
             props.globalContent = ATLC5WVL4NH5HAHU2BWJXTSATY;
             props.globalContent.taxonomy.primary_section.path = '/economia';
             const result = objArticle.render();
             expect(result.id).toBe('QAZ7BVHG5BCNFN7S67XCBP6PA4');
-            expect(result.footer).toBeUndefined();
+            expect(result.footer).toStrictEqual([{ _t: 'comments' }]);
         });
     });
 });
