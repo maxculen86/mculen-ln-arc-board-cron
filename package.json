@@ -120,6 +120,7 @@
         "@ln/ds-common-link": "1.2.4",
         "@ln/ds-common-list": "0.0.3",
         "@ln/ds-common-mediascroller": "1.7.0",
+        "@ln/ds-common-skeleton": "1.2.0",
         "@ln/ds-common-modal": "0.1.2",
         "@ln/ds-common-motion": "1.2.0",
         "@ln/ds-common-popper": "2.0.0",

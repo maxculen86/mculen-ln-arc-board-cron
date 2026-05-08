@@ -15,8 +15,7 @@ export function MessageAssistantLN({
     const [typingDone, setTypingDone] = useState(!isLastOutput);
 
     return (
-        <div className="flex flex-col gap-16 w-full">
-            {/* Texto de respuesta con efecto typewriter */}
+        <div className="flex flex-col gap-16 w-full max-w-[720px]">
             <div className="font-secondary text-base-default text-body-md">
                 {isLastOutput ? (
                     <ThreadMessageTyping
@@ -33,7 +32,6 @@ export function MessageAssistantLN({
                 )}
             </div>
 
-            {/* Fuentes: se muestran después de que termina el typewriter */}
             {typingDone && fuentes.length > 0 && (
                 <ul className="flex flex-col gap-8">
                     <p className="text-base-default font-secondary text-body-md font-bold">
@@ -44,7 +42,7 @@ export function MessageAssistantLN({
                         return (
                             <li
                                 key={url}
-                                className="flex gap-4 items-center text-[var(--ia-tools)]"
+                                className="flex gap-4 items-center text-[var(--ia-tools)] hover:text-base-light"
                             >
                                 <div>
                                     <Icon size={12} name="bullet-filled" />

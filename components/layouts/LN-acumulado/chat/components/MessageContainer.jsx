@@ -37,7 +37,7 @@ export function MessageContainer({ messages, isGenerating, onTypingDone }) {
                 })}
             </Thread.Messages>
 
-            <Thread.Generating className="font-secondary text-body-md text-base-default">
+            <Thread.Generating className="font-secondary text-body-md pt-16 text-base-default">
                 Pensando...
             </Thread.Generating>
         </>

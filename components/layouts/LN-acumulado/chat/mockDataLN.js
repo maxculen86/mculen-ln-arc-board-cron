@@ -2,19 +2,19 @@ export const MOCK_DELAY_MS = 1500;
 export const MAX_CHAT_COUNT = 1;
 
 export const SUGGESTED_QUESTIONS = [
-    '¿Cuándo empieza el Mundial 2026?',
-    '¿Qué selecciones ya clasificaron al Mundial?',
-    '¿Dónde se juega el Mundial 2026?'
+    '¿Cómo será el nuevo formato del torneo?',
+    '¿Cuál es el próximo rival de Argentina?',
+    '¿Quien es hasta el momento el goleador del torneo? '
 ];
 
 let chatCount = 0;
-let sessionId = `mock-session-${Date.now()}`;
+const sessionId = `mock-session-${Date.now()}`;
 
 const MOCK_RESPONSES = {
     default: {
         titulo: 'LA NACION IA',
         descripcion:
-            'No encontré información específica sobre esa consulta en el contenido periodístico de LA NACION. Te recomiendo buscar directamente en lanacion.com.ar para obtener la información más actualizada.',
+            'No tengo información disponible sobre ese tema. Estoy acá para ayudarte con temas relacionados al al mundial de futbol 2026. Te invitamos a retomar el chat más adelante.',
         fuentes: []
     },
     mundial: {
