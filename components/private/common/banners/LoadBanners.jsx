@@ -108,7 +108,7 @@ function LoadBanners({ blocksBanners = [] }) {
 
                 if (!bannersLoaded) {
                     setBannersLoaded(() => true);
-                    queueGoogletagCommand(blocksConfig);
+                    queueGoogletagCommand(blocksConfig, { subscription });
 
                     console.log(
                         '🚀 ~ file: blocksBanners && suffix && device',
