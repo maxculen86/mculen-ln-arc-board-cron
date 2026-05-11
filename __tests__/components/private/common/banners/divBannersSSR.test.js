@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -25,6 +25,18 @@ describe('Private - Common - Banners - Div Banners SSR', () => {
         );
         expect(container.getElementsByClassName('lazy').length).toBe(1);
     });
+    it('always renders --no-app class for a legacy slot (cabezal_dsk)', () => {
+        const { container } = render(
+            <DivBannerSSR bannerConfiguration={legacySlotConfig} />
+        );
+        expect(container.firstChild).toHaveClass('--no-app');
+    });
+    it('always renders --no-app class for a non-legacy slot (caja1_dsk)', () => {
+        const { container } = render(
+            <DivBannerSSR bannerConfiguration={nonLegacySlotConfig} />
+        );
+        expect(container.firstChild).toHaveClass('--no-app');
+    });
 });
 
 const bannerConfig = {
@@ -41,4 +53,18 @@ const lazyStaticBannerConfig = {
     closeButton: true,
     isStatic: true,
     lazyClass: 'lazy'
+};
+
+const legacySlotConfig = {
+    slotId: 'cabezal_dsk',
+    classes: '',
+    hideForSubscriptor: false,
+    closeButton: false
+};
+
+const nonLegacySlotConfig = {
+    slotId: 'caja1_dsk',
+    classes: '',
+    hideForSubscriptor: false,
+    closeButton: false
 };
