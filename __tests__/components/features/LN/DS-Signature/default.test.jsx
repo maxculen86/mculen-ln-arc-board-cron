@@ -72,8 +72,9 @@ const defaultData = {
     photo: 'https://example.com/photo.jpg',
     role: 'Periodista',
     position: 'Bottom',
-    longBio: 'Texto de la bio',
-    socialLinks: []
+    bio: 'Texto de la bio corta',
+    longBio: 'Texto de la bio larga',
+    socialLinks: [],
 };
 
 describe('components - features - LN - DS-Signature - DsSignature', () => {
@@ -139,12 +140,36 @@ describe('components - features - LN - DS-Signature - DsSignature', () => {
         );
     });
 
-    it('passes shouldShowBiography=true to BiographyAccordion when opinion layout + bottom + single author', () => {
-        render(<DsSignature customFields={{}} globalContent={{}} />);
+    it('passes shouldShowBiography=true to BiographyAccordion when using opinion layout, bottom signature, single author, and subtype OPINION', () => {
+        render(<DsSignature customFields={{}} globalContent={{ subtype: '3' }} />);
         expect(BiographyAccordion).toHaveBeenCalledWith(
             expect.objectContaining({
-                text: 'Texto de la bio',
+                text: 'Texto de la bio corta',
                 shouldShowBiography: true
+            }),
+            undefined
+        );
+    });
+
+    it('passes text=longBio to BiographyAccordion when using bottom signature, single author, and subtype different from OPINION', () => {
+        useAppContext.mockReturnValue({
+            layout: 'OtroLayout',
+            siteProperties: {
+                layoutsName: { NotaOpinion: 'NotaOpinion' }
+            }
+        });
+        useSignatureRules.mockReturnValue({
+            flags: {
+                shouldShowDistributor: true,
+                shouldShowAuthors: true,
+                shouldRender: true
+            },
+            data: { ...defaultData, subtype: '1' }
+        });
+        render(<DsSignature customFields={{}} globalContent={{ subtype: '1' }} />);
+        expect(BiographyAccordion).toHaveBeenCalledWith(
+            expect.objectContaining({
+                text: 'Texto de la bio larga',
             }),
             undefined
         );
