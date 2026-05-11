@@ -8,8 +8,52 @@ import {
 } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
 import { getBannerStrategy } from './dynamicBannerStrategies';
 
+export const DYNAMIC_BANNER_COUNTABLE_TYPES = [
+    'text',
+    'image',
+    'gallery',
+    'video',
+    'raw_html',
+    'oembed_response'
+];
+
+export const DYNAMIC_BANNER_COUNTABLE_SUBTYPES = [
+    'video_jw',
+    'gallery-embed',
+    'custom-how-to',
+    'custom-card'
+];
+
+export const isElementCountable = element => {
+    if (DYNAMIC_BANNER_COUNTABLE_TYPES.includes(element.type)) return true;
+
+    if (element.type === 'custom_embed') {
+        return DYNAMIC_BANNER_COUNTABLE_SUBTYPES.includes(element.subtype);
+    }
+
+    return false;
+};
+
 export const hasBodyBanners = (banners, dynamicBanners) =>
     Boolean(banners) || Boolean(dynamicBanners?.enabled);
+
+export const shouldCountElementForBanners = ({
+    renderedElement,
+    banners,
+    dynamicBanners,
+    element,
+    supportedTypes
+}) => {
+    if (!renderedElement || !hasBodyBanners(banners, dynamicBanners)) {
+        return false;
+    }
+
+    if (dynamicBanners?.enabled) {
+        return isElementCountable(element);
+    }
+
+    return supportedTypes.includes(element.type);
+};
 
 const renderDynamicBanners = ({
     globalContent,
@@ -175,7 +219,13 @@ export const renderElement = (
         }
     );
 
-    if (isUnsupportedType(Component, finalSupportedTypes)) {
+    const isCountableForDynamicBanners =
+        dynamicBanners?.enabled && isElementCountable(element);
+
+    if (
+        isUnsupportedType(Component, finalSupportedTypes) &&
+        !isCountableForDynamicBanners
+    ) {
         return ComponentWithProps;
     }
 
