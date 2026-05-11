@@ -1,12 +1,12 @@
 import dispatchAdsRequest from './dispatchAdsRequest';
 
-const createAdsObserver = (bannersList = []) => {
+const createAdsObserver = (bannersList = [], options = {}) => {
     let batchQueue = [];
     let batchTimeout = null;
 
     const processBatch = () => {
         if (batchQueue.length === 0) return;
-        dispatchAdsRequest(batchQueue);
+        dispatchAdsRequest(batchQueue, options);
         batchQueue = [];
     };
 

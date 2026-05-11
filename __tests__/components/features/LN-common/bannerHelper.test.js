@@ -7,7 +7,10 @@ import {
     queueGoogletagCommand,
     changeSegmentAdUnit,
     setCustomAdUnit,
-    shouldHideBannerForSubscriberOnlyContent
+    shouldHideBannerForSubscriberOnlyContent,
+    filterCommercialBannersByFrequencyCap,
+    getCommercialFrequencyCapCookieName,
+    getCommercialFrequencyCapSlotGroup
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 
 jest.mock(
@@ -73,6 +76,26 @@ const bannersToLoad = [
         withoutHide: true
     }
 ];
+
+const commercialHomeBanner = {
+    adUnitPath: '/123456/campo_desktop/Home/comercial_dsk',
+    size: [[800, 600]],
+    opt_div: 'comercial_dsk',
+    customTargeting: {},
+    prebidEnabled: false,
+    withoutHide: false,
+    slotGroup: 'home'
+};
+
+const clearCommercialFrequencyCapCookies = () => {
+    document.cookie =
+        'ProductoPremiumId=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    ['home', 'nota', 'acumulado'].forEach(slotGroup => {
+        document.cookie = `${getCommercialFrequencyCapCookieName(
+            slotGroup
+        )}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+    });
+};
 
 describe('common - utils - bannerHelper', () => {
     describe('getBannerConfigFromSiteService', () => {
@@ -275,7 +298,92 @@ describe('common - utils - bannerHelper', () => {
         });
     });
 
+    describe('commercial frequency cap helpers', () => {
+        beforeEach(() => {
+            clearCommercialFrequencyCapCookies();
+        });
+
+        it('should detect commercial home banners with vertical ad units', () => {
+            expect(
+                getCommercialFrequencyCapSlotGroup(commercialHomeBanner)
+            ).toBe('home');
+        });
+
+        it('should detect commercial article and acumulado slot groups from ad unit path', () => {
+            expect(
+                getCommercialFrequencyCapSlotGroup({
+                    adUnitPath: '/123456/la_nacion_mobile/Nota/comercial_mob',
+                    opt_div: 'comercial_mob'
+                })
+            ).toBe('nota');
+
+            expect(
+                getCommercialFrequencyCapSlotGroup({
+                    adUnitPath:
+                        '/123456/la_nacion_desktop/Acumulado/comercial_dsk',
+                    opt_div: 'comercial_dsk'
+                })
+            ).toBe('acumulado');
+        });
+
+        it('should not cap commercial banners for non subscribers', () => {
+            document.cookie = `${getCommercialFrequencyCapCookieName(
+                'home'
+            )}=true`;
+
+            expect(
+                filterCommercialBannersByFrequencyCap(
+                    [commercialHomeBanner],
+                    false
+                )
+            ).toEqual([commercialHomeBanner]);
+        });
+
+        it('should filter capped commercial banners for subscribers only by slot group', () => {
+            const noteBanner = {
+                ...commercialHomeBanner,
+                adUnitPath: '/123456/la_nacion_mobile/Nota/comercial_mob',
+                opt_div: 'comercial_mob',
+                slotGroup: 'nota'
+            };
+
+            document.cookie = `${getCommercialFrequencyCapCookieName(
+                'home'
+            )}=true`;
+
+            expect(
+                filterCommercialBannersByFrequencyCap(
+                    [commercialHomeBanner, noteBanner, bannersToLoad[1]],
+                    true
+                )
+            ).toEqual([noteBanner, bannersToLoad[1]]);
+        });
+
+        it('should reuse subscription cookie when subscription is not provided', () => {
+            document.cookie = 'ProductoPremiumId=2,22';
+
+            expect(
+                filterCommercialBannersByFrequencyCap([commercialHomeBanner])
+            ).toEqual([commercialHomeBanner]);
+
+            document.cookie = `${getCommercialFrequencyCapCookieName(
+                'home'
+            )}=true`;
+
+            expect(
+                filterCommercialBannersByFrequencyCap([commercialHomeBanner])
+            ).toEqual([]);
+        });
+    });
+
     describe('queueGoogletagCommand', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+            clearCommercialFrequencyCapCookies();
+            pbjs.adserverCalled = false;
+            pbjs.adserverRequestSent = false;
+        });
+
         it('should correctly define header bidding slots and call ad server', () => {
             queueGoogletagCommand(bannersToLoad);
 
@@ -292,6 +400,39 @@ describe('common - utils - bannerHelper', () => {
 
             jest.runAllTimers();
             expect(pbjs.adserverCalled).toBe(true);
+        });
+
+        it('should not define capped commercial slots for subscribers', () => {
+            document.cookie = `${getCommercialFrequencyCapCookieName(
+                'home'
+            )}=true`;
+
+            queueGoogletagCommand([commercialHomeBanner, bannersToLoad[1]], {
+                subscription: true
+            });
+
+            expect(googletag.defineSlot).toHaveBeenCalledTimes(1);
+            expect(googletag.defineSlot).toHaveBeenCalledWith(
+                bannersToLoad[1].adUnitPath,
+                bannersToLoad[1].size,
+                bannersToLoad[1].opt_div
+            );
+        });
+
+        it('should not define capped commercial slots when subscriber cookie exists and subscription option is omitted', () => {
+            document.cookie = 'ProductoPremiumId=2,22';
+            document.cookie = `${getCommercialFrequencyCapCookieName(
+                'home'
+            )}=true`;
+
+            queueGoogletagCommand([commercialHomeBanner, bannersToLoad[1]]);
+
+            expect(googletag.defineSlot).toHaveBeenCalledTimes(1);
+            expect(googletag.defineSlot).toHaveBeenCalledWith(
+                bannersToLoad[1].adUnitPath,
+                bannersToLoad[1].size,
+                bannersToLoad[1].opt_div
+            );
         });
     });
 
