@@ -19,8 +19,7 @@ const authorTypeUserMock = {
                     original: {
                         author_type: 'Estándar',
                         byline: 'Elisabetta Piqué',
-                        image:
-                            'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=80&quality=70&smart=false',
+                        image: 'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=80&quality=70&smart=false',
                         role: 'LA NACION'
                     }
                 },
@@ -59,6 +58,21 @@ describe('Foodit - notaFooditHelper', () => {
                 { name: 'Vegetariana' }
             ];
             expect(getHighestPriorityTag(tags)).toBe('Vegana');
+        });
+
+        it('should match tag without accent (facil → Fácil)', () => {
+            const tags = [{ name: 'facil' }];
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
+        });
+
+        it('should match tag with leading/trailing whitespace', () => {
+            const tags = [{ name: ' Vegana ' }];
+            expect(getHighestPriorityTag(tags)).toBe('Vegana');
+        });
+
+        it('should return canonical form when section comes from Queryly (no accent)', () => {
+            const tags = [{ name: 'facil' }, { name: 'Vegana' }];
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
         });
 
         it('should empty string if tag doesnt match', () => {
