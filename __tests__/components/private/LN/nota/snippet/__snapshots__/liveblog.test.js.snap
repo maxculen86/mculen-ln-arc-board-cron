@@ -33,7 +33,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       "name": "La Nación",
       "url": "https://www.lanacion.com.ar/"
     },
-    "eventstatus": "https://schema.org/EventScheduled",
+    "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
     "description": "Lo pibe",
     "image": [
@@ -158,7 +158,7 @@ exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema pr
     "description": "Esta es la prueba de la bajada en Foto al 100",
     "endDate": "2020-06-26T07:39:44.527Z",
     "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-    "eventstatus": "https://schema.org/EventScheduled",
+    "eventStatus": "https://schema.org/EventScheduled",
     "image": [
       {
         "@type": "ImageObject",

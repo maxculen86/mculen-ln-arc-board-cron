@@ -89,7 +89,7 @@ function SnippetLiveblog(props) {
             endDate: coverageEnd,
             ...(liveblogLocation && {
                 location: {
-                    '@type': 'place',
+                    '@type': 'Place',
                     name: 'LA NACION',
                     address: {
                         '@type': 'PostalAddress',
@@ -107,7 +107,7 @@ function SnippetLiveblog(props) {
                 name: 'La Nación',
                 url: schemaHostWithSlash
             },
-            eventstatus: 'https://schema.org/EventScheduled',
+            eventStatus: 'https://schema.org/EventScheduled',
             eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
             description: noteDescription,
             image
