@@ -39,6 +39,7 @@ export const useSignatureRules = ({
             position === 'Bottom' && {
                 opinionFooterPhoto: get(dataAuthor, 'image'),
                 longBio: get(dataAuthor, 'longBio', ''),
+                bio: get(dataAuthor, 'bio', ''),
                 socialLinks: get(creditsBy, `${[0]}.social_links`, [])
             }) ||
         {};

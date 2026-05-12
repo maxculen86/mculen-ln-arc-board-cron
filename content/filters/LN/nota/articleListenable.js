@@ -610,6 +610,7 @@ export default `
                     author_type
                     voice
                     gplus
+                    bio
                     longBio
                 }
             }
