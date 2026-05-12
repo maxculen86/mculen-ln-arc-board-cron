@@ -21,7 +21,7 @@ import {
     createRenderConfig
 } from './utils/bannerInsertion';
 import BodyTop from './components/BodyTop';
-import ScrollToTopButton from './components/ScrollToTopButton';
+import ScrollToTopButton from '../../LN/common/scrollToTopButton/ScrollToTopButton';
 import { scrollToGrid } from './_utils/bodyCardsHelper';
 import { queueGoogletagCommand } from '../../../private/LN/common/utils/bannerHelper';
 
@@ -123,7 +123,10 @@ function BodyCards() {
                         />
                     )}
                 </div>
-                <ScrollToTopButton onClick={() => scrollToGrid(gridRef)} />
+                <ScrollToTopButton
+                    template="cards"
+                    onClick={() => scrollToGrid(gridRef)}
+                />
                 <div className="grid-col-1 grid-row-4 bg-muted h-1 max-w-550 w-100 ml-auto mr-auto mt-20 mb-80 grid-col-2-12_m max-w-635_m grid-col-5-13_lg" />
                 <div className="grid-row-5 grid-col-1">
                     <div className="grid row-gap-80 row-gap-120_m">
