@@ -17,26 +17,20 @@ import { MessageContainer } from './components/MessageContainer';
 import { EmptyState } from './components/EmptyState';
 import { SkeletonChat } from './components/SkeletonChat';
 
-// ---------------------------------------------------------------------------
-
-// Componente principal
-
-// ---------------------------------------------------------------------------
-
 export function ChatLN() {
     const { isSubscribed } = useGetUserData(SUBSCRIBED_HELPER.LN);
     const [showSkeleton, setShowSkeleton] = useState(true);
 
     const onNewMessage = useCallback(async userQuestion => {
-        await new Promise(resolve => setTimeout(resolve, MOCK_DELAY_MS));
+        await new Promise(resolve => {
+            setTimeout(resolve, MOCK_DELAY_MS);
+        });
 
         return buildMockResponse(userQuestion);
     }, []);
 
     const runtime = useChatRuntime({
         onNewMessage
-
-        /* initialSuggestions: SUGGESTED_QUESTIONS */
     });
 
     const isGenerating = runtime.status === 'generating';
@@ -86,7 +80,7 @@ export function ChatLN() {
                     <EmptyState isSubscribed={isSubscribed} />
                 </div>
 
-                <div className="relative flex flex-column xl:grid xl:grid-cols-16 gap-16">
+                <div className="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:gap-32">
                     <div
                         className={cx(
                             isSubscribed ? 'xl:col-span-12' : 'xl:col-span-11'
@@ -96,21 +90,25 @@ export function ChatLN() {
                             <Thread.Composer className="flex flex-col gap-16">
                                 <>
                                     <InputChat
+                                        isSubscribed={isSubscribed}
                                         isGenerating={isGenerating}
                                         isBlocked={isBlocked}
                                         disabled={!isSubscribed}
                                     />
 
-                                    {runtime.messages.length > 0 && (
-                                        <Thread.Viewport className="overflow-y-hidden overflow-x-hidden">
-                                            <MessageContainer
-                                                messages={runtime.messages}
-                                                isGenerating={isGenerating}
-                                                onTypingDone={handleTypingDone}
-                                            />
-                                        </Thread.Viewport>
-                                    )}
-
+                                    <Thread.Viewport
+                                        className={cx(
+                                            'overflow-y-hidden overflow-x-hidden',
+                                            runtime.messages.length === 0 &&
+                                                'hidden'
+                                        )}
+                                    >
+                                        <MessageContainer
+                                            messages={runtime.messages}
+                                            isGenerating={isGenerating}
+                                            onTypingDone={handleTypingDone}
+                                        />
+                                    </Thread.Viewport>
                                     {showSuggestions && (
                                         <div className="flex flex-column md:flex-row gap-responsive">
                                             {SUGGESTED_QUESTIONS.map(
@@ -154,18 +152,6 @@ export function ChatLN() {
                                         </div>
                                     )}
 
-                                    <Thread.Error
-                                        filter={(_, status) =>
-                                            status === 'error'
-                                        }
-                                        className="pt-8"
-                                    >
-                                        <p className="roboto roboto-bold text-16 text-error">
-                                            Ocurrió un error. Por favor, intentá
-                                            de nuevo.
-                                        </p>
-                                    </Thread.Error>
-
                                     {isSubscribed && (
                                         <>
                                             <Divider color="muted" />
@@ -173,7 +159,7 @@ export function ChatLN() {
                                                 Las respuestas se basan
                                                 exclusivamente en el contenido
                                                 periodístico publicado por LA
-                                                NACION Recomendamos verificar
+                                                NACION. Recomendamos verificar
                                                 siempre la información con las
                                                 notas originales que respaldan
                                                 cada respuesta.
@@ -187,7 +173,7 @@ export function ChatLN() {
 
                     <div
                         className={cx(
-                            `hidden xl:flex gap-8 ${isSubscribed ? 'xl:col-span-4 flex gap-8 pt-8 pb-16' : 'xl:col-span-5'}`
+                            `hidden xl:flex gap-8 ${isSubscribed ? 'xl:col-span-4 flex gap-8 pt-8 pb-16 xl:pt-0' : 'xl:col-span-5'}`
                         )}
                     >
                         <EmptyState isSubscribed={isSubscribed} />

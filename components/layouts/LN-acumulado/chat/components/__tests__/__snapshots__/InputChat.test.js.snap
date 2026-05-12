@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputChat matches snapshot when disabled 1`] = `
+<div>
+  <input
+    class="placeholder:text-body-md placeholder:font-secondary placeholder:text-neutral-300"
+    data-testid="chat-input"
+    disabled=""
+    placeholder="Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?"
+  />
+  <div>
+    <span
+      class="text-[#27D2BE]"
+      data-testid="icon-ia"
+    />
+  </div>
+  <div>
+    <button
+      data-testid="submit-button"
+      disabled=""
+      type="submit"
+    >
+      <span
+        class="text-secondary-lighten"
+        data-testid="icon-send-normal"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputChat matches snapshot when isBlocked 1`] = `
+<div>
+  <input
+    class="placeholder:text-body-md placeholder:font-secondary placeholder:text-neutral-300"
+    data-testid="chat-input"
+    disabled=""
+    placeholder=""
+  />
+  <div>
+    <span
+      class="text-[#27D2BE]"
+      data-testid="icon-ia"
+    />
+  </div>
+  <div>
+    <button
+      data-testid="submit-button"
+      disabled=""
+      type="submit"
+    >
+      <span
+        class="text-secondary-lighten"
+        data-testid="icon-send-normal"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputChat matches snapshot with default props 1`] = `
+<div>
+  <input
+    class="placeholder:text-body-md placeholder:font-secondary placeholder:text-base-default"
+    data-testid="chat-input"
+    placeholder="Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?"
+  />
+  <div>
+    <span
+      class="text-[#27D2BE]"
+      data-testid="icon-ia"
+    />
+  </div>
+  <div>
+    <button
+      data-testid="submit-button"
+      type="submit"
+    >
+      <span
+        class="hover:text-accent-default text-base-default"
+        data-testid="icon-send-normal"
+      />
+    </button>
+  </div>
+</div>
+`;

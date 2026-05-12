@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Thread } from '@ln/ds-blocks-thread';
 import { Formcontrol } from '@ln/ds-common-formcontrol';
 import { cx } from '@ln/ds-cva';
 import Button from '../../../../features/ui/ln/button/default';
 import Icon from '../../../../features/ui/ln/icon/default';
 
-export function InputChat({ isGenerating, disabled, isBlocked }) {
+export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
+    const [isEmpty, setIsEmpty] = useState(true);
     const isDisabled = disabled || isGenerating || isBlocked;
+    const isSendDisabled = isDisabled || isEmpty;
+
+    const classNameContainer = cx(
+        'h-[92px] sm:h-[80px] border rounded-sm focus-within:border-accent-default hover:border-base-light',
+        !isSubscribed ? 'border-base-lighten' : 'border-base-default'
+    );
 
     return (
         <Thread.Input
-            className="h-[92px] sm:h-[80px] border border-base-default rounded-sm focus-within:ring-transparent"
+            className={classNameContainer}
             inputProps={{
                 className: cx(
                     'placeholder:text-body-md placeholder:font-secondary',
@@ -20,7 +27,8 @@ export function InputChat({ isGenerating, disabled, isBlocked }) {
                 ),
                 placeholder: isBlocked
                     ? ''
-                    : 'Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?'
+                    : 'Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?',
+                onInput: e => setIsEmpty(e.target.value.trim() === '')
             }}
             disabled={isDisabled}
         >
@@ -33,13 +41,13 @@ export function InputChat({ isGenerating, disabled, isBlocked }) {
                     variant="ghost"
                     type="submit"
                     className="hover:bg-transparent -mb-8 -mr-8"
-                    disabled={isDisabled}
+                    disabled={isSendDisabled}
                 >
                     <Icon
                         name="send-normal"
                         size={20}
                         className={cx(
-                            isDisabled
+                            isSendDisabled
                                 ? 'text-secondary-lighten'
                                 : 'hover:text-accent-default text-base-default'
                         )}

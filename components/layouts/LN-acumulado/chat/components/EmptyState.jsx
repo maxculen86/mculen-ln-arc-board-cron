@@ -23,7 +23,7 @@ export function EmptyState({ isSubscribed }) {
     }
 
     return (
-        <section className="my-16 xl:my-0 h-fit border border-all border-neutral-200 bg-neutral-50 px-16 pt-24 pb-32 xl:pt-16 xl:pb-16 flex flex-col sm:flex-row xl:flex-col gap-32">
+        <section className="my-16 xl:my-0 h-fit border border-all border-neutral-200 bg-neutral-50 px-16 pt-24 pb-32 flex flex-col sm:flex-row xl:flex-col gap-32">
             <div className="flex flex-column gap-8 w-full">
                 <div className="flex gap-4">
                     <Badge

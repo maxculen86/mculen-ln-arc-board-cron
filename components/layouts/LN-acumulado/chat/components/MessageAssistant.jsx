@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { ThreadMessageTyping } from '@ln/ds-blocks-thread';
+import { cx } from '@ln/ds-cva';
 import Icon from '../../../../features/ui/ln/icon/default';
 import Link from '../../../../features/ui/ln/link/default';
 import { MessageFeedbackLN } from './MessagaFeedback';
 
-export function MessageAssistantLN({
-    message,
-    isLastOutput,
-    isGenerating,
-    onTypingDone
-}) {
+export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
     const descripcion = message?.response_chat?.descripcion ?? '';
     const fuentes = message?.response_chat?.fuentes ?? [];
     const [typingDone, setTypingDone] = useState(!isLastOutput);
 
     return (
         <div className="flex flex-col gap-16 w-full max-w-[720px]">
-            <div className="font-secondary text-base-default text-body-md">
+            <div
+                className={cx(
+                    'font-secondary text-base-default text-body-md',
+                    isLastOutput && 'min-h-[38px]'
+                )}
+            >
                 {isLastOutput ? (
                     <ThreadMessageTyping
                         speed={15}
@@ -62,7 +63,6 @@ export function MessageAssistantLN({
                 </ul>
             )}
 
-            {/* Like / Dislike: se muestran después del typewriter */}
             {typingDone && <MessageFeedbackLN />}
         </div>
     );
