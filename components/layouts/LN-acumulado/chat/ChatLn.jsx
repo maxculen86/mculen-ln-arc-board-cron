@@ -8,25 +8,96 @@ import Button from '../../../features/ui/ln/button/default';
 import Divider from '../../../features/ui/ln/divider/default';
 import useGetUserData from '../../../private/common/auth/hooks/useGetUserData';
 import { SUBSCRIBED_HELPER } from '../../../private/common/auth/helper/loginHelper';
-import {
-    buildMockResponse,
-    MOCK_DELAY_MS,
-    SUGGESTED_QUESTIONS
-} from './mockDataLN';
 import { MessageContainer } from './components/MessageContainer';
 import { EmptyState } from './components/EmptyState';
 import { SkeletonChat } from './components/SkeletonChat';
+import {
+    createMundialSession,
+    FALLBACK_SUGGESTED_QUESTIONS,
+    getSuggestedQuestions,
+    resolveErrorMessage,
+    sendMundialChatMessage
+} from './_helper';
+import useTermica from '../../../private/common/hooks/useTermica';
+import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export function ChatLN() {
-    const { isSubscribed } = useGetUserData(SUBSCRIBED_HELPER.LN);
+    const { isSubscribed, userId } = useGetUserData(SUBSCRIBED_HELPER.LN);
     const [showSkeleton, setShowSkeleton] = useState(true);
 
-    const onNewMessage = useCallback(async userQuestion => {
-        await new Promise(resolve => {
-            setTimeout(resolve, MOCK_DELAY_MS);
+    const hideChatIa = Boolean(useTermica('hide_chat_ia_mundial_ln'));
+
+    const [sessionId, setSessionId] = useState('');
+    const [suggestedQuestions, setSuggestedQuestions] = useState(
+        FALLBACK_SUGGESTED_QUESTIONS
+    );
+    const [isLastTypingDone, setIsLastTypingDone] = useState(true);
+
+    useEffect(() => {
+        if (!isSubscribed || !userId) return;
+
+        async function initSession() {
+            try {
+                const { session_id: sessionIdObtain } =
+                    await createMundialSession({ userId });
+                setSessionId(sessionIdObtain);
+            } catch (err) {
+                console.error('ChatLN: error creando sesión', err);
+            }
+        }
+
+        async function loadQuestions() {
+            try {
+                const questions = await getSuggestedQuestions({ userId });
+                setSuggestedQuestions(questions);
+            } catch (err) {
+                console.error(
+                    'ChatLN: error cargando preguntas sugeridas',
+                    err
+                );
+            }
+        }
+
+        initSession();
+        loadQuestions();
+    }, [isSubscribed, userId]);
+
+    const onNewMessage = async userQuestion => {
+        setIsLastTypingDone(false);
+
+        addEventToDataLayerV2({
+            rest: {
+                event: 'enviar_consulta',
+                label: 'chat_ia_mundial_2026',
+                action: 'pregunta_enviada'
+            }
         });
 
-        return buildMockResponse(userQuestion);
+        try {
+            return await sendMundialChatMessage({
+                userId,
+                sessionId,
+                message: userQuestion
+            });
+        } catch (err) {
+            const errorMsg = resolveErrorMessage(err);
+            return {
+                message_type: 'input',
+                content: errorMsg,
+                response_chat: {
+                    descripcion: errorMsg
+                }
+            };
+        }
+    };
+
+    useEffect(() => {
+        addEventToDataLayerV2({
+            rest: {
+                event: 'chat_open',
+                label: 'chat_ia_mundial_2026'
+            }
+        });
     }, []);
 
     const runtime = useChatRuntime({
@@ -38,8 +109,6 @@ export function ChatLN() {
     const isBlocked = runtime.status === 'blocked';
 
     const isIdle = runtime.status === 'idle';
-
-    const [isLastTypingDone, setIsLastTypingDone] = useState(true);
 
     useEffect(() => {
         if (isGenerating) setIsLastTypingDone(false);
@@ -60,6 +129,10 @@ export function ChatLN() {
     useEffect(() => {
         setShowSkeleton(false);
     }, []);
+
+    if (hideChatIa) {
+        return null;
+    }
 
     if (showSkeleton) {
         return <SkeletonChat />;
@@ -111,7 +184,7 @@ export function ChatLN() {
                                     </Thread.Viewport>
                                     {showSuggestions && (
                                         <div className="flex flex-column md:flex-row gap-responsive">
-                                            {SUGGESTED_QUESTIONS.map(
+                                            {suggestedQuestions.map(
                                                 suggestion => (
                                                     <button
                                                         key={suggestion}

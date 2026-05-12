@@ -60,16 +60,6 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
                 Realizar una nueva pregunta
               </button>
             </div>
-            <div
-              class="pt-8"
-              data-testid="thread-error"
-            >
-              <p
-                class="roboto roboto-bold text-16 text-error"
-              >
-                Ocurrió un error. Por favor, intentá de nuevo.
-              </p>
-            </div>
             <hr
               data-testid="divider"
             />
@@ -166,16 +156,6 @@ exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
                 Pregunta 3
               </button>
             </div>
-            <div
-              class="pt-8"
-              data-testid="thread-error"
-            >
-              <p
-                class="roboto roboto-bold text-16 text-error"
-              >
-                Ocurrió un error. Por favor, intentá de nuevo.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -260,16 +240,6 @@ exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
               >
                 Pregunta 3
               </button>
-            </div>
-            <div
-              class="pt-8"
-              data-testid="thread-error"
-            >
-              <p
-                class="roboto roboto-bold text-16 text-error"
-              >
-                Ocurrió un error. Por favor, intentá de nuevo.
-              </p>
             </div>
             <hr
               data-testid="divider"

@@ -89,10 +89,21 @@ jest.mock('../../../../private/common/auth/helper/loginHelper', () => ({
     SUBSCRIBED_HELPER: { LN: 'ln' }
 }));
 
-jest.mock('../mockDataLN', () => ({
-    buildMockResponse: jest.fn(),
-    MOCK_DELAY_MS: 0,
-    SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
+jest.mock('../_helper', () => ({
+    createMundialSession: jest.fn(),
+    sendMundialChatMessage: jest.fn(),
+    getSuggestedQuestions: jest.fn(),
+    resolveErrorMessage: jest.fn(),
+    FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
+}));
+
+jest.mock('../../../../private/common/hooks/useTermica', () => ({
+    __esModule: true,
+    default: jest.fn()
+}));
+
+jest.mock('../../../../private/LN/common/utils/addEventToDataLayer', () => ({
+    addEventToDataLayerV2: jest.fn()
 }));
 
 const mockSetMessages = jest.fn();

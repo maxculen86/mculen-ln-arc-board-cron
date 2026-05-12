@@ -3,7 +3,7 @@ import { ThreadMessageTyping } from '@ln/ds-blocks-thread';
 import { cx } from '@ln/ds-cva';
 import Icon from '../../../../features/ui/ln/icon/default';
 import Link from '../../../../features/ui/ln/link/default';
-import { MessageFeedbackLN } from './MessagaFeedback';
+import { MessageFeedbackLN } from './MessageFeedback';
 
 export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
     const descripcion = message?.response_chat?.descripcion ?? '';

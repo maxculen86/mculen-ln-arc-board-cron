@@ -74,10 +74,11 @@ exports[`InputChat matches snapshot with default props 1`] = `
   <div>
     <button
       data-testid="submit-button"
+      disabled=""
       type="submit"
     >
       <span
-        class="hover:text-accent-default text-base-default"
+        class="text-secondary-lighten"
         data-testid="icon-send-normal"
       />
     </button>

@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { cx } from '@ln/ds-cva';
 import Button from '../../../../features/ui/ln/button/default';
 import Icon from '../../../../features/ui/ln/icon/default';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 export function MessageFeedbackLN() {
     const [selected, setSelected] = useState(null);
 
-    const handleClick = type =>
+    const handleClick = type => {
         setSelected(prev => (prev === type ? null : type));
-
+        if (selected === null) {
+            addEventToDataLayerV2({
+                rest: {
+                    event: 'e_linkclick',
+                    category: 'interaction',
+                    label: 'chat_ia_mundial_2026',
+                    action: type === 'like' ? 'like' : 'dislike'
+                }
+            });
+        }
+    };
     const feedbackOptions = [
         { type: 'like', iconClass: '' },
         { type: 'dislike', iconClass: '--rotate-180' }
