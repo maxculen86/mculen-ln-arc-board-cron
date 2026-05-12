@@ -107,4 +107,17 @@ describe('BannerBaseFoodit', () => {
         );
         expect(container.firstChild).toBeNull();
     });
+
+    it('should call getTargetings only once across re-renders (useMemo)', () => {
+        isSSR.mockReturnValue(false);
+        getTypeOfDevice.mockReturnValue('desktop');
+
+        const { rerender } = render(
+            <BannerBaseFoodit bannerType={mockBannerType} />
+        );
+        rerender(<BannerBaseFoodit bannerType={mockBannerType} />);
+        rerender(<BannerBaseFoodit bannerType={mockBannerType} />);
+
+        expect(mockBannerType.getTargetings).toHaveBeenCalledTimes(1);
+    });
 });

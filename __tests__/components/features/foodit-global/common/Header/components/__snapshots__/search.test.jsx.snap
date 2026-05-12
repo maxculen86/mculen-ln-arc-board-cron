@@ -22,38 +22,21 @@ exports[`Components - features - foodit-global - common - header - components - 
       <div
         class="flex h-100 ai-center"
       >
-        <div
-          class="relative w-max flex"
+        <button
+          class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+          data-test-id="button-header-search"
+          data-variant="link"
+          title="audio"
         >
-          <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
-            data-test-id="button-header-search"
-            data-variant="link"
-            title="audio"
+          <i
+            class="icon --icon-24"
           >
-            <i
-              class="icon --icon-24"
-            >
-              <mock-icon
-                fill=""
-                name="audio"
-              />
-            </i>
-          </button>
-          <div
-            class="tooltip absolute text-16 p-8 rounded-4 shadow-float transition-regular w-max max-w-328 z-1 --with-arrow mt-8 top-100 right-0 py-4 flex ai-center max-w-134_lg ai-center bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100"
-            data-position="bottom-right"
-            data-visible="true"
-            role="tooltip"
-            style="animation-name: fade-in; animation-fill-mode: forwards; animation-duration: 200ms;"
-          >
-            <span
-              class="text-12"
-            >
-              ¡Nueva búsqueda por voz!
-            </span>
-          </div>
-        </div>
+            <mock-icon
+              fill=""
+              name="audio"
+            />
+          </i>
+        </button>
       </div>
     </div>
   </div>

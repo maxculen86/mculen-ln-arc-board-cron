@@ -7,6 +7,10 @@ import {
     NOTA_CERRADA,
     STORYTELLING
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import {
+    bannersElements,
+    BannersFoodit
+} from '../../../foodit-global/Banners/foodit';
 
 const setDataComponent = ({
     Component,
@@ -74,6 +78,7 @@ const setDataComponent = ({
 };
 
 const buildBody = ({ globalContent = {} }) => {
+    const { layout } = useAppContext();
     const {
         content_elements: contentElements = [],
         headlines: { basic: tituloNota } = {},
@@ -89,9 +94,35 @@ const buildBody = ({ globalContent = {} }) => {
 
     const processedIndices = new Set();
 
-    return contentElements.map((element, currentIndex) => {
+    const bannersMap = Object.fromEntries(
+        bannersElements.map(b => [b.position, b])
+    );
+
+    const contentElementsProcessed = contentElements.reduce(
+        (acc, content, index) => {
+            if (index in bannersMap) acc.push(bannersMap[index]);
+            acc.push(content);
+            return acc;
+        },
+        []
+    );
+
+    return contentElementsProcessed.map((element, currentIndex) => {
         if (processedIndices.has(currentIndex)) return null;
         if (!element) return null;
+
+        if (
+            element?.type === 'banner-element' &&
+            element?.allowLayouts?.includes(layout)
+        ) {
+            const BannerComponent = BannersFoodit[element._id];
+            if (!BannerComponent) return null;
+            return (
+                <section className="content">
+                    <BannerComponent />
+                </section>
+            );
+        }
 
         const { type, subtype } = element.subtype
             ? transformEmbedScript(element)

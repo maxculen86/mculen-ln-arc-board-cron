@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpeningImage100 snapshot  1`] = `
+exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
 <div>
   <section
-    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark h-[calc(100dvh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100dvh-var(--header-sticky-height))]"
-    data-diagram="title-100"
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    data-diagram="title-below"
   >
     <img
       alt="Article image"
-      class="w-full h-full object-cover overflow-hidden"
+      class="w-full h-full object-cover opacity-60"
       data-fetch-priority="high"
       data-loading="eager"
       height="576"
@@ -18,10 +18,10 @@ exports[`OpeningImage100 snapshot  1`] = `
       width="1024"
     />
     <div
-      class="w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10"
+      class="w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10 text-center bottom-0 mb-40 md:mb-80"
     >
       <div
-        class="flex flex-col gap-8 mb-40 md:mb-80"
+        class="flex flex-col gap-8 m-auto max-w-835 px-24"
       >
         <div
           data-testid="opening-addons"
@@ -29,6 +29,7 @@ exports[`OpeningImage100 snapshot  1`] = `
           OpeningAddons
         </div>
         <div
+          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1>
@@ -39,7 +40,93 @@ exports[`OpeningImage100 snapshot  1`] = `
           </h2>
         </div>
         <p
-          class="prumo text-white text-subheading-md"
+          class="font-primary text-neutral-1 hero-subheading-fluid"
+        >
+          This is the subheadline
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
+<div>
+  <section
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    data-diagram="title-below"
+  >
+    <video
+      autoplay=""
+      class="w-full h-full object-cover opacity-60"
+      loop=""
+      playsinline=""
+      poster="https://cdn.jwplayer.com/poster.jpg"
+      src="https://cdn.jwplayer.com/video.mp4"
+    />
+    <div
+      class="w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10 text-center bottom-0 mb-40 md:mb-80"
+    >
+      <div
+        class="flex flex-col gap-8 m-auto max-w-835 px-24"
+      >
+        <div
+          data-testid="opening-addons"
+        >
+          OpeningAddons
+        </div>
+        <div
+          data-base-class="font-primary hero-title-fluid"
+          data-testid="opening-titles"
+        >
+          <h1>
+            Main Title
+          </h1>
+          <h2>
+            Subtitle
+          </h2>
+        </div>
+        <p
+          class="font-primary text-neutral-1 hero-subheading-fluid"
+        >
+          This is the subheadline
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`OpeningImage100 snapshots matches snapshot without media 1`] = `
+<div>
+  <section
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    data-diagram="title-below"
+  >
+    <div
+      class="w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10 text-center bottom-0 mb-40 md:mb-80"
+    >
+      <div
+        class="flex flex-col gap-8 m-auto max-w-835 px-24"
+      >
+        <div
+          data-testid="opening-addons"
+        >
+          OpeningAddons
+        </div>
+        <div
+          data-base-class="font-primary hero-title-fluid"
+          data-testid="opening-titles"
+        >
+          <h1>
+            Main Title
+          </h1>
+          <h2>
+            Subtitle
+          </h2>
+        </div>
+        <p
+          class="font-primary text-neutral-1 hero-subheading-fluid"
         >
           This is the subheadline
         </p>

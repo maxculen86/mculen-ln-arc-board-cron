@@ -6,8 +6,8 @@ import EmptyState from '../../common/emptyState/foodit';
 
 export const SearchContext = createContext();
 
-export default function QuerylyContext({ children }) {
-    const result = useFilterManager();
+export default function QuerylyContext({ children, dynamicQuery }) {
+    const result = useFilterManager({ dynamicQuery });
     const articlesGrid = get(result, 'data.articlesGrid', []);
     const loading = get(result, 'loading', false);
     const { layout, siteProperties } = useAppContext();

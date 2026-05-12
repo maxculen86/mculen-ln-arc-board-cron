@@ -23,15 +23,6 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
     "name": "Paaawer ap dos",
     "startDate": "2022-06-15T15:50:21.667Z",
     "endDate": "2022-06-22T03:53:00.000Z",
-    "location": {
-      "@type": "place",
-      "name": "LA NACION",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressRegion": "AR"
-      }
-    },
     "organizer": {
       "@type": "Organization",
       "name": "La Nación",
@@ -42,7 +33,7 @@ exports[`Liveblog Snippet with liveblog power up Should render the schema correc
       "name": "La Nación",
       "url": "https://www.lanacion.com.ar/"
     },
-    "eventstatus": "https://schema.org/EventScheduled",
+    "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
     "description": "Lo pibe",
     "image": [
@@ -167,7 +158,7 @@ exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema pr
     "description": "Esta es la prueba de la bajada en Foto al 100",
     "endDate": "2020-06-26T07:39:44.527Z",
     "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-    "eventstatus": "https://schema.org/EventScheduled",
+    "eventStatus": "https://schema.org/EventScheduled",
     "image": [
       {
         "@type": "ImageObject",
@@ -188,15 +179,6 @@ exports[`Schema LiveBlogPosting - SnippetLiveblog Should validate main schema pr
         "width": 1200,
       },
     ],
-    "location": {
-      "@type": "place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressRegion": "AR",
-      },
-      "name": "LA NACION",
-    },
     "name": "Meta titulo",
     "organizer": {
       "@type": "Organization",

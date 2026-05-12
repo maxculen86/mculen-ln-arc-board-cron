@@ -3,7 +3,7 @@ import { createComponentProps } from '../_utils/buildBodyCommon';
 import {
     renderElement,
     createElementProps,
-    hasBodyBanners
+    shouldCountElementForBanners
 } from '../_utils/renderHelpers';
 
 const BuildBody = ({
@@ -55,9 +55,13 @@ const BuildBody = ({
         );
 
         if (
-            renderedElement &&
-            hasBodyBanners(banners, dynamicBanners) &&
-            finalSupportedTypes.includes(element.type)
+            shouldCountElementForBanners({
+                renderedElement,
+                banners,
+                dynamicBanners,
+                element,
+                supportedTypes: finalSupportedTypes
+            })
         ) {
             counter.current += 1;
         }

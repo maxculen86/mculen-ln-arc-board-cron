@@ -1,6 +1,6 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
-import ImageUI from '../../../../../features/ui/ln/image/default';
+import OpeningMedia from './OpeningMedia';
 import OpeningAddons from './OpeningAddons';
 import OpeningTitles from './OpeningTitles';
 import { openingImage100Variants, sectionHeight } from './styles';
@@ -13,6 +13,8 @@ function OpeningImage100({
     width,
     height,
     altText,
+    videoUrl,
+    posterUrl,
     globalContent = {},
     layout = '',
     title1 = '',
@@ -22,36 +24,27 @@ function OpeningImage100({
     const variant = diagram.split('title-')[1];
 
     const wrapperClass = openingImage100Variants.wrapper({ variant });
-    const containerClass = openingImage100Variants.container({
-        variant
-    });
+    const containerClass = openingImage100Variants.container({ variant });
     const addonsClass = openingImage100Variants.addons({ variant });
 
     return (
         <section
             className={cx(
-                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark',
+                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56',
                 sectionHeight
             )}
             data-diagram={diagram}
         >
-            {src && (
-                <ImageUI
-                    alt={altText}
-                    src={src}
-                    srcSet={srcset}
-                    sizes={sizes}
-                    width={width}
-                    height={height}
-                    renderImgOnly
-                    classnames={{
-                        wrapper: 'opacity-60',
-                        image: 'w-full h-full object-cover overflow-hidden'
-                    }}
-                    fetchPriority="high"
-                    loading="eager"
-                />
-            )}
+            <OpeningMedia
+                videoUrl={videoUrl}
+                posterUrl={posterUrl}
+                src={src}
+                srcset={srcset}
+                sizes={sizes}
+                width={width}
+                height={height}
+                altText={altText}
+            />
             <div className={wrapperClass}>
                 <div className={containerClass}>
                     <OpeningAddons
@@ -62,11 +55,12 @@ function OpeningImage100({
                         }}
                     />
                     <OpeningTitles
-                        h1Props={{ text: title1 }}
-                        h2Props={{ text: title2 }}
+                        baseClassName="font-primary hero-title-fluid"
+                        h1Props={{ text: title1, className: 'text-neutral-1' }}
+                        h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="prumo text-white text-subheading-md">
+                        <p className="font-primary text-neutral-1 hero-subheading-fluid">
                             {subheadline}
                         </p>
                     )}

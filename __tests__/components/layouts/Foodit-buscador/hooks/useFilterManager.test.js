@@ -79,4 +79,18 @@ describe('Tests - hooks - foodit-buscador - useFilterManager', () => {
             { id: 1, title: 'Article 1' }
         ]);
     });
+
+    it('should use dynamicQuery instead of URL parameter if provided', async () => {
+        const { result } = renderHook(() =>
+            useFilterManager({ dynamicQuery: 'milanesa' })
+        );
+
+        expect(result.current.query).toBe('milanesa');
+
+        await waitFor(() => expect(result.current.data.loading).toBe(false));
+
+        expect(global.fetch).toHaveBeenCalledWith(
+            expect.stringContaining('query=milanesa')
+        );
+    });
 });

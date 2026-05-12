@@ -14,11 +14,6 @@ const BELL_CONFIG = {
         'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.'
 };
 
-export const hideTooltip = setTooltip => {
-    setTooltip('hide');
-    localStorage?.setItem('tooltip', 'hide');
-};
-
 export const getPropsBellFoodit = () => {
     const loginHrefLocation =
         (typeof window !== 'undefined' && window?.btoa(window.location.href)) ||
@@ -26,7 +21,6 @@ export const getPropsBellFoodit = () => {
     return {
         zone: BELL_CONFIG.ZONE,
         isTestEnvironment: API_ENV !== 'prod',
-        showTooltip: true,
         loginHref: FOODIT_LOGIN_URL + loginHrefLocation,
         loginText: BELL_CONFIG.LOGIN_TEXT,
         notificationsRequestSize: BELL_CONFIG.REQUEST_SIZE,
@@ -34,9 +28,8 @@ export const getPropsBellFoodit = () => {
     };
 };
 
-export const getPropsBellEvents = ({ setTooltip }) => {
+export const getPropsBellEvents = () => {
     const handleBellClick = () => {
-        hideTooltip(setTooltip);
         addEventToDataLayerV2({
             event: ANALYTICS_EVENTS.LINK_CLICK,
             category: 'campanita',

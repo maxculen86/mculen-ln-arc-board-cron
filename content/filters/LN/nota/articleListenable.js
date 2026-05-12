@@ -610,6 +610,7 @@ export default `
                     author_type
                     voice
                     gplus
+                    bio
                     longBio
                 }
             }
@@ -675,6 +676,7 @@ export default `
         units
         url
         content,
+        alignment,
         numeric_rating,
         units,
         additional_properties {

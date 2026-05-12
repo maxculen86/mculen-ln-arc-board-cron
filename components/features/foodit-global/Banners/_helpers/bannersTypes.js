@@ -84,5 +84,56 @@ export const bannersTypes = {
             p_premiumId: getCookie('ProductoPremiumId') || 'N/A',
             content_type: contentType
         })
+    },
+    caja_1: {
+        devices: {
+            desktop: {
+                slotId: '/133919216/fd-dsk/cinturon_dsk',
+                size: [
+                    [1, 1],
+                    [640, 360],
+                    [640, 480],
+                    [728, 90],
+                    [468, 60]
+                ],
+                divId: 'cinturon_dsk',
+                classParent: 'flex jc-center',
+                styleBanner: {}
+            },
+            mobile: {
+                slotId: '/133919216/fd-mob/caja_mob',
+                size: [
+                    [1, 1],
+                    [300, 250],
+                    [300, 450],
+                    [320, 50],
+                    [320, 100],
+                    [320, 180],
+                    [360, 270]
+                ],
+                divId: 'caja_mob',
+                classParent: 'flex jc-center',
+                styleBanner: {}
+            },
+            tablet: {
+                slotId: '/133919216/fd-tab/caja_tab',
+                size: [
+                    [728, 90],
+                    [640, 480],
+                    [468, 60],
+                    [1, 1]
+                ],
+                divId: 'caja_tab',
+                classParent: 'flex jc-center',
+                styleBanner: {}
+            }
+        },
+        getTargetings: ({ contentType }) => ({
+            p_gaComboType: getCookie('gaComboType') || 'N/A',
+            p_logeado: localStorage.getItem('CDUsuarioLogeado') || 'no',
+            p_suscriptor: localStorage.getItem('CDpayUser') || 'no',
+            p_premiumId: getCookie('ProductoPremiumId') || 'N/A',
+            content_type: contentType
+        })
     }
 };

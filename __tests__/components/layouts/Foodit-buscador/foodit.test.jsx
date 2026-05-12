@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import FooditSearch from '../../../../components/layouts/Foodit-buscador/foodit';
 import { useDrawer } from '@ln/common-ui-drawer';
-import { useWindowSize } from '@ln/hooks';
+import { useWindowSize, getTypeOfDevice } from '@ln/hooks';
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
@@ -57,6 +57,7 @@ describe('foodit Component', () => {
 
     beforeEach(() => {
         useDrawer.mockReturnValue({ toggleDrawer: mockToggleDrawer });
+        getTypeOfDevice.mockReturnValue('desktop');
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
             value: jest.fn().mockImplementation(query => ({

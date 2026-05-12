@@ -82,11 +82,12 @@ window.addEventListener('load', function () {
                             currentTitle = newTitle;
                             currentId = newId;
                             skipPlayForSeek = false;
-                            initialMode =
+                            if (
                                 isNewPlaylistItem &&
                                 shouldAutoplayNextPlaylistItem
-                                    ? 'autoplay'
-                                    : null;
+                            ) {
+                                initialMode = 'autoplay';
+                            }
                             wasPaused = false;
                         }
                     });

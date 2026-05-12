@@ -3,7 +3,7 @@
 exports[`Editoriales test Matches snapshot 1`] = `
 <div>
   <h4
-    class="com-title --font-primary [object Object] --font-medium"
+    class="com-title --font-primary --font-medium"
   >
     Editoriales
   </h4>

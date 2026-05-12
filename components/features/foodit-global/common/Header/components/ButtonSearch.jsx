@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Tooltip } from '@ln/common-ui-tooltip';
-import { useDisclosure } from '@ln/hooks';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
@@ -13,14 +11,6 @@ export function ButtonSearch({
     startSearch,
     loading
 }) {
-    const { isOpen, onOpen, onClose } = useDisclosure(false);
-
-    useEffect(() => {
-        onOpen();
-        const timer = setTimeout(onClose, 7000);
-        return () => clearTimeout(timer);
-    }, [onOpen, onClose]);
-
     const handleVoiceSearchClick = () => {
         startListening();
         addEventToDataLayerV2({
@@ -49,37 +39,21 @@ export function ButtonSearch({
                     </Icon>
                 </Button>
             ) : (
-                <Tooltip
-                    position="bottom-right"
-                    content={
-                        <span className="text-12">
-                            ¡Nueva búsqueda por voz!
-                        </span>
-                    }
-                    classnames={{
-                        container: 'flex',
-                        tooltip:
-                            'py-4 flex ai-center max-w-134_lg ai-center bg-secondary-positive text-light-1 text-12 border border-all border-thin border-light-100'
-                    }}
-                    visible={isOpen}
-                    disableTrigger
+                <Button
+                    data-test-id="button-header-search"
+                    title="audio"
+                    iconOnly
+                    variant="link"
+                    className="px-12 py-8"
+                    onClick={handleVoiceSearchClick}
                 >
-                    <Button
-                        data-test-id="button-header-search"
-                        title="audio"
-                        iconOnly
-                        variant="link"
-                        className="px-12 py-8"
-                        onClick={handleVoiceSearchClick}
-                    >
-                        <Icon size={24}>
-                            <IconSprite
-                                name={isListening ? 'audio-fill' : 'audio'}
-                                fill={isListening ? '#E3313B' : ''}
-                            />
-                        </Icon>
-                    </Button>
-                </Tooltip>
+                    <Icon size={24}>
+                        <IconSprite
+                            name={isListening ? 'audio-fill' : 'audio'}
+                            fill={isListening ? '#E3313B' : ''}
+                        />
+                    </Icon>
+                </Button>
             )}
         </div>
     );

@@ -68,8 +68,7 @@ function SnippetLiveblog(props) {
     const { authors, shouldShow } = useLiveblogAuthors();
 
     const authorsArray = shouldShow ? authors : [];
-    const { addressLocality, addressRegion } =
-        getLiveblogLocation(globalContent);
+    const liveblogLocation = getLiveblogLocation(globalContent);
 
     const data = {
         '@context': urlSchema,
@@ -88,15 +87,16 @@ function SnippetLiveblog(props) {
             name: noteTitle,
             startDate: converageStart,
             endDate: coverageEnd,
-            location: {
-                '@type': 'place',
-                name: 'LA NACION',
-                address: {
-                    '@type': 'PostalAddress',
-                    addressLocality,
-                    addressRegion
+            ...(liveblogLocation && {
+                location: {
+                    '@type': 'Place',
+                    name: 'LA NACION',
+                    address: {
+                        '@type': 'PostalAddress',
+                        ...liveblogLocation
+                    }
                 }
-            },
+            }),
             organizer: {
                 '@type': 'Organization',
                 name: 'La Nación',
@@ -107,7 +107,7 @@ function SnippetLiveblog(props) {
                 name: 'La Nación',
                 url: schemaHostWithSlash
             },
-            eventstatus: 'https://schema.org/EventScheduled',
+            eventStatus: 'https://schema.org/EventScheduled',
             eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
             description: noteDescription,
             image

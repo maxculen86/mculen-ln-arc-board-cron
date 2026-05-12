@@ -21,11 +21,13 @@ jest.mock(
             width,
             height,
             className,
+            classnames,
             fetchPriority,
             loading,
             renderImgOnly = false,
             sources = []
         }) => {
+            const imgClass = classnames?.image || className;
             const image = (
                 <img
                     data-testid="image-ui"
@@ -35,7 +37,7 @@ jest.mock(
                     sizes={sizes}
                     width={width}
                     height={height}
-                    className={className}
+                    className={imgClass}
                     data-fetch-priority={fetchPriority}
                     data-loading={loading}
                 />
@@ -60,11 +62,12 @@ jest.mock(
 );
 
 jest.mock('@ln/ds-common-divider', () => ({
-    Divider: ({ className, direction }) => (
+    Divider: ({ className, direction, color }) => (
         <hr
             data-testid="divider"
             className={className}
             data-direction={direction}
+            data-color={color}
         />
     )
 }));
@@ -81,8 +84,8 @@ jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () => ({
         __esModule: true,
-        default: ({ h1Props, h2Props }) => (
-            <div data-testid="opening-titles">
+        default: ({ h1Props, h2Props, baseClassName }) => (
+            <div data-testid="opening-titles" data-base-class={baseClassName}>
                 <h1>{h1Props?.text}</h1>
                 <h2>{h2Props?.text}</h2>
             </div>
@@ -150,11 +153,8 @@ describe('OpeningImagePanoramic', () => {
 
         const divider = screen.getByTestId('divider');
         expect(divider).toBeInTheDocument();
-        expect(divider).toHaveClass(
-            'max-w-80',
-            'my-40',
-            'border-black-default'
-        );
+        expect(divider).toHaveClass('max-w-80', 'mt-28', 'mb-16');
+        expect(divider).toHaveAttribute('data-color', 'black');
     });
 
     it('should not render subheadline when not provided', () => {
@@ -175,7 +175,7 @@ describe('OpeningImagePanoramic', () => {
         ).not.toBeInTheDocument();
     });
 
-    it('should render panoramic image with full viewport dimensions', () => {
+    it('should render panoramic image wrapper with full-width classes', () => {
         const { container } = render(<OpeningImagePanoramic {...mockProps} />);
 
         const panoramicDiv = container.querySelector(
@@ -183,7 +183,6 @@ describe('OpeningImagePanoramic', () => {
         );
         expect(panoramicDiv).toHaveClass(
             'w-screen',
-            'h-screen',
             'overflow-hidden',
             'relative'
         );
@@ -216,10 +215,18 @@ describe('OpeningImagePanoramic', () => {
 
         const subheadline = screen.getByText('This is the subheadline');
         expect(subheadline).toHaveClass(
-            'prumo',
-            'text-subheading-md',
+            'font-primary',
+            'hero-subheading-fluid',
             'text-center',
             'max-w-635'
+        );
+    });
+
+    it('passes hero-title-fluid baseClassName to OpeningTitles', () => {
+        render(<OpeningImagePanoramic {...mockProps} />);
+        expect(screen.getByTestId('opening-titles')).toHaveAttribute(
+            'data-base-class',
+            'font-primary hero-title-fluid'
         );
     });
 
@@ -261,6 +268,58 @@ describe('OpeningImagePanoramic', () => {
         expect(
             screen.getByText('Párrafo con <etiquetas> y "comillas"')
         ).toBeInTheDocument();
+    });
+
+    describe('video', () => {
+        it('should render a video element when videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                    posterUrl="https://cdn.jwplayer.com/poster.jpg"
+                />
+            );
+            expect(container.querySelector('video')).toBeInTheDocument();
+        });
+
+        it('should not render image when videoUrl is provided', () => {
+            render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
+        });
+
+        it('should render video with cover classes', () => {
+            const { container } = render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            const video = container.querySelector('video');
+            expect(video).toHaveClass(
+                'w-full',
+                'h-full',
+                'object-cover',
+                'opacity-60'
+            );
+        });
+
+        it('should not render the media section when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImagePanoramic {...mockProps} src="" videoUrl="" />
+            );
+            expect(
+                container.querySelector(
+                    '[data-diagram="image-panoramic"].w-screen'
+                )
+            ).not.toBeInTheDocument();
+        });
     });
 
     describe('snapshots', () => {

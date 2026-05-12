@@ -8,11 +8,112 @@ import bannersRules from '../../../common/banners/bannersRules';
 import isWebview from '../../../common/utils/isWebview';
 import getCustomTargeting from '../../../common/banners/helpers/getCustomTargeting';
 import hideParentNode from '../../../../features/private-global/common/utils/hideParentNode';
+import {
+    isSubscribed,
+    SUBSCRIBED_HELPER
+} from '../../../common/auth/helper/loginHelper';
+import handleCookie from './handleCookie';
 
 export const suffixDevice = {
     desktop: '_dsk',
     tablet: '_tab',
     mobile: '_mob'
+};
+
+export const COMMERCIAL_FREQUENCY_CAP_MINUTES = 30;
+export const COMMERCIAL_FREQUENCY_CAP_COOKIE_PREFIX = 'ln_commercial_fc';
+
+const COMMERCIAL_FREQUENCY_CAP_SLOT_GROUPS = ['home', 'nota', 'acumulado'];
+const COMMERCIAL_SLOT_REGEX = /^comercial_(dsk|mob|tab)$/i;
+
+const getValidCommercialFrequencyCapSlotGroup = slotGroup => {
+    const normalizedSlotGroup = slotGroup?.toString().toLowerCase();
+
+    return COMMERCIAL_FREQUENCY_CAP_SLOT_GROUPS.includes(normalizedSlotGroup)
+        ? normalizedSlotGroup
+        : null;
+};
+
+const shouldApplyCommercialFrequencyCap = subscription =>
+    typeof subscription === 'boolean'
+        ? subscription
+        : isSubscribed(SUBSCRIBED_HELPER.LN);
+
+export const getCommercialFrequencyCapSlotGroup = ({
+    adUnitPath = '',
+    opt_div: optDiv = '',
+    slotGroup = ''
+} = {}) => {
+    const adUnitSegments = adUnitPath.toString().split('/').filter(Boolean);
+    const adUnitSlot = adUnitSegments[adUnitSegments.length - 1] || '';
+    const isCommercialSlot =
+        COMMERCIAL_SLOT_REGEX.test(optDiv) ||
+        COMMERCIAL_SLOT_REGEX.test(adUnitSlot);
+
+    if (!isCommercialSlot) return null;
+
+    const validSlotGroup = getValidCommercialFrequencyCapSlotGroup(slotGroup);
+    if (validSlotGroup) return validSlotGroup;
+
+    return (
+        adUnitSegments
+            .map(segment => getValidCommercialFrequencyCapSlotGroup(segment))
+            .find(Boolean) || null
+    );
+};
+
+export const getCommercialFrequencyCapCookieName = slotGroup => {
+    const validSlotGroup = getValidCommercialFrequencyCapSlotGroup(slotGroup);
+
+    return validSlotGroup
+        ? `${COMMERCIAL_FREQUENCY_CAP_COOKIE_PREFIX}_${validSlotGroup}`
+        : null;
+};
+
+export const hasCommercialFrequencyCapCookie = banner => {
+    const slotGroup = getCommercialFrequencyCapSlotGroup(banner);
+    const cookieName = getCommercialFrequencyCapCookieName(slotGroup);
+
+    if (!cookieName) return false;
+
+    const { getCookie } = handleCookie();
+    return Boolean(getCookie(cookieName));
+};
+
+export const setCommercialFrequencyCapCookie = banner => {
+    const slotGroup = getCommercialFrequencyCapSlotGroup(banner);
+    const cookieName = getCommercialFrequencyCapCookieName(slotGroup);
+
+    if (!cookieName) return false;
+
+    const { setCookie } = handleCookie();
+    return setCookie(cookieName, 'true', COMMERCIAL_FREQUENCY_CAP_MINUTES);
+};
+
+export const filterCommercialBannersByFrequencyCap = (
+    bannersToLoad = [],
+    subscription = undefined
+) => {
+    if (!shouldApplyCommercialFrequencyCap(subscription)) return bannersToLoad;
+
+    return bannersToLoad.filter(
+        banner => !hasCommercialFrequencyCapCookie(banner)
+    );
+};
+
+export const getCommercialFrequencyCapBannersBySlot = (
+    bannersToLoad = [],
+    subscription = undefined
+) => {
+    if (!shouldApplyCommercialFrequencyCap(subscription)) return {};
+
+    return bannersToLoad.reduce((acc, banner) => {
+        if (getCommercialFrequencyCapSlotGroup(banner)) {
+            acc[banner.opt_div] = banner;
+        }
+
+        return acc;
+    }, {});
 };
 
 export const BANNERS_DESKTOP = [
@@ -512,7 +613,20 @@ export const displayUnicBanner = ({
     });
 };
 
-export const queueGoogletagCommand = bannersToLoad => {
+export const queueGoogletagCommand = (
+    bannersToLoad = [],
+    { subscription } = {}
+) => {
+    const bannersToRequest = filterCommercialBannersByFrequencyCap(
+        bannersToLoad,
+        subscription
+    );
+
+    if (bannersToRequest.length === 0) return;
+
+    const commercialFrequencyCapBanners =
+        getCommercialFrequencyCapBannersBySlot(bannersToRequest, subscription);
+
     function callAdserver(_headerBiddingSlots, fallback = false) {
         if (pbjs.adserverCalled) return;
         /* eslint-disable no-console */
@@ -525,16 +639,16 @@ export const queueGoogletagCommand = bannersToLoad => {
     }
 
     googletag.cmd.push(() => {
-        const headerBiddingSlots = bannersToLoad
+        const headerBiddingSlots = bannersToRequest
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
-        const nonHeaderBiddingSlots = bannersToLoad
+        const nonHeaderBiddingSlots = bannersToRequest
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
         const hastSlotswithBids = headerBiddingSlots.length !== 0;
 
         const slotAPS = {
-            slots: bannersToLoad.map(slot => {
+            slots: bannersToRequest.map(slot => {
                 const { adUnitPath, size, opt_div: optDiv } = slot;
                 return {
                     slotID: optDiv, // example: 'caja1_dsk'
@@ -578,20 +692,23 @@ export const queueGoogletagCommand = bannersToLoad => {
 
         googletag.pubads().refresh(nonHeaderBiddingSlots);
 
-        const bannersWithoutHide = bannersToLoad
+        const bannersWithoutHide = bannersToRequest
             .filter(e => e.withoutHide)
             .map(e => e.opt_div);
 
         googletag
             .pubads()
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
-                const banner = document.getElementById(slot.getSlotElementId());
+                const slotId = slot.getSlotElementId();
+                const banner = document.getElementById(slotId);
 
                 const isBannerVisible =
-                    !isEmpty &&
-                    !bannersWithoutHide.includes(slot.getSlotElementId());
+                    !isEmpty && !bannersWithoutHide.includes(slotId);
 
                 if (isBannerVisible) {
+                    setCommercialFrequencyCapCookie(
+                        commercialFrequencyCapBanners[slotId]
+                    );
                     banner.parentNode.classList.remove('none');
                 }
             });
