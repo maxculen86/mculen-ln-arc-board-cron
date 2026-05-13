@@ -84,6 +84,90 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
 </div>
 `;
 
+exports[`ChatLN snapshots matches snapshot when error 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="mb-16 pt-8 pb-16 xl:pt-6"
+  >
+    <h2
+      class="font-secondary text-body-lg font-bold xl:pb-16"
+    >
+      LA NACION IA
+    </h2>
+    <div
+      class="xl:hidden flex pt-8 pb-16 xl:pt-0 xl:pb-0 gap-8"
+    >
+      <div
+        data-subscribed="true"
+        data-testid="empty-state"
+      />
+    </div>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:gap-32"
+    >
+      <div
+        class="xl:col-span-12"
+      >
+        <div
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-blocked="true"
+              data-disabled="false"
+              data-generating="false"
+              data-subscribed="true"
+              data-testid="input-chat"
+            />
+            <div
+              class="overflow-y-hidden overflow-x-hidden hidden"
+              data-testid="thread-viewport"
+            >
+              <div
+                data-count="0"
+                data-generating="false"
+                data-testid="message-container"
+              />
+            </div>
+            <div
+              class="flex justify-center xl:justify-start"
+            >
+              <button
+                data-testid="reset-button"
+                type="button"
+              >
+                <span
+                  data-testid="icon-ia"
+                />
+                Realizar una nueva pregunta
+              </button>
+            </div>
+            <hr
+              data-testid="divider"
+            />
+            <p
+              class="font-secondary text-small-lg text-base-default -mt-8"
+            >
+              Las respuestas se basan exclusivamente en el contenido periodístico publicado por LA NACION. Recomendamos verificar siempre la información con las notas originales que respaldan cada respuesta.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="hidden xl:flex gap-8 xl:col-span-4 flex gap-8 pt-8 pb-16 xl:pt-0"
+      >
+        <div
+          data-subscribed="true"
+          data-testid="empty-state"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
 <div
   data-tw="true"

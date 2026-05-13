@@ -147,6 +147,12 @@ describe('ChatLN', () => {
             const { container } = render(<ChatLN />);
             expect(container.firstChild).toMatchSnapshot();
         });
+
+        it('matches snapshot when error', () => {
+            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
+            const { container } = render(<ChatLN />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
     });
 
     describe('heading', () => {
@@ -203,6 +209,12 @@ describe('ChatLN', () => {
             expect(screen.getByTestId('reset-button')).toBeInTheDocument();
         });
 
+        it('shows reset button when error (ambiguous / no answer)', () => {
+            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
+            render(<ChatLN />);
+            expect(screen.getByTestId('reset-button')).toBeInTheDocument();
+        });
+
         it('does not show reset button when idle', () => {
             render(<ChatLN />);
             expect(
@@ -224,6 +236,15 @@ describe('ChatLN', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
+            render(<ChatLN />);
+            fireEvent.click(screen.getByTestId('reset-button'));
+            expect(mockSetMessages).toHaveBeenCalledWith([]);
+            expect(mockSetStatus).toHaveBeenCalledWith('idle');
+            expect(mockSetError).toHaveBeenCalledWith(null);
+        });
+
+        it('calls setMessages, setStatus and setError on reset click from error state', () => {
+            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
             fireEvent.click(screen.getByTestId('reset-button'));
             expect(mockSetMessages).toHaveBeenCalledWith([]);
@@ -293,6 +314,15 @@ describe('ChatLN', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
+            render(<ChatLN />);
+            expect(screen.getByTestId('input-chat')).toHaveAttribute(
+                'data-blocked',
+                'true'
+            );
+        });
+
+        it('passes isBlocked=true to InputChat when error', () => {
+            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
             expect(screen.getByTestId('input-chat')).toHaveAttribute(
                 'data-blocked',

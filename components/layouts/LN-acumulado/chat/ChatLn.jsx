@@ -106,7 +106,8 @@ export function ChatLN() {
 
     const isGenerating = runtime.status === 'generating';
 
-    const isBlocked = runtime.status === 'blocked';
+    const isBlocked =
+        runtime.status === 'blocked' || runtime.status === 'error';
 
     const isIdle = runtime.status === 'idle';
 

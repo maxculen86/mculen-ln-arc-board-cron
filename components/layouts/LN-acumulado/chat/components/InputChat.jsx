@@ -12,7 +12,9 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
 
     const classNameContainer = cx(
         'h-[92px] sm:h-[80px] border rounded-sm focus-within:border-accent-default hover:border-base-light',
-        !isSubscribed ? 'border-base-lighten' : 'border-base-default'
+        !isSubscribed || isBlocked
+            ? 'border-base-lighten'
+            : 'border-base-default'
     );
 
     return (
