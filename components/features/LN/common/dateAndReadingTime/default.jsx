@@ -29,7 +29,7 @@ function DateAndReadingTime({ globalContent }) {
 
     return (
         <Static id="LN-fecha-nota" htmlOnly>
-            <div className="flex items-center gap-8 text-body-sm text-base-light flex-wrap">
+            <div className="flex items-center gap-8 justify-center text-body-sm text-base-light flex-wrap">
                 <time
                     dateTime={displayDate}
                     className="flex items-center gap-8"
