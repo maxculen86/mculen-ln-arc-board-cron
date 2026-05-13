@@ -142,7 +142,8 @@ function LoadBannersSSR({ blocksBanners = [] }) {
                     queueGoogletagCommand(
                         finalBannersToLoad.filter(
                             ban => !(ban.hideForSubscriptor && subscription)
-                        )
+                        ),
+                        { subscription }
                     );
                 }
             }

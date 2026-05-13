@@ -3,12 +3,16 @@ import getOpeningMediaData, {
 } from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningMediaData';
 import * as mediaHelpers from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/mediaHelpers';
 import getOpeningResizedUrls from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls';
+import { getVideoData } from '../../../../../../../components/features/private-global/common/utils/getVideoData';
 
 jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/mediaHelpers'
 );
 jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls'
+);
+jest.mock(
+    '../../../../../../../components/features/private-global/common/utils/getVideoData'
 );
 
 const storytellingResponsiveEntries = [
@@ -63,6 +67,7 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
             altText: ''
         });
         getOpeningResizedUrls.mockReturnValue([]);
+        getVideoData.mockReturnValue({ videoUrl: '', posterUrl: '' });
     });
 
     it('should return diagram from custom_storytelling_opening if present', () => {
@@ -110,6 +115,90 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
             sizes: '(min-width: 1440px) 1920px, (min-width: 1024px) and (max-width: 1439px) 1200px, (min-width: 768px) and (max-width: 1023px) 770px, (max-width: 767px) 420px, 420px',
             width: 1200,
             height: 800
+        });
+    });
+
+    describe('video_jw', () => {
+        it('should return videoUrl and posterUrl when video_jw is present', () => {
+            getVideoData.mockReturnValue({
+                videoUrl: 'https://cdn.jwplayer.com/video.mp4',
+                posterUrl: 'https://cdn.jwplayer.com/poster.jpg'
+            });
+
+            const result = getOpeningMediaData({ video_jw: {} });
+
+            expect(result.videoUrl).toBe('https://cdn.jwplayer.com/video.mp4');
+            expect(result.posterUrl).toBe(
+                'https://cdn.jwplayer.com/poster.jpg'
+            );
+        });
+
+        it('should return diagram when video_jw is present', () => {
+            getVideoData.mockReturnValue({
+                videoUrl: 'video.mp4',
+                posterUrl: ''
+            });
+
+            const promoItems = {
+                video_jw: {},
+                custom_storytelling_opening: {
+                    embed: { config: { diagram: 'image-100-title-centered' } }
+                }
+            };
+
+            const result = getOpeningMediaData(promoItems);
+
+            expect(result.diagram).toBe('image-100-title-centered');
+        });
+
+        it('should not return src or srcset when video_jw is present', () => {
+            getVideoData.mockReturnValue({
+                videoUrl: 'video.mp4',
+                posterUrl: ''
+            });
+
+            const result = getOpeningMediaData({ video_jw: {} });
+
+            expect(result.src).toBeUndefined();
+            expect(result.srcset).toBeUndefined();
+        });
+
+        it('should prioritize video over image when both video_jw and image are present', () => {
+            getVideoData.mockReturnValue({
+                videoUrl: 'https://cdn.jwplayer.com/video.mp4',
+                posterUrl: ''
+            });
+            mediaHelpers.getNormalizedImageData.mockReturnValue({
+                url: 'https://example.com/image.jpg',
+                caption: '',
+                altText: ''
+            });
+
+            const result = getOpeningMediaData({
+                video_jw: {},
+                basic: { url: 'https://example.com/image.jpg' }
+            });
+
+            expect(result.videoUrl).toBe('https://cdn.jwplayer.com/video.mp4');
+            expect(result.src).toBeUndefined();
+        });
+
+        it('should not return videoUrl when video_jw is absent', () => {
+            const result = getOpeningMediaData({});
+
+            expect(result.videoUrl).toBeUndefined();
+        });
+
+        it('should call getVideoData with the video_jw object', () => {
+            const videoJw = { embed: { config: { idVideo: 'abc123' } } };
+            getVideoData.mockReturnValue({
+                videoUrl: 'video.mp4',
+                posterUrl: ''
+            });
+
+            getOpeningMediaData({ video_jw: videoJw });
+
+            expect(getVideoData).toHaveBeenCalledWith(videoJw);
         });
     });
 

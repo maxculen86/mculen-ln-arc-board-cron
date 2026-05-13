@@ -36,6 +36,7 @@ function DsSignature({
         role,
         position,
         longBio,
+        bio,
         socialLinks = []
     } = data;
 
@@ -69,7 +70,7 @@ function DsSignature({
                 />
 
                 <BiographyAccordion
-                    text={longBio}
+                    text={isOpinionLayout ? bio : longBio}
                     shouldShowBiography={shouldShowOpinionSignatureBottomExtras}
                 />
                 <Divider />

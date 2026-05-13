@@ -36,11 +36,11 @@ function AdsManager() {
                     extractBannersMetadata(device, subscription);
 
                 if (bannersVisible.length !== 0 && !isCalledBannersHidden) {
-                    dispatchAdsRequest(bannersHidden);
+                    dispatchAdsRequest(bannersHidden, { subscription });
                     isCalledBannersHidden = true;
                 }
 
-                createAdsObserver(bannersVisible);
+                createAdsObserver(bannersVisible, { subscription });
             }
         } catch (error) {
             console.error('🚀 ~ file: AdsManager.jsx  ~ error', error);

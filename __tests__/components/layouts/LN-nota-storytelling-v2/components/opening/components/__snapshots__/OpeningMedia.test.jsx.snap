@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpeningMedia snapshots matches snapshot when neither src nor videoUrl is provided 1`] = `<DocumentFragment />`;
+
+exports[`OpeningMedia snapshots matches snapshot when rendering image 1`] = `
+<DocumentFragment>
+  <img
+    alt="Article image"
+    class="w-full h-full object-cover opacity-60"
+    data-fetch-priority="high"
+    data-loading="eager"
+    data-testid="image-ui"
+    height="576"
+    sizes="(max-width: 500px) 500px, 1024px"
+    src="https://example.com/image.jpg"
+    srcset="image-small.jpg 500w, image-large.jpg 1024w"
+    width="1024"
+  />
+</DocumentFragment>
+`;
+
+exports[`OpeningMedia snapshots matches snapshot when rendering video 1`] = `
+<DocumentFragment>
+  <video
+    autoplay=""
+    class="w-full h-full object-cover opacity-60"
+    loop=""
+    playsinline=""
+    poster="https://cdn.jwplayer.com/poster.jpg"
+    src="https://cdn.jwplayer.com/video.mp4"
+  />
+</DocumentFragment>
+`;

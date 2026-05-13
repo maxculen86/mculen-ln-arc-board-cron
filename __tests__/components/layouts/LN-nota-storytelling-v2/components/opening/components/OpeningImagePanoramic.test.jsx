@@ -21,11 +21,13 @@ jest.mock(
             width,
             height,
             className,
+            classnames,
             fetchPriority,
             loading,
             renderImgOnly = false,
             sources = []
         }) => {
+            const imgClass = classnames?.image || className;
             const image = (
                 <img
                     data-testid="image-ui"
@@ -35,7 +37,7 @@ jest.mock(
                     sizes={sizes}
                     width={width}
                     height={height}
-                    className={className}
+                    className={imgClass}
                     data-fetch-priority={fetchPriority}
                     data-loading={loading}
                 />
@@ -266,6 +268,58 @@ describe('OpeningImagePanoramic', () => {
         expect(
             screen.getByText('Párrafo con <etiquetas> y "comillas"')
         ).toBeInTheDocument();
+    });
+
+    describe('video', () => {
+        it('should render a video element when videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                    posterUrl="https://cdn.jwplayer.com/poster.jpg"
+                />
+            );
+            expect(container.querySelector('video')).toBeInTheDocument();
+        });
+
+        it('should not render image when videoUrl is provided', () => {
+            render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
+        });
+
+        it('should render video with cover classes', () => {
+            const { container } = render(
+                <OpeningImagePanoramic
+                    {...mockProps}
+                    src=""
+                    videoUrl="https://cdn.jwplayer.com/video.mp4"
+                />
+            );
+            const video = container.querySelector('video');
+            expect(video).toHaveClass(
+                'w-full',
+                'h-full',
+                'object-cover',
+                'opacity-60'
+            );
+        });
+
+        it('should not render the media section when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImagePanoramic {...mockProps} src="" videoUrl="" />
+            );
+            expect(
+                container.querySelector(
+                    '[data-diagram="image-panoramic"].w-screen'
+                )
+            ).not.toBeInTheDocument();
+        });
     });
 
     describe('snapshots', () => {

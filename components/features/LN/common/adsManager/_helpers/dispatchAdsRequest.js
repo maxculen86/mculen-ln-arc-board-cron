@@ -1,9 +1,24 @@
 /* global googletag, pbjs, apstag */
 
-import { defineSlot } from '../../../../../private/LN/common/utils/bannerHelper';
+import {
+    defineSlot,
+    filterCommercialBannersByFrequencyCap,
+    getCommercialFrequencyCapBannersBySlot,
+    setCommercialFrequencyCapCookie
+} from '../../../../../private/LN/common/utils/bannerHelper';
 import isWebview from '../../../../../private/common/utils/isWebview';
 
-const dispatchAdsRequest = bannersToLoad => {
+const dispatchAdsRequest = (bannersToLoad = [], { subscription } = {}) => {
+    const bannersToRequest = filterCommercialBannersByFrequencyCap(
+        bannersToLoad,
+        subscription
+    );
+
+    if (bannersToRequest.length === 0) return;
+
+    const commercialFrequencyCapBanners =
+        getCommercialFrequencyCapBannersBySlot(bannersToRequest, subscription);
+
     let batchCalled = false;
     function callAdserver(_headerBiddingSlots, fallback = false) {
         if (batchCalled) return;
@@ -18,17 +33,17 @@ const dispatchAdsRequest = bannersToLoad => {
 
     googletag.cmd.push(() => {
         googletag.pubads().disableInitialLoad();
-        const headerBiddingSlots = bannersToLoad
+        const headerBiddingSlots = bannersToRequest
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
 
-        const nonHeaderBiddingSlots = bannersToLoad
+        const nonHeaderBiddingSlots = bannersToRequest
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
         const hastSlotswithBids = headerBiddingSlots.length !== 0;
 
         const slotAPS = {
-            slots: bannersToLoad.map(slot => {
+            slots: bannersToRequest.map(slot => {
                 const { adUnitPath, size, opt_div: optDiv } = slot;
                 return {
                     slotID: optDiv, // example: 'caja1_dsk'
@@ -74,20 +89,23 @@ const dispatchAdsRequest = bannersToLoad => {
             googletag.pubads().refresh(nonHeaderBiddingSlots);
         }
 
-        const bannersWithoutHide = bannersToLoad
+        const bannersWithoutHide = bannersToRequest
             .filter(e => e.withoutHide)
             .map(e => e.opt_div);
 
         googletag
             .pubads()
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
-                const banner = document.getElementById(slot.getSlotElementId());
+                const slotId = slot.getSlotElementId();
+                const banner = document.getElementById(slotId);
 
                 const isBannerVisible =
-                    !isEmpty &&
-                    !bannersWithoutHide.includes(slot.getSlotElementId());
+                    !isEmpty && !bannersWithoutHide.includes(slotId);
 
                 if (isBannerVisible) {
+                    setCommercialFrequencyCapCookie(
+                        commercialFrequencyCapBanners[slotId]
+                    );
                     banner.parentNode.classList.remove('none');
                 }
             });
