@@ -1,6 +1,6 @@
 import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
 
-const getResizedUrlsByProportion = (imageData, proportion) => {
+export const getResizedUrlsByProportion = (imageData, proportion) => {
     const { resizedUrls } = getNormalizedImageData(imageData || {});
     const filtered = proportion
         ? resizedUrls.filter(item => item?.option?.proportion === proportion)

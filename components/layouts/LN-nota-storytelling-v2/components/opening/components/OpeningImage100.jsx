@@ -15,11 +15,13 @@ function OpeningImage100({
     altText,
     videoUrl,
     posterUrl,
+    mobileImageData,
     globalContent = {},
     layout = '',
     title1 = '',
     title2 = '',
-    subheadline = ''
+    subheadline = '',
+    hasStorytellingMobile = false
 }) {
     const variant = diagram.split('title-')[1];
 
@@ -44,6 +46,12 @@ function OpeningImage100({
                 width={width}
                 height={height}
                 altText={altText}
+                mobileImage={
+                    hasStorytellingMobile && mobileImageData?.src
+                        ? mobileImageData
+                        : undefined
+                }
+                classname="absolute inset-0"
             />
             <div className={wrapperClass}>
                 <div className={containerClass}>
