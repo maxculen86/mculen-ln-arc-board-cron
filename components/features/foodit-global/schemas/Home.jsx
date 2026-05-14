@@ -12,7 +12,7 @@ export function HomeSchema(props) {
         <SnippetRender
             id="website-schema"
             data={{
-                '@context': 'http://schema.org',
+                '@context': 'https://schema.org',
                 '@type': 'WebSite',
                 name: 'Foodit',
                 description: metaValue('description') || 'Foodit',

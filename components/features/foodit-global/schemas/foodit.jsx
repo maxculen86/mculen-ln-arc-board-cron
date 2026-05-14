@@ -2,6 +2,7 @@ import React from 'react';
 
 import { AcuSchema } from './Acu';
 import { HomeSchema } from './Home';
+import { OrganizationSchema } from './Organization';
 import { ChefSchema } from './Chef';
 import { RecipeSchema } from './Recipe';
 import { StorytellingSchema } from './Note';
@@ -30,7 +31,12 @@ function FooditSchemas(props) {
 
     if (!Snippet) return null;
 
-    return <Snippet {...props} />;
+    return (
+        <>
+            {layout === 'Foodit-home' && <OrganizationSchema {...props} />}
+            <Snippet {...props} />
+        </>
+    );
 }
 
 export default FooditSchemas;

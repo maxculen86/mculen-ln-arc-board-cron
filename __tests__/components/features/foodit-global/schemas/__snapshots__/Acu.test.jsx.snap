@@ -18,7 +18,7 @@ exports[`components - features- foodit-global - schemas - AcuSchema renders the 
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "https://foodit.lanacion.com.ar/pf/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "https://foodit.lanacion.com.ar/pf/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }
