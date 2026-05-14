@@ -8,7 +8,7 @@ exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
   >
     <img
       alt="Article image"
-      class="w-full h-full object-cover opacity-60"
+      class="w-full h-full object-cover opacity-60 absolute inset-0"
       data-fetch-priority="high"
       data-loading="eager"
       height="576"
@@ -58,7 +58,7 @@ exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
   >
     <video
       autoplay=""
-      class="w-full h-full object-cover opacity-60"
+      class="w-full h-full object-cover opacity-60 absolute inset-0"
       loop=""
       playsinline=""
       poster="https://cdn.jwplayer.com/poster.jpg"
