@@ -56,7 +56,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <NutritionalInfo globalContent={globalContent} />
                 <hr className="sm-none" />
                 <RelatedContent globalContent={globalContent} />
-                <NewsletterFoodit />
+                <NewsletterFoodit category="receta" />
                 <section className="flex flex-column gap-40">{bottom}</section>
             </div>
         </BaseLayout>

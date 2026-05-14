@@ -4,7 +4,7 @@ import { CardNewsletter } from './CardNewsletter';
 import { getNewsletters, newsletters } from './helpers/helpers';
 import useAuthManager from '../../../../private/common/auth/hooks/useAuthManager';
 
-export function NewsletterFoodit() {
+export function NewsletterFoodit({ category }) {
     const { token, accessToken } = useAuthManager();
     const [dataNewsletters, setNewsletters] = useState({});
 
@@ -47,6 +47,7 @@ export function NewsletterFoodit() {
                         image={image}
                         id={id}
                         suscribed={dataNewsletters[id]}
+                        category={category}
                     />
                 ))}
             </div>

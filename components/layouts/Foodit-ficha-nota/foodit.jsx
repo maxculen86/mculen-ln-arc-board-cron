@@ -110,7 +110,7 @@ function FichaNotaFoodit({ children = [], globalContent = {} }) {
                 </div>
             </div>
             <Breadcrumb globalContent={globalContent} />
-            <NewsletterFoodit />
+            <NewsletterFoodit category="nota" />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
