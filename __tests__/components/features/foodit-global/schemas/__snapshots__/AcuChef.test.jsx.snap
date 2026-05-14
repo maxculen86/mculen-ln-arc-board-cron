@@ -7,7 +7,7 @@ exports[`components - features- foodit-global - schemas - AcuChefSchema renders 
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Acumulado - Chefs Protagonistas",
   "url": "https://foodit.lanacion.com.ar/chefs-protagonistas/",
@@ -30,12 +30,12 @@ exports[`components - features- foodit-global - schemas - AcuChefSchema renders 
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
       "@type": "ListItem",
-      "position": 0,
+      "position": 1,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/",
         "name": "Foodit"
@@ -43,7 +43,7 @@ exports[`components - features- foodit-global - schemas - AcuChefSchema renders 
     },
     {
       "@type": "ListItem",
-      "position": 1,
+      "position": 2,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/",
         "name": "Recetas"

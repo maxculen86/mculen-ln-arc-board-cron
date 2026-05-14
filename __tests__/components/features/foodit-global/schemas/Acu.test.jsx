@@ -34,7 +34,7 @@ describe('components - features- foodit-global - schemas - AcuSchema', () => {
         expect(scriptBreadcrumb.itemListElement).toEqual([
             {
                 '@type': 'ListItem',
-                position: 0,
+                position: 1,
                 item: {
                     '@id': 'https://foodit.lanacion.com.ar',
                     name: 'Foodit'
@@ -42,7 +42,7 @@ describe('components - features- foodit-global - schemas - AcuSchema', () => {
             },
             {
                 '@type': 'ListItem',
-                position: 1,
+                position: 2,
                 item: {
                     '@id': 'https://foodit.lanacion.com.ar/recetas/',
                     name: 'Recetas'

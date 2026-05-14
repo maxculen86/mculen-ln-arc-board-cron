@@ -8,11 +8,11 @@ export function BreadcrumbSchema({ sections = [] }) {
     );
 
     const breadcrumbSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: validSections.map(({ name, url }, index) => ({
             '@type': 'ListItem',
-            position: index,
+            position: index + 1,
             item: {
                 '@id': url,
                 name
