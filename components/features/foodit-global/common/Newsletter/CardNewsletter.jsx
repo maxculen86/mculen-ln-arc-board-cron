@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge } from '@ln/foodit-ui-badge';
-import { Image } from '@ln/foodit-ui-image';
+import Badge from '../../../ui/foodit/badge/default';
+import Image from '../../../ui/foodit/image/default';
 import { NewsletterSelectionButton } from './components/NewsletterSelectionButton';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import { NewsletterSubscriptionButton } from './components/NewsletterSubscriptionButton';
@@ -19,15 +19,21 @@ export function CardNewsletter({
 
     return (
         <section
-            className="flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
+            className="bg-[rgba(255,193,8,0.15)] flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
             data-test-id={`card-newsletter-${id}`}
         >
             <Image
-                className="bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px]"
+                className="object-cover bg-[rgba(255,193,8,0.15)]"
+                classnames={{
+                    wrapper:
+                        'card-image ratio-3-2 w-full md:max-w-[218px] md:aspect-square [&>picture]:w-full [&>picture]:h-full',
+                    image: 'md:h-[218px] xl:mt-6',
+                    placeholder: 'md:h-[218px] xl:mt-6'
+                }}
                 src={image}
                 alt={title}
             />
-            <div className="bg-[rgba(255,193,8,0.15)] w-full flex flex-column justify-center px-16 py-12 md:px-24 xl:px-32 gap-24">
+            <div className="w-full flex flex-column justify-center px-16 py-12 md:px-24 xl:px-32 gap-24">
                 <div className="flex flex-column gap-12">
                     <div className="flex gap-12 items-start">
                         <div>
@@ -39,7 +45,13 @@ export function CardNewsletter({
                             />
                         </div>
                         <p className="prumo prumo-semibold text-24">{title}</p>
-                        <Badge className="mt-4">{badge}</Badge>
+                        <Badge
+                            size="custom"
+                            color="custom"
+                            className="text-small-lg mt-4 px-16 py-2 bg-[var(--proxy-brand-vino)] text-accent-foreground"
+                        >
+                            {badge}
+                        </Badge>
                     </div>
                     <p className="font-secondary text-body-md">{description}</p>
                 </div>
