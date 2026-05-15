@@ -16,7 +16,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }
@@ -132,7 +132,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }

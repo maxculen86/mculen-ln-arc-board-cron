@@ -21,7 +21,7 @@ export const fooditSchemaLogo = (deployment, contextPath) => ({
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
     url: deployment(
-        `${SITE_FOODIT}${contextPath}/resources/foodit/assets/images/placeholderFoodit.jpg`
+        `${SITE_FOODIT}${contextPath}/resources/foodit/assets/images/foodit-logo-112x112.jpg`
     ),
     height: 112,
     width: 112
