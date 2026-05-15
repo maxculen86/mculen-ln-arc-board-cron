@@ -7,7 +7,7 @@ exports[`components - features- foodit-global - schemas - ChefSchema renders che
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Person",
   "name": "Juan Pravata",
   "url": "/chefs-protagonistas/juan-pravata-666/",

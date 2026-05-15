@@ -11,7 +11,7 @@ export function AcuChefSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const acuSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: `Acumulado - Chefs Protagonistas`,
         url: `${SITE_FOODIT}/chefs-protagonistas/`,

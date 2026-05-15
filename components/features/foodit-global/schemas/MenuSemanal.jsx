@@ -11,7 +11,7 @@ export function MenuSemanalSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const menuSemanalSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: `Mi menu semanal`,
         url: `${SITE_FOODIT}/mi-menu-semanal/`,
