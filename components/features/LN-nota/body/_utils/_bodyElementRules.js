@@ -19,12 +19,12 @@ import PullQuote from '../../../LN-10-global/common/body/pullQuote/default';
 import BlockQuote from '../../../LN-10-global/common/body/blockQuote/default';
 import HowToBody from '../../howTo/body';
 
-// Se unifica con el componente de DS-Body/components/galleryEmbed/default
-import GalleryEmbed from '../components-ds/galleyEmbed/default';
+// Unificaciones componentes DS dentro de body viejo
+import GalleryEmbedDS from '../components-ds/galleyEmbed/default';
+import TableDS from '../components-ds/table/default';
 
 // utils
 import { selectRule } from './_bodyRules';
-import TableV2 from '../../tableV2/default';
 
 export const DEFAULT_BODY_COMPONENTS = [
     Paragraph,
@@ -40,14 +40,14 @@ export const DEFAULT_BODY_COMPONENTS = [
     OEmbed,
     Interstitial,
     Html,
-    TableV2,
     powerUpsReceta,
     Parallax,
     Divider,
     PowerUpLiveBlog,
     EmbedCll,
     HowToBody,
-    GalleryEmbed
+    GalleryEmbedDS,
+    TableDS
 ];
 
 const resolveBodyComponents = bodyComponents =>
