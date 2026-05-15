@@ -1,7 +1,6 @@
 // Components
 import Paragraph from '../../../../private/LN/nota/cuerpo/parrafo';
 import Tags from '../../../../private/LN/nota/cuerpo/tags';
-import Subtitle from '../../../../private/LN/nota/cuerpo/subtitle';
 import Gallery from '../../../../private/LN/common/carrousell';
 import ListOrderedOrUnordered from '../../../../private/LN/nota/cuerpo/listOrderedOrUnordered';
 import Image from '../../../../private/LN/nota/cuerpo/image';
@@ -22,6 +21,7 @@ import HowToBody from '../../howTo/body';
 // Unificaciones componentes DS dentro de body viejo
 import GalleryEmbedDS from '../components-ds/galleyEmbed/default';
 import TableDS from '../components-ds/table/default';
+import Heading from '../components-ds/heading/default';
 
 // utils
 import { selectRule } from './_bodyRules';
@@ -31,7 +31,6 @@ export const DEFAULT_BODY_COMPONENTS = [
     PullQuote,
     BlockQuote,
     Tags,
-    Subtitle,
     Gallery,
     ListOrderedOrUnordered,
     Image,
@@ -47,7 +46,8 @@ export const DEFAULT_BODY_COMPONENTS = [
     EmbedCll,
     HowToBody,
     GalleryEmbedDS,
-    TableDS
+    TableDS,
+    Heading
 ];
 
 const resolveBodyComponents = bodyComponents =>

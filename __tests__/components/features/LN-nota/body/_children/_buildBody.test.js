@@ -119,7 +119,7 @@ describe('BuildBody', () => {
         /* subtitles */
         expect(
             container.querySelectorAll(
-                `h2[class*="com-title --font-primary --xl --font-extra"]`
+                `h2[class*="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"]`
             )
         ).toHaveLength(1);
         expect(
@@ -129,7 +129,7 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         expect(
             container.querySelectorAll(
-                `h4[class*="com-title --font-primary --m --font-extra"]`
+                `h4[class*="font-primary font-w-bold text-subheading-md container-center-100 mb-8"]`
             )
         ).toHaveLength(1);
         /* oembed_response */
@@ -213,17 +213,17 @@ describe('BuildBody', () => {
         /* subtitles */
         expect(
             container.querySelectorAll(
-                `h2[class*="com-title --font-primary --xl --font-extra"]`
+                `h2[class*="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"]`
             )
         ).toHaveLength(1);
         expect(
             container.querySelectorAll(
-                `h3[class*="com-title --font-primary --l --font-extra"]`
+                `h3[class*="font-primary text-subheading-lg container-center-100 mb-8"]`
             )
         ).toHaveLength(1);
         expect(
             container.querySelectorAll(
-                `h4[class*="com-title --font-primary --m --font-extra"]`
+                `h4[class*="font-primary font-w-bold text-subheading-md container-center-100 mb-8"]`
             )
         ).toHaveLength(1);
         /* oembed_response */
