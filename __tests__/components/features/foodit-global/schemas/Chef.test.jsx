@@ -63,7 +63,9 @@ describe('components - features- foodit-global - schemas - ChefSchema', () => {
 
         expect(scripts).toBeInTheDocument();
         expect(name).toEqual('Juan Pravata');
-        expect(url).toEqual('/chefs-protagonistas/juan-pravata-666/');
+        expect(url).toEqual(
+            'https://foodit.lanacion.com.ar/chefs-protagonistas/juan-pravata-666/'
+        );
 
         expect(container).toMatchSnapshot();
     });

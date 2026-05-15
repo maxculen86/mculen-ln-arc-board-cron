@@ -40,7 +40,6 @@ export function StorytellingSchema({ globalContent = {} }) {
         },
         headline: `${title} - Foodit`,
         image: {
-            '@context': 'https://schema.org',
             '@type': 'ImageObject',
             url: resizedUrl
         },

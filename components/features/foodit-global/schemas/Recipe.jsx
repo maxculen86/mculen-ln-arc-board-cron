@@ -183,6 +183,10 @@ const buildRecipeSchema = data => {
         additionalProperties
     } = data;
 
+    const tags = metadata.tags.map(tag => tag?.text).filter(Boolean);
+    const dietUrls = getSuitableForDietUrls(sections);
+    const publishDate = get(additionalProperties, 'publish_date', '');
+
     return {
         '@context': SCHEMA_ORG_CONTEXT,
         '@type': 'Recipe',
@@ -195,7 +199,6 @@ const buildRecipeSchema = data => {
         name: get(headlines, 'basic', ''),
         description: get(subheadlines, 'basic', ''),
         image: {
-            '@context': SCHEMA_ORG_CONTEXT,
             '@type': 'ImageObject',
             url: imageUrl
         },
@@ -203,20 +206,24 @@ const buildRecipeSchema = data => {
             '@type': 'Person',
             name: author || 'Redacción de Foodit'
         },
-        keywords: metadata.tags.map(tag => tag?.text).join(', '),
-        cookTime: (metadata.cookTime && `PT${metadata.cookTime}M`) || `PT0M`,
-        cookingMethod: metadata.cookingTypes.join(','),
         recipeCategory: primarySectionName,
-        recipeCuisine: metadata.regions.join(','),
         recipeYield: metadata.counterPortion,
-        suitableForDiet: getSuitableForDietUrls(sections),
-        performTime: (metadata.prepTime && `PT${metadata.prepTime}M`) || `PT0M`,
-        totalTime:
-            (metadata.counterTime && `PT${metadata.counterTime}M`) || `PT0M`,
         recipeInstructions,
         recipeIngredient: recipeIngredients,
-        dateCreated: get(additionalProperties, 'publish_date', ''),
-        headline: get(headlines, 'basic', '')
+        ...(tags.length && { keywords: tags.join(', ') }),
+        ...(metadata.cookTime && { cookTime: `PT${metadata.cookTime}M` }),
+        ...(metadata.cookingTypes.length && {
+            cookingMethod: metadata.cookingTypes.join(',')
+        }),
+        ...(metadata.regions.length && {
+            recipeCuisine: metadata.regions.join(',')
+        }),
+        ...(dietUrls.length && { suitableForDiet: dietUrls }),
+        ...(metadata.prepTime && { performTime: `PT${metadata.prepTime}M` }),
+        ...(metadata.counterTime && {
+            totalTime: `PT${metadata.counterTime}M`
+        }),
+        ...(publishDate && { dateCreated: publishDate })
     };
 };
 
