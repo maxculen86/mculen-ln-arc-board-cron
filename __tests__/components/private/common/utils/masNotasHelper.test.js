@@ -3,7 +3,8 @@ import {
     getSectionTitle,
     validateMasNotas,
     getLink,
-    filterType
+    filterType,
+    setSearchParamsByFilterType
 } from '../../../../../components/private/common/utils/masNotasHelper';
 import mockArticles from '../../../../../__mocks__/data/masNotas/articles.json';
 
@@ -112,5 +113,22 @@ describe('Mas Notas Helper Function Tests', () => {
             arcSite: ''
         };
         expect(filterType['byTags']({ ...searchParameters })).toBeDefined();
+    });
+
+    describe('aperturaHome filterType', () => {
+        it('setSearchParamsByFilterType.aperturaHome returns no params (source hits a fixed URL)', () => {
+            expect(setSearchParamsByFilterType.aperturaHome()).toEqual({});
+        });
+
+        it('filterType.aperturaHome returns articles with the "Últimas Noticias" title (home is always news)', () => {
+            const filteredContentElements = [{ _id: 'a' }, { _id: 'b' }];
+            expect(
+                filterType.aperturaHome({ filteredContentElements })
+            ).toEqual({
+                articles: filteredContentElements,
+                sectionTitle: 'UltimasNoticias',
+                title: 'Últimas Noticias'
+            });
+        });
     });
 });

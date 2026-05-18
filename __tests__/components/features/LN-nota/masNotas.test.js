@@ -170,6 +170,29 @@ describe('masNotas feature Test', () => {
         expect(screen.getAllByRole('article').length).toStrictEqual(4);
     });
 
+    it('aperturaHome - fetches from homeOpeningArticlesSource and renders "Últimas Noticias"', () => {
+        useContent.mockClear();
+        const props = getMasNotasProps(6, 'aperturaHome', '1', taxonomySection);
+        render(<MasNotas {...props} />);
+
+        const calls = useContent.mock.calls;
+        const aperturaCall = calls.find(
+            ([opts]) => opts && opts.source === 'homeOpeningArticlesSource'
+        );
+        expect(aperturaCall).toBeDefined();
+        expect(aperturaCall[0]).toMatchObject({
+            source: 'homeOpeningArticlesSource',
+            query: {},
+            staticMode: false
+        });
+        expect(aperturaCall[0].filter).toBeUndefined();
+
+        expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
+            'Últimas Noticias'
+        );
+        expect(screen.getAllByRole('article').length).toStrictEqual(6);
+    });
+
     describe('should not render feature: data is undefined', () => {
         const cases = [
             [
