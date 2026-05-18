@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComments renders heading with correct text 1`] = `
+<div>
+  <button
+    data-testid="scroll-top-btn"
+  >
+    Scroll Top
+  </button>
+  <section
+    class="mod-headersection --line --button"
+  >
+    <h4
+      class="com-title --font-primary --xl --font-extra"
+    >
+      Enviá tu comentario
+    </h4>
+    <span
+      class="com-link --threexs cursor-pointer "
+      id="ver-legales-btn"
+      title="Ver legales"
+    >
+      Ver legales
+    </span>
+  </section>
+  <p
+    class="none --threexs"
+    id="ver-legales-text"
+  >
+    Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar comentario implica la aceptación del Reglamento.
+  </p>
+</div>
+`;

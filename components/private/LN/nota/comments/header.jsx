@@ -1,20 +1,33 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
-import classNames from 'classnames';
+import ScrollToTopButton from '../../../../features/LN/common/scrollToTopButton/ScrollToTopButton';
+import { scrollToElementWithOffset } from '../../common/utils/scrollToElementWithOffset';
 
-const HeaderComments = ({ className }) => {
-    const _class = classNames('mod-headersection --line --button', className);
+function HeaderComments({ className }) {
     const handleToggleVerLegales = () => {
         const verLegalesText = document.querySelector('#ver-legales-text');
         verLegalesText.classList.toggle('none');
     };
 
+    const onClickBtnUp = () => {
+        const titleArticle = document.querySelector('h1.com-title, h1');
+        if (titleArticle) {
+            scrollToElementWithOffset(titleArticle);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
-            <section className={_class}>
+            <ScrollToTopButton template="others" onClick={onClickBtnUp} />
+            <section
+                className={cx('mod-headersection --line --button', className)}
+            >
                 <ComTitle
                     tag="h4"
                     size="--xl"
@@ -45,6 +58,6 @@ const HeaderComments = ({ className }) => {
             </Text>
         </>
     );
-};
+}
 
 export default HeaderComments;
