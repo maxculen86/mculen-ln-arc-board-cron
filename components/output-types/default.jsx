@@ -97,8 +97,7 @@ function Default(props) {
     } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const { description: defaultDescription, layoutsName = {} } =
-        siteProperties;
+    const { description: defaultDescription } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -176,7 +175,6 @@ function Default(props) {
                 />
                 <GetCriticalCss
                     layout={layout}
-                    layoutsName={layoutsName}
                     arcSite={arcSite}
                     Resource={Resource}
                     globalContent={globalContent}

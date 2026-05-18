@@ -176,9 +176,7 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="--preparation"]`)
         ).toHaveLength(1);
-        expect(
-            container.querySelectorAll(`table[class*="table"]`)
-        ).toHaveLength(1);
+        expect(container.querySelectorAll(`table`)).toHaveLength(1);
         /* divider */
         expect(
             container.querySelectorAll(`div[class*="divider"]`)
@@ -288,9 +286,7 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="--preparation"]`)
         ).toHaveLength(1);
-        expect(
-            container.querySelectorAll(`table[class*="table"]`)
-        ).toHaveLength(1);
+        expect(container.querySelectorAll(`table`)).toHaveLength(1);
         /* divider */
         expect(
             container.querySelectorAll(`div[class*="divider"]`)

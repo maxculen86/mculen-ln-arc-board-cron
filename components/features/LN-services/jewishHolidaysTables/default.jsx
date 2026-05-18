@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../private/common/utils/get';
-import Table from '../../../private/LN/nota/cuerpo/table';
+import LNTable from '../../LN/common/table/default';
 import ModheaderSection from '../../../private/common/mod-headerSection';
 
 function JewishHolidaysTable() {
@@ -15,7 +15,15 @@ function JewishHolidaysTable() {
         !!Object.keys(jewishTable).length && (
             <>
                 <ModheaderSection tag="h2" title="Feriados judíos" line />
-                <Table data={jewishTable} extraClass="--holidays" />
+                <div data-tw style={{ display: 'contents' }}>
+                    <LNTable
+                        data={jewishTable}
+                        align="center"
+                        striped
+                        classnames={{ table: 'w-full table-fixed' }}
+                        className="mt-16 mb-32"
+                    />
+                </div>
             </>
         )
     );

@@ -3,6 +3,8 @@ import { DEFAULT_BODY_COMPONENTS } from '../../../LN-nota/body/_utils/_bodyEleme
 // TODO: Ir importando los componentes de DS-Body/components para dividir responsabilidades. ej: HowTo.
 import HowTo from '../components/howTo/default';
 import GalleryEmbed from '../components/galleryEmbed/default';
+import Table from '../components/table/default';
+
 import Text from '../../common/text/default';
 import List from '../../common/list/default';
 import RawHtml from '../../common/rawHtml/default';
@@ -29,7 +31,8 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     Interstitial,
     HowTo,
     Heading,
-    GalleryEmbed
+    GalleryEmbed,
+    Table
 ];
 
 const BASE_BODY_CONFIG = {
