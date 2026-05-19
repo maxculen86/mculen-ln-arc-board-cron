@@ -4,7 +4,7 @@ describe('Test function extractDataFromPromoItems', () => {
     const PLACEHOLDER =
         'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg?d=748';
 
-    test('Return test of the function when it has an image', () => {
+    it('Return test of the function when it has an image', () => {
         const promoItems = {
             basic: {
                 _id: 'PDGFPZHDQZFPFJS5T7OODPTM2Y',
@@ -79,7 +79,7 @@ describe('Test function extractDataFromPromoItems', () => {
         });
     });
 
-    test("Function return test when it doesn't have an image.", () => {
+    it("Function return test when it doesn't have an image.", () => {
         expect(extractDataFromPromoItems(undefined, PLACEHOLDER)).toStrictEqual(
             {
                 image: [
@@ -87,7 +87,7 @@ describe('Test function extractDataFromPromoItems', () => {
                         '@type': 'ImageObject',
                         url: PLACEHOLDER,
                         width: 1200,
-                        height: 675
+                        height: 800
                     },
                     {
                         '@type': 'ImageObject',

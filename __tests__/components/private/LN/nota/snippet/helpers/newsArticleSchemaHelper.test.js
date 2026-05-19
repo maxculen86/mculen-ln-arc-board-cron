@@ -249,5 +249,21 @@ describe('newsArticleSchemaHelper', () => {
             expect(thirdImageUrl.searchParams.get('width')).toBe('1200');
             expect(thirdImageUrl.searchParams.get('height')).toBe('1200');
         });
+
+        it('uses placeholder with 1200x800 dimensions when no real image is available', () => {
+            const schemaImages = getSchemaImages({
+                promoItems: {},
+                contentElements: [],
+                placeholder: PLACEHOLDER
+            });
+
+            expect(schemaImages).toHaveLength(1);
+            expect(schemaImages[0]).toMatchObject({
+                '@type': 'ImageObject',
+                url: PLACEHOLDER,
+                width: 1200,
+                height: 800
+            });
+        });
     });
 });
