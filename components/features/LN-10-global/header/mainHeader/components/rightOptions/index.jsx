@@ -22,8 +22,8 @@ export function RightOptions() {
             <BellButton />
             <UpsellingButton />
             <MenuUser />
-            <SignInButton />
             <SubscribeButton />
+            <SignInButton />
         </>
     );
 }

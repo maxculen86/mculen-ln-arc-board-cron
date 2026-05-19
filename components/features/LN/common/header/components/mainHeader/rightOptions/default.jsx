@@ -20,10 +20,10 @@ function RightOptions() {
         <div className="flex gap-16 items-center">
             <OpenInApp />
             <BellButton />
-            <LoginButton />
             <UpsellingButton isHome={isHome} />
             <MenuUser />
             <SubscribeButton isHome={isHome} />
+            <LoginButton />
         </div>
     );
 }

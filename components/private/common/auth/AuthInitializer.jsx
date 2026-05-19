@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext, useMemo } from 'react';
-import initializeAuth from './helper/loginHelper';
+import initializeAuth, { initializeGoogleOneTap } from './helper/loginHelper';
+import get from '../utils/get';
 
 export const AuthContext = createContext();
 
@@ -13,8 +14,9 @@ function AuthInitializer({ children, website = 'la-nacion-ar' }) {
                 setTokens
             });
 
-            if (window.UCL) {
+            if (get(window, 'UCL')) {
                 window.dispatchEvent(new CustomEvent('ucl-ready'));
+                await initializeGoogleOneTap(website);
             }
         };
 
