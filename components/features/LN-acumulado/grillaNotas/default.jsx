@@ -12,6 +12,7 @@ import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
 import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
+import get from '../../../private/common/utils/get';
 
 function GrillaNotasFeature(props) {
     const { customFields, globalContentConfig, globalContent, id, template } =
@@ -41,6 +42,8 @@ function GrillaNotasFeature(props) {
 
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
 
+    const name = get(globalContent, 'name', '');
+
     const appContextProps = {
         _id: serviceType === 'feriados-mes' ? `/feriados/${serviceItem}` : _id,
         payload,
@@ -67,7 +70,8 @@ function GrillaNotasFeature(props) {
             hasChainBeforeGrid,
             requestUri,
             filterNotes,
-            isPage
+            isPage,
+            name
         });
 
     return (
@@ -77,7 +81,7 @@ function GrillaNotasFeature(props) {
             hasMoreArticles={hasMoreArticles}
             InitialGrid={InitialGrid}
             NextResults={NextResults}
-            name={globalContent.name}
+            name={name}
             featureId={id}
         />
     );

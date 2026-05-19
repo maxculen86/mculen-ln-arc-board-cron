@@ -1,4 +1,5 @@
 import React from 'react';
+import CollectionPageSchema from '../common/collectionPageSchema';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import checkIsApertura from '../common/utils/checkIsApertura';
@@ -45,7 +46,8 @@ function ArticlesAcum({
     isWiki = false,
     requestUri,
     hideSubheaderText,
-    openBarrier
+    openBarrier,
+    name
 }) {
     return (
         <ModRowGap
@@ -87,6 +89,11 @@ function ArticlesAcum({
                     </ArticleAcum>
                 );
             })}
+            <CollectionPageSchema
+                articlesList={articles.slice(0, 10)}
+                acuName={name}
+                requestUri={requestUri}
+            />
         </ModRowGap>
     );
 }
