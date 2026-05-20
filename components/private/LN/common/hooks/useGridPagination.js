@@ -25,7 +25,8 @@ const useGridPagination = props => {
         hasChainBeforeGrid = false,
         requestUri,
         filterNotes,
-        isPage
+        isPage,
+        name
     } = props;
 
     const hideSubheaderText = shouldHideSubheaderText(requestUri);
@@ -90,6 +91,7 @@ const useGridPagination = props => {
             isWiki={isWiki}
             requestUri={requestUri}
             hideSubheaderText={hideSubheaderText}
+            name={name}
         />
     );
 
