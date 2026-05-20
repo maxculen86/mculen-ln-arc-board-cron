@@ -15,7 +15,6 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
   },
   "headline": "Ficha Nota Sin video - Foodit",
   "image": {
-    "@context": "https://schema.org",
     "@type": "ImageObject",
     "url": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=420&height=630&quality=70&smart=true"
   },

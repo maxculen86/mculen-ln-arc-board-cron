@@ -37,7 +37,7 @@ export function ChefSchema({ globalContent = {} }) {
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: byline,
-        url: bioPage.replace('autor', 'chefs-protagonistas'),
+        url: chefUrl,
         image: imageUrl,
         jobTitle: role,
         contactPoint: {
