@@ -1,6 +1,20 @@
 import { checkUserRealoadAction } from './ctrTracker';
-import { eventListenerAttacher } from '../linksTracker';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
+import get from '../get';
+
+const getArticleId = elem =>
+    get(elem, 'dataset.id') ||
+    get(elem, 'dataset.notaid') ||
+    elem?.getAttribute?.('data-id');
+
+const getComboIds = articles =>
+    articles.map(getArticleId).filter(Boolean).join(', ');
+
+const getComboPositions = articles =>
+    articles
+        .map(article => get(article, 'ctr_position'))
+        .filter(Boolean)
+        .join(',');
 
 const addPositionInBox = (elem, brand, elemPosition, indexElem) => {
     const index = indexElem + 1;
@@ -23,7 +37,7 @@ const boxArticleEventBuilder = {
             );
 
             boxArticlesOtherNews.forEach((boxArt3, i) => {
-                addPositionInBox(boxArt3, 'otrasNoticias_diag3', '0600', i);
+                addPositionInBox(boxArt3, 'otrasNoticias', '0600', i);
             });
 
             return boxArticlesOtherNews;
@@ -34,7 +48,7 @@ const boxArticleEventBuilder = {
         );
 
         boxArticlesLastNews.forEach((boxArt, i) => {
-            addPositionInBox(boxArt, `ultimasNoticias_diag${grid}`, '1000', i);
+            addPositionInBox(boxArt, 'ultimasNoticias', '1000', i);
         });
 
         return boxArticlesLastNews;
@@ -45,7 +59,7 @@ const boxArticleEventBuilder = {
         );
 
         keepReadingArticles.forEach((keepReadArt, i) => {
-            addPositionInBox(keepReadArt, 'seguiLeyendo_diag3', '0601', i);
+            addPositionInBox(keepReadArt, 'seguiLeyendo', '0601', i);
         });
 
         return keepReadingArticles;
@@ -56,15 +70,65 @@ const boxArticleEventBuilder = {
         );
 
         rankingArticles.forEach((rankArt, i) => {
-            addPositionInBox(rankArt, 'ranking_diag4', '0700', i);
+            addPositionInBox(rankArt, 'ranking', '0700', i);
         });
 
         return rankingArticles;
     },
     tePuedeInteresar: ({ articles }) =>
         articles.map((article, index) =>
-            addPositionInBox(article, 'puedeInteresar_diag15', '1011', index)
+            addPositionInBox(article, 'cajaTePuedeinteresar', '1011', index)
         )
+};
+
+const getArticleRowTop = article => {
+    const top = get(article?.getBoundingClientRect?.(), 'top');
+    return Number.isFinite(top) ? top : article?.offsetTop || 0;
+};
+
+const getRowGroups = articles =>
+    articles
+        .reduce((groups, article) => {
+            const rowTop = getArticleRowTop(article);
+            const lastGroup = groups[groups.length - 1];
+
+            if (!lastGroup || Math.abs(rowTop - lastGroup.rowTop) > 2) {
+                return [...groups, { rowTop, articles: [article] }];
+            }
+
+            lastGroup.articles.push(article);
+            return groups;
+        }, [])
+        .map(group => group.articles);
+
+const getRowGroupForArticle = (articles, target) =>
+    getRowGroups(articles).find(group => group.includes(target)) || [target];
+
+const addClickEvent = element => {
+    const sendClickEvent = () => {
+        addEventToDataLayerV2({
+            event: 'clicknota',
+            articleId: getArticleId(element),
+            ctr_brand: element.ctr_brand,
+            ctr_position: element.ctr_position
+        });
+    };
+
+    element.addEventListener('click', sendClickEvent);
+    element.addEventListener('auxclick', sendClickEvent);
+};
+
+const addImpressionEvent = articles => {
+    const comboNotas = getComboIds(articles);
+
+    addEventToDataLayerV2({
+        event: 'impressioncajanota',
+        ctr_brand: get(articles, '[0].ctr_brand'),
+        ctr_position: getComboPositions(articles),
+        rest: {
+            ...(comboNotas && { combo_notas: comboNotas })
+        }
+    });
 };
 
 export const articleBoxesTracker = ({
@@ -73,42 +137,48 @@ export const articleBoxesTracker = ({
     sectionTitle,
     articles = []
 }) => {
-    const { dataLayer } = window;
-
     const refresh = checkUserRealoadAction(window);
 
-    const articlesToTrack =
-        boxArticleEventBuilder[boxType]({
+    const articlesToTrack = [
+        ...(boxArticleEventBuilder[boxType]?.({
             grid: diagramation,
             sectionTitle,
             articles
-        }) || [];
+        }) || [])
+    ].filter(Boolean);
 
     if (!refresh) {
+        const sentArticles = new Set();
+        let observer;
+
         const callback = entries => {
             entries.forEach(article => {
                 if (article.isIntersecting) {
                     const { target } = article;
 
-                    const { ctr_brand: ctrBrand, ctr_position: ctrPosition } =
-                        target;
+                    if (sentArticles.has(target)) return;
 
-                    addEventToDataLayerV2({
-                        event: 'impressionNota',
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
+                    const group = getRowGroupForArticle(
+                        articlesToTrack,
+                        target
+                    ).filter(groupArticle => !sentArticles.has(groupArticle));
+
+                    if (!group.length) return;
+
+                    addImpressionEvent(group);
+
+                    group.forEach(groupArticle => {
+                        sentArticles.add(groupArticle);
+                        observer.unobserve(groupArticle);
                     });
-
-                    // eslint-disable-next-line no-use-before-define
-                    observer.unobserve(target);
                 }
             });
         };
 
-        const observer = new IntersectionObserver(callback);
+        observer = new IntersectionObserver(callback);
 
         articlesToTrack.forEach(art => {
-            eventListenerAttacher(art, dataLayer);
+            addClickEvent(art);
             observer.observe(art);
         });
     }

@@ -8,6 +8,7 @@ function Index({ relatedContent = [], outputType = 'default' }) {
             title="Seguí leyendo"
             sectionName="SeguiLeyendo"
             articles={relatedContent}
+            position="toi"
             outputType={outputType}
             withVolanta
         />
