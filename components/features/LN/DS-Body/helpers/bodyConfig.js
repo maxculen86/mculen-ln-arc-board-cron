@@ -4,7 +4,7 @@ import { DEFAULT_BODY_COMPONENTS } from '../../../LN-nota/body/_utils/_bodyEleme
 import HowTo from '../components/howTo/default';
 import GalleryEmbed from '../components/galleryEmbed/default';
 import Table from '../components/table/default';
-
+import Heading from '../components/heading/default';
 import Text from '../../common/text/default';
 import List from '../../common/list/default';
 import RawHtml from '../../common/rawHtml/default';
@@ -15,7 +15,6 @@ import VideoPlayer from '../../common/video/default';
 import BlockQuote from '../../common/blockquote/default';
 import PullQuote from '../../common/pullquote/default';
 import Interstitial from '../../common/interstitial/default';
-import Heading from '../../common/heading/default';
 
 // TODO: A medida que se vayan creando los nuevos componentes DS, agregarlos aca
 const DS_DEFAULT_BODY_COMPONENTS = [
