@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { EjesCard } from '../../../../../../components/layouts/LN-acumulado/chat/components/EjesCard';
 
-jest.mock('../../../../../features/ui/ln/icon/default', () => ({
+jest.mock('../../../../../../components/features/ui/ln/icon/default', () => ({
     __esModule: true,
     default: ({ name }) => <span data-testid={`icon-${name}`} />
 }));

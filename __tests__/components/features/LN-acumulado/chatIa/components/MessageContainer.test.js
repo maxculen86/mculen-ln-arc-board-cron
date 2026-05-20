@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MessageContainer } from '../MessageContainer';
+import { MessageContainer } from '../../../../../../components/layouts/LN-acumulado/chat/components/MessageContainer';
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: {
@@ -18,23 +18,29 @@ jest.mock('@ln/ds-blocks-thread', () => ({
     }
 }));
 
-jest.mock('../MessageUser', () => ({
-    MessageUserLN: ({ message }) => (
-        <div data-testid="message-user">{message.content}</div>
-    )
-}));
+jest.mock(
+    '../../../../../../components/layouts/LN-acumulado/chat/components/MessageUser',
+    () => ({
+        MessageUserLN: ({ message }) => (
+            <div data-testid="message-user">{message.content}</div>
+        )
+    })
+);
 
-jest.mock('../MessageAssistant', () => ({
-    MessageAssistantLN: ({ message, isLastOutput, isGenerating }) => (
-        <div
-            data-testid="message-assistant"
-            data-is-last={String(isLastOutput)}
-            data-is-generating={String(isGenerating)}
-        >
-            {message?.response_chat?.descripcion}
-        </div>
-    )
-}));
+jest.mock(
+    '../../../../../../components/layouts/LN-acumulado/chat/components/MessageAssistant',
+    () => ({
+        MessageAssistantLN: ({ message, isLastOutput, isGenerating }) => (
+            <div
+                data-testid="message-assistant"
+                data-is-last={String(isLastOutput)}
+                data-is-generating={String(isGenerating)}
+            >
+                {message?.response_chat?.descripcion}
+            </div>
+        )
+    })
+);
 
 const userMessage = (content = 'Hola') => ({
     message_type: 'output',

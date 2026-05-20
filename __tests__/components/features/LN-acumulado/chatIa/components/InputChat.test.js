@@ -32,7 +32,7 @@ jest.mock('@ln/ds-cva', () => ({
     cx: (...args) => args.filter(Boolean).join(' ')
 }));
 
-jest.mock('../../../../../features/ui/ln/button/default', () => ({
+jest.mock('../../../../../../components/features/ui/ln/button/default', () => ({
     __esModule: true,
     default: ({ children, disabled, type }) => (
         <button data-testid="submit-button" disabled={disabled} type={type}>
@@ -41,7 +41,7 @@ jest.mock('../../../../../features/ui/ln/button/default', () => ({
     )
 }));
 
-jest.mock('../../../../../features/ui/ln/icon/default', () => ({
+jest.mock('../../../../../../components/features/ui/ln/icon/default', () => ({
     __esModule: true,
     default: ({ name, className }) => (
         <span data-testid={`icon-${name}`} className={className} />

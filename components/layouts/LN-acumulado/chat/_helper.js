@@ -1,19 +1,14 @@
-/**
- * API Layer — Chat IA Mundial 2026
- * -------------------------------------------------------
- * Endpoints:
- *   POST /api/session  → crea sesión, devuelve session_id
- *   POST /api/chat     → envía mensaje, devuelve respuesta IA
- *   POST /api/sq       → preguntas sugeridas (array de strings)
- */
+import { API_IA_MUNDIAL } from 'fusion:environment';
 
-const API_IA_MUNDIAL =
-    'https://qa-mundial-iacore-487519182712.us-central1.run.app';
+export const getAuthHeaders = accessToken => ({
+    'Content-Type': 'application/json',
+    'x-authorization': accessToken
+});
 
-async function apiFetch(path, body) {
+async function apiFetch(path, body, accessToken) {
     const response = await fetch(`${API_IA_MUNDIAL}${path}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(accessToken),
         body: JSON.stringify(body)
     });
 
@@ -28,20 +23,33 @@ async function apiFetch(path, body) {
     return response.json();
 }
 
-export async function createMundialSession({ userId }) {
-    const data = await apiFetch('/api/session', { user_id: userId });
+export async function createMundialSession({ userId, accessToken }) {
+    const data = await apiFetch(
+        '/api/session',
+        { user_id: userId },
+        accessToken
+    );
     if (!data.session_id) {
         throw new Error('Mundial Chat: no se recibió session_id');
     }
     return data;
 }
 
-export async function sendMundialChatMessage({ userId, sessionId, message }) {
-    return apiFetch('/api/chat', {
-        user_id: userId,
-        session_id: sessionId,
-        message
-    });
+export async function sendMundialChatMessage({
+    userId,
+    sessionId,
+    message,
+    accessToken
+}) {
+    return apiFetch(
+        '/api/chat',
+        {
+            user_id: userId,
+            session_id: sessionId,
+            message
+        },
+        accessToken
+    );
 }
 
 export const FALLBACK_SUGGESTED_QUESTIONS = [
@@ -50,9 +58,13 @@ export const FALLBACK_SUGGESTED_QUESTIONS = [
     '¿Quién es hasta el momento el goleador del torneo?'
 ];
 
-export async function getSuggestedQuestions({ userId } = {}) {
+export async function getSuggestedQuestions({ userId, accessToken } = {}) {
     try {
-        const data = await apiFetch('/api/sq', { user_id: userId });
+        const data = await apiFetch(
+            '/api/sq',
+            { user_id: userId },
+            accessToken
+        );
         if (Array.isArray(data) && data.length > 0) {
             return data;
         }

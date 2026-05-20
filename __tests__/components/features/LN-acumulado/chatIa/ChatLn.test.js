@@ -29,44 +29,59 @@ jest.mock('@ln/ds-cva', () => ({
     cx: (...args) => args.filter(Boolean).join(' ')
 }));
 
-jest.mock('../components/InputChat', () => ({
-    InputChat: ({ isSubscribed, isGenerating, isBlocked, disabled }) => (
-        <div
-            data-testid="input-chat"
-            data-subscribed={String(isSubscribed)}
-            data-generating={String(isGenerating)}
-            data-blocked={String(isBlocked)}
-            data-disabled={String(disabled)}
-        />
-    )
-}));
+jest.mock(
+    '../../../../../components/layouts/LN-acumulado/chat/components/InputChat',
+    () => ({
+        InputChat: ({ isSubscribed, isGenerating, isBlocked, disabled }) => (
+            <div
+                data-testid="input-chat"
+                data-subscribed={String(isSubscribed)}
+                data-generating={String(isGenerating)}
+                data-blocked={String(isBlocked)}
+                data-disabled={String(disabled)}
+            />
+        )
+    })
+);
 
-jest.mock('../components/MessageContainer', () => ({
-    MessageContainer: ({ messages, isGenerating }) => (
-        <div
-            data-testid="message-container"
-            data-count={messages.length}
-            data-generating={String(isGenerating)}
-        />
-    )
-}));
+jest.mock(
+    '../../../../../components/layouts/LN-acumulado/chat/components/MessageContainer',
+    () => ({
+        MessageContainer: ({ messages, isGenerating }) => (
+            <div
+                data-testid="message-container"
+                data-count={messages.length}
+                data-generating={String(isGenerating)}
+            />
+        )
+    })
+);
 
-jest.mock('../components/EmptyState', () => ({
-    EmptyState: ({ isSubscribed }) => (
-        <div data-testid="empty-state" data-subscribed={String(isSubscribed)} />
-    )
-}));
+jest.mock(
+    '../../../../../components/layouts/LN-acumulado/chat/components/EmptyState',
+    () => ({
+        EmptyState: ({ isSubscribed }) => (
+            <div
+                data-testid="empty-state"
+                data-subscribed={String(isSubscribed)}
+            />
+        )
+    })
+);
 
-jest.mock('../components/SkeletonChat', () => ({
-    SkeletonChat: () => <div data-testid="skeleton-chat" />
-}));
+jest.mock(
+    '../../../../../components/layouts/LN-acumulado/chat/components/SkeletonChat',
+    () => ({
+        SkeletonChat: () => <div data-testid="skeleton-chat" />
+    })
+);
 
-jest.mock('../../../../features/ui/ln/icon/default', () => ({
+jest.mock('../../../../../components/features/ui/ln/icon/default', () => ({
     __esModule: true,
     default: ({ name }) => <span data-testid={`icon-${name}`} />
 }));
 
-jest.mock('../../../../features/ui/ln/button/default', () => ({
+jest.mock('../../../../../components/features/ui/ln/button/default', () => ({
     __esModule: true,
     default: ({ children, onClick, type }) => (
         <button data-testid="reset-button" onClick={onClick} type={type}>
@@ -75,36 +90,59 @@ jest.mock('../../../../features/ui/ln/button/default', () => ({
     )
 }));
 
-jest.mock('../../../../features/ui/ln/divider/default', () => ({
+jest.mock('../../../../../components/features/ui/ln/divider/default', () => ({
     __esModule: true,
     default: () => <hr data-testid="divider" />
 }));
 
-jest.mock('../../../../private/common/auth/hooks/useGetUserData', () => ({
+jest.mock(
+    '../../../../../components/private/common/auth/hooks/useGetUserData',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
+
+jest.mock(
+    '../../../../../components/private/common/auth/helper/loginHelper',
+    () => ({
+        SUBSCRIBED_HELPER: { LN: 'ln' }
+    })
+);
+
+jest.mock(
+    '../../../../../components/layouts/LN-acumulado/chat/_helper',
+    () => ({
+        createMundialSession: jest.fn(),
+        sendMundialChatMessage: jest.fn(),
+        getSuggestedQuestions: jest.fn(),
+        resolveErrorMessage: jest.fn(),
+        FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
+    })
+);
+
+jest.mock('../../../../../components/private/common/hooks/useTermica', () => ({
     __esModule: true,
     default: jest.fn()
 }));
 
-jest.mock('../../../../private/common/auth/helper/loginHelper', () => ({
-    SUBSCRIBED_HELPER: { LN: 'ln' }
-}));
+jest.mock(
+    '../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        addEventToDataLayerV2: jest.fn()
+    })
+);
 
-jest.mock('../_helper', () => ({
-    createMundialSession: jest.fn(),
-    sendMundialChatMessage: jest.fn(),
-    getSuggestedQuestions: jest.fn(),
-    resolveErrorMessage: jest.fn(),
-    FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
-}));
-
-jest.mock('../../../../private/common/hooks/useTermica', () => ({
-    __esModule: true,
-    default: jest.fn()
-}));
-
-jest.mock('../../../../private/LN/common/utils/addEventToDataLayer', () => ({
-    addEventToDataLayerV2: jest.fn()
-}));
+jest.mock(
+    '../../../../../components/private/common/auth/hooks/useAuthManager',
+    () => ({
+        __esModule: true,
+        default: jest.fn(() => ({
+            token: 'mock-token',
+            accessToken: 'mock-access-token'
+        }))
+    })
+);
 
 const mockSetMessages = jest.fn();
 const mockSetStatus = jest.fn();
@@ -180,11 +218,10 @@ describe('ChatLN', () => {
             expect(screen.queryByText('Pregunta 1')).not.toBeInTheDocument();
         });
 
-        it('disables suggestion buttons when not subscribed', () => {
+        it('hides suggestions when not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             render(<ChatLN />);
-            const buttons = screen.getAllByRole('button', { name: /Pregunta/ });
-            buttons.forEach(btn => expect(btn).toBeDisabled());
+            expect(screen.queryByText('Pregunta 1')).not.toBeInTheDocument();
         });
 
         it('enables suggestion buttons when subscribed', () => {

@@ -19,11 +19,13 @@ import {
     sendMundialChatMessage
 } from './_helper';
 import useTermica from '../../../private/common/hooks/useTermica';
+import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { EjesCard } from './components/EjesCard';
 
 export function ChatLN() {
     const { isSubscribed, userId } = useGetUserData(SUBSCRIBED_HELPER.LN);
+    const { accessToken } = useAuthManager();
     const [showSkeleton, setShowSkeleton] = useState(true);
 
     const hideChatIa = Boolean(useTermica('hide_chat_ia_mundial_ln'));
@@ -40,7 +42,7 @@ export function ChatLN() {
         async function initSession() {
             try {
                 const { session_id: sessionIdObtain } =
-                    await createMundialSession({ userId });
+                    await createMundialSession({ userId, accessToken });
                 setSessionId(sessionIdObtain);
             } catch (err) {
                 console.error('ChatLN: error creando sesión', err);
@@ -49,7 +51,10 @@ export function ChatLN() {
 
         async function loadQuestions() {
             try {
-                const questions = await getSuggestedQuestions({ userId });
+                const questions = await getSuggestedQuestions({
+                    userId,
+                    accessToken
+                });
                 setSuggestedQuestions(questions);
             } catch (err) {
                 console.error(
@@ -78,7 +83,8 @@ export function ChatLN() {
             return await sendMundialChatMessage({
                 userId,
                 sessionId,
-                message: userQuestion
+                message: userQuestion,
+                accessToken
             });
         } catch (err) {
             const errorMsg = resolveErrorMessage(err);
