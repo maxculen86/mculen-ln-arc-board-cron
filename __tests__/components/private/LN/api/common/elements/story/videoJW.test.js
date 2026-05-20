@@ -180,6 +180,17 @@ const respExpectedV2 = {
     },
     multimediaHls: 'https://cdn.jwplayer.com/manifests/1ryaz60h.m3u8'
 };
+
+const expectedGlobalWarning = videoData =>
+    `Error Version Global Video JW - Missing playList in content: ${JSON.stringify(
+        videoData || {}
+    )}`;
+
+const expectedMobileWarning = videoData =>
+    `Error Version Mobile Video JW - Missing playList in content: ${JSON.stringify(
+        videoData || {}
+    )}`;
+
 describe('components - private - LN - api - common - elements - story - videoJW', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -191,11 +202,13 @@ describe('components - private - LN - api - common - elements - story - videoJW'
 
     it('videoJWNota when data is ok', () => {
         const resp = videoJWNota(elementVideoJW, '123');
+        expect(console.warn).not.toHaveBeenCalled();
         expect(resp).toMatchObject(respExpected);
     });
 
     it('videoJWNota when data not have id', () => {
-        const newElementVideoJW = { ...elementVideoJW };
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        // eslint-disable-next-line no-underscore-dangle
         newElementVideoJW._id = null;
         newElementVideoJW.embed.config.videoJw.playlist[0].mediaid = null;
         const resp = videoJWNota(newElementVideoJW, '123');
@@ -205,14 +218,16 @@ describe('components - private - LN - api - common - elements - story - videoJW'
 
     it('videoJWNotaMobile when data is ok', () => {
         const resp = videoJWNotaMobile(elementVideoJW, '123');
+        expect(console.warn).not.toHaveBeenCalled();
         expect(resp).toMatchObject(respExpectedV2);
     });
 
     it('videoJWNotaMobile should return title when contains epigraph title', () => {
-        const newElementVideoJW = { ...elementVideoJW };
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
         newElementVideoJW.embed.config.videoJw.epigraphTitle =
             'titulo del video';
         const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(console.warn).not.toHaveBeenCalled();
         expect(resp).toStrictEqual({
             ...respExpectedV2,
             title: 'titulo del video'
@@ -220,25 +235,109 @@ describe('components - private - LN - api - common - elements - story - videoJW'
     });
 
     it('videoJWNotaMobile should not return the title when it does not contain the title of the epigraph', () => {
-        const newElementVideoJW = { ...elementVideoJW };
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
         newElementVideoJW.embed.config.videoJw.epigraphTitle = '';
         const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(console.warn).not.toHaveBeenCalled();
         expect(resp).toStrictEqual(respExpectedV2);
     });
 
     it('videoJWNotaMobile when data missing', () => {
-        const newElementVideoJW = { ...elementVideoJW };
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
         newElementVideoJW.embed.config.videoJw.playlist = null;
         const resp = videoJWNotaMobile(newElementVideoJW, '123');
         expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedMobileWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNota when playlist is null', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = null;
+        const resp = videoJWNota(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedGlobalWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNota when playlist is undefined', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = undefined;
+        const resp = videoJWNota(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedGlobalWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNota when playlist is empty array', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = [];
+        const resp = videoJWNota(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedGlobalWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNota when playlist first item is null', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = [null];
+        const resp = videoJWNota(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedGlobalWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNota when playlist first item is undefined', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = [undefined];
+        const resp = videoJWNota(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedGlobalWarning(newElementVideoJW)
+        );
         expect(resp).toBe(null);
     });
 
     it('videoJWNotaMobile when playlist missing', () => {
-        const newElementVideoJW = { ...elementVideoJW };
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
         newElementVideoJW.embed.config.videoJw.playlist = [];
         const resp = videoJWNotaMobile(newElementVideoJW, '123');
         expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedMobileWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNotaMobile when playlist first item is null', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = [null];
+        const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedMobileWarning(newElementVideoJW)
+        );
+        expect(resp).toBe(null);
+    });
+
+    it('videoJWNotaMobile when playlist first item is undefined', () => {
+        const newElementVideoJW = JSON.parse(JSON.stringify(elementVideoJW));
+        newElementVideoJW.embed.config.videoJw.playlist = [undefined];
+        const resp = videoJWNotaMobile(newElementVideoJW, '123');
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            expectedMobileWarning(newElementVideoJW)
+        );
         expect(resp).toBe(null);
     });
 });
