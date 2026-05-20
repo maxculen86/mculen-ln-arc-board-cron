@@ -47,17 +47,8 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "@type": "Person",
     "name": "Redacción de Foodit"
   },
-  "keywords": "Frito, Argentina, Pizzas y empanadas, Fácil, Sin gluten, Dieta, Saladas",
-  "cookTime": "PT20M",
-  "cookingMethod": "Frito",
   "recipeCategory": "Pizzas y empanadas",
-  "recipeCuisine": "Argentina",
   "recipeYield": 1,
-  "suitableForDiet": [
-    "https://schema.org/GlutenFreeDiet"
-  ],
-  "performTime": "PT60M",
-  "totalTime": "PT80M",
   "recipeInstructions": [
     {
       "@type": "HowToStep",
@@ -107,8 +98,15 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "Custom ing 2 C",
     "2 pizca de Arroz salvaje"
   ],
-  "dateCreated": "",
-  "headline": "Receta de Tortas fritas criollas",
+  "keywords": "Frito, Argentina, Pizzas y empanadas, Fácil, Sin gluten, Dieta, Saladas",
+  "cookTime": "PT20M",
+  "cookingMethod": "Frito",
+  "recipeCuisine": "Argentina",
+  "suitableForDiet": [
+    "https://schema.org/GlutenFreeDiet"
+  ],
+  "performTime": "PT60M",
+  "totalTime": "PT80M",
   "video": {
     "@type": "VideoObject",
     "name": "El video oficial de Selfish, el nuevo tema de Justin Timberlake",
