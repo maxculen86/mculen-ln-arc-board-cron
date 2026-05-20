@@ -25,7 +25,7 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
                     'placeholder:text-body-md placeholder:font-secondary',
                     isDisabled
                         ? 'placeholder:text-neutral-300'
-                        : 'placeholder:text-base-default'
+                        : 'placeholder:text-base-default/60'
                 ),
                 placeholder: isBlocked
                     ? ''

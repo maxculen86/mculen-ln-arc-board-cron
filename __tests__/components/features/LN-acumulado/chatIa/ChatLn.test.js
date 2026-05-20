@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { ChatLN } from '../ChatLn';
+import { ChatLN } from '../../../../../components/layouts/LN-acumulado/chat/ChatLn';
 import { useChatRuntime } from '@ln/ds-blocks-thread';
-import useGetUserData from '../../../../private/common/auth/hooks/useGetUserData';
+import useGetUserData from '../../../../../components/private/common/auth/hooks/useGetUserData';
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: Object.assign(

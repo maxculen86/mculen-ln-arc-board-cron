@@ -20,6 +20,7 @@ import {
 } from './_helper';
 import useTermica from '../../../private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
+import { EjesCard } from './components/EjesCard';
 
 export function ChatLN() {
     const { isSubscribed, userId } = useGetUserData(SUBSCRIBED_HELPER.LN);
@@ -141,25 +142,48 @@ export function ChatLN() {
 
     return (
         <div data-tw>
-            <div className="mb-16 pt-8 pb-16 xl:pt-6">
-                <h2 className="font-secondary text-body-lg font-bold xl:pb-16">
-                    LA NACION IA
-                </h2>
+            <div className="mb-[40px] md:mb-[64px] pt-8 xl:pt-6">
+                <div className="pb-16">
+                    <p className="text-body-lg font-secondary text-base-default">
+                        Seguí las estadísticas y los resultados en vivo en{' '}
+                        <a
+                            href="https://canchallena.lanacion.com.ar/"
+                            className="inline-flex items-center gap-4"
+                        >
+                            <span
+                                className="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+                                aria-label="canchallena"
+                            />
+                            <Icon name="arrow-right" size={24} />
+                        </a>
+                    </p>
+                </div>
+                <div className="md:grid md:grid-cols-12 xl:grid-cols-16 gap-responsive">
+                    <EjesCard />
+                </div>
                 <div
                     className={cx(
-                        'xl:hidden',
-                        isSubscribed && 'flex pt-8 pb-16 xl:pt-0 xl:pb-0 gap-8'
+                        'flex flex-column pb-8',
+                        isSubscribed &&
+                            'xl:flex-row xl:items-center gap-8 xl:gap-16'
                     )}
                 >
-                    <EmptyState isSubscribed={isSubscribed} />
-                </div>
-
-                <div className="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:gap-32">
+                    <h2 className="prumo prumo-semibold text-base-default text-subheading-sm">
+                        LA NACION IA
+                    </h2>
                     <div
                         className={cx(
-                            isSubscribed ? 'xl:col-span-12' : 'xl:col-span-11'
+                            'flex gap-8 items-center',
+                            !isSubscribed &&
+                                'xl:grid xl:grid-cols-16 gap-responsive pt-8'
                         )}
                     >
+                        <EmptyState isSubscribed={isSubscribed} />
+                    </div>
+                </div>
+
+                <div className="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive">
+                    <div className="xl:col-span-10">
                         <Thread runtime={runtime}>
                             <Thread.Composer className="flex flex-col gap-16">
                                 <>
@@ -183,7 +207,7 @@ export function ChatLN() {
                                             onTypingDone={handleTypingDone}
                                         />
                                     </Thread.Viewport>
-                                    {showSuggestions && (
+                                    {showSuggestions && isSubscribed && (
                                         <div className="flex flex-column md:flex-row gap-responsive">
                                             {suggestedQuestions.map(
                                                 suggestion => (
@@ -195,8 +219,7 @@ export function ChatLN() {
                                                                 suggestion
                                                             )
                                                         }
-                                                        disabled={!isSubscribed}
-                                                        className="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-muted rounded-sm font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                                                        className="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
                                                     >
                                                         {suggestion}
                                                     </button>
@@ -206,7 +229,7 @@ export function ChatLN() {
                                     )}
 
                                     {isBlocked && isLastTypingDone && (
-                                        <div className="flex justify-center xl:justify-start">
+                                        <div className="flex justify-center py-8">
                                             <Button
                                                 type="button"
                                                 variant="outline"
@@ -243,14 +266,6 @@ export function ChatLN() {
                                 </>
                             </Thread.Composer>
                         </Thread>
-                    </div>
-
-                    <div
-                        className={cx(
-                            `hidden xl:flex gap-8 ${isSubscribed ? 'xl:col-span-4 flex gap-8 pt-8 pb-16 xl:pt-0' : 'xl:col-span-5'}`
-                        )}
-                    >
-                        <EmptyState isSubscribed={isSubscribed} />
                     </div>
                 </div>
             </div>

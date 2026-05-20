@@ -23,7 +23,7 @@ export function EmptyState({ isSubscribed }) {
     }
 
     return (
-        <section className="my-16 xl:my-0 h-fit border border-all border-neutral-200 bg-neutral-50 px-16 pt-24 pb-32 flex flex-col sm:flex-row xl:flex-col gap-32">
+        <section className="xl:col-span-10 w-full mb-8 h-fit border border-all border-neutral-200 bg-neutral-50 px-16 py-24 flex flex-col sm:flex-row gap-24">
             <div className="flex flex-column gap-8 w-full">
                 <div className="flex gap-4">
                     <Badge
@@ -48,10 +48,10 @@ export function EmptyState({ isSubscribed }) {
                 </p>
             </div>
             <div className="flex gap-16 items-center">
-                <Button variant="outline" color="secondary" asChild>
+                <Button variant="outline" size={32} color="secondary" asChild>
                     <a href={`${LOGIN_URL}${currentUrl}`}>Iniciar sesión</a>
                 </Button>
-                <Button color="subscription" asChild>
+                <Button color="subscription" size={32} asChild>
                     <a
                         href={`${SITIO_SEGURO_REGISTRACION}/ln/suscribirme?callback=${currentUrl}`}
                     >

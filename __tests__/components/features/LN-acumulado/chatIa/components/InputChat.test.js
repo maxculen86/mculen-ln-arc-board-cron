@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { InputChat } from '../InputChat';
+import { InputChat } from '../../../../../../components/layouts/LN-acumulado/chat/components/InputChat';
 
 const PLACEHOLDER_TEXT =
     'Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?';

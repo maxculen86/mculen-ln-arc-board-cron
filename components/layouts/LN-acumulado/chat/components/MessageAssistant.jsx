@@ -43,7 +43,7 @@ export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
                         return (
                             <li
                                 key={url}
-                                className="flex gap-4 items-center text-[var(--ia-tools)] hover:text-base-light"
+                                className="flex gap-4 items-center text-primary-default hover:text-base-light"
                             >
                                 <div>
                                     <Icon size={12} name="bullet-filled" />
