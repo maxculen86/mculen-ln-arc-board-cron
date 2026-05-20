@@ -14,10 +14,22 @@ export function HomeSchema(props) {
             data={{
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
+                '@id': `${SITE_FOODIT}/#website`,
                 name: 'Foodit',
                 description: metaValue('description') || 'Foodit',
                 image: `${SITE_FOODIT}${image}`,
-                url: `${SITE_FOODIT}/`
+                url: `${SITE_FOODIT}/`,
+                publisher: {
+                    '@id': `${SITE_FOODIT}/#organization`
+                },
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: {
+                        '@type': 'EntryPoint',
+                        urlTemplate: `${SITE_FOODIT}/chat/?query={search_term_string}`
+                    },
+                    'query-input': 'required name=search_term_string'
+                }
             }}
         />
     );

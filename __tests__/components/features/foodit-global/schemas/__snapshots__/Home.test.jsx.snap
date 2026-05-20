@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - foodit-global - schemas - HomeSchema matches the snapshot 1`] = `
+<div>
+  <script
+    id="website-schema"
+    type="application/ld+json"
+  >
+    {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://foodit.lanacion.com.ar/#website",
+  "name": "Foodit",
+  "description": "Foodit - Recetas",
+  "image": "https://foodit.lanacion.com.ar/pf/resources/foodit/assets/images/placeholderFoodit.jpg",
+  "url": "https://foodit.lanacion.com.ar/",
+  "publisher": {
+    "@id": "https://foodit.lanacion.com.ar/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://foodit.lanacion.com.ar/chat/?query={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+</div>
+`;
