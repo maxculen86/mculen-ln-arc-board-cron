@@ -16,33 +16,39 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }
   },
   "name": "Receta de Tortas fritas criollas",
   "description": "Una receta bien argentina, con pocos ingredientes y fácil de hacer. Las tortas fritas caseras son ideales para comer en los días de lluvia, aunque se disfrutan en cualquier momento. Aprendé cómo hacer tortas fritas con en esta receta de una de las comidas sabrosas que más nos representan.",
-  "image": {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "url": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true"
-  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=1200&height=675&quality=70&smart=true",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=1200&height=900&quality=70&smart=true",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=1200&height=1200&quality=70&smart=true",
+      "width": 1200,
+      "height": 1200
+    }
+  ],
   "author": {
     "@type": "Person",
     "name": "Redacción de Foodit"
   },
-  "keywords": "Frito, Argentina, Pizzas y empanadas, Fácil, Sin gluten, Dieta, Saladas",
-  "cookTime": "PT20M",
-  "cookingMethod": "Frito",
   "recipeCategory": "Pizzas y empanadas",
-  "recipeCuisine": "Argentina",
   "recipeYield": 1,
-  "suitableForDiet": [
-    "https://schema.org/GlutenFreeDiet"
-  ],
-  "performTime": "PT60M",
-  "totalTime": "PT80M",
   "recipeInstructions": [
     {
       "@type": "HowToStep",
@@ -92,8 +98,15 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "Custom ing 2 C",
     "2 pizca de Arroz salvaje"
   ],
-  "dateCreated": "",
-  "headline": "Receta de Tortas fritas criollas",
+  "keywords": "Frito, Argentina, Pizzas y empanadas, Fácil, Sin gluten, Dieta, Saladas",
+  "cookTime": "PT20M",
+  "cookingMethod": "Frito",
+  "recipeCuisine": "Argentina",
+  "suitableForDiet": [
+    "https://schema.org/GlutenFreeDiet"
+  ],
+  "performTime": "PT60M",
+  "totalTime": "PT80M",
   "video": {
     "@type": "VideoObject",
     "name": "El video oficial de Selfish, el nuevo tema de Justin Timberlake",
@@ -117,7 +130,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
   },
   "headline": "Receta de Tortas fritas criollas",
   "image": [
-    "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true"
+    "https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=1200&height=675&quality=70&smart=true"
   ],
   "datePublished": "2024-01-25T18:30:37.695Z",
   "dateModified": "2024-04-16T16:36:33.351Z",
@@ -132,7 +145,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }
@@ -144,12 +157,12 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
       "@type": "ListItem",
-      "position": 0,
+      "position": 1,
       "item": {
         "@id": "https://foodit.lanacion.com.ar",
         "name": "Foodit"
@@ -157,7 +170,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     },
     {
       "@type": "ListItem",
-      "position": 1,
+      "position": 2,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/",
         "name": "Recetas"
@@ -165,7 +178,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/saladas/",
         "name": "Saladas"
@@ -173,7 +186,7 @@ exports[`components - features- foodit-global - schemas - RecipeSchema matches t
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/saladas/pizza-y-empanadas/",
         "name": "Pizza y empanadas"

@@ -62,7 +62,11 @@ describe('NewsletterSelectionButton', () => {
         window.addEventListener('newsletterSelected', listener);
 
         render(
-            <NewsletterSelectionButton id={243} title="Planifica tu semana" />
+            <NewsletterSelectionButton
+                id={243}
+                title="Planifica tu semana"
+                category="receta"
+            />
         );
         fireEvent.click(screen.getByTestId('action-button'));
 
@@ -70,7 +74,8 @@ describe('NewsletterSelectionButton', () => {
         expect(listener.mock.calls[0][0].detail).toEqual({
             id: 243,
             title: 'Planifica tu semana',
-            selected: true
+            selected: true,
+            category: 'receta'
         });
 
         window.removeEventListener('newsletterSelected', listener);

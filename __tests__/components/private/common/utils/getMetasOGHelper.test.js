@@ -359,9 +359,9 @@ describe('Case return getData', () => {
             image: {
                 url: 'undefined$LATEST',
                 width: '1200',
-                height: '630',
+                height: '800',
                 alt: 'Placeholder de LA NACION',
-                type: 'image/png'
+                type: 'image/jpeg'
             },
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
             fbAppId: '154042854349421',
@@ -399,9 +399,9 @@ describe('Case return getData', () => {
             image: {
                 url: 'undefined$LATEST',
                 width: '1200',
-                height: '630',
+                height: '800',
                 alt: 'Placeholder de LA NACION',
-                type: 'image/png'
+                type: 'image/jpeg'
             },
             isArticle: false,
             subtype: undefined,
@@ -586,9 +586,9 @@ describe('Case return getImageProps', () => {
         const output = {
             url: 'placeholder',
             width: '1200',
-            height: '630',
+            height: '800',
             alt: 'Placeholder de LA NACION',
-            type: 'image/png'
+            type: 'image/jpeg'
         };
         expect(getImageProps({}, {}, 'placeholder')).toEqual(output);
     });
@@ -609,7 +609,7 @@ describe('Case return buildOgMetas', () => {
             type: 'image/jpeg',
             alt: 'Example Image',
             width: '1200',
-            height: '630'
+            height: '800'
         },
         url: 'https://example.com',
         layout: 'default'
@@ -642,7 +642,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Example Image' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             { property: 'og:url', content: 'https://example.com/' },
             { property: 'og:site_name', content: 'My Website' }
         ]);
@@ -719,7 +719,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Example Image' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             { property: 'og:url', content: 'https://example.com/' },
             { property: 'og:site_name', content: 'My Website' },
             { property: 'profile:first_name', content: 'Lionel' },
@@ -742,7 +742,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Example Image' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             { property: 'og:url', content: 'https://example.com/' },
             { property: 'og:site_name', content: 'My Website' },
             { property: 'profile:first_name', content: 'Juan Guillermo' },
@@ -785,7 +785,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Example Image' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             { property: 'og:url', content: 'https://example.com/' },
             { property: 'og:site_name', content: 'My Website' },
             { property: 'profile:first_name', content: 'Bruno' },
@@ -808,7 +808,7 @@ describe('Case return buildOgMetas', () => {
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Example Image' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             { property: 'og:url', content: 'https://example.com/' },
             { property: 'og:site_name', content: 'My Website' },
             { property: 'profile:first_name', content: 'Juan Guillermo' },

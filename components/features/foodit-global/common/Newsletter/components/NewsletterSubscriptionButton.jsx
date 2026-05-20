@@ -3,8 +3,14 @@ import { NewsletterActionButton } from './NewsletterActionButtons';
 import { addToast, TOAST } from '../../bookmark/api/_helper';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 import { postNewsletter } from '../helpers/helpers';
+import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
-export function NewsletterSubscriptionButton({ id, suscribed }) {
+export function NewsletterSubscriptionButton({
+    id,
+    suscribed,
+    title,
+    category
+}) {
     const [selected, setSelected] = useState(null);
 
     useEffect(() => {
@@ -28,6 +34,15 @@ export function NewsletterSubscriptionButton({ id, suscribed }) {
 
             if (resp.ok) {
                 setSelected(!selected);
+
+                if (isSubscribing) {
+                    addEventToDataLayerV2({
+                        event: 'e_linkclick',
+                        action: 'newsletter',
+                        category,
+                        label: title
+                    });
+                }
 
                 addToast({
                     variant: TOAST.SUCCESS.VARIANT,

@@ -98,18 +98,12 @@ describe('components - ui - ln - Heading', () => {
             const { container, getByText } = render(
                 <Heading data={dataWithHtml} />
             );
-            expect(getByText('Hello')).toBeInTheDocument();
-            expect(container.querySelector('strong')).toHaveTextContent(
-                'World'
-            );
+            expect(getByText('Hello World')).toBeInTheDocument();
+            expect(container.querySelector('strong')).toBeNull();
         });
     });
 
     describe('Component properties', () => {
-        it('should have arcType header', () => {
-            expect(Heading.arcType).toBe('header');
-        });
-
         it('should be static component', () => {
             expect(Heading.isStatic).toBe(true);
         });

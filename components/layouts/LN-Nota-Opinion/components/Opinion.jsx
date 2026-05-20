@@ -3,29 +3,14 @@ import { useAppContext } from 'fusion:context';
 import { Divider } from '@ln/ds-common-divider';
 import Opening from './apertura/Opening';
 import PreBody from './preBody/PreBody';
-import get from '../../../private/common/utils/get';
-import formatAuthorList from '../helpers/formatAuthorList';
-import { getMediaData } from '../../_helpers/mediaHelper';
-import getMediaFigCaption from '../helpers/getMediaFigCaption';
 import { WrapperBody } from '../../../features/LN/common/wrapperBody/default';
 import DateAndReadingTime from '../../../features/LN/common/dateAndReadingTime/default';
+import { buildOpinionData } from '../helpers/buildOpinionData';
 
 function Opinion({ children }) {
     const { globalContent, siteProperties } = useAppContext();
-
-    const authors = get(globalContent, 'credits.by', []);
-    const authorsConcat = formatAuthorList(authors);
-
-    const promoItems = get(globalContent, 'promo_items', {});
-    const mediaData = getMediaData(promoItems);
-    const { text, attribution } = getMediaFigCaption(mediaData);
-
-    const tags = get(globalContent, 'taxonomy.tags', []);
-    const ANALYSIS_TAG_SLUG = 'analisis-tid63578';
-    const includesAnalysisTag = tags.some(
-        ({ slug }) => slug === ANALYSIS_TAG_SLUG
-    );
-    const sectionLabel = includesAnalysisTag ? 'ANÁLISIS' : 'OPINIÓN';
+    const { authorsConcat, media, headline, subheadline, label, showAuthors } =
+        buildOpinionData(globalContent);
 
     return (
         <>
@@ -35,14 +20,14 @@ function Opinion({ children }) {
             {/* ---- APERTURA ---- */}
             {/* Componentes con tailwind - DS */}
             <div data-tw className="contents">
-                <Opinion.Opening className="w-full flex flex-col gap-40 mt-24 mb-16">
+                <Opinion.Opening className="w-full flex flex-col gap-40 mt-16 mb-16">
                     <div className="flex flex-col items-center gap-40">
                         <div className="w-full flex flex-col items-center gap-16 md:grid md:justify-items-center md:grid-cols-12 lg:grid-cols-16 md:gap-x-24 xl:gap-x-32">
                             <div className="flex flex-col items-center gap-4 md:col-span-12 lg:col-span-16">
                                 <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
-                                    {sectionLabel}
+                                    {label}
                                 </span>
-                                {includesAnalysisTag && (
+                                {showAuthors && (
                                     <Opening.Authors
                                         className="max-w-636"
                                         authorsConcat={authorsConcat}
@@ -53,17 +38,12 @@ function Opinion({ children }) {
                                 <Divider />
                             </div>
                             <div className="flex flex-col items-center gap-8 md:col-span-10 md:col-start-2 lg:col-span-16 max-w-636">
-                                <Opening.Title
-                                    content={globalContent.headlines.basic}
-                                />
-                                <Opening.Subtitle
-                                    content={globalContent.subheadlines.basic}
-                                />
+                                <Opening.Title content={headline} />
+                                <Opening.Subtitle content={subheadline} />
                             </div>
                         </div>
-                        <Opening.Media
-                            data={{ mediaData, caption: text, attribution }}
-                        />
+                        <DateAndReadingTime globalContent={globalContent} />
+                        <Opening.Media data={{ ...media }} />
                     </div>
                 </Opinion.Opening>
                 {/* ---- Wrapper con grilla y ancho maximo ---- */}
@@ -71,7 +51,6 @@ function Opinion({ children }) {
                     {/* ---- PRE-CUERPO ---- */}
                     <WrapperBody id="cuerpo__nota" className="mb-24">
                         <Opinion.PreBody>
-                            <DateAndReadingTime globalContent={globalContent} />
                             {children?.[2] && (
                                 <div className="flex flex-col gap-24 pb-16">
                                     {children[2]}

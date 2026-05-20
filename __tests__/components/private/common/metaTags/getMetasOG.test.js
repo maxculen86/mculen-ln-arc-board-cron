@@ -283,12 +283,12 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.png'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
             {
                 property: 'og:image:type',
-                content: 'image/png'
+                content: 'image/jpeg'
             },
             {
                 property: 'og:image:alt',
@@ -300,7 +300,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image:height',
-                content: '630'
+                content: '800'
             },
             {
                 property: 'og:url',
@@ -313,7 +313,7 @@ describe('Common - getMetasOG function', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.png'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
             {
@@ -399,13 +399,13 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
-            { property: 'og:image:type', content: 'image/png' },
+            { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Placeholder de LA NACION' },
             { property: 'og:image:width', content: '1200' },
-            { property: 'og:image:height', content: '630' },
+            { property: 'og:image:height', content: '800' },
             {
                 property: 'og:url',
                 content:
@@ -417,7 +417,7 @@ describe('Common - getMetasOG function', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.jpg'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
             { name: 'twitter:card', content: 'summary_large_image' },
@@ -521,12 +521,12 @@ describe('Metas home', () => {
             {
                 property: 'og:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.png'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
             {
                 property: 'og:image:type',
-                content: 'image/png'
+                content: 'image/jpeg'
             },
             {
                 property: 'og:image:alt',
@@ -538,7 +538,7 @@ describe('Metas home', () => {
             },
             {
                 property: 'og:image:height',
-                content: '630'
+                content: '800'
             },
             {
                 property: 'og:url',
@@ -551,7 +551,7 @@ describe('Metas home', () => {
             {
                 name: 'twitter:image',
                 content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x630.png'
+                    'placeholderLN-1200x800.jpg'
                 )
             },
             {

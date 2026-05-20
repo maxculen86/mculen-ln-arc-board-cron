@@ -11,14 +11,14 @@ import {
 import SnippetRender from '../../../private/common/snippet/snippetRender';
 import { BreadcrumbSchema } from './Breadcrumb';
 
-export const AcuSchema = ({ globalContent = {} }) => {
+export function AcuSchema({ globalContent = {} }) {
     const { _id = '' } = globalContent;
     const title = getFooditAcuTitle(globalContent);
 
     const { contextPath, deployment } = useAppContext();
 
     const acuSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: `Acumulado - ${title}`,
         url: `${SITE_FOODIT}${_id}`,
@@ -36,4 +36,4 @@ export const AcuSchema = ({ globalContent = {} }) => {
             <BreadcrumbSchema sections={getBreadcrumbSections(globalContent)} />
         </>
     );
-};
+}

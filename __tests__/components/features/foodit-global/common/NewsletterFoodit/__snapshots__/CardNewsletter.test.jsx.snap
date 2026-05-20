@@ -3,23 +3,30 @@
 exports[`CardNewsletter renders correctly (snapshot) 1`] = `
 <div>
   <section
-    class="flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
+    class="bg-[rgba(255,193,8,0.15)] flex flex-column flex-row_md col-span-8 md:col-span-12 xl:col-span-8"
     data-test-id="card-newsletter-veggie"
   >
     <div
-      class="foodit-placeholder bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px]"
+      class="relative overflow-hidden h-full w-full card-image ratio-3-2 w-full md:max-w-[218px] md:aspect-square [&>picture]:w-full [&>picture]:h-full"
     >
-      <img
-        alt="Newsletter Foodit veggie"
-        class="image bg-[rgba(255,193,8,0.15)] flex items-center object-cover card-image ratio-3-2 md:aspect-square w-full md:max-w-[218px] flex --cover"
-        decoding="async"
-        fetchpriority="low"
-        loading="lazy"
-        src="https://especialess3.lanacion.com.ar/LN/newsletter/landing/veggie.jpg"
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 z-0 bg-muted bg-[url("/pf/resources/foodit/assets/images/foodit-placeholder.svg")] bg-no-repeat bg-center bg-[length:131px] md:h-[218px] xl:mt-6"
+        data-testid="image-placeholder"
       />
+      <picture>
+        <img
+          alt="Newsletter Foodit veggie"
+          class="ds-image relative z-1 object-contain h-full w-full object-cover bg-[rgba(255,193,8,0.15)] md:h-[218px] xl:mt-6"
+          decoding="async"
+          fetchpriority="low"
+          loading="lazy"
+          src="https://especialess3.lanacion.com.ar/LN/newsletter/landing/veggie.jpg"
+        />
+      </picture>
     </div>
     <div
-      class="bg-[rgba(255,193,8,0.15)] w-full flex flex-column justify-center px-16 py-12 md:px-24 xl:px-32 gap-24"
+      class="w-full flex flex-column justify-center px-16 py-12 md:px-24 xl:px-32 gap-24"
     >
       <div
         class="flex flex-column gap-12"
@@ -48,11 +55,12 @@ exports[`CardNewsletter renders correctly (snapshot) 1`] = `
           >
             Newsletter Foodit veggie
           </p>
-          <span
-            class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase mt-4"
+          <div
+            class="ds-badge relative inline-flex items-center justify-center gap-4 whitespace-nowrap w-fit [&_svg]:shrink-0 rounded-badge font-bold uppercase text-small-lg mt-4 px-16 py-2 bg-[var(--proxy-brand-vino)] text-accent-foreground"
+            data-disabled="false"
           >
             NUEVO
-          </span>
+          </div>
         </div>
         <p
           class="font-secondary text-body-md"

@@ -1049,7 +1049,7 @@ describe('common - utils - bannerHelper', () => {
         });
 
         it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
-            const cabezalBanner = `<div class=\"ln-banner-container --cabezal_dsk --no-app\"><div id=\"cabezal_dsk\" class=\"ln-banner\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
+            const cabezalBanner = `<div class=\"ln-banner-container --no-app --cabezal_dsk\"><div id=\"cabezal_dsk\" class=\"ln-banner\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
 
             customFields = {
                 desktop: 'cabezal_dsk',

@@ -5,7 +5,7 @@ export const newsletters = [
         badge: 'LUNES',
         description:
             'Mantente motivado y creativo en la cocina con recetas fáciles, ricas y originales seleccionadas por nuestra editora.',
-        image: 'https://especialess3.lanacion.com.ar/LN/newsletter/landing/foodit.jpg'
+        image: 'foodit/assets/images/newsletter/planifica-semana.webp'
     },
     {
         id: 244,
@@ -13,7 +13,7 @@ export const newsletters = [
         badge: 'MIERCOLES',
         description:
             'Con plantas, legumbres y semillas, una selección de deliciosas recetas vegetarianas y veganas.',
-        image: 'https://especialess3.lanacion.com.ar/LN/newsletter/landing/veggie.jpg'
+        image: 'foodit/assets/images/newsletter/foodit-veggie.webp'
     }
 ];
 

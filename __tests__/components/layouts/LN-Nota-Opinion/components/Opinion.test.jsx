@@ -23,7 +23,9 @@ const baseContext = {
         },
         headlines: { basic: '' },
         subheadlines: { basic: '' },
+        promo_items: {},
         taxonomy: {
+            primary_section: { _id: '/opinion' },
             tags: [
                 {
                     description: 'aceite de girasol',
@@ -74,6 +76,9 @@ describe('Opinion', () => {
         setup({
             globalContent: {
                 taxonomy: {
+                    primary_section: {
+                        _id: '/opinion'
+                    },
                     tags: [
                         {
                             description: 'Análisis',
@@ -95,6 +100,9 @@ describe('Opinion', () => {
         setup({
             globalContent: {
                 taxonomy: {
+                    primary_section: {
+                        _id: '/opinion'
+                    },
                     tags: [
                         {
                             description: 'Malvinas',
@@ -112,6 +120,35 @@ describe('Opinion', () => {
         });
 
         expect(screen.getByText('OPINIÓN')).toBeInTheDocument();
+        expect(
+            screen.queryByText('CARLITOS TEVEZ Y ZAKK WYLDE')
+        ).not.toBeInTheDocument();
+    });
+
+    it('renders EDITORIALES label and does not render authors when primary section is editoriales', () => {
+        setup({
+            globalContent: {
+                taxonomy: {
+                    primary_section: {
+                        _id: '/editoriales'
+                    },
+                    tags: [
+                        {
+                            description: 'Política',
+                            slug: 'politica-tid12345',
+                            text: 'Política'
+                        },
+                        {
+                            description: 'Análisis',
+                            slug: 'analisis-tid63578',
+                            text: 'Análisis'
+                        }
+                    ]
+                }
+            }
+        });
+
+        expect(screen.getByText('EDITORIALES')).toBeInTheDocument();
         expect(
             screen.queryByText('CARLITOS TEVEZ Y ZAKK WYLDE')
         ).not.toBeInTheDocument();

@@ -11,7 +11,7 @@ export function ListaComprasSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const listaComprasSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: `Lista de compras`,
         url: `${SITE_FOODIT}/lista-de-compras/`,

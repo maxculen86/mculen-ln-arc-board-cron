@@ -6,6 +6,7 @@ import { addToast, TOAST } from '../bookmark/api/_helper';
 import { DRAWERS_ID } from './helpers';
 import { getAuthTokens } from '../../../../private/common/auth/helper/loginHelper';
 import { postNewsletter } from '../Newsletter/helpers/helpers';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function DrawerSections() {
     const [selectedNewsletters, setSelectedNewsletters] = useState([]);
@@ -13,7 +14,7 @@ function DrawerSections() {
 
     useEffect(() => {
         const handleNewsletterSelection = e => {
-            const { id, title, selected } = e.detail || {};
+            const { id, title, selected, category } = e.detail || {};
 
             if (!id) return;
 
@@ -23,7 +24,7 @@ function DrawerSections() {
 
                     if (alreadyExists) return prev;
 
-                    return [...prev, { id, title }];
+                    return [...prev, { id, title, category }];
                 }
 
                 return prev.filter(item => item.id !== id);
@@ -75,6 +76,15 @@ function DrawerSections() {
             });
 
             if (resp.ok) {
+                selectedNewsletters.forEach(({ title, category }) => {
+                    addEventToDataLayerV2({
+                        event: 'e_linkclick',
+                        action: 'newsletter',
+                        category,
+                        label: title
+                    });
+                });
+
                 addToast({
                     variant: TOAST.SUCCESS.VARIANT,
                     title: TOAST.SUCCESS.TITLE,

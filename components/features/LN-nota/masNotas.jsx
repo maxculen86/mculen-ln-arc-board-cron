@@ -12,6 +12,7 @@ import {
     validateMasNotas,
     filterType,
     setSearchParamsByFilterType,
+    sourceByFilterType,
     getFilteredContentElements
 } from '../../private/common/utils/masNotasHelper';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
@@ -37,7 +38,7 @@ function masNotas(props) {
 
     if (!_id) return null;
 
-    const isFilteringByTags = filterCustomField === 'byTags';
+    const isAperturaHome = filterCustomField === 'aperturaHome';
 
     const searchParameters = {
         sectionOrTag,
@@ -61,10 +62,15 @@ function masNotas(props) {
         ? setSearchParamsByFilterType[filterCustomField](searchParameters)
         : setSearchParamsByFilterType.byLastNews(searchParameters);
 
+    const selectedSource =
+        filterCustomField in sourceByFilterType
+            ? sourceByFilterType[filterCustomField]
+            : 'lnAcuSource';
+
     const articlesList = useContent({
-        source: isFilteringByTags ? null : 'lnAcuSource',
+        source: selectedSource,
         query: refinedSearchParams,
-        filter,
+        filter: isAperturaHome ? undefined : filter,
         staticMode: false
     });
 
@@ -118,17 +124,21 @@ masNotas.propTypes = {
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(['byLastNews', 'byTags', 'bySectionOrTag']).tag(
-            {
-                labels: {
-                    byLastNews: 'Ultimas Noticias',
-                    byTags: 'Por Tags',
-                    bySectionOrTag: 'Seccion o tag'
-                },
-                label: 'Filtrar por',
-                defaultValue: 'byLastNews'
-            }
-        ),
+        filter: PropTypes.oneOf([
+            'byLastNews',
+            'byTags',
+            'bySectionOrTag',
+            'aperturaHome'
+        ]).tag({
+            labels: {
+                byLastNews: 'Ultimas Noticias',
+                byTags: 'Por Tags',
+                bySectionOrTag: 'Seccion o tag',
+                aperturaHome: 'Apertura-Home'
+            },
+            label: 'Filtrar por',
+            defaultValue: 'byLastNews'
+        }),
         sectionOrTag: PropTypes.string.tag({
             label: 'Sección o tag',
             description: 'Seccion o tag para obtener notas.',

@@ -39,21 +39,14 @@ function DivBannerSSR({ bannerConfiguration }) {
             label="CERRAR"
         />
     );
-    const bannersNoApp = [
-        'cabezal_dsk',
-        'cabezal_tab',
-        'comercial_dsk',
-        'comercial_mob'
-    ];
-
     const bannerClass = classNames('ln-banner', lazyClass);
 
     const bannerClassContainer = classNames(
         'ln-banner-container',
+        '--no-app',
         `--${slotId}`,
         classes,
-        { none: isHidden },
-        { '--no-app': bannersNoApp.includes(slotId) }
+        { none: isHidden }
     );
 
     const Comp = (

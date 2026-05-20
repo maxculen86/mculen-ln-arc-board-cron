@@ -1,4 +1,4 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { articleBoxesTracker } from '../../../../../components/private/common/utils/noteTracker/articleBoxesTracker';
 import { scheduleTask } from '../../../../../components/private/common/utils/scheduleTask';
 
@@ -7,321 +7,339 @@ jest.mock('../../../../../components/private/common/utils/scheduleTask');
 const mockScheduleTask = jest.fn(callback => callback());
 scheduleTask.mockImplementation(mockScheduleTask);
 
-Object.defineProperty(window, 'performance', {
-    value: {
-        getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
-        measure: jest.fn()
-    }
-});
+const appendArticlesBox = (blockName, articles) => {
+    const section = document.createElement('section');
+    const div = document.createElement('div');
 
-window.IntersectionObserver = jest.fn();
-const takeRecords = jest.fn();
-
-afterEach(() => {
-    jest.restoreAllMocks();
-    jest.clearAllMocks();
-});
-
-describe('articleBoxTracker funtion for all article boxes', () => {
-    global.window.dataLayer = [];
-    let section = global.document.createElement('section');
-    let div = global.document.createElement('div');
-    let article = global.document.createElement('article');
-    div.appendChild(article);
-    article.ctr_brand = 'otrasNoticias_diag3';
-    article.ctr_position = '060001';
-    article.innerHTML = 'articulo1';
-    section.setAttribute('data-block-name', 'n_otras_noticias');
+    section.setAttribute('data-block-name', blockName);
+    articles.forEach(article => div.appendChild(article));
     section.appendChild(div);
+    document.body.appendChild(section);
+};
 
-    global.document.body.appendChild(section);
+const setArticleRowTop = (article, top) => {
+    article.getBoundingClientRect = jest.fn(() => ({ top }));
+    return article;
+};
 
-    const cajaNotas = global.document;
+const createArticle = (id, text, rowTop = 0) => {
+    const article = document.createElement('article');
+    article.dataset.id = id;
+    article.dataset.notaid = id;
+    article.innerHTML = text;
 
-    const mockedEntries = [
-        {
+    return setArticleRowTop(article, rowTop);
+};
+
+const intersect = (callback, targets) => {
+    callback(
+        targets.map(target => ({
             isIntersecting: true,
-            target: article
-        }
-    ];
-    const mockedSection = [cajaNotas];
+            target
+        }))
+    );
+};
 
-    const observe = jest.fn();
-    const unobserve = jest.fn();
-    takeRecords.mockImplementationOnce(() => ({ mockedEntries }));
+describe('articleBoxesTracker funtion for all article boxes', () => {
+    let observe;
+    let unobserve;
+    let intersectionCallback;
 
-    window.IntersectionObserver.mockImplementationOnce(() => ({
-        observe,
-        unobserve,
-        takeRecords
-    }));
+    beforeEach(() => {
+        document.body.innerHTML = '';
+        window.dataLayer = [];
 
-    jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(mockedSection);
-
-    const observer = articleBoxesTracker({
-        boxType: 'masNotas',
-        diagramation: 3,
-        sectionTitle: 'OtrasNoticias'
-    });
-
-    const [callback] = window.IntersectionObserver.mock.calls[0];
-    callback(mockedEntries, observer);
-    test('otras noticias case, must observe, unobserve and send event to dataLayer', () => {
-        expect(observe).toBeCalledTimes(1);
-        expect(unobserve).toBeCalledTimes(1);
-        expect(window.dataLayer).toStrictEqual([
-            {
-                event: 'impressionNota',
-                ctr_brand: 'otrasNoticias_diag3',
-                ctr_position: '060001'
+        Object.defineProperty(window, 'performance', {
+            configurable: true,
+            value: {
+                getEntriesByType: jest
+                    .fn()
+                    .mockReturnValue([{ type: 'navigate' }]),
+                measure: jest.fn()
             }
-        ]);
+        });
+
+        observe = jest.fn();
+        unobserve = jest.fn();
+        window.IntersectionObserver = jest.fn(callback => {
+            intersectionCallback = callback;
+            return {
+                observe,
+                unobserve
+            };
+        });
     });
-    test('otras noticias click event', () => {
-        const Article = screen.getByText('articulo1');
-        fireEvent.click(Article);
+
+    afterEach(() => {
+        jest.restoreAllMocks();
+        jest.clearAllMocks();
+    });
+
+    test('otras noticias sends combo impression and clicknota', () => {
+        const articles = [
+            createArticle('AKJATRDLYFHATIZLFE236AMKMQ', 'articulo1'),
+            createArticle('LAWNXRYRFB27CWAZ7YVIKOEKO', 'articulo2'),
+            createArticle('FXX3UTIX7ZBUME4337K54OVOM', 'articulo3')
+        ];
+
+        appendArticlesBox('n_otras_noticias', articles);
+
+        articleBoxesTracker({
+            boxType: 'masNotas',
+            diagramation: 3,
+            sectionTitle: 'OtrasNoticias'
+        });
+
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[1]);
+
+        expect(observe).toBeCalledTimes(3);
+        expect(unobserve).toBeCalledTimes(3);
         expect(window.dataLayer).toStrictEqual([
             {
-                event: 'impressionNota',
-                ctr_brand: 'otrasNoticias_diag3',
-                ctr_position: '060001'
+                event: 'impressioncajanota',
+                ctr_brand: 'otrasNoticias',
+                ctr_position: '060001,060002,060003',
+                combo_notas:
+                    'AKJATRDLYFHATIZLFE236AMKMQ, LAWNXRYRFB27CWAZ7YVIKOEKO, FXX3UTIX7ZBUME4337K54OVOM'
             },
             {
-                event: 'productClickNota',
-                ctr_brand: 'otrasNoticias_diag3',
-                ctr_position: '060001'
+                event: 'clicknota',
+                nota_id_arc: 'LAWNXRYRFB27CWAZ7YVIKOEKO',
+                ctr_brand: 'otrasNoticias',
+                ctr_position: '060002'
             }
         ]);
     });
-    test('ultimas noticias case, observer and click event', () => {
-        global.window.dataLayer = [];
-        let section2 = global.document.createElement('section');
-        let div2 = global.document.createElement('div');
-        let article2 = global.document.createElement('article');
-        article2.innerHTML = 'articulo2';
-        div2.appendChild(article2);
-        article2.ctr_brand = 'ultimasNoticias_diag9';
-        article2.ctr_position = '100001';
-        section2.setAttribute('data-block-name', 'n_ultimas_noticias');
-        section2.appendChild(div2);
 
-        global.document.body.appendChild(section2);
-
-        const cajaNotas2 = global.document;
-
-        const mockedEntries2 = [
-            {
-                isIntersecting: true,
-                target: article2
-            }
+    test('ultimas noticias sends combo impression and clicknota', () => {
+        const articles = [
+            createArticle('JLOPWY7WHRDSBAWJCOLGTH2HRM', 'articulo1'),
+            createArticle('3JUXSTTEVDODB4XQXAZ7VJF7A', 'articulo2'),
+            createArticle('E3GPRH2GPJAHTIAT4FLVLWGXKY', 'articulo3')
         ];
-        const mockedSection2 = [cajaNotas2];
 
-        takeRecords.mockImplementationOnce(() => ({ mockedEntries2 }));
+        appendArticlesBox('n_ultimas_noticias', articles);
 
-        window.IntersectionObserver.mockImplementationOnce(() => ({
-            observe,
-            unobserve,
-            takeRecords
-        }));
-
-        jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(
-            mockedSection2
-        );
-
-        const observer2 = articleBoxesTracker({
+        articleBoxesTracker({
             boxType: 'masNotas',
             diagramation: 9,
             sectionTitle: 'UltimasNoticias'
         });
 
-        const [callback2] = window.IntersectionObserver.mock.calls[0];
-        callback2(mockedEntries2, observer2);
-        const Article2 = screen.getByText('articulo2');
-        fireEvent.click(Article2);
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[2]);
+
         expect(window.dataLayer).toStrictEqual([
             {
-                event: 'impressionNota',
-                ctr_brand: 'ultimasNoticias_diag9',
-                ctr_position: '100001'
+                event: 'impressioncajanota',
+                ctr_brand: 'ultimasNoticias',
+                ctr_position: '100001,100002,100003',
+                combo_notas:
+                    'JLOPWY7WHRDSBAWJCOLGTH2HRM, 3JUXSTTEVDODB4XQXAZ7VJF7A, E3GPRH2GPJAHTIAT4FLVLWGXKY'
             },
             {
-                event: 'productClickNota',
-                ctr_brand: 'ultimasNoticias_diag9',
-                ctr_position: '100001'
+                event: 'clicknota',
+                nota_id_arc: 'E3GPRH2GPJAHTIAT4FLVLWGXKY',
+                ctr_brand: 'ultimasNoticias',
+                ctr_position: '100003'
             }
         ]);
     });
-    test('ranking case, observer and click event', () => {
-        global.window.dataLayer = [];
-        let section3 = global.document.createElement('section');
-        let div3 = global.document.createElement('div');
-        let article3 = global.document.createElement('article');
-        article3.innerHTML = 'articulo3';
-        div3.appendChild(article3);
-        article3.ctr_brand = 'ranking_diag4';
-        article3.ctr_position = '070001';
-        section3.setAttribute('data-block-name', 'n_ranking');
-        section3.appendChild(div3);
 
-        global.document.body.appendChild(section3);
-
-        const cajaNotas3 = global.document;
-
-        const mockedEntries3 = [
-            {
-                isIntersecting: true,
-                target: article3
-            }
+    test('ranking sends individual impression and clicknota', () => {
+        const articles = [
+            createArticle('KA5BE6UKKBCKNHPPQ6RXV5M5XI', 'articulo1', 0),
+            createArticle('4XXALT63UZBZFCFMLD7LXPNAXQ', 'articulo2', 100),
+            createArticle('WR3E7FBVFREBFFIVS2F6EPN3DQ', 'articulo3', 200),
+            createArticle('GOP4IEYOSVHZJBDHB2E7OOISYY', 'articulo4', 300)
         ];
-        const mockedSection3 = [cajaNotas3];
 
-        takeRecords.mockImplementationOnce(() => ({ mockedEntries3 }));
+        articles.forEach(article => {
+            article.dataset.articleBox = 'Ranking';
+            document.body.appendChild(article);
+        });
 
-        window.IntersectionObserver.mockImplementationOnce(() => ({
-            observe,
-            unobserve,
-            takeRecords
-        }));
-
-        jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(
-            mockedSection3
-        );
-
-        const observer3 = articleBoxesTracker({
+        articleBoxesTracker({
             boxType: 'ranking'
         });
 
-        const [callback3] = window.IntersectionObserver.mock.calls[0];
-        callback3(mockedEntries3, observer3);
-        const Article3 = screen.getByText('articulo3');
-        fireEvent.click(Article3);
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[3]);
+
         expect(window.dataLayer).toStrictEqual([
             {
-                event: 'impressionNota',
-                ctr_brand: 'ranking_diag4',
-                ctr_position: '070001'
+                event: 'impressioncajanota',
+                ctr_brand: 'ranking',
+                ctr_position: '070001',
+                combo_notas: 'KA5BE6UKKBCKNHPPQ6RXV5M5XI'
             },
             {
-                event: 'productClickNota',
-                ctr_brand: 'ranking_diag4',
-                ctr_position: '070001'
+                event: 'clicknota',
+                nota_id_arc: 'GOP4IEYOSVHZJBDHB2E7OOISYY',
+                ctr_brand: 'ranking',
+                ctr_position: '070004'
             }
         ]);
     });
-    test('seguir leyendo case, observer and click event', () => {
-        global.window.dataLayer = [];
-        let section4 = global.document.createElement('section');
-        let div4 = global.document.createElement('div');
-        let article4 = global.document.createElement('article');
-        article4.innerHTML = 'articulo4';
-        div4.appendChild(article4);
-        article4.ctr_brand = 'seguiLeyendo_diag3';
-        article4.ctr_position = '060101';
-        section4.setAttribute('data-block-name', 'h_SeguiLeyendotema-toi');
-        section4.appendChild(div4);
 
-        global.document.body.appendChild(section4);
-
-        const cajaNotas4 = global.document;
-
-        const mockedEntries4 = [
-            {
-                isIntersecting: true,
-                target: article4
-            }
+    test('ranking sends one impression per visible article', () => {
+        const articles = [
+            createArticle('KA5BE6UKKBCKNHPPQ6RXV5M5XI', 'articulo1', 0),
+            createArticle('4XXALT63UZBZFCFMLD7LXPNAXQ', 'articulo2', 100)
         ];
-        const mockedSection4 = [cajaNotas4];
 
-        takeRecords.mockImplementationOnce(() => ({ mockedEntries4 }));
+        articles.forEach(article => {
+            article.dataset.articleBox = 'Ranking';
+            document.body.appendChild(article);
+        });
 
-        window.IntersectionObserver.mockImplementationOnce(() => ({
-            observe,
-            unobserve,
-            takeRecords
-        }));
+        articleBoxesTracker({
+            boxType: 'ranking'
+        });
 
-        jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(
-            mockedSection4
-        );
+        intersect(intersectionCallback, articles);
 
-        const observer4 = articleBoxesTracker({
+        expect(window.dataLayer).toStrictEqual([
+            {
+                event: 'impressioncajanota',
+                ctr_brand: 'ranking',
+                ctr_position: '070001',
+                combo_notas: 'KA5BE6UKKBCKNHPPQ6RXV5M5XI'
+            },
+            {
+                event: 'impressioncajanota',
+                ctr_brand: 'ranking',
+                ctr_position: '070002',
+                combo_notas: '4XXALT63UZBZFCFMLD7LXPNAXQ'
+            }
+        ]);
+    });
+
+    test('groups impressions by the real DOM row', () => {
+        const articles = [
+            createArticle('JLOPWY7WHRDSBAWJCOLGTH2HRM', 'articulo1', 0),
+            createArticle('3JUXSTTEVDODB4XQXAZ7VJF7A', 'articulo2', 0),
+            createArticle('E3GPRH2GPJAHTIAT4FLVLWGXKY', 'articulo3', 100),
+            createArticle('5KUHWIFE4NC5NGDKT3FDD22574', 'articulo4', 100)
+        ];
+
+        appendArticlesBox('n_ultimas_noticias', articles);
+
+        articleBoxesTracker({
+            boxType: 'masNotas',
+            diagramation: 9,
+            sectionTitle: 'UltimasNoticias'
+        });
+
+        intersect(intersectionCallback, [articles[0]]);
+        intersect(intersectionCallback, [articles[2]]);
+
+        expect(window.dataLayer).toStrictEqual([
+            {
+                event: 'impressioncajanota',
+                ctr_brand: 'ultimasNoticias',
+                ctr_position: '100001,100002',
+                combo_notas:
+                    'JLOPWY7WHRDSBAWJCOLGTH2HRM, 3JUXSTTEVDODB4XQXAZ7VJF7A'
+            },
+            {
+                event: 'impressioncajanota',
+                ctr_brand: 'ultimasNoticias',
+                ctr_position: '100003,100004',
+                combo_notas:
+                    'E3GPRH2GPJAHTIAT4FLVLWGXKY, 5KUHWIFE4NC5NGDKT3FDD22574'
+            }
+        ]);
+    });
+
+    test('seguir leyendo sends combo impression and clicknota', () => {
+        const articles = [
+            createArticle('BB7YANOMI5F7FIAGDOVTPXS6BE', 'articulo1'),
+            createArticle('E35HDINQKNHPPF6X564P7QX4NI', 'articulo2'),
+            createArticle('MX4CTMSNXZDCZMIXXA74BP7MA', 'articulo3')
+        ];
+
+        appendArticlesBox('n_segui_leyendo', articles);
+
+        articleBoxesTracker({
             boxType: 'seguirLeyendo'
         });
 
-        const [callback4] = window.IntersectionObserver.mock.calls[0];
-        callback4(mockedEntries4, observer4);
-        const Article4 = screen.getByText('articulo4');
-        fireEvent.click(Article4);
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[0]);
+
         expect(window.dataLayer).toStrictEqual([
             {
-                event: 'impressionNota',
-                ctr_brand: 'seguiLeyendo_diag3',
-                ctr_position: '060101'
+                event: 'impressioncajanota',
+                ctr_brand: 'seguiLeyendo',
+                ctr_position: '060101,060102,060103',
+                combo_notas:
+                    'BB7YANOMI5F7FIAGDOVTPXS6BE, E35HDINQKNHPPF6X564P7QX4NI, MX4CTMSNXZDCZMIXXA74BP7MA'
             },
             {
-                event: 'productClickNota',
-                ctr_brand: 'seguiLeyendo_diag3',
+                event: 'clicknota',
+                nota_id_arc: 'BB7YANOMI5F7FIAGDOVTPXS6BE',
+                ctr_brand: 'seguiLeyendo',
                 ctr_position: '060101'
             }
         ]);
     });
-    test('te puede interesar case, observer and click event', () => {
-        global.window.dataLayer = [];
-        let section5 = global.document.createElement('section');
-        let div5 = global.document.createElement('div');
-        let article5 = global.document.createElement('article');
-        article5.innerHTML = 'articulo5';
-        div5.appendChild(article5);
-        article5.ctr_brand = 'puedeInteresar_diag15';
-        article5.ctr_position = '101101';
-        section5.setAttribute('data-block-name', 'n_te_puede_interesar');
-        section5.appendChild(div5);
 
-        global.document.body.appendChild(section5);
-
-        const cajaNotas5 = global.document;
-
-        const mockedEntries5 = [
-            {
-                isIntersecting: true,
-                target: article5
-            }
+    test('te puede interesar sends acceptance combo format and clicknota', () => {
+        const articles = [
+            createArticle('KDHF4LW4LVFNDE73HNJPOWNK3I', 'articulo1'),
+            createArticle('KCBAXPR54RBR3LAWS7G4VMHZOU', 'articulo2'),
+            createArticle('LQA37X3MUZFXPIGISVDGAWZG7A', 'articulo3')
         ];
-        const mockedSection5 = [cajaNotas5];
 
-        takeRecords.mockImplementationOnce(() => ({ mockedEntries5 }));
-
-        window.IntersectionObserver.mockImplementationOnce(() => ({
-            observe,
-            unobserve,
-            takeRecords
-        }));
-
-        jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(
-            mockedSection5
-        );
-
-        const observer5 = articleBoxesTracker({
+        articleBoxesTracker({
             boxType: 'tePuedeInteresar',
-            articles: [article5]
+            articles
         });
 
-        const [callback4] = window.IntersectionObserver.mock.calls[0];
-        callback4(mockedEntries5, observer5);
-        const Article5 = screen.getByText('articulo5');
-        fireEvent.click(Article5);
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[0]);
+
         expect(window.dataLayer).toStrictEqual([
             {
-                event: 'impressionNota',
-                ctr_brand: 'puedeInteresar_diag15',
-                ctr_position: '101101'
+                event: 'impressioncajanota',
+                ctr_brand: 'cajaTePuedeinteresar',
+                ctr_position: '101101,101102,101103',
+                combo_notas:
+                    'KDHF4LW4LVFNDE73HNJPOWNK3I, KCBAXPR54RBR3LAWS7G4VMHZOU, LQA37X3MUZFXPIGISVDGAWZG7A'
             },
             {
-                event: 'productClickNota',
-                ctr_brand: 'puedeInteresar_diag15',
+                event: 'clicknota',
+                nota_id_arc: 'KDHF4LW4LVFNDE73HNJPOWNK3I',
+                ctr_brand: 'cajaTePuedeinteresar',
                 ctr_position: '101101'
             }
         ]);
+    });
+
+    test('does not send events on reload', () => {
+        Object.defineProperty(window, 'performance', {
+            configurable: true,
+            value: {
+                getEntriesByType: jest
+                    .fn()
+                    .mockReturnValue([{ type: 'reload' }]),
+                measure: jest.fn()
+            }
+        });
+
+        const articles = [
+            createArticle('KDHF4LW4LVFNDE73HNJPOWNK3I', 'articulo1')
+        ];
+
+        articleBoxesTracker({
+            boxType: 'tePuedeInteresar',
+            articles
+        });
+
+        expect(window.IntersectionObserver).not.toHaveBeenCalled();
+        fireEvent.click(articles[0]);
+        expect(window.dataLayer).toStrictEqual([]);
     });
 });

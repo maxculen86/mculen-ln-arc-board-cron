@@ -1,8 +1,10 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../private/common/utils/get';
-import Table from '../../../private/LN/nota/cuerpo/table';
+import LNTable from '../../LN/common/table/default';
 import ModheaderSection from '../../../private/common/mod-headerSection';
+
+const THREE_COLS = ['29%', '23%', '48%'];
 
 function CatholicHolidaysTables() {
     const tables = get(useAppContext(), 'globalContent.dataService.tables', {});
@@ -19,7 +21,16 @@ function CatholicHolidaysTables() {
                         title="Feriados inamovibles"
                         line
                     />
-                    <Table data={unmovableHolidays} extraClass="--holidays" />
+                    <div data-tw style={{ display: 'contents' }}>
+                        <LNTable
+                            data={unmovableHolidays}
+                            align="center"
+                            striped
+                            columnWidths={THREE_COLS}
+                            classnames={{ table: 'w-full table-fixed' }}
+                            className="mt-16 mb-32"
+                        />
+                    </div>
                 </>
             )}
             {!!Object.keys(transferableHolidays).length && (
@@ -29,10 +40,16 @@ function CatholicHolidaysTables() {
                         title="Feriados trasladables"
                         line
                     />
-                    <Table
-                        data={transferableHolidays}
-                        extraClass="--holidays"
-                    />
+                    <div data-tw style={{ display: 'contents' }}>
+                        <LNTable
+                            data={transferableHolidays}
+                            align="center"
+                            striped
+                            columnWidths={THREE_COLS}
+                            classnames={{ table: 'w-full table-fixed' }}
+                            className="mt-16 mb-32"
+                        />
+                    </div>
                 </>
             )}
             {!!Object.keys(bridgeHolidays).length && (
@@ -42,7 +59,15 @@ function CatholicHolidaysTables() {
                         title="Días no laborables"
                         line
                     />
-                    <Table data={bridgeHolidays} extraClass="--holidays" />
+                    <div data-tw style={{ display: 'contents' }}>
+                        <LNTable
+                            data={bridgeHolidays}
+                            align="center"
+                            striped
+                            classnames={{ table: 'w-full table-fixed' }}
+                            className="mt-16 mb-32"
+                        />
+                    </div>
                 </>
             )}
         </>

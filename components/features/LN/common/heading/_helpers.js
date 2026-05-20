@@ -1,6 +1,6 @@
 import { cx } from '@ln/ds-cva';
 
-const baseClasses = 'font-w-extrabold font-primary';
+const baseClasses = 'font-primary';
 const HEADING_CONFIG = {
     defaults: {
         tag: 'h4',
@@ -11,20 +11,42 @@ const HEADING_CONFIG = {
             1,
             {
                 tag: 'h2',
-                className: cx(baseClasses, 'text-32')
+                className: cx(baseClasses, 'font-w-bold text-subheading-lg')
             }
         ],
         [
             2,
             {
                 tag: 'h3',
-                className: cx(baseClasses, 'text-20 md:text-24')
+                className: cx(baseClasses, 'text-subheading-lg')
+            }
+        ],
+        [
+            3,
+            {
+                className: cx(baseClasses, 'font-w-bold text-subheading-md')
             }
         ],
         [
             4,
             {
-                className: cx(baseClasses, 'underline')
+                className: cx(baseClasses, 'text-subheading-md')
+            }
+        ],
+        [
+            5,
+            {
+                className: cx(
+                    baseClasses,
+                    'font-w-bold text-subheading-sm underline'
+                )
+            }
+        ],
+        [
+            6,
+            {
+                tag: 'h3',
+                className: cx(baseClasses, 'text-subheading-lg underline')
             }
         ]
     ])

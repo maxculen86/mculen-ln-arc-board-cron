@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - ordered matches snapshot 1`] = `
+<div>
+  <ol
+    class="com-ordered"
+  >
+    <li
+      class="com-item"
+    >
+      <div>
+        Soy el children
+      </div>
+    </li>
+    <li
+      class="com-item"
+    >
+      <p>
+        Soy el p
+      </p>
+    </li>
+  </ol>
+</div>
+`;
