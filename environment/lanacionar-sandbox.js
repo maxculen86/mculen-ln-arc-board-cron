@@ -93,7 +93,7 @@ export default {
     SITIO_SEGURO_REGISTRACION: 'https://qa-suscripciones.lanacion.com.ar',
     API_KEY_MINIWALL: 'e17xv5dvp1wrlqygpvh6bjtb0bhrtfkb7q0m',
     CHECKOUT_URL: 'https://qa-checkout.lanacion.com.ar',
-    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
     //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
     //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.
     //   Es importante destacar que esta API Key no proporciona acceso directo a los recursos de Firebase sin la configuración adecuada de las reglas de seguridad.
