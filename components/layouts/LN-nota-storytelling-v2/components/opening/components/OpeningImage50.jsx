@@ -42,7 +42,6 @@ function OpeningImage50({
                             }}
                         />
                         <OpeningTitles
-                            baseClassName="font-primary hero-title-fluid"
                             h1Props={{
                                 text: title1,
                                 className: 'xl:max-w-552 text-neutral-1'
@@ -53,7 +52,7 @@ function OpeningImage50({
                             }}
                         />
                         {subheadline && (
-                            <p className="font-primary text-neutral-1 hero-subheading-fluid xl:max-w-552">
+                            <p className="font-primary text-neutral-1 text-subheading-md xl:max-w-552">
                                 {subheadline}
                             </p>
                         )}

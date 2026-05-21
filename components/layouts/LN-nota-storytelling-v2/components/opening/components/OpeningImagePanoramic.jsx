@@ -55,7 +55,6 @@ function OpeningImagePanoramic({
                         diagram={diagram}
                     />
                     <OpeningTitles
-                        baseClassName="font-primary hero-title-fluid"
                         h1Props={{
                             text: title1,
                             className: titleClass
@@ -66,7 +65,7 @@ function OpeningImagePanoramic({
                         }}
                     />
                     {subheadline && (
-                        <p className="font-primary hero-subheading-fluid text-center max-w-635">
+                        <p className="font-primary text-subheading-md text-center max-w-635">
                             {subheadline}
                         </p>
                     )}

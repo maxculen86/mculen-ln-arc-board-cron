@@ -71,8 +71,8 @@ jest.mock(
 jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () =>
-        ({ h1Props, h2Props, baseClassName }) => (
-            <div data-testid="opening-titles" data-base-class={baseClassName}>
+        ({ h1Props, h2Props }) => (
+            <div data-testid="opening-titles">
                 {h1Props?.text && (
                     <h1 className={h1Props.className}>{h1Props.text}</h1>
                 )}
@@ -148,14 +148,6 @@ describe('OpeningImage50', () => {
             ).toBeInTheDocument();
         });
 
-        it('passes hero-title-fluid baseClassName to OpeningTitles', () => {
-            renderComponent();
-            expect(screen.getByTestId('opening-titles')).toHaveAttribute(
-                'data-base-class',
-                'font-primary hero-title-fluid'
-            );
-        });
-
         it('does not render titles when title1 and title2 are empty', () => {
             render(<OpeningImage50 src="https://example.com/image.jpg" />);
             expect(screen.queryByRole('heading', { level: 1 })).toBeNull();
@@ -171,7 +163,7 @@ describe('OpeningImage50', () => {
             expect(p).toHaveClass(
                 'font-primary',
                 'text-neutral-1',
-                'hero-subheading-fluid'
+                'text-subheading-md'
             );
         });
 
