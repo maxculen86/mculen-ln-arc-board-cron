@@ -28,20 +28,8 @@ export const videoJWNota = (videoData, notaId = '') => {
             ? playList[0]
             : playList;
 
-        if (!elementPlayList) {
-            console.warn(
-                `Error Version Global Video JW - Missing playList in content: ${JSON.stringify(
-                    videoData || {}
-                )}`
-            );
-            return null;
-        }
-
-        const duration = get(elementPlayList, 'duration', 0);
-        const title = get(elementPlayList, 'title', '');
-        const sources = get(elementPlayList, 'sources', []);
-        const image = get(elementPlayList, 'image', null);
-        const description = get(elementPlayList, 'description', '');
+        const { duration, title, sources, image, description } =
+            elementPlayList;
 
         const duracion =
             typeof duration === 'number'
@@ -103,11 +91,7 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
             get(videoData, 'playlist', null) ||
             get(videoData, 'embed.config.videoJw.playlist', null);
 
-        const elementPlayList = Array.isArray(playList)
-            ? playList[0]
-            : playList;
-
-        if (!elementPlayList) {
+        if (!playList) {
             console.warn(
                 `Error Version Mobile Video JW - Missing playList in content: ${JSON.stringify(
                     videoData || {}
@@ -116,9 +100,11 @@ export const videoJWNotaMobile = (videoData, notaId = '') => {
             return null;
         }
 
-        const duration = get(elementPlayList, 'duration', 0);
-        const sources = get(elementPlayList, 'sources', []);
-        const image = get(elementPlayList, 'image', null);
+        const elementPlayList = Array.isArray(playList)
+            ? playList[0]
+            : playList;
+
+        const { duration, sources, image } = elementPlayList;
 
         const durationCalculated =
             typeof duration === 'number'
