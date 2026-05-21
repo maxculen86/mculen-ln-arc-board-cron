@@ -1,7 +1,7 @@
 {
     "name": "Foodit",
     "short_name": "Foodit",
-    "description": "Las mejores recetas para cocinar, inspirate con estas ideas",
+    "description": "Recetas fáciles, qué cocinar hoy y menú semanal | Foodit",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
