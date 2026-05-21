@@ -1,3 +1,4 @@
+//TODO: ELIMINAR ESTE ARCHIVO
 export const MOCK_DELAY_MS = 1500;
 export const MAX_CHAT_COUNT = 1;
 

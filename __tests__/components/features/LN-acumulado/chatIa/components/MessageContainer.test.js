@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MessageContainer } from '../../../../../../components/layouts/LN-acumulado/chat/components/MessageContainer';
+import { MessageContainer } from '../../../../../../components/features/LN-acumulado/chatIa/components/MessageContainer';
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: {
@@ -19,7 +19,7 @@ jest.mock('@ln/ds-blocks-thread', () => ({
 }));
 
 jest.mock(
-    '../../../../../../components/layouts/LN-acumulado/chat/components/MessageUser',
+    '../../../../../../components/features/LN-acumulado/chatIa/components/MessageUser',
     () => ({
         MessageUserLN: ({ message }) => (
             <div data-testid="message-user">{message.content}</div>
@@ -28,7 +28,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/layouts/LN-acumulado/chat/components/MessageAssistant',
+    '../../../../../../components/features/LN-acumulado/chatIa/components/MessageAssistant',
     () => ({
         MessageAssistantLN: ({ message, isLastOutput, isGenerating }) => (
             <div

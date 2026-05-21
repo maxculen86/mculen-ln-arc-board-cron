@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { EjesCard } from '../../../../../../components/layouts/LN-acumulado/chat/components/EjesCard';
+import { EjesCard } from '../../../../../../components/features/LN-acumulado/chatIa/components/EjesCard';
 
 jest.mock('../../../../../../components/features/ui/ln/icon/default', () => ({
     __esModule: true,

@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 
 import { Thread, useChatRuntime } from '@ln/ds-blocks-thread';
 import { cx } from '@ln/ds-cva';
-import Icon from '../../../features/ui/ln/icon/default';
+import Icon from '../../ui/ln/icon/default';
 import { InputChat } from './components/InputChat';
-import Button from '../../../features/ui/ln/button/default';
-import Divider from '../../../features/ui/ln/divider/default';
+import Button from '../../ui/ln/button/default';
+import Divider from '../../ui/ln/divider/default';
 import useGetUserData from '../../../private/common/auth/hooks/useGetUserData';
 import { SUBSCRIBED_HELPER } from '../../../private/common/auth/helper/loginHelper';
 import { MessageContainer } from './components/MessageContainer';
@@ -17,13 +19,17 @@ import {
     getSuggestedQuestions,
     resolveErrorMessage,
     sendMundialChatMessage
-} from './_helper';
+} from './helpers/api';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { EjesCard } from './components/EjesCard';
 
-export function ChatLN() {
+export function ChatLN({
+    customFields: { slugWithChat = '', hideChat = false } = {}
+}) {
+    const { globalContentConfig } = useAppContext();
+    const currentSlug = globalContentConfig?.query?.slug || '';
     const { isSubscribed, userId } = useGetUserData(SUBSCRIBED_HELPER.LN);
     const { accessToken } = useAuthManager();
     const [showSkeleton, setShowSkeleton] = useState(true);
@@ -138,7 +144,11 @@ export function ChatLN() {
         setShowSkeleton(false);
     }, []);
 
-    if (hideChatIa) {
+    if (hideChatIa || hideChat) {
+        return null;
+    }
+
+    if (slugWithChat && currentSlug !== slugWithChat) {
         return null;
     }
 
@@ -278,3 +288,21 @@ export function ChatLN() {
         </div>
     );
 }
+
+ChatLN.propTypes = {
+    customFields: PropTypes.shape({
+        slugWithChat: PropTypes.string.tag({
+            label: 'Slug con Chat',
+            description:
+                'Slug donde se mostrará este chat. Vacío = se muestra en todas las páginas.',
+            defaultValue: ''
+        }),
+        hideChat: PropTypes.bool.tag({
+            name: 'Ocultar Chat',
+            description: 'Oculta completamente el chat en esta página',
+            default: false
+        })
+    }).isRequired
+};
+
+export default ChatLN;

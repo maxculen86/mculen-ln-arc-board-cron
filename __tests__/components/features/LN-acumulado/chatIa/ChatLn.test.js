@@ -1,9 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { ChatLN } from '../../../../../components/layouts/LN-acumulado/chat/ChatLn';
+import ChatLN from '../../../../../components/features/LN-acumulado/chatIa/default';
 import { useChatRuntime } from '@ln/ds-blocks-thread';
 import useGetUserData from '../../../../../components/private/common/auth/hooks/useGetUserData';
+
+const mockUseAppContext = jest.fn();
+
+jest.mock('fusion:context', () => ({
+    useAppContext: () => mockUseAppContext()
+}));
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: Object.assign(
@@ -30,7 +36,7 @@ jest.mock('@ln/ds-cva', () => ({
 }));
 
 jest.mock(
-    '../../../../../components/layouts/LN-acumulado/chat/components/InputChat',
+    '../../../../../components/features/LN-acumulado/chatIa/components/InputChat',
     () => ({
         InputChat: ({ isSubscribed, isGenerating, isBlocked, disabled }) => (
             <div
@@ -45,7 +51,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-acumulado/chat/components/MessageContainer',
+    '../../../../../components/features/LN-acumulado/chatIa/components/MessageContainer',
     () => ({
         MessageContainer: ({ messages, isGenerating }) => (
             <div
@@ -58,7 +64,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-acumulado/chat/components/EmptyState',
+    '../../../../../components/features/LN-acumulado/chatIa/components/EmptyState',
     () => ({
         EmptyState: ({ isSubscribed }) => (
             <div
@@ -70,7 +76,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-acumulado/chat/components/SkeletonChat',
+    '../../../../../components/features/LN-acumulado/chatIa/components/SkeletonChat',
     () => ({
         SkeletonChat: () => <div data-testid="skeleton-chat" />
     })
@@ -111,7 +117,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/layouts/LN-acumulado/chat/_helper',
+    '../../../../../components/features/LN-acumulado/chatIa/helpers/api',
     () => ({
         createMundialSession: jest.fn(),
         sendMundialChatMessage: jest.fn(),
@@ -163,6 +169,9 @@ beforeEach(() => {
     jest.clearAllMocks();
     useChatRuntime.mockReturnValue(createRuntime());
     useGetUserData.mockReturnValue({ isSubscribed: true });
+    mockUseAppContext.mockReturnValue({
+        globalContentConfig: { query: { slug: 'default-test-slug' } }
+    });
 });
 
 describe('ChatLN', () => {
@@ -365,6 +374,89 @@ describe('ChatLN', () => {
                 'data-blocked',
                 'true'
             );
+        });
+    });
+
+    describe('customFields - hideChat', () => {
+        it('hides chat when hideChat is true', () => {
+            const { container } = render(
+                <ChatLN customFields={{ hideChat: true, slugWithChat: '' }} />
+            );
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('shows chat when hideChat is false', () => {
+            useGetUserData.mockReturnValue({ isSubscribed: false });
+            const { container } = render(
+                <ChatLN customFields={{ hideChat: false, slugWithChat: '' }} />
+            );
+            expect(container.firstChild).not.toBeNull();
+        });
+    });
+
+    describe('customFields - slugWithChat', () => {
+        it('shows chat when slugWithChat matches current page slug', () => {
+            mockUseAppContext.mockReturnValue({
+                globalContentConfig: { query: { slug: 'chat-page-slug' } }
+            });
+            const { container } = render(
+                <ChatLN
+                    customFields={{
+                        slugWithChat: 'chat-page-slug'
+                    }}
+                />
+            );
+            expect(container.firstChild).not.toBeNull();
+        });
+
+        it('hides chat when slugWithChat does not match current page slug', () => {
+            mockUseAppContext.mockReturnValue({
+                globalContentConfig: { query: { slug: 'other-page-slug' } }
+            });
+            const { container } = render(
+                <ChatLN
+                    customFields={{
+                        slugWithChat: 'chat-page-slug'
+                    }}
+                />
+            );
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('shows chat when slugWithChat is empty (show everywhere)', () => {
+            const { container } = render(
+                <ChatLN customFields={{ slugWithChat: '', hideChat: false }} />
+            );
+            expect(container.firstChild).not.toBeNull();
+        });
+    });
+
+    describe('hideChat and termica coexist', () => {
+        let restoreUseTermica;
+
+        beforeEach(() => {
+            const useTermica = jest.requireMock(
+                '../../../../../components/private/common/hooks/useTermica'
+            ).default;
+            restoreUseTermica = useTermica.getMockImplementation();
+        });
+
+        afterEach(() => {
+            const useTermica = jest.requireMock(
+                '../../../../../components/private/common/hooks/useTermica'
+            ).default;
+            useTermica.mockImplementation(restoreUseTermica);
+        });
+
+        it('hides chat when termica flag is true even if hideChat is false', () => {
+            const useTermica = jest.requireMock(
+                '../../../../../components/private/common/hooks/useTermica'
+            ).default;
+            useTermica.mockImplementation(() => 'true');
+            const { container } = render(
+                <ChatLN customFields={{ hideChat: false, slugWithChat: '' }} />
+            );
+            expect(container.firstChild).toBeNull();
         });
     });
 

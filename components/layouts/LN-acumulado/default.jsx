@@ -20,7 +20,6 @@ import { CLASS_ACU_REVISTA, revistas, getSectionClassName } from './helpers';
 import '../../../resources/dist/css/ln/pages/acumulado.css';
 import '../../../resources/dist/css/ln/pages/lotteries.css';
 import '../../../resources/dist/css/ln/pages/wiki-tags.css';
-import { ChatLN } from './chat/ChatLn';
 
 const acumToSearchAperturaChain = ['tags'];
 
@@ -153,7 +152,6 @@ function LNAcumuladoLayout(props) {
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
                                 {/* ANEXO SUPERIOR */}
-                                <ChatLN />
                                 {anexoSuperiorConfig.anexoUrl !== '' ? (
                                     <AnexoDefault
                                         id="superior"
