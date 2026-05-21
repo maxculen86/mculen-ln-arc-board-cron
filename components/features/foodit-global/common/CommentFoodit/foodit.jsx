@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const CommentsViafoura = ({ allowComments, subscription }) => {
-    const viafouraClassName = classNames('viafoura --no-app', {
+function CommentsViafoura({ allowComments, subscription }) {
+    const viafouraClassName = classNames('viafoura', {
         'not-comment': !allowComments || !subscription
     });
     return (
@@ -17,6 +17,6 @@ const CommentsViafoura = ({ allowComments, subscription }) => {
             />
         </div>
     );
-};
+}
 
 export default CommentsViafoura;

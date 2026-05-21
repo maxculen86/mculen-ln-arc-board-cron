@@ -1,10 +1,8 @@
 import React from 'react';
 import Static from 'fusion:static';
-
-import classNames from 'classnames';
-
 import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import { Link } from '@ln/foodit-ui-link';
+import { cx } from '@ln/cva';
 import { getBreadcrumbSections } from './_helpers';
 import get from '../../../../private/common/utils/get';
 import BreadcrumbTooltip from './_childrens/BreadcrumbTooltip/foodit';
@@ -48,7 +46,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
     );
 
     return (
-        <div className={classNames('flex ai-center gap-24', className)}>
+        <div className={cx('--no-app flex ai-center gap-24', className)}>
             <Static htmlOnly persistent id="breadcrumb-foodit">
                 <Breadcrumb
                     gap="gap-8"
