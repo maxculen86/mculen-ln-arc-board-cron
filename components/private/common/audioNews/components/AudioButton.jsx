@@ -6,18 +6,14 @@ import { Text } from '@ln/common-ui-text';
 import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
-import { Dialog } from '@ln/common-ui-dialog';
-import {
-    getTextAndIconColor,
-    handleClickAudioNews,
-    a11yAttrsBarrierSub
-} from '../helpers';
+import { getTextAndIconColor, handleClickAudioNews } from '../helpers';
 import getToken from '../../utils/getToken';
 import { isSubscribed, SUBSCRIBED_HELPER } from '../../auth/helper/loginHelper';
 
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 import { useSignatureContext } from '../hooks/SignatureContext';
-import BarrierRequiresSubscription from '../../../../features/LN-10-global/common/barrierRequiresSubscription/default';
+import BarrierRequiresSubscription from '../../../../features/LN/common/barrierRequiresSubscription/default';
+import { barrierMessages } from '../../../../features/LN/common/barrierRequiresSubscription/helper';
 
 export function AudioButton({
     audioPlayerProps = {},
@@ -72,23 +68,12 @@ export function AudioButton({
 
     return (
         <>
-            <Dialog
+            <BarrierRequiresSubscription
+                isLogged={!!token}
                 isOpen={isBarrierOpen}
-                onClose={closeBarrier}
-                position="center"
-                id="audio-player-barrier"
-                classnames={{
-                    base: 'w-100 w-720_md bg-transparent px-16 w-shadow-up-md'
-                }}
-                overlay
-                closeOnClickOutside
-                {...a11yAttrsBarrierSub}
-            >
-                <BarrierRequiresSubscription
-                    isLogged={!!token}
-                    closeBarrier={closeBarrier}
-                />
-            </Dialog>
+                closeBarrier={closeBarrier}
+                message={barrierMessages.AUDIO}
+            />
             {isOpenAudioPlayer ? (
                 <div className="flex py-12 px-16 ai-center gap-8 h-40">
                     <AnimatedIcons

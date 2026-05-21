@@ -1,37 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { useAppContext } from 'fusion:context';
 import { cx } from '@ln/ds-cva';
-import config from '../../../../../properties/sites/la-nacion-ar';
 import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
-import ScrollToTopButton from '../../../../features/LN/common/scrollToTopButton/ScrollToTopButton';
-import { scrollToElementWithOffset } from '../../common/utils/scrollToElementWithOffset';
 
 function HeaderComments({ className }) {
-    const { layout } = useAppContext();
-    const { layoutsName = {} } = config || {};
-    const hideButton = [layoutsName.Cards].includes(layout);
     const handleToggleVerLegales = () => {
         const verLegalesText = document.querySelector('#ver-legales-text');
         verLegalesText.classList.toggle('none');
     };
 
-    const onClickBtnUp = () => {
-        const titleArticle = document.querySelector('h1.com-title, h1');
-        if (titleArticle) {
-            scrollToElementWithOffset(titleArticle);
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
-
     return (
         <>
-            {!hideButton && (
-                <ScrollToTopButton template="others" onClick={onClickBtnUp} />
-            )}
             <section
                 className={cx('mod-headersection --line --button', className)}
             >
