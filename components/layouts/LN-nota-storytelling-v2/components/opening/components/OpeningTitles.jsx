@@ -1,14 +1,17 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
 
-const defaultBaseClassname = 'font-primary text-display-md';
+const baseClassname = 'font-primary text-display-sm';
 
-function OpeningTitles({ h1Props, h2Props, baseClassName }) {
+function OpeningTitles({ h1Props, h2Props }) {
     if (!h1Props?.text && !h2Props?.text) return null;
 
-    const base = baseClassName || defaultBaseClassname;
-    const h1ClassName = cx(base, 'font-w-extrabold', h1Props?.className);
-    const h2ClassName = cx(base, h2Props?.className);
+    const h1ClassName = cx(
+        baseClassname,
+        'font-w-extrabold',
+        h1Props?.className
+    );
+    const h2ClassName = cx(baseClassname, h2Props?.className);
 
     return (
         <div className="flex flex-col">
