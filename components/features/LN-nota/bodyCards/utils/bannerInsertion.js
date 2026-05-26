@@ -52,7 +52,7 @@ export const createCardElement = (
     globalContent
 ) => (
     <div
-        className="p-24 w-fit border-box js-center bg-cards-nota rounded-4 border border-all border-1 border-neutral-light-100 p-64_m"
+        className="p-24 card-ampliada-custom-width border-box js-center bg-cards-nota rounded-4 border border-all border-1 border-neutral-light-100 p-64_m"
         key={cardGroup.id}
     >
         {renderExpandedCard(

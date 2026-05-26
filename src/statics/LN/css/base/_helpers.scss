@@ -803,6 +803,12 @@
                 margin-left: 0;
             }
         }
+        .card-ampliada-custom-width {
+            width: calc(100vw - 32px);
+            @media (min-width: 632px){
+                width: fit-content;
+            }
+        }
     }
 }
 
