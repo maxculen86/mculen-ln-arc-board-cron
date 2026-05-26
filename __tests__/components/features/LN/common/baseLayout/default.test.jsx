@@ -45,6 +45,10 @@ Context.useAppContext = jest.fn(() => ({
 }));
 
 describe('components - features - LN - common - baseLayout', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     describe('Render', () => {
         it('should render the base layout inside main with id content', () => {
             render(
@@ -66,6 +70,7 @@ describe('components - features - LN - common - baseLayout', () => {
             expect(mainContent).toBeInTheDocument();
         });
     });
+
     describe('Snapshots', () => {
         it('should maintain expected DOM structure with children', () => {
             const { asFragment } = render(

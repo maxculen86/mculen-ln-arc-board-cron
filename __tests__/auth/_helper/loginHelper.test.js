@@ -1,7 +1,8 @@
 import initializeAuth, {
     setMultiplyCookies,
     setupCookies,
-    getAuthTokens
+    getAuthTokens,
+    initializeGoogleOneTap
 } from '../../../components/private/common/auth/helper/loginHelper';
 import { init } from '@ln/user.client.libs';
 import handleCookie from '../../../components/private/LN/common/utils/handleCookie';
@@ -305,6 +306,50 @@ describe('Tests functions loginHelper', () => {
                 token: undefined,
                 accessToken: undefined
             });
+        });
+    });
+
+    describe('initializeGoogleOneTap', () => {
+        afterEach(() => {
+            delete window.UCL;
+        });
+
+        it('should execute Google One Tap for LN', async () => {
+            const googleOneTap = jest.fn().mockResolvedValue(undefined);
+            window.UCL = { GoogleOneTap: googleOneTap };
+
+            await initializeGoogleOneTap('la-nacion-ar');
+
+            expect(googleOneTap).toHaveBeenCalledTimes(1);
+        });
+
+        it('should not execute Google One Tap for non-LN websites', async () => {
+            const googleOneTap = jest.fn().mockResolvedValue(undefined);
+            window.UCL = { GoogleOneTap: googleOneTap };
+
+            await initializeGoogleOneTap('foodit');
+
+            expect(googleOneTap).not.toHaveBeenCalled();
+        });
+
+        it('should log errors when Google One Tap initialization fails', async () => {
+            const error = new Error('One Tap failed');
+            const consoleErrorSpy = jest
+                .spyOn(console, 'error')
+                .mockImplementation(() => {});
+
+            window.UCL = {
+                GoogleOneTap: jest.fn().mockRejectedValue(error)
+            };
+
+            await initializeGoogleOneTap('la-nacion-ar');
+
+            expect(consoleErrorSpy).toHaveBeenCalledWith(
+                'Error inicializando Google One Tap:',
+                error
+            );
+
+            consoleErrorSpy.mockRestore();
         });
     });
 });
