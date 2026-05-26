@@ -80,7 +80,7 @@ describe('Schemas Component', () => {
         );
     });
 
-    it('should keep the logo URL on ARC_STATIC for non-LN hosts', () => {
+    it('should keep the official LN logo URL for non-LN hosts', () => {
         const { container } = render(
             <Schemas
                 section="nota"
@@ -94,9 +94,11 @@ describe('Schemas Component', () => {
         const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
 
         const expectedLogoUrl =
-            'https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1280x1280.jpg?d=5634';
+            'https://www.lanacion.com.ar/pf/resources/images/logo-ln.png?d=5634';
 
         expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
+        expect(parsedNewsMedia.logo.height).toBe(60);
+        expect(parsedNewsMedia.logo.width).toBe(600);
         expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);
     });
 
@@ -114,9 +116,11 @@ describe('Schemas Component', () => {
         const parsedNewsMedia = JSON.parse(scripts[0].innerHTML);
 
         const expectedLogoUrl =
-            'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1280x1280.jpg?d=5634';
+            'https://www.lanacion.com.ar/pf/resources/images/logo-ln.png?d=5634';
 
         expect(parsedNewsMedia.logo.url).toBe(expectedLogoUrl);
+        expect(parsedNewsMedia.logo.height).toBe(60);
+        expect(parsedNewsMedia.logo.width).toBe(600);
         expect(parsedNewsMedia.image.url).toBe(expectedLogoUrl);
     });
 

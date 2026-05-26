@@ -57,7 +57,8 @@ export const buildOrganizationSchema = (siteUrl, logoUrl, isHome = false) => ({
     logo: {
         '@type': 'ImageObject',
         url: logoUrl,
-        ...(isHome && { height: 1280, width: 1280 })
+        height: 60,
+        width: 600
     },
     sameAs: [
         'https://www.facebook.com/lanacion/',
