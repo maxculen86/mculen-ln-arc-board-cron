@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getBadge snapshots matches snapshot for cerrada 1`] = `
+<DocumentFragment>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="ln-badge --exclusive-ln flex items-center justify-center h-24 w-24 rounded-full border-neutral-1 border bg-warning-default"
+    >
+      <svg
+        data-testid="subscriber-icon"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`getBadge snapshots matches snapshot for comun with label 1`] = `
+<DocumentFragment>
+  <span
+    class="ln-badge inline-flex w-fit h-fit ai-center z-1 flex-nowrap text-12 rounded-16 bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+  >
+    <div
+      class="pulse-animation"
+    >
+      <div
+        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+      />
+    </div>
+    En Vivo
+  </span>
+</DocumentFragment>
+`;
+
+exports[`getBadge snapshots matches snapshot with rating 1`] = `
+<DocumentFragment>
+  <div
+    class="ln-rating-badge"
+  >
+    <div
+      data-testid="rating-badge"
+      data-value="4.5"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -1,10 +1,9 @@
-import React from 'react';
 import {
     getDataAttributesForViewability,
     getLiveblogTitles
 } from '../../_helper';
 import get from '../../../../../private/common/utils/get';
-import RatingBadge from '../../../../LN/common/ratingBadge/default';
+import getCustomBadge from '../../../../LN/common/utils/getCustomBadge';
 
 const buildCardProps = ({
     articleData,
@@ -37,6 +36,7 @@ const buildCardProps = ({
     } = mediaConfig;
 
     const { text: badgetText, style: badgetStyle } = badgeConfig;
+    const isSubscriber = badgetStyle === 'subscriber';
 
     const {
         chainData,
@@ -66,8 +66,8 @@ const buildCardProps = ({
         marquee,
         marqueeImg,
         marqueeAIHighlight: hasCustomVoice,
-        badgeText: badgetText,
-        badgeType: badgetStyle,
+        badgeText: isSubscriber ? null : badgetText,
+        badgeType: isSubscriber ? null : badgetStyle,
         mediaData,
         widgetOverlay,
         cardSize: finalCardSize,
@@ -84,9 +84,7 @@ const buildCardProps = ({
         liveblogList: getLiveblogTitles(articleContent),
         aspectRatio: get(chainData, 'config.aspectRatio', 'ratio-3-2'),
         className: finalClassName,
-        ratingNode: rating ? (
-            <RatingBadge size={16} ratingProps={{ defaultValue: rating }} />
-        ) : null
+        customBadge: getCustomBadge({ rating, isSubscriber })
     };
 };
 
