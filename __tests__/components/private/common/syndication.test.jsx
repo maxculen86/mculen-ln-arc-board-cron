@@ -13,26 +13,20 @@ describe('Components - private - common - Syndication', () => {
     });
 
     describe('home and acumulado nodeTypes', () => {
-        it('returns meta with max-image-preview:standard for nodeType "home"', () => {
+        it('returns meta with max-image-preview:large for nodeType "home"', () => {
             render(<Syndication subtype="1" type="story" nodeType="home" />);
             const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
-            expect(meta).toHaveAttribute(
-                'content',
-                'max-image-preview:standard'
-            );
+            expect(meta).toHaveAttribute('content', 'max-image-preview:large');
         });
 
-        it('returns meta with max-image-preview:standard for nodeType "acumulado"', () => {
+        it('returns meta with max-image-preview:large for nodeType "acumulado"', () => {
             render(
                 <Syndication subtype="1" type="story" nodeType="acumulado" />
             );
             const meta = document.querySelector('meta[name="robots"]');
             expect(meta).toBeInTheDocument();
-            expect(meta).toHaveAttribute(
-                'content',
-                'max-image-preview:standard'
-            );
+            expect(meta).toHaveAttribute('content', 'max-image-preview:large');
         });
     });
 

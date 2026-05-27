@@ -2721,6 +2721,130 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
         </time>
       </section>
     </article>
+    <script
+      type="application/ld+json"
+    >
+      {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "undefined#collectionpage",
+  "url": "undefined",
+  "description": "Últimas noticias de ",
+  "inLanguage": "es-AR",
+  "copyrightYear": 2026,
+  "isPartOf": {
+    "@id": "undefined/#website"
+  },
+  "publisher": {
+    "@id": "undefined/#organization"
+  },
+  "copyrightHolder": {
+    "@id": "undefined/#organization"
+  },
+  "sourceOrganization": {
+    "@id": "undefined/#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "undefined#itemlist",
+    "name": "Últimas noticias",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 10,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+          "url": "undefinedundefined"
+        }
+      }
+    ]
+  }
+}
+    </script>
   </div>
 </div>
 `;
@@ -5446,6 +5570,130 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
         </time>
       </section>
     </article>
+    <script
+      type="application/ld+json"
+    >
+      {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "undefined#collectionpage",
+  "url": "undefined",
+  "description": "Últimas noticias de ",
+  "inLanguage": "es-AR",
+  "copyrightYear": 2026,
+  "isPartOf": {
+    "@id": "undefined/#website"
+  },
+  "publisher": {
+    "@id": "undefined/#organization"
+  },
+  "copyrightHolder": {
+    "@id": "undefined/#organization"
+  },
+  "sourceOrganization": {
+    "@id": "undefined/#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "undefined#itemlist",
+    "name": "Últimas noticias",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 10,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+          "url": "undefinedundefined"
+        }
+      }
+    ]
+  }
+}
+    </script>
   </div>
 </div>
 `;
@@ -8171,6 +8419,130 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
         </time>
       </section>
     </article>
+    <script
+      type="application/ld+json"
+    >
+      {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "undefined#collectionpage",
+  "url": "undefined",
+  "description": "Últimas noticias de ",
+  "inLanguage": "es-AR",
+  "copyrightYear": 2026,
+  "isPartOf": {
+    "@id": "undefined/#website"
+  },
+  "publisher": {
+    "@id": "undefined/#organization"
+  },
+  "copyrightHolder": {
+    "@id": "undefined/#organization"
+  },
+  "sourceOrganization": {
+    "@id": "undefined/#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "undefined#itemlist",
+    "name": "Últimas noticias",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 10,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+          "url": "undefinedundefined"
+        }
+      }
+    ]
+  }
+}
+    </script>
   </div>
 </div>
 `;
@@ -10896,6 +11268,130 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
         </time>
       </section>
     </article>
+    <script
+      type="application/ld+json"
+    >
+      {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "undefined#collectionpage",
+  "url": "undefined",
+  "description": "Últimas noticias de ",
+  "inLanguage": "es-AR",
+  "copyrightYear": 2026,
+  "isPartOf": {
+    "@id": "undefined/#website"
+  },
+  "publisher": {
+    "@id": "undefined/#organization"
+  },
+  "copyrightHolder": {
+    "@id": "undefined/#organization"
+  },
+  "sourceOrganization": {
+    "@id": "undefined/#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "undefined#itemlist",
+    "name": "Últimas noticias",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 10,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+          "url": "undefinedundefined"
+        }
+      }
+    ]
+  }
+}
+    </script>
   </div>
 </div>
 `;
@@ -13621,6 +14117,130 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
         </time>
       </section>
     </article>
+    <script
+      type="application/ld+json"
+    >
+      {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "undefined#collectionpage",
+  "url": "undefined",
+  "description": "Últimas noticias de ",
+  "inLanguage": "es-AR",
+  "copyrightYear": 2026,
+  "isPartOf": {
+    "@id": "undefined/#website"
+  },
+  "publisher": {
+    "@id": "undefined/#organization"
+  },
+  "copyrightHolder": {
+    "@id": "undefined/#organization"
+  },
+  "sourceOrganization": {
+    "@id": "undefined/#organization"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "undefined#itemlist",
+    "name": "Últimas noticias",
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "numberOfItems": 10,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+          "url": "undefinedundefined"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+          "url": "undefinedundefined"
+        }
+      }
+    ]
+  }
+}
+    </script>
   </div>
 </div>
 `;

@@ -151,4 +151,58 @@ describe('Opening', () => {
 
         expect(getTitleData).toHaveBeenCalledWith({});
     });
+
+    it('passes hasStorytellingMobile=true to getOpeningComponent when storytelling_mobile exists', () => {
+        get.mockImplementation((obj, path, defaultVal) => {
+            if (path === 'storytelling_mobile') return { url: 'mobile.jpg' };
+            return defaultVal;
+        });
+
+        render(
+            <Opening globalContent={{}} layout="article">
+                <span data-testid="video-player">Video</span>
+            </Opening>
+        );
+
+        expect(getOpeningComponent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                hasStorytellingMobile: true
+            })
+        );
+    });
+
+    it('passes hasStorytellingMobile=false to getOpeningComponent when storytelling_mobile is absent', () => {
+        get.mockImplementation((obj, path, defaultVal) => {
+            if (path === 'storytelling_mobile') return null;
+            return defaultVal;
+        });
+
+        render(
+            <Opening globalContent={{}} layout="article">
+                <span data-testid="video-player">Video</span>
+            </Opening>
+        );
+
+        expect(getOpeningComponent).toHaveBeenCalledWith(
+            expect.objectContaining({
+                hasStorytellingMobile: false
+            })
+        );
+    });
+
+    it('renders children directly without wrapper regardless of storytelling_mobile', () => {
+        get.mockImplementation((obj, path, defaultVal) => {
+            if (path === 'storytelling_mobile') return { url: 'mobile.jpg' };
+            return defaultVal;
+        });
+
+        render(
+            <Opening globalContent={{}} layout="article">
+                <span data-testid="video-player">Video</span>
+            </Opening>
+        );
+
+        const videoPlayer = screen.getByTestId('video-player');
+        expect(videoPlayer.parentElement.className).not.toContain('hidden');
+    });
 });

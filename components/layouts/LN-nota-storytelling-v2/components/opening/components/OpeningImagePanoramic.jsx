@@ -13,12 +13,14 @@ function OpeningImagePanoramic({
     altText,
     videoUrl,
     posterUrl,
+    mobileImageData,
     globalContent = {},
     layout = '',
     title1 = '',
     title2 = '',
     subheadline = '',
-    diagram
+    diagram,
+    hasStorytellingMobile = false
 }) {
     const titleClass = 'text-base-dark text-center';
     const dataDiagram = 'image-panoramic';
@@ -40,6 +42,12 @@ function OpeningImagePanoramic({
                             width={width}
                             height={height}
                             altText={altText}
+                            mobileImage={
+                                hasStorytellingMobile && mobileImageData?.src
+                                    ? mobileImageData
+                                    : undefined
+                            }
+                            classname="absolute inset-0"
                         />
                     </div>
                 </div>
