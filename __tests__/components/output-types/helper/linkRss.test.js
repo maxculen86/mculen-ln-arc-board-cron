@@ -29,8 +29,23 @@ describe('LinkRSS Component', () => {
         );
     });
 
-    it('should not render anything if _nodeType is not "nota"', () => {
+    it('should render canonical RSS link when _nodeType is "home"', () => {
         render(<LinkRSS globalContent={mockGlobalContent} _nodeType="home" />);
+
+        const linkTag = document.head.querySelector('link[rel="alternate"]');
+        expect(linkTag).toBeInTheDocument();
+        expect(linkTag).toHaveAttribute('rel', 'alternate');
+        expect(linkTag).toHaveAttribute('type', 'application/rss+xml');
+        expect(linkTag).toHaveAttribute(
+            'href',
+            `${SITE_LANACION}/arc/outboundfeeds/rss/`
+        );
+    });
+
+    it('should not render anything if _nodeType is neither "nota" nor "home"', () => {
+        render(
+            <LinkRSS globalContent={mockGlobalContent} _nodeType="acumulado" />
+        );
 
         const linkTag = document.head.querySelector('link[rel="alternate"]');
         expect(linkTag).not.toBeInTheDocument();

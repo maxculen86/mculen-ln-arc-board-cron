@@ -13,6 +13,7 @@ export function BaseLayout({ children, className = '' }) {
     const { layout } = useAppContext();
 
     const showGlossary = showGlossaryByLayout(layout);
+
     return (
         <div id="wrapper" className={className}>
             <Header />

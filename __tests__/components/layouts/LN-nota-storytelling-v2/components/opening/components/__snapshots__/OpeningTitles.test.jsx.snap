@@ -8,12 +8,12 @@ exports[`OpeningTitles snapshots snapshot with all props 1`] = `
     class="flex flex-col"
   >
     <h1
-      class="font-primary text-display-md font-w-extrabold custom-h1"
+      class="font-primary text-display-sm font-w-extrabold custom-h1"
     >
       Main Title
     </h1>
     <h2
-      class="font-primary text-display-md custom-h2"
+      class="font-primary text-display-sm custom-h2"
     >
       Subtitle
     </h2>
@@ -27,7 +27,7 @@ exports[`OpeningTitles snapshots snapshot with only h1Props 1`] = `
     class="flex flex-col"
   >
     <h1
-      class="font-primary text-display-md font-w-extrabold custom-h1"
+      class="font-primary text-display-sm font-w-extrabold custom-h1"
     >
       Main Title
     </h1>

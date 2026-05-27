@@ -14,6 +14,8 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
 
     const { title1, title2 } = getTitleData(headlines);
 
+    const storytellingMobile = get(promoItems, 'storytelling_mobile', null);
+
     const {
         src,
         srcset,
@@ -23,6 +25,7 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         altText,
         videoUrl,
         posterUrl,
+        mobileImageData,
         diagram = DEFAULT_DIAGRAM
     } = getOpeningMediaData(promoItems, title1);
 
@@ -36,11 +39,13 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         altText,
         videoUrl,
         posterUrl,
+        mobileImageData,
         globalContent,
         layout,
         title1,
         title2,
-        subheadline
+        subheadline,
+        hasStorytellingMobile: Boolean(storytellingMobile)
     };
 
     return (

@@ -63,7 +63,7 @@ function GlobalProvider({ children }) {
 
     return (
         <GlobalContext.Provider value={contextValue}>
-            <AuthInitializer>{children}</AuthInitializer>
+            <AuthInitializer website={website}>{children}</AuthInitializer>
         </GlobalContext.Provider>
     );
 }

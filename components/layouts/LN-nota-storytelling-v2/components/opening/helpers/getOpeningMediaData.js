@@ -1,8 +1,36 @@
 import get from '../../../../../private/common/utils/get';
 import { buildOpeningImage } from '../../../../../private/LN/common/utils/openingImageHelper';
 import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
-import getOpeningResizedUrls from './getOpeningResizedUrls';
+import getOpeningResizedUrls, {
+    getResizedUrlsByProportion
+} from './getOpeningResizedUrls';
 import { getVideoData } from '../../../../../features/private-global/common/utils/getVideoData';
+
+const buildMobileImageData = (promoItems = {}) => {
+    const { mobileImageItem } = getOpeningMediaItems(promoItems);
+    if (!mobileImageItem) return null;
+
+    const { url, altText, caption } = getNormalizedImageData(mobileImageItem);
+    const resizedUrls = getResizedUrlsByProportion(mobileImageItem, '2:3');
+
+    const imageData = buildOpeningImage({
+        url,
+        resized_urls: resizedUrls,
+        alt_text: altText,
+        caption
+    });
+
+    if (!imageData) return null;
+
+    return {
+        src: imageData.src,
+        srcset: imageData.srcset,
+        sizes: imageData.sizes,
+        width: imageData.width,
+        height: imageData.height,
+        altText: imageData.alt
+    };
+};
 
 const resolveAltText = ({ mobile, desktop, headline }) =>
     mobile.caption ||
@@ -49,7 +77,8 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
 
     if (videoJw) {
         const { videoUrl, posterUrl } = getVideoData(videoJw);
-        return { videoUrl, posterUrl, diagram };
+        const mobileImageData = buildMobileImageData(promoItems);
+        return { videoUrl, posterUrl, diagram, mobileImageData };
     }
 
     const openingImage =
@@ -62,7 +91,8 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
         width: openingImage.width,
         height: openingImage.height,
         altText: openingImage.alt || '',
-        diagram
+        diagram,
+        mobileImageData: buildMobileImageData(promoItems)
     };
 };
 

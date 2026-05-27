@@ -6,7 +6,8 @@ import { useLinkedCardContext } from '../../context/LinkedCardContext';
 function LinkedCardContainer({ children, className: classNameProp }) {
     const { variant, gridColumns } = useLinkedCardContext();
     const className = cx(
-        gridColumns === 5 ? 'w-100' : 'w-300_min1366',
+        variant !== 'expanded' &&
+            (gridColumns === 5 ? 'w-100' : 'w-300_min1366'),
         classNameProp
     );
 

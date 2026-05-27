@@ -10,7 +10,7 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
       class="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
     >
       <img
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -35,7 +35,6 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1 />
@@ -62,7 +61,7 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
     >
       <img
         alt="Panoramic image"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -87,7 +86,6 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>
@@ -98,7 +96,7 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
         </h2>
       </div>
       <p
-        class="font-primary hero-subheading-fluid text-center max-w-635"
+        class="font-primary text-subheading-md text-center max-w-635"
       >
         This is the subheadline
       </p>
@@ -127,7 +125,6 @@ exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>
@@ -138,7 +135,7 @@ exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
         </h2>
       </div>
       <p
-        class="font-primary hero-subheading-fluid text-center max-w-635"
+        class="font-primary text-subheading-md text-center max-w-635"
       >
         This is the subheadline
       </p>
@@ -163,7 +160,7 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
     >
       <img
         alt="Panoramic image"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -188,7 +185,6 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>

@@ -13,12 +13,14 @@ function OpeningImagePanoramic({
     altText,
     videoUrl,
     posterUrl,
+    mobileImageData,
     globalContent = {},
     layout = '',
     title1 = '',
     title2 = '',
     subheadline = '',
-    diagram
+    diagram,
+    hasStorytellingMobile = false
 }) {
     const titleClass = 'text-base-dark text-center';
     const dataDiagram = 'image-panoramic';
@@ -40,6 +42,12 @@ function OpeningImagePanoramic({
                             width={width}
                             height={height}
                             altText={altText}
+                            mobileImage={
+                                hasStorytellingMobile && mobileImageData?.src
+                                    ? mobileImageData
+                                    : undefined
+                            }
+                            classname="absolute inset-0"
                         />
                     </div>
                 </div>
@@ -55,7 +63,6 @@ function OpeningImagePanoramic({
                         diagram={diagram}
                     />
                     <OpeningTitles
-                        baseClassName="font-primary hero-title-fluid"
                         h1Props={{
                             text: title1,
                             className: titleClass
@@ -66,7 +73,7 @@ function OpeningImagePanoramic({
                         }}
                     />
                     {subheadline && (
-                        <p className="font-primary hero-subheading-fluid text-center max-w-635">
+                        <p className="font-primary text-subheading-md text-center max-w-635">
                             {subheadline}
                         </p>
                     )}

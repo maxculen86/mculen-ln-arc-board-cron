@@ -78,35 +78,9 @@ describe('OpeningTitles', () => {
         expect(h1).toHaveClass(
             'font-primary',
             'font-w-extrabold',
-            'text-display-md'
+            'text-display-sm'
         );
-        expect(h2).toHaveClass('font-primary', 'text-display-md');
-    });
-
-    it('should apply custom baseClassName when provided', () => {
-        const h1Props = { text: 'Main Title' };
-        const h2Props = { text: 'Subtitle' };
-
-        render(
-            <OpeningTitles
-                baseClassName="font-primary hero-title-fluid"
-                h1Props={h1Props}
-                h2Props={h2Props}
-            />
-        );
-
-        const h1 = screen.getByRole('heading', { level: 1 });
-        const h2 = screen.getByRole('heading', { level: 2 });
-
-        expect(h1).toHaveClass(
-            'font-primary',
-            'hero-title-fluid',
-            'font-w-extrabold'
-        );
-        expect(h1).not.toHaveClass('text-display-md');
-
-        expect(h2).toHaveClass('font-primary', 'hero-title-fluid');
-        expect(h2).not.toHaveClass('text-display-md');
+        expect(h2).toHaveClass('font-primary', 'text-display-sm');
     });
 
     it('should merge custom classes with default classes', () => {

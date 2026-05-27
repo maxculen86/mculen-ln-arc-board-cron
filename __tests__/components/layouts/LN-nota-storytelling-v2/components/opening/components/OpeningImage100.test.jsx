@@ -72,8 +72,8 @@ jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningTitles',
     () => ({
         __esModule: true,
-        default: ({ h1Props, h2Props, baseClassName }) => (
-            <div data-testid="opening-titles" data-base-class={baseClassName}>
+        default: ({ h1Props, h2Props }) => (
+            <div data-testid="opening-titles">
                 <h1>{h1Props?.text}</h1>
                 <h2>{h2Props?.text}</h2>
             </div>
@@ -167,19 +167,11 @@ describe('OpeningImage100', () => {
         expect(titles).toHaveTextContent('Subtitle');
     });
 
-    it('passes hero-title-fluid baseClassName to OpeningTitles', () => {
-        render(<OpeningImage100 {...mockProps} />);
-        expect(screen.getByTestId('opening-titles')).toHaveAttribute(
-            'data-base-class',
-            'font-primary hero-title-fluid'
-        );
-    });
-
-    it('renders subheadline with hero-subheading-fluid class', () => {
+    it('renders subheadline with text-subheading-md class', () => {
         render(<OpeningImage100 {...mockProps} />);
         const p = screen.getByText('This is the subheadline');
         expect(p.tagName).toBe('P');
-        expect(p).toHaveClass('hero-subheading-fluid');
+        expect(p).toHaveClass('text-subheading-md');
     });
 
     it('should have correct section structure with aria attributes', () => {

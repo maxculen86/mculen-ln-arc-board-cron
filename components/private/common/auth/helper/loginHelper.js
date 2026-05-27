@@ -83,6 +83,20 @@ export const getAuthTokens = async () => {
     };
 };
 
+export const initializeGoogleOneTap = async website => {
+    if (website !== 'la-nacion-ar') return;
+
+    try {
+        const googleOneTap = get(window, 'UCL.GoogleOneTap');
+
+        if (typeof googleOneTap === 'function') {
+            await googleOneTap();
+        }
+    } catch (error) {
+        console.error('Error inicializando Google One Tap:', error);
+    }
+};
+
 export const logout = (callback = () => {}) => {
     const logoutFunction = window?.UCL?.LogoutAsync;
 

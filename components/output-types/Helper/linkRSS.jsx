@@ -4,17 +4,18 @@ import get from '../../private/common/utils/get';
 
 function LinkRSS({ globalContent, _nodeType }) {
     const sectionId = get(globalContent, 'taxonomy.primary_section._id', '');
+    const isHome = _nodeType === 'home';
+    const isNoteWithSection = _nodeType === 'nota' && sectionId;
 
-    if (!sectionId || _nodeType !== 'nota') {
+    if (!isHome && !isNoteWithSection) {
         return null;
     }
-    return (
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            href={`${SITE_LANACION}/arc/outboundfeeds/rss/category${sectionId}/`}
-        />
-    );
+
+    const href = isHome
+        ? `${SITE_LANACION}/arc/outboundfeeds/rss/`
+        : `${SITE_LANACION}/arc/outboundfeeds/rss/category${sectionId}/`;
+
+    return <link rel="alternate" type="application/rss+xml" href={href} />;
 }
 
 export default LinkRSS;

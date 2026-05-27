@@ -15,11 +15,13 @@ function OpeningImage100({
     altText,
     videoUrl,
     posterUrl,
+    mobileImageData,
     globalContent = {},
     layout = '',
     title1 = '',
     title2 = '',
-    subheadline = ''
+    subheadline = '',
+    hasStorytellingMobile = false
 }) {
     const variant = diagram.split('title-')[1];
 
@@ -44,6 +46,12 @@ function OpeningImage100({
                 width={width}
                 height={height}
                 altText={altText}
+                mobileImage={
+                    hasStorytellingMobile && mobileImageData?.src
+                        ? mobileImageData
+                        : undefined
+                }
+                classname="absolute inset-0"
             />
             <div className={wrapperClass}>
                 <div className={containerClass}>
@@ -55,12 +63,11 @@ function OpeningImage100({
                         }}
                     />
                     <OpeningTitles
-                        baseClassName="font-primary hero-title-fluid"
                         h1Props={{ text: title1, className: 'text-neutral-1' }}
                         h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="font-primary text-neutral-1 hero-subheading-fluid">
+                        <p className="font-primary text-neutral-1 text-subheading-md">
                             {subheadline}
                         </p>
                     )}

@@ -4,7 +4,7 @@ function Syndication({ type, subtype, syndication, nodeType }) {
     const { search } = syndication || {};
 
     if (nodeType === 'home' || nodeType === 'acumulado') {
-        return <meta name="robots" content="max-image-preview:standard" />;
+        return <meta name="robots" content="max-image-preview:large" />;
     }
 
     if (type !== 'story') return null;
