@@ -18,24 +18,11 @@ jest.mock('../../../../components/private/common/utils/get', () =>
     })
 );
 
-jest.mock(
-    '../../../../components/private/LN/common/utils/isAllowedSection',
-    () => jest.fn(() => false)
-);
-
 describe('GetCriticalCss - Critical Tests for Production', () => {
     const defaultProps = {
         arcSite: 'la-nacion-ar',
         layout: 'HomeLN10',
-        Resource: MockResource,
-        globalContent: {
-            _id: '/test-section/',
-            taxonomy: {
-                primary_section: {
-                    _id: '/test-section/'
-                }
-            }
-        }
+        Resource: MockResource
     };
 
     describe('Defensive Programming - Missing Props', () => {
@@ -107,13 +94,13 @@ describe('GetCriticalCss - Critical Tests for Production', () => {
             );
         });
 
-        it('should NOT render tailwind CSS by default (isAllowedSection = false)', () => {
+        it('should always render tailwind CSS', () => {
             const { container } = render(<GetCriticalCss {...defaultProps} />);
             const tailwindStyle = container.querySelector(
                 '#critical-css-tailwind'
             );
 
-            expect(tailwindStyle).not.toBeInTheDocument();
+            expect(tailwindStyle).toBeInTheDocument();
         });
     });
 
@@ -181,15 +168,8 @@ describe('GetCriticalCss - Critical Tests for Production', () => {
         });
     });
 
-    describe('Conditional Tailwind CSS Loading', () => {
-        beforeEach(() => {
-            jest.clearAllMocks();
-        });
-
-        it('should load Tailwind when isAllowedSection returns true', () => {
-            const isAllowedSection = require('../../../../components/private/LN/common/utils/isAllowedSection');
-            isAllowedSection.mockReturnValue(true);
-
+    describe('Tailwind CSS Loading', () => {
+        it('should load Tailwind and have the correct id', () => {
             const { container } = render(<GetCriticalCss {...defaultProps} />);
             const tailwindStyle = container.querySelector(
                 '#critical-css-tailwind'
@@ -200,18 +180,6 @@ describe('GetCriticalCss - Critical Tests for Production', () => {
                 'id',
                 'critical-css-tailwind'
             );
-        });
-
-        it('should NOT load Tailwind when isAllowedSection returns false', () => {
-            const isAllowedSection = require('../../../../components/private/LN/common/utils/isAllowedSection');
-            isAllowedSection.mockReturnValue(false);
-
-            const { container } = render(<GetCriticalCss {...defaultProps} />);
-            const tailwindStyle = container.querySelector(
-                '#critical-css-tailwind'
-            );
-
-            expect(tailwindStyle).not.toBeInTheDocument();
         });
     });
 
@@ -252,14 +220,6 @@ describe('GetCriticalCss - Critical Tests for Production', () => {
 
     describe('Regression Prevention', () => {
         it('should maintain expected HTML structure', () => {
-            const { asFragment } = render(<GetCriticalCss {...defaultProps} />);
-            expect(asFragment()).toMatchSnapshot();
-        });
-
-        it('should maintain structure with Tailwind enabled', () => {
-            const isAllowedSection = require('../../../../components/private/LN/common/utils/isAllowedSection');
-            isAllowedSection.mockReturnValue(true);
-
             const { asFragment } = render(<GetCriticalCss {...defaultProps} />);
             expect(asFragment()).toMatchSnapshot();
         });

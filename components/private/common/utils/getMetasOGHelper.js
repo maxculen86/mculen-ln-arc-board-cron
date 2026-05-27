@@ -77,11 +77,11 @@ export const getImageProps = (
     section
 ) => {
     const DEFAULTS = {
-        height: '630',
+        height: '800',
         width: '1200',
         ogHeight: '675',
         quality: '85',
-        mimeType: 'image/png',
+        mimeType: 'image/jpeg',
         alt: 'Placeholder de LA NACION'
     };
 
@@ -209,7 +209,7 @@ export const getData = ({
     requestUri
 }) => {
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const imagePath = `${contextPath}/resources/images/placeholderLN-1200x630.png`;
+    const imagePath = `${contextPath}/resources/images/placeholderLN-1200x800.jpg`;
     const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
     const {
         title: titleDefault,

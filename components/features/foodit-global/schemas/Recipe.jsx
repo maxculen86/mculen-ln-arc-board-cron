@@ -9,7 +9,6 @@ import {
 } from './_helpers';
 import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 import replaceBaseUrl from '../common/utils/replaceBaseUrl';
-import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import getTagList from '../Body/PowerupsReceta/_helper';
 import { getBreadcrumbSections } from '../common/breadcrumb/_helpers';
 import SnippetRender from '../../../private/common/snippet/snippetRender';
@@ -61,12 +60,29 @@ const getVideoData = promoItems => {
     return playlist[0] || null;
 };
 
-const getImageUrl = promoItems => {
+const SCHEMA_ASPECT_RATIOS = [
+    { width: 1200, height: 675 },
+    { width: 1200, height: 900 },
+    { width: 1200, height: 1200 }
+];
+
+const buildResizerUrl = (baseUrl, width, height) =>
+    baseUrl
+        .replace(/width=\d+/, `width=${width}`)
+        .replace(/height=\d+/, `height=${height}`);
+
+const getImageObjects = promoItems => {
     const { resized_urls: resizedUrls = [] } = replaceBaseUrl(
         get(promoItems, 'basic', {})
     );
-    const { resizedUrl = '' } = getShortestImage(resizedUrls);
-    return resizedUrl;
+    const baseUrl = resizedUrls[0]?.resizedUrl || '';
+    if (!baseUrl) return [];
+    return SCHEMA_ASPECT_RATIOS.map(({ width, height }) => ({
+        '@type': 'ImageObject',
+        url: buildResizerUrl(baseUrl, width, height),
+        width,
+        height
+    }));
 };
 
 const getRecipeMetadata = (promoItems, taxonomy) => {
@@ -176,12 +192,16 @@ const buildRecipeSchema = data => {
         sections,
         primarySectionName,
         author,
-        imageUrl,
+        imageObjects,
         recipeInstructions,
         recipeIngredients,
         metadata,
         additionalProperties
     } = data;
+
+    const tags = metadata.tags.map(tag => tag?.text).filter(Boolean);
+    const dietUrls = getSuitableForDietUrls(sections);
+    const publishDate = get(additionalProperties, 'publish_date', '');
 
     return {
         '@context': SCHEMA_ORG_CONTEXT,
@@ -194,29 +214,29 @@ const buildRecipeSchema = data => {
         },
         name: get(headlines, 'basic', ''),
         description: get(subheadlines, 'basic', ''),
-        image: {
-            '@context': SCHEMA_ORG_CONTEXT,
-            '@type': 'ImageObject',
-            url: imageUrl
-        },
+        image: imageObjects,
         author: {
             '@type': 'Person',
             name: author || 'Redacción de Foodit'
         },
-        keywords: metadata.tags.map(tag => tag?.text).join(', '),
-        cookTime: (metadata.cookTime && `PT${metadata.cookTime}M`) || `PT0M`,
-        cookingMethod: metadata.cookingTypes.join(','),
         recipeCategory: primarySectionName,
-        recipeCuisine: metadata.regions.join(','),
         recipeYield: metadata.counterPortion,
-        suitableForDiet: getSuitableForDietUrls(sections),
-        performTime: (metadata.prepTime && `PT${metadata.prepTime}M`) || `PT0M`,
-        totalTime:
-            (metadata.counterTime && `PT${metadata.counterTime}M`) || `PT0M`,
         recipeInstructions,
         recipeIngredient: recipeIngredients,
-        dateCreated: get(additionalProperties, 'publish_date', ''),
-        headline: get(headlines, 'basic', '')
+        ...(tags.length && { keywords: tags.join(', ') }),
+        ...(metadata.cookTime && { cookTime: `PT${metadata.cookTime}M` }),
+        ...(metadata.cookingTypes.length && {
+            cookingMethod: metadata.cookingTypes.join(',')
+        }),
+        ...(metadata.regions.length && {
+            recipeCuisine: metadata.regions.join(',')
+        }),
+        ...(dietUrls.length && { suitableForDiet: dietUrls }),
+        ...(metadata.prepTime && { performTime: `PT${metadata.prepTime}M` }),
+        ...(metadata.counterTime && {
+            totalTime: `PT${metadata.counterTime}M`
+        }),
+        ...(publishDate && { dateCreated: publishDate })
     };
 };
 
@@ -238,7 +258,8 @@ export function RecipeSchema({ globalContent = {}, layout = '' }) {
     const primarySectionName = get(taxonomy, 'primary_section.name', '');
     const author = getFooditAuthor(globalContent, true);
     const video = getVideoData(promoItems);
-    const imageUrl = getImageUrl(promoItems);
+    const imageObjects = getImageObjects(promoItems);
+    const imageUrl = imageObjects[0]?.url || '';
     const recipeInstructions = extractRecipeInstructions(contentElements);
     const recipeIngredients = extractRecipeIngredients(contentElements);
     const metadata = getRecipeMetadata(promoItems, taxonomy);
@@ -251,7 +272,7 @@ export function RecipeSchema({ globalContent = {}, layout = '' }) {
         sections,
         primarySectionName,
         author,
-        imageUrl,
+        imageObjects,
         recipeInstructions,
         recipeIngredients,
         metadata,

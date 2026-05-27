@@ -7,10 +7,10 @@ exports[`components - features- foodit-global - schemas - ChefSchema renders che
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Person",
   "name": "Juan Pravata",
-  "url": "/chefs-protagonistas/juan-pravata-666/",
+  "url": "https://foodit.lanacion.com.ar/chefs-protagonistas/juan-pravata-666/",
   "image": "https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fs3.amazonaws.com%2Farc-authors%2Flanacionar%2F5362338d-13d7-4ed6-83ef-a17dffa61167.jpg?auth=820fe21613127ce5fb08247616be9addc1ba894dcfdc5a76e10b06014f66dca1&width=280&quality=70&smart=false",
   "jobTitle": "Programador",
   "contactPoint": {

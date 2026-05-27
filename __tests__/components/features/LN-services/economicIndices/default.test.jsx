@@ -21,12 +21,13 @@ jest.mock('fusion:content', () => ({
 }));
 
 jest.mock(
-    '../../../../../components/features/LN-nota/tableV2/default',
+    '../../../../../components/features/LN/common/table/default',
     () =>
-        function MockTableV2({ data }) {
+        function MockTable({ data, captionProps }) {
             return (
-                <div data-testid="table-v2">
+                <div data-testid="table-ds">
                     <span>{JSON.stringify(data)}</span>
+                    {captionProps?.content}
                 </div>
             );
         }
@@ -91,7 +92,7 @@ describe('Components - features - LN-services - EconomicIndices - default', () =
             container.querySelector('[roof-group="left"]')
         ).toBeInTheDocument();
         expect(
-            container.querySelector('[data-testid="table-v2"]')
+            container.querySelector('[data-testid="table-ds"]')
         ).toHaveTextContent('"tableType":"merval"');
         expect(container).toHaveTextContent('Actualización general del panel');
     });

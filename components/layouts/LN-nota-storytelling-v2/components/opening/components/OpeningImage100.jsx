@@ -63,12 +63,11 @@ function OpeningImage100({
                         }}
                     />
                     <OpeningTitles
-                        baseClassName="font-primary hero-title-fluid"
                         h1Props={{ text: title1, className: 'text-neutral-1' }}
                         h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="font-primary text-neutral-1 hero-subheading-fluid">
+                        <p className="font-primary text-neutral-1 text-subheading-md">
                             {subheadline}
                         </p>
                     )}

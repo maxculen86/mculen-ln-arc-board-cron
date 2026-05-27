@@ -40,7 +40,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     .
   </p>
   <div
-    class="ln-banner-container --caja1_mob"
+    class="ln-banner-container --no-app --caja1_mob"
   >
     <div
       class="ln-banner"
@@ -158,7 +158,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     Tipo de letra normal
   </p>
   <div
-    class="ln-banner-container --middle_1_dsk"
+    class="ln-banner-container --no-app --middle_1_dsk"
   >
     <div
       class="ln-banner"
@@ -182,7 +182,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </strong>
   </p>
   <div
-    class="ln-banner-container --caja2_mob"
+    class="ln-banner-container --no-app --caja2_mob"
   >
     <div
       class="ln-banner"
@@ -213,7 +213,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </u>
   </p>
   <div
-    class="ln-banner-container --middle_2_dsk"
+    class="ln-banner-container --no-app --middle_2_dsk"
   >
     <div
       class="ln-banner"
@@ -239,7 +239,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <div
-    class="ln-banner-container --caja3_mob"
+    class="ln-banner-container --no-app --caja3_mob"
   >
     <div
       class="ln-banner"
@@ -274,7 +274,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </em>
   </p>
   <div
-    class="ln-banner-container --caja4_mob"
+    class="ln-banner-container --no-app --caja4_mob"
   >
     <div
       class="ln-banner"
@@ -311,7 +311,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     </mark>
   </p>
   <div
-    class="ln-banner-container --caja5_mob"
+    class="ln-banner-container --no-app --caja5_mob"
   >
     <div
       class="ln-banner"
@@ -1203,11 +1203,18 @@ exports[`BuildBody should render all body elements for default 1`] = `
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
-  <h2
-    class="com-title --font-primary --xl --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 1
-  </h2>
+    <h2
+      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 1
+      </span>
+    </h2>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -1226,11 +1233,18 @@ exports[`BuildBody should render all body elements for default 1`] = `
       width="200"
     />
   </div>
-  <h3
-    class="com-title --font-primary --l --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 2
-  </h3>
+    <h3
+      class="font-primary text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 2
+      </span>
+    </h3>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -1282,11 +1296,18 @@ exports[`BuildBody should render all body elements for default 1`] = `
       src="https://platform.twitter.com/widgets.js"
     />
   </div>
-  <h4
-    class="com-title --font-primary --m --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 3
-  </h4>
+    <h4
+      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 3
+      </span>
+    </h4>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -3307,121 +3328,390 @@ exports[`BuildBody should render all body elements for default 1`] = `
         Información nutricional
       </h3>
       <div
-        class="table-wrapper --two-columns"
-        data-testid="table-container"
+        data-tw="true"
+        style="display: contents;"
       >
-        <table
-          class="table"
+        <div
+          class="w-full md:w-1/2"
         >
-          <thead>
-            <tr>
-              <th>
-                Propiedad
-              </th>
-              <th>
-                Cantidad por porción
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Calorías
-              </td>
-              <td>
-                200 kcal
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Carbohidratos
-              </td>
-              <td>
-                300 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Colesterol
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fibras
-              </td>
-              <td>
-                10 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Proteínas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas saturadas
-              </td>
-              <td>
-                8 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Tamaño de porcion
-              </td>
-              <td>
-                5 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sodio
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Azúcar
-              </td>
-              <td>
-                100 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas trans
-              </td>
-              <td>
-                50 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas insaturadas
-              </td>
-              <td>
-                3 g
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div
+            class=""
+          >
+            <div
+              class="overflow-x-auto pb-12"
+              data-testid="table-container"
+            >
+              <table
+                class="border-collapse w-full group"
+              >
+                <thead
+                  class="group"
+                  data-section="head"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <th
+                      aria-label="Propiedad"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Propiedad
+                    </th>
+                    <th
+                      aria-label="Cantidad por porción"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Cantidad por porción
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="group"
+                  data-section="body"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Calorías"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Calorías
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 kcal"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 kcal
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Carbohidratos"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Carbohidratos
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="300 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          300 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Colesterol"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Colesterol
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Fibras"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Fibras
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="10 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          10 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Proteínas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Proteínas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas saturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas saturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="8 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          8 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Tamaño de porcion"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Tamaño de porcion
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="5 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          5 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Sodio"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Sodio
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Azúcar"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Azúcar
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="100 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          100 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas trans"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas trans
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="50 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          50 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas insaturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas insaturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="3 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          3 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3471,7 +3761,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     .
   </p>
   <div
-    class="ln-banner-container --caja1_mob"
+    class="ln-banner-container --no-app --caja1_mob"
   >
     <div
       class="ln-banner"
@@ -3589,7 +3879,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     Tipo de letra normal
   </p>
   <div
-    class="ln-banner-container --middle_1_dsk"
+    class="ln-banner-container --no-app --middle_1_dsk"
   >
     <div
       class="ln-banner"
@@ -3613,7 +3903,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </strong>
   </p>
   <div
-    class="ln-banner-container --caja2_mob"
+    class="ln-banner-container --no-app --caja2_mob"
   >
     <div
       class="ln-banner"
@@ -3644,7 +3934,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </u>
   </p>
   <div
-    class="ln-banner-container --middle_2_dsk"
+    class="ln-banner-container --no-app --middle_2_dsk"
   >
     <div
       class="ln-banner"
@@ -3670,7 +3960,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <div
-    class="ln-banner-container --caja3_mob"
+    class="ln-banner-container --no-app --caja3_mob"
   >
     <div
       class="ln-banner"
@@ -3705,7 +3995,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </em>
   </p>
   <div
-    class="ln-banner-container --caja4_mob"
+    class="ln-banner-container --no-app --caja4_mob"
   >
     <div
       class="ln-banner"
@@ -3742,7 +4032,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     </mark>
   </p>
   <div
-    class="ln-banner-container --caja5_mob"
+    class="ln-banner-container --no-app --caja5_mob"
   >
     <div
       class="ln-banner"
@@ -4634,11 +4924,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
-  <h2
-    class="com-title --font-primary --xl --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 1
-  </h2>
+    <h2
+      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 1
+      </span>
+    </h2>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -4657,11 +4954,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       width="200"
     />
   </div>
-  <h3
-    class="com-title --font-primary --l --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 2
-  </h3>
+    <h3
+      class="font-primary text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 2
+      </span>
+    </h3>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -4713,11 +5017,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
       src="https://platform.twitter.com/widgets.js"
     />
   </div>
-  <h4
-    class="com-title --font-primary --m --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 3
-  </h4>
+    <h4
+      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 3
+      </span>
+    </h4>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -6738,121 +7049,390 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
         Información nutricional
       </h3>
       <div
-        class="table-wrapper --two-columns"
-        data-testid="table-container"
+        data-tw="true"
+        style="display: contents;"
       >
-        <table
-          class="table"
+        <div
+          class="w-full md:w-1/2"
         >
-          <thead>
-            <tr>
-              <th>
-                Propiedad
-              </th>
-              <th>
-                Cantidad por porción
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Calorías
-              </td>
-              <td>
-                200 kcal
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Carbohidratos
-              </td>
-              <td>
-                300 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Colesterol
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fibras
-              </td>
-              <td>
-                10 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Proteínas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas saturadas
-              </td>
-              <td>
-                8 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Tamaño de porcion
-              </td>
-              <td>
-                5 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sodio
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Azúcar
-              </td>
-              <td>
-                100 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas trans
-              </td>
-              <td>
-                50 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas insaturadas
-              </td>
-              <td>
-                3 g
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div
+            class=""
+          >
+            <div
+              class="overflow-x-auto pb-12"
+              data-testid="table-container"
+            >
+              <table
+                class="border-collapse w-full group"
+              >
+                <thead
+                  class="group"
+                  data-section="head"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <th
+                      aria-label="Propiedad"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Propiedad
+                    </th>
+                    <th
+                      aria-label="Cantidad por porción"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Cantidad por porción
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="group"
+                  data-section="body"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Calorías"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Calorías
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 kcal"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 kcal
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Carbohidratos"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Carbohidratos
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="300 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          300 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Colesterol"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Colesterol
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Fibras"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Fibras
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="10 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          10 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Proteínas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Proteínas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas saturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas saturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="8 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          8 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Tamaño de porcion"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Tamaño de porcion
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="5 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          5 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Sodio"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Sodio
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Azúcar"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Azúcar
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="100 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          100 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas trans"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas trans
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="50 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          50 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas insaturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas insaturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="3 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          3 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -6902,7 +7482,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     .
   </p>
   <div
-    class="ln-banner-container --caja1_mob"
+    class="ln-banner-container --no-app --caja1_mob"
   >
     <div
       class="ln-banner"
@@ -7020,7 +7600,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     Tipo de letra normal
   </p>
   <div
-    class="ln-banner-container --middle_1_dsk"
+    class="ln-banner-container --no-app --middle_1_dsk"
   >
     <div
       class="ln-banner"
@@ -7044,7 +7624,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </strong>
   </p>
   <div
-    class="ln-banner-container --caja2_mob"
+    class="ln-banner-container --no-app --caja2_mob"
   >
     <div
       class="ln-banner"
@@ -7075,7 +7655,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </u>
   </p>
   <div
-    class="ln-banner-container --middle_2_dsk"
+    class="ln-banner-container --no-app --middle_2_dsk"
   >
     <div
       class="ln-banner"
@@ -7101,7 +7681,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <div
-    class="ln-banner-container --caja3_mob"
+    class="ln-banner-container --no-app --caja3_mob"
   >
     <div
       class="ln-banner"
@@ -7136,7 +7716,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </em>
   </p>
   <div
-    class="ln-banner-container --caja4_mob"
+    class="ln-banner-container --no-app --caja4_mob"
   >
     <div
       class="ln-banner"
@@ -7173,7 +7753,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     </mark>
   </p>
   <div
-    class="ln-banner-container --caja5_mob"
+    class="ln-banner-container --no-app --caja5_mob"
   >
     <div
       class="ln-banner"
@@ -8065,11 +8645,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
   >
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
-  <h2
-    class="com-title --font-primary --xl --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 1
-  </h2>
+    <h2
+      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 1
+      </span>
+    </h2>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -8088,11 +8675,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       width="200"
     />
   </div>
-  <h3
-    class="com-title --font-primary --l --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 2
-  </h3>
+    <h3
+      class="font-primary text-subheading-lg container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 2
+      </span>
+    </h3>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -8144,11 +8738,18 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
       src="https://platform.twitter.com/widgets.js"
     />
   </div>
-  <h4
-    class="com-title --font-primary --m --font-extra"
+  <div
+    data-tw="true"
+    style="display: contents;"
   >
-    Subtitulo 3
-  </h4>
+    <h4
+      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+    >
+      <span>
+        Subtitulo 3
+      </span>
+    </h4>
+  </div>
   <p
     class="com-paragraph --s"
   >
@@ -10169,121 +10770,390 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
         Información nutricional
       </h3>
       <div
-        class="table-wrapper --two-columns"
-        data-testid="table-container"
+        data-tw="true"
+        style="display: contents;"
       >
-        <table
-          class="table"
+        <div
+          class="w-full md:w-1/2"
         >
-          <thead>
-            <tr>
-              <th>
-                Propiedad
-              </th>
-              <th>
-                Cantidad por porción
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Calorías
-              </td>
-              <td>
-                200 kcal
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Carbohidratos
-              </td>
-              <td>
-                300 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Colesterol
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fibras
-              </td>
-              <td>
-                10 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Proteínas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas saturadas
-              </td>
-              <td>
-                8 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Tamaño de porcion
-              </td>
-              <td>
-                5 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sodio
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Azúcar
-              </td>
-              <td>
-                100 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas trans
-              </td>
-              <td>
-                50 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas insaturadas
-              </td>
-              <td>
-                3 g
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div
+            class=""
+          >
+            <div
+              class="overflow-x-auto pb-12"
+              data-testid="table-container"
+            >
+              <table
+                class="border-collapse w-full group"
+              >
+                <thead
+                  class="group"
+                  data-section="head"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <th
+                      aria-label="Propiedad"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Propiedad
+                    </th>
+                    <th
+                      aria-label="Cantidad por porción"
+                      class="ds-table-cell p-8 h-40 min-h-40 text-label-lg font-bold text-left bg-muted align-middle"
+                      scope="col"
+                    >
+                      Cantidad por porción
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="group"
+                  data-section="body"
+                >
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Calorías"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Calorías
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 kcal"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 kcal
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Carbohidratos"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Carbohidratos
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="300 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          300 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Colesterol"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Colesterol
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Fibras"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Fibras
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="10 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          10 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Proteínas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Proteínas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas saturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas saturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="8 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          8 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Tamaño de porcion"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Tamaño de porcion
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="5 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          5 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Sodio"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Sodio
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="200 mg"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          200 mg
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Azúcar"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Azúcar
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="100 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          100 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas trans"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas trans
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="50 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          50 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="group-data-[section=head]:bg-neutral-100 last:border-b last:border-muted border-b border-muted"
+                  >
+                    <td
+                      aria-label="Grasas insaturadas"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          Grasas insaturadas
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      aria-label="3 g"
+                      class="ds-table-cell p-8 h-56 min-h-56 text-label-md text-left align-middle [&_i]:italic min-w-148"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div>
+                          3 g
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

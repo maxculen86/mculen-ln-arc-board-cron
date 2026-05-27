@@ -79,6 +79,7 @@ function RankingFeature({ id: featureId }) {
                     {articles?.map(
                         (
                             {
+                                _id,
                                 headlines,
                                 website_url: websiteUrl,
                                 promo_items: promoItems
@@ -89,6 +90,8 @@ function RankingFeature({ id: featureId }) {
                                 key={headlines?.basic}
                                 className="pb-8 mb-8 border border-bottom border-thin border-neutral-light-100"
                                 data-article-box="Ranking"
+                                data-id={_id}
+                                data-notaid={_id}
                             >
                                 <CardRanking
                                     href={websiteUrl}

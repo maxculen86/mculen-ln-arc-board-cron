@@ -35,7 +35,6 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1 />
@@ -87,7 +86,6 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>
@@ -98,7 +96,7 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
         </h2>
       </div>
       <p
-        class="font-primary hero-subheading-fluid text-center max-w-635"
+        class="font-primary text-subheading-md text-center max-w-635"
       >
         This is the subheadline
       </p>
@@ -127,7 +125,6 @@ exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>
@@ -138,7 +135,7 @@ exports[`OpeningImagePanoramic snapshots snapshot without image 1`] = `
         </h2>
       </div>
       <p
-        class="font-primary hero-subheading-fluid text-center max-w-635"
+        class="font-primary text-subheading-md text-center max-w-635"
       >
         This is the subheadline
       </p>
@@ -188,7 +185,6 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
         OpeningAddons
       </div>
       <div
-        data-base-class="font-primary hero-title-fluid"
         data-testid="opening-titles"
       >
         <h1>

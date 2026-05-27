@@ -20,7 +20,6 @@ exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
           data-testid="opening-addons"
         />
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         />
       </div>
@@ -60,7 +59,6 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
           data-testid="opening-addons"
         />
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1
@@ -75,7 +73,7 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 hero-subheading-fluid xl:max-w-552"
+          class="font-primary text-neutral-1 text-subheading-md xl:max-w-552"
         >
           Bajada de prueba
         </p>
@@ -121,7 +119,6 @@ exports[`OpeningImage50 snapshots snapshot without image 1`] = `
           data-testid="opening-addons"
         />
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1
@@ -136,7 +133,7 @@ exports[`OpeningImage50 snapshots snapshot without image 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 hero-subheading-fluid xl:max-w-552"
+          class="font-primary text-neutral-1 text-subheading-md xl:max-w-552"
         >
           Bajada de prueba
         </p>
@@ -169,7 +166,6 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
           data-testid="opening-addons"
         />
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1

@@ -64,7 +64,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               title="Ir a la página principal"
             >
               <div
-                class="ln-banner-container --logo_header_dsk --logo none"
+                class="ln-banner-container --no-app --logo_header_dsk --logo none"
               >
                 <div
                   class="ln-banner"
@@ -77,7 +77,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="ln-banner-container --logo_header_dsk_sticky --logo --logo_sticky_dsk none"
+                class="ln-banner-container --no-app --logo_header_dsk_sticky --logo --logo_sticky_dsk none"
               >
                 <div
                   class="ln-banner"
@@ -90,7 +90,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="ln-banner-container --logo_header_tab --logo none"
+                class="ln-banner-container --no-app --logo_header_tab --logo none"
               >
                 <div
                   class="ln-banner"
@@ -103,7 +103,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </div>
               <div
-                class="ln-banner-container --logo_header_mob --logo none"
+                class="ln-banner-container --no-app --logo_header_mob --logo none"
               >
                 <div
                   class="ln-banner"

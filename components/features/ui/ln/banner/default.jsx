@@ -1,4 +1,5 @@
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import flatArray from '../../../../private/common/utils/flatArray';
 import get from '../../../../private/common/utils/get';
 import { bannerWrapperVariants, bannerPlaceholderVariants } from './styles';
@@ -24,7 +25,7 @@ function Banner({ bannerConfiguration }) {
 
     return (
         <div
-            className={bannerWrapperVariants({ slotId, theme })}
+            className={cx(bannerWrapperVariants({ slotId, theme }), '--no-app')}
             style={{ height: `${maxHeightDimension}px` }}
         >
             <div className={bannerPlaceholderVariants.wrapper({ theme })}>

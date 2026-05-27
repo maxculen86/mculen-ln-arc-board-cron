@@ -9,11 +9,12 @@ import Title from '../private/common/com-title';
 import ListSection from '../private/common/utils/listSection';
 import { siteMapListSectionLink } from '../private/common/siteMapList/siteMapList';
 import InitControlGroup from './helpers/initCtrlGrp';
+import AuthInitializer from '../private/common/auth/AuthInitializer';
 import '../../resources/dist/css/ln/pages/sitemap.css';
 
 function LNMapaDelSitio({ children }) {
     return (
-        <>
+        <AuthInitializer>
             {children[0]}
             <div id="wrapper" className="sitemap">
                 {/* <Header /> */}
@@ -65,7 +66,7 @@ function LNMapaDelSitio({ children }) {
             </div>
             <PwaModal />
             <InitControlGroup />
-        </>
+        </AuthInitializer>
     );
 }
 

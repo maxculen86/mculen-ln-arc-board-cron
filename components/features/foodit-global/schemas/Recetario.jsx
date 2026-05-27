@@ -11,7 +11,7 @@ export function RecetarioSchema() {
     const { contextPath, deployment } = useAppContext();
 
     const recetarioSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: `Recetario`,
         url: `${SITE_FOODIT}/recetario/`,

@@ -3,7 +3,7 @@ import { useDrawerVisibility } from '@ln/ds-common-drawer';
 import { DRAWERS_ID } from '../../DrawerSections/helpers';
 import { NewsletterActionButton } from './NewsletterActionButtons';
 
-export function NewsletterSelectionButton({ id, title }) {
+export function NewsletterSelectionButton({ id, title, category }) {
     const [selected, setSelected] = useState(false);
     const { isOpen } = useDrawerVisibility(DRAWERS_ID.SECTIONS);
 
@@ -13,7 +13,7 @@ export function NewsletterSelectionButton({ id, title }) {
         setSelected(nextSelected);
 
         const evento = new CustomEvent('newsletterSelected', {
-            detail: { id, title, selected: nextSelected }
+            detail: { id, title, selected: nextSelected, category }
         });
         window?.dispatchEvent(evento);
     };

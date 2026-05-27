@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
-import Table from './table';
+import LNTable from '../../../../features/LN/common/table/default';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp = [] } = data;
@@ -44,7 +44,11 @@ const powerUpsReceta = ({ data }) => {
                         size="--l"
                         content="Información nutricional"
                     />
-                    <Table data={nutritionTableData} />
+                    <div data-tw style={{ display: 'contents' }}>
+                        <div className="w-full md:w-1/2">
+                            <LNTable data={nutritionTableData} />
+                        </div>
+                    </div>
                 </div>
             ) : null}
         </div>

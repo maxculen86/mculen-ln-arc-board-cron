@@ -34,10 +34,10 @@ export function ChefSchema({ globalContent = {} }) {
     )}`;
 
     const chefSchema = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'Person',
         name: byline,
-        url: bioPage.replace('autor', 'chefs-protagonistas'),
+        url: chefUrl,
         image: imageUrl,
         jobTitle: role,
         contactPoint: {

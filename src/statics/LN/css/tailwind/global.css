@@ -15,4 +15,8 @@
 @source '../../../../../components/features/LN*/**/*.{js,jsx,ts,tsx}';
 @source '../../../../../components/features/ui/ln/**/*.{js,jsx,ts,tsx}';
 
+/* Rutas puntuales que necesitamos que mapee tw */
+@source '../../../../../components/features/LN-services*/**/*.{js,jsx,ts,tsx}';
+@source '../../../../../components/private/LN/nota/cuerpo/*.{js,jsx,ts,tsx}';
+
 @source '../../../../../components/chains/LN*/**/*.{js,jsx,ts,tsx}';

@@ -128,7 +128,16 @@ export const setSearchParamsByFilterType = {
             promoItemsOnly: true,
             excludePreload: true
         };
-    }
+    },
+
+    aperturaHome: () => ({})
+};
+
+export const sourceByFilterType = {
+    byLastNews: 'lnAcuSource',
+    bySectionOrTag: 'lnAcuSource',
+    byTags: null,
+    aperturaHome: 'homeOpeningArticlesSource'
 };
 
 export const getLink = (isSearchByTag, sectionOrTag, articles = []) => {
@@ -232,5 +241,11 @@ export const filterType = {
             sectionTitle: isSearchByTag ? 'OtrasNoticias' : 'UltimasNoticias',
             title: getTitle(isNoticia, isRecetas, link, isSearchByTag)
         };
-    }
+    },
+
+    aperturaHome: ({ filteredContentElements }) => ({
+        articles: filteredContentElements,
+        sectionTitle: 'UltimasNoticias',
+        title: 'Últimas Noticias'
+    })
 };

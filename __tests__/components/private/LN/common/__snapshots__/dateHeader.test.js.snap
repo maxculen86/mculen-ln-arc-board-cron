@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - DateHeader with props matches snapshot 1`] = `
+<div>
+  <p
+    class="com-date --threexs"
+  >
+    12 de mayo de 2020 • 19:43
+  </p>
+</div>
+`;

@@ -14,9 +14,7 @@ const PRIORITY_SORTED_TAGS = [
     'Keto',
     'Vegetariana',
     'Rápida',
-    'Sin Gluten',
-    'Clásica',
-    'Maridaje'
+    'Sin Gluten'
 ];
 
 export const getVariantBySubtype = subtype => {
@@ -32,13 +30,19 @@ export const getHighestPriorityTag = (sections = []) => {
     if (!sections) return '';
 
     return sections.reduce((highestPriority, { name: section = '' } = {}) => {
-        if (PRIORITY_SORTED_TAGS.includes(section)) {
+        const matchedTag = PRIORITY_SORTED_TAGS.find(
+            tag =>
+                tag.localeCompare(section.trim(), 'es', {
+                    sensitivity: 'base'
+                }) === 0
+        );
+        if (matchedTag) {
             if (
                 !highestPriority ||
-                PRIORITY_SORTED_TAGS.indexOf(section) <
+                PRIORITY_SORTED_TAGS.indexOf(matchedTag) <
                     PRIORITY_SORTED_TAGS.indexOf(highestPriority)
             )
-                return section;
+                return matchedTag;
         }
         return highestPriority;
     }, '');

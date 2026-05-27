@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAppContext } from 'fusion:context';
 import { RoofFoodit } from '../RoofFoodit/foodit';
 import { CardNewsletter } from './CardNewsletter';
 import { getNewsletters, newsletters } from './helpers/helpers';
 import useAuthManager from '../../../../private/common/auth/hooks/useAuthManager';
 
-export function NewsletterFoodit() {
+export function NewsletterFoodit({ category }) {
+    const { contextPath, deployment } = useAppContext();
     const { token, accessToken } = useAuthManager();
     const [dataNewsletters, setNewsletters] = useState({});
 
@@ -44,9 +46,10 @@ export function NewsletterFoodit() {
                         title={title}
                         description={description}
                         badge={badge}
-                        image={image}
+                        image={deployment(`${contextPath}/resources/${image}`)}
                         id={id}
                         suscribed={dataNewsletters[id]}
+                        category={category}
                     />
                 ))}
             </div>

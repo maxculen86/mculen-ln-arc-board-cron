@@ -17,7 +17,7 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
   "image": [
     {
       "@type": "ImageObject",
-      "height": 675,
+      "height": 800,
       "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-1200x800.jpg",
       "width": 1200,
     },

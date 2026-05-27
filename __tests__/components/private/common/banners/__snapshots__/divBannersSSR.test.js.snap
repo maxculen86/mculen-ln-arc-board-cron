@@ -3,7 +3,7 @@
 exports[`Private - Common - Banners - Div Banners SSR should return div banner with correct tags 1`] = `
 <div>
   <div
-    class="ln-banner-container --random_banner --random_banner --fixed --close"
+    class="ln-banner-container --no-app --random_banner --random_banner --fixed --close"
   >
     <div
       class="ln-banner"

@@ -5,6 +5,7 @@ import { useStickyMobile } from './hooks/useStickyMobile';
 import { NotaStickyMobile } from './components/notaStickyMobile';
 import { HeaderSticky } from './components/headerSticky';
 import { handleClickForCTRcomponent } from '../../../../private/common/utils/noteTracker/ctrTracker';
+import { scheduleTask } from '../../../../private/common/utils/scheduleTask';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import { getComboIds, getComboTitles, getTitle } from './_helpers';
 
@@ -29,7 +30,7 @@ export function StickyMobile({ articlesToShow, ...r }) {
 
     const handleClose = () => {
         closeHandler();
-        handleClickForCTRcomponent('close');
+        scheduleTask(() => handleClickForCTRcomponent('close'));
     };
     const comboIds = getComboIds(articlesToShow);
     const comboTitles = getComboTitles(articlesToShow);

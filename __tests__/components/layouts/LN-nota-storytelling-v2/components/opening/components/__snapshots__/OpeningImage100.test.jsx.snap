@@ -29,7 +29,6 @@ exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
           OpeningAddons
         </div>
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1>
@@ -40,7 +39,7 @@ exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 hero-subheading-fluid"
+          class="font-primary text-neutral-1 text-subheading-md"
         >
           This is the subheadline
         </p>
@@ -76,7 +75,6 @@ exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
           OpeningAddons
         </div>
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1>
@@ -87,7 +85,7 @@ exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 hero-subheading-fluid"
+          class="font-primary text-neutral-1 text-subheading-md"
         >
           This is the subheadline
         </p>
@@ -115,7 +113,6 @@ exports[`OpeningImage100 snapshots matches snapshot without media 1`] = `
           OpeningAddons
         </div>
         <div
-          data-base-class="font-primary hero-title-fluid"
           data-testid="opening-titles"
         >
           <h1>
@@ -126,7 +123,7 @@ exports[`OpeningImage100 snapshots matches snapshot without media 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 hero-subheading-fluid"
+          class="font-primary text-neutral-1 text-subheading-md"
         >
           This is the subheadline
         </p>

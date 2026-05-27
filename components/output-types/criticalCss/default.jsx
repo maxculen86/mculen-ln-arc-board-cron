@@ -2,49 +2,14 @@
 import React from 'react';
 import get from '../../private/common/utils/get';
 import { criticalCssPathsBySite } from './helpers';
-import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
-import config from '../../../properties/sites/la-nacion-ar';
 
-const {
-    layoutsName: {
-        Acumulado,
-        Deportes,
-        HomeLN10,
-        LiveBlog,
-        FotoAl100,
-        Cards,
-        NotaOpinion,
-        Noticia,
-        StoryTellingV2
-    }
-} = config;
-
-export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
+export function GetCriticalCss({ arcSite, layout, Resource }) {
     if (!Resource || typeof Resource !== 'function') {
         return null;
     }
 
     const siteConfig = criticalCssPathsBySite[arcSite] || {};
     const stylePath = get(siteConfig, `.${layout}`, siteConfig.default || '');
-
-    const listOfAllowedSection = [
-        { pageLayout: Acumulado },
-        { pageLayout: Deportes },
-        { pageLayout: HomeLN10 },
-        { pageLayout: LiveBlog },
-        { pageLayout: FotoAl100 },
-        { pageLayout: Cards },
-        { pageLayout: NotaOpinion },
-        { pageLayout: Noticia },
-        {
-            pageLayout: StoryTellingV2
-        }
-    ];
-    const shouldLoadTailwidcss = isAllowedSection({
-        globalContent,
-        listOfAllowedSection,
-        layout
-    });
 
     return (
         <>
@@ -62,23 +27,21 @@ export function GetCriticalCss({ arcSite, layout, Resource, globalContent }) {
                     }
                 </Resource>
             )}
-            {shouldLoadTailwidcss && (
-                <Resource
-                    path="resources/dist/css/ln/tailwind/global.css"
-                    encoding="utf8"
-                >
-                    {({ data }) =>
-                        data ? (
-                            <style
-                                id="critical-css-tailwind"
-                                dangerouslySetInnerHTML={{
-                                    __html: data
-                                }}
-                            />
-                        ) : null
-                    }
-                </Resource>
-            )}
+            <Resource
+                path="resources/dist/css/ln/tailwind/global.css"
+                encoding="utf8"
+            >
+                {({ data }) =>
+                    data ? (
+                        <style
+                            id="critical-css-tailwind"
+                            dangerouslySetInnerHTML={{
+                                __html: data
+                            }}
+                        />
+                    ) : null
+                }
+            </Resource>
         </>
     );
 }

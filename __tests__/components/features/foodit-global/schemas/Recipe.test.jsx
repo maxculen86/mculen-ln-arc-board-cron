@@ -108,15 +108,34 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         ]);
     });
 
-    it('renders correct image URL', () => {
+    it('renders three image objects for 16:9, 4:3 and 1:1 aspect ratios', () => {
         render(<RecipeSchema globalContent={mockArticle} />);
         const scriptTags = document.querySelectorAll(
             'script[type="application/ld+json"]'
         );
         const scriptContent = JSON.parse(scriptTags[0].textContent);
-        expect(scriptContent.image.url).toBe(
-            'https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true'
-        );
+        const base =
+            'https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6';
+        expect(scriptContent.image).toEqual([
+            {
+                '@type': 'ImageObject',
+                url: `${base}&width=1200&height=675&quality=70&smart=true`,
+                width: 1200,
+                height: 675
+            },
+            {
+                '@type': 'ImageObject',
+                url: `${base}&width=1200&height=900&quality=70&smart=true`,
+                width: 1200,
+                height: 900
+            },
+            {
+                '@type': 'ImageObject',
+                url: `${base}&width=1200&height=1200&quality=70&smart=true`,
+                width: 1200,
+                height: 1200
+            }
+        ]);
     });
 
     it('renders correct prep and cook times', () => {
@@ -153,7 +172,7 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         const content = JSON.parse(articleScript.textContent);
         expect(content.headline).toBe('Receta de Tortas fritas criollas');
         expect(content.image).toEqual([
-            'https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=420&height=280&quality=70&smart=true'
+            'https://sandbox-resizer.glanacion.com/resizer/v2/tortas-fritas-en-BWFX5NDNM5BOVBNDANNDLPUJEE.jpg?auth=1ae3b20d91791575a98302a665cc5743a15f6822c5332502d903e2058bb948e6&width=1200&height=675&quality=70&smart=true'
         ]);
         expect(content.datePublished).toBe('2024-01-25T18:30:37.695Z');
         expect(content.dateModified).toBe('2024-04-16T16:36:33.351Z');

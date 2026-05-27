@@ -12,7 +12,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
       >
         <div>
           <div
-            class="ln-banner-container --billboard_dsk billboard_dsk"
+            class="ln-banner-container --no-app --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
@@ -150,7 +150,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         </section>
         <div>
           <div
-            class="ln-banner-container --billboard_mob billboard_mob"
+            class="ln-banner-container --no-app --billboard_mob billboard_mob"
             id="billboard_mob"
           >
             <div
@@ -182,7 +182,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
       >
         <div>
           <div
-            class="ln-banner-container --billboard_dsk billboard_dsk"
+            class="ln-banner-container --no-app --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div
@@ -262,7 +262,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         >
           <div>
             <div
-              class="ln-banner-container --cajasuscriptores_dsk"
+              class="ln-banner-container --no-app --cajasuscriptores_dsk"
               id="cajasuscriptores_dsk"
             >
               <div
@@ -278,7 +278,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="ln-banner-container --cajasuscriptores_mob"
+              class="ln-banner-container --no-app --cajasuscriptores_mob"
               id="cajasuscriptores_mob"
             >
               <div
@@ -294,7 +294,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           </div>
           <div>
             <div
-              class="ln-banner-container --cajasuscriptores_tab"
+              class="ln-banner-container --no-app --cajasuscriptores_tab"
               id="cajasuscriptores_tab"
             >
               <div
@@ -1917,7 +1917,7 @@ exports[`Tests Chain CajaCollection Tests for Caja Foodit should match snapshot 
       >
         <div>
           <div
-            class="ln-banner-container --billboard_dsk billboard_dsk"
+            class="ln-banner-container --no-app --billboard_dsk billboard_dsk"
             id="billboard_dsk"
           >
             <div

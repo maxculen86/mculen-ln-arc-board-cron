@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
-import { Text } from '@ln/contenidos-ui-text';
 import {
     getEconomicIndicesMetaData,
     transformInternals
 } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
-import TableV2 from '../../LN-nota/tableV2/default';
+import Table from '../../LN/common/table/default';
 import get from '../../../private/common/utils/get';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
-import Divider from '../../ui/ln/divider/default';
 import { useRoofData } from '../../../chains/utils/_helpers';
 
 function EconomicIndices(props) {
@@ -56,6 +54,13 @@ function EconomicIndices(props) {
         hora_actualizacion: horaActualizacion
     } = tableData;
 
+    const captionContent = (
+        <p className="text-10 pt-12 pb-8" data-testid="last-update-table">
+            Actualización general del panel: {horaActualizacion} |{' '}
+            {fechaActualizacion}
+        </p>
+    );
+
     return (
         <div className="index-table-container mb-32">
             <BuildRoof
@@ -66,26 +71,17 @@ function EconomicIndices(props) {
                 }}
                 {...roofData}
             />
-            <TableV2
-                data={tableData}
-                stickyFirstCol
-                isCentered
-                withMargin={false}
-                classnames={{
-                    container: 'index-table',
-                    row: 'index-table-row',
-                    header: 'index-table-header'
-                }}
-            />
-            <Text
-                data-testid="last-update-table"
-                as="p"
-                className="text-10 pt-12 pb-8"
-            >
-                Actualización general del panel: {horaActualizacion} |{' '}
-                {fechaActualizacion}
-            </Text>
-            <Divider />
+            <div data-tw style={{ display: 'contents' }}>
+                <Table
+                    data={tableData}
+                    align="center"
+                    captionProps={{
+                        content: captionContent
+                    }}
+                    stickyFirstCol
+                    striped
+                />
+            </div>
         </div>
     );
 }

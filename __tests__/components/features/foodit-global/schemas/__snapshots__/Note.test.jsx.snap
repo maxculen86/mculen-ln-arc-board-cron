@@ -15,7 +15,6 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
   },
   "headline": "Ficha Nota Sin video - Foodit",
   "image": {
-    "@context": "https://schema.org",
     "@type": "ImageObject",
     "url": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=420&height=630&quality=70&smart=true"
   },
@@ -32,7 +31,7 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
     "logo": {
       "@context": "https://schema.org",
       "@type": "ImageObject",
-      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/placeholderFoodit.jpg",
+      "url": "pathDeployment/https://foodit.lanacion.com.arcontextPath/resources/foodit/assets/images/foodit-logo-112x112.jpg",
       "height": 112,
       "width": 112
     }
@@ -45,12 +44,12 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
     type="application/ld+json"
   >
     {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
       "@type": "ListItem",
-      "position": 0,
+      "position": 1,
       "item": {
         "@id": "https://foodit.lanacion.com.ar",
         "name": "Foodit"
@@ -58,7 +57,7 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
     },
     {
       "@type": "ListItem",
-      "position": 1,
+      "position": 2,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/",
         "name": "Recetas"
@@ -66,7 +65,7 @@ exports[`components - features- foodit-global - schemas - StorytellingSchema mat
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "item": {
         "@id": "https://foodit.lanacion.com.ar/recetas/Maridaje/",
         "name": "Maridaje"
