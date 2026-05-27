@@ -23,12 +23,6 @@ jest.mock(
     }
 );
 
-jest.mock(
-    '../../../../../../../components/private/common/scriptManager/GetQuerylyScript',
-    () => {
-        return jest.fn(() => <div id="mock-getQuerylyScript" />);
-    }
-);
 describe('components - features - LN-10-global - header - mainHeader - leftOptions', () => {
     useHeaderContext.mockImplementation(() => ({
         toggleDesplegable: jest.fn()

@@ -57,7 +57,8 @@ export default {
         LiveBlog: 'LN-Nota-Liveblog_Editorial',
         VideoAl100: 'LN-Nota-Video-100',
         Cards: 'LN-Nota-Cards',
-        NotaOpinion: 'LN-Nota-Opinion'
+        NotaOpinion: 'LN-Nota-Opinion',
+        LnBuscador: 'LN-buscador'
     },
     notRecommendedSections: ['recetas']
 };
