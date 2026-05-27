@@ -40,7 +40,7 @@ export const handleEventSwipeVideo = ({
 export const isScriptLoaded = id => {
     const scripts = Array.from(document.getElementsByTagName('script'));
     return scripts.some(script =>
-        script.src.includes(`cdn.jwplayer.com/libraries/${id}`)
+        script.src?.includes(`cdn.jwplayer.com/libraries/${id}`)
     );
 };
 

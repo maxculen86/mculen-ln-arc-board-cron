@@ -1,4 +1,8 @@
-import { handleEventSwipeVideo, resetTracking } from '../helpers';
+import {
+    handleEventSwipeVideo,
+    resetTracking,
+    isScriptLoaded
+} from '../helpers';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 jest.mock('../../../../private/LN/common/utils/addEventToDataLayer', () => ({
@@ -113,5 +117,56 @@ describe('handleEventSwipeVideo', () => {
                 })
             })
         );
+    });
+});
+
+describe('isScriptLoaded', () => {
+    let mockGetElementsByTagName;
+
+    beforeEach(() => {
+        mockGetElementsByTagName = jest.spyOn(document, 'getElementsByTagName');
+    });
+
+    afterEach(() => {
+        mockGetElementsByTagName.mockRestore();
+    });
+
+    it('should return true when a script with matching src is present', () => {
+        mockGetElementsByTagName.mockReturnValue([
+            { src: 'https://cdn.jwplayer.com/libraries/abc123.js' }
+        ]);
+
+        expect(isScriptLoaded('abc123')).toBe(true);
+    });
+
+    it('should return false when no script matches the given id', () => {
+        mockGetElementsByTagName.mockReturnValue([
+            { src: 'https://cdn.jwplayer.com/libraries/other-id.js' }
+        ]);
+
+        expect(isScriptLoaded('abc123')).toBe(false);
+    });
+
+    it('should return false when there are no scripts in the DOM', () => {
+        mockGetElementsByTagName.mockReturnValue([]);
+
+        expect(isScriptLoaded('abc123')).toBe(false);
+    });
+
+    it('should not throw and return false when a script has no src attribute', () => {
+        mockGetElementsByTagName.mockReturnValue([{ src: undefined }]);
+
+        expect(() => isScriptLoaded('abc123')).not.toThrow();
+        expect(isScriptLoaded('abc123')).toBe(false);
+    });
+
+    it('should return true when one of multiple scripts matches the given id', () => {
+        mockGetElementsByTagName.mockReturnValue([
+            { src: undefined },
+            { src: 'https://other-cdn.com/script.js' },
+            { src: 'https://cdn.jwplayer.com/libraries/abc123.js' }
+        ]);
+
+        expect(isScriptLoaded('abc123')).toBe(true);
     });
 });
