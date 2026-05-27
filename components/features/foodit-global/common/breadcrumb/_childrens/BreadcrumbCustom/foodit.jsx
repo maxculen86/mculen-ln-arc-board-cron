@@ -2,10 +2,9 @@ import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
 import Static from 'fusion:static';
 
-import classNames from 'classnames';
-
 import { Breadcrumb } from '@ln/common-ui-breadcrumb';
 import { Link } from '@ln/foodit-ui-link';
+import { cx } from '@ln/cva';
 import capitalizeFirstLetter from '../../../../../../private/common/utils/capitalizeFirstLetter';
 
 function BreadcrumbCustomFoodit({ className = '', sectionsCustom = [] }) {
@@ -19,7 +18,7 @@ function BreadcrumbCustomFoodit({ className = '', sectionsCustom = [] }) {
 
     return (
         <Static htmlOnly persistent id="breadcrumb-foodit-custom">
-            <div className={classNames('flex ai-center gap-8', className)}>
+            <div className={cx('flex ai-center gap-8 --no-app', className)}>
                 <Breadcrumb
                     gap="gap-8"
                     classnames={{
