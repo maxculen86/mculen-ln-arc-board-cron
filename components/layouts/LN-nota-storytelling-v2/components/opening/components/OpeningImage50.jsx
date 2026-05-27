@@ -13,11 +13,13 @@ function OpeningImage50({
     altText,
     videoUrl,
     posterUrl,
+    mobileImageData,
     globalContent = {},
     layout = '',
     title1 = '',
     title2 = '',
-    subheadline = ''
+    subheadline = '',
+    hasStorytellingMobile = false
 }) {
     const descriptionContainerClassname = cx(
         'flex flex-col flex-1 justify-center text-center max-md:px-16',
@@ -68,6 +70,9 @@ function OpeningImage50({
                         width={width}
                         height={height}
                         altText={altText}
+                        mobileImage={
+                            hasStorytellingMobile ? mobileImageData : undefined
+                        }
                     />
                 </div>
             </div>

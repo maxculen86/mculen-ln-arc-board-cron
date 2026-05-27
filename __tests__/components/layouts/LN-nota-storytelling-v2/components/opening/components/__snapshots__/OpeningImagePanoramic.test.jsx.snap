@@ -10,7 +10,7 @@ exports[`OpeningImagePanoramic snapshots minimal snapshot (only src) 1`] = `
       class="w-full max-md:aspect-1/1 md:h-[64vh] relative bg-black-dark overflow-hidden mb-16 md:mb-56"
     >
       <img
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -61,7 +61,7 @@ exports[`OpeningImagePanoramic snapshots snapshot with all props 1`] = `
     >
       <img
         alt="Panoramic image"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
@@ -160,7 +160,7 @@ exports[`OpeningImagePanoramic snapshots snapshot without subheadline 1`] = `
     >
       <img
         alt="Panoramic image"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 absolute inset-0"
         data-fetch-priority="high"
         data-loading="eager"
         data-testid="image-ui"
