@@ -29,6 +29,11 @@ describe('Schemas Component', () => {
 
         const parsedWebSite = JSON.parse(scripts[1].innerHTML);
         expect(parsedWebSite['@type']).toBe('WebSite');
+        expect(parsedWebSite.potentialAction).toEqual({
+            '@type': 'SearchAction',
+            target: 'https://www.lanacion.com.ar/buscador?query={search_term_string}',
+            'query-input': 'required name=search_term_string'
+        });
     });
 
     it('should render a valid organization ID when section is "nota"', () => {

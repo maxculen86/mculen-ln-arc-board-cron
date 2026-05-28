@@ -33,7 +33,12 @@ function Schemas({ section = '', siteProperties = {} }) {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: 'LA NACION',
-        url: siteUrl
+        url: siteUrl,
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://www.lanacion.com.ar/buscador?query={search_term_string}',
+            'query-input': 'required name=search_term_string'
+        }
     });
 
     const createScript = childrens =>
