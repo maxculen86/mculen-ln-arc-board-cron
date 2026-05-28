@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterOptions — LN/common header snapshots matches snapshot with default position 1`] = `
+<DocumentFragment>
+  <a
+    class="mocked-center-class"
+    href="/"
+  >
+    <span>
+      <svg
+        data-testid="logo-svg"
+      />
+    </span>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`CenterOptions — LN/common header snapshots matches snapshot with sticky position 1`] = `
+<DocumentFragment>
+  <a
+    class="mocked-center-class"
+    href="/"
+  >
+    <span>
+      <svg
+        data-testid="logo-svg"
+      />
+    </span>
+  </a>
+</DocumentFragment>
+`;

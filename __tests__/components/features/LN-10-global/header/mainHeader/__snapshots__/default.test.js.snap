@@ -115,7 +115,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   id="logo_header_mob"
                 />
               </div>
-              <div
+              <span
                 class="flex relative"
               >
                 <svg
@@ -129,7 +129,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                     fill="#006998"
                   />
                 </svg>
-              </div>
+              </span>
             </a>
           </div>
           <div

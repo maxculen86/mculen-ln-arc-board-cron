@@ -1,19 +1,11 @@
 import React from 'react';
 import { MainHeader } from '@ln/common-ui-header';
-import { useAppContext } from 'fusion:context';
 import { useHeaderContext } from '../../context';
 import { logoCallback } from '../_helper';
-import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 import bannersHome from '../../../../../private/common/banners/bannersDivHome';
 
 export function CenterOptions() {
     const { centerOptionsClassNames, negative } = useHeaderContext();
-
-    const { layout } = useAppContext();
-    const { layoutsName = {} } = siteConfig || {};
-    const isHomeMain = layout === layoutsName.HomeLN10;
-
-    const Component = isHomeMain ? 'h1' : 'div';
 
     return (
         <MainHeader.Brand
@@ -24,12 +16,7 @@ export function CenterOptions() {
             onAuxClick={logoCallback}
         >
             {bannersHome.logoHeader}
-            <Component className="flex relative">
-                {isHomeMain && (
-                    <span className="visibility-hidden absolute">
-                        LA NACION
-                    </span>
-                )}
+            <span className="flex relative">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 380 40"
@@ -41,7 +28,7 @@ export function CenterOptions() {
                         fill={negative ? '#fff' : '#006998'}
                     />
                 </svg>
-            </Component>
+            </span>
         </MainHeader.Brand>
     );
 }
