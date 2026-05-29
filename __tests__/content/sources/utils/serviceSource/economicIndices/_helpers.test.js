@@ -5,7 +5,8 @@ import {
     formatVariation,
     HOME_FILTERS,
     filterForHome,
-    transformInternals
+    transformInternals,
+    buildOrganizationSchema
 } from '../../../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
 
 describe('content - sources - utils - serviceSource - economicIndices - _helpers', () => {
@@ -224,6 +225,30 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
                 expect(result).toHaveLength(0);
             });
+        });
+    });
+
+    describe('buildOrganizationSchema', () => {
+        const siteUrl = 'https://www.lanacion.com.ar/';
+        const logoUrl =
+            'https://www.lanacion.com.ar/pf/resources/images/logo-ln.png';
+
+        it('should declare the official logo dimensions', () => {
+            const result = buildOrganizationSchema(siteUrl, logoUrl, true);
+
+            expect(result.logo).toEqual({
+                '@type': 'ImageObject',
+                url: logoUrl,
+                height: 60,
+                width: 600
+            });
+        });
+
+        it('should keep the logo dimensions in detail schemas', () => {
+            const result = buildOrganizationSchema(siteUrl, logoUrl);
+
+            expect(result.logo.height).toBe(60);
+            expect(result.logo.width).toBe(600);
         });
     });
 
