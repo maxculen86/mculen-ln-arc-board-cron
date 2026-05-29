@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Thread } from '@ln/ds-blocks-thread';
 import { Formcontrol } from '@ln/ds-common-formcontrol';
 import { cx } from '@ln/ds-cva';
-import Button from '../../../../features/ui/ln/button/default';
-import Icon from '../../../../features/ui/ln/icon/default';
+import Button from '../../../ui/ln/button/default';
+import Icon from '../../../ui/ln/icon/default';
 
 export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
     const [isEmpty, setIsEmpty] = useState(true);
@@ -11,7 +11,7 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
     const isSendDisabled = isDisabled || isEmpty;
 
     const classNameContainer = cx(
-        'h-[92px] sm:h-[80px] border rounded-sm focus-within:border-accent-default hover:border-base-light',
+        'h-92 sm:h-80 border rounded-sm focus-within:border-accent-default hover:border-base-light',
         !isSubscribed || isBlocked
             ? 'border-base-lighten'
             : 'border-base-default'
@@ -34,8 +34,12 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
             }}
             disabled={isDisabled}
         >
-            <Formcontrol.Adornment className="-mr-[12px]" position="start">
-                <Icon name="ia" size={20} className="text-[#27D2BE]" />
+            <Formcontrol.Adornment className="-mr-12" position="start">
+                <Icon
+                    name="ia"
+                    size={20}
+                    className="text-[var(--primary-ia)]"
+                />
             </Formcontrol.Adornment>
             <Formcontrol.Adornment position="end" className="mt-auto">
                 <Button

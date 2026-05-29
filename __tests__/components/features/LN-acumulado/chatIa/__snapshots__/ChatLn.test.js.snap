@@ -5,7 +5,7 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
   data-tw="true"
 >
   <div
-    class="mb-[40px] md:mb-[64px] pt-8 xl:pt-6"
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
   >
     <div
       class="pb-16"
@@ -21,7 +21,7 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
         >
           <span
             aria-label="canchallena"
-            class="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
           />
           <span
             data-testid="icon-arrow-right"
@@ -89,7 +89,7 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
       class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
     >
       <h2
-        class="prumo prumo-semibold text-base-default text-subheading-sm"
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
       >
         LA NACION IA
       </h2>
@@ -163,7 +163,7 @@ exports[`ChatLN snapshots matches snapshot when error 1`] = `
   data-tw="true"
 >
   <div
-    class="mb-[40px] md:mb-[64px] pt-8 xl:pt-6"
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
   >
     <div
       class="pb-16"
@@ -179,7 +179,7 @@ exports[`ChatLN snapshots matches snapshot when error 1`] = `
         >
           <span
             aria-label="canchallena"
-            class="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
           />
           <span
             data-testid="icon-arrow-right"
@@ -247,7 +247,7 @@ exports[`ChatLN snapshots matches snapshot when error 1`] = `
       class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
     >
       <h2
-        class="prumo prumo-semibold text-base-default text-subheading-sm"
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
       >
         LA NACION IA
       </h2>
@@ -321,7 +321,7 @@ exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
   data-tw="true"
 >
   <div
-    class="mb-[40px] md:mb-[64px] pt-8 xl:pt-6"
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
   >
     <div
       class="pb-16"
@@ -337,7 +337,7 @@ exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
         >
           <span
             aria-label="canchallena"
-            class="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
           />
           <span
             data-testid="icon-arrow-right"
@@ -405,7 +405,7 @@ exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
       class="flex flex-column pb-8"
     >
       <h2
-        class="prumo prumo-semibold text-base-default text-subheading-sm"
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
       >
         LA NACION IA
       </h2>
@@ -458,7 +458,7 @@ exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
   data-tw="true"
 >
   <div
-    class="mb-[40px] md:mb-[64px] pt-8 xl:pt-6"
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
   >
     <div
       class="pb-16"
@@ -474,7 +474,7 @@ exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
         >
           <span
             aria-label="canchallena"
-            class="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
           />
           <span
             data-testid="icon-arrow-right"
@@ -542,7 +542,7 @@ exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
       class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
     >
       <h2
-        class="prumo prumo-semibold text-base-default text-subheading-sm"
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
       >
         LA NACION IA
       </h2>
@@ -586,22 +586,34 @@ exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
               class="flex flex-column md:flex-row gap-responsive"
             >
               <button
-                class="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
                 type="button"
               >
-                Pregunta 1
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 1
+                </span>
               </button>
               <button
-                class="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
                 type="button"
               >
-                Pregunta 2
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 2
+                </span>
               </button>
               <button
-                class="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
                 type="button"
               >
-                Pregunta 3
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 3
+                </span>
               </button>
             </div>
             <hr

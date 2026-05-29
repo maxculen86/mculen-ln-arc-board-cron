@@ -158,7 +158,7 @@ export function ChatLN({
 
     return (
         <div data-tw>
-            <div className="mb-[40px] md:mb-[64px] pt-8 xl:pt-6">
+            <div className="mb-40 md:mb-64 pt-8 xl:pt-6">
                 <div className="pb-16">
                     <p className="text-body-lg font-secondary text-base-default">
                         Seguí las estadísticas y los resultados en vivo en{' '}
@@ -167,7 +167,7 @@ export function ChatLN({
                             className="inline-flex items-center gap-4"
                         >
                             <span
-                                className="inline-block w-[112px] h-[16px] bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+                                className="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
                                 aria-label="canchallena"
                             />
                             <Icon name="arrow-right" size={24} />
@@ -184,7 +184,7 @@ export function ChatLN({
                             'xl:flex-row xl:items-center gap-8 xl:gap-16'
                     )}
                 >
-                    <h2 className="prumo prumo-semibold text-base-default text-subheading-sm">
+                    <h2 className="font-primary font-w-semibold text-base-default text-subheading-sm">
                         LA NACION IA
                     </h2>
                     <div
@@ -235,9 +235,11 @@ export function ChatLN({
                                                                 suggestion
                                                             )
                                                         }
-                                                        className="hover:opacity-80 h-[72px] text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                                                        className="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
                                                     >
-                                                        {suggestion}
+                                                        <span className="line-clamp-3">
+                                                            {suggestion}
+                                                        </span>
                                                     </button>
                                                 )
                                             )}
@@ -258,7 +260,7 @@ export function ChatLN({
                                                 <Icon
                                                     name="ia"
                                                     size={12}
-                                                    className="text-[#27D2BE]"
+                                                    className="text-[var(--primary-ia)]"
                                                 />
                                                 Realizar una nueva pregunta
                                             </Button>

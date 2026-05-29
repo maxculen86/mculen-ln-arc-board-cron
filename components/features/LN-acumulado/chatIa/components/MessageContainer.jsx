@@ -12,19 +12,19 @@ export function MessageContainer({ messages, isGenerating, onTypingDone }) {
                         index === messages.length - 1 &&
                         message.message_type !== 'output';
 
+                    const key =
+                        message.message_type === 'output'
+                            ? `out:${message.content}`
+                            : `in:${message.response_chat?.descripcion}`;
+
                     if (message.message_type === 'output') {
-                        return (
-                            <MessageUserLN
-                                key={`user-${index}`}
-                                message={message}
-                            />
-                        );
+                        return <MessageUserLN key={key} message={message} />;
                     }
 
                     if (message.message_type === 'input') {
                         return (
                             <MessageAssistantLN
-                                key={`assistant-${index}`}
+                                key={key}
                                 message={message}
                                 isLastOutput={isLastOutput}
                                 isGenerating={isGenerating}
