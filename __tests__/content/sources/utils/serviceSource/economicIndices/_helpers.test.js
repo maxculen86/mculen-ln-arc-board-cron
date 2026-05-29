@@ -3,6 +3,7 @@ import {
     formatNumber,
     wrapStrong,
     formatVariation,
+    VALID_SERVICE_ITEMS,
     HOME_FILTERS,
     filterForHome,
     transformInternals,
@@ -26,6 +27,12 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
         it('should return value as string', () => {
             expect(sanitize('GGAL')).toBe('GGAL');
             expect(sanitize(123)).toBe('123');
+        });
+
+        it('should escape html-sensitive characters', () => {
+            expect(sanitize('<script>alert("x")</script>')).toBe(
+                '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;'
+            );
         });
     });
 
@@ -160,71 +167,47 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
         });
     });
 
+    describe('VALID_SERVICE_ITEMS', () => {
+        it('should include etf as a valid service item', () => {
+            expect(VALID_SERVICE_ITEMS).toContain('etf');
+        });
+    });
+
     describe('HOME_FILTERS', () => {
-        describe('merval', () => {
-            it('should return top 5 by highest absolute daily variation', () => {
-                const cotizaciones = [
-                    { ticket: 'A', var_diaria: 1 },
-                    { ticket: 'B', var_diaria: -10 },
-                    { ticket: 'C', var_diaria: 5 },
-                    { ticket: 'D', var_diaria: -2 },
-                    { ticket: 'E', var_diaria: 8 },
-                    { ticket: 'F', var_diaria: 0.5 },
-                    { ticket: 'G', var_diaria: -7 }
-                ];
+        it('should return top 5 merval items by highest absolute daily variation', () => {
+            const cotizaciones = [
+                { ticket: 'A', var_diaria: 1 },
+                { ticket: 'B', var_diaria: -10 },
+                { ticket: 'C', var_diaria: 5 },
+                { ticket: 'D', var_diaria: -2 },
+                { ticket: 'E', var_diaria: 8 },
+                { ticket: 'F', var_diaria: 0.5 },
+                { ticket: 'G', var_diaria: -7 }
+            ];
 
-                const result = HOME_FILTERS.merval(cotizaciones);
+            const result = HOME_FILTERS.merval(cotizaciones);
 
-                expect(result).toHaveLength(5);
-                expect(result[0].ticket).toBe('B');
-                expect(result[1].ticket).toBe('E');
-                expect(result[2].ticket).toBe('G');
-                expect(result[3].ticket).toBe('C');
-                expect(result[4].ticket).toBe('D');
-            });
-
-            it('should return all if less than 5', () => {
-                const cotizaciones = [
-                    { ticket: 'A', var_diaria: 1 },
-                    { ticket: 'B', var_diaria: 2 }
-                ];
-
-                const result = HOME_FILTERS.merval(cotizaciones);
-
-                expect(result).toHaveLength(2);
-            });
+            expect(result).toHaveLength(5);
+            expect(result[0].ticket).toBe('B');
+            expect(result[1].ticket).toBe('E');
+            expect(result[2].ticket).toBe('G');
+            expect(result[3].ticket).toBe('C');
+            expect(result[4].ticket).toBe('D');
         });
 
-        describe('etf', () => {
-            it('should filter only DIA_US, QQQ_US, SPY_US', () => {
-                const cotizaciones = [
-                    { ticket: 'DIA_US', var_diaria: 1 },
-                    { ticket: 'QQQ_US', var_diaria: 2 },
-                    { ticket: 'SPY_US', var_diaria: 3 },
-                    { ticket: 'OTHER', var_diaria: 4 },
-                    { ticket: 'XYZ', var_diaria: 5 }
-                ];
+        it('should return all merval items when fewer than five exist', () => {
+            const cotizaciones = [
+                { ticket: 'A', var_diaria: 1 },
+                { ticket: 'B', var_diaria: 2 }
+            ];
 
-                const result = HOME_FILTERS.etf(cotizaciones);
+            const result = HOME_FILTERS.merval(cotizaciones);
 
-                expect(result).toHaveLength(3);
-                expect(result.map(item => item.ticket)).toEqual([
-                    'DIA_US',
-                    'QQQ_US',
-                    'SPY_US'
-                ]);
-            });
+            expect(result).toHaveLength(2);
+        });
 
-            it('should return empty array if no allowed tickets', () => {
-                const cotizaciones = [
-                    { ticket: 'OTHER', var_diaria: 1 },
-                    { ticket: 'XYZ', var_diaria: 2 }
-                ];
-
-                const result = HOME_FILTERS.etf(cotizaciones);
-
-                expect(result).toHaveLength(0);
-            });
+        it('should not have an etf filter defined', () => {
+            expect(HOME_FILTERS.etf).toBeUndefined();
         });
     });
 
@@ -270,15 +253,21 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
             expect(result).toHaveLength(2);
         });
 
-        it('should apply etf filter when tableType is etf', () => {
+        it('should pass through all etf cotizaciones when tableType is etf', () => {
             const cotizaciones = [
                 { ticket: 'DIA_US', var_diaria: 1 },
-                { ticket: 'OTHER', var_diaria: 2 }
+                { ticket: 'OTHER', var_diaria: 2 },
+                { ticket: 'QQQ_US', var_diaria: 3 }
             ];
 
             const result = filterForHome(cotizaciones, 'etf');
 
-            expect(result).toHaveLength(1);
+            expect(result).toHaveLength(3);
+            expect(result.map(item => item.ticket)).toEqual([
+                'DIA_US',
+                'OTHER',
+                'QQQ_US'
+            ]);
         });
 
         it('should return unfiltered cotizaciones for unknown tableType', () => {
@@ -372,19 +361,22 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
             expect(result.rows).toEqual([]);
         });
 
-        it('should apply home filter when isHome is true', () => {
+        it('should pass through all enabled etf items on home', () => {
             const cotizaciones = [
                 { ticket: 'DIA_US', var_diaria: 1, habilitado: true },
-                { ticket: 'OTHER', var_diaria: 2, habilitado: true }
+                { ticket: 'OTHER', var_diaria: 2, habilitado: true },
+                { ticket: 'SPY_US', var_diaria: 3, habilitado: true }
             ];
             const data = { tableType: 'etf', cotizaciones };
 
             const result = transformInternals(data, true);
 
-            expect(result.rows).toHaveLength(1);
+            expect(result.rows).toHaveLength(3);
+            const tickets = result.rows.map(row => row[0].content);
+            expect(tickets).toEqual(['DIA_US', 'OTHER', 'SPY_US']);
         });
 
-        it('should filter riesgo-pais correctly', () => {
+        it('should include all enabled riesgo-pais items, not only RIESGO PAIS ticket', () => {
             const cotizaciones = [
                 { ticket: 'RIESGO PAIS', var_diaria: 1, habilitado: true },
                 { ticket: 'OTRO', var_diaria: 2, habilitado: true }
@@ -393,8 +385,49 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
 
             const result = transformInternals(data, false);
 
-            expect(result.rows).toHaveLength(1);
-            expect(result.rows[0][0].content).toBe('RIESGO PAIS');
+            expect(result.rows).toHaveLength(2);
+            const tickets = result.rows.map(row => row[0].content);
+            expect(tickets).toContain('RIESGO PAIS');
+            expect(tickets).toContain('OTRO');
+        });
+
+        it('should sort riesgo-pais items by ticket_name when available', () => {
+            const cotizaciones = [
+                {
+                    ticket: 'Z',
+                    ticket_name: 'Alpha',
+                    var_diaria: 1,
+                    habilitado: true
+                },
+                {
+                    ticket: 'A',
+                    ticket_name: 'Zebra',
+                    var_diaria: 2,
+                    habilitado: true
+                }
+            ];
+            const data = { tableType: 'riesgo-pais', cotizaciones };
+
+            const result = transformInternals(data, false);
+
+            expect(result.rows).toHaveLength(2);
+            const labels = result.rows.map(row => row[0].content);
+            expect(labels).toEqual(['Alpha', 'Zebra']);
+        });
+
+        it('should pass through only enabled etf items on home when mixed habilitado states', () => {
+            const cotizaciones = [
+                { ticket: 'DIA_US', var_diaria: 1, habilitado: true },
+                { ticket: 'OTHER', var_diaria: 2, habilitado: false },
+                { ticket: 'SPY_US', var_diaria: 3, habilitado: true }
+            ];
+            const data = { tableType: 'etf', cotizaciones };
+
+            const result = transformInternals(data, true);
+
+            expect(result.rows).toHaveLength(2);
+            const tickets = result.rows.map(row => row[0].content);
+            expect(tickets).toEqual(['DIA_US', 'SPY_US']);
         });
 
         it('should generate rows with correct structure', () => {
@@ -422,87 +455,136 @@ describe('content - sources - utils - serviceSource - economicIndices - _helpers
             expect(row[1].content).toContain('<strong>');
         });
 
-        describe('filtro habilitado', () => {
-            it('should hide rows with habilitado === false', () => {
-                const data = {
-                    tableType: 'adrs',
-                    cotizaciones: [
-                        { ticket: 'TWTR', var_diaria: 1, habilitado: true },
-                        { ticket: 'UTX', var_diaria: 0, habilitado: false }
-                    ]
-                };
+        it('should hide rows with habilitado === false', () => {
+            const data = {
+                tableType: 'adrs',
+                cotizaciones: [
+                    { ticket: 'TWTR', var_diaria: 1, habilitado: true },
+                    { ticket: 'UTX', var_diaria: 0, habilitado: false }
+                ]
+            };
 
-                const result = transformInternals(data, false);
+            const result = transformInternals(data, false);
 
-                expect(result.rows).toHaveLength(1);
-                expect(result.rows[0][0].content).toBe('TWTR');
-            });
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('TWTR');
+        });
 
-            it('should hide rows when habilitado field is missing', () => {
-                const data = {
-                    tableType: 'merval',
-                    cotizaciones: [
-                        { ticket: 'GGAL', var_diaria: 1, habilitado: true },
-                        { ticket: 'NOFIELD', var_diaria: 2 }
-                    ]
-                };
+        it('should hide rows when habilitado field is missing', () => {
+            const data = {
+                tableType: 'merval',
+                cotizaciones: [
+                    { ticket: 'GGAL', var_diaria: 1, habilitado: true },
+                    { ticket: 'NOFIELD', var_diaria: 2 }
+                ]
+            };
 
-                const result = transformInternals(data, false);
+            const result = transformInternals(data, false);
 
-                expect(result.rows).toHaveLength(1);
-                expect(result.rows[0][0].content).toBe('GGAL');
-            });
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('GGAL');
+        });
 
-            it('should hide rows with habilitado null or undefined', () => {
-                const data = {
-                    tableType: 'merval',
-                    cotizaciones: [
-                        { ticket: 'A', var_diaria: 1, habilitado: null },
-                        { ticket: 'B', var_diaria: 2, habilitado: undefined },
-                        { ticket: 'C', var_diaria: 3, habilitado: true }
-                    ]
-                };
+        it('should hide rows with habilitado null or undefined', () => {
+            const data = {
+                tableType: 'merval',
+                cotizaciones: [
+                    { ticket: 'A', var_diaria: 1, habilitado: null },
+                    { ticket: 'B', var_diaria: 2, habilitado: undefined },
+                    { ticket: 'C', var_diaria: 3, habilitado: true }
+                ]
+            };
 
-                const result = transformInternals(data, false);
+            const result = transformInternals(data, false);
 
-                expect(result.rows).toHaveLength(1);
-                expect(result.rows[0][0].content).toBe('C');
-            });
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('C');
+        });
 
-            it('should apply habilitado filter before home top-5 for merval', () => {
-                const cotizaciones = [
-                    { ticket: 'A', var_diaria: 100, habilitado: false },
-                    { ticket: 'B', var_diaria: 10, habilitado: true },
-                    { ticket: 'C', var_diaria: 8, habilitado: true },
-                    { ticket: 'D', var_diaria: 6, habilitado: true },
-                    { ticket: 'E', var_diaria: 4, habilitado: true },
-                    { ticket: 'F', var_diaria: 2, habilitado: true }
-                ];
-                const data = { tableType: 'merval', cotizaciones };
+        it('should apply habilitado filter before home top-5 for merval', () => {
+            const cotizaciones = [
+                { ticket: 'A', var_diaria: 100, habilitado: false },
+                { ticket: 'B', var_diaria: 10, habilitado: true },
+                { ticket: 'C', var_diaria: 8, habilitado: true },
+                { ticket: 'D', var_diaria: 6, habilitado: true },
+                { ticket: 'E', var_diaria: 4, habilitado: true },
+                { ticket: 'F', var_diaria: 2, habilitado: true }
+            ];
+            const data = { tableType: 'merval', cotizaciones };
 
-                const result = transformInternals(data, true);
+            const result = transformInternals(data, true);
 
-                expect(result.rows).toHaveLength(5);
-                const tickets = result.rows.map(row => row[0].content);
-                expect(tickets).not.toContain('A');
-            });
+            expect(result.rows).toHaveLength(5);
+            const tickets = result.rows.map(row => row[0].content);
+            expect(tickets).not.toContain('A');
+        });
 
-            it('should hide riesgo-pais row when habilitado is false', () => {
-                const data = {
-                    tableType: 'riesgo-pais',
-                    cotizaciones: [
-                        {
-                            ticket: 'RIESGO PAIS',
-                            var_diaria: 1,
-                            habilitado: false
-                        }
-                    ]
-                };
+        it('should hide etf rows with habilitado === false', () => {
+            const data = {
+                tableType: 'etf',
+                cotizaciones: [
+                    { ticket: 'DIA_US', var_diaria: 1, habilitado: true },
+                    { ticket: 'SPY_US', var_diaria: 2, habilitado: false }
+                ]
+            };
 
-                const result = transformInternals(data, false);
+            const result = transformInternals(data, false);
 
-                expect(result.rows).toHaveLength(0);
-            });
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('DIA_US');
+        });
+
+        it('should hide etf rows when habilitado field is missing', () => {
+            const data = {
+                tableType: 'etf',
+                cotizaciones: [
+                    { ticket: 'QQQ_US', var_diaria: 1, habilitado: true },
+                    { ticket: 'NOFIELD', var_diaria: 2 }
+                ]
+            };
+
+            const result = transformInternals(data, false);
+
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('QQQ_US');
+        });
+
+        it('should hide riesgo-pais rows with habilitado === false', () => {
+            const data = {
+                tableType: 'riesgo-pais',
+                cotizaciones: [
+                    {
+                        ticket: 'RIESGO PAIS',
+                        var_diaria: 1,
+                        habilitado: false
+                    },
+                    { ticket: 'OTRO', var_diaria: 2, habilitado: true }
+                ]
+            };
+
+            const result = transformInternals(data, false);
+
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('OTRO');
+        });
+
+        it('should hide riesgo-pais rows when habilitado field is missing', () => {
+            const data = {
+                tableType: 'riesgo-pais',
+                cotizaciones: [
+                    {
+                        ticket: 'RIESGO PAIS',
+                        var_diaria: 1,
+                        habilitado: true
+                    },
+                    { ticket: 'NOFIELD', var_diaria: 2 }
+                ]
+            };
+
+            const result = transformInternals(data, false);
+
+            expect(result.rows).toHaveLength(1);
+            expect(result.rows[0][0].content).toBe('RIESGO PAIS');
         });
     });
 });

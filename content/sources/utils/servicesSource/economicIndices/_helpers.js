@@ -6,7 +6,8 @@ export const VALID_SERVICE_ITEMS = [
     'merval',
     'adrs',
     'riesgo-pais',
-    'cedears'
+    'cedears',
+    'etf'
 ];
 
 export const HOME_SCHEMA_ITEMS = [
@@ -157,7 +158,8 @@ export const buildWebPageSchema = (
     metaData,
     dataService
 ) => {
-    const { title, description } = metaData;
+    const title = get(metaData, 'title', '');
+    const description = get(metaData, 'description', '');
     const cotizaciones = get(dataService, 'cotizaciones', []);
 
     return {
@@ -219,11 +221,19 @@ const metaDataByIndex = {
 
 export const getEconomicIndicesMetaData = serviceItem =>
     serviceItem
-        ? get(metaDataByIndex, serviceItem, metaDataByIndex.default)
-        : metaDataByIndex.default;
+        ? get(metaDataByIndex, serviceItem, get(metaDataByIndex, 'default'))
+        : get(metaDataByIndex, 'default');
 
-export const sanitize = value =>
-    value === null || value === undefined || value === '' ? '-' : String(value);
+export const sanitize = value => {
+    if (value == null || value === '') return '-';
+
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+};
 
 export const formatNumber = value => {
     if (value === null || value === undefined || value === '') return '-';
@@ -248,12 +258,10 @@ const getVariationClass = (value, tableType) => {
     }
     const isColorInverted = INVERTED_VARIATION_TYPES.includes(tableType);
     const isPositive = isColorInverted ? value < 0 : value > 0;
-    const classes = cx(
-        value > 0 ? 'index-arrow-up' : 'index-arrow-down',
-        isPositive ? 'index-positive' : 'index-negative'
-    );
+    const arrowClass = value > 0 ? 'index-arrow-up' : 'index-arrow-down';
+    const colorClass = isPositive ? 'index-positive' : 'index-negative';
 
-    return classes;
+    return cx(arrowClass, colorClass);
 };
 export const formatVariation = (value, tableType = '') => {
     const num = parseFloat(value);
@@ -278,36 +286,26 @@ export const HOME_FILTERS = {
                     Math.abs(get(b, 'var_diaria', 0)) -
                     Math.abs(get(a, 'var_diaria', 0))
             )
-            .slice(0, 5),
-    etf: cotizaciones => {
-        const allowedTickets = ['DIA_US', 'QQQ_US', 'SPY_US'];
-        return cotizaciones.filter(item =>
-            allowedTickets.includes(get(item, 'ticket', ''))
-        );
-    }
+            .slice(0, 5)
 };
 
 export const filterForHome = (cotizaciones, tableType) => {
     if (!Array.isArray(cotizaciones)) return [];
-    const filterFn = HOME_FILTERS[tableType];
+    const filterFn = get(HOME_FILTERS, tableType);
     return filterFn ? filterFn(cotizaciones) : cotizaciones;
 };
 
 export const transformInternals = (data, isHome) => {
-    const {
-        tableType,
-        fecha_actualizacion: fechaActualizacion,
-        hora_actualizacion: horaActualizacion,
-        cotizaciones = []
-    } = data || {};
+    const tableType = get(data, 'tableType', '');
+    const fechaActualizacion = get(data, 'fecha_actualizacion', '');
+    const horaActualizacion = get(data, 'hora_actualizacion', '');
+    const cotizaciones = get(data, 'cotizaciones', []);
 
     let items = cotizaciones.filter(
         item => get(item, 'habilitado', false) === true
     );
     if (isHome) {
         items = filterForHome(items, tableType);
-    } else if (tableType === 'riesgo-pais') {
-        items = items.filter(item => get(item, 'ticket', '') === 'RIESGO PAIS');
     }
 
     const getTicketLabel = item =>
