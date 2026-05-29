@@ -56,6 +56,7 @@ export const CardBasic = article => {
     const openingMode = getOpeningMode(article);
     const distributor = getDistributor(article);
     const domain = getDomainCLL(article);
+    const comentarios = get(article, 'comentarios', null);
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -81,7 +82,8 @@ export const CardBasic = article => {
         openingMode,
         distributor,
         videoData: article.videoData,
-        ...(domain && { domain })
+        ...(domain && { domain }),
+        ...(comentarios && { comentarios })
     };
 };
 
