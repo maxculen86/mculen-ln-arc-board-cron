@@ -40,11 +40,14 @@ const zocaloOptions = {
         label: 'ln_juegos',
         media: {
             type: 'video',
-            src: 'https://cdn.jwplayer.com/videos/Ry1nJgln.mp4',
+            src: 'https://cdn.jwplayer.com/videos/7HwyZ6xk.mp4',
             className: 'w-210'
         },
         descriptionProps: {
-            text: 'Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.'
+            text: 'Accedé a Juegos de manera ilimitada con tu suscripción.',
+            classnames: {
+                text: 'w-100 --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800'
+            }
         }
     },
 
