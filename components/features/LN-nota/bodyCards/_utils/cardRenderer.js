@@ -51,11 +51,12 @@ export const renderExpandedCard = (
     );
 };
 
-export const scrollCallback = percent =>
+export const scrollCallback = (percent, noteId) =>
     addEventToDataLayerV2({
         event: 'scroll_tracking_nota',
+        contentType: 'nota',
         rest: {
             scroll_percent: percent,
-            content_type: 'nota'
+            ...(noteId && { nota_ID_Arc: noteId })
         }
     });
