@@ -59,13 +59,13 @@ function BodyCards() {
 
     const leadingElements = processElementsWithImageProps(rawLeadingElements);
 
-    const registerScrollTracking = () =>
+    const registerScrollTracking = noteId =>
         registerScrollTrigger({
             id: 'scroll-body-GA',
             type: 'percentage',
             threshold: 25,
             thresholdStep: 25,
-            callback: scrollCallback
+            callback: percent => scrollCallback(percent, noteId)
         });
 
     const renderConfig = useMemo(

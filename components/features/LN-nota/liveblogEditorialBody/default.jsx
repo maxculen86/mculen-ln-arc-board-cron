@@ -18,9 +18,13 @@ import LiveblogDynamicBanner from '../../../private/common/banners/liveblogEdito
 import { getLiveblogDynamicBannersByCardPosition } from '../../../private/common/banners/liveblogEditorial/config';
 
 function BodyLiveblogEditorial() {
-    const { globalContent, outputType, _id, globalContentConfig } =
-        useAppContext();
-    const { content_elements: contentElements = [] } = globalContent;
+    const {
+        globalContent = {},
+        outputType,
+        globalContentConfig
+    } = useAppContext();
+    const { _id: noteId, content_elements: contentElements = [] } =
+        globalContent;
 
     const preLiveblog = getContentBeforeMarkers(
         contentElements,
@@ -43,7 +47,7 @@ function BodyLiveblogEditorial() {
         }
     }, []);
 
-    const registerScrollTracking = () => {
+    const registerScrollTracking = articleId => {
         registerScrollTrigger({
             id: 'scroll-body-GA',
             type: 'percentage',
@@ -54,7 +58,8 @@ function BodyLiveblogEditorial() {
                     window.dataLayer.push({
                         event: 'scroll_tracking_nota',
                         scroll_percent: percent,
-                        content_type: 'nota'
+                        content_type: 'nota',
+                        ...(articleId && { nota_ID_Arc: articleId })
                     });
                 }
             }
@@ -65,7 +70,7 @@ function BodyLiveblogEditorial() {
         <BaseBodyWrapper
             contentElements={contentElements}
             outputType={outputType}
-            noteId={_id}
+            noteId={noteId}
             selector="body-liveblog-editorial"
             bodyOrigin="Body Liveblog Editorial"
             onRegisterScrollTrigger={registerScrollTracking}

@@ -1,7 +1,7 @@
 import { registerScrollTrigger } from '../../../LN-common/hooks/useScrollDispatcher';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
-const registerScrollTracking = () => {
+const registerScrollTracking = noteId => {
     registerScrollTrigger({
         id: 'scroll-body-GA',
         type: 'percentage',
@@ -12,7 +12,8 @@ const registerScrollTracking = () => {
                 event: 'scroll_tracking_nota',
                 contentType: 'nota',
                 rest: {
-                    scroll_percent: percent
+                    scroll_percent: percent,
+                    ...(noteId && { nota_ID_Arc: noteId })
                 }
             });
         }
