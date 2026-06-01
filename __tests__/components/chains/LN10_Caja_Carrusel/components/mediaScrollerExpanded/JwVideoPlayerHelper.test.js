@@ -15,6 +15,9 @@ import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/c
 jest.mock(
     '../../../../../../components/private/common/videoPlayerJw/utils/helperJw',
     () => ({
+        ...jest.requireActual(
+            '../../../../../../components/private/common/videoPlayerJw/utils/helperJw'
+        ),
         buildTagsUrl: jest.fn(),
         onJwPlayerReady: jest.fn()
     })

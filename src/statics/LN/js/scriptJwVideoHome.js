@@ -15,7 +15,9 @@ import { videoContainer } from '../../../../components/features/LN-10/videoPlaye
 import { handleShare } from '../../../../components/features/LN-10/videoPlayer/share/shareHandler';
 import {
     getVerticalPlayer,
-    onJwPlayerReady
+    onJwPlayerReady,
+    handleTimeTracking,
+    trackMilestone
 } from '../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 const trackingCleanupByMediaId = new Map();
@@ -47,6 +49,7 @@ window.addEventListener('load', function () {
         let initialMode = null;
         let currentTitle = title || '';
         let currentId = mediaId || '';
+        let sentProgressRef = { current: new Set() };
         let skipPlayForSeek = false;
         let wasPaused = false;
         let shouldAutoplayNextPlaylistItem = false;
@@ -81,6 +84,7 @@ window.addEventListener('load', function () {
 
                             currentTitle = newTitle;
                             currentId = newId;
+                            sentProgressRef.current = new Set();
                             skipPlayForSeek = false;
                             if (
                                 isNewPlaylistItem &&
@@ -99,6 +103,15 @@ window.addEventListener('load', function () {
                             duration
                         })
                     );
+
+                    instance.on('time', e => {
+                        handleTimeTracking({
+                            event: e,
+                            sentProgressRef,
+                            videoId: currentId,
+                            title: currentTitle
+                        });
+                    });
 
                     instance.on('play', (e = {}) => {
                         if (skipPlayForSeek) {
@@ -164,6 +177,12 @@ window.addEventListener('load', function () {
                         handleVideoStop(articleElement, videoState);
                     });
                     instance.on('complete', () => {
+                        trackMilestone({
+                            sentProgressRef,
+                            percentage: 100,
+                            videoId: currentId,
+                            title: currentTitle
+                        });
                         shouldAutoplayNextPlaylistItem = true;
                         handleVideoStop(articleElement, videoState);
                     });
