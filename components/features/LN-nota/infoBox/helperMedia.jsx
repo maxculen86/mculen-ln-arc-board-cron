@@ -11,5 +11,7 @@ export const getMediaComponent = mediaConfig => {
     const { type, ...config } = mediaConfig;
     const MediaComponent = mediaComponents[type];
 
+    if (!MediaComponent) return undefined;
+
     return <MediaComponent {...config} />;
 };

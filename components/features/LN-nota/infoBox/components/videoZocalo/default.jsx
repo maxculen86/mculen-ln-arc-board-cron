@@ -1,6 +1,8 @@
 import React from 'react';
 
 function VideoZocalo({ src, className, ...props }) {
+    if (!src) return null;
+
     return (
         <div data-tw className="contents">
             <video
