@@ -1,42 +1,10 @@
 import {
     buildTagsUrl,
-    onJwPlayerReady
+    onJwPlayerReady,
+    handleTimeTracking,
+    trackMilestone
 } from '../../../../private/common/videoPlayerJw/utils/helperJw';
 import { getAdsConfigVideoJw, handleEventSwipeVideo } from '../helpers';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
-
-const PROGRESS_MILESTONES = [25, 50, 75];
-
-const trackMilestone = ({ sentProgressRef, percentage, videoId, title }) => {
-    if (sentProgressRef.current.has(percentage)) {
-        return;
-    }
-
-    sentProgressRef.current.add(percentage);
-
-    addEventToDataLayerV2({
-        event: String(percentage),
-        rest: {
-            videoID: String(videoId || ''),
-            videoName: String(title || '')
-        }
-    });
-};
-
-const handleTimeTracking = ({ event, sentProgressRef, videoId, title }) => {
-    const percent = Math.floor((event.currentTime / event.duration) * 100);
-
-    PROGRESS_MILESTONES.forEach(percentage => {
-        if (percent >= percentage) {
-            trackMilestone({
-                sentProgressRef,
-                percentage,
-                videoId,
-                title
-            });
-        }
-    });
-};
 
 export const registerPlayerEvents = ({
     player,
