@@ -272,13 +272,13 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 > **Spec**: `nx-integration` | **US ADO**: US-NEW-1
 
--   [ ] 1.1 Instalar `nx` como devDependency en `package.json` raíz y generar `nx.json` base
--   [ ] 1.2 Crear `project.json` para el bundle `default` con targets `build`, `lint`, `test`
--   [ ] 1.3 Crear `apps/foodit-mx/project.json` con tags `type:app`, `scope:foodit`
--   [ ] 1.4 Crear `tsconfig.base.json` en raíz con sección `paths` vacía (lista para aliases de libs)
--   [ ] 1.5 Configurar regla ESLint `@nx/enforce-module-boundaries` en `.eslintrc.js` raíz
--   [ ] 1.6 Smoke test: `npm run build-dev` del bundle default completa sin errores
--   [ ] 1.7 Smoke test ESLint: import cross-app en test file es detectado como boundary violation
+-   [x] 1.1 Instalar `nx` como devDependency en `package.json` raíz y generar `nx.json` base
+-   [x] 1.2 Crear `project.json` para el bundle `default` con targets `build`, `lint`, `test`
+-   [x] 1.3 Crear `apps/foodit-mx/project.json` con tags `type:app`, `scope:foodit`
+-   [x] 1.4 Crear `tsconfig.base.json` en raíz con sección `paths` vacía (lista para aliases de libs)
+-   [x] 1.5 Configurar regla ESLint `@nx/enforce-module-boundaries` en `.eslintrc.js` raíz
+-   [x] 1.6 Smoke test: `npm run build-dev` del bundle default completa sin errores
+-   [x] 1.7 Smoke test ESLint: import cross-app en test file es detectado como boundary violation
 
 ## 2. Bundle MX: Inicialización base + output-type + configuración
 
