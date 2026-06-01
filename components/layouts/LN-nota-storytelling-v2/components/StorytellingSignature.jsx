@@ -1,7 +1,7 @@
 import React from 'react';
 import { Author } from '@ln/contenidos-ui-author';
 import { useSignature } from '../../../features/LN/DS-Signature/hooks/useSignature';
-import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../private/common/utils/firmaHelper';
 import { getAuthorData } from '../../../features/LN-nota/signature/signatureHelper';
 
 function StorytellingSignature({ globalContent }) {

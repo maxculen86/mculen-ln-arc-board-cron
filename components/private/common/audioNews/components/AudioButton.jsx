@@ -6,20 +6,23 @@ import { Text } from '@ln/common-ui-text';
 import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
-import { getTextAndIconColor, handleClickAudioNews } from '../helpers';
+import {
+    getTextAndIconColor,
+    handleClickAudioNews
+} from '../../../../features/LN/common/audioPlayer/helpers';
 import getToken from '../../utils/getToken';
 import { isSubscribed, SUBSCRIBED_HELPER } from '../../auth/helper/loginHelper';
-
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import { useSignatureContext } from '../hooks/SignatureContext';
 import BarrierRequiresSubscription from '../../../../features/LN/common/barrierRequiresSubscription/default';
 import { barrierMessages } from '../../../../features/LN/common/barrierRequiresSubscription/helper';
+import { useAudioPlayerState } from '../../../../features/LN/common/audioPlayer/hooks/useAudioPlayerState';
 
 export function AudioButton({
-    audioPlayerProps = {},
+    noteId,
     withAudio,
     authorNames = [],
     showTooltipVariantIA,
+    showVariantIa = false,
     variant,
     showListenButton
 }) {
@@ -28,10 +31,7 @@ export function AudioButton({
     const { isOpen: showTooltipIAAuthor, onClose: closeTooltipIAAuthor } =
         useDisclosure(showTooltipVariantIA && authorNames?.length);
 
-    const { enableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
-        audioPlayerProps;
-
-    const { isSummary, isAudioPlaying } = useSignatureContext();
+    const { isOpen, isPlaying, isSummary, hasError } = useAudioPlayerState();
 
     const subscription = isSubscribed(SUBSCRIBED_HELPER.LN);
     const token = getToken();
@@ -44,10 +44,11 @@ export function AudioButton({
 
     const handleClickAudioButton = () => {
         handleClickAudioNews({
-            onOpenAudioPlayer,
+            noteId,
             globalContent,
             globalContentConfig,
             isSummary,
+            showVariantIa,
             closeTooltipIAAuthor,
             subscription,
             token,
@@ -74,14 +75,14 @@ export function AudioButton({
                 closeBarrier={closeBarrier}
                 message={barrierMessages.AUDIO}
             />
-            {isOpenAudioPlayer ? (
+            {isOpen ? (
                 <div className="flex py-12 px-16 ai-center gap-8 h-40">
                     <AnimatedIcons
                         name="logo-listen"
                         height={20}
                         width={20}
                         fill={iconColor}
-                        stopAnimation={!isAudioPlaying}
+                        stopAnimation={!isPlaying}
                     />
                     <Text className="text-12 text-neutral-light-600">
                         <strong>{text}</strong>
@@ -104,7 +105,7 @@ export function AudioButton({
                         dataSection="Escuchar Nota"
                         className="mr-16 ai-start_l --no-app"
                         onClick={handleClickAudioButton}
-                        disabled={enableButton}
+                        disabled={hasError}
                     >
                         <Icon size={16} color="#FEFEFE">
                             <IconSprite name="mediaPlay" />

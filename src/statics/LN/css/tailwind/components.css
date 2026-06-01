@@ -70,3 +70,8 @@
     /* 1366px */
     --breakpoint-2xl: 85.375rem;
 }
+
+/* Audio Player */
+.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp.bwp .controls.svelte-587imk.svelte-587imk {
+    column-gap: 16px !important;
+}

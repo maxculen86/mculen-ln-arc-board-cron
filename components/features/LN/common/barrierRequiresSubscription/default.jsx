@@ -35,8 +35,8 @@ function BarrierRequiresSubscription({
         >
             <Modal.Portal>
                 <div data-tw>
-                    <Modal.Overlay className="z-110" />
-                    <Modal.Content className="data-[open=true]:z-111 rounded-8 w-328 max-w-328 xl:w-720 xl:max-w-720 overflow-hidden bg-neutral-1 border-1 border-muted">
+                    <Modal.Overlay className="z-15001" />
+                    <Modal.Content className="data-[open=true]:z-15002 rounded-8 w-328 max-w-328 xl:w-720 xl:max-w-720 overflow-hidden bg-neutral-1 border-1 border-muted">
                         <Modal.Body>
                             <section className="flex flex-col xl:flex-row gap-32">
                                 <div className="hidden xl:flex justify-center w-full max-w-225">

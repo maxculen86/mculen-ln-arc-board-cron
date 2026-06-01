@@ -5,28 +5,37 @@ export const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 export const filterByAuthor = authors =>
     authors.filter(author => author.type === 'author');
 
+export const getAuthorsNameAndLink = authors => {
+    const author =
+        authors.length === 1 &&
+        authors.reduce((acc, val) => ({ name: val.name, link: val.link }));
+    return { author };
+};
+
 const renderAsList = (authors, position) =>
     (authors && authors.length > 1) || position === place.Bottom;
 
-export const getPropsBuilderFromContentElements = position => contentElements =>
-    position === place.Top
-        ? { authors: [], photo: null, medio: null }
-        : contentElements
-              .filter(
-                  contentElement =>
-                      contentElement.additional_properties &&
-                      contentElement.additional_properties.nodeType === 'firma'
-              )
-              .map(author => ({ name: author.content }))
-              .reduce(
-                  (accumulator, value) => ({
-                      ...accumulator,
-                      authors: [{ name: value.name }],
-                      photo: null,
-                      medio: null
-                  }),
-                  {}
-              );
+export const getPropsBuilderFromContentElements =
+    position => contentElements =>
+        position === place.Top
+            ? { authors: [], photo: null, medio: null }
+            : contentElements
+                  .filter(
+                      contentElement =>
+                          contentElement.additional_properties &&
+                          contentElement.additional_properties.nodeType ===
+                              'firma'
+                  )
+                  .map(author => ({ name: author.content }))
+                  .reduce(
+                      (accumulator, value) => ({
+                          ...accumulator,
+                          authors: [{ name: value.name }],
+                          photo: null,
+                          medio: null
+                      }),
+                      {}
+                  );
 
 export const getPropsBuilder = position => authors =>
     authors
@@ -51,31 +60,25 @@ export const getPropsBuilder = position => authors =>
             };
         })
         .reduce(
-            (accumulator, value) => {
-                return {
-                    ...accumulator,
-                    ...{
-                        authors: [
-                            ...accumulator.authors,
-                            ...[
-                                {
-                                    ...{ name: value.name },
-                                    ...{ link: value.link }
-                                }
-                            ]
+            (accumulator, value) => ({
+                ...accumulator,
+                ...{
+                    authors: [
+                        ...accumulator.authors,
+                        ...[
+                            {
+                                ...{ name: value.name },
+                                ...{ link: value.link }
+                            }
                         ]
-                    },
-                    ...{
-                        photo: renderAsList(authors, position)
-                            ? null
-                            : value.photo
-                    },
-                    ...{
-                        medio: renderAsList(authors, position)
-                            ? null
-                            : value.medio
-                    }
-                };
-            },
+                    ]
+                },
+                ...{
+                    photo: renderAsList(authors, position) ? null : value.photo
+                },
+                ...{
+                    medio: renderAsList(authors, position) ? null : value.medio
+                }
+            }),
             { authors: [], photo: null, medio: null, smth: 'credits' }
         );
