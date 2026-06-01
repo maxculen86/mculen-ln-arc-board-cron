@@ -38,6 +38,11 @@ const zocaloOptions = {
         logoAlt: 'Logo de LN Juegos',
         logoClassName: 'w-140_max512',
         label: 'ln_juegos',
+        media: {
+            type: 'video',
+            src: 'https://cdn.jwplayer.com/videos/Ry1nJgln.mp4',
+            className: 'w-210'
+        },
         descriptionProps: {
             text: 'Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.'
         }

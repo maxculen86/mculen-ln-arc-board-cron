@@ -103,7 +103,7 @@
         "@ln/contenidos-ui-text": "1.1.1",
         "@ln/contenidos-ui-timeline": "1.1.63",
         "@ln/contenidos-ui-tooltip": "0.0.5",
-        "@ln/contenidos-ui-zocalo": "0.0.6",
+        "@ln/contenidos-ui-zocalo": "0.0.7-beta.0",
         "@ln/cva": "0.0.1",
         "@ln/ds-blocks-thread": "1.1.4",
         "@ln/ds-common-avatar": "1.2.4",

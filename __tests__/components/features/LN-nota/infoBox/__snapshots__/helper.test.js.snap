@@ -29,6 +29,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "src": "https://arc-static.glanacion.com/pf/resources/images/cll-logo.webp",
     "width": undefined,
   },
+  "mediaDynamicComponent": undefined,
   "showZocalo": true,
 }
 `;
@@ -60,6 +61,17 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "className": "w-140_max512",
     "src": "https://arc-static.glanacion.com/pf/resources/images/logo-juegos.webp",
     "width": undefined,
+  },
+  "mediaDynamicComponent": {
+    "$$typeof": Symbol(react.transitional.element),
+    "_owner": null,
+    "_store": {},
+    "key": null,
+    "props": {
+      "className": "w-210",
+      "src": "https://cdn.jwplayer.com/videos/Ry1nJgln.mp4",
+    },
+    "type": [Function],
   },
   "showZocalo": true,
 }
@@ -100,6 +112,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "src": "",
     "width": 150,
   },
+  "mediaDynamicComponent": undefined,
   "showZocalo": true,
 }
 `;

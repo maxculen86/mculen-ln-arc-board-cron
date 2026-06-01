@@ -2,6 +2,7 @@ import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import getAssetsPath from '../../../private/common/utils/getAssetsPath';
 import zocaloOptions from './ZocaloConfig';
+import { getMediaComponent } from './helperMedia';
 
 export const groupNames = [
     'Violencia de genero',
@@ -95,6 +96,7 @@ const mapZocaloData = (zocaloData, deployment, contextPath) => {
             className: zocaloData.logoClassName,
             width: zocaloData.logoWidth
         },
+        mediaDynamicComponent: getMediaComponent(zocaloData.media),
         descriptionProps: zocaloData.descriptionProps,
         label: zocaloData.label
     };

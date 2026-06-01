@@ -49,6 +49,7 @@ function InfoBoxFeature({ customFields }) {
         <Zocalo
             linkProps={zocaloConfig.linkProps}
             imgProps={zocaloConfig.imgProps}
+            mediaDynamicComponent={zocaloConfig.mediaDynamicComponent}
             className="mb-32"
             logoProps={zocaloConfig.logoProps}
             descriptionProps={descriptionContent}
