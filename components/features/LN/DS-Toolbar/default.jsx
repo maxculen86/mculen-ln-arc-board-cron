@@ -28,6 +28,7 @@ import BuildAudioPlayerRender from './components/buildAudioPlayerRender';
 import useNativeShare from './hooks/useNaviteShare';
 import IaSummary from '../common/iaSummary/default';
 import useAudioPlayer from './hooks/useAudioPlayer';
+import { barrierMessages } from '../common/barrierRequiresSubscription/helper';
 
 function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const { globalContent = {}, requestUri } = useAppContext();
@@ -46,7 +47,11 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 
     const [isBarrierOpen, setIsBarrierOpen] = useState(false);
-    const openBarrier = () => setIsBarrierOpen(true);
+    const [barrierMessage, setBarrierMessage] = useState('');
+    const openBarrier = (message = '') => {
+        setBarrierMessage(message);
+        setIsBarrierOpen(true);
+    };
     const closeBarrier = () => setIsBarrierOpen(false);
 
     const { token, accessToken } = useAuthManager();
@@ -82,7 +87,7 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
         token,
         accessToken,
         globalContent,
-        openBarrier
+        openBarrier: () => openBarrier(barrierMessages.BOOKMARK)
     });
 
     const commentsData = useComments({
@@ -94,14 +99,14 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const iaSummary = useIaSummary({
         globalContent,
         suscription,
-        openBarrier,
+        openBarrier: () => openBarrier(barrierMessages.IA_SUMMARY),
         hideSummary
     });
 
     const audioButtonData = {
         variant: showVariantIa ? 'ia' : 'default',
         audioPlayerProps,
-        openBarrier,
+        openBarrier: () => openBarrier(barrierMessages.AUDIO),
         subscription: suscription
     };
 
@@ -133,6 +138,7 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
                 isOpen={isBarrierOpen}
                 isLogged={!!token}
                 closeBarrier={closeBarrier}
+                message={barrierMessage}
             />
             <div className="flex items-center gap-16">
                 <div className="flex items-center gap-8 md:gap-16">

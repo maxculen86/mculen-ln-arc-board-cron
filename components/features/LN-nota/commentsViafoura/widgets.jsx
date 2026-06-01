@@ -1,28 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import { GlobalContext } from '../../../private/common/context/globalContext';
-import { getMessageProps } from '../../../private/common/utils/commentsHelper';
-import Message from '../../../private/common/message';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
-function CommentsViafouraFeature(props) {
-    const { globalContent: { messageType = '' } = {} } = props;
+function CommentsViafouraFeature() {
     const { contextPath, deployment } = useAppContext();
-    const gc = useContext(GlobalContext);
-    const messageProps = getMessageProps(props, messageType, gc);
 
     return (
         <Static id="LN-comments">
-            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+            <HeaderComments />
             <LoadingIcon />
-            <div
-                id="comments-viafoura-container"
-                className={`viafoura${messageProps ? ' not-comment' : ''}`}
-            >
+            <div id="comments-viafoura-container" className="viafoura">
                 <vf-conversations
                     limit="15"
                     pagination-limit="30"
