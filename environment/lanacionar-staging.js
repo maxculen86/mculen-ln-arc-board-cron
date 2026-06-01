@@ -99,6 +99,7 @@ export default {
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
     // del lado del servidor. De igual forma, esta API key solo permite consultas GET a la API del buscador
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
+    API_KEY_QUERYLY_LN: '8075c0c1c4c44847',
     //   La API Key de Firebase se encuentra pública en el código de las aplicaciones,
     //   debido a que Firebase utiliza esta clave para identificar tu proyecto en lugar de autenticar peticiones.
     //   Es importante destacar que esta API Key no proporciona acceso directo a los recursos de Firebase sin la configuración adecuada de las reglas de seguridad.
