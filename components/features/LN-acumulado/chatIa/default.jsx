@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
-
 import { Thread, useChatRuntime } from '@ln/ds-blocks-thread';
 import { cx } from '@ln/ds-cva';
 import Icon from '../../ui/ln/icon/default';
@@ -25,18 +23,15 @@ import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { EjesCard } from './components/EjesCard';
 
-export function ChatLN({
-    customFields: { slugWithChat = '', hideChat = false } = {}
-}) {
-    const { globalContentConfig } = useAppContext();
-    const currentSlug = globalContentConfig?.query?.slug || '';
+export function ChatLN({ customFields: { hideChat = false } = {} }) {
     const { isSubscribed, userId } = useGetUserData(SUBSCRIBED_HELPER.LN);
     const { accessToken } = useAuthManager();
     const [showSkeleton, setShowSkeleton] = useState(true);
 
-    const hideChatIa = Boolean(useTermica('hide_chat_ia_mundial_ln'));
+    const hideChatIa = useTermica('hide_chat_ia_mundial_ln');
 
     const [sessionId, setSessionId] = useState('');
+    const [isCreatingSession, setIsCreatingSession] = useState(false);
     const [suggestedQuestions, setSuggestedQuestions] = useState(
         FALLBACK_SUGGESTED_QUESTIONS
     );
@@ -132,12 +127,22 @@ export function ChatLN({
 
     const showSuggestions = runtime.messages.length === 0 && isIdle;
 
-    const handleReset = () => {
-        runtime.setMessages([]);
-
-        runtime.setStatus('idle');
-
-        runtime.setError(null);
+    const handleReset = async () => {
+        setIsCreatingSession(true);
+        try {
+            const { session_id: newSessionId } = await createMundialSession({
+                userId,
+                accessToken
+            });
+            setSessionId(newSessionId);
+            runtime.setMessages([]);
+            runtime.setStatus('idle');
+            runtime.setError(null);
+        } catch (err) {
+            console.error('ChatLN: error creando nueva sesión', err);
+        } finally {
+            setIsCreatingSession(false);
+        }
     };
 
     useEffect(() => {
@@ -145,10 +150,6 @@ export function ChatLN({
     }, []);
 
     if (hideChatIa || hideChat) {
-        return null;
-    }
-
-    if (slugWithChat && currentSlug !== slugWithChat) {
         return null;
     }
 
@@ -253,16 +254,19 @@ export function ChatLN({
                                                 variant="outline"
                                                 color="black"
                                                 rounded="custom"
-                                                className="hover:opacity-80 rounded-4 text-secondary-default "
+                                                className="hover:opacity-80 rounded-4 text-secondary-default"
                                                 onClick={handleReset}
                                                 size={32}
+                                                disabled={isCreatingSession}
                                             >
                                                 <Icon
                                                     name="ia"
                                                     size={12}
                                                     className="text-[var(--primary-ia)]"
                                                 />
-                                                Realizar una nueva pregunta
+                                                {isCreatingSession
+                                                    ? 'Creando nueva sesión...'
+                                                    : 'Realizar una nueva pregunta'}
                                             </Button>
                                         </div>
                                     )}
@@ -293,12 +297,6 @@ export function ChatLN({
 
 ChatLN.propTypes = {
     customFields: PropTypes.shape({
-        slugWithChat: PropTypes.string.tag({
-            label: 'Slug con Chat',
-            description:
-                'Slug donde se mostrará este chat. Vacío = se muestra en todas las páginas.',
-            defaultValue: ''
-        }),
         hideChat: PropTypes.bool.tag({
             name: 'Ocultar Chat',
             description: 'Oculta completamente el chat en esta página',

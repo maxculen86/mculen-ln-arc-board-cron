@@ -19,7 +19,7 @@ describe('EjesCard', () => {
         const links = screen.getAllByRole('link');
         expect(links[0]).toHaveAttribute(
             'href',
-            'https://canchallena.lanacion.com.ar/futbol/mundial/llaves/'
+            'https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/'
         );
         expect(links[1]).toHaveAttribute(
             'href',

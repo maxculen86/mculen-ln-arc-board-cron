@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../../features/ui/ln/icon/default';
+import Icon from '../../../ui/ln/icon/default';
 
 export function EjesCard() {
     const mockEjes = [
@@ -7,7 +7,7 @@ export function EjesCard() {
             title: 'Simulador de llaves',
             description: 'Cómo quedarían los cruces',
             icon: 'merger',
-            href: 'https://canchallena.lanacion.com.ar/futbol/mundial/llaves/'
+            href: 'https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/'
         },
         {
             title: 'Fixture',

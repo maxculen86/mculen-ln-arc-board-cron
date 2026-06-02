@@ -1,15 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ChatLN from '../../../../../components/features/LN-acumulado/chatIa/default';
 import { useChatRuntime } from '@ln/ds-blocks-thread';
 import useGetUserData from '../../../../../components/private/common/auth/hooks/useGetUserData';
-
-const mockUseAppContext = jest.fn();
-
-jest.mock('fusion:context', () => ({
-    useAppContext: () => mockUseAppContext()
-}));
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: Object.assign(
@@ -89,8 +83,13 @@ jest.mock('../../../../../components/features/ui/ln/icon/default', () => ({
 
 jest.mock('../../../../../components/features/ui/ln/button/default', () => ({
     __esModule: true,
-    default: ({ children, onClick, type }) => (
-        <button data-testid="reset-button" onClick={onClick} type={type}>
+    default: ({ children, onClick, type, disabled }) => (
+        <button
+            data-testid="reset-button"
+            onClick={onClick}
+            type={type}
+            disabled={disabled}
+        >
             {children}
         </button>
     )
@@ -169,9 +168,6 @@ beforeEach(() => {
     jest.clearAllMocks();
     useChatRuntime.mockReturnValue(createRuntime());
     useGetUserData.mockReturnValue({ isSubscribed: true });
-    mockUseAppContext.mockReturnValue({
-        globalContentConfig: { query: { slug: 'default-test-slug' } }
-    });
 });
 
 describe('ChatLN', () => {
@@ -278,24 +274,49 @@ describe('ChatLN', () => {
             ).not.toBeInTheDocument();
         });
 
-        it('calls setMessages, setStatus and setError on reset click', () => {
+        it('creates new session and resets runtime on reset click', async () => {
+            const { createMundialSession } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+            createMundialSession.mockResolvedValue({
+                session_id: 'new-session-123'
+            });
+
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
             render(<ChatLN />);
             fireEvent.click(screen.getByTestId('reset-button'));
-            expect(mockSetMessages).toHaveBeenCalledWith([]);
-            expect(mockSetStatus).toHaveBeenCalledWith('idle');
-            expect(mockSetError).toHaveBeenCalledWith(null);
+
+            await waitFor(() => {
+                expect(createMundialSession).toHaveBeenCalledWith({
+                    userId: undefined,
+                    accessToken: 'mock-access-token'
+                });
+                expect(mockSetMessages).toHaveBeenCalledWith([]);
+                expect(mockSetStatus).toHaveBeenCalledWith('idle');
+                expect(mockSetError).toHaveBeenCalledWith(null);
+            });
         });
 
-        it('calls setMessages, setStatus and setError on reset click from error state', () => {
+        it('creates new session and resets runtime on reset click from error state', async () => {
+            const { createMundialSession } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+            createMundialSession.mockResolvedValue({
+                session_id: 'new-session-456'
+            });
+
             useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
             fireEvent.click(screen.getByTestId('reset-button'));
-            expect(mockSetMessages).toHaveBeenCalledWith([]);
-            expect(mockSetStatus).toHaveBeenCalledWith('idle');
-            expect(mockSetError).toHaveBeenCalledWith(null);
+
+            await waitFor(() => {
+                expect(createMundialSession).toHaveBeenCalled();
+                expect(mockSetMessages).toHaveBeenCalledWith([]);
+                expect(mockSetStatus).toHaveBeenCalledWith('idle');
+                expect(mockSetError).toHaveBeenCalledWith(null);
+            });
         });
     });
 
@@ -380,7 +401,7 @@ describe('ChatLN', () => {
     describe('customFields - hideChat', () => {
         it('hides chat when hideChat is true', () => {
             const { container } = render(
-                <ChatLN customFields={{ hideChat: true, slugWithChat: '' }} />
+                <ChatLN customFields={{ hideChat: true }} />
             );
             expect(container.firstChild).toBeNull();
         });
@@ -388,44 +409,7 @@ describe('ChatLN', () => {
         it('shows chat when hideChat is false', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             const { container } = render(
-                <ChatLN customFields={{ hideChat: false, slugWithChat: '' }} />
-            );
-            expect(container.firstChild).not.toBeNull();
-        });
-    });
-
-    describe('customFields - slugWithChat', () => {
-        it('shows chat when slugWithChat matches current page slug', () => {
-            mockUseAppContext.mockReturnValue({
-                globalContentConfig: { query: { slug: 'chat-page-slug' } }
-            });
-            const { container } = render(
-                <ChatLN
-                    customFields={{
-                        slugWithChat: 'chat-page-slug'
-                    }}
-                />
-            );
-            expect(container.firstChild).not.toBeNull();
-        });
-
-        it('hides chat when slugWithChat does not match current page slug', () => {
-            mockUseAppContext.mockReturnValue({
-                globalContentConfig: { query: { slug: 'other-page-slug' } }
-            });
-            const { container } = render(
-                <ChatLN
-                    customFields={{
-                        slugWithChat: 'chat-page-slug'
-                    }}
-                />
-            );
-            expect(container.firstChild).toBeNull();
-        });
-
-        it('shows chat when slugWithChat is empty (show everywhere)', () => {
-            const { container } = render(
-                <ChatLN customFields={{ slugWithChat: '', hideChat: false }} />
+                <ChatLN customFields={{ hideChat: false }} />
             );
             expect(container.firstChild).not.toBeNull();
         });
@@ -454,7 +438,7 @@ describe('ChatLN', () => {
             ).default;
             useTermica.mockImplementation(() => 'true');
             const { container } = render(
-                <ChatLN customFields={{ hideChat: false, slugWithChat: '' }} />
+                <ChatLN customFields={{ hideChat: false }} />
             );
             expect(container.firstChild).toBeNull();
         });
