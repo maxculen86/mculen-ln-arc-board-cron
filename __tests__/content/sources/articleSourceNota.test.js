@@ -444,6 +444,31 @@ describe('Article source nota - gallery embed', () => {
         );
     });
 
+    it('should omit gallery-embed when gallerySource request fails', async () => {
+        mockRequestResponse.mockReturnValue(
+            buildFetchResponse({
+                ...responseFotoAl100,
+                content_elements: [galleryEmbedElement]
+            })
+        );
+
+        const cachedCall = jest.fn((cacheKey = '') => {
+            if (cacheKey === 'gallerySource') {
+                return Promise.reject({
+                    message: 'HTTP error! status: 404 Not Found',
+                    statusCode: 404
+                });
+            }
+
+            return Promise.resolve({ hash: 'signed-image' });
+        });
+
+        const response = await articleSourceFetch(query, { cachedCall });
+
+        expect(response.content_elements[0]).toEqual({});
+        expect(response.headlines).toEqual(responseFotoAl100.headlines);
+    });
+
     it('should keep gallery-embed inert for non Foto al 100 notes', async () => {
         mockRequestResponse.mockReturnValue(
             buildFetchResponse({
