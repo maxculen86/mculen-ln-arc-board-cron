@@ -11,6 +11,39 @@ jest.mock('fusion:properties', () => () => ({
     getProperties: () => []
 }));
 
+jest.mock(
+    '../../../../../components/private/common/utils/dateAndTimeUtil',
+    () => {
+        const actual = jest.requireActual(
+            '../../../../../components/private/common/utils/dateAndTimeUtil'
+        );
+        const dateFormatter = new Intl.DateTimeFormat('es-AR', {
+            day: 'numeric',
+            month: 'long',
+            timeZone: 'America/Argentina/Buenos_Aires',
+            year: 'numeric'
+        });
+        const timeFormatter = new Intl.DateTimeFormat('es-AR', {
+            hour: '2-digit',
+            hour12: false,
+            minute: '2-digit',
+            timeZone: 'America/Argentina/Buenos_Aires'
+        });
+
+        return {
+            __esModule: true,
+            ...actual,
+            default: jest.fn(displayDate => {
+                const date = new Date(displayDate);
+                return {
+                    date: dateFormatter.format(date),
+                    time: timeFormatter.format(date)
+                };
+            })
+        };
+    }
+);
+
 jest.mock('fusion:context', Component => {
     return function (Component) {
         return props => <Component {...props} />;

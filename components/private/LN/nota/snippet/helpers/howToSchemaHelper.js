@@ -1,6 +1,6 @@
 import get from '../../../../common/utils/get';
 import { extractDataFromPromoItems } from '../../../common/utils/extractDataFromPromoItems';
-import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../../../common/utils/image/resizer/v2/resizerHelper';
 
 export const getSchemaImages = ({ promoItems = {} }) => {
     const promoItemsWithWWW = {

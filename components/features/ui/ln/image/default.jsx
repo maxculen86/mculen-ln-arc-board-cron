@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Image as CommonImage } from '@ln/ds-common-image';
 import { cx } from '@ln/ds-cva';
+import { replaceResizerBaseUrl } from '../../../../private/common/utils/image/resizer/v2/resizerHelper';
 
 /**
  * @typedef {import('@ln/ds-common-image').ImageProps} ImageProps
@@ -10,6 +11,19 @@ import { cx } from '@ln/ds-cva';
  * @param {ImageProps} props
  * @returns {React.ReactElement}
  */
+const replaceResizerSrcSet = (srcSet = '') =>
+    typeof srcSet === 'string'
+        ? srcSet
+              .split(',')
+              .map(entry => {
+                  const [url, ...descriptors] = entry.trim().split(/\s+/);
+                  return [replaceResizerBaseUrl({ url }), ...descriptors]
+                      .filter(Boolean)
+                      .join(' ');
+              })
+              .join(', ')
+        : srcSet;
+
 function Image({
     className,
     classnames,
@@ -20,6 +34,24 @@ function Image({
     ...props
 }) {
     const imageRef = useRef(null);
+    const normalizedSources = Array.isArray(sources)
+        ? sources.map(source => ({
+              ...source,
+              ...(source.srcSet && {
+                  srcSet: replaceResizerSrcSet(source.srcSet)
+              }),
+              ...(source.srcset && {
+                  srcset: replaceResizerSrcSet(source.srcset)
+              })
+          }))
+        : sources;
+    const normalizedProps = {
+        ...props,
+        ...(props.src && { src: replaceResizerBaseUrl({ url: props.src }) }),
+        ...(props.srcSet && {
+            srcSet: replaceResizerSrcSet(props.srcSet)
+        })
+    };
 
     // TODO: implementar estado en la lib @ln/ds-common-image, tenemos esto provisorio ya que no esta ejecutando el onError correctamente cuando rehidrata el componente.
     const [error, setError] = useState(false);
@@ -47,7 +79,7 @@ function Image({
                 decoding="async"
                 className={imageClassName}
                 style={{ objectFit, ...style }}
-                {...props}
+                {...normalizedProps}
             />
         );
     }
@@ -56,7 +88,7 @@ function Image({
         <CommonImage
             ref={imageRef}
             objectFit={objectFit}
-            sources={sources}
+            sources={normalizedSources}
             classnames={{
                 image: imageClassName,
                 placeholder: cx(
@@ -66,7 +98,7 @@ function Image({
                 wrapper: cx('h-full w-full', classnames?.wrapper)
             }}
             style={style}
-            {...props}
+            {...normalizedProps}
         />
     );
 }

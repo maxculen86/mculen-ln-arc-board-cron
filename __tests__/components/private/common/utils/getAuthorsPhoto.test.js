@@ -1,5 +1,11 @@
 import getAuthorsPhoto from '../../../../../components/private/common/utils/getAuthorsPhoto';
 
+jest.mock('fusion:environment', () => ({
+    __esModule: true,
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+    SITE_LANACION: 'https://sandbox.lanacion.com.ar'
+}));
+
 describe('getAuthorsPhoto test', () => {
     const author1 = {
         credits: {
@@ -72,12 +78,12 @@ describe('getAuthorsPhoto test', () => {
 
         expect(photoCarlos.resized_urls.length).toBe(1);
         expect(photoCarlos.url).toBe(
-            'https://resizer.glanacion.com/resizer/PNjDoOm_Gkxjqpjax5_jKzkLX6k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+            'https://sandbox.lanacion.com.ar/resizer/PNjDoOm_Gkxjqpjax5_jKzkLX6k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
         );
         expect(photoJoaquin).toBe(null);
         expect(photoJorge.resized_urls.length).toBe(2);
         expect(photoJorge.url).toBe(
-            'https://resizer.glanacion.com/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png'
+            'https://sandbox.lanacion.com.ar/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png'
         );
     });
 });

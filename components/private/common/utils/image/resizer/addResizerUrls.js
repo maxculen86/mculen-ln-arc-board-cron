@@ -64,7 +64,8 @@ export const addResizedUrls = (ansDoc, options) => {
             credits: resizeCredits({
                 credits,
                 resizeOptions: presetsCredits || presetsDefault,
-                isInApertura: avatarWWW
+                isInApertura: avatarWWW,
+                arcSite
             })
         })
     };
