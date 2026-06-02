@@ -1,16 +1,17 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
-function BreadcrumbDistributor({ name, canonicalUrl, host }) {
+function BreadcrumbDistributor({ name, requestUri }) {
     const sections = [
         {
-            path: host || '/',
+            path: SITE_LANACION || '/',
             name: 'LA NACION'
         },
         {
-            path: canonicalUrl,
+            path: requestUri,
             name
         }
     ];
@@ -18,7 +19,7 @@ function BreadcrumbDistributor({ name, canonicalUrl, host }) {
     return (
         <>
             <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
-            <BreadCrumbSchema sections={sections} host={host} />
+            <BreadCrumbSchema sections={sections} />
         </>
     );
 }

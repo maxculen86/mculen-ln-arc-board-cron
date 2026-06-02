@@ -26,11 +26,10 @@ const renderBreadcrumbAutor = (globalContent, host) => (
     <BreadcrumbAutor author={globalContent} host={host} />
 );
 
-const renderBreadcrumbDistributor = (globalContent, host) => (
+const renderBreadcrumbDistributor = (globalContent, requestUri) => (
     <BreadcrumbDistributor
         name={globalContent.name || ''}
-        canonicalUrl={globalContent.canonical_url}
-        host={host}
+        requestUri={requestUri}
     />
 );
 const renderBreadcrumbColumnista = (host, requestUri) => (
@@ -71,7 +70,7 @@ function isRender(
         return renderBreadcrumbSection(globalContent, host, colorCategory);
 
     if (nodeType === 'distributor')
-        return renderBreadcrumbDistributor(globalContent, host);
+        return renderBreadcrumbDistributor(globalContent, requestUri);
 
     if (byline) return renderBreadcrumbAutor(globalContent, host);
 
