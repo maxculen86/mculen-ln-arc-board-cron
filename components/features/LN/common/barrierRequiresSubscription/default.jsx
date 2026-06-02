@@ -5,10 +5,11 @@ import Divider from '../../../ui/ln/divider/default';
 import Image from '../../../ui/ln/image/default';
 import Button from '../../../ui/ln/button/default';
 import Link from '../../../ui/ln/link/default';
-import BadgeBanner from '../bannerMessage/components/badgeBanner';
-import { configBadgeSuscriptor } from '../bannerMessage/bannerHelper';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import { buttonData, loggedData, unLoggedData } from './helper';
+import BadgeBanner, {
+    propsBadgeOnlySubscriptor
+} from '../bannerMessage/components/badgeBanner';
 
 function BarrierRequiresSubscription({
     isOpen = false,
@@ -25,6 +26,11 @@ function BarrierRequiresSubscription({
     const footerData = isLogged ? loggedData : unLoggedData;
 
     const { text, textLink, href } = footerData;
+
+    const badgeProps = {
+        ...propsBadgeOnlySubscriptor,
+        size: 32
+    };
 
     return (
         <Modal
@@ -48,10 +54,7 @@ function BarrierRequiresSubscription({
                                     />
                                 </div>
                                 <div className="flex flex-col gap-16 px-16 py-32 items-center justify-center xl:pl-0 xl:pr-32">
-                                    <BadgeBanner
-                                        {...configBadgeSuscriptor}
-                                        size={32}
-                                    />
+                                    <BadgeBanner {...badgeProps} />
                                     <Divider className="max-w-100" />
                                     <h3 className="font-secondary text-heading-sm font-bold text-center">
                                         {message}
@@ -62,9 +65,9 @@ function BarrierRequiresSubscription({
                                         textTransform="uppercase"
                                         aria-label={buttonData.text}
                                     >
-                                        <Link href={buttonData.href}>
+                                        <a href={buttonData.href}>
                                             {buttonData.text}
-                                        </Link>
+                                        </a>
                                     </Button>
                                     <p className="flex flex-wrap justify-center gap-8 text-body-md text-center">
                                         {text}

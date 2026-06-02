@@ -1,12 +1,29 @@
 import React from 'react';
 import Badge from '../../../../ui/ln/badge/default';
 import Icon from '../../../../ui/ln/icon/default';
+import IconSubscribe from '../../iconSubscribe/default';
+
+export const propsBadgeOnlySubscriptor = {
+    color: 'custom',
+    textTransform: 'none',
+    iconData: {
+        customIcon: (
+            <IconSubscribe
+                containerProps={{
+                    withBorder: false
+                }}
+            />
+        ),
+        position: 'left'
+    },
+    text: 'Suscriptores'
+};
 
 function BadgeBanner(data) {
     const { text, iconData, ...badge } = data;
-    const { position, ...icon } = iconData || {};
+    const { position, customIcon, ...icon } = iconData || {};
 
-    const iconComponent = iconData && <Icon {...icon} />;
+    const iconComponent = customIcon || (iconData && <Icon {...icon} />);
 
     const iconLeft = position === 'left' && iconComponent;
     const iconRight = position === 'right' && iconComponent;
