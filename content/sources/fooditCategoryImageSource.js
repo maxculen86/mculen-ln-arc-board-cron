@@ -20,8 +20,7 @@ const transform = async (data, siteProps, cachedCall) => {
             {
                 presets: {
                     promoItems: presetsPromoItems
-                },
-                arcSite: 'foodit'
+                }
             }
         )
     };

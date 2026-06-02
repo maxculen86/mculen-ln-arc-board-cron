@@ -77,8 +77,7 @@ export const transform = async (data, siteProps, cachedCall) => {
                     presets: {
                         promoItems: presetsPromoItems
                     },
-                    subtype,
-                    arcSite: 'foodit'
+                    subtype
                 });
 
                 return {

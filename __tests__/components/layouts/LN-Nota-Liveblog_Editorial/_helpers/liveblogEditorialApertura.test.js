@@ -56,19 +56,14 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/private/common/utils/image/resizer/v2/resizerHelper',
-    () => {
-        const replaceUrlResizerToWWW = jest.fn(mediaData => ({
+    '../../../../../content/sources/utils/replaceUrlResizerToWWW',
+    () => ({
+        __esModule: true,
+        default: jest.fn(mediaData => ({
             ...mediaData,
             resized_urls: [{ option: 'default', url: 'resized.jpg' }]
-        }));
-
-        return {
-            __esModule: true,
-            default: replaceUrlResizerToWWW,
-            replaceUrlResizerToWWW
-        };
-    }
+        }))
+    })
 );
 
 jest.mock(

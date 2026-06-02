@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 import videoPosterFilter from '../../../../../../../../content/filters/LN/home/LN10/videoPosterFilter';
 import isSSR from '../../../../../../LN/common/utils/isSSR';
 import { checkForId } from '../index';
-import { replaceUrlResizerToWWW } from '../../../resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from '../../../../get';
 
 const useGetVideoPosterResized = ({

@@ -13,27 +13,18 @@ jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
     jest.fn()
 );
 
-jest.mock(
-    '../../../../components/private/common/utils/image/resizer/v2/resizerHelper',
-    () => {
-        const replaceUrlResizerToWWW = jest.fn(image => ({
-            ...image,
-            url: 'https://sandbox.lanacion.com.ar/mock-www-url.jpeg',
-            resized_urls: [
-                {
-                    resizedUrl:
-                        'https://sandbox.lanacion.com.ar/mock-www-resized.jpeg',
-                    option: { width: 200, height: 150 }
-                }
-            ]
-        }));
-
-        return {
-            __esModule: true,
-            default: replaceUrlResizerToWWW,
-            replaceUrlResizerToWWW
-        };
-    }
+jest.mock('../../../../content/sources/utils/replaceUrlResizerToWWW', () =>
+    jest.fn(image => ({
+        ...image,
+        url: 'https://sandbox.lanacion.com.ar/mock-www-url.jpeg',
+        resized_urls: [
+            {
+                resizedUrl:
+                    'https://sandbox.lanacion.com.ar/mock-www-resized.jpeg',
+                option: { width: 200, height: 150 }
+            }
+        ]
+    }))
 );
 
 jest.mock(

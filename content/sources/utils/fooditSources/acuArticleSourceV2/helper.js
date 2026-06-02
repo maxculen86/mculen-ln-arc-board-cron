@@ -5,7 +5,6 @@ import { addResizedUrls } from '../../../../../components/private/common/utils/i
 
 export const transformFooditAcu = async (response, query, cachedCall) => {
     const { content_elements: contentElements = [] } = response;
-    const arcSite = get(query, 'arc-site', 'foodit');
 
     const transformedElements = await Promise.all(
         contentElements.map(async elem => {
@@ -28,7 +27,7 @@ export const transformFooditAcu = async (response, query, cachedCall) => {
                             subtype: getArticleSubtype(
                                 get(elem, 'subtype', null)
                             ),
-                            arcSite
+                            arcSite: query['arc-site']
                         }
                     )
                 };

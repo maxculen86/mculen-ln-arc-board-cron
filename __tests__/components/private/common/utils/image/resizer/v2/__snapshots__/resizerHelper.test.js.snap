@@ -9,7 +9,7 @@ exports[`Tests resizer helper When is not admin and is not isInapertura resizeUr
       "proportion": "3:2",
       "width": 309,
     },
-    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=309&height=206&quality=70&smart=true",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=309&height=206&quality=70&smart=true",
   },
   {
     "option": {
@@ -18,7 +18,7 @@ exports[`Tests resizer helper When is not admin and is not isInapertura resizeUr
       "proportion": "3:2",
       "width": 351,
     },
-    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=351&height=234&quality=70&smart=true",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=351&height=234&quality=70&smart=true",
   },
   {
     "option": {
@@ -27,7 +27,7 @@ exports[`Tests resizer helper When is not admin and is not isInapertura resizeUr
       "proportion": "3:2",
       "width": 768,
     },
-    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=768&height=512&quality=70&smart=true",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=768&height=512&quality=70&smart=true",
   },
   {
     "option": {
@@ -37,7 +37,7 @@ exports[`Tests resizer helper When is not admin and is not isInapertura resizeUr
       "proportion": "3:2",
       "width": 879,
     },
-    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=879&height=586&quality=70&smart=true",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=879&height=586&quality=70&smart=true",
   },
   {
     "option": {
@@ -46,7 +46,7 @@ exports[`Tests resizer helper When is not admin and is not isInapertura resizeUr
       "proportion": "3:2",
       "width": 1200,
     },
-    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=1200&height=800&quality=70&smart=true",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=1200&height=800&quality=70&smart=true",
   },
 ]
 `;
@@ -79,7 +79,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "proportion": "3:2",
         "width": 309,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=70&smart=true",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=70&smart=true",
     },
     {
       "option": {
@@ -88,7 +88,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "proportion": "3:2",
         "width": 351,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=351&height=234&quality=70&smart=true",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=351&height=234&quality=70&smart=true",
     },
     {
       "option": {
@@ -97,7 +97,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "proportion": "3:2",
         "width": 768,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=512&quality=70&smart=true",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=512&quality=70&smart=true",
     },
     {
       "option": {
@@ -107,7 +107,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "proportion": "3:2",
         "width": 879,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=879&height=586&quality=70&smart=true",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=879&height=586&quality=70&smart=true",
     },
     {
       "option": {
@@ -116,7 +116,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "proportion": "3:2",
         "width": 1200,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&height=800&quality=70&smart=true",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&height=800&quality=70&smart=true",
     },
   ],
   "resized_urls_zoom": [
@@ -126,7 +126,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "media": "(min-width: 1280px)",
         "width": 1920,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1920&quality=70&smart=false",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1920&quality=70&smart=false",
     },
     {
       "option": {
@@ -134,7 +134,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "media": "(min-width: 1024px)",
         "width": 1200,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&quality=70&smart=false",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&quality=70&smart=false",
     },
     {
       "option": {
@@ -142,7 +142,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "media": "(min-width: 768px)",
         "width": 1023,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1023&quality=70&smart=false",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1023&quality=70&smart=false",
     },
     {
       "option": {
@@ -150,7 +150,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "media": "(min-width: 360px)",
         "width": 768,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&quality=70&smart=false",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&quality=70&smart=false",
     },
     {
       "option": {
@@ -158,7 +158,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
         "media": "(min-width: 320px)",
         "width": 360,
       },
-      "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=360&quality=70&smart=false",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=360&quality=70&smart=false",
     },
   ],
   "source": {
@@ -169,7 +169,7 @@ exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
     "system": "photo center",
   },
   "type": "image",
-  "url": "https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&quality=70&smart=false",
+  "url": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&quality=70&smart=false",
   "width": 768,
 }
 `;

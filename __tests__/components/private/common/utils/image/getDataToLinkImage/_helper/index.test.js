@@ -408,17 +408,11 @@ describe('getDataToLinkImage - _helper', () => {
 
         it('should map resized_urls preserving media_preload from source', () => {
             const result = getResizerUrlJw(promoItemsFromSource);
-            const canonicalizeUrl = url =>
-                url.replace(
-                    'https://sandbox-resizer.glanacion.com',
-                    'https://www.lanacion.com.ar'
-                );
 
             expect(result).toStrictEqual([
                 {
-                    resizedUrl: canonicalizeUrl(
-                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=510&quality=70&smart=false'
-                    ),
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=510&quality=70&smart=false',
                     option: {
                         media_preload: '(max-width: 511px)',
                         minScreenWidth: 0,
@@ -427,9 +421,8 @@ describe('getDataToLinkImage - _helper', () => {
                     }
                 },
                 {
-                    resizedUrl: canonicalizeUrl(
-                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=767&quality=70&smart=false'
-                    ),
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=767&quality=70&smart=false',
                     option: {
                         media_preload:
                             '(min-width: 512px) and (max-width: 767px)',
@@ -439,9 +432,8 @@ describe('getDataToLinkImage - _helper', () => {
                     }
                 },
                 {
-                    resizedUrl: canonicalizeUrl(
-                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1023&quality=70&smart=false'
-                    ),
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1023&quality=70&smart=false',
                     option: {
                         media_preload:
                             '(min-width: 768px) and (max-width: 1023px)',
@@ -451,9 +443,8 @@ describe('getDataToLinkImage - _helper', () => {
                     }
                 },
                 {
-                    resizedUrl: canonicalizeUrl(
-                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1279&quality=70&smart=false'
-                    ),
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1279&quality=70&smart=false',
                     option: {
                         media_preload:
                             '(min-width: 1024px) and (max-width: 1279px)',
@@ -463,9 +454,8 @@ describe('getDataToLinkImage - _helper', () => {
                     }
                 },
                 {
-                    resizedUrl: canonicalizeUrl(
-                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1366&quality=70&smart=false'
-                    ),
+                    resizedUrl:
+                        'https://sandbox-resizer.glanacion.com/resizer/v2/https%3A%2F%2Fcdn.jwplayer.com%2Fv2%2Fmedia%2FEUDawMqd%2Fposter.jpg%3Fwidth%3D720?auth=d63bd5d4f02320451df0aa7a2a841e08edbd6c1915da0277fe5f9504af58864b&width=1366&quality=70&smart=false',
                     option: {
                         media_preload:
                             '(min-width: 1280px) and (max-width: 1366px)',

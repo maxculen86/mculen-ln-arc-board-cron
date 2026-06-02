@@ -78,8 +78,7 @@ const fetch = async (query, { cachedCall } = {}) => {
                             auth: { 1: get(signingResponse, 'hash') },
                             type: 'image'
                         },
-                        defaultResizeWithSmart: imagePreset,
-                        arcSite: 'foodit'
+                        defaultResizeWithSmart: imagePreset
                     })
                 }
             })

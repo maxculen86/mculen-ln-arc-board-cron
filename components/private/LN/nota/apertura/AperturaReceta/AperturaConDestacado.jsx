@@ -3,7 +3,7 @@ import Tags from '../tags';
 import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
 import Media from '../../../common/media';
-import { replaceUrlResizerToWWW } from '../../../../common/utils/image/resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from '../../../../common/utils/get';
 
 function AperturaConDestacado(props) {

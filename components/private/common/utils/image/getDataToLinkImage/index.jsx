@@ -12,7 +12,7 @@ import {
     replaceAllUrlsResizerObject
 } from '../../../../LN/common/utils/mediaHelper';
 import { buildOpeningImage } from '../../../../LN/common/utils/openingImageHelper';
-import { replaceUrlResizerToWWW } from '../resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import capitalizeFirstLetter from '../../capitalizeFirstLetter';
 import ImagePreloadlAcu from '../../../../LN/acumulado/imagePreloadAcu';
 import {

@@ -1,11 +1,9 @@
 import React from 'react';
 import { preload } from 'react-dom';
+import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
-import {
-    replaceResizerBaseUrl,
-    replaceUrlResizerToWWW
-} from '../../../common/utils/image/resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const optionWidth = 'option.width';
 const DEFAULT_WIDTH = undefined;
@@ -213,12 +211,11 @@ export const wikiImagesWithWWW = data => {
 };
 
 export const replaceAllUrlsResizerObject = (object = {}) => {
-    const resizersReplaced = JSON.stringify(object);
-    return JSON.parse(resizersReplaced, (key, value) =>
-        typeof value === 'string'
-            ? replaceResizerBaseUrl({ url: value })
-            : value
-    );
+    const host = SITE_LANACION || 'https://www.lanacion.com.ar';
+    const resizersReplaced = JSON.stringify(object)
+        .split(RESIZER_URL_PUBLIC)
+        .join(host);
+    return JSON.parse(resizersReplaced);
 };
 
 export const replaceAllUrlsResizerArray = (array = []) =>

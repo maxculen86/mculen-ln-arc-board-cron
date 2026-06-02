@@ -2,7 +2,7 @@ import { SITE_LANACION } from 'fusion:environment';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import textSelector from '../../../private/common/utils/recetaDictionary';
 import get from '../../../private/common/utils/get';
-import { replaceUrlResizerToWWW } from '../../../private/common/utils/image/resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 export const setTitle = (
     replaceTitle,

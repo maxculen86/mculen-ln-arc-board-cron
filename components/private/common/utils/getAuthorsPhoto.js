@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-nested-ternary */
 import get from './get';
-import { replaceUrlResizerToWWW } from './image/resizer/v2/resizerHelper';
 
 const getAuthorsPhoto = article => {
     const authors = get(article, 'credits.by', []);
@@ -13,14 +12,14 @@ const getAuthorsPhoto = article => {
     const urlsResizes = get(authorWithPhoto, `${imageResizedUrl}`, []);
     const altText = get(authorWithPhoto, 'alt_text', '');
     if (urlsResizes.length === 0) return null;
-    return replaceUrlResizerToWWW({
+    return {
         height: 80,
         resized_urls: get(authorWithPhoto, `${imageResizedUrl}`, []),
         type: 'image',
         alt_text: altText,
         url: urlsResizes.length > 0 ? urlsResizes[0].resizedUrl : null,
         width: 80
-    });
+    };
 };
 
 export default getAuthorsPhoto;

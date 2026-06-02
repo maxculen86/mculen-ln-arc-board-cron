@@ -70,8 +70,7 @@ const transform = (data, siteProps, resultsIds) => {
                         // Se pasa el subtype para que las notas de foto al 100
                         // y storytelling no sean excluidas de las validaciones del resizer
                         // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                        arcSite: get(siteProps, 'arc-site', 'lanacionar')
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
                     }
                 )
             };

@@ -43,8 +43,7 @@ const transform = (authorsData, query, creditHash) => {
                   auth: { 1: creditHash },
                   type: 'image'
               },
-              defaultResizeWithSmart: imagePreset,
-              arcSite
+              defaultResizeWithSmart: imagePreset
           })
         : null;
 

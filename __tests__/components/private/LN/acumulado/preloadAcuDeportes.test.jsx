@@ -79,10 +79,7 @@ describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
         expect(preload).toHaveBeenCalledTimes(resizedUrls.length);
         resizedUrls.forEach(({ resizedUrl, option }) => {
             expect(preload).toHaveBeenCalledWith(
-                resizedUrl.replace(
-                    'https://resizer.glanacion.com',
-                    'https://www.lanacion.com.ar'
-                ),
+                resizedUrl,
                 expect.objectContaining({
                     as: type,
                     fetchPriority: 'high',
