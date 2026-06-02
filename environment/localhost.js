@@ -18,7 +18,6 @@ export default {
     // API_KEY_QUERYLY se deja sin encriptar para que esté disponible en el cliente
     // Esta clave es de solo lectura (GET requests) y es segura para exponer
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
-    API_KEY_QUERYLY_LN: '8075c0c1c4c44847',
     RESIZER_URL: 'https://sandbox-resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     // Fin variables de sandbox

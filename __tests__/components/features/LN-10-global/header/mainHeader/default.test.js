@@ -2,36 +2,26 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import MainHeaderLN from '../../../../../../components/features/LN-10-global/header/mainHeader/default';
+import Context from 'fusion:context';
 
-jest.mock(
-    '../../../../../../components/features/LN-10-global/header/context',
-    () => ({
-        useHeaderContext: jest.fn(() => ({
-            wrapperMainHeaderClassNames: 'wrapper-class',
-            mainHeaderClassNames: 'main-header-class',
-            mainHeaderContentClassNames: 'content-class',
-            centerOptionsClassNames: 'center-options-class',
-            loading: false,
-            negative: false,
-            userType: 'unlogged',
-            userName: '',
-            userEmail: '',
-            userLastName: '',
-            isHome: false,
-            sticky: false,
-            goToLoginUrl: jest.fn()
-        })),
-        HeaderContext: {},
-        HeaderProvider: ({ children }) => children
-    })
-);
-
+jest.mock('react', () => {
+    const ActualReact = jest.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({
+            state: {
+                loginData: {
+                    subscription: true
+                }
+            },
+            dispatch: jest.fn()
+        })
+    };
+});
 jest.mock('fusion:environment', () => {
     return {
         SITE_LANACION: 'https://www.lanacion.com.ar',
-        MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar',
-        LOGIN_URL:
-            'https://ingresar.lanacion.com.ar/login/ingresar/D/1/?callback='
+        MY_ACCOUNT_URL: 'https://micuenta.lanacion.com.ar'
     };
 });
 
@@ -67,14 +57,11 @@ jest.mock(
     }
 );
 
-jest.mock(
-    '../../../../../../components/features/LN-10-global/header/mainHeader/components/SearchLN',
-    () => {
-        return jest.fn(() => <div id="mock-search-ln" />);
-    }
-);
-
 describe('components - features - LN-10-global - header - mainHeader - default', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn()
+    }));
+
     it('should render successfully', () => {
         const { baseElement } = render(<MainHeaderLN />);
         expect(baseElement).toBeTruthy();

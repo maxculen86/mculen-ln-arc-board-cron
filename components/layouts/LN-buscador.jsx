@@ -1,8 +1,8 @@
-// TODO: eliminar template por camino normal para el proximo release.
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
+import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import createTagsTitleAndMetas from '../private/common/utils/lnBuscadorHelper';
@@ -31,7 +31,15 @@ function lnBuscador({
             <div id="wrapper" className="wrapper --top-fixed buscador">
                 <Header />
                 <main id="content" className="--header-fixed-margin">
-                    <div className="lay">{children[0]}</div>
+                    <div className="lay">
+                        <ComTitle
+                            tag="h1"
+                            content={`Estos son los resultados que encontramos para la búsqueda que realizaste de: ${searchResults}`}
+                            size="--threexl"
+                            weight="--font-extra"
+                        />
+                        {children[0]}
+                    </div>
                 </main>
                 <div className="footer-container --no-app">
                     <Footer />

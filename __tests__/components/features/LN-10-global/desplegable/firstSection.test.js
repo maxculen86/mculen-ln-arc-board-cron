@@ -12,18 +12,17 @@ jest.mock(
 );
 
 describe('components - features - LN-10-global - desplegable - search', () => {
-    it('should render the search input component', () => {
-        const { getByRole } = render(<FirstSection />);
-        const searchInput = getByRole('searchbox');
-        expect(searchInput).toBeInTheDocument();
+    it('should render the search component with the "label" tag and the htmlFor attribute for the queryly functionality', () => {
+        const { container } = render(<FirstSection />);
+        const search = container.querySelector('label');
+        expect(search).toBeInTheDocument();
+        expect(search).toHaveAttribute('for', 'queryly_toggle');
     });
 
-    it('should call the addEventToDataLayerV2 function when the search button is clicked with a query', () => {
-        const { getByRole } = render(<FirstSection />);
-        const searchInput = getByRole('searchbox');
-        fireEvent.change(searchInput, { target: { value: 'dolar' } });
-        const searchBtn = getByRole('button', { name: /ir al buscador/i });
-        fireEvent.click(searchBtn);
+    it('should call the addEventToDataLayerV2 function when the search component is clicked', () => {
+        const { container } = render(<FirstSection />);
+        const search = container.querySelector('label');
+        fireEvent.click(search);
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: 'e_linkclick',
             action: 'menu_secciones',

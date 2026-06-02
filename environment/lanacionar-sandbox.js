@@ -89,7 +89,6 @@ export default {
     // API_KEY_QUERYLY se deja publica debido a que se usa del lado del cliente, y ARC solo desencripta
     // del lado del servidor. De igual forma, esta API key solo permite consultas GET a la API del buscador
     API_KEY_QUERYLY: '2bf85a66b5f04de9',
-    API_KEY_QUERYLY_LN: '8075c0c1c4c44847',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
     SITIO_SEGURO_REGISTRACION: 'https://qa-suscripciones.lanacion.com.ar',
     API_KEY_MINIWALL: 'e17xv5dvp1wrlqygpvh6bjtb0bhrtfkb7q0m',
