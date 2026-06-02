@@ -1,13 +1,13 @@
 import React from 'react';
 import SectionButton from './SectionButton';
-import InputSearch from '../../../../../../LN-10-global/header/mainHeader/components/SearchLN';
+import SearchButton from './SearchButton';
 
-function LeftOptions({ isOpen, setIsOpen }) {
+function LeftOptions() {
     return (
-        <div className="flex items-center xl:h-48">
+        <>
             <SectionButton />
-            <InputSearch isOpen={isOpen} setIsOpen={setIsOpen} />
-        </div>
+            <SearchButton />
+        </>
     );
 }
 
