@@ -4,11 +4,17 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
+import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
+
+const EXCLUDED_SCRIPTS_BY_SECTION = {
+    '/estados-unidos': ['oneTag']
+};
 
 function TagsLoadingList({
     arcSite: website = 'la-nacion-ar',
     location = 'body-bottom',
     section = '',
+    requestUri = '',
     Tag,
     globalContent = {}
 }) {
@@ -69,7 +75,13 @@ function TagsLoadingList({
             const sectionActive = section === _section || _section === 'all';
             const uniqueKey = `${_location}-${_section}-${scriptData.src || scriptConfig.substring(0, 50)}-${index}`;
 
+            const currentSection = getSectionOfRequestUri(requestUri);
+            const excludedScripts =
+                EXCLUDED_SCRIPTS_BY_SECTION[`/${currentSection}`] || [];
+            const shouldExclude = excludedScripts.includes(scriptData.id);
+
             return (
+                !shouldExclude &&
                 sectionActive &&
                 location === _location && (
                     <Tag {...scriptData} key={uniqueKey} />

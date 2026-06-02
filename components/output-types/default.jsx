@@ -204,6 +204,7 @@ function Default(props) {
                 <Scripts location="head" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
+                    requestUri={requestUri}
                     location="head"
                     arcSite={arcSite}
                     Tag="script"
@@ -305,6 +306,7 @@ function Default(props) {
                 <Scripts location="body-top" />
                 <TagsLoadingList
                     section={_nodeType}
+                    requestUri={requestUri}
                     location="body-top"
                     arcSite={arcSite}
                     Tag="script"
@@ -319,6 +321,7 @@ function Default(props) {
                 />
                 <TagsLoadingList
                     section={_nodeType}
+                    requestUri={requestUri}
                     location="body-bottom"
                     arcSite={arcSite}
                     Tag="script"
