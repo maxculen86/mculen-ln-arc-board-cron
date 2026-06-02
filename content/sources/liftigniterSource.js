@@ -171,6 +171,7 @@ const getUrlsbyIds = async (query, cachedCall) => {
 export const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
+    const arcSite = get(siteProps, 'arc-site', 'lanacionar');
 
     return data.map(elem => {
         const promoItems = get(elem, `promo_items`, null);
@@ -211,7 +212,8 @@ export const transform = (data, siteProps) => {
                       // Se pasa el subtype para que las notas de foto al 100
                       // y storytelling no sean excluidas de las validaciones del resizer
                       // y pueda aplicarse 3:2, focal point o smartcrop
-                      subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                      subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                      arcSite
                   }
               )
             : { promo_items: { basic: {} } };

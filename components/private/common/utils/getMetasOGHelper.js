@@ -1,6 +1,6 @@
 import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
-import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from './image/resizer/v2/resizerHelper';
 import { getSectionOfRequestUri } from './outputTypeHelper';
 import get from './get';
 import transformISODate from './transformISODate';

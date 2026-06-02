@@ -4,6 +4,7 @@ import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 import { getAuthTokens } from '../auth/helper/loginHelper';
 import { TOAST_CONFIG } from '../../../features/LN-10-global/common/toasts/helpers';
+import { replaceResizerBaseUrl } from './image/resizer/v2/resizerHelper';
 
 export function getBookmarkContent(globalContent) {
     const regexResizerUrl =
@@ -56,7 +57,9 @@ export function getBookmarkContent(globalContent) {
         };
     });
 
-    const absoluteUrl = imageUrl.replace(regexResizerUrl, '$1$2$3v2/$5');
+    const absoluteUrl = replaceResizerBaseUrl({
+        url: imageUrl.replace(regexResizerUrl, '$1$2$3v2/$5')
+    });
 
     return {
         origen: 'web',

@@ -1,5 +1,5 @@
 import React from 'react';
-import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../private/common/utils/image/resizer/v2/resizerHelper';
 import {
     getImagesToLoadWithPicture,
     getShortestImage

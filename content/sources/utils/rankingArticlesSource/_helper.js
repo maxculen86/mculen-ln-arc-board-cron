@@ -13,7 +13,6 @@ import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 const BASE_ARC_SERVICES_URL =
     'https://arcservices.lanacion.com.ar/api/v1/analytics';
 const CONTENT_BASE_PROD = 'https://api.lanacionar.arcpublishing.com';
-const RESIZER_URL_PUBLIC_PROD = 'https://resizer.glanacion.com';
 const STORY_QUERY_LIMIT = 30;
 export const MINIMUM_ITEMS = 4;
 
@@ -182,7 +181,6 @@ export const transformData = (data, query, cachedCall) => {
                     },
                     {
                         resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL_PUBLIC_PROD,
                         presets: {
                             promoItems:
                                 section === 'commonRanking'
