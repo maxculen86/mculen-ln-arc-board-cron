@@ -265,6 +265,21 @@ export const menuData = [
                     title: 'Editoriales'
                 },
                 {
+                    name: 'Avisos fúnebres',
+                    href: 'https://www.lanacion.com.ar/avisos/funebres/',
+                    title: 'Avisos fúnebres'
+                },
+                {
+                    name: 'Avisos sociales',
+                    href: 'https://www.lanacion.com.ar/avisos/sociales/',
+                    title: 'Avisos sociales'
+                },
+                {
+                    name: 'Carta de lectores',
+                    href: 'https://www.lanacion.com.ar/opinion/carta-de-lectores/',
+                    title: 'Carta de lectores'
+                },
+                {
                     name: 'Conversaciones de domingo',
                     href: 'https://www.lanacion.com.ar/conversaciones-de-domingo/',
                     title: 'Conversaciones de domingo'
@@ -278,21 +293,6 @@ export const menuData = [
                     name: 'Ideas',
                     href: 'https://www.lanacion.com.ar/ideas/',
                     title: 'Ideas'
-                },
-                {
-                    name: 'Carta de lectores',
-                    href: 'https://www.lanacion.com.ar/opinion/carta-de-lectores/',
-                    title: 'Carta de lectores'
-                },
-                {
-                    name: 'Avisos fúnebres',
-                    href: 'https://www.lanacion.com.ar/avisos/funebres/',
-                    title: 'Avisos fúnebres'
-                },
-                {
-                    name: 'Avisos sociales',
-                    href: 'https://www.lanacion.com.ar/avisos/sociales/',
-                    title: 'Avisos sociales'
                 }
             ]
         },
