@@ -1,4 +1,4 @@
-import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../../private/common/utils/firmaHelper';
 import get from '../../../../private/common/utils/get';
 import isExternalDistributor from '../../../../private/common/utils/isExternalDistributor';
 import { getAuthorsListText } from '../utils/authorHelpers';

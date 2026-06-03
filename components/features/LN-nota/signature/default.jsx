@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
 import { cx } from '@ln/cva';
-import { place } from '../../../private/common/utils/firmaHelper';
-import AudioPlayer from '../../../private/common/audioNews/AudioPlayer';
+import {
+    place,
+    getAuthorsNameAndLink
+} from '../../../private/common/utils/firmaHelper';
 import { AudioButton } from '../../../private/common/audioNews/components/AudioButton';
-import { useAudioPlayer } from '../../../private/common/audioNews/hooks/useAudioPlayer';
 import { isCustomVoice } from '../../../../content/sources/utils/audioNews/helper';
-import { getAuthorsNameAndLink } from '../../../private/common/audioNews/helpers';
-import { SignatureContextProvider } from '../../../private/common/audioNews/hooks/SignatureContext';
+import AudioPlayer from '../../LN/common/audioPlayer/default';
 import SignatureWithAuthors from './signatureWithAuthors';
 import SignatureWithDistributor from './signatureWithDistributor';
 import get from '../../../private/common/utils/get';
@@ -52,10 +52,9 @@ function SignatureFeature(props) {
         (withFirmaDistributor && Boolean(name) && name !== 'lanacionar') ||
         (isExternalDistributor(name, category, authorId) && position === 'Top');
 
-    const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
-    const { thermicalAudio } = audioPlayerProps;
     const customVoice = isCustomVoice(dataAuthor);
-    const showVariantIa = customVoice && thermicalAudio && authors.length <= 1;
+    const showVariantIa =
+        customVoice && showListenButton && authors.length <= 1;
 
     const { author } =
         !showSignatureWithDistributor && getAuthorsNameAndLink(authors);
@@ -75,22 +74,13 @@ function SignatureFeature(props) {
 
     const audioButton = (
         <AudioButton
+            noteId={_id}
             variant={showVariantIa ? 'ia' : 'default'}
-            audioPlayerProps={audioPlayerProps}
+            showVariantIa={showVariantIa}
             withAudio={withAudio}
             authorNames={author?.name}
             showTooltipVariantIA={showVariantIa}
             showListenButton={showListenButton}
-        />
-    );
-
-    const audioPlayer = (
-        <AudioPlayer
-            isListenable={isListenable}
-            noteId={_id}
-            className="--no-app"
-            audioPlayerProps={audioPlayerProps}
-            showVariantIa={showVariantIa}
         />
     );
 
@@ -107,41 +97,37 @@ function SignatureFeature(props) {
         });
 
     return (
-        <SignatureContextProvider>
-            <div className={classNameContainer}>
-                <div className={cx('flex jc-between ai-center', {})}>
-                    <SignatureWithDistributor
-                        name={name}
-                        mode={mode}
-                        audioButton={audioButton}
-                        showSignatureWithDistributor={
-                            showSignatureWithDistributor
-                        }
-                        classNameSignature={cx(
-                            position === place.Bottom && 'mb-32'
-                        )}
-                    />
-                    <SignatureWithAuthors
-                        showVariantIa={showVariantIa}
-                        author={author}
-                        authors={authors}
-                        audioButton={audioButton}
-                        position={position}
-                        photo={photo}
-                        medio={medio}
-                        showSignatureWithAuthors={hasAuthors}
-                        subtype={subtype}
-                    />
-                    <WithoutSignature
-                        showListenButton={showListenButton}
-                        audioButton={audioButton}
-                        showWithoutSignature={notShowSignature}
-                    />
-                    {googleButton}
-                </div>
-                {withAudio && audioPlayer}
+        <div className={classNameContainer}>
+            <div className={cx('flex jc-between ai-center', {})}>
+                <SignatureWithDistributor
+                    name={name}
+                    mode={mode}
+                    audioButton={audioButton}
+                    showSignatureWithDistributor={showSignatureWithDistributor}
+                    classNameSignature={cx(
+                        position === place.Bottom && 'mb-32'
+                    )}
+                />
+                <SignatureWithAuthors
+                    showVariantIa={showVariantIa}
+                    author={author}
+                    authors={authors}
+                    audioButton={audioButton}
+                    position={position}
+                    photo={photo}
+                    medio={medio}
+                    showSignatureWithAuthors={hasAuthors}
+                    subtype={subtype}
+                />
+                <WithoutSignature
+                    showListenButton={showListenButton}
+                    audioButton={audioButton}
+                    showWithoutSignature={notShowSignature}
+                />
+                {googleButton}
             </div>
-        </SignatureContextProvider>
+            {withAudio && <AudioPlayer />}
+        </div>
     );
 }
 

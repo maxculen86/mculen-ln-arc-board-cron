@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 import { getSectionOfRequestUri } from '../../../../../../components/private/common/utils/outputTypeHelper';
 import { isCustomVoice } from '../../../../../../content/sources/utils/audioNews/helper';
 import get from '../../../../../../components/private/common/utils/get';
-import getAudioEvents from '../../../../../../components/features/LN-10-global/common/utils/getAudioEvents';
+import getAudioEvents from '../../../../../../components/features/LN/common/audioPlayer/getAudioEvents';
 import { extractDataFromCredits } from '../../../../../../components/private/LN/nota/snippet/extractData/extractDataReceta';
 
 jest.mock('fusion:content', () => ({

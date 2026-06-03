@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Author } from '@ln/contenidos-ui-author';
 import { useSignature } from '../../../../../components/features/LN/DS-Signature/hooks/useSignature';
-import { getAuthorsNameAndLink } from '../../../../../components/private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../../../components/private/common/utils/firmaHelper';
 import { getAuthorData } from '../../../../../components/features/LN-nota/signature/signatureHelper';
 import StorytellingSignature from '../../../../../components/layouts/LN-nota-storytelling-v2/components/StorytellingSignature';
 
@@ -11,7 +11,7 @@ jest.mock(
     '../../../../../components/features/LN/DS-Signature/hooks/useSignature',
     () => ({ useSignature: jest.fn() })
 );
-jest.mock('../../../../../components/private/common/audioNews/helpers', () => ({
+jest.mock('../../../../../components/private/common/utils/firmaHelper', () => ({
     getAuthorsNameAndLink: jest.fn()
 }));
 jest.mock(

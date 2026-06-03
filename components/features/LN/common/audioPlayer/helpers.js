@@ -1,21 +1,23 @@
-import getAudioEvents from '../../../features/LN-10-global/common/utils/getAudioEvents';
-import { scheduleTask } from '../utils/scheduleTask';
-import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer';
-import get from '../utils/get';
+import getAudioEvents from './getAudioEvents';
+import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import get from '../../../../private/common/utils/get';
+import { scheduleTask } from '../../../../private/common/utils/scheduleTask';
+import { audioPlayerStore } from './store/audioPlayerStore';
 
 export const handleClickAudioNews = ({
-    onOpenAudioPlayer,
+    noteId,
     globalContent,
     globalContentConfig,
     isSummary,
+    showVariantIa = false,
     closeTooltipIAAuthor,
     subscription,
     token,
     openBarrier
 } = {}) => {
     if (subscription && token) {
-        onOpenAudioPlayer();
-        scheduleTask(() => closeTooltipIAAuthor());
+        audioPlayerStore.open(noteId, { showVariantIa });
+        if (closeTooltipIAAuthor) scheduleTask(() => closeTooltipIAAuthor());
     } else {
         openBarrier();
     }
@@ -38,43 +40,10 @@ export const getTextAndIconColor = (isSummary, variant) => {
     return { text: defaultText, iconColor: '#808080' };
 };
 
-export const getAuthorsNameAndLink = authors => {
-    const author =
-        authors.length === 1 &&
-        authors.reduce((acc, val) => ({ name: val.name, link: val.link }));
-    return { author };
-};
-
-export function getTextDisclaimer({
-    contentVariant = '',
-    showVariantIa = false
-}) {
-    const textDisclaimer = {
-        article: 'Voz realizada con IA',
-        summary: 'Resumen realizado con IA',
-        author: 'Voz de autor realizada con IA'
-    };
-    if (contentVariant === 'summary') {
-        return textDisclaimer.summary;
-    }
-    if (showVariantIa) {
-        return textDisclaimer.author;
-    }
-    return textDisclaimer.article;
-}
-
-export const a11yAttrsBarrierSub = {
-    'aria-labelledby': 'barrier-audio-dialog-label',
-    'aria-describedby': 'barrier-dialog-description'
-};
-
 export const getDurations = bwContentItem => {
     if (!bwContentItem) return { full: 0, summary: 0 };
-
     const full = get(bwContentItem, 'duration', 0);
-
     const summary = get(bwContentItem, 'summarization.audio[0].duration', 0);
-
     return { full, summary };
 };
 
@@ -82,10 +51,8 @@ export const getMode = player => (player?.summary ? 'summary' : 'full');
 
 export const sendReproduction = (context, percentage) => {
     const { globalContent, globalContentConfig, player, isSummary } = context;
-
     const summaryFlag =
         typeof isSummary === 'boolean' ? isSummary : !!player?.summary;
-
     addEventToDataLayerV2({
         event: 'page_listened',
         rest: {
@@ -130,7 +97,6 @@ const ensureProgress = player => {
 
 export const emitPercentage = (player, progress, context) => {
     if (!progress.total) return progress;
-
     const percent = Math.floor(
         ((player.currentTime || 0) / progress.total) * 100
     );
@@ -138,11 +104,8 @@ export const emitPercentage = (player, progress, context) => {
         (progress.sent25 ? 1 : 0) +
         (progress.sent50 ? 1 : 0) +
         (progress.sent75 ? 1 : 0);
-
     if (sentCount === PROGRESS_AUDIO.length) return progress;
-
     let next = progress;
-
     PROGRESS_AUDIO.forEach(p => {
         const flag = `sent${p}`;
         if (!next[flag] && percent >= p) {
@@ -151,7 +114,6 @@ export const emitPercentage = (player, progress, context) => {
             sendReproduction(context, p);
         }
     });
-
     return next;
 };
 
@@ -172,17 +134,21 @@ export const setupBwReproductionTracking = ({
     globalContent,
     globalContentConfig,
     setContentAvailable,
+    setSummaryAvailable,
     signal
 }) => {
     const player = playerRef.current;
     if (!player) return;
-
     const context = { globalContent, globalContentConfig, player };
-
     player.addEventListener(
         'ContentAvailable',
         () => {
             setContentAvailable?.(true);
+            // La disponibilidad del resumen solo se conoce acá (post-carga):
+            // hay resumen si la pista de summarization tiene duración > 0.
+            setSummaryAvailable?.(
+                getDurations(player.content?.[0]).summary > 0
+            );
             resetCurrentProgress(player);
         },
         { signal }

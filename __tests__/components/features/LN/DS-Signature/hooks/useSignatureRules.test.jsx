@@ -1,6 +1,6 @@
 import { useSignatureRules } from '../../../../../../components/features/LN/DS-Signature/hooks/useSignatureRules';
 import { useSignature } from '../../../../../../components/features/LN/DS-Signature/hooks/useSignature';
-import { getAuthorsNameAndLink } from '../../../../../../components/private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../../../../components/private/common/utils/firmaHelper';
 import { getAuthorsListText } from '../../../../../../components/features/LN/DS-Signature/utils/authorHelpers';
 import isExternalDistributor from '../../../../../../components/private/common/utils/isExternalDistributor';
 
@@ -12,7 +12,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/common/audioNews/helpers',
+    '../../../../../../components/private/common/utils/firmaHelper',
     () => ({
         getAuthorsNameAndLink: jest.fn()
     })
