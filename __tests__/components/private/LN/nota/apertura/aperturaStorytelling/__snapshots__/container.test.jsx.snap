@@ -18,15 +18,15 @@ exports[`Tests - Component - AperturaStorytelling Cases render image should retu
           <picture>
             <source
               media="(min-width: 1440px)"
-              srcset="https://www.lanacion.com.ar/resizer/_pgA0o-Ct6i880v2ijWKt6B6Qm0=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+              srcset="https://resizer.glanacion.com/resizer/_pgA0o-Ct6i880v2ijWKt6B6Qm0=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
             />
             <source
               media="(min-width: 1024px)"
-              srcset="https://www.lanacion.com.ar/resizer/FuNTPpEceizAPMCoDmmHe3CSqEs=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+              srcset="https://resizer.glanacion.com/resizer/FuNTPpEceizAPMCoDmmHe3CSqEs=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
             />
             <source
               media="(min-width: 768px)"
-              srcset="https://www.lanacion.com.ar/resizer/dvW8wftq6--pea56sjgMwDE3nUY=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+              srcset="https://resizer.glanacion.com/resizer/dvW8wftq6--pea56sjgMwDE3nUY=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
             />
             <img
               alt="Federico Levrino es uno de los profesionales de alto rango de Telefe"
@@ -34,7 +34,7 @@ exports[`Tests - Component - AperturaStorytelling Cases render image should retu
               decoding="async"
               fetchpriority="high"
               loading="eager"
-              src="https://www.lanacion.com.ar/resizer/_amnGTMfypcv3F_MrFTeBV2prjQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+              src="https://resizer.glanacion.com/resizer/_amnGTMfypcv3F_MrFTeBV2prjQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
             />
           </picture>
         </div>
@@ -93,7 +93,7 @@ exports[`Tests - Component - AperturaStorytelling Cases render video should show
           <picture>
             <source
               media="(min-width: 768px)"
-              srcset="https://www.lanacion.com.ar/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+              srcset="https://resizer.glanacion.com/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
             />
             <img
               alt="Trastornos de la alimentación"
@@ -101,7 +101,7 @@ exports[`Tests - Component - AperturaStorytelling Cases render video should show
               decoding="async"
               fetchpriority="high"
               loading="eager"
-              src="https://www.lanacion.com.ar/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+              src="https://resizer.glanacion.com/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
             />
           </picture>
         </div>

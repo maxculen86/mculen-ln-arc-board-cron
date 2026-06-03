@@ -268,9 +268,8 @@ describe('Common - Resizer', () => {
 
     describe('baseUrl function', () => {
         const siteLanacion = 'https://sandbox.lanacion.com.ar';
-        const siteFoodit = 'https://foodit-sandbox.lanacion.com.ar';
+        const siteFoodit = 'https://foodit-sandbox.lanacion.com.ar/';
         const resizerUrlPublic = 'https://resizer.glanacion.com';
-        const customResizerUrl = 'https://custom-resizer.example.com';
 
         const baseUrlCases = [
             [
@@ -294,65 +293,24 @@ describe('Common - Resizer', () => {
                 }
             ],
             [
-                'When isAdmin true and isInApertura true should return https://sandbox.lanacion.com.ar/',
+                'When isAdmin true and isInApertura true should return https://resizer.glanacion.com/resizer/',
                 {
                     testArguments: [{ isAdmin: true, isInApertura: true }],
-                    testResult: siteLanacion
-                }
-            ],
-            [
-                'When isAdmin true and isInApertura false should return https://sandbox.lanacion.com.ar/',
-                {
-                    testArguments: [{ isAdmin: true, isInApertura: false }],
-                    testResult: siteLanacion
-                }
-            ],
-            [
-                'When isAdmin false and isInApertura false should return https://sandbox.lanacion.com.ar/',
-                {
-                    testArguments: [{ isAdmin: false, isInApertura: false }],
-                    testResult: siteLanacion
-                }
-            ],
-            [
-                'When arcSite is foodit and isInApertura false should keep resizer domain',
-                {
-                    testArguments: [
-                        {
-                            isAdmin: false,
-                            isInApertura: false,
-                            arcSite: 'foodit'
-                        }
-                    ],
                     testResult: resizerUrlPublic
                 }
             ],
             [
-                'When arcSite is foodit and custom resizerUrl exists should keep custom resizer domain',
+                'When isAdmin true and isInApertura false should return https://resizer.glanacion.com/resizer/',
                 {
-                    testArguments: [
-                        {
-                            isAdmin: false,
-                            isInApertura: false,
-                            arcSite: 'foodit',
-                            resizerUrl: customResizerUrl
-                        }
-                    ],
-                    testResult: customResizerUrl
+                    testArguments: [{ isAdmin: true, isInApertura: false }],
+                    testResult: resizerUrlPublic
                 }
             ],
             [
-                'When arcSite is lanacionar and custom resizerUrl exists should keep site domain',
+                'When isAdmin false and isInApertura false should return https://resizer.glanacion.com/resizer/',
                 {
-                    testArguments: [
-                        {
-                            isAdmin: false,
-                            isInApertura: false,
-                            arcSite: 'lanacionar',
-                            resizerUrl: customResizerUrl
-                        }
-                    ],
-                    testResult: siteLanacion
+                    testArguments: [{ isAdmin: false, isInApertura: false }],
+                    testResult: resizerUrlPublic
                 }
             ]
         ];
@@ -581,7 +539,7 @@ describe('Tests resizer helper', () => {
     });
 
     describe('When is admin and is isInApertura', () => {
-        test('Should return a Resized url with correct params and site base url', () => {
+        test('Should return a Resized url with correct params and glanacion base url', () => {
             const resizerUrl = resizeImgUrl({
                 originalWidth,
                 originalHeight,
@@ -594,44 +552,7 @@ describe('Tests resizer helper', () => {
                 arcImage
             });
             expect(resizerUrl).toEqual(
-                'https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=true'
-            );
-        });
-    });
-
-    describe('Foodit brand scope', () => {
-        test('Should keep resizer domain for Foodit images outside apertura', () => {
-            const resizerUrl = resizeImgUrl({
-                originalWidth,
-                originalHeight,
-                defaultResizeWithSmart,
-                focalPoint,
-                smartCropExcluded,
-                filterQuality,
-                arcSite: 'foodit',
-                arcImage
-            });
-
-            expect(resizerUrl).toEqual(
                 'https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=true'
-            );
-        });
-
-        test('Should use Foodit site domain for Foodit apertura images', () => {
-            const resizerUrl = resizeImgUrl({
-                originalWidth,
-                originalHeight,
-                defaultResizeWithSmart,
-                focalPoint,
-                smartCropExcluded,
-                filterQuality,
-                isInApertura: true,
-                arcSite: 'foodit',
-                arcImage
-            });
-
-            expect(resizerUrl).toEqual(
-                'https://foodit-sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=true'
             );
         });
     });

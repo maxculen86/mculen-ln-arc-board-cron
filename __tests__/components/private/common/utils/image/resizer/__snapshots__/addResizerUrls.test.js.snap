@@ -149,7 +149,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1920,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
         },
         {
           "option": {
@@ -159,7 +159,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1200,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=800&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=800&quality=70&smart=true",
         },
         {
           "option": {
@@ -169,7 +169,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1023,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=682&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=682&quality=70&smart=true",
         },
         {
           "option": {
@@ -179,7 +179,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1276,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1276&height=1914&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1276&height=1914&quality=70&smart=true",
         },
         {
           "option": {
@@ -189,7 +189,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 768,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=1152&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=1152&quality=70&smart=true",
         },
         {
           "option": {
@@ -199,7 +199,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 360,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=540&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=540&quality=70&smart=true",
         },
       ],
       "resized_urls_zoom": [
@@ -209,7 +209,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 1280px)",
             "width": 1920,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
         },
         {
           "option": {
@@ -217,7 +217,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 1024px)",
             "width": 1200,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=800&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=800&quality=70&smart=true",
         },
         {
           "option": {
@@ -225,7 +225,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 768px)",
             "width": 1023,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=682&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=682&quality=70&smart=true",
         },
         {
           "option": {
@@ -233,7 +233,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 360px)",
             "width": 768,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=512&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=512&quality=70&smart=true",
         },
         {
           "option": {
@@ -241,7 +241,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 320px)",
             "width": 360,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=240&quality=70&smart=true",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=240&quality=70&smart=true",
         },
       ],
       "source": {
@@ -256,7 +256,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
         "associated_tasks": [],
       },
       "type": "image",
-      "url": "https://www.lanacion.com.ar/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
+      "url": "https://resizer.glanacion.com/resizer/v2/foto-de-un-living-comedor-con-juego-de-mesas-S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=70&smart=true",
       "version": "0.10.3",
       "width": 2000,
     },
@@ -381,7 +381,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1920,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=1280&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=1280&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -392,7 +392,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1200,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=800&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=800&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -403,7 +403,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1023,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=682&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=682&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -414,7 +414,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 1276,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1276&height=1914&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1276&height=1914&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -425,7 +425,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 768,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -436,7 +436,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "useFullSize": true,
             "width": 360,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=70&smart=false&focal=562,1035",
         },
       ],
       "resized_urls_zoom": [
@@ -447,7 +447,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 1280px)",
             "width": 1920,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=2881&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=2881&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -456,7 +456,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 1024px)",
             "width": 1200,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=1800&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=1800&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -465,7 +465,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 768px)",
             "width": 1023,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=1535&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=1535&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -474,7 +474,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 360px)",
             "width": 768,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=70&smart=false&focal=562,1035",
         },
         {
           "option": {
@@ -483,7 +483,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
             "media": "(min-width: 320px)",
             "width": 360,
           },
-          "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=70&smart=false&focal=562,1035",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=70&smart=false&focal=562,1035",
         },
       ],
       "source": {
@@ -498,7 +498,7 @@ exports[`utils - image - resizer - addResizerUrls addResizedUrls Should first ma
         "associated_tasks": [],
       },
       "type": "image",
-      "url": "https://www.lanacion.com.ar/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=2881&quality=70&smart=false&focal=562,1035",
+      "url": "https://resizer.glanacion.com/resizer/v2/fachada-de-una-casa-de-campo-en-san-antonio-de-HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=2881&quality=70&smart=false&focal=562,1035",
       "version": "0.10.3",
       "width": 768,
     },

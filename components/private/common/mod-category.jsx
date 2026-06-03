@@ -3,7 +3,7 @@ import { cx } from '@ln/ds-cva';
 import ModNavigation from './mod-navigation';
 import ComImage from './com-image';
 import ComTitle from './com-title';
-import { replaceUrlResizerToWWW } from './utils/image/resizer/v2/resizerHelper';
+import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from './utils/get';
 import useGetLogoImage from './hooks/useGetLogoImage';
 import '../../../resources/dist/css/ln/modules/mod-category.css';

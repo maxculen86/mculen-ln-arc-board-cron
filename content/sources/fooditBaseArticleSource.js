@@ -13,7 +13,7 @@ import {
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 
 const fetch = (query, { cachedCall } = {}) => {
-    const arcSite = get(query, 'arc-site', 'foodit');
+    const arcSite = query['arc-site'];
 
     const resolveData = async () => {
         const url = `${CONTENT_BASE}${getUrlQuery(query)}`;

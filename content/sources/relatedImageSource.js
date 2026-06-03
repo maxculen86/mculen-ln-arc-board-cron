@@ -56,8 +56,7 @@ const transform = async (data, siteProps, cachedCall) => {
                 // y pueda aplicarse 3:2, focal point o smartcrop
                 subtype: isFotoAl100orStorytelling ? '-1' : subtype,
                 isInApertura,
-                isAdmin,
-                arcSite: get(siteProps, 'arc-site', 'lanacionar')
+                isAdmin
             }
         )
     };

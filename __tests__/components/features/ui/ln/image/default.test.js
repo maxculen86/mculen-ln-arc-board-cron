@@ -3,12 +3,6 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Image from '../../../../../../components/features/ui/ln/image/default';
 
-jest.mock('fusion:environment', () => ({
-    __esModule: true,
-    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
-    SITE_LANACION: 'https://sandbox.lanacion.com.ar'
-}));
-
 describe('components - features - ui - ln - image', () => {
     const { getByTestId } = screen;
     beforeEach(() => {
@@ -95,29 +89,6 @@ describe('components - features - ui - ln - image', () => {
             expect(
                 screen.queryByTestId('image-placeholder')
             ).not.toBeInTheDocument();
-        });
-
-        it('should normalize resizer host in src and srcSet preserving params', () => {
-            render(
-                <Image
-                    {...commonProps}
-                    renderImgOnly
-                    alt="Hero image"
-                    src="https://resizer.glanacion.com/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true"
-                    srcSet="https://resizer.glanacion.com/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true 420w, https://sandbox-resizer.glanacion.com/resizer/v2/test.jpg?width=1200&height=800&quality=70&smart=true 1200w"
-                />
-            );
-
-            const image = getByTestId('ds-image');
-
-            expect(image).toHaveAttribute(
-                'src',
-                'https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true'
-            );
-            expect(image).toHaveAttribute(
-                'srcset',
-                'https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true 420w, https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=1200&height=800&quality=70&smart=true 1200w'
-            );
         });
     });
 

@@ -12,8 +12,7 @@ import {
 import { paywallSoftConfigCallbackContentElements } from './utils/fooditSources/fooditArticleSource/_configs';
 
 const fetch = (query, { cachedCall } = {}) => {
-    const arcSite = get(query, 'arc-site', 'foodit');
-    const queryWithArcSite = { ...query, 'arc-site': arcSite };
+    const arcSite = query['arc-site'];
 
     const resolveData = async () => {
         try {
@@ -21,7 +20,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 'fooditBaseArticleSource',
                 fooditBaseArticleSource.fetch,
                 {
-                    query: queryWithArcSite,
+                    query,
                     independent: true
                 }
             );
@@ -30,12 +29,12 @@ const fetch = (query, { cachedCall } = {}) => {
             const isNote = get(response, 'subtype', null) === STORYTELLING;
 
             const isPaywallSoftEnabled =
-                get(queryWithArcSite, 'paywallSoftEnabled') === '1';
+                get(query, 'paywallSoftEnabled') === '1';
 
             const isExclusiveSuscriptor =
                 (isReceta || isNote) &&
                 isPaywallSoftEnabled &&
-                get(queryWithArcSite, 'meteringVariant') !== 'S' &&
+                get(query, 'meteringVariant') !== 'S' &&
                 get(response, 'content_restrictions.content_code') ===
                     'cerrada';
 
@@ -50,14 +49,14 @@ const fetch = (query, { cachedCall } = {}) => {
             if (!(isReceta || isNote) || !isPaywallSoftEnabled)
                 setRedirect({
                     response,
-                    query: queryWithArcSite,
+                    query,
                     siteUrl: SITE_FOODIT,
                     paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=800&fc=825&callback=`
                 });
 
             return transform(
                 response,
-                queryWithArcSite,
+                query,
                 cachedCall,
                 customCallbacksConfig
             );
@@ -66,7 +65,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 error,
                 {
                     source: 'content/source/fooditArticleSource',
-                    url: get(queryWithArcSite, 'url', '')
+                    url: get(query, 'url', '')
                 },
                 arcSite
             );

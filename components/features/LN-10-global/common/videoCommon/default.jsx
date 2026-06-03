@@ -9,7 +9,6 @@ import {
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
-import { replaceUrlResizerToWWW } from '../../../../private/common/utils/image/resizer/v2/resizerHelper';
 import { VIDEO_VERTICAL_RATIO } from '../../../LN-10/videoPlayer/share/constants';
 import TooltipSSR from './TooltipSSR';
 
@@ -53,10 +52,11 @@ function VideoCommonJw({
         );
     }
 
-    const resizedImages = replaceUrlResizerToWWW(
-        get(videoData, 'resizedImages.promo_items.basic', {})
+    const resizeImages = get(
+        videoData,
+        'resizedImages.promo_items.basic.resized_urls',
+        []
     );
-    const resizeImages = get(resizedImages, 'resized_urls', []);
     const { resizedUrl } = getShortestImage(resizeImages);
     const isVertical =
         videoConfig.instanceConfig?.aspectratio === VIDEO_VERTICAL_RATIO;

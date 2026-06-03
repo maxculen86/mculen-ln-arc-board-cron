@@ -1,43 +1,46 @@
-import { SITE_LANACION } from 'fusion:environment';
+import { API_ENV } from 'fusion:environment';
 import { isEmptyString } from './dataValidation';
 import get from './get';
 
-const LANACION_BASE_URL = SITE_LANACION || 'https://www.lanacion.com.ar';
+const RESIZER_URL_PUBLIC_PROD = 'https://resizer.glanacion.com';
 
 const replaceProductiveImgDomain = (url = '') =>
     !isEmptyString(url)
-        ? url.replace(/^.*\/\/[^\\/]+(?=\/resizer\/)/, LANACION_BASE_URL)
+        ? url.replace(/^.*\/\/[^\\/]+/, RESIZER_URL_PUBLIC_PROD)
         : '';
 
 export const replaceUrlsByEnvironment = (articles = []) => {
-    if (!Array.isArray(articles)) return [];
+    if (['sandbox', 'dev'].includes(API_ENV)) {
+        return (
+            articles &&
+            articles.map(art => {
+                const urlImage = get(art, 'promo_items.basic.url', '');
+                const resizedUrls = get(
+                    art,
+                    'promo_items.basic.resized_urls',
+                    []
+                );
 
-    return articles.map(art => {
-        const basic = get(art, 'promo_items.basic', null);
-        if (!basic) return art;
+                return {
+                    ...art,
+                    promo_items: {
+                        basic: {
+                            ...art.promo_items.basic,
+                            url: replaceProductiveImgDomain(urlImage),
+                            resized_urls: resizedUrls.map(item => ({
+                                ...item,
+                                resizedUrl: replaceProductiveImgDomain(
+                                    get(item, 'resizedUrl', '')
+                                )
+                            }))
+                        }
+                    }
+                };
+            })
+        );
+    }
 
-        const urlImage = get(basic, 'url', '');
-        const resizedUrls = get(basic, 'resized_urls', []);
-
-        return {
-            ...art,
-            promo_items: {
-                ...art.promo_items,
-                basic: {
-                    ...basic,
-                    url: replaceProductiveImgDomain(urlImage),
-                    resized_urls: Array.isArray(resizedUrls)
-                        ? resizedUrls.map(item => ({
-                              ...item,
-                              resizedUrl: replaceProductiveImgDomain(
-                                  get(item, 'resizedUrl', '')
-                              )
-                          }))
-                        : resizedUrls
-                }
-            }
-        };
-    });
+    return articles;
 };
 
 export default replaceProductiveImgDomain;

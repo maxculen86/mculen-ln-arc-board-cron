@@ -20,7 +20,6 @@ const transform = async (data, siteProps, cachedCall) => {
     const isFotoAl100 = get(siteProps, 'isFotoAl100', false);
     const count = get(siteProps, 'count', 0);
     const startPosition = get(siteProps, 'startPosition', 1);
-    const arcSite = get(siteProps, 'arc-site', 'lanacionar');
 
     if (!shouldResize) return data;
 
@@ -48,7 +47,7 @@ const transform = async (data, siteProps, cachedCall) => {
         ? get(presets, 'promo_items.fotoAl100.sizes', [])
         : get(presets, 'promo_items.sizes', []);
 
-    const resizedData = resizeArcGallery(mergedData, sizes, [], false, arcSite);
+    const resizedData = resizeArcGallery(mergedData, sizes, []);
 
     return {
         ...mergedData,

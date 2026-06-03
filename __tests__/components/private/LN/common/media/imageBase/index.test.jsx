@@ -150,41 +150,6 @@ describe('Tests component - imageBase', () => {
 
             expect(container.querySelector('[loading=lazy]')).toBeDefined();
         });
-
-        test('should normalize resizer host even when image is not opening', () => {
-            const imageWithResizerHost = JSON.parse(
-                JSON.stringify(props.image)
-            );
-            imageWithResizerHost.url = imageWithResizerHost.url.replace(
-                'https://www.lanacion.com.ar',
-                'https://resizer.glanacion.com'
-            );
-            imageWithResizerHost.resized_urls =
-                imageWithResizerHost.resized_urls.map(item => ({
-                    ...item,
-                    resizedUrl: item.resizedUrl.replace(
-                        'https://www.lanacion.com.ar',
-                        'https://resizer.glanacion.com'
-                    )
-                }));
-
-            render(
-                <ImageArticle
-                    {...props}
-                    image={imageWithResizerHost}
-                    isApertura={false}
-                />
-            );
-
-            const img = screen.getByRole('img');
-
-            expect(img.getAttribute('src')).toContain(
-                'https://www.lanacion.com.ar/resizer/'
-            );
-            expect(img.getAttribute('src')).not.toContain(
-                'https://resizer.glanacion.com'
-            );
-        });
     });
 
     describe('Linked hero rendering', () => {

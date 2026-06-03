@@ -126,7 +126,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(fechaActualizacion).toBe('10 de noviembre de 2021 • 07:44');
 
             expect(absoluteUrl).toBe(
-                'https://www.lanacion.com.ar/resizer/v2/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
+                'https://resizer.glanacion.com/resizer/v2/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
             );
         });
     });

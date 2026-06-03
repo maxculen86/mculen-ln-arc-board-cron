@@ -229,7 +229,7 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             const figcaption = container.querySelector('figcaption');
 
             const heroFallback =
-                'https://www.lanacion.com.ar/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg';
+                'https://resizer.glanacion.com/resizer/Kp3mZxY1_BfrOIcxMPTEiZs5sok=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EP4MVVKHJFARBA6Q273S655TMQ.jpg';
 
             expect(contentImage).toHaveLength(2);
             expect(image).toBeDefined();

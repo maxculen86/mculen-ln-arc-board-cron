@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useContent } from 'fusion:content';
-import { useAppContext } from 'fusion:context';
 import useGetLogoImage from '../../private/common/hooks/useGetLogoImage';
 import get from '../../private/common/utils/get';
-import { replaceUrlResizerToWWW } from '../../private/common/utils/image/resizer/v2/resizerHelper';
 import { setSlicedChildren } from './common/_helpers-WebApi';
 import StaticContentV2 from '../LN10-global/staticContentV2';
 
@@ -129,19 +127,9 @@ export const useGetLinks = ({
     );
 };
 
-export const useGetLogo = (
-    logoId,
-    title,
-    isStatic,
-    shouldLoad = true,
-    shouldNormalizeResizer = true
-) => {
+export const useGetLogo = (logoId, title, isStatic, shouldLoad = true) => {
     const id = shouldLoad && logoId && logoId.trim() && logoId;
-    const logoImage = useGetLogoImage(id, isStatic);
-    const logo =
-        logoImage && shouldNormalizeResizer
-            ? replaceUrlResizerToWWW(logoImage)
-            : logoImage;
+    const logo = useGetLogoImage(id, isStatic);
 
     const [firstResizedUrl] = get(logo, 'resized_urls', []);
     const resizedUrl = get(firstResizedUrl, 'resizedUrl', '');
@@ -180,22 +168,13 @@ export const useRoofData = props => {
         shouldLoadRoof = true
     } = props;
     const shouldLoadAssets = shouldLoadRoof && !hideTitle;
-    const { arcSite } = useAppContext();
-    const shouldNormalizeResizer = arcSite !== 'foodit';
 
-    const logo = useGetLogo(
-        logoId,
-        title,
-        isStatic,
-        shouldLoadAssets,
-        shouldNormalizeResizer
-    );
+    const logo = useGetLogo(logoId, title, isStatic, shouldLoadAssets);
     const buttonLogoData = useGetLogo(
         buttonLogo,
         title,
         isStatic,
-        shouldLoadAssets,
-        shouldNormalizeResizer
+        shouldLoadAssets
     );
     const links = useGetLinks({
         navigationSection: navigator,
