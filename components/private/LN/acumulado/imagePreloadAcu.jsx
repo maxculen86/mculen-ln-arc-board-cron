@@ -3,7 +3,7 @@ import { useContent } from 'fusion:content';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
 import setArticleQueryAcu from '../common/utils/setArticleQueryAcu';
 import get from '../../common/utils/get';
-import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../common/utils/image/resizer/v2/resizerHelper';
 import filter from '../../../../content/filters/LN/acumulado/articlePreload';
 
 function ImagePreloadlAcu({

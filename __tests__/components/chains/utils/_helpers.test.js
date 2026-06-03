@@ -20,6 +20,11 @@ jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
 
+jest.mock('fusion:context', () => ({
+    __esModule: true,
+    useAppContext: jest.fn(() => ({ arcSite: 'lanacionar' }))
+}));
+
 jest.mock(
     '../../../../components/private/common/hooks/useGetLogoImage',
     () => ({

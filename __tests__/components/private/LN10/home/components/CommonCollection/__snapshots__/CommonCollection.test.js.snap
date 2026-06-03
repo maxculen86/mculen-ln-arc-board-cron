@@ -58,15 +58,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <img
                   alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -74,7 +74,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  src="https://www.lanacion.com.ar/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
               </picture>
             </section>
@@ -134,15 +134,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <img
                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -150,7 +150,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  src="https://www.lanacion.com.ar/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
               </picture>
             </section>
@@ -223,15 +223,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <img
                   alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
@@ -239,7 +239,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  src="https://www.lanacion.com.ar/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
               </picture>
             </section>
@@ -299,15 +299,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <img
                   alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
@@ -315,7 +315,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  src="https://www.lanacion.com.ar/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
               </picture>
             </section>
@@ -375,15 +375,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <img
                   alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
@@ -391,7 +391,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  src="https://www.lanacion.com.ar/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
               </picture>
             </section>
@@ -451,15 +451,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <img
                   alt="Test noticia en ARC"
@@ -467,7 +467,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  src="https://www.lanacion.com.ar/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
               </picture>
             </section>
@@ -527,15 +527,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <img
                   alt="Test noticia en ARC"
@@ -543,7 +543,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  src="https://www.lanacion.com.ar/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
               </picture>
             </section>
@@ -719,15 +719,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
                 <img
                   alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -735,7 +735,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  src="https://www.lanacion.com.ar/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
                 />
               </picture>
             </section>
@@ -774,15 +774,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
                 <img
                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -790,7 +790,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  src="https://www.lanacion.com.ar/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                 />
               </picture>
             </section>
@@ -842,15 +842,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
                 <img
                   alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
@@ -858,7 +858,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  src="https://www.lanacion.com.ar/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
                 />
               </picture>
             </section>
@@ -897,15 +897,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
                 <img
                   alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
@@ -913,7 +913,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  src="https://www.lanacion.com.ar/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
                 />
               </picture>
             </section>
@@ -952,15 +952,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
                 <img
                   alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
@@ -968,7 +968,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  src="https://www.lanacion.com.ar/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
                 />
               </picture>
             </section>
@@ -1007,15 +1007,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
                 <img
                   alt="Test noticia en ARC"
@@ -1023,7 +1023,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  src="https://www.lanacion.com.ar/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
                 />
               </picture>
             </section>
@@ -1062,15 +1062,15 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               >
                 <source
                   media="(min-width: 1024px)"
-                  srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <source
                   media="(min-width: 768px)"
-                  srcset="https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <source
                   media="(min-width: 375px)"
-                  srcset="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://www.lanacion.com.ar/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
                 <img
                   alt="Test noticia en ARC"
@@ -1078,7 +1078,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  src="https://www.lanacion.com.ar/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
                 />
               </picture>
             </section>

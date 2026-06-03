@@ -422,7 +422,8 @@ export const transform = async (response, query, cachedCall) => {
             subtype,
             isInApertura,
             avatarWWW,
-            isAdmin
+            isAdmin,
+            arcSite
         })
     };
 

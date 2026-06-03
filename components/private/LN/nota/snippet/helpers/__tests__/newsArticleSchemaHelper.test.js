@@ -27,12 +27,12 @@ const DEFAULT_IMAGE_PROPS = {
 
 const baseBasicImage = {
     type: 'image',
-    url: 'https://resizer.glanacion.com/basic-image.jpg',
+    url: 'https://www.lanacion.com.ar/basic-image.jpg',
     caption: 'Caption de prueba'
 };
 
 const acuOgImgWithUrl = {
-    url: 'https://resizer.glanacion.com/custom-og.jpg',
+    url: 'https://www.lanacion.com.ar/custom-og.jpg',
     height: '630',
     width: '1200',
     additional_properties: { mime_type: 'image/jpeg' }
@@ -178,7 +178,7 @@ describe('newsArticleSchemaHelper', () => {
         it('does not include description key when basicImage has no caption', () => {
             const basicImageWithoutCaption = {
                 type: 'image',
-                url: 'https://resizer.glanacion.com/img.jpg'
+                url: 'https://www.lanacion.com.ar/img.jpg'
             };
             const result = buildPrimaryImageOfPage({
                 basicImage: basicImageWithoutCaption,

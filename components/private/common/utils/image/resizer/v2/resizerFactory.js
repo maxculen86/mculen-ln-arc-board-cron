@@ -6,7 +6,12 @@ import {
     resizeImgUrl
 } from './resizerHelper';
 
-export const buildResizedImages = (images, originalUrl, originalAuth) => {
+export const buildResizedImages = (
+    images,
+    originalUrl,
+    originalAuth,
+    arcSite
+) => {
     if (!images) return [];
     const imagesCopy = JSON.parse(JSON.stringify(images));
     return imagesCopy?.map(image => {
@@ -17,7 +22,8 @@ export const buildResizedImages = (images, originalUrl, originalAuth) => {
                 url: originalUrl,
                 auth: { 1: originalAuth }
             },
-            defaultResizeWithSmart: { width }
+            defaultResizeWithSmart: { width },
+            arcSite
         });
         imageCopy.src = newUrl;
         return imageCopy;
@@ -81,13 +87,19 @@ export const resizePromoItems = ({
                 'embed.config.videoJw.playlist[0].images',
                 []
             );
-            const resizedImages = buildResizedImages(images, image, auth);
+            const resizedImages = buildResizedImages(
+                images,
+                image,
+                auth,
+                arcSite
+            );
             const resizedImage = resizeImgUrl({
                 arcImage: {
                     url: image,
                     auth: { 1: auth }
                 },
-                defaultResizeWithSmart: { width: 720 }
+                defaultResizeWithSmart: { width: 720 },
+                arcSite
             });
             const promoItemCopy = {
                 ...promoItem,
@@ -138,7 +150,13 @@ export const resizeContentElements = (
     }
 
     if (type === 'gallery') {
-        return resizeArcGallery(elem, presetsContentOrDefault, zoomSizes, true);
+        return resizeArcGallery(
+            elem,
+            presetsContentOrDefault,
+            zoomSizes,
+            true,
+            arcSite
+        );
     }
 
     if (type === 'video') {
@@ -151,7 +169,8 @@ export const resizeContentElements = (
                         resizeOptions: presetsContentOrDefault,
                         zoomSizes,
                         smartCropExcluded: true,
-                        defaultResize
+                        defaultResize,
+                        arcSite
                     })
                 }
             }
@@ -162,13 +181,14 @@ export const resizeContentElements = (
         const image = get(elem, 'embed.config.videoJw.playlist[0].image', '');
         const auth = get(elem, 'auth.1', '');
         const images = get(elem, 'embed.config.videoJw.playlist[0].images', []);
-        const resizedImages = buildResizedImages(images, image, auth);
+        const resizedImages = buildResizedImages(images, image, auth, arcSite);
         const resizedImage = resizeImgUrl({
             arcImage: {
                 url: image,
                 auth: { 1: auth }
             },
-            defaultResizeWithSmart: { width: 720 }
+            defaultResizeWithSmart: { width: 720 },
+            arcSite
         });
 
         return {
@@ -195,7 +215,12 @@ export const resizeContentElements = (
     return elem;
 };
 
-export const resizeCredits = ({ credits, resizeOptions, isInApertura }) => {
+export const resizeCredits = ({
+    credits,
+    resizeOptions,
+    isInApertura,
+    arcSite
+}) => {
     const resp = {};
     const optionsFinal = get(resizeOptions, 'sizes', [
         {
@@ -216,7 +241,8 @@ export const resizeCredits = ({ credits, resizeOptions, isInApertura }) => {
                         image: resizeArcImage({
                             arcImage: { ...c.image, type: 'image' },
                             resizeOptions: optionsFinal,
-                            isInApertura
+                            isInApertura,
+                            arcSite
                         })
                     };
                 }
