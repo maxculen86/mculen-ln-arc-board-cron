@@ -1012,6 +1012,42 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                 >
                   <a
                     class="link ln-link dd-link"
+                    href="https://www.lanacion.com.ar/avisos/funebres/"
+                    target="_self"
+                    title="Avisos fúnebres"
+                  >
+                    Avisos fúnebres
+                  </a>
+                </li>
+                <li
+                  class=""
+                >
+                  <a
+                    class="link ln-link dd-link"
+                    href="https://www.lanacion.com.ar/avisos/sociales/"
+                    target="_self"
+                    title="Avisos sociales"
+                  >
+                    Avisos sociales
+                  </a>
+                </li>
+                <li
+                  class=""
+                >
+                  <a
+                    class="link ln-link dd-link"
+                    href="https://www.lanacion.com.ar/opinion/carta-de-lectores/"
+                    target="_self"
+                    title="Carta de lectores"
+                  >
+                    Carta de lectores
+                  </a>
+                </li>
+                <li
+                  class=""
+                >
+                  <a
+                    class="link ln-link dd-link"
                     href="https://www.lanacion.com.ar/conversaciones-de-domingo/"
                     target="_self"
                     title="Conversaciones de domingo"
@@ -1041,42 +1077,6 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                     title="Ideas"
                   >
                     Ideas
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/opinion/carta-de-lectores/"
-                    target="_self"
-                    title="Carta de lectores"
-                  >
-                    Carta de lectores
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/avisos/funebres/"
-                    target="_self"
-                    title="Avisos fúnebres"
-                  >
-                    Avisos fúnebres
-                  </a>
-                </li>
-                <li
-                  class=""
-                >
-                  <a
-                    class="link ln-link dd-link"
-                    href="https://www.lanacion.com.ar/avisos/sociales/"
-                    target="_self"
-                    title="Avisos sociales"
-                  >
-                    Avisos sociales
                   </a>
                 </li>
               </ul>
