@@ -4,7 +4,7 @@ import trasformBookmarkContent, {
 import responseApiBookmark from '../../../../../../__mocks__/data/bookmark/responseApiBookmark.json';
 
 jest.mock('fusion:environment', () => ({
-    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
+    SITE_LANACION: 'https://www.lanacion.com.ar'
 }));
 
 describe('trasformBookmarkContent', () => {

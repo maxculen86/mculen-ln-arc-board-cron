@@ -1,7 +1,8 @@
-import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 import get from '../get';
 
 const BASE_BOOKMARK_SIZE = { width: 150, height: 100 };
+const LANACION_BASE_URL = SITE_LANACION || 'https://www.lanacion.com.ar';
 
 export const buildBookmarkResizedImageUrl = (rawUrl = '') => {
     if (!rawUrl || typeof rawUrl !== 'string') return '';
@@ -44,7 +45,7 @@ const trasformBookmarkContent = (data = []) =>
                     additional_properties: {
                         original: { author_type: '' }
                     },
-                    image: imagen && `${RESIZER_URL_PUBLIC}${imagen}`,
+                    image: imagen && `${LANACION_BASE_URL}${imagen}`,
                     name: valor,
                     type: 'author'
                 })

@@ -22,7 +22,7 @@ import getElementFromRenderables from '../../../private/common/utils/getElementF
 import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 import { transformUrl } from './common/_helper';
 import { isAudioGenerated } from '../../../../content/sources/utils/audioNews/helper';
-import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../../private/common/utils/image/resizer/v2/resizerHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
 import {
     LIVEBLOG_EDITORIAL,

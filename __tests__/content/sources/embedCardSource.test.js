@@ -261,7 +261,8 @@ describe('embedCardSource.fetch', () => {
                     media: '(min-width: 320px)',
                     class: '',
                     type: 'image'
-                }
+                },
+                arcSite: 'foodit'
             });
 
             expect(result.promo_items.basic.url).toBe(mockResizedUrl);

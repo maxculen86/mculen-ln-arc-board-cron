@@ -2,14 +2,14 @@ import React from 'react';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { cx } from '@ln/cva';
 import ComPicture from '../../../../common/com-picture';
-import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../../../common/utils/image/resizer/v2/resizerHelper';
 import { getImageData } from '../../../../../features/LN/common/image/_helpers/getImageData';
 
 function ImageArticle(props) {
     const { image, href, active, isApertura, isAperturaNota, searchableField } =
         props;
 
-    const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
+    const wwwImage = replaceUrlResizerToWWW(image);
 
     if (!wwwImage?.url) return null;
 

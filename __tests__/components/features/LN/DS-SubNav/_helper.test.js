@@ -22,8 +22,13 @@ jest.mock(
     () => jest.fn(name => name)
 );
 
-jest.mock('../../../../../content/sources/utils/replaceUrlResizerToWWW', () =>
-    jest.fn(image => image)
+jest.mock(
+    '../../../../../components/private/common/utils/image/resizer/v2/resizerHelper',
+    () => ({
+        __esModule: true,
+        default: jest.fn(image => image),
+        replaceUrlResizerToWWW: jest.fn(image => image)
+    })
 );
 
 describe('Components - features - LN - DS-SubNav - _helpers', () => {

@@ -123,22 +123,106 @@ export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
 
 // URl Logic
 
+const LANACION_BASE_URL = SITE_LANACION || 'https://www.lanacion.com.ar';
+
+const removeTrailingSlash = url =>
+    isValidString(url) ? url.replace(/\/+$/, '') : url;
+
+const isFooditArcSite = arcSite => arcSite === 'foodit';
+
 export const baseUrl = ({
     isInApertura,
     isAdmin,
     arcSite = 'lanacionar',
     resizerUrl
 }) => {
-    if (isValidString(resizerUrl) && resizerUrl.length) return resizerUrl;
+    if (!isFooditArcSite(arcSite))
+        return removeTrailingSlash(LANACION_BASE_URL);
 
-    const SITE_URL = {
-        foodit: SITE_FOODIT,
-        lanacionar: SITE_LANACION
-    };
+    if (isValidString(resizerUrl) && resizerUrl.length)
+        return removeTrailingSlash(resizerUrl);
+
+    const fooditBaseUrl = SITE_FOODIT || RESIZER_URL_PUBLIC;
 
     return isInApertura && !isAdmin
-        ? SITE_URL[arcSite] || SITE_LANACION
-        : RESIZER_URL_PUBLIC;
+        ? removeTrailingSlash(fooditBaseUrl)
+        : removeTrailingSlash(RESIZER_URL_PUBLIC);
+};
+
+export const replaceResizerBaseUrl = ({
+    url = '',
+    isInApertura,
+    isAdmin,
+    arcSite = 'lanacionar',
+    resizerUrl
+} = {}) => {
+    if (!isValidString(url)) return url;
+
+    const finalBaseUrl = baseUrl({
+        isInApertura,
+        isAdmin,
+        arcSite,
+        resizerUrl
+    });
+    const resizerPublicBaseUrl = removeTrailingSlash(RESIZER_URL_PUBLIC);
+    const isResizerPublicUrl =
+        isValidString(resizerPublicBaseUrl) &&
+        (url === resizerPublicBaseUrl ||
+            url.startsWith(`${resizerPublicBaseUrl}/`));
+
+    if (!isFooditArcSite(arcSite) && isResizerPublicUrl) {
+        return url.replace(resizerPublicBaseUrl, finalBaseUrl);
+    }
+
+    if (!(isResizerV1(url) || isResizerV2(url))) return url;
+
+    return url.replace(/^https?:\/\/[^/]+(?=\/resizer\/)/, finalBaseUrl);
+};
+
+export const replaceUrlResizerToWWW = (
+    originalPromoItems = {},
+    arcSite = 'lanacionar'
+) => {
+    if (
+        originalPromoItems === null ||
+        typeof originalPromoItems !== 'object' ||
+        Array.isArray(originalPromoItems)
+    )
+        return originalPromoItems;
+
+    const {
+        url = '',
+        type,
+        resized_urls: resizedUrls,
+        resized_urls_zoom: resizedUrlsZoom
+    } = originalPromoItems || {};
+    const hasUrl = Object.prototype.hasOwnProperty.call(
+        originalPromoItems,
+        'url'
+    );
+
+    if (type && type !== 'image') return originalPromoItems;
+
+    const replaceUrl = _url => replaceResizerBaseUrl({ url: _url, arcSite });
+
+    const transformUrls = _resizedUrls =>
+        Array.isArray(_resizedUrls)
+            ? _resizedUrls.map(item => ({
+                  ...item,
+                  resizedUrl: replaceUrl(item.resizedUrl)
+              }))
+            : _resizedUrls;
+
+    return {
+        ...originalPromoItems,
+        ...(hasUrl && { url: replaceUrl(url) }),
+        ...(Array.isArray(resizedUrls) && {
+            resized_urls: transformUrls(resizedUrls)
+        }),
+        ...(Array.isArray(resizedUrlsZoom) && {
+            resized_urls_zoom: transformUrls(resizedUrlsZoom)
+        })
+    };
 };
 
 export const buildQueryParams = ({
@@ -254,7 +338,13 @@ export const resizeImgUrl = ({
         !get(arcImage, '_id', '') &&
         (isResizerV1(imageUrl) || isResizerV2(imageUrl))
     ) {
-        return imageUrl;
+        return replaceResizerBaseUrl({
+            url: imageUrl,
+            isInApertura,
+            isAdmin,
+            arcSite,
+            resizerUrl
+        });
     }
 
     return `${baseUrl({
@@ -408,7 +498,8 @@ export const resizeArcGallery = (
     arcgallery,
     resizeOptions,
     zoomSizes,
-    smartCropExcluded = false
+    smartCropExcluded = false,
+    arcSite = 'lanacionar'
 ) => {
     if (arcgallery.type !== 'gallery') {
         throw new Error(
@@ -426,8 +517,11 @@ export const resizeArcGallery = (
                     arcImage: i,
                     resizeOptions,
                     zoomSizes,
-                    smartCropExcluded
+                    smartCropExcluded,
+                    arcSite
                 })
             )
     };
 };
+
+export default replaceUrlResizerToWWW;
