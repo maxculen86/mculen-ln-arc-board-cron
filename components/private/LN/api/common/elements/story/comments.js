@@ -49,3 +49,8 @@ export const openComments = dataNota => {
         optionDisplayComments === true
     );
 };
+
+export const getArticleComments = dataNota => ({
+    abiertoComentarios: openComments(dataNota),
+    permitirComentarios: get(dataNota, 'comments.allow_comments', false)
+});
