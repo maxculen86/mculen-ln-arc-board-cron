@@ -131,8 +131,7 @@ export const getMessageProps = (props, messageType, gc) => {
                     hasWrapper: true
                 },
                 text: 'Comentarios'
-            },
-            className: 'max-w-750'
+            }
         },
         CLOSED_COMMENTS: {
             title: 'Nota cerrada a comentarios.',
@@ -145,8 +144,7 @@ export const getMessageProps = (props, messageType, gc) => {
                     className: 'bg-neutral-700'
                 },
                 text: 'Comentarios'
-            },
-            className: 'max-w-750'
+            }
         },
         SUBSCRIPTION: {
             subtitle: 'Para comentar las notas, necesitás suscribirte',
@@ -157,8 +155,7 @@ export const getMessageProps = (props, messageType, gc) => {
                 '',
             badge: {
                 onlySuscriptors: true
-            },
-            className: 'max-w-750'
+            }
         }
     };
 
