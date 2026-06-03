@@ -106,4 +106,117 @@ describe('TagsLoadingList', () => {
             );
         });
     });
+
+    describe('Script exclusion by section', () => {
+        const oneTagScript = JSON.stringify({
+            id: 'oneTag',
+            type: 'text/javascript',
+            src: 'https://get.s-onetag.com/test.js',
+            location: 'head',
+            section: 'all'
+        });
+
+        const otherScript = JSON.stringify({
+            id: 'otherScript',
+            type: 'text/javascript',
+            src: 'https://example.com/other.js',
+            location: 'head',
+            section: 'all'
+        });
+
+        it('should exclude oneTag when section is /estados-unidos', () => {
+            useContent.mockReturnValueOnce([oneTagScript, otherScript]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="estados-unidos"
+                    requestUri="/estados-unidos/some-article"
+                    location="head"
+                />
+            );
+            expect(container.innerHTML).not.toContain('oneTag');
+            expect(container.innerHTML).toContain('otherScript');
+        });
+
+        it('should include oneTag when section is not /estados-unidos', () => {
+            useContent.mockReturnValueOnce([oneTagScript, otherScript]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="economia"
+                    requestUri="/economia/some-article"
+                    location="head"
+                />
+            );
+            expect(container.innerHTML).toContain('oneTag');
+            expect(container.innerHTML).toContain('otherScript');
+        });
+
+        it('should not affect other scripts when excluding oneTag', () => {
+            const scriptA = JSON.stringify({
+                id: 'scriptA',
+                src: 'https://example.com/a.js',
+                location: 'head',
+                section: 'all'
+            });
+            const scriptB = JSON.stringify({
+                id: 'scriptB',
+                src: 'https://example.com/b.js',
+                location: 'head',
+                section: 'all'
+            });
+
+            useContent.mockReturnValueOnce([oneTagScript, scriptA, scriptB]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="estados-unidos"
+                    requestUri="/estados-unidos/some-article"
+                    location="head"
+                />
+            );
+            expect(container.innerHTML).not.toContain('oneTag');
+            expect(container.innerHTML).toContain('scriptA');
+            expect(container.innerHTML).toContain('scriptB');
+        });
+
+        it('should handle empty requestUri gracefully', () => {
+            useContent.mockReturnValueOnce([oneTagScript, otherScript]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="estados-unidos"
+                    requestUri=""
+                    location="head"
+                />
+            );
+            expect(container.innerHTML).toContain('oneTag');
+            expect(container.innerHTML).toContain('otherScript');
+        });
+
+        it('should handle script without id field', () => {
+            const scriptWithoutId = JSON.stringify({
+                type: 'text/javascript',
+                src: 'https://example.com/no-id.js',
+                location: 'head',
+                section: 'all'
+            });
+
+            useContent.mockReturnValueOnce([scriptWithoutId]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="estados-unidos"
+                    requestUri="/estados-unidos/some-article"
+                    location="head"
+                />
+            );
+            expect(container.innerHTML).toContain('no-id.js');
+        });
+    });
 });
