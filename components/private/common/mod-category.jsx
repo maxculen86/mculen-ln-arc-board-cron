@@ -36,42 +36,51 @@ function ModCategory({
     );
 
     return (
-        <div
-            className={cx('mod-categories', {
-                '--no-app': sectionId === '/juegos'
-            })}
-        >
-            {revista ? (
-                <div className="mod-logo">
-                    <h1>
-                        <span>{category}</span>
-                        <ComImage
-                            width={resizedWidth || width}
-                            height={resizedHeight || height}
-                            src={resizedUrl || imageUrl}
-                            alt={category}
-                            isApertura
-                        />
-                    </h1>
-                </div>
-            ) : (
-                <ComTitle
-                    link={url}
-                    tag="h1"
-                    size="--threexl"
-                    weight="--font-extra"
+        <>
+            <div
+                className={cx('mod-categories', {
+                    '--no-app': sectionId === '/juegos'
+                })}
+            >
+                {revista ? (
+                    <div className="mod-logo">
+                        <h1>
+                            <span>{category}</span>
+                            <ComImage
+                                width={resizedWidth || width}
+                                height={resizedHeight || height}
+                                src={resizedUrl || imageUrl}
+                                alt={category}
+                                isApertura
+                            />
+                        </h1>
+                    </div>
+                ) : (
+                    <ComTitle
+                        link={url}
+                        tag="h1"
+                        size="--threexl"
+                        weight="--font-extra"
+                        style={style}
+                        customTitle={`Ir a ${category}`}
+                        content={category}
+                        classCondition="--black"
+                    />
+                )}
+                <ModNavigation
+                    navigation={navigation}
+                    classCondition="--category --font-primary --l --font-medium"
                     style={style}
-                    customTitle={`Ir a ${category}`}
-                    content={category}
-                    classCondition="text-neutral-light-800"
                 />
+            </div>
+            {socials?.length > 0 && (
+                <div data-tw>
+                    {socials.map(social => (
+                        <SocialNetwork {...social} />
+                    ))}
+                </div>
             )}
-            <ModNavigation
-                navigation={navigation}
-                classCondition="--category --font-primary --l --font-medium"
-                style={style}
-            />
-        </div>
+        </>
     );
 }
 

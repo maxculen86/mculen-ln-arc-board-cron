@@ -251,7 +251,7 @@ describe('components - private - common - mod-category', () => {
             expect(queryByTestId('social-instagram')).not.toBeInTheDocument();
         });
 
-        it('should not render social network when component no longer renders SocialNetwork', () => {
+        it('should render single social network (Instagram)', () => {
             const propsWithSocials = {
                 ...props,
                 socials: [
@@ -263,26 +263,50 @@ describe('components - private - common - mod-category', () => {
                 ]
             };
 
-            const { queryByTestId } = render(
+            const { getByTestId } = render(
                 <ModCategory {...propsWithSocials} />
             );
 
-            expect(queryByTestId('social-instagram')).not.toBeInTheDocument();
+            const instagramLink = getByTestId('social-instagram');
+            expect(instagramLink).toBeInTheDocument();
+            expect(instagramLink.getAttribute('href')).toBe(
+                'https://instagram.com/lanacion'
+            );
+            expect(instagramLink.getAttribute('title')).toBe('Ir a Instagram');
         });
 
-        it('should not render any social networks when component no longer renders SocialNetwork', () => {
+        it('should render multiple social networks (Instagram, TikTok, WhatsApp)', () => {
             const propsWithSocials = {
                 ...props,
                 socials
             };
 
-            const { queryByTestId } = render(
+            const { getByTestId } = render(
                 <ModCategory {...propsWithSocials} />
             );
 
-            expect(queryByTestId('social-instagram')).not.toBeInTheDocument();
-            expect(queryByTestId('social-tiktok')).not.toBeInTheDocument();
-            expect(queryByTestId('social-whatsapp')).not.toBeInTheDocument();
+            const instagramLink = getByTestId('social-instagram');
+            const tiktokLink = getByTestId('social-tiktok');
+            const whatsappLink = getByTestId('social-whatsapp');
+
+            expect(instagramLink).toBeInTheDocument();
+            expect(tiktokLink).toBeInTheDocument();
+            expect(whatsappLink).toBeInTheDocument();
+
+            expect(instagramLink.getAttribute('href')).toBe(
+                'https://instagram.com/lanacion'
+            );
+            expect(instagramLink.getAttribute('title')).toBe('Ir a Instagram');
+
+            expect(tiktokLink.getAttribute('href')).toBe(
+                'https://tiktok.com/@lanacion'
+            );
+            expect(tiktokLink.getAttribute('title')).toBe('Ir a TikTok');
+
+            expect(whatsappLink.getAttribute('href')).toBe(
+                'https://wa.me/541234567890'
+            );
+            expect(whatsappLink.getAttribute('title')).toBe('Ir a WhatsApp');
         });
 
         it('ModCategory - Snapshot with socials', () => {
