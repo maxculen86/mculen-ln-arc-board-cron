@@ -6,6 +6,7 @@ import {
     getImagesToLoadWithPicture
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
+import { replaceUrlResizerToWWW } from '../../../../private/common/utils/image/resizer/v2/resizerHelper';
 
 const useGetImage = ({ imageId, isFirstCard, parentLayout }) => {
     const imageData =
@@ -20,7 +21,10 @@ const useGetImage = ({ imageId, isFirstCard, parentLayout }) => {
             }
         }) || {};
 
-    const resizedImages = get(imageData, 'promo_items.basic.resized_urls', []);
+    const basicImage = replaceUrlResizerToWWW(
+        get(imageData, 'promo_items.basic', {})
+    );
+    const resizedImages = get(basicImage, 'resized_urls', []);
     const { resizedUrl = '' } = getShortestImage(resizedImages) || {};
     return {
         resizedUrl,

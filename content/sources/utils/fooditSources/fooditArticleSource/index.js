@@ -111,7 +111,7 @@ export const transform = async (
         customConfigCallbackContentElements
     } = customCallbacksConfig;
 
-    const arcSite = query['arc-site'];
+    const arcSite = get(query, 'arc-site', 'foodit');
     const siteProperties = getProperties(query[arcSite]);
 
     const subtype = getArticleSubtype(

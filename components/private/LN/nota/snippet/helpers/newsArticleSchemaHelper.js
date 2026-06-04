@@ -2,7 +2,7 @@ import get from '../../../../common/utils/get';
 import { addForwardSlash } from '../../../common/utils/addForwardSlash';
 import { extractDataFromPromoItems } from '../../../common/utils/extractDataFromPromoItems';
 import { getImageProps } from '../../../../common/utils/getMetasOGHelper';
-import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../../../common/utils/image/resizer/v2/resizerHelper';
 
 export const buildPrimaryImageOfPage = ({
     basicImage = {},

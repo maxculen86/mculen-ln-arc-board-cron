@@ -4,7 +4,7 @@ import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/media
 import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
 import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
-import replaceUrlResizerToWWW from '../../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../resizer/v2/resizerHelper';
 
 const getImageListStorytelling = (imageData, proportion) =>
     replaceAllUrlsResizerArray(getImageData(imageData, proportion));
