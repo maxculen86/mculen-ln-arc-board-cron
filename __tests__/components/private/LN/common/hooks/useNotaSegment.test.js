@@ -8,6 +8,15 @@ import {
 } from '../../../../../../components/private/LN/common/utils/segmentation/segmentoNotaStorage';
 
 jest.mock(
+    'fusion:environment',
+    () => ({
+        COOKIE_EXPIRATION: '3600000',
+        DOMINIO_COOKIE: 'localhost'
+    }),
+    { virtual: true }
+);
+
+jest.mock(
     '../../../../../../components/private/LN/common/utils/segmentation/getGaClientId'
 );
 jest.mock(
@@ -53,6 +62,28 @@ describe('useNotaSegment', () => {
         });
     });
 
+    it('returns the segment without syncing SegmentoNota storage when syncSegmentoNotaStorage=false', async () => {
+        getGaClientId.mockResolvedValue('1234567890.1234567893');
+        computeSegment.mockReturnValue('test');
+
+        const { result } = renderHook(() =>
+            useNotaSegment({
+                experimentName: 'Exp01',
+                testDigits: ['3'],
+                controlDigits: ['4'],
+                syncSegmentoNotaStorage: false
+            })
+        );
+
+        await waitFor(() => {
+            expect(result.current.ready).toBe(true);
+        });
+
+        expect(result.current.segment).toBe('test');
+        expect(upsertSegmentoNota).not.toHaveBeenCalled();
+        expect(removeSegmentoNota).not.toHaveBeenCalled();
+    });
+
     it('returns ready=true with segment=null when experimentName is missing (no compute)', () => {
         const { result } = renderHook(() =>
             useNotaSegment({
@@ -80,6 +111,21 @@ describe('useNotaSegment', () => {
         expect(result.current).toEqual({ segment: null, ready: true });
         expect(getGaClientId).not.toHaveBeenCalled();
         expect(removeSegmentoNota).toHaveBeenCalledWith('Exp01');
+    });
+
+    it('does not remove SegmentoNota storage when digit lists are empty and syncSegmentoNotaStorage=false', () => {
+        const { result } = renderHook(() =>
+            useNotaSegment({
+                experimentName: 'Exp01',
+                testDigits: [],
+                controlDigits: [],
+                syncSegmentoNotaStorage: false
+            })
+        );
+
+        expect(result.current).toEqual({ segment: null, ready: true });
+        expect(getGaClientId).not.toHaveBeenCalled();
+        expect(removeSegmentoNota).not.toHaveBeenCalled();
     });
 
     it('returns ready=true with segment=null when clientId cannot be resolved', async () => {
