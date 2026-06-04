@@ -11,6 +11,8 @@ import { replaceResizerBaseUrl } from '../../../../private/common/utils/image/re
  * @param {ImageProps} props
  * @returns {React.ReactElement}
  */
+
+// TODO: Refactorizar esta funcion para evitar trabajo innecesario. Considerar usar regex.
 const replaceResizerSrcSet = (srcSet = '') =>
     typeof srcSet === 'string'
         ? srcSet
@@ -21,7 +23,7 @@ const replaceResizerSrcSet = (srcSet = '') =>
                       .filter(Boolean)
                       .join(' ');
               })
-              .join(', ')
+              .join(',')
         : srcSet;
 
 function Image({

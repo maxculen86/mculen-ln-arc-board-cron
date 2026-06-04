@@ -89,7 +89,7 @@ describe('components - features - ui - ln - image', () => {
             expect(image.tagName).toBe('IMG');
             expect(image).toHaveAttribute(
                 'srcset',
-                'test.jpg 420w, hero.jpg 1200w'
+                'test.jpg 420w,hero.jpg 1200w'
             );
             expect(image).toHaveAttribute('sizes', '100vw');
             expect(
@@ -116,7 +116,7 @@ describe('components - features - ui - ln - image', () => {
             );
             expect(image).toHaveAttribute(
                 'srcset',
-                'https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true 420w, https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=1200&height=800&quality=70&smart=true 1200w'
+                'https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=420&height=280&quality=70&smart=true 420w,https://sandbox.lanacion.com.ar/resizer/v2/test.jpg?width=1200&height=800&quality=70&smart=true 1200w'
             );
         });
     });
