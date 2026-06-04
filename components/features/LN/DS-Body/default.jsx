@@ -5,6 +5,7 @@ import BaseBodyWrapper from '../../LN-nota/body/_children/BaseBodyWrapper';
 import { getBodyConfigForLayout } from './helpers/bodyConfig';
 import registerScrollTracking from './helpers/registerScrollTracking';
 import useViewportSize from '../../../private/common/hooks/useViewportSize';
+import get from '../../../private/common/utils/get';
 
 function DsBody() {
     const { outputType, globalContent = {}, layout } = useAppContext();
@@ -16,6 +17,19 @@ function DsBody() {
         ruleConditions: finalRuleConditions,
         dynamicBanners
     } = getBodyConfigForLayout(layout);
+
+    const bannersVisibilityLabel = get(
+        globalContent,
+        'label.mostrar_banners.text',
+        null
+    );
+    const bannersDisabledByEditor =
+        typeof bannersVisibilityLabel === 'string' &&
+        bannersVisibilityLabel.toLowerCase() === 'no';
+    const gatedDynamicBanners =
+        bannersDisabledByEditor && dynamicBanners
+            ? { ...dynamicBanners, enabled: false }
+            : dynamicBanners;
 
     return (
         <BaseBodyWrapper
@@ -30,7 +44,7 @@ function DsBody() {
                 globalContent,
                 bodyComponents: finalBodyComponents,
                 ruleConditions: finalRuleConditions,
-                dynamicBanners,
+                dynamicBanners: gatedDynamicBanners,
                 currentDevice: device,
                 layout
             })}
