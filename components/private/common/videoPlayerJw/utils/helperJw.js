@@ -95,6 +95,49 @@ export const onJwPlayerReady = (
     });
 };
 
+const PROGRESS_MILESTONES = [25, 50, 75];
+
+export const trackMilestone = ({
+    sentProgressRef,
+    percentage,
+    videoId,
+    title
+}) => {
+    if (sentProgressRef.current.has(percentage)) {
+        return;
+    }
+
+    sentProgressRef.current.add(percentage);
+
+    addEventToDataLayerV2({
+        event: String(percentage),
+        rest: {
+            videoID: String(videoId || ''),
+            videoName: String(title || '')
+        }
+    });
+};
+
+export const handleTimeTracking = ({
+    event,
+    sentProgressRef,
+    videoId,
+    title
+}) => {
+    const percent = Math.floor((event.currentTime / event.duration) * 100);
+
+    PROGRESS_MILESTONES.forEach(percentage => {
+        if (percent >= percentage) {
+            trackMilestone({
+                sentProgressRef,
+                percentage,
+                videoId,
+                title
+            });
+        }
+    });
+};
+
 export const handleVideoEventsScript = (
     title,
     idVideo,

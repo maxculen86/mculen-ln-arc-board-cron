@@ -100,4 +100,33 @@ describe('Components - private - common - utils - getChainPosition', () => {
             ).toBe(3);
         });
     });
+
+    describe('when chains excluded from position are present', () => {
+        it('should skip encuesta and juegos chains and keep normal chain positions stable', () => {
+            const termicaCajaSegmentada = true;
+
+            const renderables = [
+                createChain('LN10_Caja_Manual', 'manual1'),
+                createChain('LN10_Caja_Encuesta', 'encuesta1'),
+                createChain('LN10_Caja_Apertura', 'apertura1'),
+                createChain('LN10_Caja_Juegos_v2', 'juegos1'),
+                createChain('LN10_Caja_Collection', 'collection1')
+            ];
+
+            expect(
+                getChainPosition(
+                    'apertura1',
+                    termicaCajaSegmentada,
+                    renderables
+                )
+            ).toBe(1);
+            expect(
+                getChainPosition(
+                    'collection1',
+                    termicaCajaSegmentada,
+                    renderables
+                )
+            ).toBe(2);
+        });
+    });
 });

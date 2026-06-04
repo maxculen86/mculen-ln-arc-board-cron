@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getBadge from '../../../../../components/private/common/utils/getBadge';
-import RatingBadge from '../../../../../components/features/LN/common/ratingBadge/default';
 
 jest.mock(
     '../../../../../components/features/LN/common/ratingBadge/default',
@@ -15,87 +14,111 @@ jest.mock(
         ))
 );
 
-describe('Test for getBadge when note is comun', () => {
-    const contentRestrictions = 'comun';
-    const label = {
-        text: 'Chapita',
-        style: 'live'
-    };
+jest.mock('../../../../../components/features/ui/ln/icon/default', () =>
+    jest.fn(() => <svg data-testid="subscriber-icon" />)
+);
 
-    test('Test return when style is live', () => {
-        const { container } = render(getBadge(contentRestrictions, label));
-        const span = container.querySelector('span');
+describe('getBadge', () => {
+    describe('when contentCode is cerrada', () => {
+        it('should render the subscriber icon', () => {
+            const { container } = render(getBadge('cerrada', {}));
 
-        expect(
-            screen.getByText(
-                (content, element) => element.tagName.toLowerCase() === 'span'
-            )
-        ).toBeVisible();
+            expect(screen.getByTestId('subscriber-icon')).toBeInTheDocument();
+            expect(container.querySelector('.ln-badge')).toBeInTheDocument();
+        });
 
-        expect(span).toHaveClass('--live');
-    });
-});
+        it('should not render a text badge', () => {
+            render(
+                getBadge('cerrada', {
+                    text: 'Suscriptores',
+                    style: 'subscriber'
+                })
+            );
 
-describe('Test getBadge when is note closed', () => {
-    const contentRestrictions = 'cerrada';
-    const label = {};
-
-    test('Test return when is note closed', () => {
-        const { container } = render(getBadge(contentRestrictions, label));
-        const span = container.querySelector('span');
-
-        expect(
-            screen.getByText(
-                (content, element) => element.tagName.toLowerCase() === 'svg'
-            )
-        ).toBeVisible();
-
-        expect(span).toHaveClass('--exclusive-ln');
-    });
-});
-
-describe('Test getBadge when the props are undefined', () => {
-    const contentRestrictions = undefined;
-    const label = {
-        text: 'Chapita',
-        style: 'live'
-    };
-
-    test('Test return when contentRestrictions are undefined', () => {
-        const { container } = render(getBadge(contentRestrictions, label));
-        const span = container.querySelector('span');
-
-        expect(
-            screen.getByText(
-                (content, element) => element.tagName.toLowerCase() === 'span'
-            )
-        ).toBeVisible();
-
-        expect(span).toHaveClass('--live');
+            expect(screen.queryByText('Suscriptores')).not.toBeInTheDocument();
+        });
     });
 
-    test('Test return when contentRestrictions and text is undefined', () => {
-        const contentRestrictions = undefined;
-        const label = {
-            text: undefined,
-            style: 'live'
-        };
+    describe('when contentCode is comun', () => {
+        it('should render the chapita badge with label text', () => {
+            render(getBadge('comun', { text: 'Chapita', style: 'live' }));
 
-        expect(getBadge(contentRestrictions, label)).toBeNull();
+            expect(screen.getByText('Chapita')).toBeInTheDocument();
+        });
+
+        it('should return null when label text is empty', () => {
+            const result = getBadge('comun', { text: '', style: 'live' });
+
+            expect(result).toBeNull();
+        });
+
+        it('should return null when label text is only whitespace', () => {
+            const result = getBadge('comun', { text: '   ', style: 'live' });
+
+            expect(result).toBeNull();
+        });
     });
-});
 
-describe('Test getBadge when rating is provided', () => {
-    const contentRestrictions = 'comun';
-    const label = {};
-    const rating = 3.5;
+    describe('when contentCode is undefined', () => {
+        it('should fall back to comun and render label text', () => {
+            render(getBadge(undefined, { text: 'Chapita', style: 'live' }));
 
-    test('Test renders RatingBadge with the correct rating value', () => {
-        render(getBadge(contentRestrictions, label, rating));
+            expect(screen.getByText('Chapita')).toBeInTheDocument();
+        });
 
-        const badge = screen.getByTestId('rating-badge');
+        it('should return null when label text is also undefined', () => {
+            const result = getBadge(undefined, {
+                text: undefined,
+                style: 'live'
+            });
 
-        expect(badge).toBeInTheDocument();
-        expect(badge).toHaveAttribute('data-value', String(rating));
+            expect(result).toBeNull();
+        });
+    });
+
+    describe('when rating is provided', () => {
+        it('should render RatingBadge with the correct value', () => {
+            render(getBadge('comun', {}, 3.5));
+
+            const badge = screen.getByTestId('rating-badge');
+            expect(badge).toBeInTheDocument();
+            expect(badge).toHaveAttribute('data-value', '3.5');
+        });
+
+        it('should prioritize rating over cerrada', () => {
+            render(getBadge('cerrada', {}, 4));
+
+            expect(screen.getByTestId('rating-badge')).toBeInTheDocument();
+            expect(
+                screen.queryByTestId('subscriber-icon')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should wrap RatingBadge in ln-rating-badge', () => {
+            const { container } = render(getBadge('comun', {}, 3.5));
+
+            expect(
+                container.querySelector('.ln-rating-badge')
+            ).toBeInTheDocument();
+        });
+    });
+
+    describe('snapshots', () => {
+        it('matches snapshot for cerrada', () => {
+            const { asFragment } = render(getBadge('cerrada', {}));
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('matches snapshot for comun with label', () => {
+            const { asFragment } = render(
+                getBadge('comun', { text: 'En Vivo', style: 'live' })
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('matches snapshot with rating', () => {
+            const { asFragment } = render(getBadge('comun', {}, 4.5));
+            expect(asFragment()).toMatchSnapshot();
+        });
     });
 });

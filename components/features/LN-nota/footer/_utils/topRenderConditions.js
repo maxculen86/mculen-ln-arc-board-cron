@@ -4,7 +4,7 @@ import {
     HTMLLIBRE
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
-import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../../private/common/utils/firmaHelper';
 import { isEmptyObject } from '../../../../private/common/utils/isEmptyObject';
 
 export const shouldShowNoteFooterTopThemes = ({ subtype, tags }) =>

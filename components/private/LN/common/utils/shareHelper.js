@@ -13,6 +13,7 @@ import {
     VIDEO_VERTICAL
 } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { barrierMessages } from '../../../../features/LN/common/barrierRequiresSubscription/helper';
 
 const noPaddingSmNone = 'p-0 sm-none';
 
@@ -195,7 +196,7 @@ export const onButtonClicked = (
             renderToast(toastConfig);
         });
     } else {
-        openBarrier();
+        openBarrier(barrierMessages.BOOKMARK);
     }
 };
 

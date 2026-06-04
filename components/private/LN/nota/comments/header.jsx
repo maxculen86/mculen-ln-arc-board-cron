@@ -4,8 +4,6 @@ import React from 'react';
 import { cx } from '@ln/ds-cva';
 import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
-import ScrollToTopButton from '../../../../features/LN/common/scrollToTopButton/ScrollToTopButton';
-import { scrollToElementWithOffset } from '../../common/utils/scrollToElementWithOffset';
 
 function HeaderComments({ className }) {
     const handleToggleVerLegales = () => {
@@ -13,18 +11,8 @@ function HeaderComments({ className }) {
         verLegalesText.classList.toggle('none');
     };
 
-    const onClickBtnUp = () => {
-        const titleArticle = document.querySelector('h1.com-title, h1');
-        if (titleArticle) {
-            scrollToElementWithOffset(titleArticle);
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
-
     return (
         <>
-            <ScrollToTopButton template="others" onClick={onClickBtnUp} />
             <section
                 className={cx('mod-headersection --line --button', className)}
             >

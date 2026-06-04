@@ -1,10 +1,16 @@
 import React from 'react';
-
+import { cx } from '@ln/cva';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Link } from '@ln/foodit-ui-link';
 import MenuCategories from '../../MenuCategories/foodit';
 
 function Categories({ title, href = '', data = null }) {
+    const titleConocenos = title.toLowerCase().includes('conocenos');
+    const linkClassName = cx(
+        'text-12 roboto-bold uppercase',
+        titleConocenos && '--no-app'
+    );
+
     if (data) {
         return (
             <Dropdown toggleOn="hover" key={title} className="flex ai-center">
@@ -31,7 +37,7 @@ function Categories({ title, href = '', data = null }) {
     return (
         <Link
             href={href}
-            className="text-12 roboto-bold uppercase"
+            className={linkClassName}
             text={`${title}`}
             target={title === 'Conocenos' ? '_blank' : '_self'}
             title={`Ir a ${title}`}

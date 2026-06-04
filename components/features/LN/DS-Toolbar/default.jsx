@@ -8,9 +8,9 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../private/common/auth/helper/loginHelper';
 import { useSignature } from '../DS-Signature/hooks/useSignature';
-import { ToolbarProvider } from './context/ToolbarContext';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import { isCustomVoice } from '../../../../content/sources/utils/audioNews/helper';
+import useTermica from '../../../private/common/hooks/useTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useBookmark from './hooks/useBookmark';
 import useComments from './hooks/useComments';
@@ -24,10 +24,10 @@ import ShareMobileTrigger from './components/shareMobileTrigger';
 import ShareDesktopTrigger from './components/shareDesktopTrigger';
 import WhatsappShareButton from './components/whatsappShareButton';
 import Divider from '../../ui/ln/divider/default';
-import BuildAudioPlayerRender from './components/buildAudioPlayerRender';
 import useNativeShare from './hooks/useNaviteShare';
 import IaSummary from '../common/iaSummary/default';
-import useAudioPlayer from './hooks/useAudioPlayer';
+import { barrierMessages } from '../common/barrierRequiresSubscription/helper';
+import AudioPlayer from '../common/audioPlayer/default';
 
 function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const { globalContent = {}, requestUri } = useAppContext();
@@ -43,10 +43,13 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     } = globalContent;
 
     const [isShareOpen, setIsShareOpen] = useState(false);
-    const [isAudioPlaying, setIsAudioPlaying] = useState(true);
 
     const [isBarrierOpen, setIsBarrierOpen] = useState(false);
-    const openBarrier = () => setIsBarrierOpen(true);
+    const [barrierMessage, setBarrierMessage] = useState('');
+    const openBarrier = (message = '') => {
+        setBarrierMessage(message);
+        setIsBarrierOpen(true);
+    };
     const closeBarrier = () => setIsBarrierOpen(false);
 
     const { token, accessToken } = useAuthManager();
@@ -58,14 +61,8 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
         contentElements
     });
 
-    const { audioPlayerProps = {} } = useAudioPlayer({ isListenable });
-    const {
-        thermicalAudio,
-        onCloseAudioPlayer,
-        isOpenAudioPlayer,
-        setDisableButton
-    } = audioPlayerProps;
-
+    const thermicalAudio =
+        !useTermica('hide_listening_articles') && isListenable;
     const customVoice = isCustomVoice(dataAuthor);
     const showVariantIa = customVoice && thermicalAudio && authors.length <= 1;
 
@@ -82,7 +79,7 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
         token,
         accessToken,
         globalContent,
-        openBarrier
+        openBarrier: () => openBarrier(barrierMessages.BOOKMARK)
     });
 
     const commentsData = useComments({
@@ -94,24 +91,16 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     const iaSummary = useIaSummary({
         globalContent,
         suscription,
-        openBarrier,
+        openBarrier: () => openBarrier(barrierMessages.IA_SUMMARY),
         hideSummary
     });
 
     const audioButtonData = {
         variant: showVariantIa ? 'ia' : 'default',
-        audioPlayerProps,
-        openBarrier,
-        subscription: suscription
-    };
-
-    const audioPlayerData = {
-        isOpenAudioPlayer,
-        setDisableButton,
+        openBarrier: () => openBarrier(barrierMessages.AUDIO),
         noteId,
-        playbackState: 'playing',
-        onCloseAudioPlayer,
-        showVariantIa
+        showVariantIa,
+        subscription: suscription
     };
 
     const shareDesktopTriggerData = {
@@ -123,16 +112,12 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
     };
 
     return (
-        <ToolbarProvider
-            value={{
-                isAudioPlaying,
-                setIsAudioPlaying
-            }}
-        >
+        <>
             <BarrierRequiresSubscription
                 isOpen={isBarrierOpen}
                 isLogged={!!token}
                 closeBarrier={closeBarrier}
+                message={barrierMessage}
             />
             <div className="flex items-center gap-16">
                 <div className="flex items-center gap-8 md:gap-16">
@@ -155,9 +140,9 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
                     />
                 </div>
             </div>
-            <BuildAudioPlayerRender audioPlayerData={audioPlayerData} />
+            <AudioPlayer />
             <IaSummary {...iaSummary} />
-        </ToolbarProvider>
+        </>
     );
 }
 

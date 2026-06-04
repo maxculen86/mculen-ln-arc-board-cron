@@ -131,12 +131,16 @@ export const configCallbackCustomEmbed = {
     } = {}) => {
         if (!isShowGalleryEmbed) return {};
 
-        return buildGalleryEmbedData({
-            element,
-            cachedCall,
-            gallerySource,
-            arcSite
-        });
+        try {
+            return await buildGalleryEmbedData({
+                element,
+                cachedCall,
+                gallerySource,
+                arcSite
+            });
+        } catch {
+            return {};
+        }
     }
 };
 

@@ -1,9 +1,10 @@
 import { renderHook, act } from '@testing-library/react';
+import { useContent } from 'fusion:content';
 import loadJWPlayerScript from '../../../../../../components/chains/utils/loadJWPlayerScript';
 import { useJWPlayer } from '../../../../../../components/features/LN-common/shareVideo/hooks/useJWPlayer';
 
 jest.mock('fusion:content', () => ({
-    useContent: jest.fn(() => ({ duration: null, title: null }))
+    useContent: jest.fn()
 }));
 
 jest.mock('../../../../../../components/chains/utils/loadJWPlayerScript', () =>
@@ -18,6 +19,7 @@ jest.mock(
 describe('Components - features - LN-common - shareVideo - hooks - useJWPlayer', () => {
     beforeEach(() => {
         jest.clearAllMocks();
+        useContent.mockReturnValue({ duration: null, title: null });
         delete global.window.jwplayer;
         delete global.window.localStorage;
     });
@@ -97,5 +99,15 @@ describe('Components - features - LN-common - shareVideo - hooks - useJWPlayer',
             'jwplayer.mute'
         );
         expect(mockSetMute).toHaveBeenCalledWith(true);
+    });
+
+    it('should not crash when useContent returns null', () => {
+        useContent.mockReturnValueOnce(null);
+
+        const { result } = renderHook(() => useJWPlayer('TdCdBgL'));
+
+        expect(result.current.isScriptLoaded).toBe(false);
+        expect(typeof result.current.loadPlayer).toBe('function');
+        expect(typeof result.current.setupPlayer).toBe('function');
     });
 });

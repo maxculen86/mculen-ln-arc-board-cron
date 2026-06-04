@@ -27,7 +27,7 @@ function BaseBodyWrapper({
     });
 
     useEffect(() => {
-        onRegisterScrollTrigger();
+        onRegisterScrollTrigger(noteId);
     }, []);
 
     return children;

@@ -11,6 +11,7 @@ import {
     VIDEO_VERTICAL,
     VIDEO_COMENTARIOS
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import { barrierMessages } from '../../../LN/common/barrierRequiresSubscription/helper';
 
 const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
 
@@ -35,7 +36,7 @@ export const handleOpenIAFeature = ({
             label: defaultTab
         });
     } else {
-        openBarrier();
+        openBarrier(barrierMessages.IA_SUMMARY);
     }
 };
 

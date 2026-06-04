@@ -75,6 +75,31 @@ describe('Foodit - notaFooditHelper', () => {
             expect(getHighestPriorityTag(tags)).toBe('Fácil');
         });
 
+        it('should resolve "Recetas fáciles" to "Fácil"', () => {
+            const tags = [{ name: 'Recetas fáciles' }];
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
+        });
+
+        it('should resolve unaccented "Recetas faciles" to "Fácil"', () => {
+            const tags = [{ name: 'Recetas faciles' }];
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
+        });
+
+        it('should resolve "Recetas rápidas" to "Rápida"', () => {
+            const tags = [{ name: 'Recetas rápidas' }];
+            expect(getHighestPriorityTag(tags)).toBe('Rápida');
+        });
+
+        it('should resolve unaccented "Recetas rapidas" to "Rápida"', () => {
+            const tags = [{ name: 'Recetas rapidas' }];
+            expect(getHighestPriorityTag(tags)).toBe('Rápida');
+        });
+
+        it('should prefer "Fácil" over "Vegana" when article has both mapped names', () => {
+            const tags = [{ name: 'Recetas fáciles' }, { name: 'Vegana' }];
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
+        });
+
         it('should empty string if tag doesnt match', () => {
             const tags = ['pepe'];
             expect(getHighestPriorityTag(tags)).toBe('');

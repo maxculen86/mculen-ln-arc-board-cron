@@ -2,11 +2,6 @@
 
 exports[`HeaderComments renders heading with correct text 1`] = `
 <div>
-  <button
-    data-testid="scroll-top-btn"
-  >
-    Scroll Top
-  </button>
   <section
     class="mod-headersection --line --button"
   >

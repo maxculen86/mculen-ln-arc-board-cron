@@ -231,7 +231,7 @@ describe('Components -  features - LN-acumulado - grillaNotasV2 - _helpers', () 
                 href: '/economia/prueba-liveblog-editorial-video-jw-nid20052025/',
                 displayDate: '10 de julio de 2025',
                 tags: ['economia'],
-                ratingNode: null,
+                customBadge: null,
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',

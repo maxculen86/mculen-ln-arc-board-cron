@@ -1,5 +1,5 @@
 import React from 'react';
-import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import {
@@ -15,9 +15,9 @@ const INDICES_PATH = '/economia/indices/';
 
 const useSchemaUrls = () => {
     const { contextPath, deployment } = useAppContext();
-    const logoPath = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
+    const logoPath = `${contextPath}/resources/images/logo-ln.png`;
     return {
-        logoUrl: `${ARC_STATIC}${deployment(logoPath)}`,
+        logoUrl: `${SITE_LANACION}${deployment(logoPath)}`,
         siteUrl: addForwardSlash(SITE_LANACION)
     };
 };

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwitchToggle snapshots matches snapshot when disabled 1`] = `
+<DocumentFragment>
+  <button
+    aria-checked="false"
+    class="relative inline-flex items-center rounded-full w-48 h-24 transition-colors cursor-pointer border-0 hover:opacity-80 p-4 bg-accent-lighten opacity-40 cursor-not-allowed"
+    disabled=""
+    role="switch"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="absolute flex items-center justify-center rounded-full bg-white size-16 transition-transform translate-x-2"
+    >
+      <span
+        data-name="close"
+        data-size="12"
+        data-testid="icon"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`SwitchToggle snapshots matches snapshot when selected 1`] = `
+<DocumentFragment>
+  <button
+    aria-checked="true"
+    class="relative inline-flex items-center rounded-full w-48 h-24 transition-colors cursor-pointer border-0 hover:opacity-80 p-4 bg-base-default"
+    role="switch"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="absolute flex items-center justify-center rounded-full bg-white size-16 transition-transform translate-x-22"
+    >
+      <span
+        data-name="check"
+        data-size="12"
+        data-testid="icon"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`SwitchToggle snapshots matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <button
+    aria-checked="false"
+    class="relative inline-flex items-center rounded-full w-48 h-24 transition-colors cursor-pointer border-0 hover:opacity-80 p-4 bg-accent-lighten"
+    role="switch"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="absolute flex items-center justify-center rounded-full bg-white size-16 transition-transform translate-x-2"
+    >
+      <span
+        data-name="close"
+        data-size="12"
+        data-testid="icon"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;

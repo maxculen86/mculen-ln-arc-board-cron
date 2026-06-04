@@ -17,6 +17,14 @@ const PRIORITY_SORTED_TAGS = [
     'Sin Gluten'
 ];
 
+const SECTION_NAME_TO_TAG = {
+    'recetas faciles': 'Fácil',
+    'recetas rapidas': 'Rápida'
+};
+
+const stripDiacritics = str =>
+    str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
 export const getVariantBySubtype = subtype => {
     const variants = {
         [STORYTELLING]: 'note',
@@ -30,19 +38,23 @@ export const getHighestPriorityTag = (sections = []) => {
     if (!sections) return '';
 
     return sections.reduce((highestPriority, { name: section = '' } = {}) => {
-        const matchedTag = PRIORITY_SORTED_TAGS.find(
-            tag =>
-                tag.localeCompare(section.trim(), 'es', {
-                    sensitivity: 'base'
-                }) === 0
-        );
-        if (matchedTag) {
+        const normalized = stripDiacritics(section.trim());
+        const resolvedTag =
+            SECTION_NAME_TO_TAG[normalized] ||
+            PRIORITY_SORTED_TAGS.find(
+                tag =>
+                    tag.localeCompare(section.trim(), 'es', {
+                        sensitivity: 'base'
+                    }) === 0
+            );
+
+        if (resolvedTag && PRIORITY_SORTED_TAGS.includes(resolvedTag)) {
             if (
                 !highestPriority ||
-                PRIORITY_SORTED_TAGS.indexOf(matchedTag) <
+                PRIORITY_SORTED_TAGS.indexOf(resolvedTag) <
                     PRIORITY_SORTED_TAGS.indexOf(highestPriority)
             )
-                return matchedTag;
+                return resolvedTag;
         }
         return highestPriority;
     }, '');
