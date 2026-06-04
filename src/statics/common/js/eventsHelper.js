@@ -166,15 +166,40 @@ export class EventsHelper {
             const roofTitle = this.getRoofTitle(roof);
 
             const addEventRoof = (elem, type, title) => {
-                const elemChildren = elem.target.children;
-                const elemParent = elem.target.parentElement;
+                // El listener se ata al ancla, pero al clickear el logo
+                // elem.target es la imagen interna (sin href ni texto). Usamos
+                // el ancla (currentTarget) para resolver href y descripcion.
+                const anchor =
+                    elem.currentTarget ||
+                    (elem.target.closest && elem.target.closest('a')) ||
+                    elem.target;
+                const elemChildren = anchor.children;
+                const elemParent = anchor.parentElement;
+
+                const findAltInChildren = children => {
+                    for (const child of children) {
+                        if (child.alt) return child.alt;
+                        if (child.children && child.children.length) {
+                            const found = findAltInChildren(child.children);
+                            if (found) return found;
+                        }
+                    }
+                    return null;
+                };
+
+                const href = anchor.getAttribute('href') || '';
+                const sectionFromHref =
+                    href.split('/').filter(Boolean).pop() || '';
 
                 const description =
-                    elem.target.innerText ||
-                    elem.target.alt ||
-                    elemParent.getAttribute('data-icon') ||
-                    (elemChildren[0] &&
-                        (elemChildren[0].alt || elemChildren[0].innerHTML));
+                    anchor.innerText ||
+                    anchor.alt ||
+                    (elemParent && elemParent.getAttribute('data-icon')) ||
+                    findAltInChildren(elemChildren) ||
+                    (elemChildren[0] && elemChildren[0].textContent) ||
+                    sectionFromHref ||
+                    title ||
+                    '';
 
                 const payload = {
                     action: this.createDynamicLabel(
@@ -188,7 +213,7 @@ export class EventsHelper {
 
             if (anchorLeft) {
                 this.addEventListeners(anchorLeft, null, elem =>
-                    addEventRoof(elem, actionLeft)
+                    addEventRoof(elem, actionLeft, roofTitle)
                 );
             }
 
