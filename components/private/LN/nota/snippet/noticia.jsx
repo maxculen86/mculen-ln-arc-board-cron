@@ -15,7 +15,7 @@ import {
     extractDataFromPromoItems,
     urlSchema
 } from '../../common/utils/extractDataFromPromoItems';
-import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import { replaceUrlResizerToWWW } from '../../../common/utils/image/resizer/v2/resizerHelper';
 import {
     createISODate,
     getModifiedDate,

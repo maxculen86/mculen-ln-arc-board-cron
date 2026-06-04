@@ -41,7 +41,8 @@ const transformImages = async (data, cachedCall) => {
                     auth: { 1: get(signingResponse, 'hash') },
                     type: 'image'
                 },
-                defaultResizeWithSmart: imagePreset
+                defaultResizeWithSmart: imagePreset,
+                arcSite: 'foodit'
             });
         } catch (error) {
             logger.push(error, {
