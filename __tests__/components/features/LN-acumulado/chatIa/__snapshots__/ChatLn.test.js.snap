@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
+  >
+    <div
+      class="pb-16"
+    >
+      <p
+        class="text-body-lg font-secondary text-base-default"
+      >
+        Seguí las estadísticas y los resultados en vivo en
+         
+        <a
+          class="inline-flex items-center gap-4"
+          href="https://canchallena.lanacion.com.ar/"
+        >
+          <span
+            aria-label="canchallena"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+          />
+          <span
+            data-testid="icon-arrow-right"
+          />
+        </a>
+      </p>
+    </div>
+    <div
+      class="md:grid md:grid-cols-12 xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="flex items-center gap-responsive md:col-span-8 xl:col-span-10 pb-32"
+      >
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-merger"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Simulador de llaves
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Cómo quedarían los cruces
+            </p>
+          </div>
+        </a>
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/futbol/mundial/fixture/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-calendar"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Fixture
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Calendario completo
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
+    >
+      <h2
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
+      >
+        LA NACION IA
+      </h2>
+      <div
+        class="flex gap-8 items-center"
+      >
+        <div
+          data-subscribed="true"
+          data-testid="empty-state"
+        />
+      </div>
+    </div>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="xl:col-span-10"
+      >
+        <div
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-blocked="true"
+              data-disabled="false"
+              data-generating="false"
+              data-subscribed="true"
+              data-testid="input-chat"
+            />
+            <div
+              class="overflow-y-hidden overflow-x-hidden hidden"
+              data-testid="thread-viewport"
+            >
+              <div
+                data-count="0"
+                data-generating="false"
+                data-testid="message-container"
+              />
+            </div>
+            <div
+              class="flex justify-center py-8"
+            >
+              <button
+                data-testid="reset-button"
+                type="button"
+              >
+                <span
+                  data-testid="icon-ia"
+                />
+                Realizar una nueva pregunta
+              </button>
+            </div>
+            <hr
+              data-testid="divider"
+            />
+            <p
+              class="font-secondary text-small-lg text-base-default -mt-8"
+            >
+              Las respuestas se basan exclusivamente en el contenido periodístico publicado por LA NACION. Recomendamos verificar siempre la información con las notas originales que respaldan cada respuesta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ChatLN snapshots matches snapshot when error 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
+  >
+    <div
+      class="pb-16"
+    >
+      <p
+        class="text-body-lg font-secondary text-base-default"
+      >
+        Seguí las estadísticas y los resultados en vivo en
+         
+        <a
+          class="inline-flex items-center gap-4"
+          href="https://canchallena.lanacion.com.ar/"
+        >
+          <span
+            aria-label="canchallena"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+          />
+          <span
+            data-testid="icon-arrow-right"
+          />
+        </a>
+      </p>
+    </div>
+    <div
+      class="md:grid md:grid-cols-12 xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="flex items-center gap-responsive md:col-span-8 xl:col-span-10 pb-32"
+      >
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-merger"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Simulador de llaves
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Cómo quedarían los cruces
+            </p>
+          </div>
+        </a>
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/futbol/mundial/fixture/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-calendar"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Fixture
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Calendario completo
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
+    >
+      <h2
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
+      >
+        LA NACION IA
+      </h2>
+      <div
+        class="flex gap-8 items-center"
+      >
+        <div
+          data-subscribed="true"
+          data-testid="empty-state"
+        />
+      </div>
+    </div>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="xl:col-span-10"
+      >
+        <div
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-blocked="true"
+              data-disabled="false"
+              data-generating="false"
+              data-subscribed="true"
+              data-testid="input-chat"
+            />
+            <div
+              class="overflow-y-hidden overflow-x-hidden hidden"
+              data-testid="thread-viewport"
+            >
+              <div
+                data-count="0"
+                data-generating="false"
+                data-testid="message-container"
+              />
+            </div>
+            <div
+              class="flex justify-center py-8"
+            >
+              <button
+                data-testid="reset-button"
+                type="button"
+              >
+                <span
+                  data-testid="icon-ia"
+                />
+                Realizar una nueva pregunta
+              </button>
+            </div>
+            <hr
+              data-testid="divider"
+            />
+            <p
+              class="font-secondary text-small-lg text-base-default -mt-8"
+            >
+              Las respuestas se basan exclusivamente en el contenido periodístico publicado por LA NACION. Recomendamos verificar siempre la información con las notas originales que respaldan cada respuesta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ChatLN snapshots matches snapshot when not subscribed 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
+  >
+    <div
+      class="pb-16"
+    >
+      <p
+        class="text-body-lg font-secondary text-base-default"
+      >
+        Seguí las estadísticas y los resultados en vivo en
+         
+        <a
+          class="inline-flex items-center gap-4"
+          href="https://canchallena.lanacion.com.ar/"
+        >
+          <span
+            aria-label="canchallena"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+          />
+          <span
+            data-testid="icon-arrow-right"
+          />
+        </a>
+      </p>
+    </div>
+    <div
+      class="md:grid md:grid-cols-12 xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="flex items-center gap-responsive md:col-span-8 xl:col-span-10 pb-32"
+      >
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-merger"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Simulador de llaves
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Cómo quedarían los cruces
+            </p>
+          </div>
+        </a>
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/futbol/mundial/fixture/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-calendar"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Fixture
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Calendario completo
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="flex flex-column pb-8"
+    >
+      <h2
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
+      >
+        LA NACION IA
+      </h2>
+      <div
+        class="flex gap-8 items-center xl:grid xl:grid-cols-16 gap-responsive pt-8"
+      >
+        <div
+          data-subscribed="false"
+          data-testid="empty-state"
+        />
+      </div>
+    </div>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="xl:col-span-10"
+      >
+        <div
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-blocked="false"
+              data-disabled="true"
+              data-generating="false"
+              data-subscribed="false"
+              data-testid="input-chat"
+            />
+            <div
+              class="overflow-y-hidden overflow-x-hidden hidden"
+              data-testid="thread-viewport"
+            >
+              <div
+                data-count="0"
+                data-generating="false"
+                data-testid="message-container"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ChatLN snapshots matches snapshot when subscribed and idle 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="mb-40 md:mb-64 pt-8 xl:pt-6"
+  >
+    <div
+      class="pb-16"
+    >
+      <p
+        class="text-body-lg font-secondary text-base-default"
+      >
+        Seguí las estadísticas y los resultados en vivo en
+         
+        <a
+          class="inline-flex items-center gap-4"
+          href="https://canchallena.lanacion.com.ar/"
+        >
+          <span
+            aria-label="canchallena"
+            class="inline-block w-112 h-16 bg-[url('/pf/resources/images/canchallena.svg')] bg-no-repeat bg-contain bg-left align-baseline"
+          />
+          <span
+            data-testid="icon-arrow-right"
+          />
+        </a>
+      </p>
+    </div>
+    <div
+      class="md:grid md:grid-cols-12 xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="flex items-center gap-responsive md:col-span-8 xl:col-span-10 pb-32"
+      >
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/especiales/deportes/futbol/simulador-del-mundial-2026-nid05122025/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-merger"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Simulador de llaves
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Cómo quedarían los cruces
+            </p>
+          </div>
+        </a>
+        <a
+          class="bg-[url('/pf/resources/images/logo-mundial-mobile.svg')] md:bg-[url('/pf/resources/images/logo-mundial.svg')] bg-no-repeat bg-right bg-[length:auto_100%] items-center gap-8 md:gap-12 flex hover:opacity-80 h-[78px] md:h-[80px] text-start w-full p-16 bg-neutral-1 border border-all border-neutral-300 rounded-12 font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+          href="https://canchallena.lanacion.com.ar/futbol/mundial/fixture/"
+        >
+          <div
+            class="flex items-center justify-center bg-muted min-w-[32px] min-h-[32px] md:min-w-[48px] md:min-h-[48px] rounded-full"
+          >
+            <span
+              data-testid="icon-calendar"
+            />
+          </div>
+          <div>
+            <p
+              class="prumo prumo-semibold text-body-lg prumo-bold"
+            >
+              Fixture
+            </p>
+            <p
+              class="hidden xl:flex font-normal text-body-sm text-base-light pt-2"
+            >
+              Calendario completo
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="flex flex-column pb-8 xl:flex-row xl:items-center gap-8 xl:gap-16"
+    >
+      <h2
+        class="font-primary font-w-semibold text-base-default text-subheading-sm"
+      >
+        LA NACION IA
+      </h2>
+      <div
+        class="flex gap-8 items-center"
+      >
+        <div
+          data-subscribed="true"
+          data-testid="empty-state"
+        />
+      </div>
+    </div>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive"
+    >
+      <div
+        class="xl:col-span-10"
+      >
+        <div
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-blocked="false"
+              data-disabled="false"
+              data-generating="false"
+              data-subscribed="true"
+              data-testid="input-chat"
+            />
+            <div
+              class="overflow-y-hidden overflow-x-hidden hidden"
+              data-testid="thread-viewport"
+            >
+              <div
+                data-count="0"
+                data-generating="false"
+                data-testid="message-container"
+              />
+            </div>
+            <div
+              class="flex flex-column md:flex-row gap-responsive"
+            >
+              <button
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                type="button"
+              >
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 1
+                </span>
+              </button>
+              <button
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                type="button"
+              >
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 2
+                </span>
+              </button>
+              <button
+                class="hover:opacity-80 h-72 text-start w-full px-16 py-8 bg-neutral-1 border border-all border-neutral-300 rounded-md font-secondary text-small-lg text-base-default disabled:opacity-50 disabled:cursor-not-allowed"
+                type="button"
+              >
+                <span
+                  class="line-clamp-3"
+                >
+                  Pregunta 3
+                </span>
+              </button>
+            </div>
+            <hr
+              data-testid="divider"
+            />
+            <p
+              class="font-secondary text-small-lg text-base-default -mt-8"
+            >
+              Las respuestas se basan exclusivamente en el contenido periodístico publicado por LA NACION. Recomendamos verificar siempre la información con las notas originales que respaldan cada respuesta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -275,37 +275,6 @@ exports[`components - private - common - mod-category SocialNetwork rendering Mo
       type="text/javascript"
     />
   </div>
-  <div
-    data-tw="true"
-  >
-    <a
-      data-testid="social-instagram"
-      href="https://instagram.com/lanacion"
-      title="Ir a Instagram"
-    >
-      <span>
-        instagram
-      </span>
-    </a>
-    <a
-      data-testid="social-tiktok"
-      href="https://tiktok.com/@lanacion"
-      title="Ir a TikTok"
-    >
-      <span>
-        tiktok
-      </span>
-    </a>
-    <a
-      data-testid="social-whatsapp"
-      href="https://wa.me/541234567890"
-      title="Ir a WhatsApp"
-    >
-      <span>
-        whatsapp
-      </span>
-    </a>
-  </div>
 </DocumentFragment>
 `;
 
