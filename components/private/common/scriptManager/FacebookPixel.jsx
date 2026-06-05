@@ -18,34 +18,6 @@ function FacebookPixel({ location = 'head', id }) {
         fbq('track', 'PageView');
     `;
 
-    const scriptViewContent = `
-        function viewContentEvent() {
-            var is_suscriber = 'false';
-            if ({{Usuarios - LS Payuser - Normalizado}} == 'yes') is_suscriber = 'true';
-            fbq('trackSingle','492459597522335', 'ViewContent', {
-            tipo_pagina: {{Pantallas - Tipo de pantalla LN9}},
-            seccion: {{Notas - DL seccion}},
-            main_tag: {{Notas - NewsArticle - Keywords}},
-            notas_leidas: {{Sesiones - Contador de notas}},
-            tipo_suscripcion:{{Usuarios - Suscriptor Type}},
-            registrado: {{Usuarios - Usuario Registrado - Normalizado}},
-            suscriptor: {{Usuarios - Payuser - Normalizado}},
-            credencial: {{Usuarios - Credential Type}},
-            main_tag: {{Notas - NewsArticle - Keywords}},
-            logueado: {{Sesiones - Cookie - Usuario Logueado - Normalizado}},
-            autor: {{Notas - NewsArticle - Author}},
-            valor: {{Notas - DL valor}},
-            content_ids: {{Notas - URL - ID de nota LN9}},
-            content_name: {{Navegador - Doc Title}},
-            nota_seccion: {{Notas - NewsArticle - articleSection}},
-            content_type: 'product',
-            article_content_tier: 'metered',
-            is_subscriber: is_suscriber
-        });
-        }
-        viewContentEvent();
-    `;
-
     return (
         <>
             <script
@@ -63,12 +35,6 @@ function FacebookPixel({ location = 'head', id }) {
                     alt=""
                 />
             </noscript>
-            <script
-                id="viewContentEvent"
-                defer
-                type="text/javascript"
-                dangerouslySetInnerHTML={{ __html: scriptViewContent }}
-            />
         </>
     );
 }
