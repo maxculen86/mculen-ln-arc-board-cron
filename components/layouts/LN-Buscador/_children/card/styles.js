@@ -19,7 +19,7 @@ export const imageContainer = cva('', {
     variants: {
         variant: {
             regular:
-                'w-[126px] h-[126px] shrink-0 md:w-full md:h-auto md:aspect-[3/2] border border-neutral-200 overflow-hidden',
+                'w-126 h-126 shrink-0 md:w-full md:h-auto md:aspect-3/2 border border-neutral-200 overflow-hidden',
             highlights: 'aspect-3/2'
         },
         defaultVariants: {

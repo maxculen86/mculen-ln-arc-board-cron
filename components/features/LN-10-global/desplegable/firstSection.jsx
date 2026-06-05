@@ -9,7 +9,7 @@ function FirstSection() {
         <ul className="list flex flex-column gap-8 gap-0_l lg-none bg-light-100 --first-section">
             <li data-tw className="item mb-8 bg-white w-100">
                 <div className="w-full">
-                    <InputSection />
+                    <InputSection negative={false} />
                 </div>
             </li>
             <li className="item border border-top border-thin border-light-300 bg-white">

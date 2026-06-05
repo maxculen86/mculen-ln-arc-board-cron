@@ -48,7 +48,7 @@ exports[`Card edge cases should match snapshot variant regular 1`] = `
   >
     <div
       aria-hidden="true"
-      class="w-[126px] h-[126px] shrink-0 md:w-full md:h-auto md:aspect-[3/2] border border-neutral-200 overflow-hidden"
+      class="w-126 h-126 shrink-0 md:w-full md:h-auto md:aspect-3/2 border border-neutral-200 overflow-hidden"
     >
       <img
         alt="Título"

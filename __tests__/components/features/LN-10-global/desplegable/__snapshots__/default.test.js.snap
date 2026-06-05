@@ -82,6 +82,7 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
                       data-position="start"
                     >
                       <mock-ds-common-icon
+                        class=""
                         name="search"
                         size="16"
                       />

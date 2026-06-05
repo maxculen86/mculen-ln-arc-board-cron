@@ -6,6 +6,7 @@ import Formcontrol from '../../ui/ln/formControl/default';
 import Button from '../../ui/ln/button/default';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
 import { useVoiceSearch } from '../common/voiceSearch/default';
+import { useHeaderContext } from '../header/context';
 
 const LABEL_GRABANDO = 'Grabando... presioná para detener';
 const LABEL_VOZ = 'Buscar por voz';
@@ -14,7 +15,8 @@ export default function InputSection({
     isOpen,
     collapsible = false,
     autoFocus = false,
-    onClose
+    onClose,
+    negative: negativeProp
 }) {
     const [inputValue, setInputValue] = useState('');
     const [typedByUser, setTypedByUser] = useState(false);
@@ -96,6 +98,10 @@ export default function InputSection({
         startListening();
     };
 
+    const { negative: negativeCtx } = useHeaderContext();
+    const negative = negativeProp ?? !!negativeCtx;
+    const buttonColor = negative ? 'white' : 'secondary';
+
     const showActions = typedByUser && inputValue;
     const micLabel = shouldListen ? LABEL_GRABANDO : LABEL_VOZ;
     const micIcon = shouldListen ? 'mic-line-cancel-filled' : 'mic-line';
@@ -116,7 +122,11 @@ export default function InputSection({
         <Formcontrol className={classNameInput}>
             {!showActions && !shouldListen && (
                 <Formcontrol.Adornment className="pl-8" position="start">
-                    <Icon size={16} name="search" />
+                    <Icon
+                        size={16}
+                        name="search"
+                        className={cx({ 'text-white-default': negative })}
+                    />
                 </Formcontrol.Adornment>
             )}
             <Formcontrol.Input
@@ -124,6 +134,8 @@ export default function InputSection({
                 type="text"
                 className={cx(
                     'placeholder:text-base-default',
+                    negative &&
+                        'placeholder:text-white-default text-white-default',
                     (showActions || shouldListen) && 'px-16'
                 )}
                 role="searchbox"
@@ -148,7 +160,7 @@ export default function InputSection({
                             aria-label="Borrar búsqueda"
                             title="Borrar"
                             variant="ghost"
-                            color="secondary"
+                            color={buttonColor}
                             isIconOnly
                         >
                             <Icon size={16} name="close" />
@@ -158,7 +170,7 @@ export default function InputSection({
                             onClick={handleSearch}
                             aria-label="Ir al buscador"
                             title="Ir al buscador"
-                            color="secondary"
+                            color={buttonColor}
                             isIconOnly
                         >
                             <Icon size={16} name="search" />
@@ -171,7 +183,7 @@ export default function InputSection({
                         aria-pressed={shouldListen}
                         title={micLabel}
                         variant="ghost"
-                        color="secondary"
+                        color={buttonColor}
                         isIconOnly
                     >
                         <Icon

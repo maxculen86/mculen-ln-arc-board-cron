@@ -4,9 +4,11 @@ import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/ad
 import InputSection from '../../../desplegable/searchInput';
 import Icon from '../../../../ui/ln/icon/default';
 import Button from '../../../../ui/ln/button/default';
+import { useHeaderContext } from '../../context';
 
 export default function InputSearch({ isOpen, setIsOpen }) {
     const triggerRef = useRef(null);
+    const { negative } = useHeaderContext();
 
     const handleOpen = () => {
         addEventToDataLayerV2({
@@ -37,7 +39,7 @@ export default function InputSearch({ isOpen, setIsOpen }) {
                         title="Ir al buscador"
                         variant="ghost"
                         isIconOnly
-                        color="secondary"
+                        color={negative ? 'white' : 'secondary'}
                         onClick={handleOpen}
                     >
                         <Icon name="search" />
