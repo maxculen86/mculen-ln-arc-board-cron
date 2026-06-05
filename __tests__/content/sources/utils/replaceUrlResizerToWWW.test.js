@@ -72,6 +72,60 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
         });
     });
 
+    describe('Content - sources - utils - replaceUrlResizerToWWW function - baseUrlOverride parameter', () => {
+        test('Should use SITE_LANACION from env when baseUrlOverride is NOT provided', () => {
+            const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
+
+            expect(result.url).toBe(
+                'https://site.lanacion.com.ar/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1920&height=0&quality=80&smart=true'
+            );
+        });
+
+        test('Should use baseUrlOverride instead of SITE_LANACION when provided', () => {
+            const result = replaceUrlResizerToWWW(
+                MOCK_PROMO_V2,
+                'la-nacion-ar',
+                'https://www.lanacion.com.ar'
+            );
+
+            expect(result.url).toBe(
+                'https://www.lanacion.com.ar/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1920&height=0&quality=80&smart=true'
+            );
+        });
+
+        test('Should use baseUrlOverride in resized_urls entries', () => {
+            const result = replaceUrlResizerToWWW(
+                MOCK_PROMO_V2,
+                'la-nacion-ar',
+                'https://www.lanacion.com.ar'
+            );
+
+            result.resized_urls.forEach(item => {
+                expect(item.resizedUrl).toContain(
+                    'https://www.lanacion.com.ar/'
+                );
+            });
+        });
+
+        test('Should use baseUrlOverride in resized_urls_zoom entries', () => {
+            const MOCK_PROMO_V2_WITH_ZOOM = {
+                ...MOCK_PROMO_V2,
+                resized_urls_zoom: MOCK_PROMO_V2.resized_urls
+            };
+            const result = replaceUrlResizerToWWW(
+                MOCK_PROMO_V2_WITH_ZOOM,
+                'la-nacion-ar',
+                'https://www.lanacion.com.ar'
+            );
+
+            result.resized_urls_zoom.forEach(item => {
+                expect(item.resizedUrl).toContain(
+                    'https://www.lanacion.com.ar/'
+                );
+            });
+        });
+    });
+
     describe('When promo items are not type image', () => {
         test('Should return same promo_items as provived', () => {
             const notImageTypePromoItem = {

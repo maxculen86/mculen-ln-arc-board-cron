@@ -12,7 +12,7 @@
                     "proportion": "2:3",
                     "width": 320
                 },
-                "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=320&quality=70&smart=false"
+                "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=320&quality=70&smart=false"
             },
             {
                 "option": {
@@ -20,7 +20,7 @@
                     "proportion": "2:3",
                     "width": 420
                 },
-                "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=420&quality=70&smart=false"
+                "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=420&quality=70&smart=false"
             },
             {
                 "option": {
@@ -28,7 +28,7 @@
                     "proportion": "2:3",
                     "width": 640
                 },
-                "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=640&quality=70&smart=false"
+                "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=640&quality=70&smart=false"
             },
             {
                 "option": {
@@ -36,7 +36,7 @@
                     "proportion": "2:3",
                     "width": 840
                 },
-                "resizedUrl": "https://www.lanacion.com.ar/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=840&quality=70&smart=false"
+                "resizedUrl": "https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=840&quality=70&smart=false"
             }
         ],
         "url": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/22QAQYYOGFEJ3FPKC4OSVPPIN4.png"
