@@ -1,5 +1,6 @@
 export const DRAWERS_ID = {
-    SECTIONS: 'drawer-sections'
+    SECTIONS: 'drawer-sections',
+    SEARCH: 'ln-search-filters'
 };
 
 export const USER_TYPES = {

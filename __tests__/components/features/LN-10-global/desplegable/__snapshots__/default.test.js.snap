@@ -61,34 +61,66 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
             class="list flex flex-column gap-8 gap-0_l lg-none bg-light-100 --first-section"
           >
             <li
-              class="item mb-8 bg-white"
+              class="item mb-8 bg-white w-100"
+              data-tw="true"
             >
-              <label
-                class="flex w-100 cursor-pointer"
-                for="queryly_toggle"
+              <div
+                class="w-full"
               >
                 <div
-                  class="flex ai-center flex-grow-1 py-8 px-20"
+                  class="ds-formcontrol relative group flex flex-col gap-4 transition-colors text-base-default hover:not-focus-within:text-base-light focus-within:text-base-dark"
+                  data-disabled="false"
+                  data-error="false"
+                  data-focused="false"
+                  data-variant="input"
                 >
-                  <span
-                    class="text ln-text text-14"
+                  <div
+                    class="flex gap-16 p-16 border rounded-formcontrol ring-inset focus-within:outline-none focus-within:ring-2 items-center group-data-[variant=textarea]:items-start cursor-text h-56 transition-[width,opacity] duration-300 ease-in-out h-[48px] px-8 py-8 border border-all border-muted w-full opacity-100"
                   >
-                    Buscá en LA NACION...
-                  </span>
-                </div>
-                <div
-                  class="flex w-50 h-50 ai-center jc-center"
-                >
-                  <i
-                    class="icon --icon-16"
-                  >
-                    <mock-icon
-                      critical=""
-                      name="search"
+                    <div
+                      class="flex-shrink-0 flex items-center pl-8"
+                      data-position="start"
+                    >
+                      <mock-ds-common-icon
+                        class=""
+                        name="search"
+                        size="16"
+                      />
+                    </div>
+                    <input
+                      aria-invalid="false"
+                      aria-label="Buscar en LA NACION"
+                      aria-readonly="false"
+                      class="flex-1 outline-none bg-transparent min-w-0 group-has-[label.absolute]:placeholder:opacity-0 placeholder:text-base-default"
+                      enterkeyhint="search"
+                      id="_r_3_"
+                      placeholder="Buscá en LA NACION"
+                      role="searchbox"
+                      type="text"
+                      value=""
                     />
-                  </i>
+                    <div
+                      class="flex-shrink-0 flex items-center"
+                      data-position="end"
+                    >
+                      <button
+                        aria-label="Buscar por voz"
+                        aria-pressed="false"
+                        class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-bold uppercase aspect-1/1 text-secondary-default hover:bg-secondary-lighten data-[disabled="true"]:text-secondary-lighten"
+                        data-disabled="false"
+                        style="--ds-icon-size: 20px;"
+                        title="Buscar por voz"
+                      >
+                        <mock-ds-common-icon
+                          class=""
+                          name="mic-line"
+                          size="16"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </label>
+              </div>
             </li>
             <li
               class="item border border-top border-thin border-light-300 bg-white"
