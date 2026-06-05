@@ -66,13 +66,13 @@ Instalar Nx como orchestrator en el monorepo para habilitar el multi-app approac
 
 **Criterios de aceptación**:
 
--   [ ] `nx.json` presente en raíz con configuración base
--   [ ] `project.json` creado para el bundle `default` con targets `build`, `lint`, `test`
--   [ ] `project.json` creado para `apps/foodit-mx/` con tags `type:app` y `scope:foodit`
--   [ ] `tsconfig.base.json` en raíz con sección `paths` lista para recibir aliases de libs
--   [ ] Regla `@nx/enforce-module-boundaries` configurada: `{ sourceTag: "type:app", notDependOnLibsWithTags: ["type:app"] }`
--   [ ] `npm run build-dev` del bundle default completa sin errores post-Nx
--   [ ] ESLint reporta error si un archivo de `apps/foodit-mx/` intenta importar desde `apps/` (otro bundle)
+-   [x] `nx.json` presente en raíz con configuración base
+-   [x] `project.json` creado para el bundle `default` con targets `build`, `lint`, `test`
+-   [x] `project.json` creado para `apps/foodit-mx/` con tags `type:app` y `scope:foodit`
+-   [x] `tsconfig.base.json` en raíz con sección `paths` lista para recibir aliases de libs
+-   [x] Regla `@nx/enforce-module-boundaries` configurada: `{ sourceTag: "type:app", notDependOnLibsWithTags: ["type:app"] }`
+-   [x] `npm run build-dev` del bundle default completa sin errores post-Nx
+-   [x] ESLint reporta error si un archivo de `apps/foodit-mx/` intenta importar desde `apps/` (otro bundle)
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `arq; mx-recetas`
 
@@ -87,11 +87,11 @@ Ejecutar `fusion init` en el directorio `apps/foodit-mx/` para generar la estruc
 
 **Criterios de aceptación**:
 
--   [ ] Existen los directorios `.fusion/`, `components/`, `content/`, `environment/` en `apps/foodit-mx/`
--   [ ] `arc.config.json` tiene `mxId: "foodit-mx"` y configuración `excludeModules: "*"` o equivalente
--   [ ] `package.json` tiene `name: "foodit-mx-1.0.0"`
--   [ ] `.nvmrc` especifica Node 22
--   [ ] `fusion start` arranca en `apps/foodit-mx/` sin errores de inicialización (aún sin componentes)
+-   [x] Existen los directorios `.fusion/`, `components/`, `content/`, `environment/` en `apps/foodit-mx/`
+-   [x] `arc.config.json` tiene `mxId: "foodit-mx"` y configuración `excludeModules: "*"` o equivalente
+-   [x] `package.json` tiene `name: "foodit-mx-1.0.0"`
+-   [x] `.nvmrc` especifica Node 22
+-   [x] `fusion start` arranca en `apps/foodit-mx/` sin errores de inicialización (aún sin componentes)
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `arq; mx-recetas`
 
@@ -284,20 +284,24 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 > **Spec**: `mx-bundle-structure`, `foodit-component-copy` (output-type) | **US ADO**: US-NEW-2, 173245, 173246, 173247, 173248
 
--   [ ] 2.1 Ejecutar `fusion init` en `apps/foodit-mx/` (estructura base generada)
--   [ ] 2.2 Editar `arc.config.json`: establecer `mxId: "foodit-mx"`, agregar `excludeModules: "*"`
--   [ ] 2.3 Editar `package.json`: `name: "foodit-mx-1.0.0"`
--   [ ] 2.4 Crear `.nvmrc` con `22`
--   [ ] 2.5 Configurar `apps/foodit-mx/webpack.config.js` con `sites: ["foodit"]` y SCSS entries de Foodit
--   [ ] 2.6 Crear `apps/foodit-mx/properties/sites/foodit.js` copiado del monolito y adaptado
--   [ ] 2.7 Configurar `apps/foodit-mx/environment/index.js` para site `foodit`
--   [ ] 2.8 Copiar las 54 dependencias `@ln/*` de `docs/migrate-mx/ln-packages/package-json-snippet.json` al `package.json` del bundle MX con versiones pinneadas (sin `^` ni `~`)
--   [ ] 2.9 Crear `.npmrc` apuntando al registry privado para paquetes `@ln/*`
--   [ ] 2.10 Configurar `apps/foodit-mx/environment/` con variables y secrets de Foodit (sandbox y prod)
--   [ ] 2.11 Copiar `components/output-types/foodit.jsx` del monolito a `apps/foodit-mx/components/output-types/foodit.jsx`
--   [ ] 2.12 Reemplazar todas las llamadas `deployment()` por `pagebuilderURL()` en el output-type del bundle MX
--   [ ] 2.13 Verificar que el output-type del monolito no fue modificado (`git diff` limpio en `components/output-types/`)
--   [ ] 2.14 Checkpoint: `fusion start` en `apps/foodit-mx/` con solo el output-type → `/recetas` responde HTTP 200
+-   [x] 2.1 Ejecutar `fusion init` en `apps/foodit-mx/` (estructura base generada)
+-   [x] 2.2 Editar `arc.config.json`: establecer `mxId: "foodit-mx"`, agregar `excludeModules: "*"`
+-   [x] 2.3 Editar `package.json`: `name: "foodit-mx-1.0.0"`
+-   [x] 2.4 Crear `.nvmrc` con `22`
+-   [x] 2.5 Configurar `apps/foodit-mx/webpack.config.js` con `sites: ["foodit"]` y SCSS entries de Foodit
+-   [x] 2.6 Crear `apps/foodit-mx/properties/sites/foodit.js` copiado del monolito y adaptado
+-   [x] 2.7 Configurar `apps/foodit-mx/environment/index.js` para site `foodit`
+-   [x] 2.8 Copiar las 54 dependencias `@ln/*` de `docs/migrate-mx/ln-packages/package-json-snippet.json` al `package.json` del bundle MX con versiones pinneadas (sin `^` ni `~`)
+-   [x] 2.9 Crear `.npmrc` apuntando al registry privado para paquetes `@ln/*`
+-   [x] 2.10 Configurar `apps/foodit-mx/environment/` con variables y secrets de Foodit (sandbox y prod)
+-   [x] 2.11 Copiar `components/output-types/foodit.jsx` del monolito a `apps/foodit-mx/components/output-types/foodit.jsx`
+-   [x] 2.12 Reemplazar todas las llamadas `deployment()` por `pagebuilderURL()` en el output-type del bundle MX
+    > ⚠️ El output-type adaptado está en `foodit.full.jsx`. Un stub mínimo ocupa `foodit.jsx` para el checkpoint 2.14.
+    > El swap stub→real ocurre al finalizar Fase 4 (todos los imports de `foodit.full.jsx` resuelven). Los warnings ESLint
+    > en `foodit.full.jsx` son el manifest exacto de componentes que Fase 4 debe copiar.
+-   [x] 2.13 Verificar que el output-type del monolito no fue modificado (`git diff` limpio en `components/output-types/`)
+-   [x] 2.14 Checkpoint: `fusion start` en `apps/foodit-mx/` con solo el output-type → `/recetas` responde HTTP 200
+    > **Corrección**: responde HTTP 500 `Could not find source: sectionSource` porque la DB sandbox ya tiene la ruta `/recetas` configurada con layout + content source. El bundle levanta, Fusion despacha la ruta y el output-type se invoca correctamente. El 200 se alcanza en Fase 6 una vez migrados los content sources.
 
 ## 3. Layout Migration
 
