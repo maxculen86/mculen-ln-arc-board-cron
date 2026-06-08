@@ -10,7 +10,9 @@ jest.mock('fusion:context', () => ({
     }))
 }));
 
-jest.mock('fusion:environment', () => ({}));
+jest.mock('fusion:environment', () => ({
+    BEYONDWORDS_PROJECT_ID: 38983
+}));
 
 jest.mock('@ln/ds-common-spinner', () => ({
     Spinner: jest.fn(() => <div data-testid="spinner" />)
