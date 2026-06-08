@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import { Spinner } from '@ln/ds-common-spinner';
+import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import { useAudioPlayerState } from '../hooks/useAudioPlayerState';
 import { useAudioPlayerActions } from '../hooks/useAudioPlayerActions';
 import { useBeyondWordsScript } from '../hooks/useBeyondWordsScript';
@@ -65,7 +66,7 @@ function BuildAudioPlayer() {
         try {
             playerRef.current = new window.BeyondWords.Player({
                 target: '.audio-player',
-                projectId: 38983,
+                projectId: BEYONDWORDS_PROJECT_ID,
                 sourceId: noteId,
                 playbackRates: [1, 1.25, 1.5, 1.7, 2],
                 playbackState: 'playing',
