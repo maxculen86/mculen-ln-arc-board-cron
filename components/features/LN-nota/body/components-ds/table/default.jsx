@@ -4,7 +4,7 @@ import LNTable from '../../../../LN/common/table/default';
 function Table({ data = {} }) {
     return (
         <div data-tw style={{ display: 'contents' }}>
-            <LNTable data={data} striped maxWidth />
+            <LNTable data={data} striped maxWidth className="mb-32" />
         </div>
     );
 }
