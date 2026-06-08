@@ -275,12 +275,18 @@ describe('ChatLN', () => {
         });
 
         it('creates new session and resets runtime on reset click', async () => {
-            const { createMundialSession } = jest.requireMock(
-                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
-            );
+            const { createMundialSession, getSuggestedQuestions } =
+                jest.requireMock(
+                    '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+                );
             createMundialSession.mockResolvedValue({
                 session_id: 'new-session-123'
             });
+            getSuggestedQuestions.mockResolvedValue([
+                'Nueva P1',
+                'Nueva P2',
+                'Nueva P3'
+            ]);
 
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
@@ -296,16 +302,26 @@ describe('ChatLN', () => {
                 expect(mockSetMessages).toHaveBeenCalledWith([]);
                 expect(mockSetStatus).toHaveBeenCalledWith('idle');
                 expect(mockSetError).toHaveBeenCalledWith(null);
+                expect(getSuggestedQuestions).toHaveBeenCalledWith({
+                    userId: undefined,
+                    accessToken: 'mock-access-token'
+                });
             });
         });
 
         it('creates new session and resets runtime on reset click from error state', async () => {
-            const { createMundialSession } = jest.requireMock(
-                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
-            );
+            const { createMundialSession, getSuggestedQuestions } =
+                jest.requireMock(
+                    '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+                );
             createMundialSession.mockResolvedValue({
                 session_id: 'new-session-456'
             });
+            getSuggestedQuestions.mockResolvedValue([
+                'Nueva P1',
+                'Nueva P2',
+                'Nueva P3'
+            ]);
 
             useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
@@ -316,6 +332,10 @@ describe('ChatLN', () => {
                 expect(mockSetMessages).toHaveBeenCalledWith([]);
                 expect(mockSetStatus).toHaveBeenCalledWith('idle');
                 expect(mockSetError).toHaveBeenCalledWith(null);
+                expect(getSuggestedQuestions).toHaveBeenCalledWith({
+                    userId: undefined,
+                    accessToken: 'mock-access-token'
+                });
             });
         });
     });

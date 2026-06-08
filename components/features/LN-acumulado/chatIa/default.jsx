@@ -138,6 +138,18 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
             runtime.setMessages([]);
             runtime.setStatus('idle');
             runtime.setError(null);
+            try {
+                const questions = await getSuggestedQuestions({
+                    userId,
+                    accessToken
+                });
+                setSuggestedQuestions(questions);
+            } catch (err) {
+                console.error(
+                    'ChatLN: error refrescando preguntas sugeridas',
+                    err
+                );
+            }
         } catch (err) {
             console.error('ChatLN: error creando nueva sesión', err);
         } finally {
