@@ -14,11 +14,11 @@ function Image({ data, fetchPriority, loading, isAperturaNota = false }) {
     const isVertical = height > width;
     const _className = cx(
         'max-md:border-x-0 border-1 border-neutral-200 w-full',
-        isVertical ? 'aspect-3/4 max-w-480' : 'aspect-3/2'
+        isVertical ? 'aspect-3/4' : 'aspect-3/2'
     );
 
     return (
-        <WrapperBody variant="medium" className="mb-16">
+        <WrapperBody variant="narrow" className="mb-16">
             <figure>
                 <div className="w-full flex justify-center bg-neutral-50">
                     <div className={_className}>
