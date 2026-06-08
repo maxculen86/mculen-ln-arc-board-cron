@@ -34,7 +34,7 @@ describe('OEmbed', () => {
         expect(iframe).toHaveAttribute('loading', 'lazy');
     });
 
-    it('calls ensureIframeLazyLoading with correct arguments', () => {
+    it('calls ensureIframeLazyLoading with the responsive iframe html', () => {
         ensureIframeLazyLoading.mockReturnValue({ __html: htmlMock });
 
         render(
@@ -48,7 +48,7 @@ describe('OEmbed', () => {
 
         expect(ensureIframeLazyLoading).toHaveBeenCalledWith({
             subtype: 'vimeo',
-            tagHtml: htmlMock
+            tagHtml: expect.stringContaining('width:100%')
         });
     });
 
