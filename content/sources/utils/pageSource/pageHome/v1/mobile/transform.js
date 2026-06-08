@@ -1,11 +1,12 @@
+import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
-import { setTitleByLayout } from '../../../common/elements/titles/index';
 import { setDolarByLayout } from '../../../common/elements/dolars/index';
-import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
-import { setRankingByLayout } from '../../../common/elements/ranking/index';
-import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { transformHtmlCardsByLayout } from '../../../common/elements/cardHtml/index';
 import { setLiveLayout } from '../../../common/elements/live';
+import { setRankingByLayout } from '../../../common/elements/ranking/index';
+import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
+import { setTitleByLayout } from '../../../common/elements/titles/index';
 
 const validateData = (elements, layoutPage) => {
     if (!elements || !layoutPage) {
@@ -20,6 +21,7 @@ const applySyncLayout = (fnByLayout, layoutPage, elements) => {
 
     return Array.isArray(result) && result.length > 0 ? result : elements;
 };
+
 const applyAsyncLayout = async (fnByLayout, layoutPage, elements) => {
     if (!fnByLayout?.[layoutPage]) return elements;
 
@@ -34,7 +36,8 @@ const filterSections = elements =>
               elem =>
                   (elem && elem.type < 9) ||
                   elem.type === 10 ||
-                  elem.type === 12
+                  elem.type === 12 ||
+                  elem.type === 13
           )
         : elements;
 
@@ -46,7 +49,6 @@ const transform = async (dataPage, query) => {
 
     try {
         validateData(elementsPage, layoutPage);
-
         // Divide Section by Layout configured in features
         let elements = divideSectionsByDiagramation(
             elementsPage,
@@ -58,6 +60,12 @@ const transform = async (dataPage, query) => {
         elements = applySyncLayout(setTitleByLayout, layoutPage, elements);
         // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
         elements = applySyncLayout(setBannerByLayout, layoutPage, elements);
+        // Transform features with custom configuration for mobile
+        elements = applySyncLayout(
+            transformHtmlCardsByLayout,
+            layoutPage,
+            elements
+        );
         // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
         elements = await applyAsyncLayout(
             setDolarByLayout,
@@ -80,7 +88,6 @@ const transform = async (dataPage, query) => {
                 elements = rankingResult;
             }
         }
-
         return elements;
     } catch (error) {
         // eslint-disable-next-line no-console

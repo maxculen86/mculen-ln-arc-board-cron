@@ -56,7 +56,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         ],
         10: ['LN10_Caja_Carrusel', 'LN10_Caja_Carrusel_Horizontal'],
         11: ['foodit'],
-        12: ['LN10_Caja_Segmentada']
+        12: ['LN10_Caja_Segmentada'],
+        13: ['LN-10/CardHtml']
     };
     let defaultType = 9; // For discard box
     Object.keys(boxTypeContainer).some(typeIndexBox => {
