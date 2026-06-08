@@ -29,6 +29,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "src": "https://arc-static.glanacion.com/pf/resources/images/cll-logo.webp",
     "width": undefined,
   },
+  "media": undefined,
   "showZocalo": true,
 }
 `;
@@ -36,7 +37,10 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
 exports[`components - features - LN-Nota - infoBox - helper should return the correct config for juegos 1`] = `
 {
   "descriptionProps": {
-    "text": "Disfrutá de Crucigrama, Palabra oculta y todos tus pasatiempos favoritos.",
+    "classnames": {
+      "text": "w-100 --font-primary --font-medium --font-m text-center text-initial_m text-neutral-light-800",
+    },
+    "text": "Accedé a Juegos de manera ilimitada con tu suscripción.",
   },
   "imgProps": {
     "alt": "Imagen de celular con la app de LN Juegos",
@@ -60,6 +64,11 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "className": "w-140_max512",
     "src": "https://arc-static.glanacion.com/pf/resources/images/logo-juegos.webp",
     "width": undefined,
+  },
+  "media": {
+    "className": "w-210",
+    "src": "https://cdn.jwplayer.com/videos/7HwyZ6xk.mp4",
+    "type": "video",
   },
   "showZocalo": true,
 }
@@ -100,6 +109,7 @@ exports[`components - features - LN-Nota - infoBox - helper should return the co
     "src": "",
     "width": 150,
   },
+  "media": undefined,
   "showZocalo": true,
 }
 `;

@@ -143,4 +143,58 @@ describe('InfoBoxFeature', () => {
         expect(container).toMatchSnapshot();
         expect(getViolenceTagsSpy).toHaveBeenCalled();
     });
+
+    it('Should render video component when zocalo config contains media with video type', () => {
+        Context.useAppContext = jest.fn(() => ({
+            contextPath: '/pf',
+            deployment: x => x,
+            globalContent: {
+                taxonomy: {
+                    tags: [],
+                    primary_section: { path: '/juegos' }
+                }
+            }
+        }));
+
+        const { container } = render(
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={{}}
+            />
+        );
+
+        const videoElement = container.querySelector('video');
+        expect(videoElement).toBeInTheDocument();
+        const sourceElement = videoElement.querySelector('source');
+        expect(sourceElement).toHaveAttribute(
+            'src',
+            'https://cdn.jwplayer.com/videos/7HwyZ6xk.mp4'
+        );
+    });
+
+    it('Should not render video component when media type is invalid', () => {
+        Context.useAppContext = jest.fn(() => ({
+            contextPath: '/pf',
+            deployment: x => x,
+            globalContent: {
+                taxonomy: {
+                    tags: [],
+                    primary_section: { path: '/recetas' }
+                }
+            }
+        }));
+
+        const { container } = render(
+            <InfoBoxFeature
+                contextPath="/pf"
+                deployment={x => x}
+                customFields={{}}
+            />
+        );
+
+        // recetas config (foodit) doesn't have media property, so no video should render
+        const videoElement = container.querySelector('video');
+        expect(videoElement).not.toBeInTheDocument();
+    });
 });
