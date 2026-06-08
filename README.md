@@ -6,6 +6,13 @@ La idea es que sea llave en mano, pero no mágica: cada persona tiene que tener 
 
 ## Qué hace
 
+Este repo arma un cron de Hermes compuesto por dos piezas separadas:
+
+1. `arc-board-check.sh`: script determinístico de recolección de evidencia.
+2. `cron.prompt.md`: instrucciones para que Hermes analice esa evidencia, verifique contra sistemas vivos y decida si corresponde operar.
+
+En conjunto:
+
 - Consulta Azure DevOps por work items en el área configurada.
 - Limita el scope al usuario configurado y a sus tasks hijas `Desarrollo:`.
 - Cruza evidencia con ramas remotas del repo ARC.
@@ -17,7 +24,82 @@ La idea es que sea llave en mano, pero no mágica: cada persona tiene que tener 
 - Ignora `demo/*` y `demo-sandbox/*` como evidencia terminal.
 - Puede actualizar la planilla `Pasajes a Sandbox y PRD - NOTAS DE TESTEO` si el Hermes del usuario tiene herramientas/credenciales de Google Workspace.
 
-## Cómo funciona
+## Separación de responsabilidades: script vs Hermes
+
+Esto es importante, porque si mezclamos responsabilidades después nadie entiende quién rompió qué. El bash no es el arquitecto; es el albañil que mide y trae datos.
+
+### Qué hace `arc-board-check.sh`
+
+El script hace solamente recolección y prediagnóstico. No decide estados finales y no modifica Azure DevOps ni Google Sheets.
+
+Responsabilidades del script:
+
+- Lee la configuración desde variables de entorno (`ARC_BOARD_ORG`, `ARC_BOARD_PROJECT`, `ARC_BOARD_AREA_PATH`, `ARC_BOARD_ASSIGNEE_EMAIL`, `ARC_REPO_PATH`, etc.).
+- Ejecuta consultas WIQL con `az boards query` para encontrar work items del usuario configurado.
+- Busca tasks hijas cuyo título empieza con `Desarrollo:` aunque estén sin asignar o asignadas al usuario.
+- Lee metadata básica de los work items: ID, título, estado, asignado, tags, fechas y relaciones padre/hijo.
+- Ejecuta comandos `git` en `ARC_REPO_PATH` para mirar ramas remotas (`origin/develop`, `origin/sandbox`, `origin/master` y ramas relacionadas).
+- Imprime un resumen textual con evidencia candidata: work items en scope, hijos `Desarrollo:`, ramas remotas relevantes y señales encontradas.
+
+Lo que el script NO hace:
+
+- NO cambia estados del board.
+- NO asigna work items.
+- NO agrega tags.
+- NO escribe en la planilla.
+- NO decide `Ready`, `Finished` o `Closed` como verdad final.
+- NO reemplaza la verificación humana/agentiva contra Azure DevOps vivo.
+
+El output del script es un índice de investigación. Sirve para que Hermes arranque con contexto y no tenga que descubrir todo desde cero en cada corrida.
+
+### Qué hace Hermes en el cron
+
+Hermes es quien razona y opera. El cron ejecuta el script primero y le inyecta esa salida al agente como contexto previo. Después Hermes sigue las reglas de `cron.prompt.md`.
+
+Responsabilidades de Hermes:
+
+- Lee el output del script como punto de partida, no como verdad absoluta.
+- Vuelve a verificar con herramientas vivas antes de tocar nada: Azure DevOps, git remoto/local y, si aplica, Google Sheets.
+- Aplica las reglas de negocio del board:
+  - `Ready` si hay evidencia real en `develop` y no en `sandbox/master`.
+  - `Finished` si hay evidencia real en `develop + sandbox` y no en `master`.
+  - `Closed` si hay evidencia real en `master`.
+  - `Blocked/Detenida` si hay PR/code review o bloqueo explícito.
+- Aplica las reglas padre/hijo:
+  - una task `Desarrollo:` mergeada en una rama real puede cerrarse;
+  - el padre solo se cierra con evidencia propia en `master`;
+  - si la hija `Desarrollo:` está sin asignar, Hermes puede asignarla antes de alinear estado.
+- Corrige estados/tags/asignaciones en Azure DevOps cuando la evidencia alcanza.
+- Actualiza la planilla solo si tiene herramientas y credenciales de Google Workspace configuradas.
+- Después de modificar algo, vuelve a verificar y reporta qué cambió y con qué evidencia.
+
+### Qué hace `cron.prompt.md`
+
+`cron.prompt.md` no ejecuta comandos. Es el contrato operativo que se le entrega a Hermes en cada corrida.
+
+Define:
+
+- scope del usuario;
+- reglas de estado;
+- reglas de evidencia válida;
+- reglas padre/hijo;
+- reglas de espejo en Google Sheets;
+- comportamiento esperado antes y después de modificar algo.
+
+Si querés cambiar la política de decisión, normalmente se cambia `cron.prompt.md`. Si querés cambiar qué datos se recolectan antes de que Hermes piense, se cambia `arc-board-check.sh`.
+
+### Flujo completo de una corrida
+
+1. Hermes Scheduler dispara el job según `ARC_CRON_SCHEDULE`.
+2. Hermes ejecuta `~/.hermes/scripts/arc-board-check.sh` como script pre-run.
+3. El script consulta Azure DevOps y git, y devuelve evidencia textual.
+4. Hermes recibe esa evidencia junto con el prompt renderizado desde `cron.prompt.md`.
+5. Hermes verifica contra sistemas vivos antes de decidir.
+6. Si hay evidencia suficiente, Hermes actualiza Azure DevOps y/o Google Sheets.
+7. Hermes vuelve a verificar los cambios.
+8. Hermes reporta resultado: cambios hechos, evidencia usada o motivo por el cual no tocó nada.
+
+## Cómo funciona la instalación
 
 El instalador hace cuatro cosas:
 
