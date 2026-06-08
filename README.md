@@ -4,7 +4,45 @@ Esto instala un cron de Hermes para auditar y mantener el board de Azure DevOps 
 
 La idea es que sea llave en mano, pero no mágica: cada persona tiene que tener sus credenciales locales funcionando. Jarvis puede manejar el workflow, pero si no le das acceso a la obra, no levanta una pared.
 
-## Qué hace
+## Índice
+
+- [Lectura rápida](#lectura-rápida)
+- [1. Qué hace](#1-qué-hace)
+- [2. Separación de responsabilidades: script vs Hermes](#2-separación-de-responsabilidades-script-vs-hermes)
+  - [2.1 Qué hace `arc-board-check.sh`](#21-qué-hace-arc-board-checksh)
+  - [2.2 Qué hace Hermes en el cron](#22-qué-hace-hermes-en-el-cron)
+  - [2.3 Qué hace `cron.prompt.md`](#23-qué-hace-cronpromptmd)
+  - [2.4 Flujo completo de una corrida](#24-flujo-completo-de-una-corrida)
+- [3. Cómo funciona la instalación](#3-cómo-funciona-la-instalación)
+- [4. ¿Puede funcionar sin Hermes?](#4-puede-funcionar-sin-hermes)
+- [5. Requisitos](#5-requisitos)
+- [6. Instalación rápida](#6-instalación-rápida)
+- [7. Configuración del `.env`](#7-configuración-del-env)
+- [8. Verificación después de instalar](#8-verificación-después-de-instalar)
+- [9. Actualizar una instalación existente](#9-actualizar-una-instalación-existente)
+- [10. Desinstalar](#10-desinstalar)
+- [11. Seguridad](#11-seguridad)
+- [12. Troubleshooting](#12-troubleshooting)
+- [13. Roadmap e issues](#13-roadmap-e-issues)
+
+## Lectura rápida
+
+Si solo querés instalar el cron Hermes actual:
+
+1. Leé [Requisitos](#5-requisitos).
+2. Copiá `.env.example` a `.env` y ajustá usuario/path.
+3. Corré `./install.sh --dry-run`.
+4. Si el dry-run está bien, corré `./install.sh`.
+5. Verificá con `hermes cron list` y `hermes cron run <JOB_ID>`.
+
+Si querés entender la arquitectura:
+
+- [Separación de responsabilidades](#2-separación-de-responsabilidades-script-vs-hermes) explica qué hace el script y qué hace Hermes.
+- [¿Puede funcionar sin Hermes?](#4-puede-funcionar-sin-hermes) explica el roadmap para independizarlo.
+- [Roadmap e issues](#13-roadmap-e-issues) apunta a los borradores de issues versionados.
+
+
+## 1. Qué hace
 
 Este repo arma un cron de Hermes compuesto por dos piezas separadas:
 
@@ -24,11 +62,11 @@ En conjunto:
 - Ignora `demo/*` y `demo-sandbox/*` como evidencia terminal.
 - Puede actualizar la planilla `Pasajes a Sandbox y PRD - NOTAS DE TESTEO` si el Hermes del usuario tiene herramientas/credenciales de Google Workspace.
 
-## Separación de responsabilidades: script vs Hermes
+## 2. Separación de responsabilidades: script vs Hermes
 
 Esto es importante, porque si mezclamos responsabilidades después nadie entiende quién rompió qué. El bash no es el arquitecto; es el albañil que mide y trae datos.
 
-### Qué hace `arc-board-check.sh`
+### 2.1 Qué hace `arc-board-check.sh`
 
 El script hace solamente recolección y prediagnóstico. No decide estados finales y no modifica Azure DevOps ni Google Sheets.
 
@@ -52,7 +90,7 @@ Lo que el script NO hace:
 
 El output del script es un índice de investigación. Sirve para que Hermes arranque con contexto y no tenga que descubrir todo desde cero en cada corrida.
 
-### Qué hace Hermes en el cron
+### 2.2 Qué hace Hermes en el cron
 
 Hermes es quien razona y opera. El cron ejecuta el script primero y le inyecta esa salida al agente como contexto previo. Después Hermes sigue las reglas de `cron.prompt.md`.
 
@@ -73,7 +111,7 @@ Responsabilidades de Hermes:
 - Actualiza la planilla solo si tiene herramientas y credenciales de Google Workspace configuradas.
 - Después de modificar algo, vuelve a verificar y reporta qué cambió y con qué evidencia.
 
-### Qué hace `cron.prompt.md`
+### 2.3 Qué hace `cron.prompt.md`
 
 `cron.prompt.md` no ejecuta comandos. Es el contrato operativo que se le entrega a Hermes en cada corrida.
 
@@ -88,7 +126,7 @@ Define:
 
 Si querés cambiar la política de decisión, normalmente se cambia `cron.prompt.md`. Si querés cambiar qué datos se recolectan antes de que Hermes piense, se cambia `arc-board-check.sh`.
 
-### Flujo completo de una corrida
+### 2.4 Flujo completo de una corrida
 
 1. Hermes Scheduler dispara el job según `ARC_CRON_SCHEDULE`.
 2. Hermes ejecuta `~/.hermes/scripts/arc-board-check.sh` como script pre-run.
@@ -99,7 +137,7 @@ Si querés cambiar la política de decisión, normalmente se cambia `cron.prompt
 7. Hermes vuelve a verificar los cambios.
 8. Hermes reporta resultado: cambios hechos, evidencia usada o motivo por el cual no tocó nada.
 
-## Cómo funciona la instalación
+## 3. Cómo funciona la instalación
 
 El instalador hace cuatro cosas:
 
@@ -110,11 +148,11 @@ El instalador hace cuatro cosas:
 
 O sea: el script junta evidencia; Hermes razona y opera. Si Hermes no está configurado con modelo, herramientas y credenciales, el cron no tiene cerebro ni manos. Dale, no hagamos magia negra.
 
-## ¿Puede funcionar sin Hermes?
+## 4. ¿Puede funcionar sin Hermes?
 
 Sí, pero no todo al mismo nivel. Hoy el proyecto está armado como integración con Hermes, aunque una parte ya es independiente.
 
-### Qué ya puede vivir sin Hermes
+### 4.1 Qué ya puede vivir sin Hermes
 
 `arc-board-check.sh` puede ejecutarse sin Hermes porque depende de herramientas estándar:
 
@@ -130,7 +168,7 @@ Eso permite usarlo como auditoría manual o programada. Por ejemplo, con `cronta
 
 Lo que obtenés en ese modo es un reporte de evidencia. No una corrección automática del board.
 
-### Qué todavía depende de Hermes
+### 4.2 Qué todavía depende de Hermes
 
 La parte que hoy depende de Hermes es la más delicada:
 
@@ -144,9 +182,9 @@ La parte que hoy depende de Hermes es la más delicada:
 
 En criollo: sin Hermes, el script puede medir. Para decidir y operar sin Hermes hay que convertir el prompt en código testeable. Si no, estamos haciendo magia negra con otro nombre.
 
-### Caminos posibles
+### 4.3 Caminos posibles
 
-#### Opción 1: modo auditoría independiente
+#### 4.3.1 Opción 1: modo auditoría independiente
 
 Agregar un modo sin Hermes que solo genere reportes.
 
@@ -175,7 +213,7 @@ Contras:
 - alguien tiene que leer y actuar;
 - no resuelve estados automáticamente.
 
-#### Opción 2: core determinístico independiente
+#### 4.3.2 Opción 2: core determinístico independiente
 
 Reescribir la lógica central como CLI propia, idealmente en Python o Node, con reglas explícitas y tests.
 
@@ -221,7 +259,7 @@ Contras:
 - los casos grises ya no los resuelve un agente flexible;
 - requiere mantenimiento como producto interno, no como script suelto.
 
-#### Opción 3: IA sin Hermes
+#### 4.3.3 Opción 3: IA sin Hermes
 
 Se podría reemplazar Hermes por llamadas directas a un LLM vía API.
 
@@ -246,7 +284,7 @@ Contras:
 
 No es la primera opción recomendada. Cambiar una dependencia madura por un pegote propio no es arquitectura, es ansiedad.
 
-### Recomendación de roadmap
+### 4.4 Recomendación de roadmap
 
 El camino sano es hacerlo por capas:
 
@@ -275,9 +313,9 @@ Adaptadores opcionales
 
 La regla de arquitectura es simple: el core no debería saber que Hermes existe. Hermes debería ser un adaptador más.
 
-## Requisitos
+## 5. Requisitos
 
-### 1. Sistema base
+### 5.1 Sistema base
 
 Necesitás correr esto en Linux, macOS o WSL. En Windows puro puede funcionar, pero el camino recomendado para el equipo es WSL porque ARC normalmente ya se labura desde ahí.
 
@@ -289,7 +327,7 @@ python3 --version
 bash --version
 ```
 
-### 2. Hermes Agent instalado
+### 5.2 Hermes Agent instalado
 
 Instalación oficial:
 
@@ -306,7 +344,7 @@ hermes --version
 hermes doctor
 ```
 
-### 3. Hermes configurado con modelo/proveedor
+### 5.3 Hermes configurado con modelo/proveedor
 
 Hermes necesita un modelo configurado para que el cron pueda ejecutar el prompt.
 
@@ -343,7 +381,7 @@ hermes chat -q "Respondé solamente: Hermes OK"
 
 Si eso no responde bien, ni sigas con el cron. Primero arreglá Hermes. Conceptos antes que comandos, viejo.
 
-### 4. Toolsets de Hermes necesarios
+### 5.4 Toolsets de Hermes necesarios
 
 El cron necesita que Hermes pueda usar herramientas para inspeccionar y operar:
 
@@ -366,7 +404,7 @@ hermes tools
 
 Después de cambiar herramientas, arrancá una sesión nueva de Hermes o usá `/reset` en la sesión interactiva. Si pretendés que un proceso ya iniciado lea configuración nueva sin reiniciarlo, estás peleándote con el cache, no con el sistema.
 
-### 5. Scheduler/cron de Hermes funcionando
+### 5.5 Scheduler/cron de Hermes funcionando
 
 Verificá que Hermes pueda listar cron jobs:
 
@@ -381,7 +419,7 @@ hermes doctor
 hermes config check
 ```
 
-### 6. Azure CLI + extensión Azure DevOps
+### 5.6 Azure CLI + extensión Azure DevOps
 
 Instalá Azure CLI si no está instalada. Después agregá la extensión:
 
@@ -396,18 +434,18 @@ az --version
 az extension show --name azure-devops
 ```
 
-### 7. Login a Azure DevOps
+### 5.7 Login a Azure DevOps
 
 Tenés dos opciones.
 
-#### Opción A: login interactivo
+#### 5.7.1 Opción A: login interactivo
 
 ```bash
 az login
 az devops configure --defaults organization=https://dev.azure.com/lndigital/ project="Gestion LANACION-ARC"
 ```
 
-#### Opción B: PAT local
+#### 5.7.2 Opción B: PAT local
 
 Creá un PAT en Azure DevOps con permisos para leer work items y, si querés que Hermes actualice estados/tags, permisos de escritura sobre work items.
 
@@ -429,7 +467,7 @@ az boards query \
   --output table
 ```
 
-### 8. Repo ARC clonado localmente
+### 5.8 Repo ARC clonado localmente
 
 Cada integrante necesita el repo ARC en su máquina, porque el cron cruza evidencia contra ramas remotas.
 
@@ -443,13 +481,13 @@ git fetch --all --prune
 
 El path real se configura después en `ARC_REPO_PATH`.
 
-### 9. Google Workspace / Sheets, opcional pero recomendado
+### 5.9 Google Workspace / Sheets, opcional pero recomendado
 
 Si querés que el cron también mantenga la planilla `Pasajes a Sandbox y PRD - NOTAS DE TESTEO`, el Hermes del usuario tiene que tener configurado el acceso a Google Workspace/Sheets o la herramienta equivalente que use tu setup.
 
 Validación mínima: desde Hermes, pedile que liste o consulte una planilla a la que tengas acceso. Si Hermes no puede tocar Google Sheets manualmente, el cron tampoco va a poder. No le pidas a Jarvis que abra una puerta sin llave.
 
-## Instalación rápida
+## 6. Instalación rápida
 
 Desde este repo:
 
@@ -468,7 +506,7 @@ Para validar sin crear el cron todavía:
 ./install.sh --dry-run
 ```
 
-## Configuración del `.env`
+## 7. Configuración del `.env`
 
 Editá `.env` antes de instalar:
 
@@ -498,7 +536,7 @@ Campos importantes:
 
 Para otro integrante del equipo, normalmente cambiás `ARC_BOARD_ASSIGNEE_EMAIL`, `ARC_BOARD_ASSIGNEE_NAME`, `ARC_REPO_PATH` y `ARC_CRON_WORKDIR`.
 
-## Verificación después de instalar
+## 8. Verificación después de instalar
 
 ```bash
 hermes cron list
@@ -514,7 +552,7 @@ También podés verificar que el script copiado exista:
 test -x ~/.hermes/scripts/arc-board-check.sh && echo "script OK"
 ```
 
-## Actualizar una instalación existente
+## 9. Actualizar una instalación existente
 
 ```bash
 git pull
@@ -534,7 +572,7 @@ Y eliminá el job anterior si quedó duplicado:
 hermes cron remove <JOB_ID>
 ```
 
-## Desinstalar
+## 10. Desinstalar
 
 ```bash
 hermes cron list
@@ -547,16 +585,16 @@ Opcional:
 rm ~/.hermes/scripts/arc-board-check.sh
 ```
 
-## Seguridad
+## 11. Seguridad
 
 - No commitees `.env`; contiene identidad local y paths privados.
 - No metas PATs en archivos del repo. Usá variables de entorno, `~/.hermes/.env`, el credential manager local o el auth local de Azure CLI.
 - El cron corre con tus permisos locales. Si tu Hermes puede actualizar Azure/Google, el cron también.
 - Si pegaste un PAT en Slack, Teams, GitHub, ChatGPT, Hermes o cualquier chat: revocalo y generá otro. No negocies con credenciales quemadas.
 
-## Troubleshooting
+## 12. Troubleshooting
 
-### `hermes: command not found`
+### 12.1 `hermes: command not found`
 
 Hermes no está instalado o la terminal no cargó el `PATH` nuevo.
 
@@ -566,7 +604,7 @@ exec "$SHELL" -l
 hermes --version
 ```
 
-### Hermes está instalado pero el cron no razona o falla el modelo
+### 12.2 Hermes está instalado pero el cron no razona o falla el modelo
 
 Verificá modelo/proveedor:
 
@@ -582,7 +620,7 @@ Si usás API keys, revisá:
 hermes config env-path
 ```
 
-### `hermes cron list` falla
+### 12.3 `hermes cron list` falla
 
 Corré:
 
@@ -593,7 +631,7 @@ hermes config check
 
 Después reiniciá la terminal. Si usás gateway o servicio persistente, reiniciá el gateway según tu instalación.
 
-### `az: command not found`
+### 12.4 `az: command not found`
 
 Instalá Azure CLI y la extensión:
 
@@ -601,11 +639,11 @@ Instalá Azure CLI y la extensión:
 az extension add --name azure-devops
 ```
 
-### Azure devuelve permisos denegados
+### 12.5 Azure devuelve permisos denegados
 
 Tu usuario/PAT no tiene permisos suficientes en Azure DevOps. Necesitás como mínimo leer work items. Para que el cron corrija estados/tags, necesitás permisos de escritura sobre esos work items.
 
-### No aparecen work items
+### 12.6 No aparecen work items
 
 Revisá:
 
@@ -614,14 +652,29 @@ Revisá:
 - Que tu login de Azure tenga acceso al proyecto.
 - Que el WI esté dentro de `Contenidos-Web-LN`.
 
-### El cron no actualiza la planilla
+### 12.7 El cron no actualiza la planilla
 
 El prompt le pide hacerlo, pero Hermes necesita herramientas y credenciales de Google Workspace. Verificá tu setup local antes de culpar al cron.
 
-### El script muestra evidencia vieja
+### 12.8 El script muestra evidencia vieja
 
 Actualizá remotos del repo:
 
 ```bash
 git -C "$ARC_REPO_PATH" fetch --all --prune
 ```
+
+
+## 13. Roadmap e issues
+
+El roadmap para independizar este proyecto de Hermes está documentado en `docs/issue-drafts/`.
+
+Archivos principales:
+
+- `docs/issue-drafts/README.md`: orden recomendado de implementación.
+- `docs/issue-drafts/01-modo-auditoria-independiente.md`: auditoría sin Hermes y sin side effects.
+- `docs/issue-drafts/02-core-deterministico-independiente.md`: core con reglas explícitas y tests.
+- `docs/issue-drafts/03-schedulers-sin-hermes.md`: crontab, systemd, GitHub Actions y Azure Pipelines.
+- `docs/issue-drafts/04-hermes-como-adaptador-opcional.md`: Hermes como adaptador opcional.
+
+GitHub Issues reales: si el token local de `gh` tiene permisos de Issues, esos drafts se pueden publicar con `gh issue create --body-file`.
