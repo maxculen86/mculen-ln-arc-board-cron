@@ -110,6 +110,171 @@ El instalador hace cuatro cosas:
 
 O sea: el script junta evidencia; Hermes razona y opera. Si Hermes no está configurado con modelo, herramientas y credenciales, el cron no tiene cerebro ni manos. Dale, no hagamos magia negra.
 
+## ¿Puede funcionar sin Hermes?
+
+Sí, pero no todo al mismo nivel. Hoy el proyecto está armado como integración con Hermes, aunque una parte ya es independiente.
+
+### Qué ya puede vivir sin Hermes
+
+`arc-board-check.sh` puede ejecutarse sin Hermes porque depende de herramientas estándar:
+
+- bash;
+- python3;
+- git;
+- Azure CLI;
+- extensión `azure-devops`;
+- credenciales de Azure DevOps;
+- repo ARC clonado localmente.
+
+Eso permite usarlo como auditoría manual o programada. Por ejemplo, con `crontab`, `systemd timer`, GitHub Actions o Azure Pipelines.
+
+Lo que obtenés en ese modo es un reporte de evidencia. No una corrección automática del board.
+
+### Qué todavía depende de Hermes
+
+La parte que hoy depende de Hermes es la más delicada:
+
+- scheduling del job con `hermes cron`;
+- ejecución de `cron.prompt.md`;
+- razonamiento sobre evidencia incompleta o ambigua;
+- decisión final de estado (`Ready`, `Finished`, `Closed`, `Blocked/Detenida`);
+- modificación de Azure DevOps;
+- actualización de Google Sheets;
+- reporte final con explicación de cambios.
+
+En criollo: sin Hermes, el script puede medir. Para decidir y operar sin Hermes hay que convertir el prompt en código testeable. Si no, estamos haciendo magia negra con otro nombre.
+
+### Caminos posibles
+
+#### Opción 1: modo auditoría independiente
+
+Agregar un modo sin Hermes que solo genere reportes.
+
+Ejemplo esperado:
+
+```bash
+./arc-board-check.sh > reports/board-check-$(date +%F).log
+```
+
+O instalado con cron del sistema:
+
+```cron
+0 10,17 * * * /path/to/arc-board-check.sh >> /path/to/reports/arc-board-check.log 2>&1
+```
+
+Pros:
+
+- cero Hermes;
+- bajo riesgo;
+- fácil de adoptar por el equipo;
+- no toca Azure DevOps ni Google Sheets.
+
+Contras:
+
+- solo reporta;
+- alguien tiene que leer y actuar;
+- no resuelve estados automáticamente.
+
+#### Opción 2: core determinístico independiente
+
+Reescribir la lógica central como CLI propia, idealmente en Python o Node, con reglas explícitas y tests.
+
+Arquitectura sugerida:
+
+```text
+arc-board-maintainer/
+  src/
+    config
+    azure_devops_client
+    git_evidence
+    state_rules
+    sheets_client
+    report
+    main
+  tests/
+```
+
+Responsabilidades del core:
+
+- consultar Azure DevOps;
+- obtener work items, padres e hijos `Desarrollo:`;
+- detectar evidencia en `develop`, `sandbox` y `master`;
+- ignorar `demo/*` y `demo-sandbox/*`;
+- aplicar reglas de estado;
+- soportar `--dry-run` por defecto;
+- aplicar cambios solo con `--apply`;
+- generar reportes en texto/JSON/Markdown;
+- tener tests para cada regla del board.
+
+Pros:
+
+- independiente de Hermes;
+- predecible;
+- testeable;
+- mejor para compartir con el equipo;
+- más fácil de correr en CI o pipelines corporativos.
+
+Contras:
+
+- más laburo inicial;
+- hay que codificar todas las reglas que hoy están en `cron.prompt.md`;
+- los casos grises ya no los resuelve un agente flexible;
+- requiere mantenimiento como producto interno, no como script suelto.
+
+#### Opción 3: IA sin Hermes
+
+Se podría reemplazar Hermes por llamadas directas a un LLM vía API.
+
+Flujo:
+
+1. script junta evidencia;
+2. CLI manda evidencia + prompt a OpenAI/Anthropic/OpenRouter;
+3. el modelo devuelve acciones propuestas en JSON;
+4. el script valida y aplica.
+
+Pros:
+
+- no requiere Hermes;
+- conserva razonamiento flexible.
+
+Contras:
+
+- sigue requiriendo API keys de IA;
+- hay que implementar protocolo de acciones;
+- hay que validar fuerte para no romper Azure DevOps;
+- termina siendo un Hermes casero si no se diseña bien.
+
+No es la primera opción recomendada. Cambiar una dependencia madura por un pegote propio no es arquitectura, es ansiedad.
+
+### Recomendación de roadmap
+
+El camino sano es hacerlo por capas:
+
+1. Mantener el modo Hermes actual como integración avanzada.
+2. Agregar un modo auditoría independiente que genere reportes sin tocar nada.
+3. Evolucionar a un core determinístico con `--dry-run` y tests.
+4. Agregar `--apply` para cambios automáticos solo cuando las reglas estén cubiertas.
+5. Dejar Hermes como adaptador opcional, no como dependencia del core.
+
+Diseño objetivo:
+
+```text
+Core independiente
+  ├─ Azure DevOps
+  ├─ Git evidence
+  ├─ reglas de estado
+  ├─ reportes
+  └─ tests
+
+Adaptadores opcionales
+  ├─ Hermes cron
+  ├─ system cron / systemd timer
+  ├─ GitHub Actions / Azure Pipelines
+  └─ Google Sheets
+```
+
+La regla de arquitectura es simple: el core no debería saber que Hermes existe. Hermes debería ser un adaptador más.
+
 ## Requisitos
 
 ### 1. Sistema base
