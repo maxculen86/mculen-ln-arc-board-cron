@@ -43,11 +43,21 @@ trap cleanup EXIT
 
 if ! command -v hermes >/dev/null 2>&1; then
   printf 'ERROR: hermes CLI is not installed or not in PATH.\n' >&2
+  printf 'Install Hermes first:\n' >&2
+  printf '  curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash\n' >&2
+  printf 'Then run: hermes setup && hermes doctor\n' >&2
+  exit 2
+fi
+
+if ! hermes doctor >/dev/null 2>&1; then
+  printf 'ERROR: hermes doctor failed. Configure Hermes before installing this cron.\n' >&2
+  printf 'Run: hermes setup && hermes model && hermes doctor\n' >&2
   exit 2
 fi
 
 if ! command -v az >/dev/null 2>&1; then
   printf 'ERROR: az CLI is not installed or not in PATH.\n' >&2
+  printf 'Install Azure CLI and then run: az extension add --name azure-devops\n' >&2
   exit 3
 fi
 
