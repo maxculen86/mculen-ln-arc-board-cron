@@ -102,4 +102,23 @@ describe('CardBasic real integration', () => {
             'canchallena.lanacion.com.ar/especiales'
         );
     });
+
+    it('Should include comments when article has comments', () => {
+        const article = {
+            ...baseArticle,
+            comentarios: {
+                abiertoComentarios: true,
+                permitirComentarios: true
+            }
+        };
+
+        expect(CardBasic(article).comentarios).toEqual({
+            abiertoComentarios: true,
+            permitirComentarios: true
+        });
+    });
+
+    it('Should omit comments when article has no comments', () => {
+        expect(CardBasic(baseArticle)).not.toHaveProperty('comentarios');
+    });
 });

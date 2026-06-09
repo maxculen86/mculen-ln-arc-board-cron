@@ -13,6 +13,8 @@ import getCardConfig, {
     getTitleAndLeadForHome,
     createArticlesWithCustomMarker
 } from './_helper';
+import getCustomBadge from '../../../../../features/LN/common/utils/getCustomBadge';
+import getNumericRatingValue from '../../../../common/utils/getNumericRatingValue';
 
 import {
     getDataAttributesForViewability,
@@ -107,6 +109,10 @@ export default function CommonCollection({
                         isExclusiveSub,
                         isFoodit
                     });
+                    const isSubscriber = badgeStyle === 'subscriber';
+                    const rating = getNumericRatingValue(
+                        article.content_elements
+                    );
                     const targetFoodit = isFoodit ? `_blank` : undefined;
 
                     const hasCustomVoice = shouldHighlightCustomVoice(
@@ -141,8 +147,12 @@ export default function CommonCollection({
                             imagePosition={imagePosition}
                             className={className}
                             section={sectionText}
-                            badgeText={badgeText}
-                            badgeType={badgeStyle}
+                            badgeText={isSubscriber ? null : badgeText}
+                            badgeType={isSubscriber ? null : badgeStyle}
+                            customBadge={getCustomBadge({
+                                rating,
+                                isSubscriber
+                            })}
                             {...extraOpts}
                             target={targetFoodit}
                         />

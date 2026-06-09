@@ -209,7 +209,15 @@ export const wikiImagesWithWWW = data => {
         type: 'image',
         resized_urls: resizedUrls
     };
-    return get(replaceUrlResizerToWWW(promoItemsWiki), 'resized_urls', []);
+    return get(
+        replaceUrlResizerToWWW(
+            promoItemsWiki,
+            'la-nacion-ar',
+            'https://www.lanacion.com.ar'
+        ),
+        'resized_urls',
+        []
+    );
 };
 
 export const replaceAllUrlsResizerObject = (object = {}) => {

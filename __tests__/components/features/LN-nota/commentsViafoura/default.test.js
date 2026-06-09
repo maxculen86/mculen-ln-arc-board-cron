@@ -12,6 +12,7 @@ import dynamicallyLoadScript from '../../../../../components/private/LN/common/u
 import { useValidateComments } from '../../../../../components/private/common/utils/commentsHelper';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
 import { VIDEO_COMENTARIOS } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import * as scrollUtils from '../../../../../components/private/LN/common/utils/scrollToElementWithOffset';
 
 jest.mock('fusion:consumer', () => {
     return function (Component) {
@@ -32,6 +33,23 @@ jest.mock(
     () => ({
         addEventToDataLayerV2: jest.fn()
     })
+);
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/scrollToElementWithOffset'
+);
+
+jest.mock(
+    '../../../../../components/features/LN/common/scrollToTopButton/ScrollToTopButton',
+    () => {
+        return function MockScrollToTopButton({ onClick }) {
+            return (
+                <button onClick={onClick} data-testid="scroll-top-btn">
+                    Scroll Top
+                </button>
+            );
+        };
+    }
 );
 
 const mockGlobalContext = {
@@ -65,6 +83,7 @@ describe('CommentsViafouraFeature', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        window.scrollTo = jest.fn();
         window.IntersectionObserver = jest.fn(function (callback) {
             window.intersectionObserverCallback = callback;
             return {
@@ -149,6 +168,40 @@ describe('CommentsViafouraFeature', () => {
                 ctr_brand: 'cajaComentarios',
                 ctr_position: '101100',
                 articleId: '123'
+            });
+        });
+    });
+
+    describe('scroll to top button', () => {
+        it('scrolls to article title when h1 exists', () => {
+            setupMocks();
+            const mockElement = document.createElement('h1');
+            mockElement.className = 'com-title';
+            mockElement.textContent = 'Article Title';
+            jest.spyOn(mockElement, 'getBoundingClientRect').mockReturnValue({
+                top: 200
+            });
+            document.body.appendChild(mockElement);
+            window.scrollY = 500;
+
+            render(<CommentsViafouraFeature outputType="default" />);
+            fireEvent.click(screen.getByTestId('scroll-top-btn'));
+
+            expect(scrollUtils.scrollToElementWithOffset).toHaveBeenCalledWith(
+                mockElement
+            );
+
+            document.body.removeChild(mockElement);
+        });
+
+        it('scrolls to top with smooth behavior when h1 not found', () => {
+            setupMocks();
+            render(<CommentsViafouraFeature outputType="default" />);
+            fireEvent.click(screen.getByTestId('scroll-top-btn'));
+
+            expect(window.scrollTo).toHaveBeenCalledWith({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     });

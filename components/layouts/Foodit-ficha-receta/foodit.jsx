@@ -26,7 +26,7 @@ function FichaRecetaFoodit({ children = [], globalContent = {} }) {
                 <Breadcrumb globalContent={globalContent} className="lg-only" />
                 <OpeningRecipe article={globalContent} />
             </section>
-            <div className="-mb-16 lg-none">
+            <div className="--no-app -mb-16 lg-none">
                 <Breadcrumb globalContent={globalContent} />
             </div>
             <Static htmlOnly persistent id="subtitle-mobile-recipe">

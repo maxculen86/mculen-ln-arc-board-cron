@@ -2,14 +2,14 @@
   --_animationTimingFunction: cubic-bezier(0.945, 0.13, 0.065, 0.905);
   --_longestAnimationDuration: 12000ms;
   --_animationDelay: 500ms;
-  --_1stItemPath: path("M8.61 13.52");
-  --_1stItemPathLeft: path("M5.91 13.52");
-  --_2ndItemPath: path("M17.73 4.92");
-  --_3rdItemPath: path("M24.11 16.73");
-  --_hideItemPath: path("M15.99 25.20");
-  --_hideItem1stItemPath: path("M8.61 24.61");
-  --_hideItem2ndItemPath: path("M17.73 24.61");
-  --_hideItem3rdItemPath: path("M24.11 24.61");
+  --_1stItemPath: path('M8.61 13.52');
+  --_1stItemPathLeft: path('M5.91 13.52');
+  --_2ndItemPath: path('M17.73 4.92');
+  --_3rdItemPath: path('M24.11 16.73');
+  --_hideItemPath: path('M15.99 25.20');
+  --_hideItem1stItemPath: path('M8.61 24.61');
+  --_hideItem2ndItemPath: path('M17.73 24.61');
+  --_hideItem3rdItemPath: path('M24.11 24.61');
 }
 .logo-foodit.--enabled .bowl {
   animation-name: bowl;

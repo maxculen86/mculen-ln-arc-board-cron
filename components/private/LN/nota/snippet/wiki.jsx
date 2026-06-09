@@ -4,16 +4,24 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import get from '../../../common/utils/get';
+import { replaceResizerBaseUrl } from '../../../common/utils/image/resizer/v2/resizerHelper';
 
-const SnippetWiki = () => {
+function SnippetWiki() {
     const props = get(useAppContext(), 'globalContent', {});
     const { wikiSourceData = {} } = props;
     const { schemas_info: schemasInfo = {}, image = {}, type } = wikiSourceData;
     const { resizedUrls = [] } = image;
 
     const smallestImage = Math.min(...resizedUrls.map(url => url.option.width));
-    const { resizedUrl } =
+    const { resizedUrl: rawResizedUrl } =
         resizedUrls.find(e => e.option.width === smallestImage) || {};
+
+    const resizedUrl = rawResizedUrl
+        ? replaceResizerBaseUrl({
+              url: rawResizedUrl,
+              baseUrlOverride: 'https://www.lanacion.com.ar'
+          })
+        : '';
 
     const {
         additional_name: additionalName,
@@ -48,6 +56,6 @@ const SnippetWiki = () => {
         ...(resizedUrl && { image: resizedUrl })
     };
     return <SnippetRender data={data} />;
-};
+}
 
 export default SnippetWiki;

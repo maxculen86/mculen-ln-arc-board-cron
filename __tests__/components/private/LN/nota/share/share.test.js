@@ -52,6 +52,29 @@ jest.mock(
     })
 );
 
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    LOGIN_URL: 'https://login.lanacion.com.ar/',
+    SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar'
+}));
+
+jest.mock('@ln/hooks', () => ({
+    useDisclosure: () => ({
+        isOpen: false,
+        onOpen: jest.fn(),
+        onClose: jest.fn()
+    })
+}));
+
+jest.mock(
+    '../../../../../../components/private/common/auth/hooks/useAuthManager',
+    () =>
+        jest.fn(() => ({
+            token: '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF',
+            accessToken: 'test-access-token'
+        }))
+);
+
 const props = {
     outputType: 'default',
     arcSite: 'la-nacion-ar',

@@ -4,12 +4,13 @@ import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import Button from '../../../ui/ln/button/default';
 import Icon from '../../../ui/ln/icon/default';
-import { useToolbarContext } from '../context/ToolbarContext';
 import getToken from '../../../../private/common/utils/getToken';
-import { handleClickAudioNews } from '../_helpers';
+import { handleClickAudioNews } from '../../common/audioPlayer/helpers';
+import { useAudioPlayerState } from '../../common/audioPlayer/hooks/useAudioPlayerState';
 
 export function AudioButton({
-    audioPlayerProps = {},
+    noteId,
+    showVariantIa = false,
     openBarrier,
     subscription
 }) {
@@ -18,19 +19,16 @@ export function AudioButton({
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
-    const { disableButton, onOpenAudioPlayer, isOpenAudioPlayer } =
-        audioPlayerProps;
-
-    const { isSummary, isAudioPlaying } = useToolbarContext();
-
+    const { isOpen, isPlaying, hasError } = useAudioPlayerState();
     const token = getToken();
 
     const handleClickAudioButton = () => {
         handleClickAudioNews({
-            onOpenAudioPlayer,
+            noteId,
             globalContent,
             globalContentConfig,
-            isSummary,
+            isSummary: false,
+            showVariantIa,
             subscription,
             token,
             openBarrier
@@ -48,17 +46,17 @@ export function AudioButton({
             dataSection="Escuchar Nota"
             className="h-40 w-40 md:w-fit rounded-4 px-8 py-12 md:px-12 --no-app"
             onClick={handleClickAudioButton}
-            disabled={isOpenAudioPlayer || disableButton}
+            disabled={isOpen || hasError}
             textTransform="none"
             weight="bold"
             iconLeft={
-                isOpenAudioPlayer ? (
+                isOpen ? (
                     <AnimatedIcons
                         name="logo-listen"
                         height={20}
                         width={20}
                         fill="currentColor"
-                        stopAnimation={!isAudioPlaying}
+                        stopAnimation={!isPlaying}
                     />
                 ) : (
                     <Icon name="headphone" />
@@ -66,7 +64,7 @@ export function AudioButton({
             }
         >
             <span className="max-md:hidden text-label-sm">
-                {isOpenAudioPlayer ? 'Escuchando' : 'Escuchar'}
+                {isOpen ? 'Escuchando' : 'Escuchar'}
             </span>
         </Button>
     );

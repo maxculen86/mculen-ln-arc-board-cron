@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { useDisclosure } from '@ln/hooks';
-import { Dialog } from '@ln/common-ui-dialog';
 import { cx } from '@ln/cva';
 import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
@@ -15,8 +14,6 @@ import {
     SUBSCRIBED_HELPER
 } from '../../../private/common/auth/helper/loginHelper';
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
-import BarrierRequiresSubscription from '../../LN-10-global/common/barrierRequiresSubscription/default';
-import { a11yAttrsBarrierSub } from '../../../private/common/audioNews/helpers';
 
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import {
@@ -28,6 +25,7 @@ import {
 } from './_children/helper';
 import { NOTICIA } from '../../../private/common/utils/subtypes/subtypeHelper';
 import GoogleButton from '../../LN-10-global/common/googleButton/default';
+import BarrierRequiresSubscription from '../../LN/common/barrierRequiresSubscription/default';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -38,7 +36,7 @@ function Share() {
     } = globalContent;
 
     const [bookmark, setBookmark] = useState('');
-
+    const [barrierMessage, setBarrierMessage] = useState('');
     const { token, accessToken } = useAuthManager();
     const termicaBookmark = useTermica('bookmark_web');
 
@@ -60,9 +58,14 @@ function Share() {
 
     const {
         isOpen: isBarrierOpen,
-        onOpen: openBarrier,
+        onOpen,
         onClose: closeBarrier
     } = useDisclosure(false);
+
+    const openBarrier = message => {
+        setBarrierMessage(message);
+        onOpen();
+    };
 
     useEffect(() => {
         if (termicaBookmark) setBookmark(checkBookmarkId);
@@ -112,23 +115,12 @@ function Share() {
     };
     return (
         <div className={modShareContainerClass}>
-            <Dialog
+            <BarrierRequiresSubscription
+                isLogged={!!token}
                 isOpen={isBarrierOpen}
-                onClose={closeBarrier}
-                position="center"
-                id="audio-player-barrier"
-                classnames={{
-                    base: 'w-100 w-720_md bg-transparent px-16 w-shadow-up-md'
-                }}
-                overlay
-                closeOnClickOutside
-                {...a11yAttrsBarrierSub}
-            >
-                <BarrierRequiresSubscription
-                    isLogged={!!token}
-                    closeBarrier={closeBarrier}
-                />
-            </Dialog>
+                closeBarrier={closeBarrier}
+                message={barrierMessage}
+            />
             <div
                 className="mod-share flex flex-column mb-0 p-0_l gap-24"
                 ref={shareContainer}

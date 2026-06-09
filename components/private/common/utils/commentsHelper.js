@@ -122,25 +122,40 @@ export const getMessageProps = (props, messageType, gc) => {
         CLOSED_BY_TERMIC: {
             title: customMessage,
             subtitle: ' ',
-            icon: 'comment',
-            text: 'Comentarios'
+            badge: {
+                iconData: {
+                    position: 'left',
+                    size: 14,
+                    name: 'texto',
+                    className: 'bg-neutral-700',
+                    hasWrapper: true
+                },
+                text: 'Comentarios'
+            }
         },
         CLOSED_COMMENTS: {
             title: 'Nota cerrada a comentarios.',
             subtitle: ' ',
-            icon: 'comment',
-            text: 'Comentarios'
+            badge: {
+                iconData: {
+                    position: 'left',
+                    size: 14,
+                    name: 'texto',
+                    className: 'bg-neutral-700'
+                },
+                text: 'Comentarios'
+            }
         },
         SUBSCRIPTION: {
-            title: 'Ahora para comentar debés tener Acceso Digital.',
-            subtitle: 'Iniciar sesión o suscribite',
+            subtitle: 'Para comentar las notas, necesitás suscribirte',
             secondaryUrl:
                 (outputType !== 'widgets' && canonicalUrl && loginUrl) || '',
             specialUrl:
                 (outputType !== 'widgets' && canonicalUrl && registracionUrl) ||
                 '',
-            dark: true,
-            isExclusive: true
+            badge: {
+                onlySuscriptors: true
+            }
         }
     };
 

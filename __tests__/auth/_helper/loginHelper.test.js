@@ -213,6 +213,39 @@ describe('Tests functions loginHelper', () => {
             });
         });
 
+        it('should initialize UCL with Foodit site id when website is foodit', async () => {
+            getCookie.mockReturnValue('mockToken');
+            const BuildBearerAccessTokenAsync = jest
+                .fn()
+                .mockResolvedValue('mockFooditAccessToken');
+            const GetIdTokenValidatedAsync = jest
+                .fn()
+                .mockResolvedValue('mockFooditIdToken');
+            const RefreshAsync = jest.fn();
+            init.mockReturnValue({
+                BuildBearerAccessTokenAsync,
+                GetIdTokenValidatedAsync,
+                RefreshAsync
+            });
+
+            await initializeAuth({
+                setTokens: mockSetTokens,
+                website: 'foodit'
+            });
+
+            expect(init).toHaveBeenCalledWith({
+                keyDatadog: '',
+                serviceDatadog: 'lanacion-arc',
+                siteId: 19,
+                environment: 'prod',
+                googleIdClient: 'mock-google-client-id'
+            });
+            expect(mockSetTokens).toHaveBeenCalledWith({
+                token: 'mockFooditIdToken',
+                accessToken: 'mockFooditAccessToken'
+            });
+        });
+
         it('should initialize UCL but not set tokens if cookie does not exist', async () => {
             getCookie.mockReturnValue(null);
             const RefreshAsync = jest.fn();
@@ -280,13 +313,17 @@ describe('Tests functions loginHelper', () => {
                     .mockResolvedValue('mockedToken'),
                 BuildBearerAccessTokenAsync: jest
                     .fn()
-                    .mockResolvedValue('mockedAccessToken')
+                    .mockResolvedValue('mockedAccessToken'),
+                GetAccessTokenValidatedAsync: jest
+                    .fn()
+                    .mockResolvedValue('mockedAccessTokenValidated')
             };
 
             const result = await getAuthTokens();
             expect(result).toEqual({
                 token: 'mockedToken',
-                accessToken: 'mockedAccessToken'
+                accessToken: 'mockedAccessToken',
+                accessTokenValidated: 'mockedAccessTokenValidated'
             });
         });
 
@@ -294,7 +331,8 @@ describe('Tests functions loginHelper', () => {
             const result = await getAuthTokens();
             expect(result).toEqual({
                 token: undefined,
-                accessToken: undefined
+                accessToken: undefined,
+                accessTokenValidated: undefined
             });
         });
 
@@ -304,7 +342,8 @@ describe('Tests functions loginHelper', () => {
             const result = await getAuthTokens();
             expect(result).toEqual({
                 token: undefined,
-                accessToken: undefined
+                accessToken: undefined,
+                accessTokenValidated: undefined
             });
         });
     });

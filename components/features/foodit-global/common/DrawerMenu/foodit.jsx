@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { cx } from '@ln/cva';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
 import removeAccents from '../../../../private/common/utils/removeAccents';
@@ -31,7 +32,9 @@ function DrawerMenu({ categories = [] }) {
             position="left"
             bodyClassName="pr-16"
         >
-            <Search />
+            <div>
+                <Search className="--no-app" />
+            </div>
             {principalMenu.map(({ title = '', data, href }) => {
                 const dynamicLabel = removeAccents(title)
                     .replace(/ /g, '_')
@@ -52,8 +55,13 @@ function DrawerMenu({ categories = [] }) {
                     const dynamicLabel = removeAccents(title)
                         .replace(/ /g, '_')
                         .toLowerCase();
+                    const titleConocenos = title
+                        .toLowerCase()
+                        .includes('conocenos');
+                    const itemClassName = cx(titleConocenos && '--no-app');
                     return (
                         <div
+                            className={itemClassName}
                             key={title}
                             data-test-id={`header-menu-${dynamicLabel}`}
                         >

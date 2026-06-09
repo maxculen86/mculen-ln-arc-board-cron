@@ -1,6 +1,6 @@
 import transformWikiTagData from '../../../../content/sources/utils/transformWikiTagData';
 import mockWikiTagPersonaRawData from '../../../../__mocks__/data/wikiTag/wikiTagPersonRawData.json';
-import mockWikiTagPerson from '../../../../__mocks__/data/wikiTag/wikiTagPersona.json';
+import mockWikiTagPersona from '../../../../__mocks__/data/wikiTag/wikiTagPersona.json';
 import { resizeUrlCollection } from '../../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 jest.mock('fusion:properties', () => () => ({
@@ -52,33 +52,68 @@ jest.mock(
     '../../../../components/private/common/utils/image/resizer/v2/resizerHelper'
 );
 
-const getImageProps = (height, width) => {
-    const resizedUrl = `https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=${width}&quality=70&smart=false`;
+const getSandboxResizedUrl = width =>
+    `https://sandbox-resizer.glanacion.com/resizer/v2/22QAQYYOGFEJ3FPKC4OSVPPIN4.png?auth=3505a155364d7e1d80cbc4539ec469adfb3bfb8a479aecbad5e662d1a87f99ab&width=${width}&quality=70&smart=false`;
 
-    return {
-        option: {
-            height,
-            proportion: '2:3',
-            width
-        },
-        resizedUrl
+const getImagePropsSandbox = (height, width) => ({
+    option: {
+        height,
+        proportion: '2:3',
+        width
+    },
+    resizedUrl: getSandboxResizedUrl(width)
+});
+
+describe('transformWikiTagData', () => {
+    const siteProps = {
+        imageConfig: 'wikiTag',
+        arcSite: 'la-nacion-ar'
     };
-};
 
-describe('Content Sources: Tag Source - WikiTagData Transform', () => {
-    resizeUrlCollection.mockReturnValueOnce([
-        getImageProps(480, 320),
-        getImageProps(630, 420),
-        getImageProps(960, 640),
-        getImageProps(1260, 840)
-    ]);
-    it('Should return the correct format of data', () => {
-        const siteProps = {
-            imageConfig: 'wikiTag',
-            arcSite: 'la-nacion-ar'
-        };
-        expect(
-            transformWikiTagData(mockWikiTagPersonaRawData, siteProps)
-        ).toStrictEqual(mockWikiTagPerson);
+    beforeEach(() => {
+        resizeUrlCollection.mockReturnValue([
+            getImagePropsSandbox(480, 320),
+            getImagePropsSandbox(630, 420),
+            getImagePropsSandbox(960, 640),
+            getImagePropsSandbox(1260, 840)
+        ]);
+    });
+
+    it('returns resized URLs from resizeUrlCollection', () => {
+        const result = transformWikiTagData(
+            mockWikiTagPersonaRawData,
+            siteProps
+        );
+        expect(result).toStrictEqual(mockWikiTagPersona);
+    });
+
+    it('uses sandbox-resizer origin in all resizedUrl entries', () => {
+        const result = transformWikiTagData(
+            mockWikiTagPersonaRawData,
+            siteProps
+        );
+        result.image.resizedUrls.forEach(item => {
+            expect(item.resizedUrl).toMatch(
+                /^https:\/\/sandbox-resizer\.glanacion\.com\//
+            );
+        });
+    });
+
+    it('includes correct image sizes in resizedUrls', () => {
+        const result = transformWikiTagData(
+            mockWikiTagPersonaRawData,
+            siteProps
+        );
+        const widths = result.image.resizedUrls.map(item => item.option.width);
+        expect(widths).toEqual([320, 420, 640, 840]);
+    });
+
+    it('returns empty array when resizeUrlCollection returns undefined', () => {
+        resizeUrlCollection.mockReturnValue(undefined);
+        const result = transformWikiTagData(
+            mockWikiTagPersonaRawData,
+            siteProps
+        );
+        expect(result.image.resizedUrls).toEqual([]);
     });
 });

@@ -1,6 +1,11 @@
 import { isTodayEnabled } from '../../../chains/LN10_Caja_Segmentada/_helpers';
 import get from './get';
 
+const EXCLUDED_CHAIN_POSITION_TYPES = [
+    'LN10_Caja_Juegos_v2',
+    'LN10_Caja_Encuesta'
+];
+
 const getChainPosition = (chainId, termicaCajaSegmentada, renderables = []) => {
     if (!Array.isArray(renderables)) {
         return 0;
@@ -22,7 +27,7 @@ const getChainPosition = (chainId, termicaCajaSegmentada, renderables = []) => {
         el =>
             get(el, 'collection') === 'chains' &&
             !get(el, 'props.customFields.hideCaja') &&
-            get(el, 'type') !== 'LN10_Caja_Juegos_v2' &&
+            !EXCLUDED_CHAIN_POSITION_TYPES.includes(get(el, 'type')) &&
             !idsToIgnore.has(get(el, 'props.id'))
     );
 

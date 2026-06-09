@@ -1,7 +1,6 @@
 import {
     handleShareNativeTrigger,
-    SHARE_OPTIONS,
-    handleClickAudioNews
+    SHARE_OPTIONS
 } from '../../../../../components/features/LN/DS-Toolbar/_helpers';
 import {
     copyToClipboard,
@@ -11,7 +10,6 @@ import {
     popUpCompartirNotaTW
 } from '../../../../../components/private/LN/common/utils/shareHelper';
 import { addEventToDataLayerV2 } from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
-import getAudioEvents from '../../../../../components/features/LN-10-global/common/utils/getAudioEvents';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/shareHelper',
@@ -29,11 +27,6 @@ jest.mock(
     () => ({
         addEventToDataLayerV2: jest.fn()
     })
-);
-
-jest.mock(
-    '../../../../../components/features/LN-10-global/common/utils/getAudioEvents',
-    () => jest.fn(() => ({ audio_id: '123', nota_id: '456' }))
 );
 
 jest.mock('../../../../../components/features/ui/ln/icon/default', () =>
@@ -253,82 +246,6 @@ describe('Components - features - LN - DS-Toolbar - _helpers', () => {
 
                 expect(defaultParams.shareNativeTrigger).not.toHaveBeenCalled();
             });
-        });
-    });
-
-    describe('handleClickAudioNews', () => {
-        const defaultParams = {
-            onOpenAudioPlayer: jest.fn(),
-            globalContent: { _id: 'note-123' },
-            globalContentConfig: { query: { uri: '/test' } },
-            isSummary: false,
-            subscription: true,
-            token: 'test-token',
-            openBarrier: jest.fn()
-        };
-
-        beforeEach(() => {
-            jest.clearAllMocks();
-        });
-
-        describe('when user is subscribed and has token', () => {
-            it('calls onOpenAudioPlayer', () => {
-                handleClickAudioNews(defaultParams);
-
-                expect(defaultParams.onOpenAudioPlayer).toHaveBeenCalled();
-                expect(defaultParams.openBarrier).not.toHaveBeenCalled();
-            });
-        });
-
-        describe('when user is not subscribed', () => {
-            it('calls openBarrier', () => {
-                handleClickAudioNews({
-                    ...defaultParams,
-                    subscription: false
-                });
-
-                expect(defaultParams.openBarrier).toHaveBeenCalled();
-                expect(defaultParams.onOpenAudioPlayer).not.toHaveBeenCalled();
-            });
-        });
-
-        describe('when user has no token', () => {
-            it('calls openBarrier', () => {
-                handleClickAudioNews({
-                    ...defaultParams,
-                    token: null
-                });
-
-                expect(defaultParams.openBarrier).toHaveBeenCalled();
-                expect(defaultParams.onOpenAudioPlayer).not.toHaveBeenCalled();
-            });
-        });
-
-        it('always sends datalayer event', () => {
-            handleClickAudioNews(defaultParams);
-
-            expect(getAudioEvents).toHaveBeenCalledWith(
-                defaultParams.globalContent,
-                defaultParams.globalContentConfig,
-                defaultParams.isSummary
-            );
-            expect(addEventToDataLayerV2).toHaveBeenCalledWith({
-                event: 'page_listened',
-                rest: {
-                    audio_id: '123',
-                    nota_id: '456',
-                    reproduccion: '0'
-                }
-            });
-        });
-
-        it('sends datalayer event even when user is not subscribed', () => {
-            handleClickAudioNews({
-                ...defaultParams,
-                subscription: false
-            });
-
-            expect(addEventToDataLayerV2).toHaveBeenCalled();
         });
     });
 });

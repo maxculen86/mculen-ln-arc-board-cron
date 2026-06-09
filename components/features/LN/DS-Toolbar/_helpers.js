@@ -6,7 +6,6 @@ import {
     popUpCompartirNotaTW
 } from '../../../private/LN/common/utils/shareHelper';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
-import getAudioEvents from '../../LN-10-global/common/utils/getAudioEvents';
 
 export const SHARE_OPTIONS = [
     {
@@ -104,38 +103,4 @@ export const handleWhatsappShare = ({ requestUri, title, host }) => {
         option => option.id === 'whatsapp'
     );
     whatsappOption?.onClick({ requestUri, title, host });
-};
-
-export const handleClickAudioNews = ({
-    onOpenAudioPlayer,
-    globalContent,
-    globalContentConfig,
-    isSummary,
-    subscription,
-    token,
-    openBarrier
-} = {}) => {
-    if (subscription && token) {
-        onOpenAudioPlayer();
-    } else {
-        openBarrier();
-    }
-
-    addEventToDataLayerV2({
-        event: 'page_listened',
-        rest: {
-            ...getAudioEvents(globalContent, globalContentConfig, isSummary),
-            reproduccion: '0'
-        }
-    });
-};
-
-// TODO: remover al quitar data-tw post migracion, se necesita momentaneamente para evitar conflictos de selectores css.
-export const handleVisibilityChanged = event => {
-    if (event?.changedProps?.showBottomWidget?.currentValue === true) {
-        const el = document.querySelector('.time-indicator.standard.fixed');
-        if (el) {
-            el.style.setProperty('position', 'relative', 'important');
-        }
-    }
 };

@@ -11,7 +11,7 @@ function ToastsContainer() {
     return (
         <CommonToastContainer.Portal>
             <div data-tw>
-                <CommonToastContainer className="z-55" />
+                <CommonToastContainer className="z-105 max-md:mb-61" />
             </div>
         </CommonToastContainer.Portal>
     );

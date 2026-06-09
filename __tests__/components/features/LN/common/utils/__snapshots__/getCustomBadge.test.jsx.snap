@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getCustomBadge snapshots matches snapshot when isSubscriber 1`] = `
+<DocumentFragment>
+  <div
+    data-tw="true"
+    style="display: contents;"
+  >
+    <div
+      class="flex items-center justify-center h-24 w-24 rounded-full bg-warning-default border border-neutral-1"
+    >
+      <svg
+        data-testid="subscriber-icon"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`getCustomBadge snapshots matches snapshot with rating 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="rating-badge"
+    data-value="3.5"
+  />
+</DocumentFragment>
+`;

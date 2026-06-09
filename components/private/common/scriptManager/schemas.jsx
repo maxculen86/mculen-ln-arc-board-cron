@@ -1,5 +1,5 @@
 import React from 'react';
-import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { addForwardSlash } from '../../LN/common/utils/addForwardSlash';
 import buildNewsMediaOrganizationSchema from './newsMediaOrganizationMetadata';
@@ -8,12 +8,9 @@ import get from '../utils/get';
 
 function Schemas({ section = '', siteProperties = {} }) {
     const { contextPath, deployment } = useAppContext();
-    const logoPath = `${contextPath}/resources/images/placeholderLN-1280x1280.jpg`;
+    const logoPath = `${contextPath}/resources/images/logo-ln.png`;
     const canonicalHost = get(siteProperties, 'host', SITE_LANACION);
-    const isLanacionHost =
-        new URL(canonicalHost).hostname === new URL(SITE_LANACION).hostname;
-    const logoBaseHost = isLanacionHost ? canonicalHost : ARC_STATIC;
-    const logoUrl = `${logoBaseHost}${deployment(logoPath)}`;
+    const logoUrl = `${SITE_LANACION}${deployment(logoPath)}`;
     const siteUrl = addForwardSlash(canonicalHost);
     const organizationId =
         getOrganizationId(siteProperties) ||
@@ -33,7 +30,12 @@ function Schemas({ section = '', siteProperties = {} }) {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: 'LA NACION',
-        url: siteUrl
+        url: siteUrl,
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://www.lanacion.com.ar/buscador?query={search_term_string}',
+            'query-input': 'required name=search_term_string'
+        }
     });
 
     const createScript = childrens =>

@@ -11,6 +11,7 @@ import {
     checkForId
 } from './common/_helper-WebApi';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
+import { getArticleComments } from '../../../private/LN/api/common/elements/story/comments';
 
 class ArticleFeature {
     constructor(props) {
@@ -97,8 +98,12 @@ class ArticleFeature {
                 },
                 filter: `{
                             Termicas {
-                                mostrar_videoloop
+                                mostrar_videoloop,
+                                livefyre
                             }
+                            migration {
+                                deadline_livefyre
+                            }    
                          }`
             }
         });
@@ -169,6 +174,14 @@ class ArticleFeature {
                 console.warn(error);
                 return null;
             }
+
+            const dataNota = {
+                ...articleSourceNotaRender,
+                navigationTreeSource: navigationTreeSourceLN10,
+                isVideoLoopEnabled
+            };
+
+            articleSourceNotaRender.comentarios = getArticleComments(dataNota);
 
             return renderProps(
                 articleSourceNotaRender,

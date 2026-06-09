@@ -3,7 +3,7 @@ import { useAppContext } from 'fusion:context';
 import SignatureWithAuthors from '../../signature/signatureWithAuthors';
 import SignatureWithDistributor from '../../signature/signatureWithDistributor';
 import { useSignature } from '../../../LN/DS-Signature/hooks/useSignature';
-import { getAuthorsNameAndLink } from '../../../../private/common/audioNews/helpers';
+import { getAuthorsNameAndLink } from '../../../../private/common/utils/firmaHelper';
 import { shouldShowNoteFooterTopSignature } from '../_utils/topRenderConditions';
 import { isEmptyObject } from '../../../../private/common/utils/isEmptyObject';
 

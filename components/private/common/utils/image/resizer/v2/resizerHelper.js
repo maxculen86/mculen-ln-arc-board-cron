@@ -154,16 +154,19 @@ export const replaceResizerBaseUrl = ({
     isInApertura,
     isAdmin,
     arcSite = 'lanacionar',
-    resizerUrl
+    resizerUrl,
+    baseUrlOverride
 } = {}) => {
     if (!isValidString(url)) return url;
 
-    const finalBaseUrl = baseUrl({
-        isInApertura,
-        isAdmin,
-        arcSite,
-        resizerUrl
-    });
+    const finalBaseUrl =
+        baseUrlOverride ||
+        baseUrl({
+            isInApertura,
+            isAdmin,
+            arcSite,
+            resizerUrl
+        });
     const resizerPublicBaseUrl = removeTrailingSlash(RESIZER_URL_PUBLIC);
     const isResizerPublicUrl =
         isValidString(resizerPublicBaseUrl) &&
@@ -181,7 +184,8 @@ export const replaceResizerBaseUrl = ({
 
 export const replaceUrlResizerToWWW = (
     originalPromoItems = {},
-    arcSite = 'lanacionar'
+    arcSite = 'lanacionar',
+    baseUrlOverride = ''
 ) => {
     if (
         originalPromoItems === null ||
@@ -203,7 +207,8 @@ export const replaceUrlResizerToWWW = (
 
     if (type && type !== 'image') return originalPromoItems;
 
-    const replaceUrl = _url => replaceResizerBaseUrl({ url: _url, arcSite });
+    const replaceUrl = _url =>
+        replaceResizerBaseUrl({ url: _url, arcSite, baseUrlOverride });
 
     const transformUrls = _resizedUrls =>
         Array.isArray(_resizedUrls)

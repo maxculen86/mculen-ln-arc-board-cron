@@ -25,12 +25,13 @@ const transformWikiTagData = (data, siteProps) => {
         arcImage: image,
         arcSite
     });
+    const resizedUrls = transformedImage || [];
 
     return {
         ...data,
         image: {
             ...image,
-            resizedUrls: transformedImage?.length > 0 ? transformedImage : []
+            resizedUrls
         },
         schemas_info: {
             ...data.schemas_info,

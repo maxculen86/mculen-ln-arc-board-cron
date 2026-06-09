@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN - common - IconSubscribe matches snapshot - default rendering 1`] = `
+<div
+  class="flex items-center justify-center h-24 w-24 rounded-full bg-warning-default border border-neutral-1"
+>
+  <div
+    data-fill="--color-primary-dark"
+    data-name="crow"
+    data-size="14"
+    data-testid="icon"
+  />
+</div>
+`;
+
+exports[`Components - features - LN - common - IconSubscribe matches snapshot - without border 1`] = `
+<div
+  class="flex items-center justify-center h-24 w-24 rounded-full bg-warning-default"
+>
+  <div
+    data-fill="--color-primary-dark"
+    data-name="crow"
+    data-size="14"
+    data-testid="icon"
+  />
+</div>
+`;

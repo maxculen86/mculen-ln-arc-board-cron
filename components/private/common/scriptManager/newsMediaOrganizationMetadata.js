@@ -54,8 +54,8 @@ const buildNewsMediaOrganizationSchema = ({
     logo: {
         '@type': 'ImageObject',
         url: logoUrl,
-        height: 1280,
-        width: 1280
+        height: 60,
+        width: 600
     },
     image: {
         '@type': 'ImageObject',

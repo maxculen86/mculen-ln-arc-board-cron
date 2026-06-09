@@ -9,7 +9,8 @@ import {
 const useNotaSegment = ({
     experimentName,
     testDigits = [],
-    controlDigits = []
+    controlDigits = [],
+    syncSegmentoNotaStorage = true
 } = {}) => {
     const [segment, setSegment] = useState(null);
     const [ready, setReady] = useState(false);
@@ -21,7 +22,7 @@ const useNotaSegment = ({
             setSegment(null);
             setReady(true);
         } else if (testDigits.length === 0 && controlDigits.length === 0) {
-            removeSegmentoNota(experimentName);
+            if (syncSegmentoNotaStorage) removeSegmentoNota(experimentName);
             setSegment(null);
             setReady(true);
         } else {
@@ -37,8 +38,10 @@ const useNotaSegment = ({
                     ? computeSegment(clientId, { testDigits, controlDigits })
                     : null;
 
-                if (computed) upsertSegmentoNota(experimentName, computed);
-                else removeSegmentoNota(experimentName);
+                if (syncSegmentoNotaStorage) {
+                    if (computed) upsertSegmentoNota(experimentName, computed);
+                    else removeSegmentoNota(experimentName);
+                }
 
                 setSegment(computed);
                 setReady(true);
@@ -52,7 +55,7 @@ const useNotaSegment = ({
         }
 
         return cleanup;
-    }, [experimentName, testDigits, controlDigits]);
+    }, [experimentName, testDigits, controlDigits, syncSegmentoNotaStorage]);
 
     return { segment, ready };
 };

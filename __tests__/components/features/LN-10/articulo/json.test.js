@@ -349,4 +349,155 @@ describe('components - feature - LN10 Articulo - json', () => {
             ['configs', 'onlyOneApeturaValidateForWWW', 'props', 'state'].sort()
         );
     });
+
+    const navigationTreeCommentsEnabled = {
+        Termicas: { livefyre: 'true' },
+        migration: { deadline_livefyre: '2020-02-07' }
+    };
+
+    const baseArticleState = {
+        _id: 'AAABBBB',
+        website_url:
+            '/sociedad/coronavirus-en-argentina-casos-en-vera-santa-fe-al-29-de-junio-nid29062021/'
+    };
+
+    const baseImageState = {
+        promo_items: {},
+        _id: '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+    };
+
+    const renderArticleFeature = articleSourceNotaLN10 => {
+        const props = { ...propsArticle };
+        const resultFeature = new LN10Article(props);
+        resultFeature.state = {
+            articleSourceNotaLN10,
+            articleImageLN10: baseImageState,
+            articleVideoLN10: {},
+            navigationTreeSourceLN10: navigationTreeCommentsEnabled
+        };
+        resultFeature.render();
+        return resultFeature;
+    };
+
+    describe('comentarios', () => {
+        test('passes comentarios to renderProps when comments are open', () => {
+            renderArticleFeature({
+                ...baseArticleState,
+                comments: {
+                    allow_comments: true,
+                    display_comments: true
+                },
+                first_publish_date: '2020-07-06T18:04:32.394Z'
+            });
+
+            expect(renderPropsMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    comentarios: {
+                        abiertoComentarios: true,
+                        permitirComentarios: true
+                    }
+                }),
+                baseImageState,
+                {},
+                expect.anything(),
+                expect.anything()
+            );
+        });
+
+        test('sets abiertoComentarios false when livefyre is disabled', () => {
+            const props = { ...propsArticle };
+            const resultFeature = new LN10Article(props);
+            resultFeature.state = {
+                articleSourceNotaLN10: {
+                    ...baseArticleState,
+                    comments: {
+                        allow_comments: true,
+                        display_comments: true
+                    },
+                    first_publish_date: '2020-07-06T18:04:32.394Z'
+                },
+                articleImageLN10: baseImageState,
+                articleVideoLN10: {},
+                navigationTreeSourceLN10: {
+                    Termicas: { livefyre: 'false' },
+                    migration: { deadline_livefyre: '2020-02-07' }
+                }
+            };
+            resultFeature.render();
+
+            expect(renderPropsMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    comentarios: {
+                        abiertoComentarios: false,
+                        permitirComentarios: true
+                    }
+                }),
+                expect.anything(),
+                expect.anything(),
+                expect.anything(),
+                expect.anything()
+            );
+        });
+
+        test('sets abiertoComentarios false when article predates deadline_livefyre', () => {
+            renderArticleFeature({
+                ...baseArticleState,
+                comments: {
+                    allow_comments: true,
+                    display_comments: true
+                },
+                first_publish_date: '2019-01-01T00:00:00.000Z'
+            });
+
+            expect(renderPropsMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    comentarios: {
+                        abiertoComentarios: false,
+                        permitirComentarios: true
+                    }
+                }),
+                expect.anything(),
+                expect.anything(),
+                expect.anything(),
+                expect.anything()
+            );
+        });
+
+        test('sets permitirComentarios null when allow_comments is missing', () => {
+            renderArticleFeature({
+                ...baseArticleState,
+                comments: { display_comments: true },
+                first_publish_date: '2020-07-06T18:04:32.394Z'
+            });
+
+            expect(renderPropsMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    comentarios: {
+                        abiertoComentarios: true,
+                        permitirComentarios: false
+                    }
+                }),
+                expect.anything(),
+                expect.anything(),
+                expect.anything(),
+                expect.anything()
+            );
+        });
+    });
+
+    test('fetches navigationTreeSource with livefyre and deadline_livefyre filter', () => {
+        const props = { ...propsArticle };
+        const resultFeature = new LN10Article(props);
+        const fetchCalls = resultFeature.fetchContent.mock.calls;
+        const navigationCall = fetchCalls.find(
+            ([config]) => config.navigationTreeSourceLN10
+        );
+
+        expect(navigationCall[0].navigationTreeSourceLN10.filter).toContain(
+            'livefyre'
+        );
+        expect(navigationCall[0].navigationTreeSourceLN10.filter).toContain(
+            'deadline_livefyre'
+        );
+    });
 });

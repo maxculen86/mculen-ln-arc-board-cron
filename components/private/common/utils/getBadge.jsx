@@ -1,8 +1,8 @@
 import React from 'react';
 import { Badge } from '@ln/contenidos-ui-badge';
-import { SUBSCRIBER } from '../badge/types';
 import RatingBadge from '../../../features/LN/common/ratingBadge/default';
 import get from './get';
+import Icon from '../../../features/ui/ln/icon/default';
 
 const getBadge = (contentCode, label, rating = false) => {
     const text = get(label, 'text', '');
@@ -16,7 +16,14 @@ const getBadge = (contentCode, label, rating = false) => {
                     {text.trim()}
                 </Badge>
             ) : null,
-        cerrada: () => <Badge type={SUBSCRIBER}>Suscriptores</Badge>
+        cerrada: () => (
+            // TODO: borrar clase --exclusive-ln que usa estilos viejos cuando se migre card de autor de internas
+            <div data-tw style={{ display: 'contents' }}>
+                <div className="ln-badge --exclusive-ln flex items-center justify-center h-24 w-24 rounded-full border-neutral-1 border bg-warning-default">
+                    <Icon size={14} name="crow" fill="--color-primary-dark" />
+                </div>
+            </div>
+        )
     };
 
     if (rating) {

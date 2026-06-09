@@ -2,15 +2,17 @@
 
 exports[`components - features - LN-10-global - header - mainHeader - default should match snapshot 1`] = `
 <div>
-  <div>
+  <div
+    class="wrapper-class"
+  >
     <div
-      class="common-main-header"
+      class="common-main-header main-header-class"
     >
       <div
         class="content"
       >
         <div
-          class="container grid gap-16 gap-32_lg"
+          class="container grid gap-16 gap-32_lg content-class"
         >
           <div
             class="left-options flex flex jc-start ai-center lg-only gap-24"
@@ -35,30 +37,15 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 SECCIONES
               </span>
             </button>
-            <label
-              class="button ln-button rounded-4 p-4 text-light-700 bg-secondary__hover"
-              for="queryly_toggle"
-              title="Ir al buscador"
-            >
-              <i
-                class="icon --icon-24 --inherit"
-              >
-                <mock-icon
-                  critical=""
-                  name="search"
-                />
-              </i>
-            </label>
-            <script
-              defer=""
-              id="script-getQuerylyScript"
+            <div
+              id="mock-search-ln"
             />
           </div>
           <div
-            class="center-options flex jc-start jc-center_lg ai-center"
+            class="center-options flex jc-start jc-center_lg ai-center transition-[opacity] duration-300 opacity-100"
           >
             <a
-              class="link"
+              class="link center-options-class"
               href="/"
               target="_self"
               title="Ir a la página principal"
@@ -115,7 +102,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   id="logo_header_mob"
                 />
               </div>
-              <div
+              <span
                 class="flex relative"
               >
                 <svg
@@ -129,7 +116,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                     fill="#006998"
                   />
                 </svg>
-              </div>
+              </span>
             </a>
           </div>
           <div
@@ -138,125 +125,6 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
             <div
               id="mock-bell-button"
             />
-            <div
-              class="dropdown relative h-max flex cursor-pointer l-only pt-4"
-            >
-              <button
-                class="dropdown-toggle inline-flex"
-              >
-                <div
-                  class="flex cursor-pointer l-only"
-                >
-                  <div
-                    class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 border border-all border-thin"
-                  />
-                  <div
-                    class="flex flex-column ai-start jc-center gap-4 text-12_130 white-space-nowrap w-115"
-                  >
-                    <div
-                      class="email flex font-bold gap-4 w-100 text-neutral-light-800"
-                    >
-                      <span
-                        class="block text-ellipsis-1"
-                      />
-                    </div>
-                    <span
-                      class="w-100 text-start text-neutral-light-600"
-                    >
-                      Sin suscripción digital
-                    </span>
-                  </div>
-                </div>
-                <i
-                  class="icon dropdown-icon relative top-3 --dark"
-                >
-                  <svg
-                    fill="inherit"
-                    height="17"
-                    viewBox="0 0 16 17"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
-                      fill="inherit"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </i>
-              </button>
-              <div
-                class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-0 rounded-4 shadow-center min-w-100 visibility-hidden opacity-0"
-                data-position="center"
-                role="menu"
-              >
-                <ul
-                  class="p-12 text-14"
-                >
-                  <li
-                    class="text-blue-500 p-12 bg-blue-100__hover rounded-4"
-                  >
-                    <a
-                      class="link ln-link --unstyled"
-                      href="https://www.lanacion.com.ar/mis-notas/"
-                      target="_self"
-                      title="Ir a mis notas"
-                    >
-                      Mis notas
-                    </a>
-                  </li>
-                  <li
-                    class="text-blue-500 p-12 bg-blue-100__hover rounded-4"
-                  >
-                    <a
-                      class="link ln-link --unstyled"
-                      href="https://micuenta.lanacion.com.ar/"
-                      target="_self"
-                      title="Ir a mi cuenta"
-                    >
-                      Mi cuenta
-                    </a>
-                  </li>
-                  <li
-                    class="text-blue-500 p-12 bg-blue-100__hover rounded-4"
-                  >
-                    <a
-                      class="link ln-link --unstyled"
-                      href="https://micuenta.lanacion.com.ar/datos-personales/"
-                      target="_self"
-                      title="Ir a mis datos"
-                    >
-                      Mis datos
-                    </a>
-                  </li>
-                  <li
-                    class="text-blue-500 p-12 border border-bottom border-thin border-light-300 bg-blue-100__hover rounded-4"
-                  >
-                    <a
-                      class="link ln-link --unstyled"
-                      href="https://micuenta.lanacion.com.ar/"
-                      target="_self"
-                      title="Ir a mis suscripciones"
-                    >
-                      Mis suscripciones
-                    </a>
-                  </li>
-                  <li
-                    class="text-red-700 p-12 bg-blue-100__hover rounded-4"
-                  >
-                    <a
-                      class="link ln-link --unstyled"
-                      href="javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')"
-                      target="_self"
-                      title="Cerrar sesión"
-                    >
-                      Cerrar sesión
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
             <button
               class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative text-neutral-light-800 --subscribe"
               data-variant="subscribe"
@@ -275,6 +143,15 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               <span>
                 Suscribite
               </span>
+            </button>
+            <button
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 --tablet-none --secondary"
+              data-variant="secondary"
+              id="btningresar"
+              title="Iniciar sesión"
+              type="button"
+            >
+              INICIAR SESIÓN
             </button>
           </div>
           <div

@@ -14,7 +14,12 @@ export function useJWPlayer(videoId) {
         useContent({
             source: videoId ? 'videosJwCarruselSource' : null,
             query: { id: videoId, website: 'la-nacion-ar' }
-        }) || null;
+        }) || {};
+
+    const safeDurationMs = Number.isFinite(Number(duration))
+        ? Number(duration) * 1000
+        : 0;
+    const safeTitle = title || '';
 
     const loadPlayer = useCallback(() => {
         if (!hasStartedLoadingRef.current) {
@@ -34,8 +39,8 @@ export function useJWPlayer(videoId) {
             });
             playerRef.current.on('ready', () => {
                 onJwPlayerReady(playerRef.current, {
-                    currentTitle: title,
-                    duration: duration * 1000
+                    currentTitle: safeTitle,
+                    duration: safeDurationMs
                 });
             });
             if (playerRef.current) {
@@ -45,7 +50,7 @@ export function useJWPlayer(videoId) {
                 );
             }
         }
-    }, [videoId, isScriptLoaded]);
+    }, [videoId, isScriptLoaded, safeTitle, safeDurationMs]);
 
     return {
         loadPlayer,

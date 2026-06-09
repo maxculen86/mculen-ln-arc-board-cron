@@ -40,41 +40,43 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
       <div
         class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-24 pr-16"
       >
-        <div
-          class="foodit-search w-100 as-center"
-        >
+        <div>
           <div
-            class="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search"
+            class="foodit-search w-100 as-center --no-app"
           >
             <div
-              class="m-auto w-100 relative"
+              class="flex ai-center jc-between h-56 border border-all border-thin border-light-300 bg-light-1 rounded-4 pl-16 shadow-search"
             >
-              <input
-                class="text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide icon-ia"
-                enterkeyhint="search"
-                placeholder="Buscá o pregúntale a la IA"
-                type="search"
-                value=""
-              />
-            </div>
-            <div
-              class="flex h-100 ai-center"
-            >
-              <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
-                data-test-id="button-header-search"
-                data-variant="link"
-                title="audio"
+              <div
+                class="m-auto w-100 relative"
               >
-                <i
-                  class="icon --icon-24"
+                <input
+                  class="text-primary-positive text-16 w-100 bg-light-1 pr-16 --search-cancel-button-hide icon-ia"
+                  enterkeyhint="search"
+                  placeholder="Buscá o pregúntale a la IA"
+                  type="search"
+                  value=""
+                />
+              </div>
+              <div
+                class="flex h-100 ai-center"
+              >
+                <button
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover px-12 py-8"
+                  data-test-id="button-header-search"
+                  data-variant="link"
+                  title="audio"
                 >
-                  <mock-icon
-                    fill=""
-                    name="audio"
-                  />
-                </i>
-              </button>
+                  <i
+                    class="icon --icon-24"
+                  >
+                    <mock-icon
+                      fill=""
+                      name="audio"
+                    />
+                  </i>
+                </button>
+              </div>
             </div>
           </div>
         </div>

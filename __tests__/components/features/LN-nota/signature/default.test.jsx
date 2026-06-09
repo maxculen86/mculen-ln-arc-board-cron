@@ -3,9 +3,12 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import SignatureFeature from '../../../../../components/features/LN-nota/signature/default';
-import AudioPlayer from '../../../../../components/private/common/audioNews/AudioPlayer';
+import AudioPlayer from '../../../../../components/features/LN/common/audioPlayer/default';
 
-jest.mock('../../../../../components/private/common/audioNews/AudioPlayer');
+jest.mock(
+    '../../../../../components/features/LN/common/audioPlayer/default',
+    () => jest.fn(() => null)
+);
 
 jest.mock('fusion:context', Component => {
     return function (Component) {
@@ -20,17 +23,6 @@ Context.useAppContext = jest.fn(() => ({
 jest.mock('fusion:context', () => {
     return jest.fn(component => component);
 });
-
-jest.mock(
-    '../../../../../components/private/common/audioNews/hooks/useAudioPlayer',
-    () => ({
-        useAudioPlayer: jest.fn(() => ({
-            audioPlayerProps: {
-                thermicalAudio: true
-            }
-        }))
-    })
-);
 
 jest.mock(
     '../../../../../components/private/common/audioNews/components/AudioButton',
