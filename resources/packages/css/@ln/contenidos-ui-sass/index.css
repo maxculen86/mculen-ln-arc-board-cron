@@ -446,6 +446,7 @@ a {
   --cruci-experto: #666666;
   --combinadas: #bb1e69;
   --entre-letras: #B3C1E3;
+  --retrofoto: #DE613A;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1209,6 +1210,10 @@ a {
   background: var(--entre-letras);
 }
 
+.bg-retrofoto {
+  background: var(--retrofoto);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1365,6 +1370,10 @@ a {
   background: var(--entre-letras);
 }
 
+.bg-retrofoto__hover:hover {
+  background: var(--retrofoto);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -1486,6 +1495,11 @@ a {
 
 .ln-card-games-combinadas__hover:hover .cardGame__hover {
   border-color: var(--combinadas);
+  background-color: white;
+}
+
+.ln-card-games-retrofoto__hover:hover .cardGame__hover {
+  border-color: var(--retrofoto);
   background-color: white;
 }
 

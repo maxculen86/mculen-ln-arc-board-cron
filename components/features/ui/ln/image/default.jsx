@@ -31,6 +31,7 @@ function Image({
     classnames,
     objectFit = 'contain',
     renderImgOnly = false,
+    skipResizerReplace = false,
     sources,
     style,
     ...props
@@ -49,10 +50,14 @@ function Image({
         : sources;
     const normalizedProps = {
         ...props,
-        ...(props.src && { src: replaceResizerBaseUrl({ url: props.src }) }),
-        ...(props.srcSet && {
-            srcSet: replaceResizerSrcSet(props.srcSet)
-        })
+        ...(props.src &&
+            !skipResizerReplace && {
+                src: replaceResizerBaseUrl({ url: props.src })
+            }),
+        ...(props.srcSet &&
+            !skipResizerReplace && {
+                srcSet: replaceResizerSrcSet(props.srcSet)
+            })
     };
 
     // TODO: implementar estado en la lib @ln/ds-common-image, tenemos esto provisorio ya que no esta ejecutando el onError correctamente cuando rehidrata el componente.

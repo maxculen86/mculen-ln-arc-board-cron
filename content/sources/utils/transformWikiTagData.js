@@ -1,32 +1,7 @@
 import getProperties from 'fusion:properties';
-import { API_ENV } from 'fusion:environment';
 import get from '../../../components/private/common/utils/get';
 import transformISODate from '../../../components/private/common/utils/transformISODate';
 import { resizeUrlCollection } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
-
-const SITE_LANACION_PROD = 'https://www.lanacion.com.ar';
-
-export const replaceUrlOrigin = (_url = '') => {
-    if (!_url) return '';
-
-    try {
-        const parsedUrl = new URL(_url);
-        const targetSiteUrl = new URL(SITE_LANACION_PROD);
-
-        parsedUrl.protocol = targetSiteUrl.protocol;
-        parsedUrl.host = targetSiteUrl.host;
-
-        return parsedUrl.toString();
-    } catch {
-        return _url;
-    }
-};
-
-export const normalizeResizedImageUrls = (resizedUrlsArray = []) =>
-    resizedUrlsArray.map(item => ({
-        ...item,
-        resizedUrl: replaceUrlOrigin(item.resizedUrl)
-    }));
 
 const transformWikiTagData = (data, siteProps) => {
     const { imageConfig = 'wikiTag', arcSite = 'la-nacion-ar' } = siteProps;
@@ -50,11 +25,7 @@ const transformWikiTagData = (data, siteProps) => {
         arcImage: image,
         arcSite
     });
-
-    const resizedUrls =
-        API_ENV === 'prod'
-            ? transformedImage || []
-            : normalizeResizedImageUrls(transformedImage);
+    const resizedUrls = transformedImage || [];
 
     return {
         ...data,

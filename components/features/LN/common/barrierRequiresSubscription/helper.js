@@ -23,6 +23,6 @@ export const loggedData = {
 
 export const barrierMessages = {
     BOOKMARK: 'Para guardar tus notas, necesitás suscribirte',
-    IA_SUMMARY: 'Para acceder al resúmen con IA, necesitás suscribirte',
+    IA_SUMMARY: 'Para acceder al resumen con IA, necesitás suscribirte',
     AUDIO: 'Para escuchar las notas, necesitás suscribirte'
 };
