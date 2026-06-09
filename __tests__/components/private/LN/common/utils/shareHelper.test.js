@@ -1,7 +1,6 @@
 import {
     shareWhatsAppDesktop,
     shareWhatsAppMobile,
-    isLN10IAHidden,
     popUpCompartirNotaTW,
     copyToClipboard,
     openGoogleDiscoverFollow
@@ -93,116 +92,6 @@ describe('private - LN - common - utils - shareHelper', () => {
             } finally {
                 consoleWarnMock.mockRestore();
             }
-        });
-    });
-
-    describe('isLN10IAHidden', () => {
-        it('should return true when hideGlossary and hideSummary are both true for LN-10/IA feature', () => {
-            const renderables = [
-                {
-                    collection: 'features',
-                    type: 'LN-10/IA',
-                    props: {
-                        customFields: {
-                            hideGlossary: true,
-                            hideSummary: true
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables)).toBe(true, true, true);
-        });
-
-        it('should return false when hideGlossary and hideSummary are false', () => {
-            const renderables = [
-                {
-                    collection: 'features',
-                    type: 'LN-10/IA',
-                    props: {
-                        customFields: {
-                            hideGlossary: false,
-                            hideSummary: false
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables)).toBe(false, true, true);
-        });
-
-        it('should return true when hideSummary is true and there is no glossary', () => {
-            const renderables = [
-                {
-                    collection: 'features',
-                    type: 'LN-10/IA',
-                    props: {
-                        customFields: {
-                            hideGlossary: false,
-                            hideSummary: false
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables, false, true)).toBe(false);
-        });
-
-        it('should return true when hideGlossary is true and there is no summary', () => {
-            const renderables = [
-                {
-                    collection: 'features',
-                    type: 'LN-10/IA',
-                    props: {
-                        customFields: {
-                            hideGlossary: false,
-                            hideSummary: false
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables, true, false)).toBe(false);
-        });
-
-        it('should return true when the type is not LN-10/IA', () => {
-            const renderables = [
-                {
-                    collection: 'features',
-                    type: 'LN-10/Other',
-                    props: {
-                        customFields: {
-                            hideGlossary: true,
-                            hideSummary: true
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables)).toBe(true);
-        });
-
-        it('should return true when the collection is not features', () => {
-            const renderables = [
-                {
-                    collection: 'non-features',
-                    type: 'LN-10/IA',
-                    props: {
-                        customFields: {
-                            hideGlossary: true,
-                            hideSummary: true
-                        }
-                    }
-                }
-            ];
-
-            expect(isLN10IAHidden(renderables)).toBe(true);
-        });
-
-        it('should return true when renderables is an empty array, does not have the IA feature', () => {
-            const renderables = [];
-
-            expect(isLN10IAHidden(renderables)).toBe(true);
         });
     });
 

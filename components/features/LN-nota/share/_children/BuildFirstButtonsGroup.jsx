@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import { VIAFOURA_UUID } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
@@ -6,19 +6,25 @@ import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import IconLn from '../../../ui/ln/icon/default';
 import {
     scrollToComments,
     onButtonClicked,
     getClassAndIconByBookmark,
-    getFirstGroupClassNames,
-    isLN10IAHidden
+    getFirstGroupClassNames
 } from '../../../../private/LN/common/utils/shareHelper';
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
-import { getClassAndIconByClick, handleOpenIAFeature } from './helper';
+import { barrierMessages } from '../../../LN/common/barrierRequiresSubscription/helper';
+import {
+    openIaSummary,
+    isIaSummaryAvailable
+} from '../../../LN/common/iaSummary/helpers';
+import { useIaSummaryState } from '../../../LN/common/iaSummary/hooks/useIaSummaryState';
+import { useIaSummaryActions } from '../../../LN/common/iaSummary/hooks/useIaSummaryActions';
 
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
@@ -32,21 +38,26 @@ function BuildFirtsButtonsGroup({
     openBarrier,
     isHorizontal
 } = {}) {
-    const [iaButtonIsClicked, setIaButtonIsClicked] = useState(false);
-
     const { renderables = [] } = useAppContext();
 
     const shareRef = useRef(null);
 
-    const summary = get(globalContent, 'promo_items.summary', null);
+    const summaryData = get(
+        globalContent,
+        'promo_items.summary.embed.config.arrayBullets',
+        []
+    );
     const isThermalSummaryEnabled = useTermica('resumen_nota');
-    const glossary = get(globalContent, 'promo_items.glossary', null);
-    const isThermalGlossaryEnabled = useTermica('glosario');
 
-    const showIAButton =
-        !isLN10IAHidden(renderables, glossary, summary) &&
-        ((summary && isThermalSummaryEnabled) ||
-            (glossary && isThermalGlossaryEnabled));
+    const showIAButton = isIaSummaryAvailable({
+        renderables,
+        summaryData,
+        isThermalSummaryEnabled
+    });
+
+    // Estado/acciones del store compartido del Resumen con IA.
+    const { isOpen: isSummaryOpen } = useIaSummaryState();
+    const { close } = useIaSummaryActions();
 
     const {
         _id: id,
@@ -70,22 +81,35 @@ function BuildFirtsButtonsGroup({
 
     const { bookmarkClass, bookmarkIcon } = getClassAndIconByBookmark(bookmark);
     const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
-    const { iaLogo, iaButtonClass } = getClassAndIconByClick(iaButtonIsClicked);
 
     const classes = getFirstGroupClassNames({ isCustomLayout: isHorizontal });
 
-    const defaultTab =
-        summary && isThermalSummaryEnabled ? 'resumen_nota' : 'glosario';
+    const closeEvent = {
+        event: 'e_linkclick',
+        action: 'IA',
+        category: 'nota_ln9',
+        label: 'cerrar_ia'
+    };
 
-    useEffect(() => {
-        const handleIaClosed = arg =>
-            arg?.closed && setIaButtonIsClicked(false);
-        window.LN.observable.subscribe('iaClosed', handleIaClosed);
+    const handleSummaryClick = () => {
+        if (isSummaryOpen) {
+            close();
+            addEventToDataLayerV2(closeEvent);
+            return;
+        }
 
-        return () => {
-            window.LN.observable.unsubscribe('iaClosed', handleIaClosed);
-        };
-    }, []);
+        openIaSummary({
+            suscription,
+            openBarrier: () => openBarrier(barrierMessages.IA_SUMMARY),
+            event: {
+                event: 'e_linkclick',
+                action: 'IA',
+                category: 'nota_ln9',
+                label: 'resumen_nota'
+            },
+            closeEvent
+        });
+    };
 
     // TODO: Abstraer botones para que el componente sea más prolijo y modular
 
@@ -104,18 +128,16 @@ function BuildFirtsButtonsGroup({
                     iconOnly
                     dataEvent="LinkClick"
                     dataSection="IA"
-                    className={iaButtonClass}
-                    onClick={() => {
-                        handleOpenIAFeature({
-                            defaultTab,
-                            iaButtonIsClicked,
-                            setIaButtonIsClicked,
-                            suscription,
-                            openBarrier
-                        });
-                    }}
+                    onClick={handleSummaryClick}
                 >
-                    <Icon size={32}>{iaLogo}</Icon>
+                    {/* data-tw habilita los estilos del DS/tailwind sobre el Icon de UI */}
+                    <div data-tw>
+                        <IconLn
+                            name={
+                                isSummaryOpen ? 'sparkling-filled' : 'sparkling'
+                            }
+                        />
+                    </div>
                 </Button>
             )}
             {termicaBookmark && (

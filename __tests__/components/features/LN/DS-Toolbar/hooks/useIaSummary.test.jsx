@@ -1,9 +1,17 @@
 import { renderHook, act } from '@testing-library/react';
+import { useAppContext } from 'fusion:context';
 import useIaSummary from '../../../../../../components/features/LN/DS-Toolbar/hooks/useIaSummary';
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
 import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import { iaSummaryStore } from '../../../../../../components/features/LN/common/iaSummary/store/iaSummaryStore';
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 jest.mock('../../../../../../components/private/common/hooks/useTermica');
+
+const renderablesWithIaFeature = [{ collection: 'features', type: 'LN-10/IA' }];
 jest.mock(
     '../../../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
@@ -25,13 +33,17 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             }
         },
         suscription: true,
-        openBarrier: jest.fn(),
-        hideSummary: false
+        openBarrier: jest.fn()
     };
 
     beforeEach(() => {
         jest.clearAllMocks();
         useTermica.mockReturnValue(true);
+        useAppContext.mockReturnValue({
+            renderables: renderablesWithIaFeature
+        });
+        // Reset del store singleton para aislar cada test.
+        act(() => iaSummaryStore.close());
     });
 
     describe('initial state', () => {
@@ -77,7 +89,15 @@ describe('Components - features - LN - DS-Toolbar - hooks - useIaSummary', () =>
             expect(result.current.shouldShowSummary).toBe(false);
         });
 
-        it('returns false when hideSummary is true', () => {
+        it('returns false when the LN-10/IA feature is not present', () => {
+            useAppContext.mockReturnValue({ renderables: [] });
+
+            const { result } = renderHook(() => useIaSummary(defaultProps));
+
+            expect(result.current.shouldShowSummary).toBe(false);
+        });
+
+        it('returns false when hideSummary is true even if everything else is met', () => {
             const { result } = renderHook(() =>
                 useIaSummary({ ...defaultProps, hideSummary: true })
             );

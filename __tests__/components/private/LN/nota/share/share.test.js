@@ -89,7 +89,16 @@ const props = {
         },
         first_publish_date: 'firstPublishDate',
         subtype: '',
-        promo_items: { glossary: {} }
+        promo_items: {
+            glossary: {},
+            summary: {
+                embed: {
+                    config: {
+                        arrayBullets: ['Primer bullet del resumen']
+                    }
+                }
+            }
+        }
     },
     requestUri: '/economia/dolar-hoy/',
     renderables: [
