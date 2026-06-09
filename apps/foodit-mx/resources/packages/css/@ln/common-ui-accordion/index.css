@@ -1,0 +1,30 @@
+.accordion-body:not(.--visible) {
+  grid-template-rows: 0fr;
+  visibility: hidden;
+}
+.accordion-body:not(.--visible) > .accordion-body-content {
+  animation: 0ms linear 200ms forwards hide;
+}
+.accordion-body.--visible {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.accordion-body.--visible > .accordion-body-content {
+  animation: 0ms linear 200ms forwards show;
+}
+.accordion-icon {
+  transition: all 0.2s ease-in-out;
+}
+.accordion-icon.--rotate {
+  transform: rotate(180deg);
+}
+@keyframes show {
+  to {
+    overflow: visible;
+  }
+}
+@keyframes hide {
+  to {
+    overflow: hidden;
+  }
+}

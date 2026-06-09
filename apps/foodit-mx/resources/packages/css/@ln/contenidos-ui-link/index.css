@@ -1,0 +1,7 @@
+:root {
+  --color-link: var(--blue-500);
+}
+
+.ln-link {
+  color: var(--color-link);
+}

@@ -1,0 +1,31 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "foodit-mx",
+    "projectType": "application",
+    "root": "apps/foodit-mx",
+    "sourceRoot": "apps/foodit-mx",
+    "tags": ["type:app", "scope:foodit"],
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "fusion build",
+                "cwd": "apps/foodit-mx"
+            }
+        },
+        "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "eslint --ext=js,jsx .",
+                "cwd": "apps/foodit-mx"
+            }
+        },
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "jest --passWithNoTests",
+                "cwd": "apps/foodit-mx"
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.card a:hover {
+  opacity: inherit;
+}
+.card[data-container=grid] a:hover .card-title, .card[data-container=related-content] a:hover .card-title, .card[data-container=link] a:hover .card-title {
+  color: var(--accent-lechuga);
+  opacity: 0.8;
+}
+.card[data-container=opening-grid] .card-title:hover, .card[data-container=opening-alone] .card-title:hover {
+  color: var(--accent-lechuga);
+  opacity: 0.8;
+}
+.card .--img-full-width_max1280 {
+  --_spacing: var(--spacing) * 2;
+  width: calc(100% + var(--_spacing));
+}
+@media (min-width: 80rem) {
+  .card .--img-full-width_max1280 {
+    --_spacing: 0;
+    width: 100%;
+  }
+}
+.card .--img-full-width_max768 {
+  --_spacing: var(--spacing) * 2;
+  width: calc(100% + var(--_spacing));
+}
+@media (min-width: 48rem) {
+  .card .--img-full-width_max768 {
+    --_spacing: 0;
+  }
+}
+.card .--img-full-width_max768:not([data-container=opening-grid]) {
+  width: calc(100% + var(--_spacing));
+}
+@media (min-width: 80rem) {
+  .card .--img-full-width_max768:not([data-container=opening-grid]) {
+    --_spacing: 0;
+    width: 100%;
+  }
+}
+.card[data-container=related-content] .card-gap-related-content.card-gap-related-content {
+  align-items: stretch;
+  gap: 12px;
+}
+.card[data-container=link] .card-gap-link.card-gap-link {
+  align-items: stretch;
+  gap: 12px;
+}
+@media (min-width: 48rem) {
+  .card[data-container=link] .card-gap-link.card-gap-link {
+    gap: 24px;
+  }
+}
+@media (min-width: 80rem) {
+  .card[data-container=link] .card-gap-link.card-gap-link {
+    gap: 32px;
+  }
+}

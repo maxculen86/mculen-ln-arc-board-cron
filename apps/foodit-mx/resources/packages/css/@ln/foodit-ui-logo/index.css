@@ -1,0 +1,296 @@
+.logo-foodit.--enabled {
+  --_animationTimingFunction: cubic-bezier(0.945, 0.13, 0.065, 0.905);
+  --_longestAnimationDuration: 12000ms;
+  --_animationDelay: 500ms;
+  --_1stItemPath: path("M8.61 13.52");
+  --_1stItemPathLeft: path("M5.91 13.52");
+  --_2ndItemPath: path("M17.73 4.92");
+  --_3rdItemPath: path("M24.11 16.73");
+  --_hideItemPath: path("M15.99 25.20");
+  --_hideItem1stItemPath: path("M8.61 24.61");
+  --_hideItem2ndItemPath: path("M17.73 24.61");
+  --_hideItem3rdItemPath: path("M24.11 24.61");
+}
+.logo-foodit.--enabled .bowl {
+  animation-name: bowl;
+  animation-timing-function: var(--_animationTimingFunction);
+  animation-duration: var(--_longestAnimationDuration);
+  animation-delay: var(--_animationDelay);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  transform-origin: center;
+}
+.logo-foodit.--enabled .item {
+  animation-timing-function: var(--_animationTimingFunction);
+  animation-duration: var(--_longestAnimationDuration);
+  animation-delay: var(--_animationDelay);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-direction: normal;
+  transform-origin: center;
+  transform-box: border-box;
+  animation-play-state: running;
+}
+.logo-foodit.--enabled .item.fork {
+  animation-name: fork;
+}
+.logo-foodit.--enabled .item.lemon {
+  animation-name: lemon;
+}
+.logo-foodit.--enabled .item.lettuce {
+  animation-name: lettuce;
+}
+.logo-foodit.--enabled .item.noodle {
+  transform: scale(0.5);
+  animation-name: noodle;
+}
+.logo-foodit.--enabled .item.fish {
+  transform: scale(0.5);
+  animation-name: fish;
+}
+.logo-foodit.--enabled .item.tomato {
+  transform: scale(0.5);
+  animation-name: tomato;
+}
+.logo-foodit.--enabled:hover .item,
+.logo-foodit.--enabled:hover .bowl, .logo-foodit.--enabled.--paused .item,
+.logo-foodit.--enabled.--paused .bowl {
+  animation-play-state: paused;
+}
+@keyframes bowl {
+  0% {
+    rotate: 10deg;
+  }
+  9% {
+    rotate: -15deg;
+  }
+  22% {
+    rotate: 10deg;
+  }
+  36% {
+    rotate: -15deg;
+  }
+  50% {
+    rotate: 15deg;
+  }
+  63% {
+    rotate: -10deg;
+  }
+  77% {
+    rotate: 15deg;
+  }
+  90% {
+    rotate: -10deg;
+  }
+  100% {
+    rotate: 0;
+  }
+}
+@keyframes fork {
+  0% {
+    transform: translate(0, -50px);
+  }
+  9% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(0);
+  }
+  22% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(90deg);
+  }
+  36% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(180deg);
+  }
+  50% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(270deg) scale(0);
+  }
+  63% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(360deg) scale(0);
+  }
+  77% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(0) scale(0);
+  }
+  90% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(0) scale(1);
+  }
+  99% {
+    offset-path: var(--_hideItem1stItemPath);
+    transform: rotate(360deg) scale(0);
+  }
+  100% {
+    offset-path: inherit;
+    transform: scale(1) rotate(0);
+  }
+}
+@keyframes lemon {
+  0% {
+    transform: translate(0, -50px);
+  }
+  9% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(0deg);
+  }
+  22% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(90deg);
+  }
+  36% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(180deg) scale(0);
+  }
+  50% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(180deg) scale(0);
+  }
+  63% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(180deg) scale(0);
+  }
+  77% {
+    offset-path: var(--_1stItemPathLeft);
+    transform: rotate(270deg) scale(1);
+  }
+  90% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(360deg);
+  }
+  99% {
+    offset-path: var(--_hideItem2ndItemPath);
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    offset-path: inherit;
+    transform: scale(1);
+  }
+}
+@keyframes lettuce {
+  0% {
+    transform: translate(0, -50px);
+  }
+  9% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(0);
+  }
+  22% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(90deg) scale(0);
+  }
+  36% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(90deg) scale(0);
+  }
+  50% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(90deg) scale(0);
+  }
+  63% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(180deg) scale(1);
+  }
+  77% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(270deg);
+  }
+  90% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(360deg);
+  }
+  99% {
+    offset-path: var(--_hideItem3rdItemPath);
+    transform: rotate(0) scale(0);
+  }
+  100% {
+    offset-path: inherit;
+    transform: scale(1);
+  }
+}
+@keyframes noodle {
+  0% {
+    offset-path: var(--_hideItemPath);
+  }
+  9% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(0);
+  }
+  22% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(90deg) scale(1.3);
+  }
+  36% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(180deg) scale(1.3);
+  }
+  50% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(270deg) scale(1.3);
+  }
+  63% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(360deg) scale(0);
+  }
+  100% {
+    offset-path: var(--_hideItemPath);
+  }
+}
+@keyframes fish {
+  0% {
+    offset-path: var(--_hideItemPath);
+  }
+  22% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(0deg) scale(1);
+  }
+  36% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(90deg) scale(1.4);
+  }
+  50% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(180deg) scale(1.4);
+  }
+  63% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(270deg) scale(1.4);
+  }
+  77% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(360deg) scale(0);
+  }
+  100% {
+    offset-path: var(--_hideItemPath);
+  }
+}
+@keyframes tomato {
+  0% {
+    offset-path: var(--_hideItemPath);
+  }
+  36% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(0deg);
+  }
+  50% {
+    offset-path: var(--_1stItemPath);
+    transform: rotate(90deg) scale(1.4);
+  }
+  63% {
+    offset-path: var(--_2ndItemPath);
+    transform: rotate(180deg) scale(1.4);
+  }
+  77% {
+    offset-path: var(--_3rdItemPath);
+    transform: rotate(270deg) scale(1.4);
+  }
+  90% {
+    offset-path: var(--_hideItemPath);
+    transform: rotate(360deg) scale(0);
+  }
+  100% {
+    offset-path: var(--_hideItemPath);
+  }
+}

@@ -1,0 +1,13 @@
+# Fusion runtime artifacts
+.fusion/
+
+# MongoDB local data
+data/db/
+
+
+# Build output
+resources/dist/
+
+# Local env overrides
+.env
+.env.local
