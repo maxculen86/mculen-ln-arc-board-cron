@@ -3,6 +3,9 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
+export const HTML_LIBRE_SCROLL_CONTENT_SELECTOR =
+    '[data-html-libre-scroll-content="true"]';
+
 function HtmlLibre(props) {
     const {
         outputType,
@@ -19,6 +22,7 @@ function HtmlLibre(props) {
             <Static id="LN-htmlLibre">
                 <div
                     key={_id}
+                    data-html-libre-scroll-content="true"
                     dangerouslySetInnerHTML={{
                         __html: content
                     }}
