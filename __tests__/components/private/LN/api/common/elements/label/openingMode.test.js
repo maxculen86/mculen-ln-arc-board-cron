@@ -47,6 +47,25 @@ describe('components - private - LN - api - common - elements - label - openingM
             expect(result).toEqual('NativeBrowser');
         });
 
+        it('getOpeningMode should return NativeBrowser for section /juegos/retrofoto regardless of label configuration', () => {
+            const element = {
+                _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
+                taxonomy: {
+                    primary_section: {
+                        path: '/juegos/retrofoto'
+                    }
+                },
+                label: {
+                    enviar_a_apps: {
+                        text: 'Browser'
+                    }
+                }
+            };
+
+            const result = getOpeningMode(element);
+            expect(result).toEqual('NativeBrowser');
+        });
+
         it('getOpeningMode should return "ExternalBrowser" because enviar_a_apps label text is "Browser"', () => {
             const element = {
                 _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
