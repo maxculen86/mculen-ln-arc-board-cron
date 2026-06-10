@@ -3,17 +3,10 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MessageAssistant } from '../../../../../components/layouts/Foodit-chat-ia/_children/MessageContainer/MessageAssistant';
 // --- Mocks ---
-const mockUseShowFuentesAfterMutation = jest.fn();
-
-jest.mock(
-    '../../../../../components/layouts/Foodit-chat-ia/_children/hooks/helpers',
-    () => ({
-        useShowFuentesAfterMutation: args =>
-            mockUseShowFuentesAfterMutation(args)
-    })
-);
-
+// Solo se mockea `Thread` (componente). `partitionSourcesByMatch` se usa real
+// (requireActual) para ejercitar el MISMO matcher que el render inline.
 jest.mock('@ln/ds-blocks-thread', () => ({
+    ...jest.requireActual('@ln/ds-blocks-thread'),
     Thread: {
         Message: ({ message, isLastOutput }) => (
             <div data-testid="thread-message" data-is-last={!!isLastOutput}>
@@ -43,9 +36,7 @@ describe('MessageAssistant', () => {
         jest.clearAllMocks();
     });
 
-    it('renderiza fuentes solo si hay fuentes y showFuentes=true', () => {
-        mockUseShowFuentesAfterMutation.mockReturnValue(true);
-
+    it('renderiza fuentes no mencionadas cuando showAfterRender=true', () => {
         render(
             <MessageAssistant
                 message={{
@@ -60,7 +51,6 @@ describe('MessageAssistant', () => {
                     }
                 }}
                 isLastOutput={false}
-                isGenerating={false}
             />
         );
 
@@ -72,8 +62,6 @@ describe('MessageAssistant', () => {
     });
 
     it('si una fuente no tiene url, no la renderiza', () => {
-        mockUseShowFuentesAfterMutation.mockReturnValue(true);
-
         render(
             <MessageAssistant
                 message={{
@@ -88,7 +76,6 @@ describe('MessageAssistant', () => {
                     }
                 }}
                 isLastOutput={false}
-                isGenerating={false}
             />
         );
 
@@ -96,6 +83,48 @@ describe('MessageAssistant', () => {
         expect(links).toHaveLength(1);
         expect(links[0]).toHaveAttribute('href', 'https://ok.com');
         expect(links[0]).toHaveTextContent('Con URL');
+    });
+
+    it('excluye de la lista las fuentes ya mencionadas en la descripcion', () => {
+        render(
+            <MessageAssistant
+                message={{
+                    message_type: 'input',
+                    content: 'x',
+                    response_chat: {
+                        descripcion: 'segun Fuente 1 esto es asi',
+                        fuentes: [
+                            { titulo: 'Fuente 1', url: 'https://a.com' },
+                            { titulo: 'Fuente 2', url: 'https://b.com' }
+                        ]
+                    }
+                }}
+                isLastOutput={false}
+            />
+        );
+
+        const links = screen.getAllByTestId('source-link');
+        expect(links).toHaveLength(1);
+        expect(links[0]).toHaveTextContent('Fuente 2');
+    });
+
+    it('no muestra fuentes mientras showAfterRender=false (ultimo output sin tipeo)', () => {
+        render(
+            <MessageAssistant
+                message={{
+                    message_type: 'input',
+                    content: 'x',
+                    response_chat: {
+                        descripcion: 'desc',
+                        fuentes: [{ titulo: 'Fuente 1', url: 'https://a.com' }]
+                    }
+                }}
+                isLastOutput
+                showAfterRender={false}
+            />
+        );
+
+        expect(screen.queryByTestId('source-link')).not.toBeInTheDocument();
     });
 
     it('should match snapshot', () => {
@@ -113,7 +142,6 @@ describe('MessageAssistant', () => {
                     }
                 }}
                 isLastOutput={false}
-                isGenerating={false}
             />
         );
         expect(container).toMatchSnapshot();

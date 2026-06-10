@@ -1,23 +1,7 @@
 import { act, renderHook } from '@testing-library/react';
-import {
-    useShowFuentesAfterMutation,
-    useViewportDirection
-} from '../../../../../../components/layouts/Foodit-chat-ia/_children/hooks/helpers';
+import { useViewportDirection } from '../../../../../../components/layouts/Foodit-chat-ia/_children/hooks/helpers';
 
 const IO = { instances: [] };
-
-class MockMutationObserver {
-    static instances = [];
-    constructor(cb) {
-        this.cb = cb;
-        this.observe = jest.fn();
-        this.disconnect = jest.fn();
-        MockMutationObserver.instances.push(this);
-    }
-    trigger() {
-        this.cb([], this);
-    }
-}
 
 describe('useViewportDirection)', () => {
     beforeEach(() => {
@@ -106,109 +90,5 @@ describe('useViewportDirection)', () => {
         const { result } = renderHook(() => useViewportDirection(ref, {}));
 
         expect(result.current).toBe('in');
-    });
-});
-
-describe('useShowFuentesAfterMutation', () => {
-    beforeEach(() => {
-        jest.useFakeTimers();
-        global.MutationObserver = MockMutationObserver;
-        MockMutationObserver.instances = [];
-    });
-
-    afterEach(() => {
-        jest.runOnlyPendingTimers();
-        jest.useRealTimers();
-        jest.clearAllMocks();
-    });
-
-    it('if not isLastOutput => true', () => {
-        const ref = { current: document.createElement('div') };
-
-        const { result } = renderHook(() =>
-            useShowFuentesAfterMutation({
-                ref,
-                isGenerating: false,
-                descripcion: 'x',
-                isLastOutput: false
-            })
-        );
-
-        expect(result.current).toBe(true);
-    });
-
-    it('if isLastOutput and isGenerating=true => false', () => {
-        const ref = { current: document.createElement('div') };
-
-        const { result } = renderHook(() =>
-            useShowFuentesAfterMutation({
-                ref,
-                isGenerating: true,
-                descripcion: 'x',
-                isLastOutput: true
-            })
-        );
-
-        expect(result.current).toBe(false);
-    });
-
-    it('if isLastOutput and not generating: with mutation => true after delayMs', () => {
-        const ref = { current: document.createElement('div') };
-
-        const { result } = renderHook(() =>
-            useShowFuentesAfterMutation({
-                ref,
-                isGenerating: false,
-                descripcion: 'x',
-                isLastOutput: true,
-                delayMs: 150
-            })
-        );
-
-        expect(result.current).toBe(false);
-        expect(MockMutationObserver.instances).toHaveLength(1);
-
-        act(() => {
-            MockMutationObserver.instances[0].trigger();
-        });
-
-        act(() => {
-            jest.advanceTimersByTime(149);
-        });
-        expect(result.current).toBe(false);
-
-        act(() => {
-            jest.advanceTimersByTime(1);
-        });
-        expect(result.current).toBe(true);
-    });
-
-    it('multiply mutation respects the last one', () => {
-        const ref = { current: document.createElement('div') };
-
-        const { result } = renderHook(() =>
-            useShowFuentesAfterMutation({
-                ref,
-                isGenerating: false,
-                descripcion: 'x',
-                isLastOutput: true,
-                delayMs: 100
-            })
-        );
-
-        act(() => {
-            const obs = MockMutationObserver.instances[0];
-            obs.trigger();
-            jest.advanceTimersByTime(50);
-            obs.trigger();
-            jest.advanceTimersByTime(50);
-        });
-
-        expect(result.current).toBe(false);
-
-        act(() => {
-            jest.advanceTimersByTime(50);
-        });
-        expect(result.current).toBe(true);
     });
 });
