@@ -22,6 +22,7 @@ trap cleanup EXIT
 printf '=== Azure DevOps Board Check - %s ===\n\n' "$(date)"
 printf 'Org: %s\nProject: %s\nArea: %s\nAssignee: %s (%s)\nRepo: %s\n\n' \
   "$ORG" "$PROJECT" "$AREA_PATH" "$ASSIGNEE_EMAIL" "$ASSIGNEE_NAME" "$REPO_PATH"
+printf '%s\n\n' '[MODO AUDITORÍA] Salida = evidencia candidata para revisión. No se modifica Azure DevOps ni Google Sheets.'
 
 if ! command -v az >/dev/null 2>&1; then
   printf 'ERROR: Azure CLI (az) is not installed or not in PATH.\n' >&2
