@@ -1,6 +1,5 @@
-const EMBED_SUBTYPES_WITH_IFRAME = ['youtube', 'dailymotion', 'vimeo'];
+import { EMBED_SUBTYPES_WITH_IFRAME, IFRAME_REGEX } from './constants';
 
-const IFRAME_REGEX = /<iframe\b[^>]*>/i;
 const LOADING_ATTR_REGEX = /loading\s*=\s*["'][^"']*["']/i;
 
 const ensureIframeLazyLoading = ({ subtype, tagHtml = '' }) => {
