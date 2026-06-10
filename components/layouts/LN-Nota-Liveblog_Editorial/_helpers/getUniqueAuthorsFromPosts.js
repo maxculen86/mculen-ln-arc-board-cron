@@ -1,5 +1,9 @@
 import get from '../../../private/common/utils/get';
+import { replaceResizerBaseUrl } from '../../../private/common/utils/image/resizer/v2/resizerHelper';
 import isCustomLiveblog from '../../../private/common/utils/isCustomLiveblog';
+
+const normalizePhoto = photo =>
+    photo ? replaceResizerBaseUrl({ url: photo }) : '';
 
 export const getUniqueAuthorsFromPosts = (posts = []) => {
     if (!posts.length) return [];
@@ -10,21 +14,24 @@ export const getUniqueAuthorsFromPosts = (posts = []) => {
 
     filteredPosts.forEach(post => {
         const rawAuthors = get(post, 'embed.config.authors', []);
+        if (!Array.isArray(rawAuthors)) return;
 
         rawAuthors.forEach(author => {
             if (!author) return;
 
-            const id = author.id || author.name;
+            const name = author.name || '';
+            const id = author.id || name;
             if (!id || authorsMap.has(id)) return;
+            const photo = normalizePhoto(author.photo);
 
             authorsMap.set(id, {
                 id,
-                name: author.name,
+                name,
                 firstName: author.firstName,
                 lastName: author.lastName,
                 image: {
-                    src: author.photo,
-                    alt: author.name
+                    ...(photo && { src: photo }),
+                    alt: name
                 }
             });
         });
