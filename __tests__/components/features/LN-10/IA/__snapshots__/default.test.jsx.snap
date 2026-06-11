@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LN-common - IA - default should match the snapshot when IaTools is rendered 1`] = `
+exports[`features - LN-10 - IA - default matches the snapshot when IaSummary is rendered 1`] = `
 <DocumentFragment>
   <div>
-    IaTools
+    <div>
+      IaSummary
+    </div>
   </div>
 </DocumentFragment>
 `;

@@ -277,22 +277,3 @@ export const buttonsList = [
         labelDataLayer: 'enviar_mail'
     }
 ];
-
-export function isLN10IAHidden(renderables, glossary, summary) {
-    const filteredItems = renderables.filter(
-        item => item.collection === 'features' && item.type === 'LN-10/IA'
-    );
-
-    if (filteredItems.length === 0) {
-        return true;
-    }
-
-    return filteredItems.some(item => {
-        const { hideGlossary, hideSummary } = item.props.customFields;
-        return (
-            (!glossary && hideSummary) ||
-            (!summary && hideGlossary) ||
-            (hideSummary && hideGlossary)
-        );
-    });
-}
