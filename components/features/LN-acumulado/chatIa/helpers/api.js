@@ -75,7 +75,7 @@ export async function getSuggestedQuestions({ userId, accessToken } = {}) {
 }
 
 const MSG_OUT_OF_CONTEXT =
-    'No tengo información disponible sobre ese tema. Estoy acá para ayudarte con temas relacionados al mundial de futbol 2026. Te invitamos a retomar el chat más adelante.';
+    'En este momento no puedo responder tu consulta. Intenta nuevamente más tarde.';
 const MSG_GENERIC_ERROR =
     'Ocurrió un error. Te invitamos a retomar el chat más adelante.';
 
