@@ -5,10 +5,8 @@ import { MessageUser } from './MessageUser';
 
 export function MessageContainer({
     messages,
-    isGenerating,
     requestLimit,
     errorCode,
-    onAssistantRendered,
     showAfterRenderAssistant
 }) {
     function errorMessages() {
@@ -58,11 +56,10 @@ export function MessageContainer({
                                     <MessageAssistant
                                         message={message}
                                         isLastOutput={isLastOutput}
-                                        isGenerating={isGenerating}
                                         requestLimit={requestLimit}
                                         errorCode={errorCode}
-                                        onAssistantRendered={
-                                            onAssistantRendered
+                                        showAfterRender={
+                                            showAfterRenderAssistant
                                         }
                                     />
                                 </div>
