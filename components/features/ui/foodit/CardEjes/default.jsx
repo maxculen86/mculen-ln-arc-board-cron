@@ -1,0 +1,43 @@
+import React from 'react';
+import Image from '../image/default';
+
+export function CardEjes({
+    title,
+    image,
+    classNames,
+    href = '/',
+    fetchPriority = 'low',
+    loading = 'lazy',
+    trackingProps = {}
+}) {
+    return (
+        <article className={classNames}>
+            <a
+                href={href}
+                className="p-8 xl:p-12 flex flex-col gap-8 border border-muted xl:flex-row xl:gap-12 h-full xl:min-h-80"
+                {...trackingProps}
+            >
+                <div className="ratio-3-2 border border-neutral-200 xl:border-none overflow-hidden xl:w-78">
+                    <div className="scale-75 xl:scale-100">
+                        <Image
+                            src={image}
+                            alt={`Imagen de ${title}`}
+                            objectFit="cover"
+                            fetchPriority={fetchPriority}
+                            loading={loading}
+                        />
+                    </div>
+                </div>
+
+                <div className="text-center xl:flex xl:items-center xl:text-left">
+                    <p
+                        className="font-primary xl:font-secondary xl:[--font-weight-normal:var(--font-weight-bold)] text-14"
+                        style={{ '--tw-leading': '1.3' }}
+                    >
+                        {title}
+                    </p>
+                </div>
+            </a>
+        </article>
+    );
+}

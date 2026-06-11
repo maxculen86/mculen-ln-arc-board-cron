@@ -1,6 +1,6 @@
 import React from 'react';
 import { RoofFoodit } from '../RoofFoodit/foodit';
-import { MediaScroller } from './MediaScroller';
+import { MediaScroller } from '../../../ui/foodit/mediaScroller/default';
 
 export function CarouselVideo({ children, titleRoof }) {
     return (
