@@ -3,6 +3,10 @@
 
 # MongoDB local data
 data/db/
+data/dumps/**
+!data/dumps/.gitkeep
+data/restore/**
+!data/restore/.gitkeep
 
 
 # Build output

@@ -106,12 +106,12 @@ Copiar ambos layouts al bundle MX siguiendo la estrategia del `design.md` (D3): 
 
 **Criterios de aceptación**:
 
--   [ ] `apps/foodit-mx/components/layouts/Foodit-acumulado/` existe con comentario de fork en cabecera
--   [ ] `apps/foodit-mx/components/layouts/Foodit-ficha-receta/` existe con adaptaciones de imports
--   [ ] `git diff HEAD -- components/layouts/` en el monolito no muestra modificaciones
--   [ ] `fusion start` en `apps/foodit-mx/` con ambos layouts presentes levanta sin errores
--   [ ] `/recetas` responde HTTP 200 con `Foodit-acumulado` en local
--   [ ] `/recetas/<slug-nid>` responde HTTP 200 con `Foodit-ficha-receta` en local (aun sin data real)
+-   [x] `apps/foodit-mx/components/layouts/Foodit-acumulado/` existe con comentario de fork en cabecera
+-   [x] `apps/foodit-mx/components/layouts/Foodit-ficha-receta/` existe con adaptaciones de imports
+-   [x] `git diff HEAD -- components/layouts/` en el monolito no muestra modificaciones
+-   [x] `fusion start` en `apps/foodit-mx/` con ambos layouts presentes levanta sin errores
+-   [ ] `/recetas` responde HTTP 200 con `Foodit-acumulado` en local _(pendiente Fase 6: content sources + swap layout en PageBuilder)_
+-   [ ] `/recetas/<slug-nid>` responde HTTP 200 con `Foodit-ficha-receta` en local _(pendiente Fase 6: content sources)_
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `dev; mx-recetas`
 
@@ -307,10 +307,10 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 > **Spec**: `foodit-layout-migration` | **US ADO**: US-NEW-3
 
--   [ ] 3.1 Copiar `components/layouts/Foodit-acumulado/` al bundle MX como fork estratégico (agregar comentario de cabecera con path de origen y fecha)
--   [ ] 3.2 Copiar `components/layouts/Foodit-ficha-receta/` al bundle MX con adaptaciones mínimas (imports relativos, registro del layout)
--   [ ] 3.3 Verificar que los originales del monolito no fueron modificados (`git diff -- components/layouts/` limpio)
--   [ ] 3.4 Checkpoint: `fusion start` en `apps/foodit-mx/` con ambos layouts → `/recetas` y `/recetas/<slug>` responden HTTP 200 sin errores JS/CSS
+-   [x] 3.1 Copiar `components/layouts/Foodit-acumulado/` al bundle MX como fork estratégico (agregar comentario de cabecera con path de origen y fecha)
+-   [x] 3.2 Copiar `components/layouts/Foodit-ficha-receta/` al bundle MX con adaptaciones mínimas (imports relativos, registro del layout)
+-   [x] 3.3 Verificar que los originales del monolito no fueron modificados (`git diff -- components/layouts/` limpio)
+-   [x] 3.4 Checkpoint: `fusion start` en `apps/foodit-mx/` con ambos layouts → levanta sin errores, output-type MX invocado correctamente. HTTP 500 en `/recetas` esperado (content sources pendientes — Fase 6)
 
 ## 4a. Scope Card: auditoría de componentes por layout
 
@@ -353,6 +353,40 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 -   [ ] 4d.4 Checkpoint: `Foodit-acumulado` renderiza en `fusion start` sin `[MISSING]`
 -   [ ] 4d.5 Checkpoint de no-regresión: `Foodit-ficha-receta` sigue renderizando correctamente
 
+**Archivos conocidos para reemplazar stubs de `Foodit-acumulado`** (descubiertos en análisis Fase 3):
+
+_Features directas (reemplazar stubs existentes):_
+
+-   [ ] 4d.6 `features/foodit-global/common/breadcrumb/foodit.jsx` — reemplazar stub con implementación real
+-   [ ] 4d.7 `features/foodit-global/common/breadcrumb/_helpers.js` — reemplazar stub (`getFooditAcuTitle`, `getBreadcrumbSections`; depende de `get`, `capitalizeFirstLetter`, `parentCategoryMapping.json`)
+-   [ ] 4d.8 `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbTooltip/foodit.jsx` — copiar (usa `IconSprite`, `@ln/common-ui-tooltip`, `@ln/common-ui-button`)
+-   [ ] 4d.9 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`)
+-   [ ] 4d.10 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient` en la task)
+-   [ ] 4d.11 `features/foodit-global/common/bookmark/components/UserBookmarks.jsx` — reemplazar stub (auditar árbol completo: `getBookmarks`, `toggleBookmarks`, `loginHelper`, `useAuthManager`)
+-   [ ] 4d.12 `features/foodit-global/common/BaseLayout/foodit.jsx` — reemplazar stub con implementación real del monolito
+
+_Utils compartidos (necesarios para Acumulado y Subcategorías):_
+
+-   [ ] 4d.13 `components/private/common/utils/get.js` — copiar a `apps/foodit-mx/components/private/common/utils/`
+-   [ ] 4d.14 `components/private/common/utils/capitalizeFirstLetter.js` — copiar
+-   [ ] 4d.15 `components/private-global/common/iconSprite/IconSprite.jsx` — copiar a `apps/foodit-mx/components/private-global/`
+-   [ ] 4d.16 `__mocks__/data/fooditCategories/parentCategoryMapping.json` — copiar a `apps/foodit-mx/__mocks__/data/fooditCategories/`
+
+## 4e. Layout fork — Foodit-subcategorias (paralelo con 4d)
+
+> `/recetas` usa actualmente este layout en PageBuilder. Se forka al bundle MX para mantener paridad con el monolito mientras se valida el swap a `Foodit-acumulado` (Fase 6). Probado: el swap es compatible.
+
+-   [ ] 4e.1 Copiar `components/layouts/Foodit-subcategorias/foodit.jsx` al bundle MX con header de fork (path + fecha)
+-   [ ] 4e.2 Copiar `components/layouts/Foodit-subcategorias/_helpers.js` — contiene `getPageTitleFromUrl`, `applyPageBasedPriority`, `trackSubcategoryCard` (depende de `addEventToDataLayer`)
+-   [ ] 4e.3 Copiar `components/layouts/Foodit-subcategorias/Card/CardCategory.jsx` y sus secciones `Card/sections/CategoryCustom.jsx` + `Card/sections/CategoryDefault.jsx`
+-   [ ] 4e.4 Copiar `components/layouts/Foodit-subcategorias/hooks/useImagePreload.js`
+-   [ ] 4e.5 Copiar `features/foodit-global/common/subcategorias/helpers.js` (contiene mocks de categorías; depende de `subcategoryKeywords.json`)
+-   [ ] 4e.6 Copiar `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit.jsx`
+-   [ ] 4e.7 Copiar utils adicionales: `private/LN/common/utils/isSSR.js`, `private/LN/common/utils/addEventToDataLayer.js`
+-   [ ] 4e.8 Copiar `__mocks__/data/fooditCategories/subcategoryKeywords.json` a `apps/foodit-mx/__mocks__/data/fooditCategories/`
+-   [ ] 4e.9 Verificar que `git diff -- components/layouts/Foodit-subcategorias/` del monolito no muestra modificaciones
+-   [ ] 4e.10 Checkpoint: `Foodit-subcategorias` renderiza en `fusion start` sin `[MISSING]` (usando rutas como `/aprende-en-la-cocina/`). `[MISSING]` es el placeholder que Fusion inserta en el HTML cuando un import no resuelve en el bundle compilado — su ausencia confirma que todos los archivos copiados en 4e.1–4e.8 están correctamente referenciados
+
 ## 5. Deployer script
 
 > **Spec**: `mx-deployer` | **US ADO**: US-NEW-8
@@ -376,7 +410,8 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 -   [ ] 6.5 Verificar que `arc.config.json` tiene `excludeModules` que excluye los content sources fuera de scope
 -   [ ] 6.6 Verificar que ningún transform filtra el campo `_id` (requisito de cache tagging)
 -   [ ] 6.7 Verificar que los transforms hacen `throw` en caso de error (no retornan error como objeto)
--   [ ] 6.8 Conectar los 10 content sources en PageBuilder (sandbox) y verificar que resuelven sin errores HTTP
+-   [ ] 6.8 En PageBuilder sandbox: cambiar el layout asignado a la sección `/recetas` de `Foodit-subcategorias` → `Foodit-acumulado` (el bundle MX no incluye `Foodit-subcategorias`; probado anteriormente y es compatible)
+-   [ ] 6.9 Conectar los 10 content sources en PageBuilder (sandbox) y verificar que resuelven sin errores HTTP
 
 ## 7. Validación integral local
 

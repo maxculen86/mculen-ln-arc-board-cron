@@ -33,14 +33,14 @@ El bundle SHALL contener `apps/foodit-mx/properties/sites/foodit.js` con las pro
 - **WHEN** se inspecciona `apps/foodit-mx/environment/index.js`
 - **THEN** el archivo configura el site activo como `foodit` en los parámetros de arranque de Fusion
 
-### Requirement: 54 dependencias @ln/* pinneadas sin rangos
-El `apps/foodit-mx/package.json` SHALL declarar exactamente las 54 dependencias `@ln/*` extraídas de `docs/migrate-mx/ln-packages/package-json-snippet.json`, con versiones pinneadas sin rangos semver (`^`, `~`).
+### Requirement: 58 dependencias @ln/* pinneadas sin rangos
+El `apps/foodit-mx/package.json` SHALL declarar exactamente las 58 dependencias `@ln/*` extraídas de `docs/migrate-mx/ln-packages/package-json-snippet.json`, con versiones pinneadas sin rangos semver (`^`, `~`).
 
 #### Scenario: Dependencias @ln/* sin rangos semver
 - **WHEN** se audita `apps/foodit-mx/package.json`
 - **THEN** ninguna dependencia `@ln/*` tiene prefijo `^` ni `~` en su versión
 
-#### Scenario: Todas las 54 dependencias listadas
+#### Scenario: Todas las 58 dependencias listadas
 - **WHEN** se compara `apps/foodit-mx/package.json` con `docs/migrate-mx/ln-packages/package-json-snippet.json`
 - **THEN** todos los paquetes del snippet están presentes en el package.json del bundle MX
 
