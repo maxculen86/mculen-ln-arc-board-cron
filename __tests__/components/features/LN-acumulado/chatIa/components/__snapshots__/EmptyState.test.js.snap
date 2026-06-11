@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState matches snapshot when isSubscribed is false 1`] = `
+<div
+  badge="[object Object]"
+  class="xl:col-span-10"
+  data-testid="banner-message"
+  secondaryurl="https://login.example.com/?url=aHR0cDovL2xvY2FsaG9zdC8="
+  specialurl="https://secure.example.com/ln/suscribirme?callback=aHR0cDovL2xvY2FsaG9zdC8="
+  subtitle="Iniciá sesión o suscribite para interactuar con LA NACION IA."
+/>
+`;
+
+exports[`EmptyState matches snapshot when isSubscribed is true 1`] = `
+<div
+  data-testid="icon-subscribe"
+/>
+`;

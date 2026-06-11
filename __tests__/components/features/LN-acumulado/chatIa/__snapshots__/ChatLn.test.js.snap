@@ -137,7 +137,7 @@ exports[`ChatLN snapshots matches snapshot when blocked 1`] = `
                 type="button"
               >
                 <span
-                  data-testid="icon-ia"
+                  data-testid="icon-ia-star"
                 />
                 Realizar una nueva pregunta
               </button>
@@ -295,7 +295,7 @@ exports[`ChatLN snapshots matches snapshot when error 1`] = `
                 type="button"
               >
                 <span
-                  data-testid="icon-ia"
+                  data-testid="icon-ia-star"
                 />
                 Realizar una nueva pregunta
               </button>

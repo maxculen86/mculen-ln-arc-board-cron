@@ -19,7 +19,7 @@ function IconSubscribe({ containerProps, iconProps }) {
         >
             <Icon
                 size={14}
-                name="crow"
+                name="logo-suscriptores"
                 fill="--color-primary-dark"
                 {...iconProps}
             />
