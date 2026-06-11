@@ -6,13 +6,13 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 jest.mock('fusion:consumer', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
 
 jest.mock('fusion:context', Component => {
-    return function(Component) {
+    return function (Component) {
         return props => <Component {...props} />;
     };
 });
@@ -25,7 +25,8 @@ describe('Tests - Feature - CardHtml', () => {
         html = mockWebComponent,
         heightMobile = 100,
         heightTablet = 100,
-        heightDesktop = 100
+        heightDesktop = 100,
+        hideAppMobile = false
     } = {}) => {
         return {
             id: 'featureId',
@@ -34,7 +35,8 @@ describe('Tests - Feature - CardHtml', () => {
                 html,
                 heightMobile,
                 heightTablet,
-                heightDesktop
+                heightDesktop,
+                hideAppMobile
             }
         };
     };
@@ -103,6 +105,36 @@ describe('Tests - Feature - CardHtml', () => {
                     {...getProps({
                         html: mockWebComponent,
                         title: 'Title html'
+                    })}
+                />
+            );
+
+            const iframe = document.querySelector('iframe');
+            const srcdoc = iframe.getAttribute('srcdoc');
+
+            expect(iframe).toBeDefined();
+            expect(iframe.getAttribute('title')).toStrictEqual('Title html');
+            expect(iframe.getAttribute('loading')).toStrictEqual('lazy');
+            expect(
+                srcdoc.includes(
+                    '<style> html, body { width: 100%; height: 100%; overflow: hidden; }</style>'
+                )
+            ).toBeTruthy();
+            expect(srcdoc.includes(mockWebComponent)).toBeTruthy();
+
+            expect(container).toMatchSnapshot();
+        });
+
+        test('should return component even if "hideAppMobile" is set to true.', () => {
+            const baseStyles =
+                '<style> html, body { width: 100%; height: 100%; overflow: hidden; }</style>';
+
+            const { container } = render(
+                <HtmlFeature
+                    {...getProps({
+                        html: mockWebComponent,
+                        title: 'Title html',
+                        hideAppMobile: true
                     })}
                 />
             );

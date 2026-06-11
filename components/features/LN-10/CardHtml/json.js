@@ -9,7 +9,14 @@ class HtmlFeature {
 
     render() {
         const { id, customFields = {} } = this.props;
+        const { hideAppMobile } = customFields;
+
+        if (hideAppMobile) {
+            return null;
+        }
+
         const error = validateHtmlFeature({ customFields });
+
         if (error) {
             console.warn(
                 new BackendLnError(

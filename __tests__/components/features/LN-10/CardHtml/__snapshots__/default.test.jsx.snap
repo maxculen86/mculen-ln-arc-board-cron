@@ -23,3 +23,27 @@ exports[`Tests - Feature - CardHtml Tests variant HTML should return a iframe wi
   </article>
 </div>
 `;
+
+exports[`Tests - Feature - CardHtml Tests variant HTML should return component even if "hideAppMobile" is set to true. 1`] = `
+<div>
+  <article
+    class="ln-card-html h-100"
+  >
+    <style>
+      #iframe-responsive-featureId{height:100px}@media(min-width:768px){#iframe-responsive-featureId{height:100px}}@media(min-width:1024px){#iframe-responsive-featureId{height:100px}}
+    </style>
+    <iframe
+      height="100%"
+      id="iframe-responsive-featureId"
+      loading="lazy"
+      sandbox="allow-popups allow-scripts allow-same-origin"
+      srcdoc="
+                        <style> html, body { width: 100%; height: 100%; overflow: hidden; }</style>
+                        <div><script type="module" src="https://unpkg.com/bootstrap-grid-webcomponents@0.1.3/dist/bootstrap-grid-webcomponents/bootstrap-grid-webcomponents.esm.js"></script><bs-row><bs-col><img src="https://placekitten.com/g/400/200" width="100%" height="100%"></bs-col><bs-col><img src="https://placekitten.com/g/300/200" width="100%" height="100%"></bs-col></bs-row></div>
+                    "
+      title="Title html"
+      width="100%"
+    />
+  </article>
+</div>
+`;
