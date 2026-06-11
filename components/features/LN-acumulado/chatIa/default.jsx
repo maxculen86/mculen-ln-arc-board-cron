@@ -38,7 +38,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
     const [isLastTypingDone, setIsLastTypingDone] = useState(true);
 
     useEffect(() => {
-        if (!isSubscribed || !userId) return;
+        if (!isSubscribed || !userId || !accessToken) return;
 
         async function initSession() {
             try {
@@ -67,7 +67,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
 
         initSession();
         loadQuestions();
-    }, [isSubscribed, userId]);
+    }, [isSubscribed, userId, accessToken]);
 
     const onNewMessage = async userQuestion => {
         setIsLastTypingDone(false);
@@ -243,6 +243,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                                                     <button
                                                         key={suggestion}
                                                         type="button"
+                                                        disabled={!sessionId}
                                                         onClick={() =>
                                                             runtime.onSubmit(
                                                                 suggestion

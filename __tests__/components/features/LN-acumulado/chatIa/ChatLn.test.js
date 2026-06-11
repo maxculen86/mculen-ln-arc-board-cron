@@ -118,9 +118,13 @@ jest.mock(
 jest.mock(
     '../../../../../components/features/LN-acumulado/chatIa/helpers/api',
     () => ({
-        createMundialSession: jest.fn(),
+        createMundialSession: jest
+            .fn()
+            .mockResolvedValue({ session_id: 'test-session-id' }),
         sendMundialChatMessage: jest.fn(),
-        getSuggestedQuestions: jest.fn(),
+        getSuggestedQuestions: jest
+            .fn()
+            .mockResolvedValue(['Pregunta 1', 'Pregunta 2', 'Pregunta 3']),
         resolveErrorMessage: jest.fn(),
         FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
     })
@@ -167,7 +171,10 @@ const createRuntime = (overrides = {}) => ({
 beforeEach(() => {
     jest.clearAllMocks();
     useChatRuntime.mockReturnValue(createRuntime());
-    useGetUserData.mockReturnValue({ isSubscribed: true });
+    useGetUserData.mockReturnValue({
+        isSubscribed: true,
+        userId: 'test-user-id'
+    });
 });
 
 describe('ChatLN', () => {
@@ -229,14 +236,21 @@ describe('ChatLN', () => {
             expect(screen.queryByText('Pregunta 1')).not.toBeInTheDocument();
         });
 
-        it('enables suggestion buttons when subscribed', () => {
+        it('enables suggestion buttons when subscribed', async () => {
             render(<ChatLN />);
-            const buttons = screen.getAllByRole('button', { name: /Pregunta/ });
-            buttons.forEach(btn => expect(btn).not.toBeDisabled());
+            await waitFor(() => {
+                const buttons = screen.getAllByRole('button', {
+                    name: /Pregunta/
+                });
+                buttons.forEach(btn => expect(btn).not.toBeDisabled());
+            });
         });
 
-        it('calls onSubmit with the suggestion text on click', () => {
+        it('calls onSubmit with the suggestion text on click', async () => {
             render(<ChatLN />);
+            await waitFor(() =>
+                expect(screen.getByText('Pregunta 1')).not.toBeDisabled()
+            );
             fireEvent.click(screen.getByText('Pregunta 1'));
             expect(mockOnSubmit).toHaveBeenCalledWith('Pregunta 1');
         });
@@ -296,14 +310,14 @@ describe('ChatLN', () => {
 
             await waitFor(() => {
                 expect(createMundialSession).toHaveBeenCalledWith({
-                    userId: undefined,
+                    userId: 'test-user-id',
                     accessToken: 'mock-access-token'
                 });
                 expect(mockSetMessages).toHaveBeenCalledWith([]);
                 expect(mockSetStatus).toHaveBeenCalledWith('idle');
                 expect(mockSetError).toHaveBeenCalledWith(null);
                 expect(getSuggestedQuestions).toHaveBeenCalledWith({
-                    userId: undefined,
+                    userId: 'test-user-id',
                     accessToken: 'mock-access-token'
                 });
             });
@@ -333,7 +347,7 @@ describe('ChatLN', () => {
                 expect(mockSetStatus).toHaveBeenCalledWith('idle');
                 expect(mockSetError).toHaveBeenCalledWith(null);
                 expect(getSuggestedQuestions).toHaveBeenCalledWith({
-                    userId: undefined,
+                    userId: 'test-user-id',
                     accessToken: 'mock-access-token'
                 });
             });
