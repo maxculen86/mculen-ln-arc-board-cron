@@ -1,0 +1,4 @@
+window.addEventListener('DOMContentLoaded', () => {
+    window.LN.eventshelper.setEventsGames();
+    window.LN.eventshelper.setEventsVideoPodcast();
+});

@@ -1564,6 +1564,7 @@ export default {
                 ]
             }
         },
+        // TODO: eliminar cuando LN_DS_CajaPromo migre completamente a cardPromoT1/cardPromoDefault
         cardCoverT1: {
             promo_items: {
                 sizes: [
@@ -1581,12 +1582,41 @@ export default {
                 ]
             }
         },
+        // TODO: eliminar cuando LN_DS_CajaPromo migre completamente a cardPromoT1/cardPromoDefault
         cardCoverDefault: {
             promo_items: {
                 sizes: [
                     {
                         width: 100,
                         height: 100,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
+        cardPromoT1: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 450,
+                        height: 450,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
+        cardPromoDefault: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 450,
+                        height: 450,
+                        maxScreenWidth: 767,
+                        useFullSize: true
+                    },
+                    {
+                        width: 250,
+                        height: 250,
                         useFullSize: true
                     }
                 ]
