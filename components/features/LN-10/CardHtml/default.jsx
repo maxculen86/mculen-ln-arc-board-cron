@@ -91,6 +91,11 @@ HtmlFeature.propTypes = {
             name: 'Tablero / HTML',
             description: 'Ingrese aquí el html del tablero',
             default: ''
+        }),
+        hideAppMobile: PropTypes.boolean.tag({
+            name: 'Ocultar feature en App Mobile (Android e iOS)',
+            description: 'Marque para ocultar el feature en apps móviles',
+            defaultValue: false
         })
     }),
     id: PropTypes.string
