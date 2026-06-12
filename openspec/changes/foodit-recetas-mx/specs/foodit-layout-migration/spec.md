@@ -30,6 +30,26 @@ El layout `Foodit-ficha-receta` SHALL copiarse al bundle MX en `apps/foodit-mx/c
 - **WHEN** Fusion arranca `apps/foodit-mx/` y se navega a una URL del tipo `/recetas/<slug-nid>`
 - **THEN** el layout `Foodit-ficha-receta` del bundle MX renderiza la ficha de artículo sin errores JS ni CSS
 
+### Requirement: Foodit-subcategorias presente en el bundle MX como layout paralelo
+El bundle MX SHALL incluir `Foodit-subcategorias` en `apps/foodit-mx/components/layouts/Foodit-subcategorias/` con todas sus dependencias (helpers, features y private components requeridos), de forma que el layout renderice en `fusion start` sin producir `[MISSING]` en el HTML. Este layout se mantiene como fallback mientras se valida el swap a `Foodit-acumulado` en PageBuilder.
+
+> **Contexto**: PageBuilder tiene `/recetas` mapeado actualmente a `Foodit-subcategorias`. El cambio definitivo al layout `Foodit-acumulado` (tarea 6.8) es manual y se ejecuta una vez validado el render end-to-end. Mientras tanto, `Foodit-subcategorias` debe estar presente y funcional en el bundle MX para no romper el ruteo existente.
+
+#### Scenario: Layout presente con todas sus dependencias
+
+- **WHEN** se verifica `apps/foodit-mx/components/layouts/Foodit-subcategorias/`
+- **THEN** el directorio existe con el layout principal y todos sus helpers y dependencias directas (`_helpers.js`, `CardCategory`, `BreadcrumbCustomFoodit` y el dataLayer util transitivo)
+
+#### Scenario: Sin [MISSING] al renderizar
+
+- **WHEN** Fusion arranca `apps/foodit-mx/` y se navega a una URL que usa `Foodit-subcategorias` (ej. `/aprende-en-la-cocina/`)
+- **THEN** el HTML resultante no contiene el literal `[MISSING]`; todos los imports del layout resuelven dentro del bundle compilado
+
+#### Scenario: Foodit-subcategorias original del monolito no modificado
+
+- **WHEN** se compara `components/layouts/Foodit-subcategorias/` antes y después de la migración
+- **THEN** los archivos del monolito son idénticos a su estado previo
+
 ### Requirement: Secuencia de migración layouts → card de scope → componentes
 La migración SHALL seguir el orden: (1) layouts al bundle MX, (2) card de scope que delimita features y `components/private/` en juego para cada layout, (3) migración de componentes. Los componentes no SHALL migrarse antes de tener ambos layouts en el bundle.
 

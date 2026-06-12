@@ -24,7 +24,7 @@ El bundle de referencia es la fuente canónica para estructura de `apps/foodit-m
 -   Luego del scaffold: ajustar `package.json` name a `foodit-mx-1.0.0` y mxId `foodit-mx` (MVP1: sección `/recetas`; estructura pensada para escalar al sitio Foodit completo)
 -   Adaptar `webpack.config.js` generado: sites `["foodit"]`, entries SCSS y plugins equivalentes al bundle de referencia
 -   Agregar `properties/sites/foodit.js` y ajustar `environment/index.js` para que Fusion arranque con el site Foodit
--   Agregar las 54 dependencias `@ln/*` pinneadas sin rangos (ver `docs/migrate-mx/ln-packages/package-json-snippet.json`)
+-   Agregar las 58 dependencias `@ln/*` pinneadas sin rangos (ver `docs/migrate-mx/ln-packages/package-json-snippet.json`)
 -   Agregar `.npmrc`, `.nvmrc`, `arc.config.json` propios del bundle
 
 ### Script de routing MX para PageBuilder
@@ -160,6 +160,6 @@ _(ninguna — esta change no altera requisitos de specs existentes)_
 -   **Componentes del monolito**: solo lectura para copiar; los originales no se tocan
 -   **`components/output-types/`**: el output-type `foodit.jsx` del bundle MX es una copia adaptada; el del monolito no se modifica
 -   **`.fusion/`**: no se modifica
--   **Dependencias**: 54 paquetes `@ln/*` ya usados en el monolito (ver `docs/migrate-mx/ln-packages/`); se agregan al `package.json` del bundle, no al raíz
+-   **Dependencias**: 58 paquetes `@ln/*` ya usados en el monolito (ver `docs/migrate-mx/ln-packages/`); se agregan al `package.json` del bundle, no al raíz
 -   **Provisioning Arc**: requiere que el mxId `foodit-mx` esté registrado antes del primer deploy (US #173238 — fuera de scope de esta change)
 -   **Documentación de auditoría**: los docs en `docs/migrate-mx/` son fuentes de verdad para specs y tasks

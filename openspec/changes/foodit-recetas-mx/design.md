@@ -111,6 +111,16 @@ La sección `/recetas` usa dos layouts con contextos distintos; cada uno justifi
 -   `Foodit-ficha-receta` es exclusivo de `/recetas/<*-nid>`; no existe en otras secciones del monolito, por lo que no hay riesgo de regresión cruzada.
 -   La copia es mecánica: ajustar imports relativos y el registro del layout en el bundle. Sin lógica adicional de desacoplamiento.
 
+#### Nota post-Fase 3: PageBuilder y el swap de layout para `/recetas`
+
+Durante la implementación de Fase 3 se descubrió que PageBuilder tiene el path `/recetas` mapeado actualmente al layout `Foodit-subcategorias`, no a `Foodit-acumulado` como se asumía originalmente. Las pruebas anteriores al equipo confirmaron que el swap es compatible: `Foodit-acumulado` puede servir `/recetas` sin problemas.
+
+Impacto en el plan de migración:
+
+-   `Foodit-subcategorias` se agrega como layout requerido en el bundle MX (Fase 4e). Debe estar funcional en el bundle con todas sus dependencias para no romper el ruteo existente mientras se valida el swap.
+-   El swap definitivo de `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder se ejecuta en Fase 6 (tarea 6.8), una vez validado el render end-to-end con datos reales.
+-   Mientras tanto ambos layouts coexisten en el bundle MX: `Foodit-subcategorias` como layout activo en PageBuilder, `Foodit-acumulado` como layout destino post-swap.
+
 ### Decision 4: `libs/` con generator local `ln-arc-lib`, no librerías directamente con `@nx/js:lib`
 
 **Elegido**: Wrappear `@nx/js:lib` en un generator local `tools/generators/ln-arc-lib/` que aplica convenciones del repo (importPath `@ln/arc-<name>`, tags por scope/type, README template).
@@ -168,7 +178,7 @@ La sección `/recetas` usa dos layouts con contextos distintos; cada uno justifi
 -   **Riesgo**: Drift entre el layout `Foodit-acumulado` duplicado en el bundle MX y el original del monolito (bug fixes que no se propagan).
     → **Mitigación**: Documentar en el header del archivo duplicado el origen y la fecha del fork; el equipo Foodit es dueño de mantener paridad funcional cuando aplique.
 
--   **Riesgo**: Migrar 54 dependencias `@ln/*` con versiones pinneadas puede divergir del monolito si este actualiza.
+-   **Riesgo**: Migrar 58 dependencias `@ln/*` con versiones pinneadas puede divergir del monolito si este actualiza.
     → **Mitigación**: El audit en `docs/migrate-mx/ln-packages/` es snapshot de hoy; la primera task del MVP1 valida que las versiones del bundle MX matchean al monolito al momento del go-live.
 
 -   **Riesgo**: El generator `ln-arc-lib` se subutiliza si los devs prefieren `@nx/js:lib` directo.
@@ -188,7 +198,7 @@ La sección `/recetas` usa dos layouts con contextos distintos; cada uno justifi
 
 1. **Habilitar Nx** en `Contenidos` (sin tocar bundle `default`); validar `npm run build-dev` sigue funcionando.
 2. **Configurar `libs/` + tsconfig + ESLint boundaries**; crear generator `ln-arc-lib`. Validar generando una lib dummy.
-3. **`fusion init` en `apps/foodit-mx/`**; adaptar `package.json`, `webpack.config.js`, `properties/`, `environment/`, `arc.config.json`, `.npmrc`, `.nvmrc` (Node v22, igual que el repo) según referencia. Pinear las 54 deps `@ln/*`.
+3. **`fusion init` en `apps/foodit-mx/`**; adaptar `package.json`, `webpack.config.js`, `properties/`, `environment/`, `arc.config.json`, `.npmrc`, `.nvmrc` (Node v22, igual que el repo) según referencia. Pinear las 58 deps `@ln/*`.
 4. **Implementar `deployer.js`** con flags y `.env.example`.
 5. **Output-type `foodit.jsx` adaptado** → primer deploy a sandbox. ✋ Checkpoint local.
 6. **Activar MX Router** para `/recetas` apuntando a `foodit-mx`. ✋ Validar HTTP 200 en sandbox.
