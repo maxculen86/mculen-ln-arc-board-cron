@@ -105,7 +105,10 @@ describe('BuildRoof — buttonLogo with loading="lazy" via @ln/contenidos-ui-roo
     });
 
     it('falls back to passing buttonLogo as-is when buttonLogo has no src', () => {
-        const logoNoSrc = { alt: 'no src' };
+        const logoNoSrc = {
+            alt: 'no src',
+            classNameImage: 'w-auto max-w-100 object-contain'
+        };
         render(<BuildRoof {...baseProps} buttonLogo={logoNoSrc} />);
 
         const rightProps = getRoofRightProps();
