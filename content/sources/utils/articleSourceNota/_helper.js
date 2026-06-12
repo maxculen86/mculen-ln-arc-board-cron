@@ -283,8 +283,25 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
         get(siteProperties, 'imageConfig.resize.videoImage.promo_items', null);
 
     const presetsPromoItemsFotoAl100 =
-        (response.subtype === FOTOAL100 || response.subtype === STORYTELLING) &&
+        response.subtype === FOTOAL100 &&
         get(siteProperties, 'imageConfig.resize.fotoAl100.promo_items', null);
+    const customStorytellingDiagram = get(
+        response,
+        'promo_items.custom_storytelling_opening.embed.config.diagram',
+        null
+    );
+    const presetsPromoItemStorytelling =
+        response.subtype === STORYTELLING &&
+        (get(
+            siteProperties,
+            `imageConfig.resize.${customStorytellingDiagram}.promo_items`,
+            null
+        ) ||
+            get(
+                siteProperties,
+                'imageConfig.resize.fotoAl100.promo_items',
+                null
+            ));
     const presetsContentElementsFotoAl100 =
         response.subtype === FOTOAL100 &&
         get(
@@ -331,6 +348,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
             promoItems:
                 presetsPromoItemsCustom ||
                 presetsPromoItemsFotoAl100 ||
+                presetsPromoItemStorytelling ||
                 presetsPromoItemLiveblogEditorial ||
                 presetsPromoItemVideoAl100 ||
                 presetsPromoItemsVideo ||
