@@ -1,6 +1,6 @@
 import { API_ENV, FOODIT_LOGIN_URL } from 'fusion:environment';
 
-import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../utils/pushFooditEvent';
 
 const ANALYTICS_EVENTS = {
     LINK_CLICK: 'e_linkclick',
@@ -30,7 +30,7 @@ export const getPropsBellFoodit = () => {
 
 export const getPropsBellEvents = () => {
     const handleBellClick = () => {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: ANALYTICS_EVENTS.LINK_CLICK,
             category: 'campanita',
             label: 'campanita',
@@ -39,7 +39,7 @@ export const getPropsBellEvents = () => {
     };
 
     const handleItemClick = (item, eventType) => {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: eventType,
             identifier: item?.id || '',
             button: 'N/A',
@@ -57,7 +57,7 @@ export const getPropsBellEvents = () => {
     };
 
     const handleLoginClick = () => {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             action: 'N/A',
             category: 'notificaciones',

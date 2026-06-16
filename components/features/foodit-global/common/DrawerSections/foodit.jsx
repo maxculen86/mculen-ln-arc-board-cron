@@ -6,7 +6,7 @@ import { addToast, TOAST } from '../bookmark/api/_helper';
 import { DRAWERS_ID } from './helpers';
 import { getAuthTokens } from '../../../../private/common/auth/helper/loginHelper';
 import { postNewsletter } from '../Newsletter/helpers/helpers';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 
 function DrawerSections() {
     const [selectedNewsletters, setSelectedNewsletters] = useState([]);
@@ -77,7 +77,7 @@ function DrawerSections() {
 
             if (resp.ok) {
                 selectedNewsletters.forEach(({ title, category }) => {
-                    addEventToDataLayerV2({
+                    pushFooditEvent({
                         event: 'e_linkclick',
                         action: 'newsletter',
                         category,

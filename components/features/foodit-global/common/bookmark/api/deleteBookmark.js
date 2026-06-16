@@ -2,7 +2,7 @@ import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 import { addToast, TOAST, addErrorToast } from './_helper';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 import { toggleBookmarks } from '../iconHelper';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../utils/pushFooditEvent';
 import { removeFromStorageFolder } from '../foldersHelper';
 import {
     safeGetJSON,
@@ -35,7 +35,7 @@ const deleteBookmark = async bookmarks => {
             );
 
             if (!response.ok) {
-                addEventToDataLayerV2({
+                pushFooditEvent({
                     event: 'erros_ms',
                     type: 'failed_request',
                     detail: 'delete_bookmark',

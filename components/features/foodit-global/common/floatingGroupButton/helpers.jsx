@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import siteProperties from '../../../../../properties/sites/foodit';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 
 const { layoutsName = {} } = siteProperties || {};
 
@@ -16,7 +16,7 @@ const defaultButtons = [
         children: 'Mis recetas',
         href: '/recetario/',
         onClick: () =>
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -33,7 +33,7 @@ const defaultButtons = [
         children: 'Lista de compras',
         href: '/lista-de-compras/',
         onClick: () =>
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',

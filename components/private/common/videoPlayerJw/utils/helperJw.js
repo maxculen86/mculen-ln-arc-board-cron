@@ -199,6 +199,14 @@ export const handleVideoEventsScript = (
         if (element) element.classList.remove('bg-black');
     });
 
+    const logVideoEvent = (eventName, params, gtmExtra = {}) => {
+        if (window?.mobileWebView) {
+            window.mobileWebView.logEvent(eventName, JSON.stringify(params));
+        } else {
+            addEventToDataLayerV2({ event: eventName, ...params, ...gtmExtra });
+        }
+    };
+
     player.on('play', (e = {}) => {
         if (skipPlayForSeek) {
             skipPlayForSeek = false;
@@ -226,18 +234,21 @@ export const handleVideoEventsScript = (
         firstPlay = false;
         currentInitialMode = '';
 
-        addEventToDataLayerV2({
-            event: 'videoPlay',
-            videoName: `${currentTitle}`,
-            videoID: `${currentId}`,
-            rest: { mode, videoOrientation }
-        });
+        logVideoEvent(
+            'videoPlay',
+            {
+                videoName: `${currentTitle}`,
+                videoID: `${currentId}`,
+                mode,
+                videoOrientation
+            },
+            { rest: { mode, videoOrientation } }
+        );
     });
 
     player.on('pause', () => {
         wasPaused = true;
-        addEventToDataLayerV2({
-            event: 'videoPause',
+        logVideoEvent('videoPause', {
             videoName: `${currentTitle}`,
             videoID: `${currentId}`
         });

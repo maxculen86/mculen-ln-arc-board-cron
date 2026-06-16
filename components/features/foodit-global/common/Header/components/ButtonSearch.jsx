@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../utils/pushFooditEvent';
 
 export function ButtonSearch({
     isListening,
@@ -13,7 +13,7 @@ export function ButtonSearch({
 }) {
     const handleVoiceSearchClick = () => {
         startListening();
-        addEventToDataLayerV2({
+        pushFooditEvent({
             action: 'Busqueda',
             category: 'interaction',
             label: 'Busqueda_por_voz',

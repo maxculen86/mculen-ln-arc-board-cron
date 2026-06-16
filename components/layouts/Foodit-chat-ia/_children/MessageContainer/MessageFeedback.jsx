@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@ln/ds-common-button';
 import { cx } from '@ln/ds-cva';
 import Icon from '../../../../features/ui/foodit/icon/default';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../../features/foodit-global/common/utils/pushFooditEvent';
 
 export function MessageFeedback() {
     const [selected, setSelected] = useState(null);
@@ -15,7 +15,7 @@ export function MessageFeedback() {
     function handleIcon(type) {
         setSelected(prev => (prev === type ? null : type));
         if (selected === null) {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'interaction',
                 label: 'Chat IA',
