@@ -56,7 +56,7 @@ function SubscribeButton({ isHome }) {
                     <div className="max-lg:hidden flex items-center justify-center h-16 w-16 rounded-full bg-highlight-foreground">
                         <Icon
                             size={8}
-                            name="crow"
+                            name="logo-suscriptores"
                             fill="var(--color-highlight-default)"
                         />
                     </div>

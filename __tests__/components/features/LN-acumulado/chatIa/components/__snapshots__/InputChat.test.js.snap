@@ -11,7 +11,7 @@ exports[`InputChat matches snapshot when disabled 1`] = `
   <div>
     <span
       class="text-[var(--primary-ia)]"
-      data-testid="icon-ia"
+      data-testid="icon-ia-star"
     />
   </div>
   <div>
@@ -40,7 +40,7 @@ exports[`InputChat matches snapshot when isBlocked 1`] = `
   <div>
     <span
       class="text-[var(--primary-ia)]"
-      data-testid="icon-ia"
+      data-testid="icon-ia-star"
     />
   </div>
   <div>
@@ -68,7 +68,7 @@ exports[`InputChat matches snapshot with default props 1`] = `
   <div>
     <span
       class="text-[var(--primary-ia)]"
-      data-testid="icon-ia"
+      data-testid="icon-ia-star"
     />
   </div>
   <div>

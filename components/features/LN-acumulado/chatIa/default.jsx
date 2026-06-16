@@ -273,7 +273,8 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                                                 disabled={isCreatingSession}
                                             >
                                                 <Icon
-                                                    name="ia"
+                                                    type="color"
+                                                    name="ia-star"
                                                     size={12}
                                                     className="text-[var(--primary-ia)]"
                                                 />

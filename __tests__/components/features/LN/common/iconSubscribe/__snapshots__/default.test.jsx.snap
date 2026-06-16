@@ -6,7 +6,7 @@ exports[`Components - features - LN - common - IconSubscribe matches snapshot - 
 >
   <div
     data-fill="--color-primary-dark"
-    data-name="crow"
+    data-name="logo-suscriptores"
     data-size="14"
     data-testid="icon"
   />
@@ -19,7 +19,7 @@ exports[`Components - features - LN - common - IconSubscribe matches snapshot - 
 >
   <div
     data-fill="--color-primary-dark"
-    data-name="crow"
+    data-name="logo-suscriptores"
     data-size="14"
     data-testid="icon"
   />
