@@ -17,8 +17,6 @@ function BarrierRequiresSubscription({
     closeBarrier = () => null,
     message = 'Para realizar esta acción adquirí una suscripción'
 }) {
-    if (!isOpen) return null;
-
     const { contextPath, deployment } = useAppContext();
     const imagePath = getAssetsPath(contextPath)(deployment)(
         'modal-suscriptores.webp'
