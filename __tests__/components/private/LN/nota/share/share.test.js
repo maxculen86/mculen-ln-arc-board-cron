@@ -126,21 +126,6 @@ Content.useContent = jest.fn(() => ({
     totalVisibleContent: '64'
 }));
 
-jest.mock('react', () => {
-    const ActualReact = jest.requireActual('react');
-    return {
-        ...ActualReact,
-        useContext: () => ({
-            state: {
-                loginData: {
-                    subscription: true
-                }
-            },
-            dispatch: jest.fn()
-        })
-    };
-});
-
 describe('components - private - LN - nota - share', () => {
     useFetch.mockImplementation(() => ({
         data: {}

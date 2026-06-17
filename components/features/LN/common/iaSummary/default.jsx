@@ -1,7 +1,6 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
-// TODO: reemplazar Motion por AnimatePresence (lib en proceso de integración).
-import { Motion } from '@ln/ds-common-motion';
+import { AnimatePresence } from '@ln/ds-common-animatepresence';
 import List from '../../../ui/ln/list/default';
 import Divider from '../../../ui/ln/divider/default';
 import Button from '../../../ui/ln/button/default';
@@ -20,7 +19,7 @@ function IaSummary({ className = '', summaryData = [], onClose }) {
 
     return (
         <div data-tw style={{ display: 'contents' }}>
-            <Motion
+            <AnimatePresence
                 show={isOpen}
                 animation={{
                     duration: 300,
@@ -80,7 +79,7 @@ function IaSummary({ className = '', summaryData = [], onClose }) {
                         </span>
                     </footer>
                 </section>
-            </Motion>
+            </AnimatePresence>
         </div>
     );
 }
