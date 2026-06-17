@@ -1,5 +1,4 @@
 {
-    "$schema": "./node_modules/typescript/lib/tsconfig-schema.json",
     "compileOnSave": false,
     "compilerOptions": {
         "rootDir": ".",

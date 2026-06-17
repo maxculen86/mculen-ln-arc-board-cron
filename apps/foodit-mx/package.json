@@ -2,7 +2,7 @@
     "name": "foodit-mx-1.0.0",
     "version": "1.0.0",
     "scripts": {
-        "start": "fusion start",
+        "start": "PORT=3000 fusion start",
         "build-dev": "npm run clean && npm run webpack-dev",
         "build": "npm run clean && npm run webpack",
         "clean": "rm -rf resources/dist",
@@ -41,6 +41,7 @@
         "@ln/common-ui-select": "0.0.8",
         "@ln/common-ui-skeleton": "1.1.0",
         "@ln/common-ui-spinner": "2.0.0",
+        "@ln/common-ui-spriteicon": "0.0.2",
         "@ln/common-ui-tabs": "0.0.6",
         "@ln/common-ui-text": "1.1.1",
         "@ln/common-ui-toast": "1.0.0",

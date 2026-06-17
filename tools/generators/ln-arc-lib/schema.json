@@ -1,0 +1,31 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/generator-schema.json",
+    "$id": "LnArcLib",
+    "title": "Generate an internal @ln/arc-* lib",
+    "description": "Scaffolds a buildable, non-publishable lib under libs/<scope>/<type>/<name> with repo conventions.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Lib name in kebab-case. Becomes the importPath @ln/arc-<name>.",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "Lib name (kebab-case)?"
+        },
+        "scope": {
+            "type": "string",
+            "description": "Sharing scope: shared (any bundle) or foodit (Foodit bundles).",
+            "enum": ["shared", "foodit"],
+            "x-prompt": "Scope?"
+        },
+        "type": {
+            "type": "string",
+            "description": "Lib type, drives boundary tags and folder.",
+            "enum": ["ui", "util", "data-access"],
+            "x-prompt": "Type?"
+        }
+    },
+    "required": ["name", "scope", "type"]
+}

@@ -16,11 +16,15 @@ Fase 2 — Bundle MX: inicialización base [secuencial, incluye output-type]
   ↓
 Fase 3 — Layout migration [secuencial]
   ↓
-Fase 4 — Scope card + Component copy [paralelo con Fase 4b: libs/]
-  ├── Fase 4a: Scope card (post-layout)
-  ├── Fase 4b: libs/ + ln-arc-lib generator [puede arrancar en paralelo con 4a]
-  ├── Fase 4c: private/ Bloque Ficha-Receta [posterior a 4a]
-  └── Fase 4d: private/ + features Bloque Acumulado [posterior a 4a]
+Fase 4 — Scope card + Common foundation + Component copy
+  ├── Fase 4a:  Scope card (post-layout)
+  ├── Fase 4b:  libs/ + ln-arc-lib generator [paralelo con 4a]
+  ├── Fase 4cf: COMMON FOUNDATION — piso compartido [posterior a 4a/4b · BLOQUEANTE]
+  │              ├─ Tier 0a: breadcrumb + IconSprite + utils  ✓ hecho
+  │              └─ Tier 0b: BaseLayout shell (≈134) + UserBookmarks  ← epic
+  ├── Fase 4c:  Bloque Ficha-Receta (features de ficha)   ┐
+  ├── Fase 4d:  Bloque Acumulado (AcuTema, TagCategories)  ├─ paralelos DESPUÉS de 4cf
+  └── Fase 4e:  Fork Subcategorías                         ┘
   ↓
 Fase 5 — Deployer script [secuencial]
   ↓
@@ -195,12 +199,12 @@ Crear los directorios base `libs/shared/{ui,util,data-access}/` y `libs/foodit/`
 
 **Criterios de aceptación**:
 
--   [ ] Existen los directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/`
--   [ ] `npx nx g ln-arc-lib --name=test-lib --scope=shared --type=util` genera `libs/shared/util/test-lib/` con `src/index.ts` y `project.json`
--   [ ] `project.json` generado tiene `importPath: "@ln/arc-test-lib"` y tags `["scope:shared", "type:util"]`
--   [ ] `tsconfig.base.json` incluye el path alias `@ln/arc-test-lib` automáticamente tras generar la lib
--   [ ] `project.json` NO contiene `publishable: true` ni configuración de npm publish
--   [ ] Un archivo en `apps/foodit-mx/` puede importar `@ln/arc-test-lib` y ESLint no reporta boundary violation
+-   [x] Existen los directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/`
+-   [x] `npx nx g ln-arc-lib --name=test-lib --scope=shared --type=util` genera `libs/shared/util/test-lib/` con `src/index.ts` y `project.json`
+-   [x] `project.json` generado tiene `importPath: "@ln/arc-test-lib"` y tags `["scope:shared", "type:util"]`
+-   [x] `tsconfig.base.json` incluye el path alias `@ln/arc-test-lib` automáticamente tras generar la lib
+-   [x] `project.json` NO contiene `publishable: true` ni configuración de npm publish
+-   [x] Un archivo en `apps/foodit-mx/` puede importar `@ln/arc-test-lib` y ESLint no reporta boundary violation
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `arq; dev; mx-recetas`
 
@@ -315,6 +319,12 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 ## 4a. Scope Card: auditoría de componentes por layout
 
 > **Spec**: `foodit-layout-migration`, `foodit-component-copy` | **US ADO**: US-NEW-4
+>
+> **Dependencias y aclaraciones (post-restructure):**
+>
+> - **4a.2 alimenta a `4cf.8`** (auditoría del cierre de `BaseLayout`): el cierre por layout que produce 4a.2 es el input para escopear el Tier 0b. 4a debe correr **antes o junto con** el inicio de 4cf.
+> - **4a.3 (copy-vs-lib) ya está resuelto a nivel global → COPIAR.** El escenario de 2 bundles (`default` + `foodit-mx`) descarta extraer a `libs/` (Fusion no consume aliases; el sharing real va por packages `@ln/*` publicados). Ver [`docs/migrate-mx/libs-strategy/fusion-libs-resolution.md`](../../../docs/migrate-mx/libs-strategy/fusion-libs-resolution.md). 4a.3 se reduce a confirmar la lista, no a decidir.
+> - **4a.5 (dos bloques) quedó superada:** la estructura real son **4cf/4c/4d/4e** (piso compartido + 3 layouts), no dos bloques Ficha/Acumulado.
 
 -   [ ] 4a.1 Abrir `docs/migrate-mx/private-components/audit.md` e identificar los 59 archivos de `components/private/` auditados
 -   [ ] 4a.2 Para cada layout, listar los features y `components/private/` realmente en uso (inspección de imports en los layouts del bundle MX)
@@ -326,55 +336,72 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 > **Spec**: `monorepo-shared-libs` | **US ADO**: US-NEW-7
 
--   [ ] 4b.1 Crear directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/` en raíz del repo
--   [ ] 4b.2 Crear el generator `tools/generators/ln-arc-lib/index.ts` con soporte para `--name`, `--scope`, `--type`
--   [ ] 4b.3 Verificar que el generator genera `src/index.ts`, `project.json` y README en el directorio correcto
--   [ ] 4b.4 Verificar que `project.json` generado tiene `importPath: "@ln/arc-<name>"` y tags correctos (`scope:X`, `type:Y`)
--   [ ] 4b.5 Verificar que `tsconfig.base.json` se actualiza automáticamente con el alias de la nueva lib
--   [ ] 4b.6 Verificar que `project.json` NO tiene `publishable: true`
+-   [x] 4b.1 Crear directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/` en raíz del repo
+-   [x] 4b.2 Crear el generator `tools/generators/ln-arc-lib/index.ts` con soporte para `--name`, `--scope`, `--type`
+    > ⚠️ Autorado en `index.js` (no `.ts`): este workspace no tiene transpiler de generators (`@swc/core`, `ts-node`, `@swc-node/register` ausentes), así que un `.ts` no es ejecutable por `nx g`. Output y contrato idénticos. Registrado como plugin local `@ln/arc-tools` (`file:tools/generators` en `package.json` raíz) para resolver el nombre corto `nx g ln-arc-lib`.
+-   [x] 4b.3 Verificar que el generator genera `src/index.ts`, `project.json` y README en el directorio correcto
+-   [x] 4b.4 Verificar que `project.json` generado tiene `importPath: "@ln/arc-<name>"` y tags correctos (`scope:X`, `type:Y`)
+-   [x] 4b.5 Verificar que `tsconfig.base.json` se actualiza automáticamente con el alias de la nueva lib
+-   [x] 4b.6 Verificar que `project.json` NO tiene `publishable: true`
 -   [ ] 4b.7 Generar la primera lib real identificada en 4a como "extraer a libs/" y validar que el import resuelve desde `apps/foodit-mx/`
+    > ⏸️ BLOQUEADA por dos motivos: (1) 4a (scope card) aún no identifica una lib "real" a extraer; (2) **HALLAZGO CRÍTICO**: el bundler interno de Fusion NO resuelve los path aliases de `tsconfig.base.json` para imports de componentes (resuelve relativos + `node_modules` + `fusion:`). El boundary-check de ESLint sí lee el alias (por eso pasó con `@ln/arc-test-lib`), pero `import x from '@ln/arc-<name>'` **rompería el build de Fusion**. Consecuencia: `libs/` está validada como **tooling**, pero CONSUMIR una lib desde un bundle Fusion requiere cablear resolución de aliases (p.ej. `tsconfig-paths-webpack-plugin` en el webpack de Fusion, o publicar/symlinkear la lib a `node_modules`) y verificarlo con `fusion start`. Hasta entonces, el código compartido (ej. `get.js`, `capitalizeFirstLetter.js`) se **copia** al bundle, no se extrae a lib.
 
-## 4c. Component copy — Bloque Foodit-ficha-receta (posterior a 4a y 4b)
+## 4cf. Common foundation — piso compartido (posterior a 4a/4b · BLOQUEANTE de 4c/4d/4e)
+
+> **Spec**: `foodit-component-copy` | **US ADO**: (nueva — derivar de US-NEW-5/6)
+> Componentes que importan **dos o más** layouts (`BaseLayout`, `breadcrumb`, `UserBookmarks`) + sus utils. Aterrizan ANTES de 4c/4d/4e para habilitar trabajo en paralelo. Fusion no resuelve aliases → todo se **copia** en rutas espejo (ver 4b).
+
+**Tier 0a — piso liviano (sin auth/chrome) — ✓ HECHO (rama infra)**
+
+> breadcrumb + IconSprite + utils. Verificado por cierre estático (0 unresolved); render checkpoint (`fusion start`) pendiente de validación por un dev.
+
+-   [x] 4cf.1 `features/foodit-global/common/breadcrumb/foodit.jsx` — copiado real (reemplaza stub)
+-   [x] 4cf.2 `features/foodit-global/common/breadcrumb/_helpers.js` — copiado real (`getFooditAcuTitle`, `getBreadcrumbSections`)
+-   [x] 4cf.3 `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbTooltip/foodit.jsx` — copiado
+-   [x] 4cf.4 `components/private/common/utils/get.js` — copiado
+-   [x] 4cf.5 `components/private/common/utils/capitalizeFirstLetter.js` — copiado
+-   [x] 4cf.6 `private-global/common/iconSprite/IconSprite.jsx` (+`utils/getIconPath.js`) — copiado (+dep `@ln/common-ui-spriteicon`)
+-   [x] 4cf.7 `__mocks__/data/fooditCategories/parentCategoryMapping.json` — copiado
+
+**Tier 0b — piso pesado (BaseLayout shell + auth) — EPIC dedicado, NO es "reemplazar stub"**
+
+> `BaseLayout` real = cierre transitivo de **≈134 archivos** (Header/Footer/Drawers/FloatingGroupButton/PWA/Toasts/Auth). `UserBookmarks` arrastra el árbol de auth. Auditar el cierre ANTES de copiar; decidir qué se copia vs qué queda stub para MVP1.
+
+-   [x] 4cf.8 **Auditoría de cierre cross-layout** (acumulado + ficha + subcategorías): unión **238 archivos**, **138 compartidos (≥2 layouts)**. La foundation-chrome (`BaseLayout`+breadcrumb+`UserBookmarks`+`IconSprite`) cubre **134/138**. **4 GAPS detectados** (compartidos AF que el chrome no alcanza) → agregados como `4cf.11`. Conclusión: con los gaps, la foundation cubre los 138 → **paralelo seguro**.
+-   [ ] 4cf.9 Copiar `features/foodit-global/common/BaseLayout/foodit.jsx` + su árbol (Header, Footer, Drawers, FloatingGroupButton, Modals/SaveRecipe, SubscribeLogin, MyAccount, MenuCategories, PWA, Toasts, emptyState/errorMessage + utils) en orden de dependencia, rutas espejo — ≈130 archivos del cierre de 4cf.8
+-   [ ] 4cf.10 Copiar `bookmark/components/UserBookmarks.jsx` + árbol de auth (`getBookmarks`, `toggleBookmarks`, `loginHelper`, `useAuthManager`) — parte del mismo cierre
+-   [ ] 4cf.11 Copiar los **4 GAPS** de 4cf.8 (compartidos por Acumulado+Ficha, no alcanzados por el chrome): `CommonCardFoodit/foodit.jsx` + `components/CardButton.jsx` + `components/DropdownCard.jsx` + `recetario/hooks/useApiGuard.js`
+-   [ ] 4cf.12 Checkpoint: `fusion start` — foundation completa (chrome + breadcrumb + `UserBookmarks` + `CommonCardFoodit`) renderiza sin `[MISSING]`. **Gate que desbloquea 4c/4d/4e en paralelo.**
+
+## 4c. Component copy — Bloque Foodit-ficha-receta (posterior a 4a, 4b y 4cf)
 
 > **Spec**: `foodit-component-copy` | **US ADO**: US-NEW-5
+>
+> **Scope exclusivo de Ficha (de la auditoría 4cf.8): ≈83 archivos — el bloque más grande.** Subárboles: `PowerupsReceta` (ingredientsBox, summaryBox), `OpeningRecipe`, `Banners` (+`useAdManager`), `MenuSemanal`, `Newsletter`, `AudioFoodit`, `LayoutImpression`/`PrintIngredients`/`PrintButton`/`TimePrint`, `ShareFoodit`, `DialogFoodit`/`DialogBarrier`, `ActionsButtons`, `RoofFoodit`, `nutritionalInfo`, `subtitle`, `RelatedContent`, `videoPlayer`, `facade`, UI `badge`/`image` + utils de ficha.
 
 -   [ ] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados
 -   [ ] 4c.2 Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib` y actualizar el import en el layout
 -   [ ] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
 -   [ ] 4c.4 Checkpoint: `Foodit-ficha-receta` renderiza en `fusion start` sin `[MISSING]` ni errores JS
 
-## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4a y 4b)
+## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4cf, paralelo con 4c/4e)
 
 > **Spec**: `foodit-component-copy` | **US ADO**: US-NEW-6, 173243 (refinada)
+> Solo features **específicas de Acumulado** — el piso compartido (`BaseLayout`, breadcrumb, `UserBookmarks`, utils) está en **4cf**.
+>
+> **Scope exclusivo de Acumulado (de la auditoría 4cf.8): ≈8 archivos** — `AcuTema` (+`gridTemaServer`/`gridTemaClient`/`useGridTema`/`helpers`), `TagCategories`, `GrillaNotasAcu/loadMoreButton`.
 
--   [ ] 4d.1 Para cada archivo del bloque Acumulado (incluye componentes compartidos entre layouts) marcado "copiar": copiar con imports adaptados
--   [ ] 4d.2 Para cada archivo marcado "extraer a lib": generar la lib y actualizar imports en layouts
+-   [ ] 4d.1 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`, ya copiado en 4cf)
+-   [ ] 4d.2 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient`)
 -   [ ] 4d.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
 -   [ ] 4d.4 Checkpoint: `Foodit-acumulado` renderiza en `fusion start` sin `[MISSING]`
 -   [ ] 4d.5 Checkpoint de no-regresión: `Foodit-ficha-receta` sigue renderizando correctamente
 
-**Archivos conocidos para reemplazar stubs de `Foodit-acumulado`** (descubiertos en análisis Fase 3):
-
-_Features directas (reemplazar stubs existentes):_
-
--   [ ] 4d.6 `features/foodit-global/common/breadcrumb/foodit.jsx` — reemplazar stub con implementación real
--   [ ] 4d.7 `features/foodit-global/common/breadcrumb/_helpers.js` — reemplazar stub (`getFooditAcuTitle`, `getBreadcrumbSections`; depende de `get`, `capitalizeFirstLetter`, `parentCategoryMapping.json`)
--   [ ] 4d.8 `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbTooltip/foodit.jsx` — copiar (usa `IconSprite`, `@ln/common-ui-tooltip`, `@ln/common-ui-button`)
--   [ ] 4d.9 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`)
--   [ ] 4d.10 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient` en la task)
--   [ ] 4d.11 `features/foodit-global/common/bookmark/components/UserBookmarks.jsx` — reemplazar stub (auditar árbol completo: `getBookmarks`, `toggleBookmarks`, `loginHelper`, `useAuthManager`)
--   [ ] 4d.12 `features/foodit-global/common/BaseLayout/foodit.jsx` — reemplazar stub con implementación real del monolito
-
-_Utils compartidos (necesarios para Acumulado y Subcategorías):_
-
--   [ ] 4d.13 `components/private/common/utils/get.js` — copiar a `apps/foodit-mx/components/private/common/utils/`
--   [ ] 4d.14 `components/private/common/utils/capitalizeFirstLetter.js` — copiar
--   [ ] 4d.15 `components/private-global/common/iconSprite/IconSprite.jsx` — copiar a `apps/foodit-mx/components/private-global/`
--   [ ] 4d.16 `__mocks__/data/fooditCategories/parentCategoryMapping.json` — copiar a `apps/foodit-mx/__mocks__/data/fooditCategories/`
-
-## 4e. Layout fork — Foodit-subcategorias (paralelo con 4d)
+## 4e. Layout fork — Foodit-subcategorias (posterior a 4cf, paralelo con 4c/4d)
 
 > `/recetas` usa actualmente este layout en PageBuilder. Se forka al bundle MX para mantener paridad con el monolito mientras se valida el swap a `Foodit-acumulado` (Fase 6). Probado: el swap es compatible.
+>
+> **Scope exclusivo de Subcategorías (de la auditoría 4cf.8): ≈9 archivos** — layout `Foodit-subcategorias/` (+`_helpers`, `Card/CardCategory` +`sections`, `hooks/useImagePreload`), `subcategorias/helpers.js`, `breadcrumb/_childrens/BreadcrumbCustom`, `subcategoryKeywords.json`.
 
 -   [ ] 4e.1 Copiar `components/layouts/Foodit-subcategorias/foodit.jsx` al bundle MX con header de fork (path + fecha)
 -   [ ] 4e.2 Copiar `components/layouts/Foodit-subcategorias/_helpers.js` — contiene `getPageTitleFromUrl`, `applyPageBasedPriority`, `trackSubcategoryCard` (depende de `addEventToDataLayer`)

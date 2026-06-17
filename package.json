@@ -181,6 +181,7 @@
     },
     "devDependencies": {
         "@arc-fusion/cli": "3.2.0",
+        "@ln/arc-tools": "file:tools/generators",
         "@nx/eslint-plugin": "22.7.5",
         "nx": "22.7.5",
         "@babel/core": "7.23.0",
