@@ -6,7 +6,7 @@ import Image from '../../../ui/ln/image/default';
 import Button from '../../../ui/ln/button/default';
 import Link from '../../../ui/ln/link/default';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import { buttonData, loggedData, unLoggedData } from './helper';
+import { getButtonData, getFooterData } from './helper';
 import BadgeBanner, {
     propsBadgeOnlySubscriptor
 } from '../bannerMessage/components/badgeBanner';
@@ -21,7 +21,8 @@ function BarrierRequiresSubscription({
     const imagePath = getAssetsPath(contextPath)(deployment)(
         'modal-suscriptores.webp'
     );
-    const footerData = isLogged ? loggedData : unLoggedData;
+    const buttonData = getButtonData();
+    const footerData = getFooterData(isLogged);
 
     const { text, textLink, href } = footerData;
 
