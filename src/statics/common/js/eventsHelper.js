@@ -283,11 +283,15 @@ export class EventsHelper {
     }
 
     setEventsGames() {
-        const games = window.document.querySelectorAll('.ln-card-games > a');
+        const games = window.document.querySelectorAll(
+            '[data-game-link="true"]'
+        );
         const ACTION = 'jugar';
         const JUEGOS_LN10 = 'juegos_ln10';
         games.forEach(game => {
-            if (!game) return;
+            // Idempotente: una sola vinculación por ancla aunque corra N veces.
+            if (!game || game.dataset.gameEventBound) return;
+            game.dataset.gameEventBound = 'true';
             const titleFormatted = this.createDynamicLabel(game.title);
             const payload = {
                 action: ACTION,
@@ -306,7 +310,9 @@ export class EventsHelper {
         const ACTION = 'escuchar';
         const VIDEOPODCAST = 'podcast_ln10';
         podcasts.forEach(podcast => {
-            if (!podcast) return;
+            // Idempotente: una sola vinculación por ancla aunque corra N veces.
+            if (!podcast || podcast.dataset.podcastEventBound) return;
+            podcast.dataset.podcastEventBound = 'true';
             const titleFormatted = this.createDynamicLabel(podcast.title);
             const payload = {
                 action: ACTION,
