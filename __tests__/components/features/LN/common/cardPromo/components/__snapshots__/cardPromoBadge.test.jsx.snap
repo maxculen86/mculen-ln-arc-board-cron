@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPromoBadge snapshots matches snapshot with a custom label 1`] = `
+<DocumentFragment>
+  <div
+    class="absolute z-10 top-9 right-4"
+  >
+    <span
+      data-testid="badge"
+    >
+      NUEVO
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CardPromoBadge snapshots matches snapshot with the default label 1`] = `
+<DocumentFragment>
+  <div
+    class="absolute z-10 top-9 right-4"
+  >
+    <span
+      data-testid="badge"
+    >
+      nuevo
+    </span>
+  </div>
+</DocumentFragment>
+`;

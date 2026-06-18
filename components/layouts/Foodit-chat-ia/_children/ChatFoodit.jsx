@@ -15,6 +15,7 @@ import { SkeletonChatIa } from './skeletonChatIa';
 import { SessionExpiredModal } from './SessionExpiredModal';
 import { useInactivityTimer } from './hooks/helpers';
 import { MessageContainer } from './MessageContainer/MessageContainer';
+import { SourceLink } from './MessageContainer/SourceLink';
 import { FormContainer } from './formContainer';
 import { ButtonScroll } from './buttonScroll';
 import { ButtonNavigation } from './buttonNavigation';
@@ -171,22 +172,19 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                 <Thread
                                     className="gap-16 max-w-[802px] mx-auto"
                                     runtime={runtime}
+                                    renderSource={SourceLink}
+                                    onTypingComplete={() =>
+                                        setShowAfterRenderAssistant(true)
+                                    }
                                 >
                                     <Thread.Viewport className="overflow-y-hidden overflow-x-hidden">
                                         <>
                                             <MessageContainer
                                                 messages={runtime.messages}
                                                 requestLimit={requestLimit}
-                                                isGenerating={
-                                                    runtime.status ===
-                                                    'generating'
-                                                }
                                                 errorCode={errorCode}
                                                 showAfterRenderAssistant={
                                                     showAfterRenderAssistant
-                                                }
-                                                onAssistantRendered={
-                                                    setShowAfterRenderAssistant
                                                 }
                                             />
 
@@ -207,9 +205,6 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                                     disableInput={disableInput}
                                                     requestLimit={requestLimit}
                                                     errorCode={errorCode}
-                                                    onAssistantRendered={
-                                                        setShowAfterRenderAssistant
-                                                    }
                                                 />
                                                 <div
                                                     ref={composerSentinelRef}

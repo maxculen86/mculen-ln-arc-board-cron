@@ -20,7 +20,11 @@ const getBadge = (contentCode, label, rating = false) => {
             // TODO: borrar clase --exclusive-ln que usa estilos viejos cuando se migre card de autor de internas
             <div data-tw style={{ display: 'contents' }}>
                 <div className="ln-badge --exclusive-ln flex items-center justify-center h-24 w-24 rounded-full border-neutral-1 border bg-warning-default">
-                    <Icon size={14} name="crow" fill="--color-primary-dark" />
+                    <Icon
+                        size={14}
+                        name="logo-suscriptores"
+                        fill="--color-primary-dark"
+                    />
                 </div>
             </div>
         )

@@ -22,6 +22,13 @@ const HARDCODED_WEBVIEW_SUBTYPES = [
     CARDS
 ];
 
+const HARDCODED_NATIVE_BROWSER_SECTIONS = ['/juegos/retrofoto'];
+
+const isNativeBrowserSection = dataNota =>
+    HARDCODED_NATIVE_BROWSER_SECTIONS.includes(
+        get(dataNota, 'taxonomy.primary_section.path', '')
+    );
+
 const getOpeningMode = dataNota => {
     const subtype = get(dataNota, 'subtype', '');
     const enviarApps = get(
@@ -30,6 +37,9 @@ const getOpeningMode = dataNota => {
         null
     )?.toLowerCase();
 
+    if (isNativeBrowserSection(dataNota)) {
+        return OpeningMode.NativeBrowser;
+    }
     if (
         HARDCODED_WEBVIEW_SUBTYPES.includes(subtype) &&
         enviarApps === 'browser'

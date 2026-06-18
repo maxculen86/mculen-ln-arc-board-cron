@@ -95,6 +95,7 @@ const mapZocaloData = (zocaloData, deployment, contextPath) => {
             className: zocaloData.logoClassName,
             width: zocaloData.logoWidth
         },
+        media: zocaloData.media,
         descriptionProps: zocaloData.descriptionProps,
         label: zocaloData.label
     };

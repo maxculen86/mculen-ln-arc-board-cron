@@ -1,0 +1,24 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.button, .button > .icon > svg > path {
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

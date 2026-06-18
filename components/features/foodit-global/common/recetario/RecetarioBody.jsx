@@ -74,8 +74,8 @@ function RecetarioBody() {
                                     onClick={() => setIsModalOpen(true)}
                                     iconOnly
                                     variant="secondary"
-                                    size={40}
-                                    className="ml-auto ml-0_md"
+                                    size={32}
+                                    className="p-12_md"
                                 >
                                     <Icon size={16}>
                                         <IconSprite name="edit" />

@@ -24,9 +24,13 @@ jest.mock(
 
 describe('BarrierRequiresSubscription', () => {
     const closeBarrier = jest.fn();
+    const notePath =
+        '/deportes/nota-test-de-2-autores-staff-adri-nid21102025/?d=5959';
+    const getCurrentUrlCallback = () => window.btoa(window.location.href);
 
     beforeEach(() => {
         jest.clearAllMocks();
+        window.history.pushState({}, '', notePath);
     });
 
     it('should not render when isOpen is false', () => {
@@ -110,7 +114,7 @@ describe('BarrierRequiresSubscription', () => {
             screen.getByRole('link', { name: /SUSCRIBITE AHORA/i })
         ).toHaveAttribute(
             'href',
-            'https://suscripciones.lanacion.com.ar/ln/suscribirme?cv=670&fc=744&callback='
+            `https://suscripciones.lanacion.com.ar/ln/suscribirme?cv=670&fc=744&callback=${getCurrentUrlCallback()}`
         );
     });
 
@@ -124,7 +128,10 @@ describe('BarrierRequiresSubscription', () => {
         );
         expect(
             screen.getByRole('link', { name: /Iniciar sesión/i })
-        ).toHaveAttribute('href', 'https://login.lanacion.com.ar/');
+        ).toHaveAttribute(
+            'href',
+            `https://login.lanacion.com.ar/${getCurrentUrlCallback()}`
+        );
     });
 
     it('should have correct footer link for logged users', () => {

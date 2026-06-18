@@ -10,6 +10,20 @@ import {
     groupNames
 } from './helper';
 import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
+import VideoZocalo from './components/videoZocalo/default';
+
+const getMediaComponent = mediaConfig => {
+    const mediaComponents = {
+        video: VideoZocalo
+    };
+
+    const { type, ...config } = mediaConfig;
+    const MediaComponent = mediaComponents[type];
+
+    if (!MediaComponent) return undefined;
+
+    return <MediaComponent {...config} />;
+};
 
 function InfoBoxFeature({ customFields }) {
     const {
@@ -49,6 +63,9 @@ function InfoBoxFeature({ customFields }) {
         <Zocalo
             linkProps={zocaloConfig.linkProps}
             imgProps={zocaloConfig.imgProps}
+            mediaDynamicComponent={
+                zocaloConfig.media && getMediaComponent(zocaloConfig.media)
+            }
             className="mb-32"
             logoProps={zocaloConfig.logoProps}
             descriptionProps={descriptionContent}

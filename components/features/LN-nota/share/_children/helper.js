@@ -1,8 +1,4 @@
-import React, { Suspense, lazy } from 'react';
 import { cva } from '@ln/cva';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import {
     FOTOAL100,
     LIVEBLOG_EDITORIAL,
@@ -11,52 +7,6 @@ import {
     VIDEO_VERTICAL,
     VIDEO_COMENTARIOS
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
-import { barrierMessages } from '../../../LN/common/barrierRequiresSubscription/helper';
-
-const AnimatedIconsLazy = lazy(() => import('./AnimatedLogo'));
-
-export const handleOpenIAFeature = ({
-    defaultTab,
-    iaButtonIsClicked,
-    setIaButtonIsClicked,
-    suscription,
-    openBarrier
-}) => {
-    if (iaButtonIsClicked) {
-        return;
-    }
-
-    if (suscription && !iaButtonIsClicked) {
-        setIaButtonIsClicked(true);
-        window.LN.observable.publish('showIa', { show: true });
-        addEventToDataLayerV2({
-            event: 'e_linkclick',
-            action: 'IA',
-            category: 'nota_ln9',
-            label: defaultTab
-        });
-    } else {
-        openBarrier(barrierMessages.IA_SUMMARY);
-    }
-};
-
-export const getClassAndIconByClick = iaButtonIsClicked =>
-    iaButtonIsClicked
-        ? {
-              iaLogo: <IconSprite name="ai" fill="#FEFEFE" />,
-              iaButtonClass:
-                  'border-transparent bg-primary-ai bg-ai-active__hover'
-          }
-        : {
-              iaLogo: (
-                  <Suspense
-                      fallback={<IconSprite name="ai" default fill="#27D2BE" />}
-                  >
-                      <AnimatedIconsLazy logo="logo-ai" />
-                  </Suspense>
-              ),
-              iaButtonClass: 'p-0'
-          };
 
 export const shareContainerVariant = cva('', {
     variants: {
@@ -106,7 +56,7 @@ export const subtypesWithHorizontalShare = [
 
 export const negativeSubtypes = [VIDEO, VIDEO_VERTICAL, VIDEO_COMENTARIOS];
 
-export const subtypesWithoutSticky = [
+const subtypesWithoutSticky = [
     VIDEO,
     LIVEBLOG_EDITORIAL,
     FOTOAL100,

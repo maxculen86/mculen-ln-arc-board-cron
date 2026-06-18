@@ -7,8 +7,8 @@ jest.mock('@ln/ds-common-portal', () => ({
     Portal: ({ children }) => <>{children}</>
 }));
 
-jest.mock('@ln/ds-common-motion', () => ({
-    Motion: ({ show, children }) => (show ? <>{children}</> : null)
+jest.mock('@ln/ds-common-animatepresence', () => ({
+    AnimatePresence: ({ show, children }) => (show ? <>{children}</> : null)
 }));
 
 jest.mock(

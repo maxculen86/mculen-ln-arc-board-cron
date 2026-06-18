@@ -18,7 +18,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
         >
           <button
             aria-label="Leer resumen generado por inteligencia artificial"
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -26,33 +26,13 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             title="Leer resumen generado por inteligencia artificial"
             type="button"
           >
-            <i
-              class="icon --icon-32"
+            <div
+              data-tw="true"
             >
-              <svg
-                class="logo-ai"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="star big"
-                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-                <path
-                  class="star small"
-                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-              </svg>
-            </i>
+              <mock-ds-common-icon
+                name="sparkling"
+              />
+            </div>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -236,7 +216,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
         >
           <button
             aria-label="Leer resumen generado por inteligencia artificial"
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -244,33 +224,13 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             title="Leer resumen generado por inteligencia artificial"
             type="button"
           >
-            <i
-              class="icon --icon-32"
+            <div
+              data-tw="true"
             >
-              <svg
-                class="logo-ai"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="star big"
-                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-                <path
-                  class="star small"
-                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-              </svg>
-            </i>
+              <mock-ds-common-icon
+                name="sparkling"
+              />
+            </div>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -481,7 +441,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
         >
           <button
             aria-label="Leer resumen generado por inteligencia artificial"
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -489,33 +449,13 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             title="Leer resumen generado por inteligencia artificial"
             type="button"
           >
-            <i
-              class="icon --icon-32"
+            <div
+              data-tw="true"
             >
-              <svg
-                class="logo-ai"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="star big"
-                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-                <path
-                  class="star small"
-                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-              </svg>
-            </i>
+              <mock-ds-common-icon
+                name="sparkling"
+              />
+            </div>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -726,7 +666,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
         >
           <button
             aria-label="Leer resumen generado por inteligencia artificial"
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -734,33 +674,13 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             title="Leer resumen generado por inteligencia artificial"
             type="button"
           >
-            <i
-              class="icon --icon-32"
+            <div
+              data-tw="true"
             >
-              <svg
-                class="logo-ai"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="star big"
-                  d="M10.8604 16.7347L11.5825 15.0884C12.2251 13.6235 13.3818 12.4574 14.8245 11.8199L16.8121 10.9418C17.4439 10.6626 17.4439 9.74763 16.8121 9.46845L14.8866 8.61772C13.4067 7.96388 12.2293 6.75456 11.5977 5.23965L10.8663 3.48533C10.5949 2.83432 9.69114 2.83432 9.41972 3.48533L8.68827 5.23963C8.05664 6.75456 6.87926 7.96388 5.39939 8.61772L3.47393 9.46845C2.84202 9.74763 2.84202 10.6626 3.47393 10.9418L5.46147 11.8199C6.90423 12.4574 8.06087 13.6235 8.70347 15.0884L9.42556 16.7347C9.70313 17.3674 10.5828 17.3674 10.8604 16.7347Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-                <path
-                  class="star small"
-                  d="M19.09 20.7427L19.293 20.2795C19.655 19.4535 20.307 18.7958 21.1206 18.4361L21.7462 18.1593C22.0846 18.0097 22.0846 17.5203 21.7462 17.3706L21.1556 17.1094C20.3211 16.7404 19.6574 16.0584 19.3016 15.2043L19.0931 14.7037C18.9477 14.3549 18.4631 14.3549 18.3177 14.7037L18.1092 15.2043C17.7535 16.0584 17.0898 16.7404 16.2552 17.1094L15.6646 17.3706C15.3263 17.5203 15.3263 18.0097 15.6646 18.1593L16.2902 18.4361C17.1038 18.7958 17.7558 19.4535 18.1178 20.2795L18.3209 20.7427C18.4695 21.0819 18.9413 21.0819 19.09 20.7427Z"
-                  fill="#FEFEFE"
-                  stroke="#333333"
-                  stroke-width="1"
-                />
-              </svg>
-            </i>
+              <mock-ds-common-icon
+                name="sparkling"
+              />
+            </div>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"
@@ -961,7 +881,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
         >
           <button
             aria-label="Leer resumen generado por inteligencia artificial"
-            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
             data-event="LinkClick"
             data-section="IA"
             data-variant="secondary"
@@ -969,15 +889,13 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
             title="Leer resumen generado por inteligencia artificial"
             type="button"
           >
-            <i
-              class="icon --icon-32"
+            <div
+              data-tw="true"
             >
-              <mock-icon
-                default=""
-                fill="#27D2BE"
-                name="ai"
+              <mock-ds-common-icon
+                name="sparkling"
               />
-            </i>
+            </div>
           </button>
           <button
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --is-saved --secondary"

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Motion } from '@ln/ds-common-motion';
+import { AnimatePresence } from '@ln/ds-common-animatepresence';
 import { Portal } from '@ln/ds-common-portal';
 import Button from '../../../ui/ln/button/default';
 import Icon from '../../../ui/ln/icon/default';
@@ -48,12 +48,12 @@ function AudioPlayer() {
     return (
         <Portal>
             <div data-tw style={{ display: 'contents' }}>
-                <Motion
+                <AnimatePresence
                     show={isOpen}
                     animation={{
                         duration: 300,
-                        transitionIn: 'fadeInUp',
-                        transitionOut: 'fadeOutUp'
+                        transitionIn: 'slideInUp',
+                        transitionOut: 'slideOutDown'
                     }}
                 >
                     <section
@@ -85,7 +85,7 @@ function AudioPlayer() {
                             <SummarySwitch />
                         </div>
                     </section>
-                </Motion>
+                </AnimatePresence>
             </div>
         </Portal>
     );

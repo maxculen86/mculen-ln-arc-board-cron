@@ -11,7 +11,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
       >
         <button
           aria-label="Leer resumen generado por inteligencia artificial"
-          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
           data-event="LinkClick"
           data-section="IA"
           data-variant="secondary"
@@ -19,15 +19,13 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
           title="Leer resumen generado por inteligencia artificial"
           type="button"
         >
-          <i
-            class="icon --icon-32"
+          <div
+            data-tw="true"
           >
-            <mock-icon
-              default=""
-              fill="#27D2BE"
-              name="ai"
+            <mock-ds-common-icon
+              name="sparkling"
             />
-          </i>
+          </div>
         </button>
         <button
           class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --secondary"
@@ -79,7 +77,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
     >
       <button
         aria-label="Leer resumen generado por inteligencia artificial"
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 p-0 --secondary"
+        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 --secondary"
         data-event="LinkClick"
         data-section="IA"
         data-variant="secondary"
@@ -87,15 +85,13 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
         title="Leer resumen generado por inteligencia artificial"
         type="button"
       >
-        <i
-          class="icon --icon-32"
+        <div
+          data-tw="true"
         >
-          <mock-icon
-            default=""
-            fill="#27D2BE"
-            name="ai"
+          <mock-ds-common-icon
+            name="sparkling"
           />
-        </i>
+        </div>
       </button>
       <button
         class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 w-40 p-12 bookmark --secondary"

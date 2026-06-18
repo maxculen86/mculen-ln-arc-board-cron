@@ -1,0 +1,28 @@
+.card-item.--selected {
+  pointer-events: none;
+  border-color: var(--secondary-positive);
+  color: var(--secondary-positive);
+}
+.card-item.--selected circle {
+  fill: var(--secondary-positive);
+}
+.card-item:not(.--selected):not(.card-item-disabled)[role=button]:hover, .card-item:not(.--selected):not(.card-item-disabled)[role=link]:hover {
+  --_main-color: var(--accent-lechuga);
+  border-color: inherit;
+  color: var(--_main-color);
+}
+.card-item:not(.--selected):not(.card-item-disabled)[role=button]:hover.--accent, .card-item:not(.--selected):not(.card-item-disabled)[role=link]:hover.--accent {
+  --_main-color: var(--feedback-danger-600);
+}
+.card-item:not(.--selected):not(.card-item-disabled)[role=button]:hover circle, .card-item:not(.--selected):not(.card-item-disabled)[role=link]:hover circle {
+  fill: var(--_main-color);
+}
+.card-item .icon,
+.card-item circle {
+  transition: inherit;
+  transition-timing-function: linear;
+}
+.card-item-disabled[role=button] {
+  color: inherit;
+  opacity: 0.4;
+}

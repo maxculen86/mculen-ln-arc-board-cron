@@ -166,6 +166,39 @@ describe('components - layouts - LN-Nota-Liveblog_Editorial - _helper - getUniqu
                 }
             ]);
         });
+
+        it('should normalize author photo resizer host', () => {
+            isCustomLiveblog.mockReturnValue(true);
+            get.mockReturnValue([
+                {
+                    id: '99',
+                    name: 'Lucía Pérez',
+                    firstName: 'Lucía',
+                    lastName: 'Pérez',
+                    photo: 'https://sandbox-resizer.glanacion.com/resizer/v2/author.png?width=280&quality=70&smart=false'
+                }
+            ]);
+
+            expect(getUniqueAuthorsFromPosts([{}])).toEqual([
+                {
+                    id: '99',
+                    name: 'Lucía Pérez',
+                    firstName: 'Lucía',
+                    lastName: 'Pérez',
+                    image: {
+                        alt: 'Lucía Pérez',
+                        src: 'https://www.lanacion.com.ar/resizer/v2/author.png?width=280&quality=70&smart=false'
+                    }
+                }
+            ]);
+        });
+
+        it('should ignore invalid authors config', () => {
+            isCustomLiveblog.mockReturnValue(true);
+            get.mockReturnValue({ id: '99', name: 'Lucía Pérez' });
+
+            expect(getUniqueAuthorsFromPosts([{}])).toEqual([]);
+        });
     });
 
     describe('scrollToFirstPostOf', () => {

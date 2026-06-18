@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPromoOverlay snapshots matches snapshot when returns null 1`] = `<DocumentFragment />`;
+
+exports[`CardPromoOverlay snapshots matches snapshot with badge 1`] = `
+<DocumentFragment>
+  <span
+    data-testid="card-badge"
+  >
+    nuevo
+  </span>
+</DocumentFragment>
+`;
+
+exports[`CardPromoOverlay snapshots matches snapshot with ribbon 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="card-ribbon"
+  />
+</DocumentFragment>
+`;

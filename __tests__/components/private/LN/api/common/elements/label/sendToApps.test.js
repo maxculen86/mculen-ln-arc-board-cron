@@ -54,6 +54,26 @@ describe('components - private - LN - api - common - elements - label - sendToAp
             const result = sentToApps(element);
             expect(result).toBe(false);
         });
+
+        it('sentToApps should return false for section /juegos/retrofoto regardless of label configuration', () => {
+            const element = {
+                _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
+                taxonomy: {
+                    primary_section: {
+                        path: '/juegos/retrofoto'
+                    }
+                },
+                label: {
+                    enviar_a_apps: {
+                        text: 'Si'
+                    }
+                }
+            };
+
+            const result = sentToApps(element);
+            expect(result).toBe(false);
+        });
+
         it('sentToApps should return false when subtype is LIVEBLOG_EDITORIAL', () => {
             const element = {
                 _id: 'JOLGEOYSHFAURFYQ3ZPRAKROM4',
