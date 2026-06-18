@@ -433,6 +433,11 @@ AnexoFeature.propTypes = {
             description:
                 'Ingrese los días de la semana en los que se desea mostrar la caja (en minúsculas, sin tildes, ej: "miercoles")',
             defaultValue: []
+        }),
+        hideAppMobile: PropTypes.boolean.tag({
+            name: 'Ocultar feature en App Mobile (Android e iOS)',
+            description: 'Marque para ocultar el feature en apps móviles',
+            defaultValue: false
         })
     }).isRequired
 };

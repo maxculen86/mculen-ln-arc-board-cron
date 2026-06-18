@@ -22,7 +22,6 @@ class AnexoFeature {
 
     render() {
         const { id, layout, customFields = {} } = this.props;
-
         const {
             hideByHtml = false,
             hideByUrl = false,
@@ -35,7 +34,8 @@ class AnexoFeature {
             link,
             hideTitle,
             enabledDays = [],
-            shouldSchedule = false
+            shouldSchedule = false,
+            hideAppMobile = false
         } = customFields;
 
         const isHome = layout === LAYOUT;
@@ -56,7 +56,8 @@ class AnexoFeature {
         if (
             shouldSkipRender({ enabledDays, isHome, shouldSchedule }) ||
             errorMessage ||
-            hideByFlags
+            hideByFlags ||
+            hideAppMobile
         ) {
             return null;
         }
