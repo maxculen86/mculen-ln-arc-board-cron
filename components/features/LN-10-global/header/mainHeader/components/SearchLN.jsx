@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { cx } from '@ln/ds-cva';
+import { useAppContext } from 'fusion:context';
 import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
 import InputSection from '../../../desplegable/searchInput';
 import Icon from '../../../../ui/ln/icon/default';
@@ -9,6 +10,9 @@ import { useHeaderContext } from '../../context';
 export default function InputSearch({ isOpen, setIsOpen }) {
     const triggerRef = useRef(null);
     const { negative } = useHeaderContext();
+    const { layout, siteProperties } = useAppContext();
+    const { layoutsName = {} } = siteProperties || {};
+    const isLayoutBuscador = layout === layoutsName.LnBuscador;
 
     const handleOpen = () => {
         addEventToDataLayerV2({
@@ -24,6 +28,8 @@ export default function InputSearch({ isOpen, setIsOpen }) {
         setIsOpen(false);
         triggerRef.current?.focus();
     };
+
+    if (isLayoutBuscador) return null;
 
     return (
         <div data-tw style={{ display: 'contents' }}>

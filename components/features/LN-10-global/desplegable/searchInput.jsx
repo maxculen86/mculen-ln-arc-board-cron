@@ -22,10 +22,23 @@ export default function InputSection({
     const [typedByUser, setTypedByUser] = useState(false);
     const isSubmittingRef = useRef(false);
     const compactInputRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         if (autoFocus) compactInputRef.current?.focus();
     }, []);
+
+    useEffect(() => {
+        const handleClickOutside = e => {
+            const clickedOutside =
+                containerRef.current &&
+                !containerRef.current.contains(e.target);
+            if (collapsible && isOpen && clickedOutside) onClose?.();
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () =>
+            document.removeEventListener('mousedown', handleClickOutside);
+    }, [collapsible, isOpen, onClose]);
 
     useEffect(() => {
         if (isOpen && autoFocus) compactInputRef.current?.focus();
@@ -119,7 +132,7 @@ export default function InputSection({
     );
 
     return (
-        <Formcontrol className={classNameInput}>
+        <Formcontrol ref={containerRef} className={classNameInput}>
             {!showActions && !shouldListen && (
                 <Formcontrol.Adornment className="pl-8" position="start">
                     <Icon
