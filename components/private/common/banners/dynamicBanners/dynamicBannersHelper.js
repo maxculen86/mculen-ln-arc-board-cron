@@ -16,10 +16,27 @@ export const MAX_DYNAMIC_BANNERS = 5;
 export const BANNER_INSERT_INTERVAL = 4;
 export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
+const BODY_DYNAMIC_BANNER_ID_PREFIX = 'body_';
+
+const DYNAMIC_BANNER_CLASS_BY_DEVICE = {
+    desktop: 'relative hidden md:flex',
+    mobile: 'relative md:hidden'
+};
+
+const hasSlotStyles = slotId => /^(cinturon|caja)[1-4]_(dsk|mob)$/.test(slotId);
+
+const getDynamicBannerClassName = bannerConfiguration =>
+    hasSlotStyles(bannerConfiguration?.slotId)
+        ? undefined
+        : DYNAMIC_BANNER_CLASS_BY_DEVICE[bannerConfiguration?.device];
+
 export function BannerWithWrapper({ bannerConfiguration }) {
     return (
         <WrapperBody variant="full-screen">
-            <Banner bannerConfiguration={bannerConfiguration} />
+            <Banner
+                bannerConfiguration={bannerConfiguration}
+                className={getDynamicBannerClassName(bannerConfiguration)}
+            />
         </WrapperBody>
     );
 }
@@ -28,8 +45,7 @@ const DYNAMIC_BANNER_RULES = [
     {
         listOfAllowedSection: [{ subtype: OPINION, pageLayout: NotaOpinion }],
         settings: {
-            BannerComponent: BannerWithWrapper,
-            maxBanners: 4
+            BannerComponent: BannerWithWrapper
         }
     },
     {
@@ -37,8 +53,7 @@ const DYNAMIC_BANNER_RULES = [
             { subtype: STORYTELLING, pageLayout: StoryTellingV2 }
         ],
         settings: {
-            BannerComponent: BannerWithWrapper,
-            maxBanners: 4
+            BannerComponent: BannerWithWrapper
         }
     }
 ];
@@ -141,7 +156,7 @@ export const createDynamicBannerConfig = (
         layout,
         subtype
     });
-    if (bannerIndex > maxBanners) return null;
+    if (maxBanners !== undefined && bannerIndex > maxBanners) return null;
 
     const deviceSuffix = suffixDevice[device];
     if (!deviceSuffix) return null;
@@ -166,9 +181,14 @@ export const createDynamicBannerConfig = (
     };
 
     const slotName = `la_nacion_${device}/Nota/${slotId}`;
+    const elementId =
+        maxBanners === undefined
+            ? `${BODY_DYNAMIC_BANNER_ID_PREFIX}${slotId}`
+            : slotId;
 
     return {
         slotId,
+        elementId,
         slotGroup: 'nota',
         device,
         dfpId,
@@ -184,6 +204,7 @@ export const createDynamicBannerConfig = (
 export const mapBannerConfigToGoogleTagConfig = bannerConfiguration => {
     const {
         slotId,
+        elementId,
         slotGroup,
         dfpId,
         slotName,
@@ -197,7 +218,7 @@ export const mapBannerConfigToGoogleTagConfig = bannerConfiguration => {
     return {
         adUnitPath: `/${dfpId}/${slotName}`,
         size: dimensions,
-        opt_div: slotId,
+        opt_div: elementId || slotId,
         sizemap: [],
         prebidEnabled: bidding?.prebid?.enabled || false,
         targeting,

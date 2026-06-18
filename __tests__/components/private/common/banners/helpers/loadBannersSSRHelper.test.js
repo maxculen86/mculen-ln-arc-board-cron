@@ -109,14 +109,36 @@ describe('Banner resolvers', () => {
             expect(bannersInBody).toEqual(['middle_1_dsk', 'middle_2_dsk']);
         });
 
-        it('does nothing when there are no dynamic slots for the device', () => {
+        it('adds dynamic body banners present in the DOM when layout has no max limit', () => {
             getDynamicSlotIdsByDevice.mockReturnValue([]);
 
             const bannersInBody = [];
 
             resolveDynamicBodyBanners({
                 device: 'desktop',
-                bannersToLoadFromDOM: [{ opt_div: 'cinturon1_dsk' }],
+                bannersToLoadFromDOM: [
+                    { opt_div: 'body_cinturon1_dsk' },
+                    { opt_div: 'body_cinturon5_dsk' },
+                    { opt_div: 'body_caja5_mob' },
+                    { opt_div: 'other_banner' }
+                ],
+                bannersInBody
+            });
+
+            expect(bannersInBody).toEqual([
+                'body_cinturon1_dsk',
+                'body_cinturon5_dsk'
+            ]);
+        });
+
+        it('does nothing when there are no dynamic slots for the device', () => {
+            getDynamicSlotIdsByDevice.mockReturnValue([]);
+
+            const bannersInBody = [];
+
+            resolveDynamicBodyBanners({
+                device: 'tablet',
+                bannersToLoadFromDOM: [{ opt_div: 'body_cinturon1_dsk' }],
                 bannersInBody
             });
 
@@ -201,6 +223,28 @@ describe('bannerConfigType (dispatcher)', () => {
         });
 
         expect(bannersInBody).toEqual(['cinturon1_dsk']);
+    });
+
+    it('executes resolveDynamicBodyBanners for mobile DS-Body even when first DOM slot group is not nota', () => {
+        getDynamicSlotIdsByDevice.mockReturnValue([]);
+
+        const bannersInBody = [];
+
+        bannerConfigType({
+            bannerConfig: { type: 'LN/DS-Body' },
+            slotGroup: 'header',
+            device: 'mobile',
+            subtype: OPINION,
+            layout: 'LN-Nota-Opinion',
+            bannersToLoadFromDOM: [
+                { opt_div: 'body_caja1_mob' },
+                { opt_div: 'body_caja5_mob' },
+                { opt_div: 'body_cinturon5_dsk' }
+            ],
+            bannersInBody
+        });
+
+        expect(bannersInBody).toEqual(['body_caja1_mob', 'body_caja5_mob']);
     });
 
     it('executes resolveDynamicBodyBanners when liveblog body type matches', () => {

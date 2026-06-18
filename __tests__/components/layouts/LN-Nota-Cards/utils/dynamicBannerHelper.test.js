@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import {
     createDynamicBannerConfig,
+    mapBannerConfigToGoogleTagConfig,
     getDynamicBannerSettings,
     validateBannerConfig,
     BannerWithWrapper
@@ -20,7 +21,7 @@ describe('Dynamic Banner Helper', () => {
     };
 
     describe('createDynamicBannerConfig', () => {
-        it('should respect opinion max banners limit', () => {
+        it('should not limit banners for opinion layout', () => {
             const opinionContent = {
                 ...mockGlobalContent,
                 subtype: OPINION
@@ -41,7 +42,37 @@ describe('Dynamic Banner Helper', () => {
                     5,
                     'LN-Nota-Opinion'
                 )
-            ).toBeNull();
+            ).toBeDefined();
+            expect(
+                createDynamicBannerConfig(
+                    opinionContent,
+                    'mobile',
+                    20,
+                    'LN-Nota-Opinion'
+                ).elementId
+            ).toBe('body_caja20_mob');
+        });
+
+        it('should use unique DOM ids for unlimited dynamic body banners', () => {
+            const opinionContent = {
+                ...mockGlobalContent,
+                subtype: OPINION
+            };
+            const config = createDynamicBannerConfig(
+                opinionContent,
+                'mobile',
+                5,
+                'LN-Nota-Opinion'
+            );
+            const googleTagConfig = mapBannerConfigToGoogleTagConfig(config);
+
+            expect(config.slotId).toBe('caja5_mob');
+            expect(config.elementId).toBe('body_caja5_mob');
+            expect(config.slotName).toBe('la_nacion_mobile/Nota/caja5_mob');
+            expect(googleTagConfig.opt_div).toBe('body_caja5_mob');
+            expect(googleTagConfig.adUnitPath).toBe(
+                '/133919216/la_nacion_mobile/Nota/caja5_mob'
+            );
         });
 
         it('should create desktop cinturon banner configuration', () => {
@@ -250,7 +281,7 @@ describe('Dynamic Banner Helper', () => {
             });
 
             expect(settings.BannerComponent).toBe(BannerWithWrapper);
-            expect(settings.maxBanners).toBe(4);
+            expect(settings.maxBanners).toBeUndefined();
         });
 
         it('returns DivBannerSSR for non-opinion subtype', () => {
