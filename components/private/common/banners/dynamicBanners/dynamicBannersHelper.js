@@ -18,25 +18,10 @@ export const SUPPORTED_DEVICES = ['desktop', 'mobile'];
 
 const BODY_DYNAMIC_BANNER_ID_PREFIX = 'body_';
 
-const DYNAMIC_BANNER_CLASS_BY_DEVICE = {
-    desktop: 'relative hidden md:flex',
-    mobile: 'relative md:hidden'
-};
-
-const hasSlotStyles = slotId => /^(cinturon|caja)[1-4]_(dsk|mob)$/.test(slotId);
-
-const getDynamicBannerClassName = bannerConfiguration =>
-    hasSlotStyles(bannerConfiguration?.slotId)
-        ? undefined
-        : DYNAMIC_BANNER_CLASS_BY_DEVICE[bannerConfiguration?.device];
-
 export function BannerWithWrapper({ bannerConfiguration }) {
     return (
         <WrapperBody variant="full-screen">
-            <Banner
-                bannerConfiguration={bannerConfiguration}
-                className={getDynamicBannerClassName(bannerConfiguration)}
-            />
+            <Banner bannerConfiguration={bannerConfiguration} />
         </WrapperBody>
     );
 }

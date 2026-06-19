@@ -2,9 +2,13 @@ import React from 'react';
 import { cx } from '@ln/ds-cva';
 import flatArray from '../../../../private/common/utils/flatArray';
 import get from '../../../../private/common/utils/get';
-import { bannerWrapperVariants, bannerPlaceholderVariants } from './styles';
+import {
+    bannerWrapperVariants,
+    bannerPlaceholderVariants,
+    resolveBannerWrapperSlotId
+} from './styles';
 
-function Banner({ bannerConfiguration, className }) {
+function Banner({ bannerConfiguration }) {
     const {
         slotId,
         elementId,
@@ -28,8 +32,10 @@ function Banner({ bannerConfiguration, className }) {
     return (
         <div
             className={cx(
-                bannerWrapperVariants({ slotId, theme }),
-                className,
+                bannerWrapperVariants({
+                    slotId: resolveBannerWrapperSlotId(slotId),
+                    theme
+                }),
                 '--no-app'
             )}
             style={{ height: `${maxHeightDimension}px` }}
