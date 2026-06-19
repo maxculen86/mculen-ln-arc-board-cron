@@ -144,7 +144,7 @@ describe('LN10_Caja_Encuesta', () => {
             experimentName: ENCUESTA_HOME_EXPERIMENT_NAME,
             testDigits: ['1', '3'],
             controlDigits: ['0', '2'],
-            syncSegmentoNotaStorage: false
+            syncStorage: false
         });
     });
 

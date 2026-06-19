@@ -1,14 +1,35 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
-// TODO hacer unit test, fix hooks y default props
+import useNotaSegment from '../../private/LN/common/hooks/useNotaSegment';
+import getRenderState from '../../private/LN/common/utils/segmentation/getRenderState';
+import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-function seguirLeyendo({ globalContent, outputType }) {
+const SEGMENTATION_GROUP = 'Segmentación A/B';
+function seguirLeyendo({ globalContent, outputType, customFields, isAdmin }) {
     const noteId = globalContent?._id;
     const { arcSite } = useAppContext();
+    const {
+        experimentName,
+        segmentAndHide = false,
+        testDigits,
+        controlDigits
+    } = customFields;
+
+    const { segment, ready } = useNotaSegment({
+        experimentName,
+        testDigits,
+        controlDigits,
+        storageKey: 'SegmentoSeguirLeyendo'
+    });
+
+    const segmentationConfigError =
+        !experimentName ||
+        (testDigits.length === 0 && controlDigits.length === 0);
 
     const articles =
         useContent(
@@ -25,13 +46,32 @@ function seguirLeyendo({ globalContent, outputType }) {
                 : null
         ) || [];
 
+    const shouldTrackBox = noteId && !segmentAndHide && ready && segment;
+
     useEffect(() => {
+        if (!shouldTrackBox) return;
+
         articleBoxesTracker({
             boxType: 'seguirLeyendo'
         });
     }, []);
 
-    if (!articles.length) return null;
+    const { shouldRender, warning } = getRenderState({
+        hasSection: Boolean(noteId),
+        isAdmin,
+        segmentationConfigError,
+        segmentAndHide,
+        ready,
+        activeSegment: segment
+    });
+
+    if (warning) {
+        return (
+            <PageBuilderMessage type={warning.type} message={warning.message} />
+        );
+    }
+
+    if (!shouldRender || !articles.length) return null;
 
     return (
         <div className="row">
@@ -55,5 +95,46 @@ function seguirLeyendo({ globalContent, outputType }) {
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 seguirLeyendo.lazy = true;
+
+seguirLeyendo.propTypes = {
+    customFields: PropTypes.shape({
+        experimentName: PropTypes.string.tag({
+            label: 'Nombre del experimento',
+            description: 'Identificador único (ej. "Exp01").',
+            defaultValue: '',
+            group: SEGMENTATION_GROUP
+        }),
+
+        segmentAndHide: PropTypes.boolean.tag({
+            label: 'Segmentar y ocultar',
+            description:
+                'Calcula y persiste el segmento sin renderizar la caja.',
+            defaultValue: false,
+            group: SEGMENTATION_GROUP
+        }),
+
+        testSeparator: PropTypes.label.tag({
+            label: '──────── TEST ────────',
+            description: 'Configuración de la variante TEST.',
+            group: SEGMENTATION_GROUP
+        }),
+
+        testDigits: PropTypes.list.tag({
+            label: 'Último dígito del Client ID',
+            group: SEGMENTATION_GROUP
+        }),
+
+        controlSeparator: PropTypes.label.tag({
+            label: '──────── CONTROL ────────',
+            description: 'Configuración de la variante CONTROL.',
+            group: SEGMENTATION_GROUP
+        }),
+
+        controlDigits: PropTypes.list.tag({
+            label: 'Último dígito del Client ID',
+            group: SEGMENTATION_GROUP
+        })
+    })
+};
 
 export default Consumer(seguirLeyendo);
