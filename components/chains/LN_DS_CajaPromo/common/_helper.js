@@ -21,6 +21,16 @@ const MIN_DIAGRAMATION_ITEMS = {
     twoHorizontal: 2
 };
 
+export const getGameDiagramationItems = (
+    gameItems = [],
+    diagramationType = ''
+) => {
+    const limit =
+        DIAGRAMATION_ITEM_LIMITS[diagramationType] || gameItems.length;
+
+    return gameItems.slice(0, limit);
+};
+
 export const validateGamesChain = (
     layout = '',
     customFields = {},
