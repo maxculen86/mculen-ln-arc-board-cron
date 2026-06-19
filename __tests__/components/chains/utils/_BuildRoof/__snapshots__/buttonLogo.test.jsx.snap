@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BuildRoof — hrefButton contract (Roof.Right renders <span> when empty) via @ln/contenidos-ui-roof >= 1.1.36-beta.0 snapshot: Roof.Right output mirrors the lib contract renders <a> when linkButton is provided 1`] = `
+<div>
+  <div>
+    <div />
+    <a
+      href="https://example.com/suscribite"
+    >
+      Suscribite
+    </a>
+  </div>
+</div>
+`;
+
+exports[`BuildRoof — hrefButton contract (Roof.Right renders <span> when empty) via @ln/contenidos-ui-roof >= 1.1.36-beta.0 snapshot: Roof.Right output mirrors the lib contract renders <span> when no linkButton 1`] = `
+<div>
+  <div>
+    <div />
+    <span>
+      Suscribite
+    </span>
+  </div>
+</div>
+`;
