@@ -110,7 +110,7 @@ export const trackMilestone = ({
     sentProgressRef.current.add(percentage);
 
     addEventToDataLayerV2({
-        event: String(percentage),
+        event: percentage === 100 ? 'videoComplete' : String(percentage),
         rest: {
             videoID: String(videoId || ''),
             videoName: String(title || '')

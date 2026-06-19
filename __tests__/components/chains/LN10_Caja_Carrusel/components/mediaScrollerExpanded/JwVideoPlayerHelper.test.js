@@ -170,7 +170,7 @@ describe('components - chains - ln10_caja_carrusel - components - jwVideoPlayerH
             }
         });
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(4, {
-            event: '100',
+            event: 'videoComplete',
             rest: {
                 videoID: 'test-video-id',
                 videoName: 'Test video'
