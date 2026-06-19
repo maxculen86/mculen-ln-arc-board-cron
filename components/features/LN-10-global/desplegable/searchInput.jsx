@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { cx } from '@ln/ds-cva';
+import { useClickOutside, useFocusTrap } from '@ln/ds-hooks';
 import Icon from '../../ui/ln/icon/default';
 import Formcontrol from '../../ui/ln/formControl/default';
 import Button from '../../ui/ln/button/default';
@@ -28,17 +29,17 @@ export default function InputSection({
         if (autoFocus) compactInputRef.current?.focus();
     }, []);
 
-    useEffect(() => {
-        const handleClickOutside = e => {
-            const clickedOutside =
-                containerRef.current &&
-                !containerRef.current.contains(e.target);
-            if (collapsible && isOpen && clickedOutside) onClose?.();
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () =>
-            document.removeEventListener('mousedown', handleClickOutside);
-    }, [collapsible, isOpen, onClose]);
+    useClickOutside({
+        refs: [containerRef],
+        handler: onClose,
+        enabled: collapsible && isOpen
+    });
+
+    useFocusTrap({
+        containerRef,
+        enabled: collapsible && isOpen,
+        initialFocusRef: compactInputRef
+    });
 
     useEffect(() => {
         if (isOpen && autoFocus) compactInputRef.current?.focus();
