@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPromoDescription snapshots matches snapshot when no children (renders null) 1`] = `<DocumentFragment />`;
+
+exports[`CardPromoDescription snapshots matches snapshot with children 1`] = `
+<DocumentFragment>
+  <p
+    class="ds-card-description"
+  >
+    Descripción
+  </p>
+</DocumentFragment>
+`;

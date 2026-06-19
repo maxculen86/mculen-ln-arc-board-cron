@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPromoRoot snapshots matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <a
+    class="ds-card"
+    href="/test"
+    target="_self"
+  >
+    Contenido
+  </a>
+</DocumentFragment>
+`;
+
+exports[`CardPromoRoot snapshots matches snapshot with size and orientation 1`] = `
+<DocumentFragment>
+  <a
+    class="ds-card"
+    href="/test"
+    target="_self"
+  >
+    Contenido
+  </a>
+</DocumentFragment>
+`;

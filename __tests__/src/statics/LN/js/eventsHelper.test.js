@@ -149,3 +149,143 @@ describe('EventsHelper setEventsRoof', () => {
         expect(addEventCall.label).not.toMatch(/<[^>]+>/);
     });
 });
+
+describe('EventsHelper setEventsGames', () => {
+    let eventsHelper;
+
+    beforeEach(() => {
+        eventsHelper = new EventsHelper();
+        eventsHelper.addEventToDataLayer = jest.fn();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        document.body.innerHTML = '';
+    });
+
+    it('should fire the jugar event when a data-game-link anchor is clicked', () => {
+        document.body.innerHTML = `
+            <a data-game-link="true" title="Juego Uno" href="#">Jugar</a>
+        `;
+
+        eventsHelper.setEventsGames();
+
+        document
+            .querySelector('[data-game-link="true"]')
+            .dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).toHaveBeenCalledTimes(1);
+        const payload = eventsHelper.addEventToDataLayer.mock.calls[0][0];
+        expect(payload.action).toBe('jugar');
+        expect(payload.category).toBe('juegos_ln10');
+        expect(payload.label).toBe('jugar_juego_uno');
+    });
+
+    it('should not fire on podcast anchors when they share the .ln-card-games container', () => {
+        document.body.innerHTML = `
+            <div class="ln-card-games">
+                <a data-videopodcast-link="true" title="Podcast Uno" href="#">Escuchar</a>
+            </div>
+        `;
+
+        eventsHelper.setEventsGames();
+
+        document.querySelector('a').dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).not.toHaveBeenCalled();
+    });
+
+    it('should bind the listener only once when setEventsGames runs multiple times', () => {
+        document.body.innerHTML = `
+            <a data-game-link="true" title="Juego Uno" href="#">Jugar</a>
+        `;
+
+        eventsHelper.setEventsGames();
+        eventsHelper.setEventsGames();
+
+        document
+            .querySelector('[data-game-link="true"]')
+            .dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('EventsHelper setEventsVideoPodcast', () => {
+    let eventsHelper;
+
+    beforeEach(() => {
+        eventsHelper = new EventsHelper();
+        eventsHelper.addEventToDataLayer = jest.fn();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        document.body.innerHTML = '';
+    });
+
+    it('should fire the escuchar event when a data-videopodcast-link anchor is clicked', () => {
+        document.body.innerHTML = `
+            <a data-videopodcast-link="true" title="Podcast Con Tema" href="#">Escuchar</a>
+        `;
+
+        eventsHelper.setEventsVideoPodcast();
+
+        document
+            .querySelector('[data-videopodcast-link="true"]')
+            .dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).toHaveBeenCalledTimes(1);
+        const payload = eventsHelper.addEventToDataLayer.mock.calls[0][0];
+        expect(payload.action).toBe('escuchar');
+        expect(payload.category).toBe('podcast_ln10');
+        expect(payload.label).toBe('escuchar_podcast_con_tema');
+    });
+
+    it('should bind the listener only once when setEventsVideoPodcast runs multiple times', () => {
+        document.body.innerHTML = `
+            <a data-videopodcast-link="true" title="Podcast Con Tema" href="#">Escuchar</a>
+        `;
+
+        eventsHelper.setEventsVideoPodcast();
+        eventsHelper.setEventsVideoPodcast();
+
+        document
+            .querySelector('[data-videopodcast-link="true"]')
+            .dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('EventsHelper games/podcast coexistence', () => {
+    let eventsHelper;
+
+    beforeEach(() => {
+        eventsHelper = new EventsHelper();
+        eventsHelper.addEventToDataLayer = jest.fn();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        document.body.innerHTML = '';
+    });
+
+    it('should fire only escuchar and not jugar when a podcast lives under .ln-card-games', () => {
+        document.body.innerHTML = `
+            <div class="ln-card-games">
+                <a data-videopodcast-link="true" title="Podcast Con Tema" href="#">Escuchar</a>
+            </div>
+        `;
+
+        eventsHelper.setEventsGames();
+        eventsHelper.setEventsVideoPodcast();
+
+        document.querySelector('a').dispatchEvent(new MouseEvent('click'));
+
+        expect(eventsHelper.addEventToDataLayer).toHaveBeenCalledTimes(1);
+        expect(eventsHelper.addEventToDataLayer.mock.calls[0][0].action).toBe(
+            'escuchar'
+        );
+    });
+});

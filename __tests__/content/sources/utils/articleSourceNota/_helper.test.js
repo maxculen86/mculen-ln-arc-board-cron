@@ -10,7 +10,8 @@ import {
     updateUrlIfMatch,
     getIncludedFields,
     checkIfExternalRedirect,
-    transformSubtype
+    transformSubtype,
+    getImageConfig
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
 import {
@@ -1755,6 +1756,84 @@ describe('Tests articleSourceNota - _helper', () => {
                 }
             };
             expect(parseImageText(image)).toEqual(expected);
+        });
+    });
+
+    describe('Tests getImageConfig - presetsPromoItemStorytelling', () => {
+        const fotoAl100Preset = { sizes: [{ width: 420, height: 630 }] };
+        const diagramPreset = { sizes: [{ width: 560, height: 375 }] };
+
+        const baseSiteProperties = {
+            imageConfig: {
+                resize: {
+                    fotoAl100: { promo_items: fotoAl100Preset },
+                    'image-50-right-title-left': { promo_items: diagramPreset },
+                    l: {
+                        promo_items: { sizes: [] },
+                        content_elements: { sizes: [] },
+                        credits: {}
+                    }
+                }
+            }
+        };
+
+        it('should use the diagram preset when custom_storytelling_opening has a known diagram key', () => {
+            const response = {
+                subtype: '4',
+                promo_items: {
+                    custom_storytelling_opening: {
+                        embed: {
+                            config: { diagram: 'image-50-right-title-left' }
+                        },
+                        subtype: 'custom-storytelling-opening'
+                    }
+                }
+            };
+
+            const { presets } = getImageConfig({
+                response,
+                siteProperties: baseSiteProperties,
+                imageConfig: null
+            });
+
+            expect(presets.promoItems).toEqual(diagramPreset);
+        });
+
+        it('should fall back to fotoAl100 preset when custom_storytelling_opening diagram key is not in imageConfig', () => {
+            const response = {
+                subtype: '4',
+                promo_items: {
+                    custom_storytelling_opening: {
+                        embed: {
+                            config: { diagram: 'image-100-title-below' }
+                        },
+                        subtype: 'custom-storytelling-opening'
+                    }
+                }
+            };
+
+            const { presets } = getImageConfig({
+                response,
+                siteProperties: baseSiteProperties,
+                imageConfig: null
+            });
+
+            expect(presets.promoItems).toEqual(fotoAl100Preset);
+        });
+
+        it('should fall back to fotoAl100 preset when custom_storytelling_opening is absent', () => {
+            const response = {
+                subtype: '4',
+                promo_items: {}
+            };
+
+            const { presets } = getImageConfig({
+                response,
+                siteProperties: baseSiteProperties,
+                imageConfig: null
+            });
+
+            expect(presets.promoItems).toEqual(fotoAl100Preset);
         });
     });
 

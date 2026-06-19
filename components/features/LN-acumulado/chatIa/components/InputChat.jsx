@@ -36,7 +36,8 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
         >
             <Formcontrol.Adornment className="-mr-12" position="start">
                 <Icon
-                    name="ia"
+                    type="color"
+                    name="ia-star"
                     size={20}
                     className="text-[var(--primary-ia)]"
                 />

@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import IaSummary from '../../../../../../components/features/LN/common/iaSummary/default';
 
-jest.mock('@ln/ds-common-motion', () => ({
-    Motion: ({ show, children }) => (show ? children : null)
+jest.mock('@ln/ds-common-animatepresence', () => ({
+    AnimatePresence: ({ show, children }) => (show ? children : null)
 }));
 
 const defaultSummaryData = [
