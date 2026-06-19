@@ -14,7 +14,9 @@ const DIAGRAMATIONS = {
     oneLargeFourSmall: CardDiagramation.Featured,
     twoHorizontal: CardDiagramation.Half,
     fourVertical: CardDiagramation.Quarter,
-    oneHorizontalThreeVertical: CardDiagramation.OneHorizontalThree
+    oneHorizontalThreeVertical: CardDiagramation.OneHorizontalThree,
+    threeVertical: CardDiagramation.Three,
+    oneHorizontal: CardDiagramation.One
 };
 
 function LNDSCajaPromo({ customFields, children, ...props }) {
@@ -86,7 +88,9 @@ LNDSCajaPromo.propTypes = {
             'oneLargeFourSmall',
             'twoHorizontal',
             'fourVertical',
-            'oneHorizontalThreeVertical'
+            'oneHorizontalThreeVertical',
+            'threeVertical',
+            'oneHorizontal'
         ]).tag({
             label: 'Diagramación',
             description: 'Cambiar el diseño de la caja',
@@ -95,7 +99,9 @@ LNDSCajaPromo.propTypes = {
                 oneLargeFourSmall: 'Cards 1 + 4',
                 twoHorizontal: 'Cards x 2',
                 fourVertical: 'Cards x 4',
-                oneHorizontalThreeVertical: 'Cards 1 + 3'
+                oneHorizontalThreeVertical: 'Cards 1 + 3',
+                threeVertical: 'Apertura 3 Cajas',
+                oneHorizontal: 'Apertura 1 Caja'
             }
         }),
         contentType: PropTypes.oneOf(['game', 'podcast']).tag({

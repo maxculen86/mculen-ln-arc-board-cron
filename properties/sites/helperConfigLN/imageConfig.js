@@ -1622,6 +1622,40 @@ export default {
                 ]
             }
         },
+        cardPromoThree: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 450,
+                        height: 450,
+                        maxScreenWidth: 767,
+                        useFullSize: true
+                    },
+                    {
+                        width: 420,
+                        height: 420,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
+        cardPromoOne: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 450,
+                        height: 450,
+                        maxScreenWidth: 767,
+                        useFullSize: true
+                    },
+                    {
+                        width: 500,
+                        height: 500,
+                        useFullSize: true
+                    }
+                ]
+            }
+        },
         'wide-single': {
             promo_items: {
                 sizes: [
