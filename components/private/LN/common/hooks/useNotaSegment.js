@@ -3,14 +3,16 @@ import getGaClientId from '../utils/segmentation/getGaClientId';
 import computeSegment from '../utils/segmentation/computeSegment';
 import {
     removeSegmentoNota,
-    upsertSegmentoNota
+    upsertSegmentoNota,
+    STORAGE_KEY
 } from '../utils/segmentation/segmentoNotaStorage';
 
 const useNotaSegment = ({
     experimentName,
     testDigits = [],
     controlDigits = [],
-    syncSegmentoNotaStorage = true
+    syncStorage = true,
+    storageKey = STORAGE_KEY
 } = {}) => {
     const [segment, setSegment] = useState(null);
     const [ready, setReady] = useState(false);
@@ -22,7 +24,7 @@ const useNotaSegment = ({
             setSegment(null);
             setReady(true);
         } else if (testDigits.length === 0 && controlDigits.length === 0) {
-            if (syncSegmentoNotaStorage) removeSegmentoNota(experimentName);
+            if (syncStorage) removeSegmentoNota(experimentName, storageKey);
             setSegment(null);
             setReady(true);
         } else {
@@ -38,9 +40,14 @@ const useNotaSegment = ({
                     ? computeSegment(clientId, { testDigits, controlDigits })
                     : null;
 
-                if (syncSegmentoNotaStorage) {
-                    if (computed) upsertSegmentoNota(experimentName, computed);
-                    else removeSegmentoNota(experimentName);
+                if (syncStorage) {
+                    if (computed)
+                        upsertSegmentoNota(
+                            experimentName,
+                            computed,
+                            storageKey
+                        );
+                    else removeSegmentoNota(experimentName, storageKey);
                 }
 
                 setSegment(computed);
@@ -55,7 +62,7 @@ const useNotaSegment = ({
         }
 
         return cleanup;
-    }, [experimentName, testDigits, controlDigits, syncSegmentoNotaStorage]);
+    }, [experimentName, testDigits, controlDigits, syncStorage, storageKey]);
 
     return { segment, ready };
 };

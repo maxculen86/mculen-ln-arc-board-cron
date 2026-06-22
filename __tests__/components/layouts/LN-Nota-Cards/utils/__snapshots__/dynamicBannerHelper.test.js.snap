@@ -135,7 +135,7 @@ exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 4 (
 exports[`Dynamic Banner Helper Banner snapshots renders desktop banner index 5 (slotId snapshot) 1`] = `
 <DocumentFragment>
   <div
-    class="ds-banner ds-banner-background --no-app"
+    class="ds-banner ds-banner-background relative hidden md:flex --no-app"
     style="height: 300px;"
   >
     <div
@@ -333,7 +333,7 @@ exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 4 (s
 exports[`Dynamic Banner Helper Banner snapshots renders mobile banner index 5 (slotId snapshot) 1`] = `
 <DocumentFragment>
   <div
-    class="ds-banner ds-banner-background --no-app"
+    class="ds-banner ds-banner-background relative md:hidden --no-app"
     style="height: 600px;"
   >
     <div

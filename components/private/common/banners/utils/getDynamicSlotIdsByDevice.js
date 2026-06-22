@@ -14,6 +14,7 @@ export const getDynamicSlotIdsByDevice = ({
 
     const base = device === 'desktop' ? 'cinturon' : 'caja';
     const { maxBanners } = getDynamicBannerSettings({ subtype, layout });
+    if (maxBanners === undefined) return [];
 
     return createSlotIds({ prefix: base, max: maxBanners, suffix });
 };
