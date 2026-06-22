@@ -144,3 +144,51 @@ describe('BuildRoof — buttonLogo with loading="lazy" via @ln/contenidos-ui-roo
         });
     });
 });
+
+describe('BuildRoof — hrefButton contract (Roof.Right renders <span> when empty) via @ln/contenidos-ui-roof >= 1.1.36-beta.0', () => {
+    it('passes an empty hrefButton to Roof.Right when linkButton is not provided', () => {
+        render(<BuildRoof {...baseProps} />);
+
+        const rightProps = getRoofRightProps();
+        expect(rightProps.hrefButton).toBe('');
+    });
+
+    it('propagates linkButton as hrefButton to Roof.Right when provided', () => {
+        const linkButton = 'https://example.com/suscribite';
+        render(<BuildRoof {...baseProps} linkButton={linkButton} />);
+
+        const rightProps = getRoofRightProps();
+        expect(rightProps.hrefButton).toBe(linkButton);
+    });
+
+    describe('snapshot: Roof.Right output mirrors the lib contract', () => {
+        beforeEach(() => {
+            const { Roof } = jest.requireMock('@ln/contenidos-ui-roof');
+            Roof.Right.mockImplementation(({ hrefButton, textButton }) =>
+                hrefButton ? (
+                    <a href={hrefButton}>{textButton}</a>
+                ) : (
+                    <span>{textButton}</span>
+                )
+            );
+        });
+
+        it('renders <span> when no linkButton', () => {
+            const { container } = render(
+                <BuildRoof {...baseProps} buttonText="Suscribite" />
+            );
+            expect(container).toMatchSnapshot();
+        });
+
+        it('renders <a> when linkButton is provided', () => {
+            const { container } = render(
+                <BuildRoof
+                    {...baseProps}
+                    buttonText="Suscribite"
+                    linkButton="https://example.com/suscribite"
+                />
+            );
+            expect(container).toMatchSnapshot();
+        });
+    });
+});
