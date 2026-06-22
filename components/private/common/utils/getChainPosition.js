@@ -3,7 +3,8 @@ import get from './get';
 
 const EXCLUDED_CHAIN_POSITION_TYPES = [
     'LN10_Caja_Juegos_v2',
-    'LN10_Caja_Encuesta'
+    'LN10_Caja_Encuesta',
+    'LN_DS_CajaPromo'
 ];
 
 const getChainPosition = (chainId, termicaCajaSegmentada, renderables = []) => {

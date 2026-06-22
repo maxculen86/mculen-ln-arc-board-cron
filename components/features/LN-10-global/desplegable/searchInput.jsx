@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import { cx } from '@ln/ds-cva';
+import { useClickOutside, useFocusTrap } from '@ln/ds-hooks';
 import Icon from '../../ui/ln/icon/default';
 import Formcontrol from '../../ui/ln/formControl/default';
 import Button from '../../ui/ln/button/default';
@@ -22,10 +23,23 @@ export default function InputSection({
     const [typedByUser, setTypedByUser] = useState(false);
     const isSubmittingRef = useRef(false);
     const compactInputRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         if (autoFocus) compactInputRef.current?.focus();
     }, []);
+
+    useClickOutside({
+        refs: [containerRef],
+        handler: onClose,
+        enabled: collapsible && isOpen
+    });
+
+    useFocusTrap({
+        containerRef,
+        enabled: collapsible && isOpen,
+        initialFocusRef: compactInputRef
+    });
 
     useEffect(() => {
         if (isOpen && autoFocus) compactInputRef.current?.focus();
@@ -119,7 +133,7 @@ export default function InputSection({
     );
 
     return (
-        <Formcontrol className={classNameInput}>
+        <Formcontrol ref={containerRef} className={classNameInput}>
             {!showActions && !shouldListen && (
                 <Formcontrol.Adornment className="pl-8" position="start">
                     <Icon

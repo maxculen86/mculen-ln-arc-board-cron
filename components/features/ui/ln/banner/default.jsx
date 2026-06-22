@@ -2,11 +2,16 @@ import React from 'react';
 import { cx } from '@ln/ds-cva';
 import flatArray from '../../../../private/common/utils/flatArray';
 import get from '../../../../private/common/utils/get';
-import { bannerWrapperVariants, bannerPlaceholderVariants } from './styles';
+import {
+    bannerWrapperVariants,
+    bannerPlaceholderVariants,
+    resolveBannerWrapperSlotId
+} from './styles';
 
 function Banner({ bannerConfiguration }) {
     const {
         slotId,
+        elementId,
         slotGroup,
         device,
         dfpId,
@@ -18,6 +23,7 @@ function Banner({ bannerConfiguration }) {
         hideForSubscriptor,
         theme
     } = bannerConfiguration;
+    const bannerId = elementId || slotId;
 
     const maxHeightDimension = Math.max(
         ...dimensions.map(([, height]) => height)
@@ -25,7 +31,13 @@ function Banner({ bannerConfiguration }) {
 
     return (
         <div
-            className={cx(bannerWrapperVariants({ slotId, theme }), '--no-app')}
+            className={cx(
+                bannerWrapperVariants({
+                    slotId: resolveBannerWrapperSlotId(slotId),
+                    theme
+                }),
+                '--no-app'
+            )}
             style={{ height: `${maxHeightDimension}px` }}
         >
             <div className={bannerPlaceholderVariants.wrapper({ theme })}>
@@ -34,7 +46,7 @@ function Banner({ bannerConfiguration }) {
                 </span>
             </div>
             <div
-                id={slotId}
+                id={bannerId}
                 className="relative z-1 flex justify-center items-center w-full"
                 style={{ height: `${maxHeightDimension}px` }}
                 data-slot-group={slotGroup}

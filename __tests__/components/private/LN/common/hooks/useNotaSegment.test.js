@@ -26,7 +26,8 @@ jest.mock(
     '../../../../../../components/private/LN/common/utils/segmentation/segmentoNotaStorage',
     () => ({
         removeSegmentoNota: jest.fn(),
-        upsertSegmentoNota: jest.fn()
+        upsertSegmentoNota: jest.fn(),
+        STORAGE_KEY: 'SegmentoNota'
     })
 );
 
@@ -55,14 +56,18 @@ describe('useNotaSegment', () => {
         });
 
         expect(result.current.segment).toBe('test');
-        expect(upsertSegmentoNota).toHaveBeenCalledWith('Exp01', 'test');
+        expect(upsertSegmentoNota).toHaveBeenCalledWith(
+            'Exp01',
+            'test',
+            'SegmentoNota'
+        );
         expect(computeSegment).toHaveBeenCalledWith('1234567890.1234567893', {
             testDigits: ['3'],
             controlDigits: ['4']
         });
     });
 
-    it('returns the segment without syncing SegmentoNota storage when syncSegmentoNotaStorage=false', async () => {
+    it('returns the segment without syncing storage when syncStorage=false', async () => {
         getGaClientId.mockResolvedValue('1234567890.1234567893');
         computeSegment.mockReturnValue('test');
 
@@ -71,7 +76,7 @@ describe('useNotaSegment', () => {
                 experimentName: 'Exp01',
                 testDigits: ['3'],
                 controlDigits: ['4'],
-                syncSegmentoNotaStorage: false
+                syncStorage: false
             })
         );
 
@@ -110,16 +115,19 @@ describe('useNotaSegment', () => {
 
         expect(result.current).toEqual({ segment: null, ready: true });
         expect(getGaClientId).not.toHaveBeenCalled();
-        expect(removeSegmentoNota).toHaveBeenCalledWith('Exp01');
+        expect(removeSegmentoNota).toHaveBeenCalledWith(
+            'Exp01',
+            'SegmentoNota'
+        );
     });
 
-    it('does not remove SegmentoNota storage when digit lists are empty and syncSegmentoNotaStorage=false', () => {
+    it('does not remove storage when digit lists are empty and syncStorage=false', () => {
         const { result } = renderHook(() =>
             useNotaSegment({
                 experimentName: 'Exp01',
                 testDigits: [],
                 controlDigits: [],
-                syncSegmentoNotaStorage: false
+                syncStorage: false
             })
         );
 
@@ -146,7 +154,10 @@ describe('useNotaSegment', () => {
         expect(result.current.segment).toBeNull();
         expect(computeSegment).not.toHaveBeenCalled();
         expect(upsertSegmentoNota).not.toHaveBeenCalled();
-        expect(removeSegmentoNota).toHaveBeenCalledWith('Exp01');
+        expect(removeSegmentoNota).toHaveBeenCalledWith(
+            'Exp01',
+            'SegmentoNota'
+        );
     });
 
     it('returns ready=true with segment=null when segment cannot be computed (digit not in any list)', async () => {
@@ -168,7 +179,10 @@ describe('useNotaSegment', () => {
         expect(result.current.segment).toBeNull();
         expect(computeSegment).toHaveBeenCalled();
         expect(upsertSegmentoNota).not.toHaveBeenCalled();
-        expect(removeSegmentoNota).toHaveBeenCalledWith('Exp01');
+        expect(removeSegmentoNota).toHaveBeenCalledWith(
+            'Exp01',
+            'SegmentoNota'
+        );
     });
 
     it('clears the previous segment while recalculating after config changes', async () => {

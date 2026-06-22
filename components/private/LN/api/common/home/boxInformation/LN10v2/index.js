@@ -21,6 +21,7 @@ export const boxInfoBySectionAliasLN10v2 = {
     'ln-common/ln10_opinion': boxInfoOpinion,
     'ln-common/ln10_editorial': boxInfoEditorial,
     ln10_caja_juegos_v2: boxInfoCajaJuegos,
+    ln_ds_cajapromo: boxInfoCajaJuegos,
     ln10_caja_segmentada: boxInfoCajaSegmentada,
     default: boxInfoComplete
 };

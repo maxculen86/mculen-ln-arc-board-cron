@@ -5,7 +5,8 @@ const defaultBannerStrategy = {
     shouldInsert: ({ itemIndex, bannerIndex, maxBanners }) => {
         const isInsertPosition =
             (itemIndex + 1) % BANNER_INSERT_INTERVAL === 0 && itemIndex >= 0;
-        const withinLimit = bannerIndex <= maxBanners;
+        const withinLimit =
+            maxBanners === undefined || bannerIndex <= maxBanners;
 
         return isInsertPosition && withinLimit;
     },
@@ -15,7 +16,8 @@ const defaultBannerStrategy = {
 
 const opinionBannerStrategy = {
     shouldInsert: ({ itemIndex, bannerCounter, bannerIndex, maxBanners }) => {
-        const withinLimit = bannerIndex <= maxBanners;
+        const withinLimit =
+            maxBanners === undefined || bannerIndex <= maxBanners;
 
         if (!withinLimit) return false;
 

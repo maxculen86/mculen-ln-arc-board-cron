@@ -79,7 +79,7 @@ function renderWithBannersVisibility(labelText) {
 }
 
 function countRenderedBannerSlots(container) {
-    const bannerSlotIdPattern = /^(cinturon|caja)\d+_(dsk|mob)$/;
+    const bannerSlotIdPattern = /^(body_)?(cinturon|caja)\d+_(dsk|mob)$/;
     return Array.from(container.querySelectorAll('[id]')).filter(element =>
         bannerSlotIdPattern.test(element.id)
     ).length;

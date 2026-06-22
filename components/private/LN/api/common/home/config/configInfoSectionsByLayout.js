@@ -48,9 +48,13 @@ export const infoLNMainLN10 = {
     title: { tipoSeccion: 'title', idSeccion: 704 },
     ranking: { tipoSeccion: 'ranking', idSeccion: 701 },
     ln10_caja_juegos_v2: { tipoSeccion: 'juegos', idSeccion: 705 },
+    ln_ds_cajapromo: { tipoSeccion: 'juegos', idSeccion: 705 },
     default: { tipoSeccion: 'tema', idSeccion: 305 },
     ln10_caja_carrusel: { tipoSeccion: 'carrusel', idSeccion: 800 },
-    ln10_caja_carrusel_horizontal: { tipoSeccion: 'carruselHorizontal', idSeccion: 800 },
+    ln10_caja_carrusel_horizontal: {
+        tipoSeccion: 'carruselHorizontal',
+        idSeccion: 800
+    },
     ln10_caja_segmentada: { tipoSeccion: 'segmento', idSeccion: 707 }
 };
 

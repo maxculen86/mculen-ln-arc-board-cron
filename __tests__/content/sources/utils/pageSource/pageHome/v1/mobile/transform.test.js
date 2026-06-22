@@ -44,6 +44,25 @@ const pageLayoutLNMain = {
         }
     ]
 };
+const cajapromoPodcastElement = {
+    type: 8,
+    sectionAliasMobile: 'ln_ds_cajapromo',
+    information: {
+        contentType: 'podcast',
+        title: 'caja promo',
+        hideTitle: false,
+        layout: 'fourVertical',
+        hideCaja: false,
+        nameChain: 'LN_DS_CajaPromo'
+    },
+    items: [
+        {
+            closed: 'NO',
+            id: '/podcast/1',
+            badge: 'NUEVO'
+        }
+    ]
+};
 const mockSetVar = jest.fn();
 const mockPageLayoutLNMainContent = jest.fn();
 const mockSetRanking = jest.fn();
@@ -274,5 +293,40 @@ describe('Test transform page', () => {
         });
         const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
         expect(result.length).toBe(1);
+    });
+
+    it('should filter content_elements ds_cajapromo podcast', async () => {
+        const newPageLayoutLNMain = JSON.parse(
+            JSON.stringify(pageLayoutLNMain)
+        );
+        newPageLayoutLNMain.content_elements.push(cajapromoPodcastElement);
+
+        mockPageLayoutLNMainContent.mockImplementation(() => {
+            return newPageLayoutLNMain.content_elements;
+        });
+        mockSetRanking.mockImplementation(props => {
+            return props.elementsPage;
+        });
+        const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
+        expect(result.length).toBe(2);
+    });
+
+    it('should return content_elements with ds_cajapromo juegos', async () => {
+        const newPageLayoutLNMain = JSON.parse(
+            JSON.stringify(pageLayoutLNMain)
+        );
+        cajapromoPodcastElement.information.contentType = 'game';
+        newPageLayoutLNMain.content_elements.push(cajapromoPodcastElement);
+
+        mockPageLayoutLNMainContent.mockImplementation(() => {
+            return newPageLayoutLNMain.content_elements;
+        });
+        mockSetRanking.mockImplementation(props => {
+            return props.elementsPage;
+        });
+        const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
+        expect(result.length).toBe(3);
+        expect(result[2].sectionAliasMobile).toBe('ln_ds_cajapromo');
+        expect(result[2].information.contentType).toBe('game');
     });
 });

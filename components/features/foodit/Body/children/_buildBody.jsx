@@ -128,12 +128,12 @@ const buildBody = ({ globalContent = {} }) => {
             ? transformEmbedScript(element)
             : element;
 
-        const capitalIndex = contentElements.findIndex(
-            el => el.type === 'text'
+        const capitalIndex = contentElementsProcessed.findIndex(
+            el => el?.type === 'text'
         );
 
         if (type === 'image' && currentIndex < contentElements.length - 1) {
-            const nextElement = contentElements[currentIndex + 1];
+            const nextElement = contentElementsProcessed[currentIndex + 1];
             const nextElementProcessed = nextElement?.subtype
                 ? transformEmbedScript(nextElement)
                 : nextElement;
