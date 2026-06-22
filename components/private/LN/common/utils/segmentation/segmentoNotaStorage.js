@@ -31,12 +31,16 @@ export const getSegmentoNota = () => {
     }
 };
 
-export const upsertSegmentoNota = (experimentName, segment) => {
+export const upsertSegmentoNota = (
+    experimentName,
+    segment,
+    storageKey = STORAGE_KEY
+) => {
     if (isSSR() || !experimentName || !segment) return false;
 
     try {
         const experiments = segmentoNotaStringToExperiments(
-            localStorage.getItem(STORAGE_KEY)
+            localStorage.getItem(storageKey)
         );
         const existingIdx = experiments.findIndex(
             experiment => experiment.experimentName === experimentName
@@ -49,7 +53,7 @@ export const upsertSegmentoNota = (experimentName, segment) => {
         }
 
         localStorage.setItem(
-            STORAGE_KEY,
+            storageKey,
             segmentoNotaExperimentsToString(experiments)
         );
         return true;
@@ -58,19 +62,22 @@ export const upsertSegmentoNota = (experimentName, segment) => {
     }
 };
 
-export const removeSegmentoNota = experimentName => {
+export const removeSegmentoNota = (
+    experimentName,
+    storageKey = STORAGE_KEY
+) => {
     if (isSSR() || !experimentName) return false;
 
     try {
         const experiments = segmentoNotaStringToExperiments(
-            localStorage.getItem(STORAGE_KEY)
+            localStorage.getItem(storageKey)
         ).filter(experiment => experiment.experimentName !== experimentName);
 
         const nextValue = segmentoNotaExperimentsToString(experiments);
         if (nextValue) {
-            localStorage.setItem(STORAGE_KEY, nextValue);
+            localStorage.setItem(storageKey, nextValue);
         } else {
-            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(storageKey);
         }
         return true;
     } catch {
