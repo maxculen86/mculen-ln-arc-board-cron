@@ -147,6 +147,7 @@ export const getMessageProps = (props, messageType, gc) => {
             }
         },
         SUBSCRIPTION: {
+            title: 'Sumate a la conversación',
             subtitle: 'Para comentar las notas, necesitás suscribirte',
             secondaryUrl:
                 (outputType !== 'widgets' && canonicalUrl && loginUrl) || '',
