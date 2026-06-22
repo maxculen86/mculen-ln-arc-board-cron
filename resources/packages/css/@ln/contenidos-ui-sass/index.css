@@ -447,6 +447,7 @@ a {
   --combinadas: #bb1e69;
   --entre-letras: #B3C1E3;
   --retrofoto: #DE613A;
+  --mente-maestra: #64A4B5;
   --success-700: #008759;
   --warning-500: #ffc402;
   --danger-500: #c61b25;
@@ -1214,6 +1215,10 @@ a {
   background: var(--retrofoto);
 }
 
+.bg-mente-maestra {
+  background: var(--mente-maestra);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1374,6 +1379,10 @@ a {
   background: var(--retrofoto);
 }
 
+.bg-mente-maestra__hover:hover {
+  background: var(--mente-maestra);
+}
+
 .bg-secondary__hover:hover {
   background: var(--neutral-light-50);
 }
@@ -1500,6 +1509,11 @@ a {
 
 .ln-card-games-retrofoto__hover:hover .cardGame__hover {
   border-color: var(--retrofoto);
+  background-color: white;
+}
+
+.ln-card-games-mente-maestra__hover:hover .cardGame__hover {
+  border-color: var(--mente-maestra);
   background-color: white;
 }
 
