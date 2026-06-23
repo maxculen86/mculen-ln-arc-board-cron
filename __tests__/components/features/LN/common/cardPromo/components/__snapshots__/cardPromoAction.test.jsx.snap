@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardPromoAction snapshots matches snapshot with default context 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Jugar"
+    title="Jugar"
+    type="button"
+  >
+    <span>
+      Jugar
+    </span>
+  </button>
+</DocumentFragment>
+`;

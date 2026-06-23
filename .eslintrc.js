@@ -16,7 +16,7 @@ module.exports = {
         ecmaVersion: 2022,
         sourceType: 'module'
     },
-    plugins: ['prettier'],
+    plugins: ['prettier', '@nx'],
     rules: {
         'prettier/prettier': ['error'],
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
@@ -36,7 +36,19 @@ module.exports = {
             }
         ],
         'no-console': [2, { allow: ['warn', 'error', 'info'] }],
-        'react/prop-types': 'off'
+        'react/prop-types': 'off',
+        '@nx/enforce-module-boundaries': [
+            'error',
+            {
+                allow: [],
+                depConstraints: [
+                    {
+                        sourceTag: 'type:app',
+                        notDependOnLibsWithTags: ['type:app']
+                    }
+                ]
+            }
+        ]
     },
     overrides: [
         {

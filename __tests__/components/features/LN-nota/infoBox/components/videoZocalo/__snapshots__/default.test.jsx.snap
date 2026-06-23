@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoZocalo Should match snapshot with empty src and className 1`] = `<div />`;
+
+exports[`VideoZocalo Should match snapshot with given src and className 1`] = `
+<div>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <video
+      autoplay=""
+      class="w-210"
+      loop=""
+      playsinline=""
+    >
+      <source
+        src="https://example.com/video.mp4"
+      />
+    </video>
+  </div>
+</div>
+`;

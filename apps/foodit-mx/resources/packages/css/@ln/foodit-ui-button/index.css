@@ -1,0 +1,24 @@
+.button.foodit-button.button-nota {
+  text-align: center;
+  width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  white-space: normal;
+}
+.button.foodit-button.--full-width {
+  width: 100%;
+}
+.button.foodit-button.--loading .icon {
+  display: none;
+}
+.button.foodit-button[data-variant=link] {
+  text-transform: none;
+}
+.button.foodit-button .icon {
+  transition: inherit;
+  transition-timing-function: linear;
+}
+.button.foodit-button .icon > svg > path {
+  transition: inherit;
+  fill: currentColor;
+}

@@ -26,7 +26,7 @@ function CajaEncuesta({ customFields = {} }) {
         experimentName: ENCUESTA_HOME_EXPERIMENT_NAME,
         testDigits,
         controlDigits,
-        syncSegmentoNotaStorage: false
+        syncStorage: false
     });
     const { targetBoxLocation } = useEncuestaRenderState();
 

@@ -19,12 +19,12 @@ import filter from '../../../../content/filters/LN/acumulado/articleMasNotas';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 import useNotaSegment from '../../../private/LN/common/hooks/useNotaSegment';
+import getRenderState from '../../../private/LN/common/utils/segmentation/getRenderState';
 import {
     FILTER_LABELS,
     FILTERS,
     SEGMENTATION_GROUP,
-    getAdminPreviewSegment,
-    getRenderState
+    getAdminPreviewSegment
 } from './helper';
 
 function masNotasSegmentado(props) {

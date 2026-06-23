@@ -1,9 +1,11 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { useAppContext } from 'fusion:context';
 import useViewportSize from '../../../../../components/private/common/hooks/useViewportSize';
 import { isSubscribed } from '../../../../../components/private/common/auth/helper/loginHelper';
 import { useRankingArticles } from '../../../../../components/features/LN-10/ranking/_helper';
+import useNotaSegment from '../../../../../components/private/LN/common/hooks/useNotaSegment';
 import CtrNotaV2 from '../../../../../components/features/LN-nota/crtNotaV2/default';
 
 jest.mock('fusion:context', () => ({
@@ -11,6 +13,10 @@ jest.mock('fusion:context', () => ({
 }));
 jest.mock(
     '../../../../../components/private/common/hooks/useViewportSize',
+    () => jest.fn()
+);
+jest.mock(
+    '../../../../../components/private/LN/common/hooks/useNotaSegment',
     () => jest.fn()
 );
 jest.mock(
@@ -45,6 +51,13 @@ jest.mock(
 jest.mock('../../../../../components/features/LN-10/ranking/_helper', () => ({
     useRankingArticles: jest.fn()
 }));
+jest.mock(
+    '../../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage',
+    () =>
+        function MockPageBuilderMessage({ message }) {
+            return <p data-testid="pb-message">{message}</p>;
+        }
+);
 
 function scrollToY(y) {
     Object.defineProperty(window, 'scrollY', { value: y, writable: true });
@@ -58,6 +71,18 @@ const mk = (id, opts = {}) => ({
     ...opts
 });
 
+const segmentCustomFields = ({
+    experimentName = 'ExpSticky',
+    segmentAndHide = false,
+    testDigits = ['1', '3'],
+    controlDigits = ['0', '2']
+} = {}) => ({
+    experimentName,
+    segmentAndHide,
+    testDigits,
+    controlDigits
+});
+
 beforeEach(() => {
     jest.clearAllMocks();
     useAppContext.mockReturnValue({
@@ -67,6 +92,7 @@ beforeEach(() => {
     });
     useViewportSize.mockReturnValue('mobile');
     isSubscribed.mockReturnValue(false);
+    useNotaSegment.mockReturnValue({ segment: null, ready: true });
     localStorage.setItem('excludeItems', JSON.stringify([]));
 });
 
@@ -129,4 +155,181 @@ it('includes the 4th to complete 3 items when current is in top3', () => {
 
     const el = screen.getByTestId('sticky-mobile');
     expect(el.textContent).toMatch(/items:A,C,D/);
+});
+
+it('does not calculate segment and renders normally when segmentation is not configured', () => {
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    render(<CtrNotaV2 />);
+
+    expect(useNotaSegment).toHaveBeenCalledWith({
+        experimentName: '',
+        testDigits: [],
+        controlDigits: [],
+        syncStorage: false,
+        storageKey: 'SegmentoStickyMobile'
+    });
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(screen.getByTestId('sticky-mobile')).toBeInTheDocument();
+});
+
+it('ignores empty digit list items and keeps the default sticky behavior', () => {
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    render(
+        <CtrNotaV2
+            customFields={segmentCustomFields({
+                experimentName: '',
+                testDigits: [''],
+                controlDigits: ['   ']
+            })}
+        />
+    );
+
+    expect(useNotaSegment).toHaveBeenCalledWith({
+        experimentName: '',
+        testDigits: [],
+        controlDigits: [],
+        syncStorage: false,
+        storageKey: 'SegmentoStickyMobile'
+    });
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(screen.getByTestId('sticky-mobile')).toBeInTheDocument();
+});
+
+it('invokes useNotaSegment with the configured customFields and SegmentoStickyMobile key', () => {
+    useNotaSegment.mockReturnValue({ segment: 'test', ready: true });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    render(<CtrNotaV2 customFields={segmentCustomFields()} />);
+
+    expect(useNotaSegment).toHaveBeenCalledWith({
+        experimentName: 'ExpSticky',
+        testDigits: ['1', '3'],
+        controlDigits: ['0', '2'],
+        syncStorage: true,
+        storageKey: 'SegmentoStickyMobile'
+    });
+});
+
+it('renders segmented sticky when user is assigned to test', () => {
+    useNotaSegment.mockReturnValue({ segment: 'test', ready: true });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    render(<CtrNotaV2 customFields={segmentCustomFields()} />);
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(screen.getByTestId('sticky-mobile')).toBeInTheDocument();
+});
+
+it('renders segmented sticky when user is assigned to control', () => {
+    useNotaSegment.mockReturnValue({ segment: 'control', ready: true });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    render(<CtrNotaV2 customFields={segmentCustomFields()} />);
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(screen.getByTestId('sticky-mobile')).toBeInTheDocument();
+});
+
+it('renders nothing when segmented user has no segment', () => {
+    useNotaSegment.mockReturnValue({ segment: null, ready: true });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    const { queryByTestId } = render(
+        <CtrNotaV2 customFields={segmentCustomFields()} />
+    );
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(queryByTestId('sticky-mobile')).toBeNull();
+});
+
+it('renders nothing while segmented user is being computed', () => {
+    useNotaSegment.mockReturnValue({ segment: null, ready: false });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    const { queryByTestId } = render(
+        <CtrNotaV2 customFields={segmentCustomFields()} />
+    );
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(queryByTestId('sticky-mobile')).toBeNull();
+});
+
+it('calculates segmentation but hides sticky when segmentAndHide is true', () => {
+    useNotaSegment.mockReturnValue({ segment: 'test', ready: true });
+    useRankingArticles.mockReturnValue({
+        articles: [mk('A'), mk('B'), mk('C'), mk('D'), mk('E')]
+    });
+
+    const { queryByTestId } = render(
+        <CtrNotaV2
+            customFields={segmentCustomFields({ segmentAndHide: true })}
+        />
+    );
+
+    expect(useNotaSegment).toHaveBeenCalledWith(
+        expect.objectContaining({
+            experimentName: 'ExpSticky',
+            syncStorage: true,
+            storageKey: 'SegmentoStickyMobile'
+        })
+    );
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    expect(queryByTestId('sticky-mobile')).toBeNull();
+});
+
+it('shows admin warning when segmented config is incomplete', () => {
+    render(
+        <CtrNotaV2
+            isAdmin
+            customFields={segmentCustomFields({
+                experimentName: '',
+                testDigits: ['1'],
+                controlDigits: []
+            })}
+        />
+    );
+
+    expect(screen.getByTestId('pb-message')).toHaveTextContent(
+        /Configurá experimento/i
+    );
 });

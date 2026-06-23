@@ -65,7 +65,7 @@ export default function SearchHeader({
                             <Icon
                                 className="text-secondary-default"
                                 size={16}
-                                name="filter"
+                                name="equalizer"
                             />
                             <div className="text-label-sm font-bold relative">
                                 <span className="text-secondary-default">

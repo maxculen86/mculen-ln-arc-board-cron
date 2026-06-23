@@ -89,7 +89,16 @@ const props = {
         },
         first_publish_date: 'firstPublishDate',
         subtype: '',
-        promo_items: { glossary: {} }
+        promo_items: {
+            glossary: {},
+            summary: {
+                embed: {
+                    config: {
+                        arrayBullets: ['Primer bullet del resumen']
+                    }
+                }
+            }
+        }
     },
     requestUri: '/economia/dolar-hoy/',
     renderables: [
@@ -116,21 +125,6 @@ Context.useAppContext = jest.fn(() => props);
 Content.useContent = jest.fn(() => ({
     totalVisibleContent: '64'
 }));
-
-jest.mock('react', () => {
-    const ActualReact = jest.requireActual('react');
-    return {
-        ...ActualReact,
-        useContext: () => ({
-            state: {
-                loginData: {
-                    subscription: true
-                }
-            },
-            dispatch: jest.fn()
-        })
-    };
-});
 
 describe('components - private - LN - nota - share', () => {
     useFetch.mockImplementation(() => ({

@@ -1,0 +1,83 @@
+.tooltip.--with-arrow {
+  --_arrow-spacing: 0.75rem;
+}
+.tooltip.--with-arrow:after {
+  content: "";
+  position: absolute;
+  width: var(--_arrow-spacing);
+  height: var(--_arrow-spacing);
+  border-top-left-radius: 0.25rem;
+  background-color: inherit;
+  border-left: inherit;
+  border-top: inherit;
+  bottom: var(--_bottom);
+  right: var(--_right);
+  left: var(--_left);
+  top: var(--_top);
+  translate: var(--_translate);
+  rotate: calc(var(--_rotate) * 45deg);
+}
+.tooltip.--with-arrow[data-position^=top] {
+  --_bottom: 0;
+  --_rotate: 5;
+}
+.tooltip.--with-arrow[data-position=top-center] {
+  --_left: 50%;
+  --_translate: -50% 50%;
+}
+.tooltip.--with-arrow[data-position=top-left] {
+  --_left: var(--_arrow-spacing);
+  --_translate: 0 50%;
+}
+.tooltip.--with-arrow[data-position=top-right] {
+  --_right: var(--_arrow-spacing);
+  --_translate: 0 50%;
+}
+.tooltip.--with-arrow[data-position^=bottom] {
+  --_top: 0;
+  --_rotate: 1;
+}
+.tooltip.--with-arrow[data-position=bottom-center] {
+  --_left: 50%;
+  --_translate: -50% -50%;
+}
+.tooltip.--with-arrow[data-position=bottom-left] {
+  --_left: var(--_arrow-spacing);
+  --_translate: 0 -50%;
+}
+.tooltip.--with-arrow[data-position=bottom-right] {
+  --_right: var(--_arrow-spacing);
+  --_translate: 0 -50%;
+}
+.tooltip.--with-arrow[data-position^=left] {
+  --_right: 0;
+  --_rotate: 3;
+}
+.tooltip.--with-arrow[data-position=left-center] {
+  --_top: 50%;
+  --_translate: 50% -50%;
+}
+.tooltip.--with-arrow[data-position=left-top] {
+  --_top: var(--_arrow-spacing);
+  --_translate: 50% 0;
+}
+.tooltip.--with-arrow[data-position=left-bottom] {
+  --_bottom: var(--_arrow-spacing);
+  --_translate: 50% 0;
+}
+.tooltip.--with-arrow[data-position^=right] {
+  --_left: 0;
+  --_rotate: 7;
+}
+.tooltip.--with-arrow[data-position=right-center] {
+  --_top: 50%;
+  --_translate: -50% -50%;
+}
+.tooltip.--with-arrow[data-position=right-top] {
+  --_top: var(--_arrow-spacing);
+  --_translate: -50% 0;
+}
+.tooltip.--with-arrow[data-position=right-bottom] {
+  --_bottom: var(--_arrow-spacing);
+  --_translate: -50% 0;
+}

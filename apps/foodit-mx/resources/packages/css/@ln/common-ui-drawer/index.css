@@ -1,0 +1,19 @@
+.drawer-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition-property: opacity, visibility;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.drawer-overlay .drawer[data-position=left] {
+  transform: translate3d(-100%, 0, 0);
+}
+.drawer-overlay .drawer[data-position=right] {
+  transform: translate3d(100%, 0, 0);
+}
+.drawer-overlay .drawer[data-position=bottom] {
+  transform: translate3d(0, 100%, 0);
+}
+.drawer-overlay .drawer[data-visible=true] {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}

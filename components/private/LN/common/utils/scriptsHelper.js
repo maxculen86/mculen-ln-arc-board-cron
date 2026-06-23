@@ -25,6 +25,7 @@ import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import HandleGlossary from '../../../common/scriptManager/handleGlossary';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
+import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -153,6 +154,10 @@ const scriptList = [
     {
         component: { name: 'ScriptJwVideoHome', function: ScriptJwVideoHome },
         feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
+    },
+    {
+        component: { name: 'DsPromoEvents', function: DsPromoEventsScript },
+        feature: ['LN/DS-CardPromo']
     },
     {
         component: { name: 'TikTokPixel', function: TikTokPixel },

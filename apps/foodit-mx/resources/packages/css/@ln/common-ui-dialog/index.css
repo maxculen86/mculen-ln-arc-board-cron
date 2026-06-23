@@ -1,0 +1,28 @@
+.dialog {
+  max-width: unset;
+  max-height: unset;
+  inset-block-start: unset;
+  inset-block-end: 0;
+  --_background-dialog: var(--background-dialog, rgba(0, 0, 0, 0.5));
+}
+.dialog::backdrop {
+  background-color: var(--_background-dialog);
+  opacity: 1;
+}
+.dialog[data-position=bottom] {
+  inset-block-end: 0;
+}
+.dialog[data-position=left] {
+  inset-inline-start: 0;
+}
+.dialog[data-position=right] {
+  inset-inline-start: unset;
+  inset-inline-end: 0;
+}
+.dialog[data-position=top] {
+  inset-block-start: 0;
+}
+.dialog[data-position=center], .dialog[data-position=full] {
+  inset: 0;
+  margin: auto;
+}

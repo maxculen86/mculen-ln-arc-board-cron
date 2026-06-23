@@ -119,7 +119,8 @@ function Game({ id: featureId, customFields, isAdmin }) {
             }}
             linkProps={{
                 target: '_self',
-                href: hrefLink
+                href: hrefLink,
+                'data-game-link': 'true'
             }}
             game={game}
             buttonProps={buttonProps}

@@ -42,7 +42,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         ],
         2: ['LN-common/anexo', 'LN-common/anexoMobile'],
         3: ['LN-common/LN10_anticipo', 'LN-common/cajaAnticipo'],
-        8: ['LN10_Caja_Juegos_v2'],
+        8: ['LN10_Caja_Juegos_v2', 'LN_DS_CajaPromo'],
         9: [
             'LN-acumulado/ultimasNoticias',
             'LN-common/ranking',

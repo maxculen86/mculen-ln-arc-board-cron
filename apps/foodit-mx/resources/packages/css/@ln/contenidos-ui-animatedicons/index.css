@@ -1,0 +1,109 @@
+.logo-ai .star {
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: fill 0.5s linear, stroke 0.5s linear;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.logo-ai .star.big {
+  animation-name: big-star-animation;
+}
+.logo-ai .star.small {
+  animation-name: small-star-animation;
+}
+@keyframes big-star-animation {
+  0%, 85%, 100% {
+    transform: rotate(0deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  20% {
+    transform: rotate(-180deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  40% {
+    transform: rotate(-180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  50%, 55%, 60% {
+    transform: rotate(-180deg) scale(1.1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  65% {
+    transform: rotate(-180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+}
+@keyframes small-star-animation {
+  0%, 85%, 100% {
+    transform: rotate(0deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  20% {
+    transform: rotate(180deg);
+    fill: transparent;
+    stroke: #333333;
+  }
+  40% {
+    transform: rotate(180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  50%, 55%, 60% {
+    transform: rotate(180deg) scale(1.1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+  65% {
+    transform: rotate(180deg) scale(1);
+    fill: var(--primary-ia);
+    stroke: var(--primary-ia);
+  }
+}
+
+.logo-listen .bar {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-origin: bottom;
+}
+.logo-listen .bar.first-bar {
+  animation-delay: -2.2s;
+}
+.logo-listen .bar.second-bar {
+  animation-delay: -3.7s;
+}
+.logo-listen .bar.third-bar {
+  animation-delay: -1.5s;
+}
+.logo-listen .bar.fourth-bar {
+  animation-delay: -2.5s;
+}
+.logo-listen .bar.pause {
+  animation-play-state: paused;
+}
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.5);
+  }
+  80% {
+    transform: scaleY(0.75);
+  }
+  100% {
+    transform: scaleY(0.6);
+  }
+}

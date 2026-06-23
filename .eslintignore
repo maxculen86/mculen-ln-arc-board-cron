@@ -10,3 +10,4 @@ _ignore_*.*
 package-lock.json
 package.json
 src/statics/**
+apps/foodit-mx/_pending/**

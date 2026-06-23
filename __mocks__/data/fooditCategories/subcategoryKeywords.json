@@ -183,28 +183,28 @@
       "href": "/aprende-en-la-cocina/",
       "trackingLabel": "aprende_a_cocinar",
       "src": "aprende.webp",
-      "classNames": "min-h-100 min-h-80_lg"
+      "classNames": "min-h-full hover:text-primary-light"
     },
     {
       "title": "Cociná fácil y rápido",
       "href": "/cocina-facil-y-rapido/",
       "trackingLabel": "cocina_facil",
       "src": "cocina-facil.webp",
-      "classNames": "min-h-100 min-h-80_lg"
+      "classNames": "min-h-full hover:text-primary-light"
     },
     {
       "title": "Cociná a tu medida",
       "href": "/cocina-a-tu-medida/",
       "trackingLabel": "cocina_a_tu_manera",
       "src": "cocina-a-tu-medida.webp",
-      "classNames": "min-h-100 min-h-80_lg"
+      "classNames": "min-h-full hover:text-primary-light"
     },
     {
       "title": "Todas las recetas",
       "href": "/recetas/",
       "trackingLabel": "recetas",
       "src": "recetas.webp",
-      "classNames": "min-h-100 min-h-80_lg"
+      "classNames": "min-h-full hover:text-primary-light"
     }
   ]
 }

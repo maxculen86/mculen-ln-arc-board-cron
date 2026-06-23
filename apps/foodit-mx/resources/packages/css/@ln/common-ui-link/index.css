@@ -1,0 +1,19 @@
+.link {
+  cursor: pointer;
+  color: #0250c9;
+}
+.link.--unstyled {
+  color: inherit;
+}
+.link.--block {
+  display: block;
+}
+.link.--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+@media (min-width: 64rem) {
+  .link:hover {
+    opacity: 0.8;
+  }
+}

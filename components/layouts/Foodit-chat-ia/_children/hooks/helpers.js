@@ -45,53 +45,6 @@ export function useInactivityTimer({
     };
 }
 
-export function useShowFuentesAfterMutation({
-    ref,
-    isGenerating,
-    descripcion,
-    isLastOutput,
-    delayMs = 150
-}) {
-    const [showFuentes, setShowFuentes] = useState(false);
-
-    useEffect(() => {
-        const node = ref.current;
-        if (!node) return undefined;
-
-        if (!isLastOutput) {
-            setShowFuentes(true);
-            return undefined;
-        }
-
-        if (isGenerating) {
-            setShowFuentes(false);
-            return undefined;
-        }
-
-        let timeout;
-
-        const observer = new MutationObserver(() => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                setShowFuentes(true);
-            }, delayMs);
-        });
-
-        observer.observe(node, {
-            childList: true,
-            subtree: true,
-            characterData: true
-        });
-
-        return () => {
-            observer.disconnect();
-            clearTimeout(timeout);
-        };
-    }, [isGenerating, descripcion, isLastOutput, ref, delayMs]);
-
-    return showFuentes;
-}
-
 export function useViewportDirection(ref, options) {
     const [state, setState] = useState('in');
 

@@ -1,0 +1,15 @@
+.image {
+  transition: all 0.2s ease-in-out;
+}
+.image.--contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.image.--cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.image.--fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}

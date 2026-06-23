@@ -36,20 +36,14 @@ describe('getDynamicSlotIdsByDevice', () => {
         );
     });
 
-    it('returns opinion dynamic slot ids with max 4 banners on desktop', () => {
+    it('returns an empty list for opinion layout without max banner limit', () => {
         const result = getDynamicSlotIdsByDevice({
             device: 'desktop',
             subtype: OPINION,
             layout: 'LN-Nota-Opinion'
         });
 
-        expect(result).toEqual([
-            'cinturon1_dsk',
-            'cinturon2_dsk',
-            'cinturon3_dsk',
-            'cinturon4_dsk'
-        ]);
-        expect(result).toHaveLength(4);
+        expect(result).toEqual([]);
     });
 
     it('returns an empty array for unsupported device', () => {

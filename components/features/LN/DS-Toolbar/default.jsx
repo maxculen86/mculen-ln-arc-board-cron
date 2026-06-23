@@ -25,7 +25,6 @@ import ShareDesktopTrigger from './components/shareDesktopTrigger';
 import WhatsappShareButton from './components/whatsappShareButton';
 import Divider from '../../ui/ln/divider/default';
 import useNativeShare from './hooks/useNaviteShare';
-import IaSummary from '../common/iaSummary/default';
 import { barrierMessages } from '../common/barrierRequiresSubscription/helper';
 import AudioPlayer from '../common/audioPlayer/default';
 
@@ -141,7 +140,6 @@ function ToolBar({ customFields: { hideSummary = false } = {} }) {
                 </div>
             </div>
             <AudioPlayer />
-            <IaSummary {...iaSummary} />
         </>
     );
 }

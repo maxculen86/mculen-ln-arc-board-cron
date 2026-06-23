@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
 import Header from '../features/LN-10-global/header/default';
-import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
+import HtmlLibre, {
+    HTML_LIBRE_SCROLL_CONTENT_SELECTOR
+} from '../private/LN/nota/cuerpo/htmlLibre';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import GlobalProvider from '../private/common/context/globalContext';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
+import useScrollDispatcher from '../features/LN-common/hooks/useScrollDispatcher';
+import registerScrollTracking from '../features/LN/DS-Body/helpers/registerScrollTracking';
 
-function lnNotaNoticia({ children: [bannerMegatop, bottom, bottomTercera] }) {
+function lnNotaNoticia({
+    children: [bannerMegatop, bottom, bottomTercera] = [],
+    globalContent = {}
+}) {
+    const { _id: noteId } = globalContent;
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
         'nota',
         'html-libre'
     );
+
+    useScrollDispatcher({
+        startSelector: HTML_LIBRE_SCROLL_CONTENT_SELECTOR,
+        endSelector: HTML_LIBRE_SCROLL_CONTENT_SELECTOR
+    });
+
+    useEffect(() => {
+        registerScrollTracking(noteId);
+    }, [noteId]);
 
     return (
         <GlobalProvider>

@@ -27,7 +27,6 @@ const props = {
             type: 'LN-10/IA',
             props: {
                 customFields: {
-                    hideGlossary: false,
                     hideSummary: false
                 }
             }
@@ -37,7 +36,9 @@ const props = {
         query: {
             uri: '/sociedad/hola/'
         }
-    }
+    },
+    contextPath: '',
+    deployment: jest.fn(path => path)
 };
 
 Context.useAppContext = jest.fn(() => props);
@@ -56,7 +57,9 @@ describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
         isListenable,
-        promo_items: { glossary: {} },
+        promo_items: {
+            summary: { embed: { config: { arrayBullets: ['bullet1'] } } }
+        },
         comments: { display_comments: comments }
     });
 

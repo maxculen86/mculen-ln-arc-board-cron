@@ -61,7 +61,7 @@ describe('Components - features - LN - common - IconSubscribe', () => {
         );
         const icon = getByTestId('icon');
         expect(icon).toHaveAttribute('data-size', '14');
-        expect(icon).toHaveAttribute('data-name', 'crow');
+        expect(icon).toHaveAttribute('data-name', 'logo-suscriptores');
         expect(icon).toHaveAttribute('data-fill', '--color-primary-dark');
         expect(icon).toHaveAttribute('data-aria-label', 'Subscribe icon');
     });

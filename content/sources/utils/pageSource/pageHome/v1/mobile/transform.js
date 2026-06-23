@@ -1,8 +1,9 @@
 import { BackendLnError } from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
-import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import { transformHtmlCardsByLayout } from '../../../common/elements/cardHtml/index';
+import { setDolarByLayout } from '../../../common/elements/dolars/index';
+import { filterCajaPromo } from '../../../common/elements/dsCajaPromo/index';
 import { setLiveLayout } from '../../../common/elements/live';
 import { setRankingByLayout } from '../../../common/elements/ranking/index';
 import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
@@ -88,6 +89,9 @@ const transform = async (dataPage, query) => {
                 elements = rankingResult;
             }
         }
+        // filter Caja Promo Podcast for Apps
+        elements = applySyncLayout(filterCajaPromo, layoutPage, elements);
+
         return elements;
     } catch (error) {
         // eslint-disable-next-line no-console
