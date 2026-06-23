@@ -157,6 +157,19 @@ describe('seguirLeyendo feature', () => {
         expect(container).toBeEmptyDOMElement();
     });
 
+    it('does not crash when testDigits and controlDigits are not provided in customFields', () => {
+        expect(() =>
+            render(
+                <SeguirLeyendo
+                    globalContent={{ _id: 'NOTE123' }}
+                    outputType="default"
+                    isAdmin={false}
+                    customFields={{ experimentName: 'Exp01' }}
+                />
+            )
+        ).not.toThrow();
+    });
+
     // ─── segmentAndHide ──────────────────────────────────────────────
 
     it('renders nothing when segmentAndHide is true even with a valid segment', () => {
