@@ -16,8 +16,8 @@ function seguirLeyendo({ globalContent, outputType, customFields, isAdmin }) {
     const {
         experimentName,
         segmentAndHide = false,
-        testDigits,
-        controlDigits
+        testDigits = [],
+        controlDigits = []
     } = customFields;
 
     const { segment, ready } = useNotaSegment({
@@ -29,7 +29,7 @@ function seguirLeyendo({ globalContent, outputType, customFields, isAdmin }) {
 
     const segmentationConfigError =
         !experimentName ||
-        (testDigits.length === 0 && controlDigits.length === 0);
+        (testDigits?.length === 0 && controlDigits?.length === 0);
 
     const articles =
         useContent(
