@@ -1,6 +1,6 @@
 export const ENCUESTA_HOME_EXPERIMENT_NAME = 'nd_encuesta_home';
 export const ENCUESTA_COMPONENT_NAME = 'nd-encuestas';
-export const ENCUESTA_IMPRESSION_EVENT = 'e_impression_encuesta_home';
+export const ENCUESTA_IMPRESSION_EVENT = 'impression_encuesta_home';
 export const ENCUESTA_SCRIPT_ID = 'nd-encuestas-script';
 export const ENCUESTA_SCRIPT_URL =
     'https://especialess3.lanacion.com.ar/interactivos/ln-strapi-tools/js/nd-encuestas.js';

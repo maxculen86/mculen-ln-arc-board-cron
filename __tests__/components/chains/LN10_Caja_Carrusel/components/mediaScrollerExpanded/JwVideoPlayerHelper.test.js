@@ -149,34 +149,41 @@ describe('components - chains - ln10_caja_carrusel - components - jwVideoPlayerH
         playHandler();
 
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(1, {
-            event: '25',
+            event: '10',
             rest: {
                 videoID: 'test-video-id',
                 videoName: 'Test video'
             }
         });
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(2, {
-            event: '50',
+            event: '25',
             rest: {
                 videoID: 'test-video-id',
                 videoName: 'Test video'
             }
         });
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(3, {
-            event: '75',
+            event: '50',
             rest: {
                 videoID: 'test-video-id',
                 videoName: 'Test video'
             }
         });
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(4, {
+            event: '75',
+            rest: {
+                videoID: 'test-video-id',
+                videoName: 'Test video'
+            }
+        });
+        expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(5, {
             event: 'videoComplete',
             rest: {
                 videoID: 'test-video-id',
                 videoName: 'Test video'
             }
         });
-        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(4);
+        expect(addEventToDataLayerV2).toHaveBeenCalledTimes(5);
         expect(handleNextCallback).toHaveBeenCalledTimes(2);
         expect(onJwPlayerReady).toHaveBeenCalledWith(mockPlayer, {
             currentTitle: 'JW Test video',
