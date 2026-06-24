@@ -13,7 +13,7 @@ function IconSprite({ critical, color, name, ...props }) {
         arcSite
     });
 
-    if (!path || !name) return null;
+    if (!path || !name) return <></>;
 
     return <Spriteicon path={path} name={name} {...props} />;
 }

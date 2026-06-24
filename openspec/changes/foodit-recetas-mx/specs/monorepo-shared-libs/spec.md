@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Estructura de libs/ creada en el monorepo
-El monorepo SHALL contener el directorio `libs/` en raíz con la estructura `libs/shared/{ui,util,data-access}/` y `libs/foodit/`. Cada lib generada SHALL incluir `src/index.ts` como punto de entrada y API pública, y `project.json` con targets `build`, `lint` y `test`.
+El monorepo SHALL contener el directorio `libs/` en raíz con la estructura `libs/shared/{ui,util,data-access}/` y `libs/foodit/`. Cada lib generada SHALL incluir un punto de entrada de API pública (`src/index`) y `project.json` con targets `build`, `lint` y `test`. Para ser **consumible por un bundle Fusion**, la lib SHALL exponer además un `package.json` con `name: "@ln/..."` y `main` apuntando a un entry **JS/JSX** (el pipeline de Fusion es JS/JSX; un entry `.ts` no es consumible sin transpiler en este repo).
 
 #### Scenario: Directorios de estructura base presentes
 - **WHEN** se verifica la raíz del repo después de configurar `libs/`
@@ -9,48 +9,52 @@ El monorepo SHALL contener el directorio `libs/` en raíz con la estructura `lib
 
 #### Scenario: Lib generada tiene punto de entrada y project.json
 - **WHEN** se genera una lib con `ln-arc-lib`
-- **THEN** existen `src/index.ts` y `project.json` con targets `build`, `lint` y `test` en el directorio de la lib
+- **THEN** existen el entry `src/index` y `project.json` con targets `build`, `lint` y `test` en el directorio de la lib
 
 ### Requirement: Generator ln-arc-lib scaffoldea libs con convenciones del repo
 El generator SHALL estar en `tools/generators/ln-arc-lib/` y SHALL generar libs con `importPath: "@ln/arc-<name>"`, tags `scope:<scope>` y `type:<type>`, y un README template. Uso: `npx nx g ln-arc-lib --name=<name> --scope=<shared|foodit> --type=<ui|util|data-access>`.
 
 #### Scenario: Generator disponible vía Nx
 - **WHEN** se ejecuta `npx nx g ln-arc-lib --name=format-date --scope=shared --type=util`
-- **THEN** se genera `libs/shared/util/format-date/` con `src/index.ts`, `project.json` y README
+- **THEN** se genera `libs/shared/util/format-date/` con entry, `project.json` y README
 
-#### Scenario: importPath generado sigue convención @ln/arc-<name>
+#### Scenario: importPath y tags asignados correctamente
 - **WHEN** se genera una lib con `--name=format-date --scope=shared --type=util`
-- **THEN** el `project.json` de la lib registra `importPath: "@ln/arc-format-date"` y `tsconfig.base.json` incluye el path alias `@ln/arc-format-date`
+- **THEN** el `project.json` registra `importPath: "@ln/arc-format-date"` y tags `["scope:shared", "type:util"]`
 
-#### Scenario: Tags asignados correctamente
-- **WHEN** se genera una lib con `--scope=shared --type=util`
-- **THEN** el `project.json` contiene los tags `["scope:shared", "type:util"]`
+### Requirement: El alias de tsconfig es solo tooling; el consumo en runtime es vía node_modules
+El path alias en `tsconfig.base.json` (que el generator registra) SHALL servir **únicamente** para tooling: resolución de `@nx/enforce-module-boundaries` en ESLint y autocomplete del IDE/TS. El bundler de Fusion **NO resuelve los path aliases de `tsconfig`** para imports de componentes — resuelve `node_modules` + rutas relativas + `fusion:`. Por lo tanto, una lib **consumible por un bundle** SHALL resolver como **paquete en `node_modules`**, vía `file:` dep (dev y prod en monorepo — Fusion hornea la lib en el bundle al buildear, el deploy queda autocontenido) o, opcionalmente, `@ln/*` publicado versionado (para gobernanza de versión o consumo desde otro repo; NO es requisito de prod). El alias NO SHALL usarse como mecanismo de runtime/build.
 
-### Requirement: Path alias registrado automáticamente en tsconfig.base.json
-El generator SHALL agregar automáticamente el path alias de la nueva lib a `tsconfig.base.json` en raíz, apuntando a `libs/<scope>/<type>/<name>/src/index.ts`, para que tanto `apps/foodit-mx/` como el bundle `default` puedan importar la lib sin configuración adicional.
+#### Scenario: El alias se registra para tooling
+- **WHEN** se genera una lib y se inspecciona `tsconfig.base.json`
+- **THEN** el path `@ln/arc-<name>` está mapeado al entry de la lib, y ESLint resuelve los boundaries usando ese alias
 
-#### Scenario: Alias presente en tsconfig.base.json tras generar lib
-- **WHEN** se genera una nueva lib y se inspecciona `tsconfig.base.json`
-- **THEN** el path `@ln/arc-<name>` está mapeado a `libs/<scope>/<type>/<name>/src/index.ts`
+#### Scenario: El import resuelve en el build de Fusion vía node_modules
+- **WHEN** un componente de `apps/foodit-mx/` importa la lib por nombre (`@ln/...`) y la lib está declarada como `file:` dep (o publicada) en el `package.json` del bundle
+- **THEN** el import resuelve vía el symlink/paquete en `node_modules` y Fusion lo bundlea, sin depender del alias de tsconfig
 
-#### Scenario: Import resuelve desde bundle default y desde foodit-mx
-- **WHEN** un archivo de `apps/foodit-mx/` y un archivo del bundle `default` importan `@ln/arc-<name>`
-- **THEN** ambos imports resuelven correctamente al mismo `src/index.ts` de la lib
+#### Scenario: Un import por alias sin paquete node_modules NO resuelve en Fusion
+- **WHEN** un componente importa `@ln/arc-<name>` y la lib existe SOLO como alias de `tsconfig` (sin `file:` dep ni publicación)
+- **THEN** el build de Fusion falla con `Cannot find module` — el alias no alcanza
 
-### Requirement: Libs son exclusivamente internas (no publicables)
-Las libs generadas con `ln-arc-lib` SHALL configurarse como **buildable** (con target `build`) pero no como **publishable**. El generator no SHALL incluir configuración para publicar en registros npm externos.
+### Requirement: Libs internas con publicación versionada como camino de producción
+Las libs SHALL ser **internas al repo** (no se publican a registros npm públicos). El generator no SHALL preconfigurar publicación. Para **consumo cross-bundle en producción** (bundles que deployan independiente), una lib estabilizada SHALL poder publicarse al **registry privado `@ln`** con versión pinneada — el mecanismo que controla el version-skew. En dev/monorepo, el consumo es vía `file:` dep (symlink local), sin publicar.
 
-#### Scenario: project.json no contiene configuración publishable
-- **WHEN** se inspecciona el `project.json` de una lib generada con `ln-arc-lib`
-- **THEN** no existe ningún campo `publishable: true` ni configuración de `npm publish` en los targets
+#### Scenario: Lib no publicable a registros públicos
+- **WHEN** se inspecciona una lib generada
+- **THEN** no existe configuración de publicación a un registro npm público
 
-### Requirement: Criterio explícito para decidir copia-vs-lib
-Durante la migración de componentes, SHALL aplicarse el criterio: (a) código usado solo en Foodit/un bundle → copiar al bundle directamente; (b) código compartido entre `default` y `foodit-mx` → extraer a `libs/shared/`; (c) código compartido entre múltiples bundles Foodit futuros → extraer a `libs/foodit/`. La decisión SHALL documentarse por componente.
+#### Scenario: Consumo en dev vía file: dep
+- **WHEN** una lib se consume en el monorepo en dev
+- **THEN** se declara como `"@ln/...": "file:../../libs/..."` en el `package.json` del bundle y resuelve por symlink en `node_modules`
 
-#### Scenario: Componente solo-Foodit copiado al bundle
-- **WHEN** se evalúa un componente usado exclusivamente en el bundle `foodit-mx`
-- **THEN** el componente se copia a `apps/foodit-mx/` y no se crea una lib para él
+### Requirement: Criterio copy-vs-lib per-componente, just-in-time
+La decisión de copiar-vs-extraer-a-lib SHALL tomarse **por componente, al migrar/tocar la pieza** (no un mandato global upfront). Criterio: (a) código solo de un bundle → copiar; (b) compartido pero **congelado** (no se va a cambiar) → copiar; (c) compartido que **se va a cambiar/mantener** en ambos lados → extraer a lib. El disparador para extraer a lib SHALL ser la necesidad de **cambiar** ese código compartido. La decisión SHALL documentarse por bloque/componente.
 
-#### Scenario: Componente compartido extraído a libs/shared
-- **WHEN** se identifica un componente usado tanto por el bundle `default` como por `foodit-mx`
-- **THEN** el componente se extrae a `libs/shared/<type>/<name>/` vía `ln-arc-lib` y ambos bundles lo consumen por alias
+#### Scenario: Componente solo-Foodit o compartido-congelado → copiado
+- **WHEN** se evalúa un componente usado solo en `foodit-mx`, o compartido pero que no se va a modificar
+- **THEN** se copia al bundle y no se crea una lib para él
+
+#### Scenario: Componente compartido y evolutivo → lib consumida por node_modules
+- **WHEN** se identifica un componente compartido entre bundles que se va a cambiar/mantener en ambos lados
+- **THEN** se extrae a `libs/` y se consume vía `file:` dep (dev y prod; Fusion hornea la lib en el bundle) o, opcionalmente, `@ln/*` publicado (gobernanza de versión) — NO por alias de `tsconfig`
