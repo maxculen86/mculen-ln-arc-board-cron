@@ -3,6 +3,7 @@ import Button from '../../../../../../../ui/ln/button/default';
 import useTermica from '../../../../../../../../private/common/hooks/useTermica';
 import handleCookie from '../../../../../../../../private/LN/common/utils/handleCookie';
 import get from '../../../../../../../../private/common/utils/get';
+import { isMultiproductGaComboType } from '../../../../../../../../private/LN/common/utils/upsellingHelper';
 import {
     getTermicaValues,
     termicaValuesUpselling,
@@ -17,7 +18,9 @@ function UpsellingButton({ isHome }) {
     const { userType } = useHeaderContext();
     const isActiveTermicaUpselling = useTermica('termica_upselling');
     const { getCookie } = handleCookie();
-    const [valueCookie] = (getCookie('gaComboType') || '').split(',');
+    const gaComboType = getCookie('gaComboType') || '';
+    const [valueCookie] = gaComboType.split(',');
+    const isMultiproductUser = isMultiproductGaComboType(gaComboType);
 
     const upsellingLabel = upsellingLabels[valueCookie] || '';
 
@@ -51,6 +54,7 @@ function UpsellingButton({ isHome }) {
         userType !== USER_TYPES.SUBSCRIBED ||
         !upsellingText ||
         !upsellingUrl ||
+        isMultiproductUser ||
         !isActiveTermicaUpselling
     )
         return null;

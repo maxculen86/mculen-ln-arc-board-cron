@@ -11,6 +11,7 @@ import useTermica from '../../../../../../private/common/hooks/useTermica';
 import get from '../../../../../../private/common/utils/get';
 import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
 import { addEventToDataLayerV2 } from '../../../../../../private/LN/common/utils/addEventToDataLayer';
+import { isMultiproductGaComboType } from '../../../../../../private/LN/common/utils/upsellingHelper';
 
 export function UpsellingButton() {
     const { userType, isHome } = useHeaderContext();
@@ -18,7 +19,9 @@ export function UpsellingButton() {
     const termicaUpselling = useTermica('termica_upselling');
 
     const { getCookie } = handleCookie();
-    const [valueCookie] = (getCookie('gaComboType') || '').split(',');
+    const gaComboType = getCookie('gaComboType') || '';
+    const [valueCookie] = gaComboType.split(',');
+    const isMultiproductUser = isMultiproductGaComboType(gaComboType);
 
     const upsellingLabels = {
         'ga-combo2': 'upselling_duo',
@@ -65,6 +68,7 @@ export function UpsellingButton() {
         userType !== 'subscribed' ||
         !upsellingText ||
         !upsellingUrl ||
+        isMultiproductUser ||
         !termicaUpselling
     )
         return null;
