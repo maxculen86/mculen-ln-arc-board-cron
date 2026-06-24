@@ -118,6 +118,11 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         expect(window.dataLayer).toEqual([
             {
+                event: '10',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
                 event: '25',
                 videoName: VIDEO_NAME,
                 videoID: VIDEO_ID
@@ -160,6 +165,11 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         expect(window.dataLayer).toEqual([
             {
+                event: '10',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
                 event: '25',
                 videoName: VIDEO_NAME,
                 videoID: VIDEO_ID
@@ -199,9 +209,19 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         expect(window.dataLayer).toEqual([
             {
+                event: '10',
+                videoName: VIDEO_NAME,
+                videoID: VIDEO_ID
+            },
+            {
                 event: '25',
                 videoName: VIDEO_NAME,
                 videoID: VIDEO_ID
+            },
+            {
+                event: '10',
+                videoName: NEXT_VIDEO_NAME,
+                videoID: NEXT_VIDEO_ID
             },
             {
                 event: '25',

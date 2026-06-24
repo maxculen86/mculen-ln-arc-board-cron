@@ -95,7 +95,7 @@ export const onJwPlayerReady = (
     });
 };
 
-const PROGRESS_MILESTONES = [25, 50, 75];
+const PROGRESS_MILESTONES = [10, 25, 50, 75];
 
 export const trackMilestone = ({
     sentProgressRef,
@@ -146,7 +146,7 @@ export const handleVideoEventsScript = (
     videoOrientation = 'horizontal'
 ) => {
     const player = window.jwplayer(`${idVideo}`);
-    const percentagesToCheck = [25, 50, 75];
+    const percentagesToCheck = [10, 25, 50, 75];
     let currentTitle = title;
     let currentId = idVideo;
     let currentInitialMode = initialVideoMode;
