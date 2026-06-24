@@ -9,6 +9,19 @@ import { useNavigationData } from '../../../../../../components/features/foodit-
 import useGetUserConfig from '../../../../../../components/features/foodit-global/hooks/useGetUserConfig';
 import LoginSubscribeButtons from '../../../../../../components/features/foodit-global/common/SubscribeLoginButton/foodit';
 
+window.matchMedia =
+    window.matchMedia ||
+    function (query) {
+        return {
+            matches: false,
+            media: query,
+            onchange: null,
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn()
+        };
+    };
+
 jest.mock('../../../../../../components/private/LN/common/utils/isSSR', () =>
     jest.fn(() => false)
 );
