@@ -124,7 +124,7 @@ const detectSafari13to18PrivateMode = () =>
             return;
         }
 
-        const dbName = String(Math.random());
+        const dbName = String(Math.random()); // NOSONAR
 
         try {
             const request = window.indexedDB.open(dbName, 1);

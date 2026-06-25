@@ -113,7 +113,7 @@ const handlePageHomeError = (
     executionSteps,
     queryParams = {}
 ) => {
-    const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`;
+    const guid = `${Date.now()}${Math.floor(Math.random() * 1e9)}`; // NOSONAR
 
     if (resultPage) {
         const parts = splitObjectForLogging(resultPage);
