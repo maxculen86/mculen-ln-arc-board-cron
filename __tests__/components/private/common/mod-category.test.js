@@ -5,9 +5,21 @@ import '@testing-library/jest-dom';
 import ModCategory from '../../../../components/private/common/mod-category';
 import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
+jest.mock(
+    'fusion:context',
+    () => {
+        const context = {
+            useAppContext: jest.fn()
+        };
+
+        return {
+            __esModule: true,
+            default: context,
+            useAppContext: context.useAppContext
+        };
+    },
+    { virtual: true }
+);
 
 jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
     jest.fn()
@@ -30,7 +42,6 @@ jest.mock(
 
         return {
             __esModule: true,
-            default: replaceUrlResizerToWWW,
             replaceUrlResizerToWWW
         };
     }
@@ -51,10 +62,10 @@ jest.mock(
 );
 
 describe('components - private - common - mod-category', () => {
-    Context.useAppContext = jest.fn(() => ({
+    Context.useAppContext.mockReturnValue({
         deployment: jest.fn(),
         contextPath: '/pf'
-    }));
+    });
 
     const socials = [
         {

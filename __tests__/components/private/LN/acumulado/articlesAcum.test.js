@@ -7,9 +7,47 @@ import ArticlesAcum from '../../../../../components/private/LN/acumulado/article
 import '@testing-library/jest-dom';
 import articles from '../../../../../__mocks__/data/articlesAcum/articles.json';
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => []
-}));
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_FOODIT: 'https://www.lanacion.com.ar',
+        SITE_LANACION: undefined
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:content',
+    () => ({
+        __esModule: true,
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => []
+    }),
+    { virtual: true }
+);
+
+jest.mock('fusion:prop-types', () => require('prop-types'), { virtual: true });
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+
+        return function Static({ children, ...props }) {
+            return React.createElement('static', props, children);
+        };
+    },
+    { virtual: true }
+);
 
 jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
@@ -44,11 +82,24 @@ jest.mock(
     }
 );
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:context',
+    () => {
+        const context = function (Component) {
+            return props => (Component ? <Component {...props} /> : null);
+        };
+        context.useAppContext = jest.fn(() => ({}));
+
+        return {
+            __esModule: true,
+            default: context,
+            get useAppContext() {
+                return context.useAppContext;
+            }
+        };
+    },
+    { virtual: true }
+);
 
 const globalContent = {
     _id: '/autor'

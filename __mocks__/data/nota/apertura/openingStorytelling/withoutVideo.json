@@ -65,7 +65,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/x2OwReMekPzAI7YvHh2XFpzLg3Q=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -74,7 +74,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/JbmCg32RECru5XAHnZrID6YgWTU=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -82,7 +82,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/kUDZdE8Z41UzlKCsA_bzhoXjkO4=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -90,19 +90,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/TtIgkhSPv3p27nwea6jEKnHkeKk=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/dJwiOletOMXGIHtEVeJrQcJfKNc=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "Federico Levrino, por los pasillos de Telefe",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/dSPFjb-Ai7okMX3See62NUWCdwA=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg",
+            "url": "https://resizer.glanacion.com/resizer/v2/Z5A4A7NGRRE2JGKXSAD4EWHBTM.jpg?width=1920&quality=80&smart=false",
             "width": 2000
         },
         {
@@ -181,7 +181,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/L36HnC3KsqXXHU02dYws9Oe2DUk=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -190,7 +190,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/JkOogJ1PpRnMuK2cZWi46GkYrqo=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -198,7 +198,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/lPWMWWWDCfTJQBJCCwIX_kDD_jo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -206,19 +206,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/HmkfImUNg1fjyWD21TdOgtLVT_8=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/P0RUbbmvbM2NBqFSkledUgi32u4=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/4x5Cq2WR4izJADfX8WZhmSFuhq4=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NEAKC3DROBBHRNBVLX7FR36CFI.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/NEAKC3DROBBHRNBVLX7FR36CFI.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         },
         {
@@ -272,7 +272,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/pjIX-swuGYS1OkgFyKZycH5E5EA=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -281,7 +281,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/J5RhS20-uZHD7fNnMuhgwQSE_2Y=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -289,7 +289,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/52w0yNXARCn45Y3qqgcjdvTJzFA=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -297,19 +297,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/RjlF9cGiS6R2cr5tpXnM6-YDlvA=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/LPj-2xVA7xOri4IwKcMxUdoMQo0=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/QG-JTNpJy82bAiRq2TRDOfWASO4=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDVHXDANRZGW5DURHTXEQZB2RE.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/HDVHXDANRZGW5DURHTXEQZB2RE.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         },
         {
@@ -350,7 +350,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/wl0ekfn912CmThTlyGcAzNE_eR0=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -359,7 +359,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/6pg98HB9Q7jsF_XeT1vaKTV00Zo=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -367,7 +367,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/2bxD4CncZ4Q0Ng5ZpWCi7beVoAs=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -375,19 +375,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/51uLKeiCm2Gr7eGsgI28aG_-XMI=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/7dd29rRMqqRsMs9WqmwwEchYsjw=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/QWZtAP_J5W6jS-7_JqjwYzZmSi4=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/RRDOAHPIFRFZNJDTEZ2SF7HP4M.JPG?width=1920&quality=80&smart=false",
             "width": 1360
         },
         {
@@ -471,7 +471,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/qjuEmczfMIED4LlGKa8Z3GoXF5M=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -480,7 +480,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/oop-YVfJGcItT75vp5xAM7BORCQ=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -488,7 +488,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/yGxQeEL91LQlWkkwsPNXTGko5SA=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -496,19 +496,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/o6E732MbQ30K8mHSRgyvj5RustQ=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/ziXtatKeldQ-2a9uEOgof9hinH8=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/hiGrViMMx5332NSyL45qnerzKYQ=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/CFVVPBDCZBHUBIBBMSXTFP2BQE.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         },
         {
@@ -550,7 +550,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/s8ZgJpZfB9ENT6eVOijT87AZeik=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -559,7 +559,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/JmMl_QrkoRtXbrbw3MPpS5EUn78=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -567,7 +567,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/jHVUqPySI5elsJyEiHbh7O6EF_I=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -575,19 +575,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/oRmry-vA0Y4yegUJtDTqOjf2ZeY=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/PVDdnu0ZqtG9f-QjPw5PRVb_Fkk=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/8zxzYhx7pSHj_yHFwZkJ-cnCPvg=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/3O6NYAYBMJHI3DDGM4H2MWXG2I.JPG?width=1920&quality=80&smart=false",
             "width": 1360
         },
         {
@@ -656,7 +656,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/FyJY_-AF9Yh3Uu16OWdirqbBh4M=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -665,7 +665,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/oErjek1pCcqDX0qNwHXzQgM7mZA=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -673,7 +673,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/0g74FgAA0hz0vxYKWy-oB6zrZAc=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -681,19 +681,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/32aqWR_0cZxXObhJLl6gxhwBASA=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/aAeGv9qEWddEkolZyMccwzDxrsE=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/CSAOYXEpN9kC-y9c2_wHvQQn_Uc=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/XSSF75Y7DFAFFDANS3SBGTAL6Y.JPG?width=1920&quality=80&smart=false",
             "width": 1360
         },
         {
@@ -735,7 +735,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/PWMDINtbV7v4T_aXHC4g-gbO7-c=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -744,7 +744,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/j23AuKznA3jxV-VJCdAZRJ_FsRQ=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -752,7 +752,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/ENJoy0PbtoxdcfIbVbOqIoWRwN4=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -760,19 +760,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/EQ2JHeO4LUzzYKLHlteM3jr3X_U=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/UsB6CSc8wKOzkQC7HQFJBS1loh8=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/862rD91Uw7zKaH_Xt98AugqIbq0=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/6RMWULJO6JCLVFXS4YZBHT3N4I.JPG?width=1920&quality=80&smart=false",
             "width": 1360
         },
         {
@@ -808,7 +808,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/HyzprrDuNdlBuRWlyKp7bkA2qfE=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -817,7 +817,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/QEYs7thB_HUFBOT9UzQVxUSdFNQ=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -825,7 +825,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/zTuwoXGZSNbYu10rI7JJOq1UnTI=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -833,19 +833,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/x9DuiglZlJKPydDQNlor9mEY2Xs=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 345,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/9uSpd6Ht7N906h5pLYknomCWzgI=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/BByORbFxWB18ZCGHxN2v1WeRew4=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LIQC54YS6JEBNJX4RZIIITGVW4.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/LIQC54YS6JEBNJX4RZIIITGVW4.JPG?width=1920&quality=80&smart=false",
             "width": 1794
         },
         {
@@ -953,7 +953,7 @@
                         "minScreenWidth": 1280,
                         "width": 879
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/Udf2JrQiHMPd13GoJFrZ-QBO_44=/879x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=879&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -962,7 +962,7 @@
                         "minScreenWidth": 1024,
                         "width": 690
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/m2WKt6924nEVdEW6M87Gmil1Kb4=/690x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=690&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -970,7 +970,7 @@
                         "minScreenWidth": 768,
                         "width": 768
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/7UoL4uTOUx9uzQU56LyDGTZRVNE=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=768&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -978,19 +978,19 @@
                         "minScreenWidth": 360,
                         "width": 350
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/rPhbbhiWk-Y2yXZ0_XShh30_oLg=/350x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=350&quality=80&smart=false"
                 },
                 {
                     "option": {
                         "height": 203,
                         "width": 310
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/dInxOeRS2vKGw5KYLNHhuiirV7Y=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=310&quality=80&smart=false"
                 }
             ],
             "subtitle": "",
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/tskhjKsOs9d3Xqlz4VVMUMuCWpM=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6IQRDLRITNAAHM64SWNZXEJYOY.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/6IQRDLRITNAAHM64SWNZXEJYOY.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         },
         {
@@ -1140,7 +1140,7 @@
                         "author_type": "Estándar",
                         "bio_page": "/autor/pablo-mascareno-1691/",
                         "byline": "Pablo Mascareño",
-                        "image": "https://resizer.glanacion.com/resizer/Ojhvxk3Kommp92HsIm7nx74V__s=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7fa6358d-4883-4a5f-a042-2d596e37327f.png",
+                        "image": "https://resizer.glanacion.com/resizer/v2/7fa6358d-4883-4a5f-a042-2d596e37327f.png?width=80&quality=80&smart=false",
                         "role": "LA NACION"
                     }
                 },
@@ -1152,7 +1152,7 @@
                                 "media": "(min-width: 320px)",
                                 "width": 80
                             },
-                            "resizedUrl": "https://resizer.glanacion.com/resizer/Ojhvxk3Kommp92HsIm7nx74V__s=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7fa6358d-4883-4a5f-a042-2d596e37327f.png"
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/7fa6358d-4883-4a5f-a042-2d596e37327f.png?width=80&quality=80&smart=false"
                         }
                     ],
                     "url": "https://s3.amazonaws.com/arc-authors/lanacionar/7fa6358d-4883-4a5f-a042-2d596e37327f.png"
@@ -1251,7 +1251,7 @@
                         "proportion": "3:2",
                         "width": 1920
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/_pgA0o-Ct6i880v2ijWKt6B6Qm0=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1920&height=1280&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1262,7 +1262,7 @@
                         "proportion": "3:2",
                         "width": 1200
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/FuNTPpEceizAPMCoDmmHe3CSqEs=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1200&height=800&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1273,7 +1273,7 @@
                         "proportion": "2:3",
                         "width": 770
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/dvW8wftq6--pea56sjgMwDE3nUY=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=770&height=1155&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1283,11 +1283,11 @@
                         "proportion": "2:3",
                         "width": 420
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/_amnGTMfypcv3F_MrFTeBV2prjQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=420&height=630&quality=80&smart=false"
                 }
             ],
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/nV22maS9utW5XRL8JqECX1YIHVk=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         },
         "storytelling_mobile": {
@@ -1318,7 +1318,7 @@
                         "proportion": "3:2",
                         "width": 1920
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/_pgA0o-Ct6i880v2ijWKt6B6Qm0=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1920&height=1280&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1329,7 +1329,7 @@
                         "proportion": "3:2",
                         "width": 1200
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/FuNTPpEceizAPMCoDmmHe3CSqEs=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1200&height=800&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1340,7 +1340,7 @@
                         "proportion": "2:3",
                         "width": 770
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/dvW8wftq6--pea56sjgMwDE3nUY=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=770&height=1155&quality=80&smart=false"
                 },
                 {
                     "option": {
@@ -1350,11 +1350,11 @@
                         "proportion": "2:3",
                         "width": 420
                     },
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/_amnGTMfypcv3F_MrFTeBV2prjQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=420&height=630&quality=80&smart=false"
                 }
             ],
             "type": "image",
-            "url": "https://resizer.glanacion.com/resizer/nV22maS9utW5XRL8JqECX1YIHVk=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG",
+            "url": "https://resizer.glanacion.com/resizer/v2/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG?width=1920&quality=80&smart=false",
             "width": 2000
         }
     },
