@@ -17,11 +17,106 @@ jest.mock(
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => {
-        host = 'https://www.lanacion.com.ar';
-    }
-}));
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_FOODIT: 'https://www.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:prop-types',
+    () => {
+        const PropTypes = require('prop-types');
+        const addTag = validator => {
+            if (typeof validator === 'function') {
+                validator.tag = () => validator;
+                if (validator.isRequired) {
+                    validator.isRequired.tag = () => validator.isRequired;
+                }
+            }
+
+            return validator;
+        };
+        const propTypeFactories = [
+            'arrayOf',
+            'elementType',
+            'exact',
+            'instanceOf',
+            'objectOf',
+            'oneOf',
+            'oneOfType',
+            'shape'
+        ];
+
+        Object.keys(PropTypes).forEach(key => addTag(PropTypes[key]));
+        propTypeFactories.forEach(key => {
+            const createValidator = PropTypes[key];
+            PropTypes[key] = (...args) => addTag(createValidator(...args));
+            addTag(PropTypes[key]);
+        });
+
+        return PropTypes;
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:content',
+    () => ({
+        __esModule: true,
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+
+        return function Static({ children, ...props }) {
+            return React.createElement('static', props, children);
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:context',
+    () => {
+        const context = {
+            useAppContext: jest.fn(() => ({
+                contextPath: '',
+                deployment: () => {},
+                outputType: 'default'
+            }))
+        };
+
+        return {
+            __esModule: true,
+            default: context,
+            get useAppContext() {
+                return context.useAppContext;
+            }
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => {
+            host = 'https://www.lanacion.com.ar';
+        }
+    }),
+    { virtual: true }
+);
 
 const getProps = ({ withoutVideo, outputType = 'default', device }) => {
     Context.useAppContext = jest.fn(() => ({
@@ -126,7 +221,9 @@ describe('Tests - Component - AperturaStorytelling', () => {
             expect(sources[0].getAttribute('media')).toStrictEqual(
                 '(min-width: 768px)'
             );
-            expect(img.getAttribute('src').includes('420x630')).toBeTruthy();
+            expect(img.getAttribute('src')).toContain('/resizer/v2/');
+            expect(img.getAttribute('src')).toContain('width=420');
+            expect(img.getAttribute('src')).toContain('height=630');
         });
     });
 

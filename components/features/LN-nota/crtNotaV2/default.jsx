@@ -13,6 +13,7 @@ import {
 } from '../../../private/common/auth/helper/loginHelper';
 import { getSectionId } from '../../LN-10/ranking/common/_helper-WebApi';
 import { useRankingArticles } from '../../LN-10/ranking/_helper';
+import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 import { pickVisible3 } from './_utils/pickVisible3';
 import {
     hasStickyMobileSegmentationConfig,
@@ -118,7 +119,9 @@ export function CtrNotaV2({ customFields = {}, isAdmin = false } = {}) {
 
     if (!showCtr || hasNoArticles) return null;
 
-    const refinedTopThreeArticles = pickVisible3(_id, articles, excludedItems);
+    const refinedTopThreeArticles = replaceUrlsByEnvironment(
+        pickVisible3(_id, articles, excludedItems)
+    );
     const hasContent = refinedTopThreeArticles?.length > 0;
     const showComponent =
         showCtr && trigger && hasContent && shouldRenderSegmentedSticky;

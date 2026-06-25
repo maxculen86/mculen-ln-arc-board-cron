@@ -9,16 +9,24 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import wikiSourceData from '../../../../../../__mocks__/data/wikiTag/wikiSourceData.json';
 
-jest.mock('fusion:environment', () => {
-    return {
-        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
-        SITE_LANACION: 'https://www.lanacion.com.ar'
-    };
-});
+jest.mock(
+    'fusion:environment',
+    () => {
+        return {
+            RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+            SITE_LANACION: 'https://www.lanacion.com.ar'
+        };
+    },
+    { virtual: true }
+);
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
-}));
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+    }),
+    { virtual: true }
+);
 
 jest.mock('react-dom', () => ({
     ...jest.requireActual('react-dom'),

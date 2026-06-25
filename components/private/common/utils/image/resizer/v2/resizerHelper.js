@@ -123,10 +123,16 @@ export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
 
 // URl Logic
 
-const LANACION_BASE_URL = SITE_LANACION || 'https://www.lanacion.com.ar';
+const LANACION_WWW_BASE_URL = 'https://www.lanacion.com.ar';
+const LANACION_BASE_URL = SITE_LANACION || LANACION_WWW_BASE_URL;
 
 const removeTrailingSlash = url =>
     isValidString(url) ? url.replace(/\/+$/, '') : url;
+
+const isLanacionWwwResizerUrl = url => {
+    const wwwBaseUrl = removeTrailingSlash(LANACION_WWW_BASE_URL);
+    return url === wwwBaseUrl || url.startsWith(`${wwwBaseUrl}/resizer/`);
+};
 
 const isFooditArcSite = arcSite => arcSite === 'foodit';
 
@@ -172,6 +178,13 @@ export const replaceResizerBaseUrl = ({
         isValidString(resizerPublicBaseUrl) &&
         (url === resizerPublicBaseUrl ||
             url.startsWith(`${resizerPublicBaseUrl}/`));
+
+    if (
+        !baseUrlOverride &&
+        !isFooditArcSite(arcSite) &&
+        isLanacionWwwResizerUrl(url)
+    )
+        return url;
 
     if (!isFooditArcSite(arcSite) && isResizerPublicUrl) {
         return url.replace(resizerPublicBaseUrl, finalBaseUrl);
@@ -528,5 +541,3 @@ export const resizeArcGallery = (
             )
     };
 };
-
-export default replaceUrlResizerToWWW;
