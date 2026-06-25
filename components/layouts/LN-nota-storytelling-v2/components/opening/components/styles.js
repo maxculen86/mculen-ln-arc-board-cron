@@ -3,22 +3,23 @@ import { cva, cx } from '@ln/ds-cva';
 const CONTAINER_CENTERED = 'm-auto max-w-835 px-24';
 
 export const openingImage100Variants = {
-    wrapper: cva('w-full max-w-1366 absolute left-1/2 -translate-x-1/2 z-10', {
+    wrapper: cva('w-full max-w-1366 absolute z-10', {
         variants: {
             variant: {
-                below: 'text-center bottom-0 mb-40 md:mb-80',
-                above: 'top-0 text-center mt-40 md:mt-80',
+                below: 'left-1/2 -translate-x-1/2 text-center bottom-0 mb-40 md:mb-80',
+                above: 'left-1/2 -translate-x-1/2 top-0 text-center mt-40 md:mt-80',
                 left: '-translate-y-1/2 top-1/2 m-auto',
-                centered: 'top-1/2 transform -translate-y-1/2 text-center'
+                centered:
+                    'left-1/2 -translate-x-1/2 top-1/2 transform -translate-y-1/2 text-center'
             }
         }
     }),
-    container: cva(`flex flex-col gap-8`, {
+    container: cva(`flex flex-col gap-12`, {
         variants: {
             variant: {
                 below: CONTAINER_CENTERED,
                 above: CONTAINER_CENTERED,
-                left: 'max-w-552 px-24 md:pr-24 md:pl-24',
+                left: 'max-w-550 px-16 md:pr-0 md:pl-24 md:max-w-635 xl:pl-32 lg:pr-0 2xl:pl-64',
                 centered: CONTAINER_CENTERED
             }
         }
