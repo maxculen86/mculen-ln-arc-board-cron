@@ -20,12 +20,7 @@ function CardPromoRoot({
     const normSize = normalizeResponsive(size, 24);
 
     const { default: defaultOri, ...responsiveOrientation } = normOri;
-    const { default: defaultSizeRaw, ...responsiveSize } = normSize;
-
-    const defaultSize =
-        defaultOri === 'horizontal' && defaultSizeRaw === 32
-            ? 24
-            : defaultSizeRaw;
+    const { default: defaultSize, ...responsiveSize } = normSize;
 
     const cleanResponsiveSize = Object.fromEntries(
         Object.entries(responsiveSize).filter(([, v]) => v !== undefined)

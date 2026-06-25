@@ -6,7 +6,9 @@ const GAME_LAYOUT_RULES = {
         'fourVertical',
         'oneLargeFourSmall',
         'twoHorizontal',
-        'oneHorizontalThreeVertical'
+        'oneHorizontalThreeVertical',
+        'threeVertical',
+        'oneHorizontal'
     ],
     'LN-nota-infografia': ['fourVertical']
 };
@@ -18,7 +20,9 @@ const DIAGRAMATION_ITEM_LIMITS = {
 
 const MIN_DIAGRAMATION_ITEMS = {
     fourVertical: 4,
-    twoHorizontal: 2
+    twoHorizontal: 2,
+    threeVertical: 3,
+    oneHorizontal: 1
 };
 
 export const getGameDiagramationItems = (

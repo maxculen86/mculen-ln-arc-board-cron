@@ -124,6 +124,32 @@ describe('LN_DS_CajaPromo - _helper', () => {
                 });
             });
 
+            it('should return warning for threeVertical with less than 3 items', () => {
+                expect(
+                    validateGamesChain(
+                        'LN-acumulado',
+                        { layout: 'threeVertical' },
+                        [{}]
+                    )
+                ).toEqual({
+                    type: 'warning',
+                    message: 'Se requiere la carga de 2 juegos'
+                });
+            });
+
+            it('should return warning for oneHorizontal with no items', () => {
+                expect(
+                    validateGamesChain(
+                        'LN-acumulado',
+                        { layout: 'oneHorizontal' },
+                        []
+                    )
+                ).toEqual({
+                    type: 'warning',
+                    message: 'Se requiere la carga de 1 juego'
+                });
+            });
+
             it('should use custom contentLabel in warning message', () => {
                 expect(
                     validateGamesChain(
@@ -196,6 +222,26 @@ describe('LN_DS_CajaPromo - _helper', () => {
                         'LN-nota-infografia',
                         { layout: 'fourVertical' },
                         [{}, {}, {}, {}]
+                    )
+                ).toBeNull();
+            });
+
+            it('should return null for threeVertical with exactly 3 items in LN-acumulado', () => {
+                expect(
+                    validateGamesChain(
+                        'LN-acumulado',
+                        { layout: 'threeVertical' },
+                        [{}, {}, {}]
+                    )
+                ).toBeNull();
+            });
+
+            it('should return null for oneHorizontal with 1 item in LN-acumulado', () => {
+                expect(
+                    validateGamesChain(
+                        'LN-acumulado',
+                        { layout: 'oneHorizontal' },
+                        [{}]
                     )
                 ).toBeNull();
             });
