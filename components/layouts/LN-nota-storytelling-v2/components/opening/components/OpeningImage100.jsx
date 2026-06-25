@@ -23,6 +23,8 @@ function OpeningImage100({
     subheadline = '',
     hasStorytellingMobile = false
 }) {
+    const hasMedia = Boolean(videoUrl || src);
+
     const variant = diagram.split('title-')[1];
 
     const wrapperClass = openingImage100Variants.wrapper({ variant });
@@ -37,22 +39,24 @@ function OpeningImage100({
             )}
             data-diagram={diagram}
         >
-            <OpeningMedia
-                videoUrl={videoUrl}
-                posterUrl={posterUrl}
-                src={src}
-                srcset={srcset}
-                sizes={sizes}
-                width={width}
-                height={height}
-                altText={altText}
-                mobileImage={
-                    hasStorytellingMobile && mobileImageData?.src
-                        ? mobileImageData
-                        : undefined
-                }
-                classname="absolute inset-0"
-            />
+            {hasMedia && (
+                <OpeningMedia
+                    videoUrl={videoUrl}
+                    posterUrl={posterUrl}
+                    src={src}
+                    srcset={srcset}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
+                    altText={altText}
+                    mobileImage={
+                        hasStorytellingMobile && mobileImageData?.src
+                            ? mobileImageData
+                            : undefined
+                    }
+                    classname="absolute inset-0"
+                />
+            )}
             <div className={wrapperClass}>
                 <div className={containerClass}>
                     <OpeningAddons

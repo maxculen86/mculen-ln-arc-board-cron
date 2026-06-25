@@ -13,6 +13,9 @@ const getOpeningMediaItems = (promoItems = {}) => {
 };
 
 const getNormalizedImageData = (imageData = {}) => {
+    if (!imageData)
+        return { resizedUrls: [], url: '', caption: '', altText: '' };
+
     const {
         resized_urls: resizedUrls = [],
         url = '',
