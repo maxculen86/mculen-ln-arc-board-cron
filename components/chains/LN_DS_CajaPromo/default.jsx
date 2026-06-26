@@ -6,7 +6,7 @@ import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
-import { validateGamesChain } from './common/_helper';
+import { validateGamesChain, shouldShowGamesCaja } from './common/_helper';
 import { PromoProvider } from './common/promoContext';
 import { CardDiagramation } from './diagramations/cardDiagramation';
 
@@ -18,7 +18,7 @@ const DIAGRAMATIONS = {
 };
 
 function LNDSCajaPromo({ customFields, children, ...props }) {
-    const { isAdmin, layout } = useAppContext() || {};
+    const { isAdmin, layout, globalContent = {} } = useAppContext() || {};
     const { id: featureId } = props;
 
     const {
@@ -35,6 +35,12 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
         layout: diagramation,
         contentType = 'game'
     } = customFields;
+
+    const shouldShowCaja = shouldShowGamesCaja({
+        layout,
+        globalContent,
+        contentType
+    });
 
     const error = validateGamesChain(
         layout,
@@ -55,7 +61,7 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
         linkButton,
         buttonStyle,
         isStatic: true,
-        shouldLoadRoof: !hideCaja
+        shouldLoadRoof: shouldShowCaja && !hideCaja
     });
 
     if (isAdmin && error) {
@@ -64,7 +70,7 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
 
     const Diagramation = DIAGRAMATIONS[diagramation];
 
-    return !hideCaja ? (
+    return shouldShowCaja && !hideCaja ? (
         <Static id={featureId}>
             <BuildRoof {...roofData} />
             <div data-tw style={{ display: 'contents' }}>
