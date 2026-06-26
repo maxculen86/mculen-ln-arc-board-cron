@@ -357,7 +357,7 @@ describe('Case return getData', () => {
             title: 'La Nacion',
             description: 'Ultimas noticias de Argentina y el mundo',
             image: {
-                url: 'undefined$LATEST',
+                url: 'https://www.lanacion.com.ar$LATEST',
                 width: '1200',
                 height: '800',
                 alt: 'Placeholder de LA NACION',
@@ -397,7 +397,7 @@ describe('Case return getData', () => {
             description: undefined,
             fbAppId: '',
             image: {
-                url: 'undefined$LATEST',
+                url: 'https://www.lanacion.com.ar$LATEST',
                 width: '1200',
                 height: '800',
                 alt: 'Placeholder de LA NACION',
