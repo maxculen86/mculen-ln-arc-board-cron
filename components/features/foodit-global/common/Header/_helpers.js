@@ -67,14 +67,16 @@ export default function transformMenuData({
     menuItems.push({
         title: 'Conocenos',
         href: `https://conocenos.foodit.com.ar/`,
-        menuType: 'secondary'
+        menuType: 'secondary',
+        className: '--no-app'
     });
 
     if (isMobile) {
         menuItems.push({
             title: 'CLUB LA NACION',
             href: setPageUrl('/club-la-nacion'),
-            menuType: 'secondary'
+            menuType: 'secondary',
+            className: 'lg-none'
         });
     }
 
