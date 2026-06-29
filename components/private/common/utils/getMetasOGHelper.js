@@ -1,4 +1,4 @@
-import { ARC_STATIC, SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 import { replaceUrlResizerToWWW } from './image/resizer/v2/resizerHelper';
 import { getSectionOfRequestUri } from './outputTypeHelper';
@@ -210,7 +210,7 @@ export const getData = ({
 }) => {
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const imagePath = `${contextPath}/resources/images/placeholderLN-1200x800.jpg`;
-    const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
+    const PLACEHOLDER = `${SITE_LANACION}${deployment(imagePath)}`;
     const {
         title: titleDefault,
         description: descriptionDefault,
