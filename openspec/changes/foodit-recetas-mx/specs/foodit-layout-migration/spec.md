@@ -1,7 +1,9 @@
 ## ADDED Requirements
 
-### Requirement: Foodit-acumulado migrado como duplicación estratégica
-El layout `Foodit-acumulado` SHALL copiarse al bundle MX en `apps/foodit-mx/components/layouts/Foodit-acumulado/` desacoplado del original del monolito (`components/layouts/Foodit-acumulado/`). El archivo copiado SHALL incluir en su cabecera un comentario con el path de origen y la fecha del fork.
+### Requirement: Foodit-acumulado migrado como duplicación estratégica (disponible, no ruteado)
+El layout `Foodit-acumulado` SHALL copiarse al bundle MX en `apps/foodit-mx/components/layouts/Foodit-acumulado/` desacoplado del original del monolito (`components/layouts/Foodit-acumulado/`). El archivo copiado SHALL incluir en su cabecera un comentario con el path de origen y la fecha del fork. El layout queda **migrado y disponible** en el bundle pero **ninguna ruta lo asigna por defecto**: `/recetas` mantiene `Foodit-subcategorias` (ver corrección de Fase 6 — no hay swap).
+
+> **Decisión (corrección no-swap):** se canceló el swap `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder. `Foodit-acumulado` se conserva migrado (Fase 3 + bloque 4d: `AcuTema`/`TagCategories`) para no descartar el trabajo y habilitar uso futuro, pero no es el layout productivo de `/recetas`.
 
 #### Scenario: Layout copiado al bundle MX
 - **WHEN** se verifica `apps/foodit-mx/components/layouts/Foodit-acumulado/`
@@ -11,9 +13,9 @@ El layout `Foodit-acumulado` SHALL copiarse al bundle MX en `apps/foodit-mx/comp
 - **WHEN** se compara `components/layouts/Foodit-acumulado/` antes y después de la migración
 - **THEN** los archivos del monolito son idénticos a su estado previo; ningún archivo fue modificado
 
-#### Scenario: Layout en bundle MX sirve el path /recetas
-- **WHEN** Fusion arranca `apps/foodit-mx/` y se navega a `/recetas`
-- **THEN** el layout `Foodit-acumulado` del bundle MX renderiza la página de listado sin errores JS ni CSS
+#### Scenario: Layout disponible en el bundle pero no ruteado por defecto
+- **WHEN** se verifica la configuración de ruteo del bundle MX y se monta `Foodit-acumulado` en un entorno de prueba
+- **THEN** el layout renderiza sin errores JS ni CSS cuando se lo monta, pero ninguna ruta productiva (`/recetas` incluida) lo tiene asignado; `/recetas` resuelve con `Foodit-subcategorias`
 
 ### Requirement: Foodit-ficha-receta migrado como copia directa
 El layout `Foodit-ficha-receta` SHALL copiarse al bundle MX en `apps/foodit-mx/components/layouts/Foodit-ficha-receta/` con adaptaciones mínimas limitadas a: imports relativos, registro del layout en el bundle y paths de rutas. No SHALL requerirse lógica adicional de desacoplamiento.
@@ -30,10 +32,10 @@ El layout `Foodit-ficha-receta` SHALL copiarse al bundle MX en `apps/foodit-mx/c
 - **WHEN** Fusion arranca `apps/foodit-mx/` y se navega a una URL del tipo `/recetas/<slug-nid>`
 - **THEN** el layout `Foodit-ficha-receta` del bundle MX renderiza la ficha de artículo sin errores JS ni CSS
 
-### Requirement: Foodit-subcategorias presente en el bundle MX como layout paralelo
-El bundle MX SHALL incluir `Foodit-subcategorias` en `apps/foodit-mx/components/layouts/Foodit-subcategorias/` con todas sus dependencias (helpers, features y private components requeridos), de forma que el layout renderice en `fusion start` sin producir `[MISSING]` en el HTML. Este layout se mantiene como fallback mientras se valida el swap a `Foodit-acumulado` en PageBuilder.
+### Requirement: Foodit-subcategorias es el layout productivo de /recetas en el bundle MX
+El bundle MX SHALL incluir `Foodit-subcategorias` en `apps/foodit-mx/components/layouts/Foodit-subcategorias/` con todas sus dependencias (helpers, features y private components requeridos), de forma que el layout renderice en `fusion start` sin producir `[MISSING]` en el HTML. Este layout es el **layout definitivo de `/recetas`**: PageBuilder mantiene el mapeo existente y **no se ejecuta swap** a `Foodit-acumulado`.
 
-> **Contexto**: PageBuilder tiene `/recetas` mapeado actualmente a `Foodit-subcategorias`. El cambio definitivo al layout `Foodit-acumulado` (tarea 6.8) es manual y se ejecuta una vez validado el render end-to-end. Mientras tanto, `Foodit-subcategorias` debe estar presente y funcional en el bundle MX para no romper el ruteo existente.
+> **Contexto (corrección no-swap)**: PageBuilder tiene `/recetas` mapeado a `Foodit-subcategorias` y así se conserva. Se canceló el swap originalmente planeado en la tarea 6.8; `Foodit-subcategorias` deja de ser un fallback temporal y pasa a ser el layout productivo. `Foodit-acumulado` queda migrado en el bundle pero sin ruta asignada.
 
 #### Scenario: Layout presente con todas sus dependencias
 

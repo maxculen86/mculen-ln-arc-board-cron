@@ -1,6 +1,6 @@
-// Forked from: components/layouts/Foodit-acumulado/foodit.jsx
-// Fork date: 2026-06-10
-// Strategic fork: diverges from the monolith intentionally — do not merge back.
+// Migrated from: components/layouts/Foodit-acumulado/foodit.jsx
+// Migration date: 2026-06-10
+// Strategy: strategic fork — diverges from the monolith intentionally, do not merge back.
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import { Text } from '@ln/common-ui-text';
