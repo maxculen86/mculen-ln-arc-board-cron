@@ -43,10 +43,12 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
     return (
         showInstallButton &&
         isSubscribed && (
-            <PromoteInstallation
-                onClick={handleInstallClick}
-                variant={variant}
-            />
+            <div data-tw>
+                <PromoteInstallation
+                    onClick={handleInstallClick}
+                    variant={variant}
+                />
+            </div>
         )
     );
 }

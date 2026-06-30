@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
 import { Text } from '@ln/common-ui-text';
-import { Button } from '@ln/foodit-ui-button';
-import { Motion } from '@ln/common-ui-motion';
 import { useDisclosure } from '@ln/hooks';
-import { cx } from '@ln/cva';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { useAppContext } from 'fusion:context';
-
-// TODO: ver la posibilidad de crear lib para snackBar
+import { cx } from '@ln/ds-cva';
+import { AnimatePresence } from '@ln/ds-common-animatepresence';
+import Button from '../../../ui/foodit/button/foodit';
 
 export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
     const { isOpen, onClose } = useDisclosure(true);
+    const { contextPath, deployment } = useAppContext();
 
     useEffect(() => {
         let timer;
@@ -23,33 +22,33 @@ export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
 
         return () => clearTimeout(timer);
     }, [variant, isOpen, onClose]);
-
-    if (!isOpen) return null;
-
-    const { contextPath, deployment } = useAppContext();
     const path = `${contextPath}/resources/foodit/assets/foodit-color.png`;
     const deploymentPath = deployment(path);
     const variantClassesContainer = {
         snackBarDefault:
-            'w-100 max-w-328 max-w-508_md rounded-4 inline-flex fixed bottom-0 left-50 -translate-x-50 mb-16 z-7 shadow-snack-bar jc-center ai-center p-16 gap-8',
-        snackBarDrawer: 'flex flex-column pt-24 pb-12 px-16 gap-12 mt-24'
+            'w-full max-w-328 md:max-w-508 rounded-4 inline-flex fixed bottom-0 left-1/2 -translate-x-1/2 mb-16 z-7 shadow-lg justify-center items-center p-16 gap-8',
+        snackBarDrawer: 'flex flex-col pt-24 pb-12 px-16 gap-12 mt-24'
     };
 
     const variantClassesButton = {
         snackBarDefault: '',
-        snackBarDrawer: 'flex gap-24 w-100 jc-end'
+        snackBarDrawer: 'flex gap-24 w-full justify-end'
+    };
+
+    const buttonProps = {
+        variant: 'ghost',
+        color: 'custom',
+        size: 'custom',
+        className:
+            'text-secondary-positive text-12 hover:bg-transparent hover:text-primary-light'
     };
 
     return (
-        <Motion
-            show={isOpen}
-            animation={{
-                transitionIn: ['fade-in'],
-                transitionOut: ['fade-out']
-            }}
-        >
-            <li className={cx('bg-positive', variantClassesContainer[variant])}>
-                <div className="flex gap-8 ai-center">
+        <AnimatePresence show={isOpen}>
+            <li
+                className={cx('bg-brand-sal', variantClassesContainer[variant])}
+            >
+                <div className="flex gap-8 items-center">
                     {variant === 'snackBarDrawer' ? (
                         <Adaptableimage
                             width={24}
@@ -58,30 +57,22 @@ export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
                             alt="icono foodit"
                         />
                     ) : null}
-                    <Text className="roboto roboto-regular text-14 text-light-800">
+                    <Text className="font-secondary text-14 text-primary-default">
                         Ahora podés instalar Foodit, accedé a tus recetas fácil
                         y rápido
                     </Text>
                 </div>
-                <div className={cx(variantClassesButton[variant])}>
-                    <Button
-                        variant="link"
-                        className="text-secondary-positive"
-                        onClick={onClick}
-                    >
+                <div className={variantClassesButton[variant]}>
+                    <Button {...buttonProps} onClick={onClick}>
                         INSTALAR
                     </Button>
-                    {variant === 'snackBarDrawer' ? (
-                        <Button
-                            onClick={onClose}
-                            variant="link"
-                            className="text-secondary-positive"
-                        >
+                    {variant === 'snackBarDrawer' && (
+                        <Button {...buttonProps} onClick={onClose}>
                             CANCELAR
                         </Button>
-                    ) : null}
+                    )}
                 </div>
             </li>
-        </Motion>
+        </AnimatePresence>
     );
 }
