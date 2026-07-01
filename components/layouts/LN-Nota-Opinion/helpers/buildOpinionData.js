@@ -1,14 +1,14 @@
+import formatAuthorsAsString from '../../../private/common/utils/formatAuthorsAsString';
 import get from '../../../private/common/utils/get';
 import { getMediaData } from '../../../private/LN/common/utils/mediaHelper';
 import getMediaFigCaption from './getMediaFigCaption';
-import formatAuthorList from './formatAuthorList';
 
 const CONFIG = {
     ANALYSIS_TAG_SLUG: 'analisis-tid63578',
     EDITORIALS_SECTION_ID: '/editoriales'
 };
 
-const resolveOpinionVariant = ({ primarySectionId, tags }) => {
+const resolveOpinionLabelType = ({ primarySectionId, tags }) => {
     if (primarySectionId === CONFIG.EDITORIALS_SECTION_ID) {
         return 'EDITORIALS';
     }
@@ -20,18 +20,18 @@ const resolveOpinionVariant = ({ primarySectionId, tags }) => {
     return 'OPINION';
 };
 
-const OPINION_VARIANT_CONFIG = {
+const OPINION_LABEL_CONFIG = {
     EDITORIALS: {
         label: 'EDITORIALES',
-        showAuthors: false
+        showAuthorsInOpening: () => false
     },
     ANALYSIS: {
         label: 'ANÁLISIS',
-        showAuthors: true
+        showAuthorsInOpening: authors => authors.length === 1
     },
     OPINION: {
         label: 'OPINIÓN',
-        showAuthors: false
+        showAuthorsInOpening: () => false
     }
 };
 
@@ -47,13 +47,15 @@ export const buildOpinionData = globalContent => {
         ''
     );
 
-    const variant = resolveOpinionVariant({
+    const labelType = resolveOpinionLabelType({
         primarySectionId,
         tags
     });
 
+    const opinionConfig = OPINION_LABEL_CONFIG[labelType];
+
     return {
-        authorsConcat: formatAuthorList(authors),
+        authorsConcat: formatAuthorsAsString(authors),
         media: {
             mediaData,
             caption,
@@ -61,6 +63,7 @@ export const buildOpinionData = globalContent => {
         },
         headline: get(globalContent, 'headlines.basic', ''),
         subheadline: get(globalContent, 'subheadlines.basic', ''),
-        ...OPINION_VARIANT_CONFIG[variant]
+        label: opinionConfig.label,
+        showAuthorsInOpening: opinionConfig.showAuthorsInOpening(authors)
     };
 };

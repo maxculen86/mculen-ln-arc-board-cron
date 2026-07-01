@@ -9,6 +9,7 @@ import BiographyAccordion from './components/BiographyAccordion';
 import AuthorsAndSocialLinks from './components/AuthorsAndSocialLinks';
 import Distributor from './components/Distributor';
 import Divider from '../../ui/ln/divider/default';
+import { WrapperBody } from '../common/wrapperBody/default';
 
 function DsSignature({
     customFields = {},
@@ -52,29 +53,33 @@ function DsSignature({
             data-tw={position === place.Top ? undefined : true}
             style={{ display: 'contents' }}
         >
-            <div className={signatureVariants({ position })}>
-                <Divider />
-                <Distributor
-                    name={name}
-                    mode={mode}
-                    subcategory={subcategory}
-                    shouldShowDistributor={shouldShowDistributor}
-                />
-                <AuthorsAndSocialLinks
-                    photo={showPhoto ? photo : null}
-                    author={author}
-                    authorsText={authorsText}
-                    role={role}
-                    socialItems={socialItems}
-                    shouldShowAuthors={shouldShowAuthors}
-                />
+            <WrapperBody variant={position === place.Bottom ? 'narrow' : null}>
+                <div className={signatureVariants({ position })}>
+                    <Divider />
+                    <Distributor
+                        name={name}
+                        mode={mode}
+                        subcategory={subcategory}
+                        shouldShowDistributor={shouldShowDistributor}
+                    />
+                    <AuthorsAndSocialLinks
+                        photo={showPhoto ? photo : null}
+                        author={author}
+                        authorsText={authorsText}
+                        role={role}
+                        socialItems={socialItems}
+                        shouldShowAuthors={shouldShowAuthors}
+                    />
 
-                <BiographyAccordion
-                    text={isOpinionLayout ? bio : longBio}
-                    shouldShowBiography={shouldShowOpinionSignatureBottomExtras}
-                />
-                <Divider />
-            </div>
+                    <BiographyAccordion
+                        text={isOpinionLayout ? bio : longBio}
+                        shouldShowBiography={
+                            shouldShowOpinionSignatureBottomExtras
+                        }
+                    />
+                    <Divider />
+                </div>
+            </WrapperBody>
         </div>
     );
 }
@@ -82,7 +87,7 @@ function DsSignature({
 DsSignature.propTypes = {
     customFields: PropTypes.shape({
         position: PropTypes.oneOf([place.Top, place.Bottom]).tag({
-            label: 'Ubicacion'
+            label: 'Ubicación'
         })
     }).isRequired
 };

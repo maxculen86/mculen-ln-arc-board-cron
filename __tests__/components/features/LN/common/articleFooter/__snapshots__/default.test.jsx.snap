@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleFooterUi snapshots matches snapshot of the composed footer 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="root"
+  >
+    <div
+      data-testid="author"
+    />
+    <div
+      data-testid="tags"
+    />
+    <div
+      data-testid="brand"
+    />
+    <div
+      data-testid="trust"
+    />
+    <div
+      data-testid="worktype"
+    />
+  </div>
+</DocumentFragment>
+`;

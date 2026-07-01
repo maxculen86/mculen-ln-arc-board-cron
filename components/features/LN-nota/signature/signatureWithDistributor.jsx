@@ -1,8 +1,7 @@
 import React from 'react';
-import { SITE_LANACION } from 'fusion:environment';
 import { Link } from '@ln/contenidos-ui-link';
 import { cx } from '@ln/cva';
-import formatDistributorName from '../../../private/LN/common/utils/formatDistributorName';
+import buildDistributorUrl from '../../../private/LN/common/utils/buildDistributorUrl';
 
 function SignatureWithDistributor({
     name,
@@ -23,10 +22,7 @@ function SignatureWithDistributor({
             </span>
         ) : (
             <div className="flex gap-4 ai-center">
-                <Link
-                    href={`${SITE_LANACION}/distributor/${formatDistributorName(nombre)}/`}
-                    title={nombre}
-                >
+                <Link href={buildDistributorUrl(nombre)} title={nombre}>
                     <span
                         className={cx('text-16 font-bold', classNameSignature)}
                     >

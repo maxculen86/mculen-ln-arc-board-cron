@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Badge } from '@ln/contenidos-ui-badge';
 import { Text } from '@ln/contenidos-ui-text';
 import { cx } from '@ln/cva';
@@ -7,10 +7,8 @@ import { descriptionVariants } from './styles';
 import Share from '../../../features/LN-nota/share/default';
 import SignatureFeature from '../../../features/LN-nota/signature/default';
 import { place } from '../../../private/common/utils/firmaHelper';
-
 import ModSponsor from '../../../private/common/mod-sponsor';
 import ComLogo from '../../../private/common/com-logo';
-import { GlobalContext } from '../../../private/common/context/globalContext';
 import getTargetAndRelIfExternal from '../../../private/common/utils/getTargetAndRelIfExternal';
 import get from '../../../private/common/utils/get';
 
@@ -28,13 +26,9 @@ function NotaVideoOpeningDescription({
 }) {
     const { prefix = '' } = customFields;
     const { display_date: displayDate = '' } = globalContent || {};
-
-    const siteService = useContext(GlobalContext)?.state?.siteService || {};
-
     const { sponsorData = {}, titleProps } = getVideoOpeningTitleData({
         globalContent,
         layout,
-        siteService,
         prefix
     });
 

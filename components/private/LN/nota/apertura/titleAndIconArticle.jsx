@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Badge } from '@ln/contenidos-ui-badge';
 import get from '../../../common/utils/get';
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
-import '../../../../../resources/dist/css/ln/components/title.css';
-import getTooltip from '../../common/utils/getTooltip';
-import { GlobalContext } from '../../../common/context/globalContext';
 import { VIDEO, LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import { LIVE } from '../../../common/badge/types';
 import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
+import useSiteTooltip from '../../../common/hooks/useSiteTooltip';
+
+import '../../../../../resources/dist/css/ln/components/title.css';
 
 function TitleAndIconArticle({
     customFields: { prefix },
@@ -24,15 +24,13 @@ function TitleAndIconArticle({
     },
     layout
 }) {
-    const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
 
     let keyTooltip = '';
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
-    const tooltip = getTooltip(keyTooltip, siteService);
+    const tooltip = useSiteTooltip(keyTooltip);
     const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
     return (
         <>
