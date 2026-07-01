@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { getEncuestaRenderStateFromStorage } from '../helpers';
 
-const useEncuestaRenderState = () => {
+const useEncuestaRenderState = ({ encuestaPostId } = {}) => {
     const [{ anonymousVoteAttemptState, targetBoxLocation }] = useState(() =>
-        getEncuestaRenderStateFromStorage()
+        getEncuestaRenderStateFromStorage({ encuestaPostId })
     );
 
     return {
