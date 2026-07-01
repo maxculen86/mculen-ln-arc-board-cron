@@ -6,6 +6,7 @@ const minWidth1440 = '(min-width: 1440px)';
 const minWidth1280 = '(min-width: 1280px)';
 const minWidth1024 = '(min-width: 1024px)';
 const minWidth768 = '(min-width: 768px)';
+const minWidth512 = '(min-width: 512px)';
 const minWidth360 = '(min-width: 360px)';
 const minWidth320 = '(min-width: 320px)';
 const minWidth375 = '(min-width: 375px)';
@@ -99,6 +100,56 @@ const promoItemsSizes = {
             media_preload: setMediaCondition({ maxWidth: 767 }),
             useFullSize: true,
             proportion: '3:2'
+        }
+    ]
+};
+
+const storytellingFullSizePromoItems = {
+    sizes: [
+        {
+            width: 1920,
+            height: 1080,
+            media: minWidth1280,
+            useFullSize: true,
+            proportion: '16:9',
+            media_preload: setMediaCondition({ minWidth: 1280 })
+        },
+        {
+            width: 1280,
+            height: 1280,
+            media: minWidth1024,
+            useFullSize: true,
+            proportion: '1:1',
+            media_preload: setMediaCondition({
+                minWidth: 1024,
+                maxWidth: 1279
+            })
+        },
+        {
+            width: 1040,
+            height: 1100,
+            media: minWidth768,
+            useFullSize: true,
+            proportion: '2:3',
+            media_preload: setMediaCondition({
+                minWidth: 768,
+                maxWidth: 1023
+            })
+        },
+        {
+            width: 768,
+            height: 1100,
+            media: minWidth512,
+            useFullSize: true,
+            proportion: '2:3',
+            media_preload: setMediaCondition({ maxWidth: 767 })
+        },
+        {
+            width: 511,
+            height: 800,
+            useFullSize: true,
+            proportion: '2:3',
+            media_preload: setMediaCondition({ maxWidth: 511 })
         }
     ]
 };
@@ -2108,6 +2159,93 @@ export default {
                     }
                 ]
             }
+        },
+        'image-50-right-title-left': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 960,
+                        height: 1090,
+                        media: minWidth1280,
+                        useFullSize: true,
+                        proportion: '1:1',
+                        media_preload: setMediaCondition({ minWidth: 1280 })
+                    },
+                    {
+                        width: 835,
+                        height: 1050,
+                        media: minWidth768,
+                        useFullSize: true,
+                        proportion: '1:1',
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1279
+                        })
+                    },
+                    {
+                        width: 770,
+                        height: 980,
+                        useFullSize: true,
+                        proportion: '2:3',
+                        media_preload: setMediaCondition({ maxWidth: 767 })
+                    }
+                ]
+            }
+        },
+        'image-panoramic': {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 1920,
+                        height: 830,
+                        media: minWidth1280,
+                        useFullSize: true,
+                        proportion: '21:9',
+                        media_preload: setMediaCondition({ minWidth: 1280 })
+                    },
+                    {
+                        width: 1280,
+                        height: 580,
+                        media: minWidth768,
+                        useFullSize: true,
+                        proportion: '21:9',
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1279
+                        })
+                    },
+                    {
+                        width: 770,
+                        height: 770,
+                        media: minWidth512,
+                        useFullSize: true,
+                        proportion: '1:1',
+                        media_preload: setMediaCondition({
+                            minWidth: 512,
+                            maxWidth: 767
+                        })
+                    },
+                    {
+                        width: 512,
+                        height: 512,
+                        useFullSize: true,
+                        proportion: '1:1',
+                        media_preload: setMediaCondition({ maxWidth: 511 })
+                    }
+                ]
+            }
+        },
+        'image-100-title-below': {
+            promo_items: storytellingFullSizePromoItems
+        },
+        'image-100-title-centered': {
+            promo_items: storytellingFullSizePromoItems
+        },
+        'image-100-title-left': {
+            promo_items: storytellingFullSizePromoItems
+        },
+        'image-100-title-above': {
+            promo_items: storytellingFullSizePromoItems
         },
         default: [
             {
