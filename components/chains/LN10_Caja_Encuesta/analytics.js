@@ -1,18 +1,18 @@
 import {
     ENCUESTA_COMPONENT_NAME,
-    ENCUESTA_IMPRESSION_EVENT,
-    ENCUESTA_POST_ID
+    ENCUESTA_IMPRESSION_EVENT
 } from './constants';
 
 export const buildEncuestaImpressionEvent = ({
     slot,
     segment,
     viewportEntryCount,
-    stateCode
+    stateCode,
+    encuestaPostId
 }) => ({
     event: ENCUESTA_IMPRESSION_EVENT,
     rest: {
-        poll_id: ENCUESTA_POST_ID,
+        poll_id: encuestaPostId,
         component: ENCUESTA_COMPONENT_NAME,
         slot,
         segment,

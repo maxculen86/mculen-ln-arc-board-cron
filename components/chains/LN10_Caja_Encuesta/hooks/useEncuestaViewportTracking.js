@@ -20,7 +20,8 @@ import {
 const useEncuestaViewportTracking = ({
     boxLocation,
     segment,
-    shouldRender
+    shouldRender,
+    encuestaPostId
 }) => {
     const wrapperRef = useRef(null);
     const isWrapperVisibleRef = useRef(false);
@@ -47,7 +48,8 @@ const useEncuestaViewportTracking = ({
                     safeGetJSON(ENCUESTA_HOME_STATE_STORAGE_KEY, null)
                 );
                 const webComponentVoteState = parseEncuestaVote(
-                    safeGetJSON(ENCUESTA_VOTE_STORAGE_KEY, null)
+                    safeGetJSON(ENCUESTA_VOTE_STORAGE_KEY, null),
+                    encuestaPostId
                 );
                 const anonymousVoteAttemptState = getAnonymousVoteAttemptState({
                     webComponentVoteState,
@@ -82,7 +84,8 @@ const useEncuestaViewportTracking = ({
                         slot: boxLocation,
                         segment,
                         viewportEntryCount,
-                        stateCode
+                        stateCode,
+                        encuestaPostId
                     })
                 );
             });
