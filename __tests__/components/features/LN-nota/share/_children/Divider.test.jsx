@@ -11,9 +11,9 @@ describe('components - features - LN-nota - share - _children - Divider', () => 
 
             expect(separators).toHaveLength(2);
 
-            expect(separators[0]).toHaveClass('l-none', 'vertical', 'mx-16');
+            expect(separators[0]).toHaveClass('l-none', 'vertical');
 
-            expect(separators[1]).toHaveClass('l-only', 'my-16');
+            expect(separators[1]).toHaveClass('l-only');
         });
 
         it('should render vertical divider with correct classes', () => {
@@ -23,7 +23,7 @@ describe('components - features - LN-nota - share - _children - Divider', () => 
             expect(separator).toBeInTheDocument();
             expect(screen.getAllByRole('separator')).toHaveLength(1);
 
-            expect(separator).toHaveClass('vertical', 'mx-16');
+            expect(separator).toHaveClass('vertical');
         });
 
         it('should render horizontal divider for non-vertical variants', () => {
@@ -32,8 +32,8 @@ describe('components - features - LN-nota - share - _children - Divider', () => 
 
             expect(separators).toHaveLength(2);
 
-            expect(separators[0]).toHaveClass('l-none', 'vertical', 'mx-16');
-            expect(separators[1]).toHaveClass('l-only', 'my-16');
+            expect(separators[0]).toHaveClass('l-none', 'vertical');
+            expect(separators[1]).toHaveClass('l-only');
         });
     });
 

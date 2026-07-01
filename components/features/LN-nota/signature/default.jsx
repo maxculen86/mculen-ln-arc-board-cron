@@ -67,8 +67,8 @@ function SignatureFeature(props) {
 
     const hasVisibleContent =
         showSignatureWithDistributor || hasAuthors || showListenButton;
-    const googleButtonClassName = cx('l-only', {
-        'mb-24_m': !hasVisibleContent
+    const googleButtonClassName = cx('hidden lg:inline-flex', {
+        'md:mb-24': !hasVisibleContent
     });
     const googleButton = <GoogleButton className={googleButtonClassName} />;
 
