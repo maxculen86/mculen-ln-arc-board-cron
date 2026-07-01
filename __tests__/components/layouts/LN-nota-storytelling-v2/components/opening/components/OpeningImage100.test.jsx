@@ -2,12 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import OpeningImage100 from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningImage100';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({
-        deployment: jest.fn(path => path),
-        contextPath: '/pf'
-    }))
-}));
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({
+            deployment: jest.fn(path => path),
+            contextPath: '/pf'
+        }))
+    }),
+    { virtual: true }
+);
 
 jest.mock(
     '../../../../../../../components/features/ui/ln/image/default',

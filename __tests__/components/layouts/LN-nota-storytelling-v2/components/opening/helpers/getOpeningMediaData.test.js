@@ -2,9 +2,21 @@ import getOpeningMediaData, {
     buildStorytellingOpeningImage
 } from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningMediaData';
 import * as mediaHelpers from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/mediaHelpers';
-import getOpeningResizedUrls from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls';
+import getOpeningResizedUrls, {
+    getDesktopResizedUrls,
+    getMobileResizedUrls
+} from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/getOpeningResizedUrls';
 import { getVideoData } from '../../../../../../../components/features/private-global/common/utils/getVideoData';
 
+jest.mock(
+    'fusion:environment',
+    () => ({
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer',
+        SITE_LANACION: 'la-nacion-ar',
+        SITE_FOODIT: 'foodit'
+    }),
+    { virtual: true }
+);
 jest.mock(
     '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/mediaHelpers'
 );
@@ -56,6 +68,7 @@ const storytellingResponsiveEntries = [
 
 describe('components - layouts - LN-nota-storytelling-v2 - components - opening - helpers - getOpeningMediaData', () => {
     beforeEach(() => {
+        jest.clearAllMocks();
         mediaHelpers.getOpeningMediaItems.mockReturnValue({
             desktopImageItem: {},
             mobileImageItem: {}
@@ -67,6 +80,8 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
             altText: ''
         });
         getOpeningResizedUrls.mockReturnValue([]);
+        getDesktopResizedUrls.mockReturnValue([]);
+        getMobileResizedUrls.mockReturnValue([]);
         getVideoData.mockReturnValue({ videoUrl: '', posterUrl: '' });
     });
 
@@ -116,6 +131,85 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
             width: 1200,
             height: 800
         });
+    });
+
+    it('should keep desktop and mobile srcsets separated by dimension metadata when storytelling_mobile exists', () => {
+        const desktopImageItem = { id: 'desktop-image' };
+        const mobileImageItem = { id: 'mobile-image' };
+        const desktopEntries = [
+            {
+                resizedUrl: 'https://example.com/desktop?width=1920&height=830',
+                option: {
+                    width: 1920,
+                    height: 830,
+                    proportion: '21:9'
+                }
+            },
+            {
+                resizedUrl: 'https://example.com/desktop?width=1280&height=580',
+                option: { width: 1280, height: 580, proportion: '21:9' }
+            }
+        ];
+        const mobileEntries = [
+            {
+                resizedUrl: 'https://example.com/mobile?width=770&height=770',
+                option: {
+                    width: 770,
+                    height: 770,
+                    proportion: '1:1',
+                    isMobileDimension: true
+                }
+            },
+            {
+                resizedUrl: 'https://example.com/mobile?width=512&height=512',
+                option: {
+                    width: 512,
+                    height: 512,
+                    proportion: '1:1',
+                    isMobileDimension: true
+                }
+            }
+        ];
+
+        mediaHelpers.getOpeningMediaItems.mockReturnValue({
+            desktopImageItem,
+            mobileImageItem
+        });
+        mediaHelpers.getNormalizedImageData
+            .mockReturnValueOnce({
+                resizedUrls: [],
+                url: 'https://example.com/desktop',
+                caption: 'desktop caption',
+                altText: 'desktop alt'
+            })
+            .mockReturnValueOnce({
+                resizedUrls: [],
+                url: 'https://example.com/mobile',
+                caption: 'mobile caption',
+                altText: 'mobile alt'
+            });
+        getDesktopResizedUrls.mockReturnValue(desktopEntries);
+        getMobileResizedUrls.mockReturnValue(mobileEntries);
+
+        const result = buildStorytellingOpeningImage(
+            { storytelling_mobile: mobileImageItem },
+            'headline'
+        );
+
+        expect(getOpeningResizedUrls).not.toHaveBeenCalled();
+        expect(getDesktopResizedUrls).toHaveBeenCalledWith(
+            desktopImageItem,
+            mobileImageItem
+        );
+        expect(result.srcset).toContain(
+            'https://example.com/desktop?width=1280&height=580 1280w'
+        );
+        expect(result.srcset).toContain(
+            'https://example.com/desktop?width=1920&height=830 1920w'
+        );
+        expect(result.srcset).not.toContain('mobile?width=512');
+        expect(result.srcset).not.toContain('mobile?width=770');
+        expect(result.sizes).not.toContain('(max-width: 767px) 512px');
     });
 
     describe('video_jw', () => {

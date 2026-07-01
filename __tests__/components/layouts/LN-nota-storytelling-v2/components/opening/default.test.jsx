@@ -2,13 +2,17 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Opening from '../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/default';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({
-        deployment: jest.fn(path => path),
-        contextPath: '/pf',
-        arcSite: 'la-nacion-ar'
-    }))
-}));
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({
+            deployment: jest.fn(path => path),
+            contextPath: '/pf',
+            arcSite: 'la-nacion-ar'
+        }))
+    }),
+    { virtual: true }
+);
 
 jest.mock('../../../../../../components/private/common/utils/get', () =>
     jest.fn()
