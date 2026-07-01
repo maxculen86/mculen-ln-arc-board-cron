@@ -4,6 +4,26 @@ import isExternalDistributor from '../../../../private/common/utils/isExternalDi
 import { getAuthorsListText } from '../utils/authorHelpers';
 import { useSignature } from './useSignature';
 
+const SUBTYPES = {
+    OPINION: '3'
+};
+
+const SIGNATURE_RULES_CONFIG = {
+    [SUBTYPES.OPINION]: {
+        hideSignature: ({
+            hasMultipleAuthors,
+            authorIsGuest,
+            authorHasBio,
+            position
+        }) =>
+            position === 'Bottom' &&
+            (hasMultipleAuthors || authorIsGuest || !authorHasBio)
+    }
+};
+
+const resolveSignatureRule = ({ subtype }) =>
+    SIGNATURE_RULES_CONFIG[subtype] ?? null;
+
 export const useSignatureRules = ({
     customFields: { position = 'Bottom' } = {},
     ignoreDistributor = false,
@@ -30,6 +50,12 @@ export const useSignatureRules = ({
         contentElements
     });
     const hasMultipleAuthors = Array.isArray(authors) && authors.length > 1;
+    const authorCredits = creditsBy.filter(c => c.type === 'author');
+    const singleAuthor = !hasMultipleAuthors ? authorCredits[0] : null;
+    const authorIsGuest = singleAuthor ? !get(singleAuthor, '_id', '') : false;
+    const authorHasBio = singleAuthor
+        ? Boolean(get(singleAuthor, 'additional_properties.original.bio'))
+        : false;
     const authorRole = get(dataAuthor, 'role', '');
     const roleByLayout = isOpinionLayout ? authorRole : medio;
     const resolvedRole = hasMultipleAuthors ? null : roleByLayout;
@@ -61,7 +87,18 @@ export const useSignatureRules = ({
         : getAuthorsNameAndLink(authors);
     const shouldShowAuthors = hasAuthorsInContent && !shouldShowDistributor;
 
-    const shouldRender = shouldShowDistributor || shouldShowAuthors;
+    const signatureRule = resolveSignatureRule({ subtype });
+
+    const shouldHideSignature =
+        signatureRule?.hideSignature({
+            hasMultipleAuthors,
+            authorIsGuest,
+            authorHasBio,
+            position
+        }) ?? false;
+
+    const shouldRender =
+        (shouldShowDistributor || shouldShowAuthors) && !shouldHideSignature;
 
     return {
         flags: {

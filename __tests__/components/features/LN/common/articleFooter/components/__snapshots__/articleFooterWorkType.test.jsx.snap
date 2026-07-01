@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkType snapshots matches snapshot with text and label 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full flex flex-row items-center md:w-auto gap-4"
+  >
+    <span
+      class="text-small-lg font-normal text-base-default"
+    >
+      Tipo de trabajo:
+    </span>
+    <div
+      data-testid="tooltip"
+    >
+      <div
+        data-testid="tooltip-content"
+      >
+        <span
+          class="leading-[130%] text-small-lg font-normal text-base-default"
+        >
+          Informacion verificada de primera mano.
+        </span>
+      </div>
+      <span
+        class="tooltip-sibling-hover text-label-sm font-bold text-base-default"
+      >
+        Noticia original
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

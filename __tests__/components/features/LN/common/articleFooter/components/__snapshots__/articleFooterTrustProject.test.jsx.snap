@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheTrustProject snapshots matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <a
+    href="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
+    title="Ir a Proyecto Trust"
+  >
+    <div
+      class="w-full flex flex-row items-center gap-4 md:w-auto"
+    >
+      <span
+        class="text-small-lg font-normal text-base-default"
+      >
+        Conforme a
+      </span>
+      <div
+        class="h-20"
+      >
+        <img
+          alt="The Trust Project"
+          data-height="20"
+          src="/trust.webp"
+        />
+      </div>
+      <i
+        data-name="arrow-right"
+        data-testid="icon"
+      />
+    </div>
+  </a>
+</DocumentFragment>
+`;

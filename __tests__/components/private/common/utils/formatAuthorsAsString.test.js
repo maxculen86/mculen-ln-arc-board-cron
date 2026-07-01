@@ -1,4 +1,4 @@
-import formatAuthorList from '../../../../../components/layouts/LN-Nota-Opinion/helpers/formatAuthorList';
+import formatAuthorsAsString from '../../../../../components/private/common/utils/formatAuthorsAsString';
 import get from '../../../../../components/private/common/utils/get';
 import { startsWithIorHiRAE } from '../../../../../components/private/common/utils/getAuthorsAsString';
 
@@ -12,19 +12,19 @@ jest.mock(
     })
 );
 
-describe('formatAuthorList', () => {
+describe('formatAuthorsAsString', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     it('returns empty string when authors is not an array', () => {
-        expect(formatAuthorList(null)).toBe('');
-        expect(formatAuthorList(undefined)).toBe('');
-        expect(formatAuthorList({})).toBe('');
+        expect(formatAuthorsAsString(null)).toBe('');
+        expect(formatAuthorsAsString(undefined)).toBe('');
+        expect(formatAuthorsAsString({})).toBe('');
     });
 
     it('returns empty string when authors array is empty', () => {
-        expect(formatAuthorList([])).toBe('');
+        expect(formatAuthorsAsString([])).toBe('');
     });
 
     it('returns empty string when no author type elements exist', () => {
@@ -35,7 +35,7 @@ describe('formatAuthorList', () => {
 
         get.mockReturnValue('Juan');
 
-        expect(formatAuthorList(authors)).toBe('');
+        expect(formatAuthorsAsString(authors)).toBe('');
     });
 
     it('returns single author name in uppercase when only one valid author exists', () => {
@@ -43,7 +43,7 @@ describe('formatAuthorList', () => {
 
         get.mockReturnValue('Juan Pérez');
 
-        expect(formatAuthorList(authors)).toBe('JUAN PÉREZ');
+        expect(formatAuthorsAsString(authors)).toBe('Juan Pérez');
     });
 
     it('joins two authors with "y" when last author does not start with i or hi', () => {
@@ -56,7 +56,7 @@ describe('formatAuthorList', () => {
 
         startsWithIorHiRAE.mockReturnValue(false);
 
-        expect(formatAuthorList(authors)).toBe('JUAN Y PEDRO');
+        expect(formatAuthorsAsString(authors)).toBe('Juan y Pedro');
     });
 
     it('joins two authors with "e" when last author starts with i or hi', () => {
@@ -69,7 +69,7 @@ describe('formatAuthorList', () => {
 
         startsWithIorHiRAE.mockReturnValue(true);
 
-        expect(formatAuthorList(authors)).toBe('JUAN E IGNACIO');
+        expect(formatAuthorsAsString(authors)).toBe('Juan e Ignacio');
     });
 
     it('formats three authors using commas and the correct final connector', () => {
@@ -85,7 +85,7 @@ describe('formatAuthorList', () => {
 
         startsWithIorHiRAE.mockReturnValue(true);
 
-        expect(formatAuthorList(authors)).toBe('JUAN, PEDRO E IGNACIO');
+        expect(formatAuthorsAsString(authors)).toBe('Juan, Pedro e Ignacio');
     });
 
     it('ignores authors with empty or blank names when formatting the list', () => {
@@ -101,7 +101,7 @@ describe('formatAuthorList', () => {
 
         startsWithIorHiRAE.mockReturnValue(false);
 
-        expect(formatAuthorList(authors)).toBe('JUAN Y PEDRO');
+        expect(formatAuthorsAsString(authors)).toBe('Juan y Pedro');
     });
 
     it('returns empty string when all author names are empty or blank', () => {
@@ -112,6 +112,6 @@ describe('formatAuthorList', () => {
 
         get.mockReturnValueOnce('   ').mockReturnValueOnce('');
 
-        expect(formatAuthorList(authors)).toBe('');
+        expect(formatAuthorsAsString(authors)).toBe('');
     });
 });

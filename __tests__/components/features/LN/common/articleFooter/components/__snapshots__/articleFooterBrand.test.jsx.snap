@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Brand snapshots matches snapshot with default props 1`] = `
+<DocumentFragment>
+  <div
+    class="h-32 flex align-center"
+  >
+    <img
+      alt="Comunidad de Negocios"
+      data-object-fit="contain"
+      src="https://placehold.co/123x40/"
+    />
+  </div>
+</DocumentFragment>
+`;
