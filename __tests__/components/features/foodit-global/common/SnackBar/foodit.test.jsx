@@ -39,4 +39,16 @@ describe('PromoteInstallation', () => {
         ).toBeInTheDocument();
         expect(screen.queryByText(/CANCELAR/i)).toBeInTheDocument();
     });
+
+    it('should match snapshot snackBarDefault', () => {
+        const { container } = render(<PromoteInstallation />);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should match snapshot snackBarDrawer', () => {
+        const { container } = render(
+            <PromoteInstallation variant="snackBarDrawer" as="li" />
+        );
+        expect(container).toMatchSnapshot();
+    });
 });

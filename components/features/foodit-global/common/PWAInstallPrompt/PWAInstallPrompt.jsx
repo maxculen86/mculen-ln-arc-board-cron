@@ -4,7 +4,7 @@ import { PromoteInstallation } from '../PromoteInstallation/foodit';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-function PwaInstallPrompt({ deployment, arcSite, variant }) {
+function PwaInstallPrompt({ deployment, arcSite, variant, as }) {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
     const [showInstallButton, setShowInstallButton] = useState(false);
     const { isSubscribed } = useGetUserConfig();
@@ -40,16 +40,14 @@ function PwaInstallPrompt({ deployment, arcSite, variant }) {
         });
     };
 
+    if (!showInstallButton || !isSubscribed) return null;
+
     return (
-        showInstallButton &&
-        isSubscribed && (
-            <div data-tw>
-                <PromoteInstallation
-                    onClick={handleInstallClick}
-                    variant={variant}
-                />
-            </div>
-        )
+        <PromoteInstallation
+            as={as}
+            onClick={handleInstallClick}
+            variant={variant}
+        />
     );
 }
 

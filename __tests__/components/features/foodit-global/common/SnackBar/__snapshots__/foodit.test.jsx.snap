@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromoteInstallation should match snapshot snackBarDefault 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class="bg-brand-sal w-full max-w-328 md:max-w-508 rounded-4 inline-flex fixed bottom-0 left-1/2 -translate-x-1/2 mb-16 z-7 shadow-lg justify-center items-center p-16 gap-8"
+    >
+      <div
+        class="flex gap-8 items-center"
+      >
+        <span
+          class="font-secondary text-14 text-primary-default"
+        >
+          Ahora podés instalar Foodit, accedé a tus recetas fácil y rápido
+        </span>
+      </div>
+      <div
+        class=""
+      >
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-button font-bold uppercase text-secondary-positive text-12 hover:bg-transparent hover:text-primary-light"
+          data-disabled="false"
+        >
+          INSTALAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PromoteInstallation should match snapshot snackBarDrawer 1`] = `
+<div>
+  <li
+    data-tw="true"
+  >
+    <div
+      class="bg-brand-sal flex flex-col pt-24 pb-12 px-16 gap-12 mt-24"
+    >
+      <div
+        class="flex gap-8 items-center"
+      >
+        <div
+          class="relative overflow-hidden h-full w-full max-w-24"
+        >
+          <picture>
+            <img
+              alt="icono foodit"
+              class="ds-image relative z-1 object-contain h-full w-full"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="pathDeployment/contextPath/resources/foodit/assets/foodit-color.png"
+            />
+          </picture>
+        </div>
+        <span
+          class="font-secondary text-14 text-primary-default"
+        >
+          Ahora podés instalar Foodit, accedé a tus recetas fácil y rápido
+        </span>
+      </div>
+      <div
+        class="flex gap-24 w-full justify-end"
+      >
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-button font-bold uppercase text-secondary-positive text-12 hover:bg-transparent hover:text-primary-light"
+          data-disabled="false"
+        >
+          INSTALAR
+        </button>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 rounded-button font-bold uppercase text-secondary-positive text-12 hover:bg-transparent hover:text-primary-light"
+          data-disabled="false"
+        >
+          CANCELAR
+        </button>
+      </div>
+    </div>
+  </li>
+</div>
+`;

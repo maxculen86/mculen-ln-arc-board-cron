@@ -50,6 +50,7 @@ export function MyAccount({
                     <AccountItem key={item.text} item={item} />
                 ))}
                 <PwaInstallPrompt
+                    as="li"
                     arcSite={arcSite}
                     deployment={deployment}
                     variant="snackBarDrawer"
