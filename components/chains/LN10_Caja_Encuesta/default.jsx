@@ -3,24 +3,25 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import useNotaSegment from '../../private/LN/common/hooks/useNotaSegment';
 import WebComponentRenderer from '../../private/common/webComponentRenderer';
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import {
     BOX_LOCATIONS,
     ENCUESTA_COMPONENT_NAME,
     ENCUESTA_HOME_EXPERIMENT_NAME,
-    ENCUESTA_POST_ID,
     ENCUESTA_SCRIPT_ID,
     ENCUESTA_SCRIPT_URL,
     SEGMENTATION_GROUP
 } from './constants';
-import { shouldRenderEncuesta } from './helpers';
+import { hasSingleEncuestaPostId, shouldRenderEncuesta } from './helpers';
 import useEncuestaRenderState from './hooks/useEncuestaRenderState';
 import useEncuestaViewportTracking from './hooks/useEncuestaViewportTracking';
 
-function CajaEncuesta({ customFields = {} }) {
+function CajaEncuesta({ customFields = {}, renderables = [], isAdmin }) {
     const {
         testDigits = [],
         controlDigits = [],
-        boxLocation = BOX_LOCATIONS.CAJA_1
+        boxLocation = BOX_LOCATIONS.CAJA_1,
+        encuestaPostId = 0
     } = customFields;
     const { segment, ready } = useNotaSegment({
         experimentName: ENCUESTA_HOME_EXPERIMENT_NAME,
@@ -28,18 +29,35 @@ function CajaEncuesta({ customFields = {} }) {
         controlDigits,
         syncStorage: false
     });
-    const { targetBoxLocation } = useEncuestaRenderState();
+    if (
+        !hasSingleEncuestaPostId({
+            renderables,
+            encuestaPostId,
+            boxLocation
+        }) &&
+        isAdmin
+    )
+        return (
+            <WarningMessage
+                type="warning"
+                message="El ID de encuesta no coincide con el definido en la otra instancia del feature"
+            />
+        );
+
+    const { targetBoxLocation } = useEncuestaRenderState({ encuestaPostId });
 
     const shouldRender = shouldRenderEncuesta({
         ready,
         segment,
         boxLocation,
-        targetBoxLocation
+        targetBoxLocation,
+        encuestaPostId
     });
     const wrapperRef = useEncuestaViewportTracking({
         boxLocation,
         segment,
-        shouldRender
+        shouldRender,
+        encuestaPostId
     });
 
     if (!shouldRender) return null;
@@ -56,7 +74,7 @@ function CajaEncuesta({ customFields = {} }) {
                 tagName={ENCUESTA_COMPONENT_NAME}
                 scriptId={ENCUESTA_SCRIPT_ID}
                 scriptUrl={ENCUESTA_SCRIPT_URL}
-                attributes={{ 'post-id': ENCUESTA_POST_ID }}
+                attributes={{ 'post-id': encuestaPostId }}
             />
         </section>
     );
@@ -88,6 +106,11 @@ CajaEncuesta.propTypes = {
                 [BOX_LOCATIONS.CAJA_2]: 'Caja 2'
             },
             defaultValue: BOX_LOCATIONS.CAJA_1,
+            group: SEGMENTATION_GROUP
+        }),
+        encuestaPostId: PropTypes.number.tag({
+            label: 'ID de Post',
+            defaultValue: 0,
             group: SEGMENTATION_GROUP
         })
     })

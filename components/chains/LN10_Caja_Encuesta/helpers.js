@@ -8,7 +8,6 @@ import {
     CAJA_1_VIEWPORT_THRESHOLD,
     ANONYMOUS_VOTE_ATTEMPT_RESULTS,
     ENCUESTA_HOME_STATE_STORAGE_KEY,
-    ENCUESTA_POST_ID,
     ENCUESTA_VOTE_STORAGE_KEY,
     USER_STATE_CODES
 } from './constants';
@@ -34,10 +33,14 @@ const normalizeViewportEntryCount = value => {
     return Math.floor(numberValue);
 };
 
-export const parseEncuestaVote = ndEncuestaVoteStorageValue => {
+export const parseEncuestaVote = (
+    ndEncuestaVoteStorageValue,
+    encuestaPostId
+) => {
     const parsedValue = parseStorageJson(ndEncuestaVoteStorageValue);
     const isCurrentPoll = Boolean(
-        parsedValue?.pollId && String(parsedValue.pollId) === ENCUESTA_POST_ID
+        parsedValue?.pollId &&
+            String(parsedValue.pollId) === String(encuestaPostId)
     );
 
     if (!isCurrentPoll) {
@@ -183,10 +186,12 @@ export const getEncuestaTargetBoxLocation = ({
 };
 
 export const getEncuestaRenderStateFromStorage = ({
-    now = Date.now()
+    now = Date.now(),
+    encuestaPostId
 } = {}) => {
     const webComponentVoteState = parseEncuestaVote(
-        safeGetJSON(ENCUESTA_VOTE_STORAGE_KEY, null)
+        safeGetJSON(ENCUESTA_VOTE_STORAGE_KEY, null),
+        encuestaPostId
     );
     const encuestaHomeState = parseEncuestaHomeState(
         safeGetJSON(ENCUESTA_HOME_STATE_STORAGE_KEY, null)
@@ -241,12 +246,33 @@ export const getEncuestaUserStateCode = ({
 export const isValidBoxLocation = boxLocation =>
     Object.values(BOX_LOCATIONS).includes(boxLocation);
 
+export const hasSingleEncuestaPostId = ({
+    renderables = [],
+    encuestaPostId,
+    boxLocation
+}) => {
+    if (boxLocation !== BOX_LOCATIONS.CAJA_2) return true;
+
+    const caja1 = renderables.find(
+        ({ collection, type, props }) =>
+            collection === 'chains' &&
+            type === 'LN10_Caja_Encuesta' &&
+            props?.customFields?.boxLocation === BOX_LOCATIONS.CAJA_1
+    );
+
+    if (!caja1) return true;
+
+    return caja1.props.customFields.encuestaPostId === encuestaPostId;
+};
+
 export const shouldRenderEncuesta = ({
     ready,
     segment,
     boxLocation,
-    targetBoxLocation = BOX_LOCATIONS.CAJA_1
+    targetBoxLocation = BOX_LOCATIONS.CAJA_1,
+    encuestaPostId
 }) =>
+    Boolean(encuestaPostId) &&
     ready &&
     segment === 'test' &&
     isValidBoxLocation(boxLocation) &&

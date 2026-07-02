@@ -1,8 +1,7 @@
-import { SITE_LANACION } from 'fusion:environment';
 import { isEmptyString } from './dataValidation';
 import get from './get';
 
-const LANACION_BASE_URL = SITE_LANACION || 'https://www.lanacion.com.ar';
+const LANACION_BASE_URL = 'https://www.lanacion.com.ar';
 
 const replaceProductiveImgDomain = (url = '') =>
     !isEmptyString(url)

@@ -11,12 +11,13 @@ import {
     ENCUESTA_HOME_EXPERIMENT_NAME,
     ENCUESTA_HOME_STATE_STORAGE_KEY,
     ENCUESTA_IMPRESSION_EVENT,
-    ENCUESTA_POST_ID,
     ENCUESTA_SCRIPT_ID,
     ENCUESTA_SCRIPT_URL,
     ENCUESTA_VOTE_STORAGE_KEY,
     USER_STATE_CODES
 } from '../../../../components/chains/LN10_Caja_Encuesta/constants';
+
+const ENCUESTA_POST_ID = 3;
 
 jest.mock(
     'fusion:environment',
@@ -40,6 +41,7 @@ jest.mock(
 
         return {
             list: taggable(jest.fn()),
+            number: taggable(jest.fn()),
             oneOf: jest.fn(() => taggable(jest.fn())),
             shape: jest.fn(() => taggable(jest.fn()))
         };
@@ -52,22 +54,43 @@ jest.mock('../../../../components/private/LN/common/hooks/useNotaSegment', () =>
 );
 
 jest.mock(
+    '../../../../components/private/common/warningMessage/warningMessage',
+    () =>
+        ({ message }) => <div data-testid="warning-message">{message}</div>
+);
+
+jest.mock(
     '../../../../components/private/LN/common/utils/addEventToDataLayer',
     () => ({
         addEventToDataLayerV2: jest.fn()
     })
 );
 
+const makeRenderable = (boxLocation, encuestaPostId = ENCUESTA_POST_ID) => ({
+    collection: 'chains',
+    type: 'LN10_Caja_Encuesta',
+    props: {
+        collection: 'chains',
+        type: 'LN10_Caja_Encuesta',
+        customFields: { boxLocation, encuestaPostId }
+    },
+    children: []
+});
+
 const baseProps = ({
     testDigits = ['1', '3'],
     controlDigits = ['0', '2'],
-    boxLocation = BOX_LOCATIONS.CAJA_1
+    boxLocation = BOX_LOCATIONS.CAJA_1,
+    encuestaPostId = ENCUESTA_POST_ID,
+    renderables = [makeRenderable(boxLocation, encuestaPostId)]
 } = {}) => ({
     customFields: {
         testDigits,
         controlDigits,
-        boxLocation
-    }
+        boxLocation,
+        encuestaPostId
+    },
+    renderables
 });
 
 const mockSegmentReady = (segment = 'test', ready = true) => {
@@ -77,8 +100,8 @@ const mockSegmentReady = (segment = 'test', ready = true) => {
 const setVoteStorage = voteState => {
     const normalizedVoteState =
         typeof voteState === 'object'
-            ? { pollId: ENCUESTA_POST_ID, ...voteState }
-            : { pollId: ENCUESTA_POST_ID, hasPosted: voteState };
+            ? { pollId: String(ENCUESTA_POST_ID), ...voteState }
+            : { pollId: String(ENCUESTA_POST_ID), hasPosted: voteState };
 
     window.localStorage.setItem(
         ENCUESTA_VOTE_STORAGE_KEY,
@@ -153,7 +176,7 @@ describe('LN10_Caja_Encuesta', () => {
         const encuesta = container.querySelector('nd-encuestas');
 
         expect(encuesta).toBeInTheDocument();
-        expect(encuesta).toHaveAttribute('post-id', '3');
+        expect(encuesta).toHaveAttribute('post-id', String(ENCUESTA_POST_ID));
         expect(screen.getByTestId('encuesta-wrapper')).toHaveAttribute(
             'data-skip-impression',
             'true'
@@ -201,6 +224,54 @@ describe('LN10_Caja_Encuesta', () => {
         expect(document.getElementById(ENCUESTA_SCRIPT_ID)).toBeNull();
     });
 
+    it('does not render when encuestaPostId is zero (single instance)', () => {
+        const { container } = render(
+            <CajaEncuesta
+                {...baseProps({
+                    encuestaPostId: 0,
+                    renderables: [makeRenderable(BOX_LOCATIONS.CAJA_1, 0)]
+                })}
+            />
+        );
+
+        expect(container).toBeEmptyDOMElement();
+        expect(document.getElementById(ENCUESTA_SCRIPT_ID)).toBeNull();
+    });
+
+    it('shows a warning on caja_2 when its encuestaPostId differs from caja_1', () => {
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1, ENCUESTA_POST_ID),
+            makeRenderable(BOX_LOCATIONS.CAJA_2, 99)
+        ];
+
+        render(
+            <>
+                <CajaEncuesta
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        encuestaPostId: ENCUESTA_POST_ID,
+                        renderables: sharedRenderables
+                    })}
+                    isAdmin
+                />
+                <CajaEncuesta
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        encuestaPostId: 99,
+                        renderables: sharedRenderables
+                    })}
+                    isAdmin
+                />
+            </>
+        );
+
+        expect(screen.getByTestId('encuesta-wrapper')).toHaveAttribute(
+            'data-box-location',
+            BOX_LOCATIONS.CAJA_1
+        );
+        expect(screen.getByTestId('warning-message')).toBeInTheDocument();
+    });
+
     it('does not render caja_2 when the target decision is caja_1', () => {
         const { container } = render(
             <CajaEncuesta
@@ -234,13 +305,24 @@ describe('LN10_Caja_Encuesta', () => {
         setVoteStorage({ pollId: '99', hasPosted: true });
         setHomeStateStorage(3);
 
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1),
+            makeRenderable(BOX_LOCATIONS.CAJA_2)
+        ];
+
         const { container } = render(
             <>
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_1 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        renderables: sharedRenderables
+                    })}
                 />
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_2 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        renderables: sharedRenderables
+                    })}
                 />
             </>
         );
@@ -256,13 +338,24 @@ describe('LN10_Caja_Encuesta', () => {
         setVoteStorage(true);
         setHomeStateStorage(2);
 
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1),
+            makeRenderable(BOX_LOCATIONS.CAJA_2)
+        ];
+
         const { container } = render(
             <>
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_1 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        renderables: sharedRenderables
+                    })}
                 />
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_2 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        renderables: sharedRenderables
+                    })}
                 />
             </>
         );
@@ -278,13 +371,24 @@ describe('LN10_Caja_Encuesta', () => {
         setVoteStorage(true);
         setHomeStateStorage(3);
 
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1),
+            makeRenderable(BOX_LOCATIONS.CAJA_2)
+        ];
+
         const { container } = render(
             <>
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_1 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        renderables: sharedRenderables
+                    })}
                 />
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_2 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        renderables: sharedRenderables
+                    })}
                 />
             </>
         );
@@ -300,13 +404,24 @@ describe('LN10_Caja_Encuesta', () => {
     });
 
     it('does not duplicate the script when caja_1 and caja_2 instances coexist with caja_1 target', () => {
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1),
+            makeRenderable(BOX_LOCATIONS.CAJA_2)
+        ];
+
         const { container } = render(
             <>
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_1 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        renderables: sharedRenderables
+                    })}
                 />
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_2 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        renderables: sharedRenderables
+                    })}
                 />
             </>
         );
@@ -349,13 +464,24 @@ describe('LN10_Caja_Encuesta', () => {
         });
         setHomeStateStorage(3);
 
+        const sharedRenderables = [
+            makeRenderable(BOX_LOCATIONS.CAJA_1),
+            makeRenderable(BOX_LOCATIONS.CAJA_2)
+        ];
+
         const { container } = render(
             <>
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_1 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_1,
+                        renderables: sharedRenderables
+                    })}
                 />
                 <CajaEncuesta
-                    {...baseProps({ boxLocation: BOX_LOCATIONS.CAJA_2 })}
+                    {...baseProps({
+                        boxLocation: BOX_LOCATIONS.CAJA_2,
+                        renderables: sharedRenderables
+                    })}
                 />
             </>
         );
@@ -423,7 +549,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_1,
                 segment: 'test',
@@ -456,7 +582,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_2,
                 segment: 'test',
@@ -486,7 +612,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenCalledWith({
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_1,
                 segment: 'test',
@@ -528,7 +654,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(1, {
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_1,
                 segment: 'test',
@@ -539,7 +665,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(2, {
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_1,
                 segment: 'test',
@@ -584,7 +710,7 @@ describe('LN10_Caja_Encuesta', () => {
         expect(addEventToDataLayerV2).toHaveBeenNthCalledWith(2, {
             event: ENCUESTA_IMPRESSION_EVENT,
             rest: {
-                poll_id: '3',
+                poll_id: ENCUESTA_POST_ID,
                 component: ENCUESTA_COMPONENT_NAME,
                 slot: BOX_LOCATIONS.CAJA_1,
                 segment: 'test',

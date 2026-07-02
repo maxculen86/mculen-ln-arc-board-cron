@@ -3,10 +3,11 @@ import {
     BOX_LOCATIONS,
     CAJA_1_VIEWPORT_THRESHOLD,
     ENCUESTA_HOME_STATE_STORAGE_KEY,
-    ENCUESTA_POST_ID,
     ENCUESTA_VOTE_STORAGE_KEY,
     USER_STATE_CODES
 } from '../../../../components/chains/LN10_Caja_Encuesta/constants';
+
+const ENCUESTA_POST_ID = 3;
 import {
     getAnonymousVoteAttemptState,
     getDeferredVoteKey,
@@ -50,7 +51,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
                         hasPosted: true,
                         deferredVote: true,
                         timestamp: '2026-05-22T12:05:00.000Z'
-                    })
+                    }),
+                    ENCUESTA_POST_ID
                 )
             ).toMatchObject({
                 hasPosted: true,
@@ -73,7 +75,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
                         hasPosted: false,
                         deferredVote: true,
                         timestamp: '2026-05-22T12:05:00.000Z'
-                    })
+                    }),
+                    ENCUESTA_POST_ID
                 )
             ).toMatchObject({
                 hasPosted: false,
@@ -83,15 +86,23 @@ describe('LN10_Caja_Encuesta helpers', () => {
         });
 
         it('treats missing, false, and corrupt vote storage as not posted', () => {
-            expect(parseEncuestaVote(null).hasPosted).toBe(false);
-            expect(parseEncuestaVote('{bad-json').hasPosted).toBe(false);
+            expect(parseEncuestaVote(null, ENCUESTA_POST_ID).hasPosted).toBe(
+                false
+            );
             expect(
-                parseEncuestaVote(JSON.stringify({ hasPosted: false }))
-                    .hasPosted
+                parseEncuestaVote('{bad-json', ENCUESTA_POST_ID).hasPosted
             ).toBe(false);
             expect(
-                parseEncuestaVote(JSON.stringify({ hasPosted: 'true' }))
-                    .hasPosted
+                parseEncuestaVote(
+                    JSON.stringify({ hasPosted: false }),
+                    ENCUESTA_POST_ID
+                ).hasPosted
+            ).toBe(false);
+            expect(
+                parseEncuestaVote(
+                    JSON.stringify({ hasPosted: 'true' }),
+                    ENCUESTA_POST_ID
+                ).hasPosted
             ).toBe(false);
         });
 
@@ -103,7 +114,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
                         hasPosted: true,
                         deferredVote: true,
                         timestamp: '2026-05-22T12:05:00.000Z'
-                    })
+                    }),
+                    ENCUESTA_POST_ID
                 )
             ).toEqual({
                 hasPosted: false,
@@ -441,9 +453,11 @@ describe('LN10_Caja_Encuesta helpers', () => {
                 })
             );
 
-            expect(getEncuestaRenderStateFromStorage().targetBoxLocation).toBe(
-                BOX_LOCATIONS.CAJA_2
-            );
+            expect(
+                getEncuestaRenderStateFromStorage({
+                    encuestaPostId: ENCUESTA_POST_ID
+                }).targetBoxLocation
+            ).toBe(BOX_LOCATIONS.CAJA_2);
         });
 
         it('degrades to caja_1 when storage is missing or corrupt', () => {
@@ -453,9 +467,11 @@ describe('LN10_Caja_Encuesta helpers', () => {
                 '{bad-json'
             );
 
-            expect(getEncuestaRenderStateFromStorage().targetBoxLocation).toBe(
-                BOX_LOCATIONS.CAJA_1
-            );
+            expect(
+                getEncuestaRenderStateFromStorage({
+                    encuestaPostId: ENCUESTA_POST_ID
+                }).targetBoxLocation
+            ).toBe(BOX_LOCATIONS.CAJA_1);
         });
 
         it('returns render state with anonymous vote attempt classification', () => {
@@ -477,7 +493,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
 
             expect(
                 getEncuestaRenderStateFromStorage({
-                    now: Date.parse('2026-05-22T12:15:00.000Z')
+                    now: Date.parse('2026-05-22T12:15:00.000Z'),
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toEqual({
                 targetBoxLocation: BOX_LOCATIONS.CAJA_1,
@@ -560,7 +577,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
                     ready: true,
                     segment: 'test',
                     boxLocation: BOX_LOCATIONS.CAJA_1,
-                    targetBoxLocation: BOX_LOCATIONS.CAJA_1
+                    targetBoxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(true);
             expect(
@@ -568,7 +586,8 @@ describe('LN10_Caja_Encuesta helpers', () => {
                     ready: true,
                     segment: 'test',
                     boxLocation: BOX_LOCATIONS.CAJA_2,
-                    targetBoxLocation: BOX_LOCATIONS.CAJA_1
+                    targetBoxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(false);
         });
@@ -579,9 +598,28 @@ describe('LN10_Caja_Encuesta helpers', () => {
                     ready: true,
                     segment: 'test',
                     boxLocation: BOX_LOCATIONS.CAJA_2,
-                    targetBoxLocation: BOX_LOCATIONS.CAJA_2
+                    targetBoxLocation: BOX_LOCATIONS.CAJA_2,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(true);
+        });
+
+        it('does not render when encuestaPostId is zero or undefined', () => {
+            expect(
+                shouldRenderEncuesta({
+                    ready: true,
+                    segment: 'test',
+                    boxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: 0
+                })
+            ).toBe(false);
+            expect(
+                shouldRenderEncuesta({
+                    ready: true,
+                    segment: 'test',
+                    boxLocation: BOX_LOCATIONS.CAJA_1
+                })
+            ).toBe(false);
         });
 
         it('does not render control, null, unready, or invalid locations', () => {
@@ -589,28 +627,32 @@ describe('LN10_Caja_Encuesta helpers', () => {
                 shouldRenderEncuesta({
                     ready: true,
                     segment: 'control',
-                    boxLocation: BOX_LOCATIONS.CAJA_1
+                    boxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(false);
             expect(
                 shouldRenderEncuesta({
                     ready: true,
                     segment: null,
-                    boxLocation: BOX_LOCATIONS.CAJA_1
+                    boxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(false);
             expect(
                 shouldRenderEncuesta({
                     ready: false,
                     segment: 'test',
-                    boxLocation: BOX_LOCATIONS.CAJA_1
+                    boxLocation: BOX_LOCATIONS.CAJA_1,
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(false);
             expect(
                 shouldRenderEncuesta({
                     ready: true,
                     segment: 'test',
-                    boxLocation: 'otra_caja'
+                    boxLocation: 'otra_caja',
+                    encuestaPostId: ENCUESTA_POST_ID
                 })
             ).toBe(false);
         });

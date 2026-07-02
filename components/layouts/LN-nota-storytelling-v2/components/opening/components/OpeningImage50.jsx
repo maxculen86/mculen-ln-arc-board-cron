@@ -36,35 +36,35 @@ function OpeningImage50({
         >
             <div className="flex flex-col items-center gap-responsive md:grid md:grid-cols-12 xl:flex xl:flex-row xl:items-stretch">
                 <div className={descriptionContainerClassname}>
-                    <div className="flex flex-col items-center gap-8 pt-40 pb-24 xl:py-40 md:max-w-835 md:mx-auto xl:mx-0 xl:w-full xl:max-w-none xl:x-pl-container-start xl:items-start">
+                    <div className="flex flex-col items-center gap-12 pt-40 pb-24 xl:py-40 max-w-550 md:max-w-835 mx-auto xl:pl-32 xl:max-w-667 text-center">
                         <OpeningAddons
                             globalContent={globalContent}
                             layout={layout}
                             classnames={{
-                                container:
-                                    'xl:flex-wrap xl:mr-auto xl:max-w-552'
+                                container: 'xl:flex-wrap'
                             }}
                         />
                         <OpeningTitles
                             h1Props={{
                                 text: title1,
-                                className: 'xl:max-w-552 text-neutral-1'
+                                className: 'text-neutral-1'
                             }}
                             h2Props={{
                                 text: title2,
-                                className: 'xl:max-w-552 text-neutral-1'
+                                className: 'text-neutral-1'
                             }}
                         />
                         {subheadline && (
-                            <p className="font-primary text-neutral-1 text-subheading-md xl:max-w-552">
+                            <p className="font-primary text-neutral-1 text-center text-subheading-md xl:max-w-635">
                                 {subheadline}
                             </p>
                         )}
                     </div>
                 </div>
                 {hasMedia && (
-                    <div className="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden">
+                    <div className="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden">
                         <OpeningMedia
+                            classname="aspect-1/1"
                             videoUrl={videoUrl}
                             posterUrl={posterUrl}
                             src={src}

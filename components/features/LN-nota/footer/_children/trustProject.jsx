@@ -1,38 +1,29 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import useTrustProjectData from '../../../../private/common/hooks/useTrustProjectData';
+
 import '../../../../../resources/packages/css/@ln/common-ui-tooltip/index.css';
 
 function TrustProject({ isInvalid, tooltipData = { text: '', label: '' } }) {
     if (isInvalid) return null;
 
-    const { deployment, contextPath } = useAppContext();
+    const trustProjectData = useTrustProjectData();
 
     return (
         <section className="w-100 flex flex-column flex-row_m ai-start ai-center_m gap-4">
-            <Link
-                href="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
-                title="Ir a Proyecto Trust"
-                className="flex ai-center gap-8"
-            >
+            <Link className="flex ai-center gap-8" {...trustProjectData.link}>
                 <Text className="white-space-nowrap text-light-800 text-12">
                     Conforme a
                 </Text>
                 <div className="w-100 flex jc-between ai-start ai-center_m">
                     <div className="flex flex-column flex-row_m ai-start ai-center_m gap-12 gap-16_m">
                         <div className="flex gap-8 ai-center">
-                            <Adaptableimage
-                                height={20}
-                                src={deployment(
-                                    `${contextPath}/resources/images/the-trust-project.webp`
-                                )}
-                                alt="The Trust Project"
-                            />
+                            <Adaptableimage {...trustProjectData.image} />
                             <Icon size={16}>
                                 <IconSprite
                                     name="arrowRight"

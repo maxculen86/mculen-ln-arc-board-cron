@@ -9,8 +9,14 @@ import { buildOpinionData } from '../helpers/buildOpinionData';
 
 function Opinion({ children }) {
     const { globalContent, siteProperties } = useAppContext();
-    const { authorsConcat, media, headline, subheadline, label, showAuthors } =
-        buildOpinionData(globalContent);
+    const {
+        authorsConcat,
+        media,
+        headline,
+        subheadline,
+        label,
+        showAuthorsInOpening
+    } = buildOpinionData(globalContent);
 
     return (
         <>
@@ -27,10 +33,10 @@ function Opinion({ children }) {
                                 <span className="font-primary font-w-bold text-18 text-center leading-[130%]">
                                     {label}
                                 </span>
-                                {showAuthors && (
+                                {showAuthorsInOpening && (
                                     <Opening.Authors
                                         className="max-w-636"
-                                        authorsConcat={authorsConcat}
+                                        authorsConcat={authorsConcat.toUpperCase()}
                                     />
                                 )}
                             </div>

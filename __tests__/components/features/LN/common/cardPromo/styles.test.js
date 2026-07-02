@@ -112,7 +112,7 @@ describe('cardPromo - styles', () => {
             expect(result).toBe('md:flex md:flex-col');
         });
 
-        it('should clamp size 32 to 24 when orientation resolves to horizontal', () => {
+        it('should return md class for root 32_horizontal', () => {
             const result = getResponsiveCardClasses(
                 'root',
                 { md: 32 },
@@ -121,6 +121,19 @@ describe('cardPromo - styles', () => {
                 'vertical'
             );
             expect(result).toBe('md:grid md:grid-cols-2');
+        });
+
+        it('should return md class for content 32_horizontal', () => {
+            const result = getResponsiveCardClasses(
+                'content',
+                { md: 32 },
+                { md: 'horizontal' },
+                32,
+                'vertical'
+            );
+            expect(result).toBe(
+                'md:flex-col md:py-24 md:pl-16 md:pr-12 md:gap-8 md:items-start md:justify-center'
+            );
         });
 
         it('should return empty string for unknown component', () => {
@@ -194,6 +207,19 @@ describe('cardPromo - styles', () => {
             );
             expect(result).toBe(
                 'md:line-clamp-3 md:text-18 md:leading-[140%] md:tracking-[-0.6px] md:text-center'
+            );
+        });
+
+        it('should left-align description with body-md for 32_horizontal at md', () => {
+            const result = getResponsiveCardClasses(
+                'description',
+                { md: 32 },
+                { md: 'horizontal' },
+                32,
+                'vertical'
+            );
+            expect(result).toBe(
+                'md:line-clamp-3 md:text-16 md:leading-[140%] md:tracking-[-0.3px] md:text-start'
             );
         });
 

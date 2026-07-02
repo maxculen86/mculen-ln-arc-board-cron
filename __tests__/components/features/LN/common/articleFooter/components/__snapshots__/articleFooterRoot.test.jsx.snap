@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleFooterUiRoot snapshots matches snapshot with all slots 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      class="w-full flex flex-col font-secondary"
+    >
+      <div
+        class="flex flex-col gap-12 pb-40"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-40"
+        >
+          <div
+            data-testid="slot-author"
+          />
+          <div
+            data-testid="slot-tags"
+          />
+        </div>
+        <hr
+          data-testid="divider"
+        />
+        <div
+          class="w-full flex flex-col justify-center md:flex-row md:items-center min-h-20"
+        >
+          <div
+            class="w-full flex flex-col md:flex-row md:items-center gap-8 md:gap-16"
+          >
+            <div
+              data-testid="slot-brand"
+            />
+            <div
+              class="w-full flex flex-col md:flex-row md:items-center gap-8 md:gap-4"
+            >
+              <div
+                data-testid="slot-trust"
+              />
+              <div
+                data-testid="slot-worktype"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr
+        data-color="black"
+        data-testid="divider"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

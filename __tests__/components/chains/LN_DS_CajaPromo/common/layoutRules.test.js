@@ -131,6 +131,48 @@ describe('LN_DS_CajaPromo - layoutRules', () => {
             });
         });
 
+        describe('threeVertical layout', () => {
+            it('should return vertical size 32 rule at index 0', () => {
+                expect(getRuleForIndex('threeVertical', 0)).toEqual({
+                    range: [0, 2],
+                    size: { default: 32 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should return vertical size 32 rule at index 2 (last slot)', () => {
+                expect(getRuleForIndex('threeVertical', 2)).toEqual({
+                    range: [0, 2],
+                    size: { default: 32 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should return default rule when index is out of range', () => {
+                expect(getRuleForIndex('threeVertical', 3)).toEqual({
+                    size: 24,
+                    orientation: 'vertical'
+                });
+            });
+        });
+
+        describe('oneHorizontal layout', () => {
+            it('should return vertical-to-horizontal size 32 rule at index 0', () => {
+                expect(getRuleForIndex('oneHorizontal', 0)).toEqual({
+                    range: [0, 0],
+                    size: { default: 32 },
+                    orientation: { default: 'vertical', md: 'horizontal' }
+                });
+            });
+
+            it('should return default rule when index is out of range', () => {
+                expect(getRuleForIndex('oneHorizontal', 1)).toEqual({
+                    size: 24,
+                    orientation: 'vertical'
+                });
+            });
+        });
+
         describe('edge cases', () => {
             it('should return default rule for unknown layout', () => {
                 expect(getRuleForIndex('unknownLayout', 0)).toEqual({
@@ -163,12 +205,14 @@ describe('LN_DS_CajaPromo - layoutRules', () => {
     });
 
     describe('LAYOUT_RULES', () => {
-        it('should define rules for all four diagramation types', () => {
+        it('should define rules for all diagramation types', () => {
             expect(Object.keys(LAYOUT_RULES)).toEqual([
                 'oneLargeFourSmall',
                 'twoHorizontal',
                 'fourVertical',
-                'oneHorizontalThreeVertical'
+                'oneHorizontalThreeVertical',
+                'threeVertical',
+                'oneHorizontal'
             ]);
         });
     });

@@ -72,9 +72,40 @@ describe('Opinion', () => {
         expect(screen.getByText('Opinion text')).toBeInTheDocument();
     });
 
-    it('renders ANÁLISIS label and authors when analysis tag exists', () => {
+    it('renders ANÁLISIS label and author name when analysis tag exists and there is a single author', () => {
         setup({
             globalContent: {
+                credits: {
+                    by: [{ type: 'author', name: 'Carlitos Tevez' }]
+                },
+                taxonomy: {
+                    primary_section: {
+                        _id: '/opinion'
+                    },
+                    tags: [
+                        {
+                            description: 'Análisis',
+                            slug: 'analisis-tid63578',
+                            text: 'Análisis'
+                        }
+                    ]
+                }
+            }
+        });
+
+        expect(screen.getByText('ANÁLISIS')).toBeInTheDocument();
+        expect(screen.getByText('CARLITOS TEVEZ')).toBeInTheDocument();
+    });
+
+    it('renders ANÁLISIS label and does not render authors when analysis tag exists and there are multiple authors', () => {
+        setup({
+            globalContent: {
+                credits: {
+                    by: [
+                        { type: 'author', name: 'Carlitos Tevez' },
+                        { type: 'author', name: 'Zakk Wylde' }
+                    ]
+                },
                 taxonomy: {
                     primary_section: {
                         _id: '/opinion'
@@ -92,8 +123,8 @@ describe('Opinion', () => {
 
         expect(screen.getByText('ANÁLISIS')).toBeInTheDocument();
         expect(
-            screen.getByText('CARLITOS TEVEZ Y ZAKK WYLDE')
-        ).toBeInTheDocument();
+            screen.queryByText('CARLITOS TEVEZ Y ZAKK WYLDE')
+        ).not.toBeInTheDocument();
     });
 
     it('renders OPINIÓN label and does not render authors when no analysis tag exists', () => {

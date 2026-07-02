@@ -12,7 +12,7 @@ exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
       class="flex flex-col flex-1 justify-center text-center max-md:px-16 md:col-start-2 md:col-end-12 xl:max-w-none xl:mx-0 xl:text-left"
     >
       <div
-        class="flex flex-col items-center gap-8 pt-40 pb-24 xl:py-40 md:max-w-835 md:mx-auto xl:mx-0 xl:w-full xl:max-w-none xl:x-pl-container-start xl:items-start"
+        class="flex flex-col items-center gap-12 pt-40 pb-24 xl:py-40 max-w-550 md:max-w-835 mx-auto xl:pl-32 xl:max-w-667 text-center"
       >
         <div
           data-content="{}"
@@ -25,10 +25,10 @@ exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
+      class="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         loading="eager"
@@ -51,7 +51,7 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
       class="flex flex-col flex-1 justify-center text-center max-md:px-16 md:col-start-2 md:col-end-12 xl:max-w-none xl:mx-0 xl:text-left"
     >
       <div
-        class="flex flex-col items-center gap-8 pt-40 pb-24 xl:py-40 md:max-w-835 md:mx-auto xl:mx-0 xl:w-full xl:max-w-none xl:x-pl-container-start xl:items-start"
+        class="flex flex-col items-center gap-12 pt-40 pb-24 xl:py-40 max-w-550 md:max-w-835 mx-auto xl:pl-32 xl:max-w-667 text-center"
       >
         <div
           data-content="{"taxonomy":{"sections":[]}}"
@@ -62,29 +62,29 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
           data-testid="opening-titles"
         >
           <h1
-            class="xl:max-w-552 text-neutral-1"
+            class="text-neutral-1"
           >
             Título principal
           </h1>
           <h2
-            class="xl:max-w-552 text-neutral-1"
+            class="text-neutral-1"
           >
             Título secundario
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 text-subheading-md xl:max-w-552"
+          class="font-primary text-neutral-1 text-center text-subheading-md xl:max-w-635"
         >
           Bajada de prueba
         </p>
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
+      class="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
         alt="Alt de prueba"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         height="675"
@@ -112,7 +112,7 @@ exports[`OpeningImage50 snapshots snapshot without image 1`] = `
         class="flex flex-col flex-1 justify-center text-center max-md:px-16 md:col-start-2 md:col-end-12 xl:max-w-none xl:mx-0 xl:text-left"
       >
         <div
-          class="flex flex-col items-center gap-8 pt-40 pb-24 xl:py-40 md:max-w-835 md:mx-auto xl:mx-0 xl:w-full xl:max-w-none xl:x-pl-container-start xl:items-start"
+          class="flex flex-col items-center gap-12 pt-40 pb-24 xl:py-40 max-w-550 md:max-w-835 mx-auto xl:pl-32 xl:max-w-667 text-center"
         >
           <div
             data-content="{"taxonomy":{"sections":[]}}"
@@ -123,18 +123,18 @@ exports[`OpeningImage50 snapshots snapshot without image 1`] = `
             data-testid="opening-titles"
           >
             <h1
-              class="xl:max-w-552 text-neutral-1"
+              class="text-neutral-1"
             >
               Título principal
             </h1>
             <h2
-              class="xl:max-w-552 text-neutral-1"
+              class="text-neutral-1"
             >
               Título secundario
             </h2>
           </div>
           <p
-            class="font-primary text-neutral-1 text-subheading-md xl:max-w-552"
+            class="font-primary text-neutral-1 text-center text-subheading-md xl:max-w-635"
           >
             Bajada de prueba
           </p>
@@ -157,7 +157,7 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
       class="flex flex-col flex-1 justify-center text-center max-md:px-16 md:col-start-2 md:col-end-12 xl:max-w-none xl:mx-0 xl:text-left"
     >
       <div
-        class="flex flex-col items-center gap-8 pt-40 pb-24 xl:py-40 md:max-w-835 md:mx-auto xl:mx-0 xl:w-full xl:max-w-none xl:x-pl-container-start xl:items-start"
+        class="flex flex-col items-center gap-12 pt-40 pb-24 xl:py-40 max-w-550 md:max-w-835 mx-auto xl:pl-32 xl:max-w-667 text-center"
       >
         <div
           data-content="{"taxonomy":{"sections":[]}}"
@@ -168,12 +168,12 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
           data-testid="opening-titles"
         >
           <h1
-            class="xl:max-w-552 text-neutral-1"
+            class="text-neutral-1"
           >
             Título principal
           </h1>
           <h2
-            class="xl:max-w-552 text-neutral-1"
+            class="text-neutral-1"
           >
             Título secundario
           </h2>
@@ -181,11 +181,11 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
       </div>
     </div>
     <div
-      class="relative max-xl:aspect-4/5 md:max-w-835 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
+      class="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
         alt="Alt de prueba"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover opacity-60 aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         height="675"

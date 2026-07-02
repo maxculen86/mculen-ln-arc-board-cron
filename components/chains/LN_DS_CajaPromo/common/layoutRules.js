@@ -37,6 +37,20 @@ export const LAYOUT_RULES = {
             orientation: { default: 'horizontal', md: 'vertical' },
             clampTitle: true
         }
+    ],
+    threeVertical: [
+        {
+            range: [0, 2],
+            size: { default: 32 },
+            orientation: 'vertical'
+        }
+    ],
+    oneHorizontal: [
+        {
+            range: [0, 0],
+            size: { default: 32 },
+            orientation: { default: 'vertical', md: 'horizontal' }
+        }
     ]
 };
 

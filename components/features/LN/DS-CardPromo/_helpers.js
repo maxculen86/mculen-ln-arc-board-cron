@@ -23,11 +23,16 @@ export const buildLinkProps = ({ href, title, contentType }) => ({
 
 export const getBadge = isNew => (isNew && isNew !== 'NO' ? isNew : null);
 
+const DIAGRAMATION_IMAGE_CONFIG = {
+    threeVertical: 'cardPromoThree',
+    oneHorizontal: 'cardPromoOne'
+};
+
 export const getImageSettings = ({ isFirstCard, diagramation = '' }) => {
     if (diagramation === 'oneLargeFourSmall' && isFirstCard) {
         return 'cardPromoT1';
     }
-    return 'cardPromoDefault';
+    return DIAGRAMATION_IMAGE_CONFIG[diagramation] || 'cardPromoDefault';
 };
 
 export const isTagId = id =>

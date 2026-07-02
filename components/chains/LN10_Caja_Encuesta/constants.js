@@ -1,5 +1,4 @@
 export const ENCUESTA_HOME_EXPERIMENT_NAME = 'nd_encuesta_home';
-export const ENCUESTA_POST_ID = '3';
 export const ENCUESTA_COMPONENT_NAME = 'nd-encuestas';
 export const ENCUESTA_IMPRESSION_EVENT = 'impression_encuesta_home';
 export const ENCUESTA_SCRIPT_ID = 'nd-encuestas-script';

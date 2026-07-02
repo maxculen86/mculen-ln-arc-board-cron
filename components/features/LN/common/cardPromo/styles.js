@@ -41,6 +41,11 @@ export const cardMediaVariants = cva(
                 size: 24,
                 orientation: 'horizontal',
                 className: 'h-full @[410px]:aspect-1/1 @[410px]:h-auto'
+            },
+            {
+                size: 32,
+                orientation: 'horizontal',
+                className: 'h-full @[410px]:aspect-1/1 @[410px]:h-auto'
             }
         ],
         defaultVariants: { size: 24, orientation: 'vertical' }
@@ -81,6 +86,12 @@ export const cardContentVariants = cva('ds-card-content flex flex-1', {
             size: 32,
             orientation: 'vertical',
             className: 'pt-24 pb-32 px-16 gap-8 items-center'
+        },
+        {
+            size: 32,
+            orientation: 'horizontal',
+            className:
+                'flex-col py-24 pl-16 pr-12 gap-8 items-start justify-center'
         }
     ],
     defaultVariants: { size: 24, orientation: 'vertical' }
@@ -118,7 +129,12 @@ export const cardTitleVariants = cva(
                 orientation: 'horizontal',
                 className: 'text-subheading-md'
             },
-            { size: 32, orientation: 'vertical', className: 'text-heading-sm' }
+            { size: 32, orientation: 'vertical', className: 'text-heading-sm' },
+            {
+                size: 32,
+                orientation: 'horizontal',
+                className: 'text-heading-sm'
+            }
         ],
         defaultVariants: { size: 24, orientation: 'vertical', clamp: false }
     }
@@ -137,10 +153,18 @@ export const cardDescriptionVariants = cva(
             {
                 size: 32,
                 orientation: 'vertical',
-                className: 'line-clamp-3 text-body-lg text-center'
+                // text-body-lg suelto (text-18 140% -0.6px) para que el override
+                // responsive de md (horizontal → text-body-md) pueda pisarlo.
+                className:
+                    'line-clamp-3 text-18 leading-[140%] tracking-[-0.6px] text-center'
             },
             { size: 18, orientation: 'horizontal', className: 'hidden' },
-            { size: 24, orientation: 'horizontal', className: 'line-clamp-3' }
+            { size: 24, orientation: 'horizontal', className: 'line-clamp-3' },
+            {
+                size: 32,
+                orientation: 'horizontal',
+                className: 'line-clamp-3 text-body-md'
+            }
         ],
         defaultVariants: { size: 24, orientation: 'vertical' }
     }
@@ -156,7 +180,8 @@ export const cardActionVariants = cva('ds-card-action', {
         { size: 24, orientation: 'vertical', className: 'mt-auto' },
         { size: 32, orientation: 'vertical', className: 'mt-auto' },
         { size: 18, orientation: 'horizontal', className: '' },
-        { size: 24, orientation: 'horizontal', className: 'mt-8' }
+        { size: 24, orientation: 'horizontal', className: 'mt-8' },
+        { size: 32, orientation: 'horizontal', className: 'mt-8' }
     ],
     defaultVariants: { size: 24, orientation: 'vertical' }
 });
@@ -185,7 +210,8 @@ const CARD_RESPONSIVE = {
             '18_vertical': 'md:flex md:flex-col',
             '24_vertical': 'md:flex md:flex-col',
             '24_horizontal': 'md:grid md:grid-cols-2',
-            '32_vertical': 'md:flex md:flex-col'
+            '32_vertical': 'md:flex md:flex-col',
+            '32_horizontal': 'md:grid md:grid-cols-2'
         }
     },
     media: {
@@ -194,7 +220,9 @@ const CARD_RESPONSIVE = {
             '24_vertical': 'md:w-full md:h-auto md:aspect-1/1',
             '24_horizontal':
                 'md:w-full md:h-full md:aspect-none @[410px]:aspect-1/1 @[410px]:h-auto',
-            '32_vertical': 'md:w-full md:h-auto md:aspect-1/1'
+            '32_vertical': 'md:w-full md:h-auto md:aspect-1/1',
+            '32_horizontal':
+                'md:w-full md:h-full md:aspect-none @[410px]:aspect-1/1 @[410px]:h-auto'
         }
     },
     content: {
@@ -206,7 +234,9 @@ const CARD_RESPONSIVE = {
             '24_horizontal':
                 'md:flex-col md:py-24 md:pl-16 md:pr-12 md:gap-8 md:items-start md:justify-center',
             '32_vertical':
-                'md:flex-col md:pt-24 md:pb-32 md:px-16 md:gap-8 md:items-center'
+                'md:flex-col md:pt-24 md:pb-32 md:px-16 md:gap-8 md:items-center',
+            '32_horizontal':
+                'md:flex-col md:py-24 md:pl-16 md:pr-12 md:gap-8 md:items-start md:justify-center'
         }
     },
     title: {
@@ -222,7 +252,9 @@ const CARD_RESPONSIVE = {
             '24_horizontal':
                 'md:text-24 md:leading-[110%] md:tracking-[-0.3px] md:opsz-50 md:text-start md:flex-[0_1_auto]',
             '32_vertical':
-                'md:text-28 xl:text-32 md:leading-[110%] md:tracking-[-0.6px] md:opsz-50 md:text-center md:flex-[0_1_auto]'
+                'md:text-28 xl:text-32 md:leading-[110%] md:tracking-[-0.6px] md:opsz-50 md:text-center md:flex-[0_1_auto]',
+            '32_horizontal':
+                'md:text-28 xl:text-32 md:leading-[110%] md:tracking-[-0.6px] md:opsz-50 md:text-start md:flex-[0_1_auto]'
         }
     },
     description: {
@@ -232,7 +264,10 @@ const CARD_RESPONSIVE = {
             '24_horizontal': 'md:line-clamp-3',
             // text-body-lg → text-18 leading-[140%] tracking-[-0.6px]
             '32_vertical':
-                'md:line-clamp-3 md:text-18 md:leading-[140%] md:tracking-[-0.6px] md:text-center'
+                'md:line-clamp-3 md:text-18 md:leading-[140%] md:tracking-[-0.6px] md:text-center',
+            // text-body-md → text-16 leading-[140%] tracking-[-0.3px]
+            '32_horizontal':
+                'md:line-clamp-3 md:text-16 md:leading-[140%] md:tracking-[-0.3px] md:text-start'
         }
     },
     action: {
@@ -240,7 +275,8 @@ const CARD_RESPONSIVE = {
             '18_vertical': 'md:mt-auto',
             '24_vertical': 'md:mt-auto',
             '24_horizontal': 'md:mt-8',
-            '32_vertical': 'md:mt-auto'
+            '32_vertical': 'md:mt-auto',
+            '32_horizontal': 'md:mt-8'
         }
     }
 };
@@ -292,8 +328,7 @@ export function getResponsiveCardClasses(
                 defaultOrientation,
                 bp
             );
-            const clampedSize = ori === 'horizontal' && size === 32 ? 24 : size;
-            return CARD_RESPONSIVE[component]?.[bp]?.[`${clampedSize}_${ori}`];
+            return CARD_RESPONSIVE[component]?.[bp]?.[`${size}_${ori}`];
         })
         .filter(Boolean)
         .join(' ');

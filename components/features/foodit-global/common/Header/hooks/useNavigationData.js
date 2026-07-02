@@ -1,15 +1,12 @@
 import { useContent } from 'fusion:content';
-import { useState } from 'react';
-import { getTypeOfDevicev2 } from '@ln/utils';
+import { useMemo } from 'react';
 import transformMenuData from '../_helpers';
 import filterMenuSections from '../../../../../../content/filters/foodit/filterMenuSections';
 import isSSR from '../../../../../private/LN/common/utils/isSSR';
+import useIsMobile from '../../../hooks/useIsMobile';
 
 export const useNavigationData = () => {
-    const [isMobile] = useState(() => {
-        if (isSSR()) return false;
-        return getTypeOfDevicev2({ breakpoints: { mobile: 768 } }) === 'mobile';
-    });
+    const isMobile = useIsMobile();
 
     const response = useContent({
         source: 'navigationSource',
@@ -17,16 +14,21 @@ export const useNavigationData = () => {
             hierarchy: 'header_menu_ejes_foodit',
             website: 'foodit'
         },
-        transform: data => {
-            const transformedData = transformMenuData({ ...data, isMobile });
-            const processedTermicas = (!isSSR() && data.Termicas) || {};
-            return { transformedData, termicasData: processedTermicas };
-        },
+        transform: data => ({
+            mobileMenu: transformMenuData({ ...data, isMobile: true }),
+            desktopMenu: transformMenuData({ ...data, isMobile: false }),
+            termicasData: (!isSSR() && data.Termicas) || {}
+        }),
         filter: filterMenuSections
     });
 
-    const categories = response ? response.transformedData : null;
-    const termicasData = response ? response.termicasData : {};
+    const categories = useMemo(() => {
+        if (!response) return null;
+        return isMobile ? response.mobileMenu : response.desktopMenu;
+    }, [response, isMobile]);
 
-    return { categories, termicasData };
+    return {
+        categories,
+        termicasData: response ? response.termicasData : {}
+    };
 };

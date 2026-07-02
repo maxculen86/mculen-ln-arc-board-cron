@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Context from 'fusion:context';
 import ExternalSignature from './_children/externalSiganture';
 import Logo from './_children/logo';
 import TrustProject from './_children/trustProject';
 import get from '../../../private/common/utils/get';
-import getTooltip from '../../../private/LN/common/utils/getTooltip';
-import { GlobalContext } from '../../../private/common/context/globalContext';
 import Signature from './_children/signature';
 import Themes from './_children/themes';
 import {
@@ -18,6 +16,7 @@ import {
     shouldShowNoteFooterTopSection,
     shouldShowSignatureColumn
 } from './_utils/topRenderConditions';
+import useSiteTooltip from '../../../private/common/hooks/useSiteTooltip';
 
 function Footer(props) {
     const { globalContent, layout, siteProperties } = props;
@@ -29,20 +28,16 @@ function Footer(props) {
         taxonomy: { sections },
         distributor
     } = globalContent;
-
-    const globalContext = useContext(GlobalContext);
     const trust = get(label, 'trust.text', null);
     const advertiser = get(label, 'marca_anunciante.text', null);
     const sponsored = get(owner, 'sponsored', false);
+    const tooltipData = useSiteTooltip(trust);
 
     const isInvalid =
         trust === 'No mostrar Trust' ||
         advertiser ||
         sponsored ||
         subtype === RECETA;
-
-    const siteService = get(globalContext, 'state.siteService', {});
-    const tooltip = getTooltip(trust, siteService);
 
     const { name } = distributor || {};
     const logoData =
@@ -85,7 +80,10 @@ function Footer(props) {
                 <div className="flex flex-column flex-row_m gap-16 mb-40 ai-stretch py-16 py-12_m">
                     <Logo logoData={logoData} />
                     {showDivider && <hr className="vertical sm-none" />}
-                    <TrustProject isInvalid={isInvalid} tooltipData={tooltip} />
+                    <TrustProject
+                        isInvalid={isInvalid}
+                        tooltipData={tooltipData}
+                    />
                 </div>
             )}
             <div id="fin-de-nota" />

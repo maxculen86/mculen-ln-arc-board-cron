@@ -9,13 +9,44 @@ import acuResponse from '../../../../../__mocks__/data/ranking/acuResponse.json'
 
 import Ranking from '../../../../../components/features/LN-common/ranking/default';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
+jest.mock(
+    'fusion:context',
+    () => {
+        const context = {
+            useAppContext: jest.fn(() => ({}))
+        };
+
+        return {
+            __esModule: true,
+            default: context,
+            get useAppContext() {
+                return context.useAppContext;
+            }
+        };
     },
-    useAppContext: jest.fn(() => ({}))
-}));
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:content',
+    () => ({
+        __esModule: true,
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+
+        return function Static({ children, ...props }) {
+            return React.createElement('static', props, children);
+        };
+    },
+    { virtual: true }
+);
 
 jest.mock('react', () => {
     const ActualReact = jest.requireActual('react');
@@ -24,8 +55,6 @@ jest.mock('react', () => {
         useContext: () => ({})
     };
 });
-
-jest.mock('../../../../../__mocks__/fusion:static', () => 'Static');
 
 afterEach(() => {
     useContent.mockClear();
@@ -58,6 +87,9 @@ describe('Features - LN - Common - Ranking - default', () => {
         const { container } = render(<Ranking id="LN-acumulado" />);
         const titleElement = await screen.findByText('Más leídas de Política');
         expect(titleElement).toBeInTheDocument();
+        expect(container.innerHTML).toContain(
+            'https://www.lanacion.com.ar/resizer'
+        );
         expect(useContent).toHaveBeenCalledWith({
             query: {
                 imageConfig: 'boxArticles',

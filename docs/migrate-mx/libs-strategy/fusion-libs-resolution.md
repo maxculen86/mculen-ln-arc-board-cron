@@ -1,31 +1,64 @@
 # Estrategia de `libs/` compartidas en bundles Fusion — resolución de módulos
 
-> **Estado:** 🟡 ABIERTO — recomendación de ingeniería clara (**copiar**); pendiente de una **decisión simple** de Arquitectura (ver §0).
-> **Fecha:** 2026-06-16
+> **Estado:** 🟢 RESUELTO (Arquitectura, 2026-06-17) — decisión copy-vs-lib **per-componente, just-in-time**. Ver §0.
+> **Fecha:** 2026-06-16 (actualizado 2026-06-17 con la resolución de Arquitectura)
 > **Contexto:** change `foodit-recetas-mx`, Fase 4b (infra `libs/` + generator `ln-arc-lib`)
 > **Relacionado:** `openspec/changes/foodit-recetas-mx/design.md` (Decision 4), spec `monorepo-shared-libs`
 
-## 0. TL;DR — La pregunta para Arquitectura
+## 0. TL;DR — Resolución de Arquitectura (la regla)
 
-**Contexto en una línea:** Fusion no resuelve los path aliases de `tsconfig.base.json`; compartir código entre bundles es **o copiar, o publicar un package `@ln/*` versionado** (no hay "aliases mágicos").
+**Contexto en una línea:** Fusion no resuelve los path aliases de `tsconfig.base.json`; compartir código entre bundles es **o copiar, o publicar/symlinkear un package `@ln/*`** (no hay "aliases mágicos").
 
-**Realidad del proyecto:** existen **2 bundles** — `default` (monolito LN actual) y `foodit-mx` (fork extraído del default). Por ahora no hay más bundles Foodit en el horizonte.
+**Decisión de Arquitectura (2026-06-17): la elección copy-vs-lib es _per-componente_ y _just-in-time_ — se decide al migrar/tocar cada pieza, no de antemano en abstracto.**
 
-**Recomendación de ingeniería: en este escenario de 2 bundles, NO compartir vía `libs/` — copiar.** Razones:
+Regla a aplicar cuando se migra un componente:
 
-- El `default` es el monolito legacy que **YA tiene el código** (ej. `get.js`, 378 consumidores por ruta relativa). Hacerlo consumir una lib = refactor masivo de legacy, valor cero → la lib tendría **un solo consumidor real** (`foodit-mx`) = no es una lib, es indirección.
-- Los 2 bundles **deployan independiente** → compartir runtime dep = version-skew. Copiar lo elimina.
-- La migración es **fork-por-aislamiento** (Decision 1/3 del design). Los forks copian.
-- **El sharing real entre bundles YA existe y funciona:** los packages **`@ln/*` publicados** (design system, UI), que ambos bundles ya consumen. Si algo necesitara compartirse de verdad, ese es el camino (= lo que Arc recomienda) — **no `libs/`**.
+| Caso del componente | Acción |
+|---------------------|--------|
+| Solo de **foodit-nuevo** | **migrar al bundle** (copiar) |
+| **Compartido** pero **congelado** (no se va a cambiar) | **copiar** — duplicar no duele si no cambia |
+| **Compartido** Y **se va a cambiar/mantener** en ambos lados (LN↔foodit o foodit-actual↔foodit-nuevo) | **lib `@ln/*`** — centralizar, mantener una sola vez |
 
-**La pregunta se reduce a una confirmación + un destino para la infra de 4b:**
+- **Disparador real para extraer a lib:** cuando te topás con que **hay que CAMBIAR** ese código compartido. Ahí duele duplicar → ahí centralizás. Antes, no.
+- **"Lib" = paquete `@ln/*` en `node_modules`** (symlink `file:`/`npm link` en dev · publicado versionado en prod). **NO** una lib consumida por alias de tsconfig (Fusion no la resuelve).
+- **Sin mandato global:** ni "copiar todo" ni "libificar todo". Caso por caso, con criterio, en el momento.
 
-> **(1)** Tenemos 2 bundles: `default` (monolito) + `foodit-mx` (fork). El código compartido real ya viaja por packages `@ln/*` publicados; el glue interno (utils, layouts) lo copiamos por bundle. **¿Confirman esta estrategia de copiar?**
-> **(2)** **¿Qué hacemos con la infra `libs/` + generator de Fase 4b?** ¿La dejamos **dormida** por si aparece un tercer bundle, o la **removemos** para no cargar un mecanismo que no usamos?
+**Infra `libs/` + generator (Fase 4b):** se **mantiene** — es el workspace donde se desarrollan esas libs antes de publicarlas/symlinkearlas.
 
-**Lo único que daría vuelta la respuesta** (→ sí compartir/publicar): que exista **lógica sustancial y en evolución activa** compartida entre los 2 bundles que NO sea ya un `@ln/*`. La evidencia hoy dice que no existe (lo compartido son utils congelados + el design system, que ya está en `@ln/*`).
+**Consistencia con lo ya hecho:** el Tier 0a (`get`, `capitalizeFirstLetter`, `IconSprite`) se **copió** — son utils **congelados** → correcto según la regla (no se tocan → duplicar no duele).
 
-> Las secciones 1–6 son el detalle técnico y las fuentes que respaldan este TL;DR.
+> Las secciones 1–6 son el detalle técnico y las fuentes que respaldan esta resolución.
+
+## 0.1. Mecanismo de lib (cuándo SÍ se va por lib) — decisión zanjada
+
+**El invariante (no negociable):** Fusion resuelve solo **`node_modules` + rutas relativas + `fusion:`**. Por lo tanto una lib compartida (single-source, no copia) **tiene que resolver como un paquete en `node_modules`**.
+
+**Topología de este repo:** `apps/foodit-mx` tiene su **propio `package.json` + `package-lock` + `node_modules` + `postinstall`** (instalación **por bundle**, autocontenida para build/deploy). NO es un workspace member hoisteado. Eso define la elección.
+
+**Recomendación (afinada a la topología por-bundle):**
+
+> 🔑 **Clave que define todo:** al buildear, **Fusion HORNEA el código de la lib DENTRO del bundle**. El artefacto deployado es **autocontenido** — no depende de un registry ni del symlink en runtime. El symlink solo se usa en **build time**. **Por eso publicar NO es obligatorio** (la POC no publicó: usó workspaces/symlink y deploya igual).
+
+| Mecanismo | Veredicto | Cuándo |
+|-----------|-----------|--------|
+| **`file:` dep** | 🟢 **PRIMARIO (dev y prod, en monorepo)** | `"@ln/x": "file:../../libs/x"` en el `package.json` del bundle → symlink en SU `node_modules` → Fusion lo hornea al build. Encaja con la instalación por-bundle. Sirve para prod (el bundle queda autocontenido). **Ya probado** con `@ln/arc-tools` ✅ |
+| **`@ln/*` publicado versionado** | 🟡 **OPCIONAL — gobernanza de versión** | NO es requisito de prod. Se suma cuando querés **pinning explícito** (qué versión hornea cada bundle), auditoría/changelog, upgrades deliberados, **o** si un bundle vive en OTRO repo (no puede symlinkear a `libs/`). |
+| **npm workspaces** | 🟡 **NO para nuestra topología** | hoistea a un `node_modules` raíz; nuestros bundles instalan por separado. Brilla con un solo árbol de install (la POC), no con instalación por-bundle. |
+| **npm link** | 🔴 descartado | efímero, una máquina, no commiteado. |
+
+**Flujo:** copiar (default) → **`file:`** cuando hay que centralizar e iterar (sirve para dev **y** prod) → **publicar `@ln/*`** solo si se necesita gobernanza de versión (pinning/auditoría) o consumo desde otro repo.
+
+> **Sobre el version-skew:** con `file:`/symlink, cada bundle hornea el HEAD de `libs/` **a su hora de build**. Si deployan en momentos distintos con la lib cambiada en el medio, cada uno queda con una versión distinta horneada. **Esto NO rompe runtime** (cada bundle es autocontenido) — solo perdés el **control** de saber/fijar qué versión tiene cada uno. Publicar resuelve ese control. Para dos sitios independientes, el skew suele ser aceptable.
+
+| Mecanismo de tooling | Decisión |
+|---|---|
+| **Alias de `tsconfig.base.json`** | **Solo tooling** (boundaries de ESLint + autocomplete del IDE). **Nunca** runtime/build. |
+
+**❌ NO usar `tsconfig-paths-webpack-plugin`.** Motivos: (1) el JS lo bundlea el Arc Fusion Engine (caja negra), no un webpack nuestro — el `webpack.config.js` del bundle es solo SCSS; no hay hook documentado para inyectar `resolve` en el bundler de componentes; (2) aunque se pudiera, sería **hackear el internals de Fusion** → frágil ante upgrades, sin soporte; (3) va contra el ecosistema `@ln/*` (todo son paquetes); (4) **la POC de Ingala, con TypeScript + `@swc` completo, eligió workspaces igual** — señal fuerte de que el alias-vía-plugin no es el camino.
+
+**Por qué workspaces > alias para Fusion:** un workspace es un **paquete real** en `node_modules` → lo resuelven Fusion, node, tsc, ESLint y el IDE **sin pedirle nada especial al bundler**. El alias necesita que el bundler "aprenda" el mapeo (y Fusion no lo aprende). Para una caja negra, **no pedirle nada es la apuesta ganadora**.
+
+**Pendiente en el generator:** `ln-arc-lib` hoy registra alias en `tsconfig.base.json` (default de Nx). Para libs **consumibles por Fusion**, debería emitir el **patrón workspace** (`package.json` con `main`, registrado en `workspaces`). El alias queda solo como ayuda de tooling.
 
 ## 1. Problema
 
@@ -65,7 +98,7 @@ La Fase 4b creó `libs/` + el generator `ln-arc-lib`, que registra cada lib como
 1. **Conflicto con Decision 4 ("buildable, NO publicable").** Solo aplica **si** se decide compartir vía lib. En ese caso Arc recomienda **publicar versionado** (no symlink), porque los bundles deployan independiente → *"different bundles may have different versions"* (version skew). Con 2 bundles y copy, **no aplica**.
 2. **`file:`/symlink (B) vs publish (C).** Solo si se comparte. Recomendación: B nunca como destino (reintroduce skew); si se comparte, C (publish). Con copy, **no aplica**.
 3. **Entry de las libs: JS vs TS.** Solo si se generan libs consumibles. El repo es JS-only → entry JS. Con copy, **no aplica** (queda anotado para el generator).
-4. **Corregir el spec `monorepo-shared-libs`** (independiente de lo anterior, **sí hay que hacerlo**): el escenario *"import resuelve desde foodit-mx sin configuración adicional"* es **incorrecto** (Fusion no resuelve aliases). Reescribirlo **antes del `/opsx:archive`** del change.
+4. ~~**Corregir el spec `monorepo-shared-libs`**~~ ✅ **HECHO (2026-06-17):** reescrito — el alias queda como solo-tooling; el consumo en runtime es vía `node_modules` (`file:` para dev y prod; publicar `@ln/*` es opcional, para gobernanza de versión); criterio copy-vs-lib actualizado a per-componente just-in-time. `openspec validate` OK.
 
 ## 5. Recomendación (opinión de ingeniería — para validar con Arquitectura)
 
