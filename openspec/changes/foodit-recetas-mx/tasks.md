@@ -44,6 +44,8 @@ Fase 8 — Routing script MX [secuencial, último]
 -   El deployer se implementa DESPUÉS de que el bundle compila localmente con componentes, ANTES de conectar content sources (deploy progresivo a sandbox primero).
 -   El routing script va al FINAL (Fase 8), una vez que el bundle está deployado y validado.
 
+> **📋 Plan de paralelización post-4c**: ver [`docs/migrate-mx/parallelization-plan.md`](../../../docs/migrate-mx/parallelization-plan.md). Resumen: 4 streams de código arrancan en paralelo (A=4ot, B=Fase 5 deployer, C=Fase 6.1-6.7 content sources, D=Fase 8.1-8.3 routing script); convergen en Fase 7 (validación integral, JOIN); luego 6.9 + 8.4-8.5 quedan gateadas por deploy. Única zona de roce: `components/private/common/utils/` (idempotente). Prioridad: B (deployer) primero.
+
 ---
 
 ## ADO: US existentes — revisión
@@ -386,10 +388,11 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 >
 > **Scope exclusivo de Ficha (de la auditoría 4cf.8): ≈83 archivos — el bloque más grande.** Subárboles: `PowerupsReceta` (ingredientsBox, summaryBox), `OpeningRecipe`, `Banners` (+`useAdManager`), `MenuSemanal`, `Newsletter`, `AudioFoodit`, `LayoutImpression`/`PrintIngredients`/`PrintButton`/`TimePrint`, `ShareFoodit`, `DialogFoodit`/`DialogBarrier`, `ActionsButtons`, `RoofFoodit`, `nutritionalInfo`, `subtitle`, `RelatedContent`, `videoPlayer`, `facade`, UI `badge`/`image` + utils de ficha.
 
--   [ ] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados
--   [ ] 4c.2 Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib` y actualizar el import en el layout
--   [ ] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
+-   [x] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados ✓ **82 archivos** copiados verbatim a rutas espejo (74 nuevos + 8 stubs reemplazados: Banners/PowerupsReceta/AIImageDisclaimer/Newsletter/OpeningRecipe/nutritionalInfo/subtitle/RelatedContent). Cierre estático computado con walker (recursivo, resuelve .js/.jsx/.json/.scss/index + imports dinámicos): **cierre 220 archivos, 0 unresolved**. Deps npm: agregadas 2 faltantes al `package.json` — `@ln/ds-common-badge@0.1.0`, `@ln/ds-common-image@1.2.4` (pinneadas); el resto ya presentes.
+-   [x] 4c.2 ~~Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib`~~ **N/A** — la decisión copy-vs-lib se resolvió globalmente a **COPIAR** (4a.3 + `fusion-libs-resolution.md`: Fusion no consume aliases). 0 libs en este bloque.
+-   [x] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones ✓ diff limpio en `components/` y `__mocks__/`; solo adiciones en `apps/foodit-mx/`
 -   [ ] 4c.4 Checkpoint: `Foodit-ficha-receta` renderiza en `fusion start` sin `[MISSING]` ni errores JS
+    > ⚠️ **Diferido a Fase 6** (mismo razonamiento que `4cf.12`/`3.4`/`4d.4`/`4e.10`): el layout solo se pinta cuando `/recetas/<slug>` resuelve su content source (`fooditArticleSource` → globalContent). Cierre estático ya garantiza 0 imports sin resolver. Lo valida un dev con runtime.
 
 ## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4cf, paralelo con 4c/4e)
 
@@ -438,8 +441,10 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 > **Hallazgo (PR #53529):** vía `BaseLayout → criticalCss/dynamicStylesheetLoader → criticalCss/helpers.js`, el bundle foodit arrastra config **LN** (`properties/sites/la-nacion-ar.js` + `helperConfigLN/{imageConfig 2058, bannerConfig 1448, cajaTema, scripts}` ≈ **3895 líneas**). Causa: `criticalCss/helpers.js` es **multi-site en el monolito** (mapa keyed por `'la-nacion-ar'` y `'foodit'`). En el bundle foodit-only, la rama `la-nacion-ar` es **código muerto** (cargado, no usado) → peso + leak multi-site (contradice la separación del MX). Funciona, pero no es ideal. Es **cambio de código** (diverge del verbatim) → optimización deliberada, no migración.
 
--   [ ] 4ot-opt.1 Trimear `apps/foodit-mx/components/output-types/criticalCss/helpers.js` a **foodit-only**: remover la rama `'la-nacion-ar'` del mapa + los imports `sitePropertiesLN` (`properties/sites/la-nacion-ar`) y `fontFaceLn10` (`LN-10-global/fontFace`)
--   [ ] 4ot-opt.2 Eliminar del bundle los archivos que quedan huérfanos: `properties/sites/la-nacion-ar.js`, `properties/sites/helperConfigLN/*`, `features/LN-10-global/fontFace/*` (verificar que nada más los importe con cierre estático)
+-   [x] 4ot-opt.1 Trimear `apps/foodit-mx/components/output-types/criticalCss/helpers.js` a **foodit-only**: remover la rama `'la-nacion-ar'` del mapa + los imports `sitePropertiesLN` (`properties/sites/la-nacion-ar`) y `fontFaceLn10` (`LN-10-global/fontFace`)
+-   [x] 4ot-opt.2 Eliminar del bundle los archivos que quedan huérfanos: `properties/sites/la-nacion-ar.js`, `properties/sites/helperConfigLN/*`, `features/LN-10-global/fontFace/*`
+    > ⚠️ **Corrección (2026-07-02):** `components/private/LN/common/utils/shareHelper.js` (bloque Ficha-Receta, consumido por `features/foodit-global/common/ShareFoodit/socials.js`) importaba `config` de `la-nacion-ar.js` para `shareConfig.facebook.appID` — un **bug real**: el botón de compartir en Facebook de una receta de Foodit iba a usar el App ID de Facebook de LA NACION, no el de Foodit. Fix: el import se redirigió a `properties/sites/foodit.js`, que ya tiene la misma forma (`shareConfig.facebook.appID: '154042854349421'`, propio de Foodit). Con eso, `la-nacion-ar.js`/`helperConfigLN/*` quedaron genuinamente huérfanos y se borraron.
+    > 📌 **Pendiente separado (no resuelto acá, decisión de producto):** `shareHelper.js` sigue con varias URLs/textos hardcodeados de LA NACION no derivados de `config` (fallbacks de X/Facebook/Google+/RSS apuntando a `lanacion.com.ar`, copy de mailto "esta nota de LA NACION"). No se tocaron porque requieren confirmar los equivalentes reales de Foodit (handles sociales, URL de ayuda RSS), no son parte de este cleanup de huérfanos.
 -   [ ] 4ot-opt.3 Checkpoint: `fusion start` — el armazón sigue renderizando sin `[MISSING]` y el bundle pesa ≈3895 líneas menos. _(lo valida un dev)_
 
 ## 5. Deployer script
@@ -473,6 +478,7 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 ## 7. Validación integral local
 
 > **Spec**: D5 deploy progresivo | **US ADO**: 173249
+> ⚠️ Antes de `fusion start` local: ver `design.md` § Risks/Trade-offs — 2 hallazgos operativos (mocks del admin de PageBuilder faltantes en `apps/foodit-mx/mocks/`; version-pinning `FUSION_RELEASE`↔Mongo) que causan crashes que no parecen tener relación con esta fase si no se conocen de antemano.
 
 -   [ ] 7.1 Ejecutar `fusion start` en `apps/foodit-mx/` completo (output-type + layouts + componentes + content sources)
 -   [ ] 7.2 Verificar HTTP 200 en al menos 3 URLs representativas: `/recetas` (listado), `/recetas/<slug>` (ficha), `/recetas/<categoría>` (categoría)

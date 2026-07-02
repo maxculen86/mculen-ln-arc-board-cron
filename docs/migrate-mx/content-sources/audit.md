@@ -3,7 +3,8 @@
 -   **Fecha:** 2026-04-21
 -   **Autor:** apelozo (Pelozo Andrés — Producto y Tecnologia)
 -   **Fuente original:** `openspec/analysis/recetas-content-sources-mx.html`
--   **Contexto:** 63 sources en el monolito → **10–11 necesarios** para MX
+-   **Contexto:** 63 sources en el monolito → **11–12 necesarios** para MX
+-   **Corrección (verificación en vivo, 2026-07-02):** `sectionSource` estaba categorizado "no necesario" (§5) pero el `resolver_config` real restaurado desde el dump de sandbox — el resolver `"Foodit Acu Section"` (`note: "Resolver para acumulados de Foodit"`), que matchea `/recetas/` vía patrón catch-all con `priority: 7` — tiene `contentSourceId: 'sectionSource'`, no `fooditAcuSource` como asumía este audit. Confirmado con HTTP 500 `Could not find source: sectionSource` al pegarle a `/recetas/?_website=foodit` sin este source. Ver corrección aplicada en §3 y §7.
 
 ---
 

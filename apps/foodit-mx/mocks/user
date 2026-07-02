@@ -1,0 +1,9 @@
+{
+  "displayName": "Developer",
+  "tracking": false,
+  "permissions": {
+    "PageBuilder": {
+      "global": ["AAPP", "W", "D", "P", "UP", "VRP", "ERP", "DT", "RE", "RD", "A", "MSP", "DSP", "ASP", "DASP", "MT", "EA", "MAT"]
+    }
+  }
+}
