@@ -39,8 +39,9 @@ El go-live no es un big-bang. El bundle se va construyendo en capas verificables
 
 1. **Output-type solo**: deploy del bundle con únicamente el output-type `foodit.jsx` adaptado (`deployment()` → `pagebuilderURL()`); el path `/recetas` queda enrutado al MX pero renderiza una página mínima
     - ✋ **Checkpoint**: validar en local que el output-type compila y sirve HTTP 200 antes de continuar
-2. **Layouts**: se agregan los dos layouts migrados:
-    - `Foodit-acumulado` (duplicación estratégica) → sirve el listado `/recetas`
+2. **Layouts**: se agregan los layouts migrados:
+    - `Foodit-subcategorias` → sirve el listado `/recetas` (**layout productivo**, corrección no-swap)
+    - `Foodit-acumulado` (duplicación estratégica) → migrado y disponible en el bundle, **sin ruta asignada** (no se rutea `/recetas` a él)
     - `Foodit-ficha-receta` → sirve la ficha `/recetas/<*-nid>`
     - ✋ **Checkpoint**: validar en local que ambos layouts renderizan sin errores JS ni CSS rotos antes de continuar
 3. **Componentes progresivos**: se van sumando features, chains y componentes internos de cada layout hasta cubrir el template completo. El orden surge de la card de scope: primero los archivos de `components/private/` auditados que cada layout necesita, luego las features correspondientes
@@ -58,10 +59,11 @@ La sección `/recetas` tiene dos rutas con layouts distintos:
 
 | Ruta                                   | Layout de origen                          | Estrategia                                                                                                                                      |
 | -------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/recetas` (listado/acumulado)         | `components/layouts/Foodit-acumulado/`    | Duplicación estratégica: se copia el layout al bundle y se adapta para servir solo el path `/recetas`; no se reutiliza el original del monolito |
+| `/recetas` (listado)                   | `components/layouts/Foodit-subcategorias/` | **Layout productivo** (corrección no-swap): copia fiel en paridad con el monolito; PageBuilder mantiene el mapeo existente, sin swap a `Foodit-acumulado` |
+| `/recetas` (acumulado/tema)            | `components/layouts/Foodit-acumulado/`    | Duplicación estratégica: migrado y disponible en el bundle pero **sin ruta asignada**; se conserva para uso futuro, no sirve `/recetas` por defecto |
 | `/recetas/<*-nid>` (ficha de artículo) | `components/layouts/Foodit-ficha-receta/` | Copia directa al bundle con adaptaciones mínimas                                                                                                |
 
-> **Por qué duplicación estratégica en `Foodit-acumulado`**: el layout original del monolito puede evolucionar de forma independiente; una copia desacoplada en el bundle MX permite iterar `/recetas` sin riesgo de regresión en otras secciones que usen el mismo layout en el monolito.
+> **Corrección no-swap**: se canceló el swap `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder. `/recetas` mantiene `Foodit-subcategorias` como layout definitivo. `Foodit-acumulado` se conserva migrado (duplicación estratégica desacoplada del monolito, para evolución futura independiente) pero sin ruta productiva asignada.
 
 #### Componentes (features + private)
 

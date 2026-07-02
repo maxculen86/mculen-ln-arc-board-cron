@@ -111,15 +111,15 @@ La sección `/recetas` usa dos layouts con contextos distintos; cada uno justifi
 -   `Foodit-ficha-receta` es exclusivo de `/recetas/<*-nid>`; no existe en otras secciones del monolito, por lo que no hay riesgo de regresión cruzada.
 -   La copia es mecánica: ajustar imports relativos y el registro del layout en el bundle. Sin lógica adicional de desacoplamiento.
 
-#### Nota post-Fase 3: PageBuilder y el swap de layout para `/recetas`
+#### Nota post-Fase 3: PageBuilder y el layout de `/recetas` — corrección no-swap
 
-Durante la implementación de Fase 3 se descubrió que PageBuilder tiene el path `/recetas` mapeado actualmente al layout `Foodit-subcategorias`, no a `Foodit-acumulado` como se asumía originalmente. Las pruebas anteriores al equipo confirmaron que el swap es compatible: `Foodit-acumulado` puede servir `/recetas` sin problemas.
+Durante la implementación de Fase 3 se descubrió que PageBuilder tiene el path `/recetas` mapeado actualmente al layout `Foodit-subcategorias`, no a `Foodit-acumulado` como se asumía originalmente. Aunque las pruebas confirmaron que el swap a `Foodit-acumulado` era técnicamente compatible, **se decidió NO ejecutar el swap**: `/recetas` mantiene `Foodit-subcategorias` como layout productivo.
 
-Impacto en el plan de migración:
+Impacto en el plan de migración (corrección no-swap):
 
--   `Foodit-subcategorias` se agrega como layout requerido en el bundle MX (Fase 4e). Debe estar funcional en el bundle con todas sus dependencias para no romper el ruteo existente mientras se valida el swap.
--   El swap definitivo de `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder se ejecuta en Fase 6 (tarea 6.8), una vez validado el render end-to-end con datos reales.
--   Mientras tanto ambos layouts coexisten en el bundle MX: `Foodit-subcategorias` como layout activo en PageBuilder, `Foodit-acumulado` como layout destino post-swap.
+-   `Foodit-subcategorias` se agrega al bundle MX (Fase 4e) como **layout definitivo de `/recetas`** (copia fiel en paridad con el monolito), no como fallback temporal. PageBuilder conserva el mapeo existente.
+-   La tarea 6.8 (swap en PageBuilder) queda **CANCELADA**. No hay cambio de routing.
+-   `Foodit-acumulado` se conserva migrado en el bundle MX (Fase 3 + bloque 4d) como duplicación estratégica desacoplada del monolito, **pero sin ruta asignada** — disponible para evolución/uso futuro, no sirve `/recetas` por defecto.
 
 ### Decision 4: `libs/` con generator local `ln-arc-lib` self-contained (no wrappea `@nx/js:lib`)
 
