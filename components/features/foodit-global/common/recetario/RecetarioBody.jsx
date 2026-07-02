@@ -20,7 +20,9 @@ function RecetarioBody() {
     const { loading, userBookmarks, setUserBookmarks } = useGetRecetarioData();
     const { userType, isSubscribed } = useGetUserConfig();
     const [selectedItem, setSelectedItem] = useState({});
-    const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
+    const { id, quantity } = selectedItem;
+    const selectedItemId = id ?? (userBookmarks.length ? 'Todas' : id);
+    const selectedItemQuantity = quantity ?? userBookmarks.length;
     useEffect(() => {
         if (!loading && userBookmarks.length)
             setSelectedItem({ id: 'Todas', quantity: userBookmarks.length });

@@ -3,6 +3,7 @@ import { Logo } from '@ln/foodit-ui-logo';
 import { useDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
+import { cx } from '@ln/ds-cva';
 import { Header, MainHeader } from '@ln/common-ui-header';
 import { DRAWER } from '../DrawerContainer/constants';
 import { Search } from './components/Search';
@@ -74,7 +75,10 @@ function HeaderFoodit({ layout, layoutsName }) {
                                 termicasData={termicasData}
                             />
                             <BellButton
-                                className={!isSubscribed && 'lg-only'}
+                                className={cx(
+                                    '--no-app',
+                                    !isSubscribed && 'lg-only'
+                                )}
                             />
                             <RenderUserOptions />
                         </MainHeader.Content.Right>

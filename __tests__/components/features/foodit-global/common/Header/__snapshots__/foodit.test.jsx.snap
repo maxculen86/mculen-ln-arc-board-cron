@@ -181,7 +181,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </button>
               </div>
               <div
-                class="sm-none"
+                class="sm-none --no-app"
               >
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -197,7 +197,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </button>
               </div>
               <div
-                class="lg-only"
+                class="--no-app lg-only"
               >
                 <div
                   class="relative w-max"

@@ -9,7 +9,7 @@ const { layoutsName = {} } = siteProperties || {};
 const FLOATING_BUTTON_SENTINEL = '.floating-button-sentinel';
 const HEADER_SENTINEL_CLASS = '.header-sentinel';
 
-const defaultClassName = 'lg-none';
+const defaultClassName = 'lg-none --no-app';
 const defaultButtons = [
     {
         title: 'Ir a Mis recetas',
