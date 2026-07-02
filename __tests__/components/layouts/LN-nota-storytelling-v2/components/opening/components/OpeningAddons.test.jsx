@@ -9,14 +9,6 @@ jest.mock('fusion:context', () => ({
     })
 }));
 
-jest.mock('@ln/contenidos-ui-badge', () => ({
-    Badge: ({ children, type }) => (
-        <span data-testid="badge" data-type={type}>
-            {children}
-        </span>
-    )
-}));
-
 jest.mock('@ln/ds-common-divider', () => ({
     Divider: ({ direction, className }) => (
         <hr
@@ -279,7 +271,7 @@ describe('OpeningAddons', () => {
 
             renderComponent({ globalContent });
 
-            expect(screen.queryByTestId('badge')).toBeNull();
+            expect(screen.queryByText('Suscriptores')).toBeNull();
         });
 
         it('Render badge when content_code is "cerrada"', () => {
@@ -287,9 +279,51 @@ describe('OpeningAddons', () => {
 
             renderComponent({ globalContent });
 
-            const badge = screen.getByTestId('badge');
-            expect(badge).toHaveTextContent('Suscriptores');
-            expect(badge).toHaveAttribute('data-type', 'subscriber');
+            expect(screen.getByText('Suscriptores')).toBeInTheDocument();
+        });
+
+        it('Render badge without white background (no bg-light-50)', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            const { container } = renderComponent({ globalContent });
+
+            expect(
+                container.querySelector('.bg-light-50')
+            ).not.toBeInTheDocument();
+        });
+
+        it('Use the light text color over the image by default', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            renderComponent({ globalContent });
+
+            const badge = screen.getByTitle(
+                'Este es un contenido cerrado a suscriptores'
+            );
+            expect(badge).toHaveClass('text-neutral-1');
+            expect(badge).not.toHaveClass('text-base-default');
+        });
+
+        it('Invert to a dark text color in the panoramic diagram (white background)', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            renderComponent({ globalContent, diagram: 'image-panoramic' });
+
+            const badge = screen.getByTitle(
+                'Este es un contenido cerrado a suscriptores'
+            );
+            expect(badge).toHaveClass('text-base-default');
+            expect(badge).not.toHaveClass('text-neutral-1');
+        });
+
+        it('Render badge with the accessible subscriber title', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            renderComponent({ globalContent });
+
+            expect(
+                screen.getByTitle('Este es un contenido cerrado a suscriptores')
+            ).toBeInTheDocument();
         });
     });
 
@@ -353,6 +387,38 @@ describe('OpeningAddons', () => {
             expect(screen.getAllByTestId('divider')).toHaveLength(2);
         });
 
+        it('Keep dividers visible on mobile when there is a subscriber badge', () => {
+            const globalContent = makeGlobalContent({
+                sections: withLogo({
+                    logoName: 'nacion-negocios',
+                    path: '',
+                    color: true
+                }),
+                contentCode: 'cerrada'
+            });
+
+            renderComponent({ globalContent });
+
+            expect(screen.getByTestId('divider')).not.toHaveClass('hidden');
+        });
+
+        it('Hide dividers on mobile when there is no subscriber badge', () => {
+            const globalContent = makeGlobalContent({
+                sections: withLogo({
+                    logoName: 'nacion-negocios',
+                    path: '',
+                    color: true
+                }),
+                isSponsored: true,
+                advertiser: 'MarcaX'
+            });
+
+            renderComponent({ globalContent });
+
+            expect(screen.getByTestId('divider')).toHaveClass('hidden');
+            expect(screen.getByTestId('divider')).toHaveClass('md:block');
+        });
+
         it('Render dividers vertical', () => {
             const globalContent = makeGlobalContent({
                 sections: withLogo({
@@ -382,6 +448,31 @@ describe('OpeningAddons', () => {
             });
 
             expect(container.firstChild).toHaveClass('mi-clase-custom');
+        });
+
+        it('Lay out addons in a row (no stacking) when there is a subscriber badge', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            const { container } = renderComponent({ globalContent });
+
+            expect(container.firstChild).not.toHaveClass('flex-col');
+        });
+
+        it('Stack addons on mobile when there is no subscriber badge', () => {
+            const globalContent = makeGlobalContent({
+                sections: withLogo({
+                    logoName: 'nacion-negocios',
+                    path: '',
+                    color: true
+                }),
+                isSponsored: true,
+                advertiser: 'MarcaX'
+            });
+
+            const { container } = renderComponent({ globalContent });
+
+            expect(container.firstChild).toHaveClass('flex-col');
+            expect(container.firstChild).toHaveClass('md:flex-row');
         });
 
         it('Apply classnames.contentLab in span of Content Lab when prop exists', () => {
