@@ -6,15 +6,19 @@ import {
     resizeUrlCollection
 } from '../../../../../../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
-jest.mock('fusion:environment', () => {
-    return {
-        IS_SANDBOX: 'true',
-        API_ENV: 'prod',
-        SITE_LANACION: 'https://sandbox.lanacion.com.ar',
-        SITE_FOODIT: 'https://foodit-sandbox.lanacion.com.ar/',
-        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
-    };
-});
+jest.mock(
+    'fusion:environment',
+    () => {
+        return {
+            IS_SANDBOX: 'true',
+            API_ENV: 'prod',
+            SITE_LANACION: 'https://sandbox.lanacion.com.ar',
+            SITE_FOODIT: 'https://foodit-sandbox.lanacion.com.ar/',
+            RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
+        };
+    },
+    { virtual: true }
+);
 
 describe('Common - Resizer', () => {
     describe('buildQueryParams', () => {
@@ -364,6 +368,41 @@ describe('Common - Resizer', () => {
                 expect(result).toEqual(testResult);
             }
         );
+    });
+
+    describe('replaceUrlResizerToWWW baseUrlOverride parameter', () => {
+        test('should use baseUrlOverride for url, resized_urls and resized_urls_zoom', () => {
+            const result = resizerHelper.replaceUrlResizerToWWW(
+                {
+                    type: 'image',
+                    url: 'https://sandbox-resizer.glanacion.com/resizer/v2/wiki-image.png?auth=123&width=320',
+                    resized_urls: [
+                        {
+                            resizedUrl:
+                                'https://sandbox-resizer.glanacion.com/resizer/v2/wiki-image.png?auth=123&width=420'
+                        }
+                    ],
+                    resized_urls_zoom: [
+                        {
+                            resizedUrl:
+                                'https://sandbox-resizer.glanacion.com/resizer/v2/wiki-image.png?auth=123&width=640'
+                        }
+                    ]
+                },
+                'la-nacion-ar',
+                'https://www.lanacion.com.ar'
+            );
+
+            expect(result.url).toBe(
+                'https://www.lanacion.com.ar/resizer/v2/wiki-image.png?auth=123&width=320'
+            );
+            expect(result.resized_urls[0].resizedUrl).toBe(
+                'https://www.lanacion.com.ar/resizer/v2/wiki-image.png?auth=123&width=420'
+            );
+            expect(result.resized_urls_zoom[0].resizedUrl).toBe(
+                'https://www.lanacion.com.ar/resizer/v2/wiki-image.png?auth=123&width=640'
+            );
+        });
     });
 });
 describe('Common - Resizer - updateHeight fn', () => {

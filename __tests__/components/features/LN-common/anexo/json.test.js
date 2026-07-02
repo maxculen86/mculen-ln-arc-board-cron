@@ -137,6 +137,44 @@ describe('features - LN-common - anexo - json', () => {
             const resp = anexo.render();
             expect(resp).toBe(null);
         });
+
+        it('returns null when hideAppMobile is true', () => {
+            const newProps = { ...props };
+            newProps.customFields = {
+                html: `<p>Mock HTML anexo</p>`,
+                hideByHtml: false,
+                shouldSchedule: false,
+                hideAppMobile: true
+            };
+
+            const anexo = new Anexo.default(newProps);
+            const resp = anexo.render();
+            expect(resp).toBe(null);
+        });
+
+        it('returns Anexo when hideAppMobile is false', () => {
+            const newProps = { ...props };
+            newProps.customFields = {
+                html: `<p>Mock HTML anexo</p>`,
+                hideByHtml: false,
+                shouldSchedule: false,
+                hideAppMobile: false
+            };
+
+            const anexo = new Anexo.default(newProps);
+            const resp = anexo.render();
+
+            const respMock = {
+                articles: [{ html: '<p>Mock HTML anexo</p>' }],
+                information: {
+                    hideCaja: false,
+                    layout: 'grilla1',
+                    title: undefined,
+                    link: undefined
+                }
+            };
+            expect(resp).toMatchObject(respMock);
+        });
     });
 
     describe('Calendar/Home validation - json', () => {

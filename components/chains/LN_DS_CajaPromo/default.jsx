@@ -6,7 +6,7 @@ import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import { typesButtonStyle } from '../utils/setCommonCustomFields';
-import { validateGamesChain } from './common/_helper';
+import { validateGamesChain, shouldShowGamesCaja } from './common/_helper';
 import { PromoProvider } from './common/promoContext';
 import { CardDiagramation } from './diagramations/cardDiagramation';
 
@@ -14,11 +14,13 @@ const DIAGRAMATIONS = {
     oneLargeFourSmall: CardDiagramation.Featured,
     twoHorizontal: CardDiagramation.Half,
     fourVertical: CardDiagramation.Quarter,
-    oneHorizontalThreeVertical: CardDiagramation.OneHorizontalThree
+    oneHorizontalThreeVertical: CardDiagramation.OneHorizontalThree,
+    threeVertical: CardDiagramation.Three,
+    oneHorizontal: CardDiagramation.One
 };
 
 function LNDSCajaPromo({ customFields, children, ...props }) {
-    const { isAdmin, layout } = useAppContext() || {};
+    const { isAdmin, layout, globalContent = {} } = useAppContext() || {};
     const { id: featureId } = props;
 
     const {
@@ -35,6 +37,12 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
         layout: diagramation,
         contentType = 'game'
     } = customFields;
+
+    const shouldShowCaja = shouldShowGamesCaja({
+        layout,
+        globalContent,
+        contentType
+    });
 
     const error = validateGamesChain(
         layout,
@@ -55,7 +63,7 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
         linkButton,
         buttonStyle,
         isStatic: true,
-        shouldLoadRoof: !hideCaja
+        shouldLoadRoof: shouldShowCaja && !hideCaja
     });
 
     if (isAdmin && error) {
@@ -64,7 +72,7 @@ function LNDSCajaPromo({ customFields, children, ...props }) {
 
     const Diagramation = DIAGRAMATIONS[diagramation];
 
-    return !hideCaja ? (
+    return shouldShowCaja && !hideCaja ? (
         <Static id={featureId}>
             <BuildRoof {...roofData} />
             <div data-tw style={{ display: 'contents' }}>
@@ -86,7 +94,9 @@ LNDSCajaPromo.propTypes = {
             'oneLargeFourSmall',
             'twoHorizontal',
             'fourVertical',
-            'oneHorizontalThreeVertical'
+            'oneHorizontalThreeVertical',
+            'threeVertical',
+            'oneHorizontal'
         ]).tag({
             label: 'Diagramación',
             description: 'Cambiar el diseño de la caja',
@@ -95,7 +105,9 @@ LNDSCajaPromo.propTypes = {
                 oneLargeFourSmall: 'Cards 1 + 4',
                 twoHorizontal: 'Cards x 2',
                 fourVertical: 'Cards x 4',
-                oneHorizontalThreeVertical: 'Cards 1 + 3'
+                oneHorizontalThreeVertical: 'Cards 1 + 3',
+                threeVertical: 'Apertura 3 Cajas',
+                oneHorizontal: 'Apertura 1 Caja'
             }
         }),
         contentType: PropTypes.oneOf(['game', 'podcast']).tag({

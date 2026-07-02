@@ -1,7 +1,6 @@
 import React from 'react';
-import { SITE_LANACION } from 'fusion:environment';
-import formatDistributorName from '../../../../private/LN/common/utils/formatDistributorName';
 import LinkUI from '../../../ui/ln/link/default';
+import buildDistributorUrl from '../../../../private/LN/common/utils/buildDistributorUrl';
 
 function Distributor({ name, mode, subcategory, shouldShowDistributor }) {
     if (!shouldShowDistributor) return null;
@@ -13,7 +12,7 @@ function Distributor({ name, mode, subcategory, shouldShowDistributor }) {
             ) : (
                 <div className="flex items-center gap-4">
                     <LinkUI
-                        href={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
+                        href={buildDistributorUrl(name)}
                         title={name}
                         color="black"
                     >

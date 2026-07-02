@@ -1,8 +1,10 @@
 import React from 'react';
+import { MY_ACCOUNT_URL } from 'fusion:environment';
 import Button from '../../../../../../../ui/ln/button/default';
 import useTermica from '../../../../../../../../private/common/hooks/useTermica';
 import handleCookie from '../../../../../../../../private/LN/common/utils/handleCookie';
 import get from '../../../../../../../../private/common/utils/get';
+import { isMultiproductGaComboType } from '../../../../../../../../private/LN/common/utils/upsellingHelper';
 import {
     getTermicaValues,
     termicaValuesUpselling,
@@ -17,7 +19,9 @@ function UpsellingButton({ isHome }) {
     const { userType } = useHeaderContext();
     const isActiveTermicaUpselling = useTermica('termica_upselling');
     const { getCookie } = handleCookie();
-    const [valueCookie] = (getCookie('gaComboType') || '').split(',');
+    const gaComboType = getCookie('gaComboType') || '';
+    const [valueCookie] = gaComboType.split(',');
+    const isMultiproductUser = isMultiproductGaComboType(gaComboType);
 
     const upsellingLabel = upsellingLabels[valueCookie] || '';
 
@@ -31,16 +35,15 @@ function UpsellingButton({ isHome }) {
     const upsellingData = {
         'ga-combo2': {
             text: duoButtonText,
-            // TODO: por  pedido del equipo de experiencias, se dejan dominios viejos de myaccount en upselling, una vez terminen la migracion, se deben apuntar nuevamente usando la variable de entorno MY_ACCOUNT_URL
-            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
         },
         'ga-comboDuo': {
             text: tripleButtonText,
-            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
         },
         'ga-comboTriple': {
             text: blackButtonText,
-            url: `https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
         }
     };
 
@@ -51,6 +54,7 @@ function UpsellingButton({ isHome }) {
         userType !== USER_TYPES.SUBSCRIBED ||
         !upsellingText ||
         !upsellingUrl ||
+        isMultiproductUser ||
         !isActiveTermicaUpselling
     )
         return null;

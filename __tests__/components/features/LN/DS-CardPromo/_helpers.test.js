@@ -206,6 +206,30 @@ describe('DS-CardPromo - _helpers', () => {
                 })
             ).toBe('cardPromoDefault');
         });
+
+        it('should return cardPromoThree for threeVertical regardless of isFirstCard', () => {
+            expect(
+                getImageSettings({
+                    isFirstCard: true,
+                    diagramation: 'threeVertical'
+                })
+            ).toBe('cardPromoThree');
+            expect(
+                getImageSettings({
+                    isFirstCard: false,
+                    diagramation: 'threeVertical'
+                })
+            ).toBe('cardPromoThree');
+        });
+
+        it('should return cardPromoOne for oneHorizontal', () => {
+            expect(
+                getImageSettings({
+                    isFirstCard: false,
+                    diagramation: 'oneHorizontal'
+                })
+            ).toBe('cardPromoOne');
+        });
     });
 
     describe('isTagId', () => {

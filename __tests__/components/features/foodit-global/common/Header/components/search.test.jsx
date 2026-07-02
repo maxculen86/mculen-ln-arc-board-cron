@@ -5,10 +5,18 @@ jest.mock('fusion:environment', () => ({
     SITE_FOODIT: 'https://foodit-lanacion.com.ar'
 }));
 
-jest.mock('@ln/utils', () => ({
-    ...jest.requireActual('@ln/utils'),
-    getTypeOfDevicev2: jest.fn()
-}));
+window.matchMedia =
+    window.matchMedia ||
+    function (query) {
+        return {
+            matches: false,
+            media: query,
+            onchange: null,
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn()
+        };
+    };
 
 jest.mock(
     '../../../../../../../components/features/foodit-global/common/Header/_helpers.js',

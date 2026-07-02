@@ -1,12 +1,16 @@
 import { replaceUrlResizerToWWW } from '../../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import MOCK_PROMO_V1 from '../../../../__mocks__/data/articles/promoItemResizerV1.json';
 import MOCK_PROMO_V2 from '../../../../__mocks__/data/articles/promoItemResizerV2.json';
-jest.mock('fusion:environment', () => ({
-    __esModule: true,
-    SITE_LANACION: 'https://site.lanacion.com.ar/',
-    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/',
-    API_ENV: 'prod'
-}));
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        SITE_LANACION: 'https://site.lanacion.com.ar/',
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/',
+        API_ENV: 'prod'
+    }),
+    { virtual: true }
+);
 
 describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
     describe('Content - sources - utils - replaceUrlResizerToWWW function - When API_ENV is set to prod', () => {

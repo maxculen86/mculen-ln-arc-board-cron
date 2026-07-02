@@ -14,7 +14,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -57,7 +58,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -100,7 +102,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -144,12 +147,14 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             },
             {
                 href: 'https://foodit.lanacion.com.ar/club-la-nacion/',
                 menuType: 'secondary',
-                title: 'CLUB LA NACION'
+                title: 'CLUB LA NACION',
+                className: 'lg-none'
             }
         ]);
     });
@@ -192,7 +197,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -218,7 +224,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -288,7 +295,8 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             }
         ]);
     });
@@ -300,12 +308,14 @@ describe('transformMenuData function', () => {
             {
                 href: 'https://conocenos.foodit.com.ar/',
                 menuType: 'secondary',
-                title: 'Conocenos'
+                title: 'Conocenos',
+                className: '--no-app'
             },
             {
                 href: 'https://foodit.lanacion.com.ar/club-la-nacion/',
                 menuType: 'secondary',
-                title: 'CLUB LA NACION'
+                title: 'CLUB LA NACION',
+                className: 'lg-none'
             }
         ]);
     });

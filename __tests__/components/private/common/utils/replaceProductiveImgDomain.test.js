@@ -3,12 +3,16 @@ import replaceProductiveImgDomain, {
 } from '../../../../../components/private/common/utils/replaceProductiveImgDomain';
 import get from '../../../../../components/private/common/utils/get';
 
-jest.mock('fusion:environment', () => ({
-    __esModule: true,
-    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
-    SITE_LANACION: 'https://www.lanacion.com.ar',
-    API_ENV: 'prod'
-}));
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        API_ENV: 'prod'
+    }),
+    { virtual: true }
+);
 
 const responseRankingArticleSource = [
     {

@@ -121,13 +121,16 @@ Impacto en el plan de migración:
 -   El swap definitivo de `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder se ejecuta en Fase 6 (tarea 6.8), una vez validado el render end-to-end con datos reales.
 -   Mientras tanto ambos layouts coexisten en el bundle MX: `Foodit-subcategorias` como layout activo en PageBuilder, `Foodit-acumulado` como layout destino post-swap.
 
-### Decision 4: `libs/` con generator local `ln-arc-lib`, no librerías directamente con `@nx/js:lib`
+### Decision 4: `libs/` con generator local `ln-arc-lib` self-contained (no wrappea `@nx/js:lib`)
 
-**Elegido**: Wrappear `@nx/js:lib` en un generator local `tools/generators/ln-arc-lib/` que aplica convenciones del repo (importPath `@ln/arc-<name>`, tags por scope/type, README template).
+> ✅ **RESUELTO (Arquitectura, 2026-06-17): copy-vs-lib es _per-componente, just-in-time_.** Al migrar cada pieza: solo-foodit-nuevo → copiar; compartido **congelado** → copiar (duplicar no duele); compartido que **se va a cambiar** en ambos lados → **lib `@ln/*`** (centralizar). Disparador para libificar: cuando te topás con que hay que CAMBIAR el código compartido. **"Lib" = paquete `@ln/*` en `node_modules`** (`file:`/symlink para dev **y** prod — Fusion hornea la lib en el bundle, deploy autocontenido; publicar versionado es **opcional**, solo para gobernanza de versión), NO alias de tsconfig (Fusion no lo resuelve). Sin mandato global. El generator + `libs/` (abajo) se mantienen como workspace de esas libs. Detalle completo + fuentes Arc: [`docs/migrate-mx/libs-strategy/fusion-libs-resolution.md`](../../../docs/migrate-mx/libs-strategy/fusion-libs-resolution.md).
+
+**Elegido**: Generator local en `tools/generators/ln-arc-lib/` construido **self-contained** sobre las primitivas de `@nx/devkit` (`generateFiles`/`updateJson`/`formatFiles`), que aplica las convenciones del repo (importPath `@ln/arc-<name>`, tags por scope/type, README template, targets `build`/`lint`/`test`, buildable y no publicable).
 
 **Alternativas**:
 
--   **Usar `@nx/js:lib` directamente**: cada dev decide convenciones; deriva en inconsistencia entre libs.
+-   **Wrappear `@nx/js:lib`** (intención original): descartado. `@nx/js:lib` asume libs compiladas con `tsc`, testeadas con `jest` y potencialmente publicables — un ecosistema que este monolito **Fusion/Webpack NO usa**. Arrastra scaffolding ajeno (`tsconfig.lib.json`, config de jest, `package.json` de publish) e invoca sub-generators de `@nx/jest` y `@nx/eslint` que **no están instalados** en el repo. Wrappearlo importaría convenciones que pelean con el repo. _Nota: esta decisión se mantendría aun con esos deps presentes — no es solo un workaround._
+-   **Usar `@nx/js:lib` directamente sin wrapper**: cada dev decide convenciones; deriva en inconsistencia entre libs.
 -   **Solo documentar convenciones en `CONTRIBUTING.md`**: no se enforza; el linter no detecta drift.
 
 **Por qué generator local**:
@@ -135,11 +138,16 @@ Impacto en el plan de migración:
 -   Garantiza consistencia (importPath, tags, estructura) sin depender de revisión manual
 -   Tags habilitan reglas de boundaries diferenciadas por tipo (`type:util` no puede importar `type:ui`)
 -   Onboarding más simple: un solo comando para crear libs correctas
+-   Cero dependencias de toolchain extra: corre con lo que ya hay en el repo
 
-**Estructura aplicada**:
+**Lenguaje del generator — JS, no TS**: el generator se autora en `index.js` (CommonJS), no en `.ts`. Motivo: el workspace **no tiene transpiler de generators** (`@swc/core`, `ts-node` y `@swc-node/register` ausentes), por lo que un `.ts` no es ejecutable por `nx g`. Decisión deliberada: no se agrega un transpiler solo para honrar la extensión — el generator son ~130 líneas de glue y JS es adecuado. Si a futuro se construyen muchos generators y se quiere type-safety, se evalúa el transpiler como decisión propia.
+
+**Registro como plugin local**: para que `nx g ln-arc-lib` resuelva por nombre corto, Nx exige resolver la colección vía node-resolution. Se registra como plugin local `@ln/arc-tools` mediante `tools/generators/{package.json,generators.json}` + un devDep `"@ln/arc-tools": "file:tools/generators"` en el `package.json` raíz (que `npm install` symlinkea a `node_modules/@ln/arc-tools`). El symlink no se versiona: **`npm install` es requisito** tras clonar para que el nombre corto resuelva.
+
+**Estructura aplicada** (fórmula uniforme `libs/<scope>/<type>/<name>`, alineada con el spec `monorepo-shared-libs`):
 
 -   `libs/shared/{ui,util,data-access}/<name>/` para código consumible por cualquier bundle
--   `libs/foodit/<name>/` para código compartido entre múltiples futuros bundles Foodit
+-   `libs/foodit/<type>/<name>/` para código compartido entre múltiples futuros bundles Foodit (el `<type>` se mantiene en la ruta para conservar la fórmula uniforme y los boundaries por tipo; el directorio base `libs/foodit/` existe desde 4b.1)
 
 **Scope de las libs**: el generator crea únicamente libs **internas** (buildable, no publicables). No se agrega soporte para `publishable` porque todo el código de `libs/` es de uso exclusivo de este repo; si en el futuro una lib debe publicarse a `@ln/*`, se evalúa en ese momento como change independiente.
 

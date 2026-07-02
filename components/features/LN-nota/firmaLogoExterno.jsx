@@ -1,15 +1,14 @@
 import React from 'react';
-import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
 import Static from 'fusion:static';
 import { Text } from '@ln/contenidos-ui-text';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
-import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
 import {
     HTMLLIBRE,
     RECETA
 } from '../../private/common/utils/subtypes/subtypeHelper';
+import buildDistributorUrl from '../../private/LN/common/utils/buildDistributorUrl';
 
 function FirmaLogoExterno({ globalContent }) {
     const {
@@ -51,9 +50,7 @@ function FirmaLogoExterno({ globalContent }) {
                 );
             }
             return (
-                <ComLink
-                    link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
-                >
+                <ComLink link={buildDistributorUrl(name)}>
                     <ComPartner size="--twoxs mb-32">{name}</ComPartner>
                 </ComLink>
             );

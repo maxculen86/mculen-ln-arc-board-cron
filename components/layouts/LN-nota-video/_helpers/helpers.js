@@ -1,5 +1,4 @@
 import get from '../../../private/common/utils/get';
-import getTooltip from '../../../private/LN/common/utils/getTooltip';
 import {
     getSectionLogo,
     dictionaryAlt
@@ -20,13 +19,9 @@ import { getClassNameByLayout } from '../../../private/common/utils/modDateHelpe
 import getReadingTimeData from '../../../private/common/utils/getReadingTimeData';
 import { getMediaData } from '../../_helpers/mediaHelper';
 import { getVerticalPlayer } from '../../../private/common/videoPlayerJw/utils/helperJw';
+import useSiteTooltip from '../../../private/common/hooks/useSiteTooltip';
 
-export const getVideoOpeningTitleData = ({
-    globalContent,
-    layout,
-    siteService,
-    prefix
-}) => {
+export const getVideoOpeningTitleData = ({ globalContent, layout, prefix }) => {
     const {
         taxonomy: { sections = [] } = {},
         distributor = { name: 'LA NACION' },
@@ -44,7 +39,7 @@ export const getVideoOpeningTitleData = ({
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
 
-    const tooltip = getTooltip(keyTooltip, siteService);
+    const tooltip = useSiteTooltip(keyTooltip);
     const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
 
     const sectionData = getSectionLogo(sections, layout, distributor?.name);

@@ -34,6 +34,14 @@ describe('components - features - LN - DS-Signature - hooks - useSignatureRules'
     const creditsBy = [
         {
             _id: 'author-1',
+            type: 'author',
+            additional_properties: {
+                original: {
+                    bio: 'Bio',
+                    longBio: 'Long Bio',
+                    role: 'Rol desde ARC Authors'
+                }
+            },
             social_links: [{ site: 'email', url: 'autor@lanacion.com.ar' }]
         }
     ];
@@ -105,5 +113,157 @@ describe('components - features - LN - DS-Signature - hooks - useSignatureRules'
         });
 
         expect(result.data.role).toBeNull();
+    });
+
+    it('hides signature for opinion with multiple authors when customFields.position === "Bottom"', () => {
+        useSignature.mockReturnValue({
+            photo: null,
+            medio: '',
+            authors: [
+                { name: 'Autor Uno', link: '/autor/uno/' },
+                { name: 'Autor Dos', link: '/autor/dos/' }
+            ],
+            dataAuthor: {}
+        });
+        const result = useSignatureRules({
+            ...baseArgs,
+            isOpinionLayout: true,
+            globalContent: {
+                ...baseArgs.globalContent,
+                subtype: '3',
+                credits: {
+                    by: [
+                        {
+                            _id: '',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        },
+                        {
+                            _id: '',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        }
+                    ]
+                }
+            }
+        });
+        expect(result.flags.shouldRender).toBe(false);
+    });
+
+    it('hides signature for opinion with single guest author without bio when customFields.position === "Bottom"', () => {
+        useSignature.mockReturnValue({
+            photo: null,
+            medio: '',
+            authors: [{ name: 'Invitado', link: '/autor/invitado/' }],
+            dataAuthor: {}
+        });
+        const result = useSignatureRules({
+            ...baseArgs,
+            isOpinionLayout: true,
+            globalContent: {
+                ...baseArgs.globalContent,
+                subtype: '3',
+                credits: {
+                    by: [
+                        {
+                            _id: '',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        }
+                    ]
+                }
+            }
+        });
+        expect(result.flags.shouldRender).toBe(false);
+    });
+
+    it('hides signature for opinion with single standard author without bio when customFields.position === "Bottom"', () => {
+        useSignature.mockReturnValue({
+            photo: null,
+            medio: '',
+            authors: [{ name: 'Standard', link: '/autor/standard/' }],
+            dataAuthor: {}
+        });
+        const result = useSignatureRules({
+            ...baseArgs,
+            isOpinionLayout: true,
+            globalContent: {
+                ...baseArgs.globalContent,
+                subtype: '3',
+                credits: {
+                    by: [
+                        {
+                            _id: 'author-1',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        }
+                    ]
+                }
+            }
+        });
+        expect(result.flags.shouldRender).toBe(false);
+    });
+
+    it('renders signature for opinion with single standard author WITH bio', () => {
+        useSignature.mockReturnValue({
+            photo: null,
+            medio: '',
+            authors: [{ name: 'Standard', link: '/autor/standard/' }],
+            dataAuthor: { bio: 'Bio del autor' }
+        });
+        const result = useSignatureRules({
+            ...baseArgs,
+            isOpinionLayout: true,
+            globalContent: {
+                ...baseArgs.globalContent,
+                subtype: '3',
+                credits: {
+                    by: [
+                        {
+                            _id: 'author-1',
+                            type: 'author',
+                            additional_properties: {
+                                original: { bio: 'Bio del autor' }
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+        expect(result.flags.shouldRender).toBe(true);
+    });
+
+    it('keeps rendering for non-opinion regardless of author conditions', () => {
+        useSignature.mockReturnValue({
+            photo: null,
+            medio: '',
+            authors: [
+                { name: 'Autor Uno', link: '/autor/uno/' },
+                { name: 'Autor Dos', link: '/autor/dos/' }
+            ],
+            dataAuthor: {}
+        });
+        const result = useSignatureRules({
+            ...baseArgs,
+            isOpinionLayout: false,
+            globalContent: {
+                ...baseArgs.globalContent,
+                credits: {
+                    by: [
+                        {
+                            _id: '',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        },
+                        {
+                            _id: '',
+                            type: 'author',
+                            additional_properties: { original: {} }
+                        }
+                    ]
+                }
+            }
+        });
+        expect(result.flags.shouldRender).toBe(true);
     });
 });
