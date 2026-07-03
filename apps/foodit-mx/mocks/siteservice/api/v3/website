@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "la-nacion-ar",
+        "display_name": "LA NACION",
+        "is_default_website": true,
+        "domains": [
+            "https://sandbox.lanacion.com.ar",
+            "https://www.lanacion.com.ar",
+            "https://sandbox-resizer.glanacion.com"
+        ]
+    },
+    {
+        "_id": "club-la-nacion",
+        "display_name": "Club LA NACION",
+        "is_default_website": false
+    },
+    {
+        "_id": "foodit",
+        "display_name": "FOODIT",
+        "base_path": "/",
+        "is_default_website": false,
+        "domains": [
+            "https://sandbox-foodit.lanacion.com.ar/"
+        ]
+    }
+]

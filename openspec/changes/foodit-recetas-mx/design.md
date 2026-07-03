@@ -202,6 +202,12 @@ Impacto en el plan de migración (corrección no-swap):
 
 -   **Trade-off**: Duplicar `Foodit-acumulado` en lugar de extraer a `libs/` aumenta superficie a mantener, a cambio de aislamiento de release.
 
+-   **Riesgo** (hallazgo operativo, 2026-07-02): El editor local de PageBuilder (`/pagebuilder/experiences/_default/pages`) crashea con `TypeError: Cannot read properties of undefined (reading 'hasWriteAccess')` si `apps/foodit-mx/mocks/` no tiene los mocks que el contenedor `origin` necesita para simular servicios que solo existen en la nube de Arc (Composer, Arc Home, tracking): `dashboard.json`, `siteservice/api/v3/website`, `settings/api/v1/user/pinned` y `user`. No es un problema de datos en Mongo ni de credenciales — verificado con 129 páginas reales restauradas y el crash persistió — es exclusivamente la ausencia de estos mocks locales.
+    → **Mitigación**: copiar los 4 archivos desde `mocks/` (raíz del monolito) a `apps/foodit-mx/mocks/`, respetando la misma estructura de carpetas. **Ya aplicado y verificado** en `apps/foodit-mx/mocks/` (2026-07-02).
+
+-   **Riesgo** (hallazgo operativo, 2026-07-02): `@arc-fusion/cli` calcula automáticamente la versión de Mongo del contenedor `data` (`mongo-vandelay:6` vs `:3.6`) a partir de `FUSION_RELEASE` en `.env` (ver `node_modules/@arc-fusion/cli/bin/environment.js`: `FUSION_RELEASE >= 7.0.0` o `'latest'` → Mongo 6; cualquier otro caso → Mongo 3.6). Si `apps/foodit-mx/data/db/` ya tiene datos persistidos por una versión de Mongo y una corrida posterior de `fusion start` genera el compose con la OTRA versión, Mongo falla con `WiredTiger metadata corruption` — error fatal, no reparable por esa versión — y el contenedor `fusion-data` muere al segundo de arrancar. Esto se manifiesta como crashes del admin/editor que parecen no tener relación con Mongo.
+    → **Mitigación**: mantener `FUSION_RELEASE=7.0.2` fijo en `.env` (ya resuelve a Mongo 6, consistente con los datos ya restaurados). Si el error de corrupción ya ocurrió, borrar `apps/foodit-mx/data/db/` (datos locales descartables, en `.gitignore`) y dejar que `fusion start` restaure limpio desde `data/restore/`.
+
 ## Migration Plan
 
 1. **Habilitar Nx** en `Contenidos` (sin tocar bundle `default`); validar `npm run build-dev` sigue funcionando.
