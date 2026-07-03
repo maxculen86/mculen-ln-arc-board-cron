@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { preload } from 'react-dom';
-import getProperties from 'fusion:properties';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import useGetMediaData from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData';
 import dataAccumulatedAuthor from '../../../../../../__mocks__/data/renderables/dataAccumulatedAuthor.json';
@@ -23,6 +22,44 @@ import storytellingWithVideoAndImgDesktop from '../../../../../../__mocks__/data
 import { fillMaxWidth } from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper';
 
 jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({}))
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+        return {
+            __esModule: true,
+            default: ({ children }) =>
+                React.createElement(React.Fragment, null, children)
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock('fusion:properties', () => jest.fn(() => ({})), { virtual: true });
+jest.mock(
+    'fusion:content',
+    () => ({
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+jest.mock(
+    'fusion:environment',
+    () => ({
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer',
+        SITE_LANACION: 'la-nacion-ar',
+        SITE_FOODIT: 'foodit'
+    }),
+    { virtual: true }
+);
+jest.mock(
     '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData',
     () => jest.fn()
 );
@@ -38,15 +75,25 @@ describe('Common - GetDataToLinkImage', () => {
     });
 
     describe('When section is note,', () => {
-        it('with resized Media, return array media data', () => {
+        it('with resized Media and no subtype, return array media data', () => {
             render(<GetDataToLinkImage data={globalContent} section="nota" />);
             expect(preload).toHaveBeenCalledTimes(3);
         });
 
-        it('Opening with video, it should return the preload of the facade image', () => {
+        it('Noticia with resized Media delegates preload to React 19', () => {
             render(
                 <GetDataToLinkImage
-                    data={globalContentWithVideo}
+                    data={{ ...globalContent, subtype: '1' }}
+                    section="nota"
+                />
+            );
+            expect(preload).not.toHaveBeenCalled();
+        });
+
+        it('Noticia opening with video keeps the manual facade preload', () => {
+            render(
+                <GetDataToLinkImage
+                    data={{ ...globalContentWithVideo, subtype: '1' }}
                     section="nota"
                 />
             );
@@ -60,7 +107,7 @@ describe('Common - GetDataToLinkImage', () => {
             expect(preload).not.toHaveBeenCalled();
         });
 
-        it('FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
+        it('FOTOAL100 without promo_items.storytelling_mobile keeps manual picture preloads', () => {
             render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '8' }}
@@ -71,7 +118,7 @@ describe('Common - GetDataToLinkImage', () => {
             expect(preload).toHaveBeenCalledTimes(3);
         });
 
-        it('STORYTELLING without promo_items.storytelling_mobile, return desk preload', () => {
+        it('STORYTELLING without promo_items.storytelling_mobile delegates preload to React 19', () => {
             render(
                 <GetDataToLinkImage
                     {...{
@@ -81,35 +128,29 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
-            expect(preload).toHaveBeenCalledTimes(3);
-            preload.mock.calls.forEach(([href, options]) => {
-                expect(options.fetchPriority).toEqual('high');
-                expect(options.as).toEqual('image');
-                expect(href).toBeTruthy();
-                expect(options.media).toBeTruthy();
-            });
+            expect(preload).not.toHaveBeenCalled();
         });
 
-        it('STORYTELLING with promo_items.storytelling_mobile, return mobile preload', () => {
+        it('STORYTELLING v2 with promo_items.storytelling_mobile uses picture-compatible manual preloads', () => {
             render(
                 <GetDataToLinkImage
                     {...{
                         data: { ...articleToExclude, subtype: '4' },
-                        section: 'nota'
+                        section: 'nota',
+                        layout: 'LN-nota-storytelling-v2'
                     }}
                 />
             );
 
-            expect(preload).toHaveBeenCalled();
-            preload.mock.calls.forEach(([href, options]) => {
-                expect(options.fetchPriority).toEqual('high');
-                expect(options.as).toEqual('image');
-                expect(href).toBeTruthy();
-                expect(options.media).toBeTruthy();
-            });
+            expect(preload).toHaveBeenCalledTimes(5);
+            expect(
+                preload.mock.calls.some(
+                    ([, options]) => options && options.imageSrcSet
+                )
+            ).toBe(false);
         });
 
-        it('If the opening has video and image for desktop, it should return the mobile image-only preload.', () => {
+        it('If the opening has video and image for desktop, it delegates preload to rendered media.', () => {
             render(
                 <GetDataToLinkImage
                     {...{
@@ -117,18 +158,13 @@ describe('Common - GetDataToLinkImage', () => {
                             ...storytellingWithVideoAndImgDesktop,
                             subtype: '4'
                         },
-                        section: 'nota'
+                        section: 'nota',
+                        layout: 'LN-nota-storytelling-v2'
                     }}
                 />
             );
 
-            expect(preload).toHaveBeenCalledTimes(2);
-            const [, firstOptions] = preload.mock.calls[0];
-            const [, secondOptions] = preload.mock.calls[1];
-            expect(firstOptions.media).toStrictEqual(
-                '(min-width: 768px) and (max-width: 1023px)'
-            );
-            expect(secondOptions.media).toStrictEqual('(max-width: 767px)');
+            expect(preload).not.toHaveBeenCalled();
         });
 
         it('excludes preload when subtype is CARDS', () => {
@@ -142,10 +178,10 @@ describe('Common - GetDataToLinkImage', () => {
             expect(preload).not.toHaveBeenCalled();
         });
 
-        it('does not exclude preload when subtype is not CARDS', () => {
+        it('does not exclude preload when subtype is not in the React 19 delegated list', () => {
             render(
                 <GetDataToLinkImage
-                    data={{ ...globalContent, subtype: '1' }}
+                    data={{ ...globalContent, subtype: '2' }}
                     section="nota"
                 />
             );

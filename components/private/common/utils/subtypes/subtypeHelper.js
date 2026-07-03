@@ -67,7 +67,7 @@ export const translateStringFromSubitypeToID = (subtype = '') => {
 export const isFotoAl100orStorytelling = subtype =>
     subtype === FOTOAL100 || subtype === STORYTELLING;
 
-const EXCLUDED_PRELOAD_SUBTYPES = [CARDS];
+const EXCLUDED_PRELOAD_SUBTYPES = [CARDS, NOTICIA, OPINION, STORYTELLING];
 
 export const shouldPreloadForSubtype = subtype =>
     !subtype || !EXCLUDED_PRELOAD_SUBTYPES.includes(String(subtype));

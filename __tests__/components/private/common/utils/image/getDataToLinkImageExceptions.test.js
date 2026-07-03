@@ -1,12 +1,51 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { preload } from 'react-dom';
-import getProperties from 'fusion:properties';
 import '@testing-library/jest-dom';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import useGetMediaApertura from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper';
 import dataAperturaFocalLeft from '../../../../../../__mocks__/data/renderables/dataAperturaFocalLeft.json';
 
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({}))
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+        return {
+            __esModule: true,
+            default: ({ children }) =>
+                React.createElement(React.Fragment, null, children)
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock('fusion:properties', () => jest.fn(() => ({})), { virtual: true });
+
+jest.mock(
+    'fusion:content',
+    () => ({
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:environment',
+    () => ({
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer',
+        SITE_LANACION: 'la-nacion-ar',
+        SITE_FOODIT: 'foodit'
+    }),
+    { virtual: true }
+);
 jest.mock(
     '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper',
     () => jest.fn()

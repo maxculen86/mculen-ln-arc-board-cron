@@ -142,14 +142,16 @@ const storytellingFullSizePromoItems = {
             media: minWidth512,
             useFullSize: true,
             proportion: '2:3',
-            media_preload: setMediaCondition({ maxWidth: 767 })
+            media_preload: setMediaCondition({ maxWidth: 767 }),
+            isMobileDimension: true
         },
         {
             width: 511,
             height: 800,
             useFullSize: true,
             proportion: '2:3',
-            media_preload: setMediaCondition({ maxWidth: 511 })
+            media_preload: setMediaCondition({ maxWidth: 511 }),
+            isMobileDimension: true
         }
     ]
 };
@@ -2187,7 +2189,8 @@ export default {
                         height: 980,
                         useFullSize: true,
                         proportion: '2:3',
-                        media_preload: setMediaCondition({ maxWidth: 767 })
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        isMobileDimension: true
                     }
                 ]
             }
@@ -2223,14 +2226,16 @@ export default {
                         media_preload: setMediaCondition({
                             minWidth: 512,
                             maxWidth: 767
-                        })
+                        }),
+                        isMobileDimension: true
                     },
                     {
                         width: 512,
                         height: 512,
                         useFullSize: true,
                         proportion: '1:1',
-                        media_preload: setMediaCondition({ maxWidth: 511 })
+                        media_preload: setMediaCondition({ maxWidth: 511 }),
+                        isMobileDimension: true
                     }
                 ]
             }

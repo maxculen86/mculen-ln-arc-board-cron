@@ -2,7 +2,8 @@ import get from '../../../../../private/common/utils/get';
 import { buildOpeningImage } from '../../../../../private/LN/common/utils/openingImageHelper';
 import { getOpeningMediaItems, getNormalizedImageData } from './mediaHelpers';
 import getOpeningResizedUrls, {
-    getResizedUrlsByProportion
+    getDesktopResizedUrls,
+    getMobileResizedUrls
 } from './getOpeningResizedUrls';
 import { getVideoData } from '../../../../../features/private-global/common/utils/getVideoData';
 
@@ -11,7 +12,7 @@ const buildMobileImageData = (promoItems = {}) => {
     if (!mobileImageItem) return null;
 
     const { url, altText, caption } = getNormalizedImageData(mobileImageItem);
-    const resizedUrls = getResizedUrlsByProportion(mobileImageItem, '2:3');
+    const resizedUrls = getMobileResizedUrls(mobileImageItem);
 
     const imageData = buildOpeningImage({
         url,
@@ -46,7 +47,12 @@ const buildOpeningImageData = (promoItems = {}, headline = '') => {
 
     const desktop = getNormalizedImageData(desktopImageItem);
     const mobile = getNormalizedImageData(mobileImageItem);
-    const resizedUrls = getOpeningResizedUrls(promoItems);
+    const hasMobileImage = Boolean(
+        get(promoItems, 'storytelling_mobile', null)
+    );
+    const resizedUrls = hasMobileImage
+        ? getDesktopResizedUrls(desktopImageItem, mobileImageItem)
+        : getOpeningResizedUrls(promoItems);
     const altText = resolveAltText({ mobile, desktop, headline });
 
     return {
