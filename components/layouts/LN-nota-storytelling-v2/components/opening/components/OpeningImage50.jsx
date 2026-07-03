@@ -21,6 +21,8 @@ function OpeningImage50({
     subheadline = '',
     hasStorytellingMobile = false
 }) {
+    const hasMedia = Boolean(videoUrl || src);
+
     const descriptionContainerClassname = cx(
         'flex flex-col flex-1 justify-center text-center max-md:px-16',
         'md:col-start-2 md:col-end-12',
@@ -59,22 +61,26 @@ function OpeningImage50({
                         )}
                     </div>
                 </div>
-                <div className="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden">
-                    <OpeningMedia
-                        classname="aspect-1/1"
-                        videoUrl={videoUrl}
-                        posterUrl={posterUrl}
-                        src={src}
-                        srcset={srcset}
-                        sizes={sizes}
-                        width={width}
-                        height={height}
-                        altText={altText}
-                        mobileImage={
-                            hasStorytellingMobile ? mobileImageData : undefined
-                        }
-                    />
-                </div>
+                {hasMedia && (
+                    <div className="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden">
+                        <OpeningMedia
+                            classname="aspect-1/1"
+                            videoUrl={videoUrl}
+                            posterUrl={posterUrl}
+                            src={src}
+                            srcset={srcset}
+                            sizes={sizes}
+                            width={width}
+                            height={height}
+                            altText={altText}
+                            mobileImage={
+                                hasStorytellingMobile
+                                    ? mobileImageData
+                                    : undefined
+                            }
+                        />
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -302,6 +302,21 @@ describe('OpeningImage100', () => {
         });
     });
 
+    describe('null guard', () => {
+        it('should render titles when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImage100 {...mockProps} src="" videoUrl="" />
+            );
+            expect(container.querySelector('section')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-addons')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-titles')).toBeInTheDocument();
+            expect(
+                screen.queryByAltText('Article image')
+            ).not.toBeInTheDocument();
+            expect(container.querySelector('video')).not.toBeInTheDocument();
+        });
+    });
+
     describe('snapshots', () => {
         it('matches snapshot with image', () => {
             const { container } = render(<OpeningImage100 {...mockProps} />);

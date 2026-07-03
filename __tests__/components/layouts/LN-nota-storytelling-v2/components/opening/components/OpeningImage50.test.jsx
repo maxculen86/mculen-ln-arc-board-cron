@@ -285,6 +285,24 @@ describe('OpeningImage50', () => {
         });
     });
 
+    describe('null guard', () => {
+        it('should render titles when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImage50
+                    src=""
+                    videoUrl=""
+                    title1="Main Title"
+                    title2="Subtitle"
+                />
+            );
+            expect(container.querySelector('section')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-addons')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-titles')).toBeInTheDocument();
+            expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
+            expect(container.querySelector('video')).not.toBeInTheDocument();
+        });
+    });
+
     describe('snapshots', () => {
         it('snapshot with all props', () => {
             const { container } = renderComponent();
@@ -293,7 +311,7 @@ describe('OpeningImage50', () => {
 
         it('snapshot without image', () => {
             const { container } = renderComponent({ src: '' });
-            expect(container.firstChild).toMatchSnapshot();
+            expect(container).toMatchSnapshot();
         });
 
         it('snapshot without subheadline', () => {
