@@ -13,6 +13,7 @@ import {
 } from '../../utils/subtypes/subtypeHelper';
 import transformISODate from '../../utils/transformISODate';
 import { addEventToDataLayerV2 } from '../../../LN/common/utils/addEventToDataLayer';
+import publishToast from '../../../../features/ui/ln/toastsContainer/publishToast';
 import { mediaContainerVariant, videoPlayerVariant } from './styles';
 
 export const getConfigClassName = (
@@ -191,6 +192,30 @@ export const handleVideoEventsScript = (
             lastPlaybackPercent = 0;
             ignoreNextTimeEvent = false;
         }
+    });
+
+    player.on('error', e => {
+        const GEORESTRICTION_RANGE_MIN = 232400;
+        const GEORESTRICTION_RANGE_MAX = 232599;
+        const isGeoBlocked =
+            (e?.code >= GEORESTRICTION_RANGE_MIN &&
+                e?.code <= GEORESTRICTION_RANGE_MAX &&
+                e?.sourceError?.details === 'manifestLoadError') ||
+            e?.code === 224003;
+        if (isGeoBlocked) {
+            publishToast({
+                variant: 'warning',
+                title: 'No disponible',
+                message: 'Este contenido no esta disponible en tu región.'
+            });
+            return;
+        }
+
+        publishToast({
+            variant: 'warning',
+            title: 'Error de reproducción',
+            message: 'No se pudo reproducir el video. Intentá más tarde.'
+        });
     });
 
     player.on('ready', () => {
