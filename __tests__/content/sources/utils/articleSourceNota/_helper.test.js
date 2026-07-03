@@ -21,30 +21,14 @@ import {
     formatElementText,
     removeErrosInterstitialLink,
     formatInterstitialLink,
-    injectGlossaryInText,
     configCallbackContentElements,
     parseImageText,
     sanitizeString
 } from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
-jest.mock(
-    '../../../../../content/sources/utils/articleSourceNota/_configs',
-    () => ({
-        ...jest.requireActual(
-            '../../../../../content/sources/utils/articleSourceNota/_configs'
-        ),
-        injectGlossaryInText: jest.fn()
-    })
-);
-
 describe('Tests articleSourceNota - _helper', () => {
     describe('configCallbackContentElements text', () => {
         it('should normalize links and styles on text elements', () => {
-            injectGlossaryInText.mockImplementation((text = '') => ({
-                text,
-                foundGlossaryWord: false
-            }));
-
             const textElement = {
                 type: 'text',
                 content:
@@ -53,7 +37,6 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const result = configCallbackContentElements.text({
                 element: textElement,
-                glossary: [],
                 withSponsoredLink: false,
                 articlePath: '/politica/nota-prueba',
                 baseOrigin: 'https://www.lanacion.com.ar'
@@ -69,11 +52,6 @@ describe('Tests articleSourceNota - _helper', () => {
 
     describe('configCallbackContentElements list', () => {
         it('should transform text items applying link and style normalization', () => {
-            injectGlossaryInText.mockImplementation((text = '') => ({
-                text,
-                foundGlossaryWord: false
-            }));
-
             const listElement = {
                 type: 'list',
                 items: [
@@ -87,7 +65,6 @@ describe('Tests articleSourceNota - _helper', () => {
 
             const result = configCallbackContentElements.list({
                 element: listElement,
-                glossary: [],
                 withSponsoredLink: false,
                 articlePath: '/nota-prueba',
                 baseOrigin: 'https://www.lanacion.com.ar'
@@ -98,142 +75,6 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(transformedContent).toContain('class="com-link break-word"');
             expect(transformedContent).toContain('target="_self"');
             expect(transformedContent).toContain('<strong>negrita</strong>');
-        });
-    });
-
-    describe('Tests injectGlossaryInText function', () => {
-        beforeEach(() => {
-            injectGlossaryInText.mockClear();
-        });
-
-        it('should inject glossary HTML into the content when exist a word of glossary', () => {
-            const glossary = [
-                {
-                    key: 'CCL',
-                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
-                },
-                {
-                    key: 'Cedears',
-                    value: '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
-                }
-            ];
-
-            const content =
-                'El <b>dólar CCL </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.';
-
-            const expected = {
-                foundGlossaryWord: true,
-                text: 'El <b>dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">CCL</mark> </b> registra un aumento en lo que va del mes de 7,5% y la brecha se ubica en 47,18%, con lo cual superó el máximo reciente de 46,1% registrado a inicios de junio.'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should handle glossary words with special characters', () => {
-            const glossary = [
-                { key: 'dólar', value: 'Moneda estadounidense...' }
-            ];
-            const content = 'El dólar registra un aumento...';
-
-            const expected = {
-                foundGlossaryWord: true,
-                text: 'El <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'dólar\') }">dólar</mark> registra un aumento...'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should detect glossary words regardless of case', () => {
-            const glossary = [
-                { key: 'CCL', value: 'Dólar CCL es una variante...' }
-            ];
-
-            const content = 'El dólar ccl registra un aumento...';
-
-            const expected = {
-                foundGlossaryWord: true,
-                text: 'El dólar <mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,\'CCL\') }">ccl</mark> registra un aumento...'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should not inject glossary words that are substrings of other words', () => {
-            const glossary = [
-                { key: 'CCL', value: 'Dólar CCL es una variante...' }
-            ];
-
-            const content = 'La palabra "CCLara" no debería ser resaltada.';
-
-            const expected = {
-                foundGlossaryWord: false,
-                text: 'La palabra "CCLara" no debería ser resaltada.'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should not inject glossary HTML when no glossary word is found', () => {
-            const glossary = [
-                {
-                    key: 'CCL',
-                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
-                },
-                {
-                    key: 'Cedears',
-                    value: '(Certificados de Depósito Argentinos), son papeles que siguen cotizaciones de compañías extranjeras en mercados globales y que se suscriben en pesos -también en dólares- pero siguen las fluctuaciones del dólar Contado con Liquidación (CCL).'
-                }
-            ];
-
-            const content =
-                'Los que hayan adquirido dólar "bolsa" o contado con liquidación en los 90 días anteriores';
-
-            const expected = {
-                foundGlossaryWord: false,
-                text: 'Los que hayan adquirido dólar "bolsa" o contado con liquidación en los 90 días anteriores'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should not inject glossary HTML inside anchor tags', () => {
-            const glossary = [
-                {
-                    key: 'CCL',
-                    value: 'Dólar CCL es una variante a la que pueden acceder los argentinos para fondear cuentas en dólares en el exterior.'
-                }
-            ];
-
-            const content =
-                'El <a href="https://example.com">dólar CCL</a> ha aumentado...';
-
-            const expected = {
-                foundGlossaryWord: false,
-                text: 'El <a href="https://example.com">dólar CCL</a> ha aumentado...'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
-        });
-
-        it('should return the original content when the glossary is an empty array', () => {
-            const glossary = [];
-
-            const content =
-                'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)';
-
-            const expected = {
-                foundGlossaryWord: false,
-                text: 'Beneficiarios de un plan o programa de la Administración Nacional de la Seguridad Social (Anses), como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)'
-            };
-
-            injectGlossaryInText.mockReturnValue(expected);
-            expect(injectGlossaryInText(content, glossary)).toEqual(expected);
         });
     });
 
