@@ -3,10 +3,10 @@
 exports[`components - features - LN-nota - share - _children - Divider Snapshot tests should match snapshot with default variant (horizontal) 1`] = `
 <DocumentFragment>
   <hr
-    class="l-none vertical mx-16 border border-2"
+    class="l-none vertical border border-2"
   />
   <hr
-    class="l-only my-16 border border-2"
+    class="l-only border border-2"
   />
 </DocumentFragment>
 `;
@@ -14,7 +14,7 @@ exports[`components - features - LN-nota - share - _children - Divider Snapshot 
 exports[`components - features - LN-nota - share - _children - Divider Snapshot tests should match snapshot with vertical variant 1`] = `
 <DocumentFragment>
   <hr
-    class="vertical mx-16 border border-2"
+    class="vertical border border-2"
   />
 </DocumentFragment>
 `;

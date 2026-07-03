@@ -9,7 +9,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
       class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l flex-wrap gap-16"
         id="v-share"
       >
         <div
@@ -54,10 +54,10 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           </button>
         </div>
         <hr
-          class="l-none vertical mx-16 border border-2"
+          class="l-none vertical border border-2"
         />
         <hr
-          class="l-only my-16 border border-2"
+          class="l-only border border-2"
         />
         <div
           class="second-buttons-group flex ai-center gap-16 gap-24_m md:gap-[24px] flex-column_l ai-center_max1023 jc-center_l"
@@ -207,7 +207,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
       class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l flex-wrap gap-16"
         id="v-share"
       >
         <div
@@ -269,10 +269,10 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
           </button>
         </div>
         <hr
-          class="l-none vertical mx-16 border border-2"
+          class="l-none vertical border border-2"
         />
         <hr
-          class="l-only my-16 border border-2"
+          class="l-only border border-2"
         />
         <div
           class="second-buttons-group flex ai-center gap-16 gap-24_m md:gap-[24px] flex-column_l ai-center_max1023 jc-center_l"
@@ -392,32 +392,44 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             </i>
           </button>
         </div>
+        <div
+          class="contents"
+          data-tw="true"
+        >
+          <div
+            aria-controls="_r_b_-content"
+            aria-describedby="_r_b_-content"
+            aria-expanded="false"
+            aria-haspopup="dialog"
+            class="ds-tooltip-content inline-flex lg:hidden max-w-fit"
+            id="_r_b_-trigger"
+          >
+            <button
+              class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+              data-disabled="false"
+              dataevent="LinkClick"
+              datasection="CompartirNotaLN"
+              style="--ds-icon-size: 20px;"
+              title="Agregar LA NACION en Google"
+            >
+              <span
+                class="text text-label-sm font-secondary "
+              >
+                Agregar en
+              </span>
+              <mock-ds-common-icon
+                color="inherit"
+                size="20"
+              >
+                <mock-icon
+                  color=""
+                  name="googleColor"
+                />
+              </mock-ds-common-icon>
+            </button>
+          </div>
+        </div>
       </div>
-      <button
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 px-12 h-40 l-none --secondary"
-        data-event="LinkClick"
-        data-section="CompartirNotaLN"
-        data-variant="secondary"
-        style="gap: 4px;"
-        title="Seguir a LA NACION en Google"
-        type="button"
-      >
-        <span
-          class="text tracking-none text-14 text-neutral-light-900"
-          style="text-transform: none; font-weight: 400;"
-        >
-          Seguir en
-        </span>
-        <i
-          class="icon --inherit"
-          style="width: 26px; height: 26px;"
-        >
-          <mock-icon
-            color=""
-            name="googleColor"
-          />
-        </i>
-      </button>
     </div>
   </div>
 </div>
@@ -432,7 +444,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
       class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l flex-wrap gap-16"
         id="v-share"
       >
         <div
@@ -494,10 +506,10 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
           </button>
         </div>
         <hr
-          class="l-none vertical mx-16 border border-2"
+          class="l-none vertical border border-2"
         />
         <hr
-          class="l-only my-16 border border-2"
+          class="l-only border border-2"
         />
         <div
           class="second-buttons-group flex ai-center gap-16 gap-24_m md:gap-[24px] flex-column_l ai-center_max1023 jc-center_l"
@@ -617,32 +629,44 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             </i>
           </button>
         </div>
+        <div
+          class="contents"
+          data-tw="true"
+        >
+          <div
+            aria-controls="_r_k_-content"
+            aria-describedby="_r_k_-content"
+            aria-expanded="false"
+            aria-haspopup="dialog"
+            class="ds-tooltip-content inline-flex lg:hidden max-w-fit"
+            id="_r_k_-trigger"
+          >
+            <button
+              class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+              data-disabled="false"
+              dataevent="LinkClick"
+              datasection="CompartirNotaLN"
+              style="--ds-icon-size: 20px;"
+              title="Agregar LA NACION en Google"
+            >
+              <span
+                class="text text-label-sm font-secondary "
+              >
+                Agregar en
+              </span>
+              <mock-ds-common-icon
+                color="inherit"
+                size="20"
+              >
+                <mock-icon
+                  color=""
+                  name="googleColor"
+                />
+              </mock-ds-common-icon>
+            </button>
+          </div>
+        </div>
       </div>
-      <button
-        class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 px-12 h-40 l-none --secondary"
-        data-event="LinkClick"
-        data-section="CompartirNotaLN"
-        data-variant="secondary"
-        style="gap: 4px;"
-        title="Seguir a LA NACION en Google"
-        type="button"
-      >
-        <span
-          class="text tracking-none text-14 text-neutral-light-900"
-          style="text-transform: none; font-weight: 400;"
-        >
-          Seguir en
-        </span>
-        <i
-          class="icon --inherit"
-          style="width: 26px; height: 26px;"
-        >
-          <mock-icon
-            color=""
-            name="googleColor"
-          />
-        </i>
-      </button>
     </div>
   </div>
 </div>
@@ -657,7 +681,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
       class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l flex-wrap gap-16"
         id="v-share"
       >
         <div
@@ -719,10 +743,10 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
           </button>
         </div>
         <hr
-          class="l-none vertical mx-16 border border-2"
+          class="l-none vertical border border-2"
         />
         <hr
-          class="l-only my-16 border border-2"
+          class="l-only border border-2"
         />
         <div
           class="second-buttons-group flex ai-center gap-16 gap-24_m md:gap-[24px] flex-column_l ai-center_max1023 jc-center_l"
@@ -872,7 +896,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
       class="mod-share flex flex-column mb-0 p-0_l gap-24"
     >
       <div
-        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l"
+        class="share flex relative z-100 flex-column_l bg-light-0 pb-16_l pt-8_l px-8_l flex-wrap gap-16"
         id="v-share"
       >
         <div
@@ -934,10 +958,10 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
           </button>
         </div>
         <hr
-          class="l-none vertical mx-16 border border-2"
+          class="l-none vertical border border-2"
         />
         <hr
-          class="l-only my-16 border border-2"
+          class="l-only border border-2"
         />
         <div
           class="second-buttons-group flex ai-center gap-16 gap-24_m md:gap-[24px] flex-column_l ai-center_max1023 jc-center_l"

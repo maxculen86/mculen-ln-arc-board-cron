@@ -26,6 +26,7 @@ import {
 import { NOTICIA } from '../../../private/common/utils/subtypes/subtypeHelper';
 import GoogleButton from '../../LN-10-global/common/googleButton/default';
 import BarrierRequiresSubscription from '../../LN/common/barrierRequiresSubscription/default';
+import useWrapDetect from './hooks/useWrapDetect';
 
 function Share() {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -47,7 +48,6 @@ function Share() {
     const suscription = isSubscribed(SUBSCRIBED_HELPER.LN);
 
     const isNotaNoticia = subtype === NOTICIA;
-
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
         token,
@@ -73,6 +73,9 @@ function Share() {
 
     const shareContainer = useRef();
     const share = useRef();
+    const googleBtnRef = useRef();
+
+    const isGoogleWrapped = useWrapDetect(share, googleBtnRef);
 
     const modShareContainerSubClasses = shareContainerVariant({
         sticky: hasSticky(subtype),
@@ -125,20 +128,24 @@ function Share() {
                 className="mod-share flex flex-column mb-0 p-0_l gap-24"
                 ref={shareContainer}
             >
-                <div id="v-share" className={shareClasses} ref={share}>
+                <div
+                    id="v-share"
+                    className={cx(shareClasses, 'flex-wrap gap-16')}
+                    ref={share}
+                >
                     <BuildFirstButtonsGroup {...firstGroupProps} />
-
                     <Divider
                         variant={isHorizontal ? 'vertical' : 'horizontal'}
                     />
-
                     <BuildSecondButtonsGroup {...secondGroupProps} />
+
+                    <GoogleButton
+                        ref={googleBtnRef}
+                        tooltipPlacement={isGoogleWrapped ? 'right' : 'top'}
+                        className={cx('inline-flex lg:hidden max-w-fit')}
+                        btnText="Agregar en"
+                    />
                 </div>
-                <GoogleButton
-                    articleTitle={title}
-                    articleId={id}
-                    className="l-none"
-                />
             </div>
         </div>
     );
