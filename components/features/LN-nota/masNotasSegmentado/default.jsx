@@ -24,7 +24,8 @@ import {
     FILTER_LABELS,
     FILTERS,
     SEGMENTATION_GROUP,
-    getAdminPreviewSegment
+    getAdminPreviewSegment,
+    resolveContent
 } from './helper';
 
 function masNotasSegmentado(props) {
@@ -114,13 +115,24 @@ function masNotasSegmentado(props) {
         cantidadNotas
     );
 
-    const content =
-        activeFilter && filterType[activeFilter]
+    const byTagsContent = filterType.byTags({
+        ...searchParameters,
+        filteredContentElements
+    });
+
+    const otherFilterContent =
+        activeFilter && activeFilter !== 'byTags' && filterType[activeFilter]
             ? filterType[activeFilter]({
                   ...searchParameters,
                   filteredContentElements
               })
-            : { articles: [], title: '', sectionTitle: '' };
+            : null;
+
+    const content = resolveContent({
+        activeFilter,
+        byTagsContent,
+        otherFilterContent
+    });
 
     const { articles = [], title = '', sectionTitle } = content;
     const renderError = validateMasNotas(articles, cantidadNotas);
