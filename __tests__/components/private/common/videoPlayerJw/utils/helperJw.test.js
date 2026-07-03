@@ -11,6 +11,15 @@ import {
 
 jest.mock('../../../../../../components/private/common/utils/scheduleTask');
 
+const mockPublishToast = jest.fn();
+jest.mock(
+    '../../../../../../components/features/ui/ln/toastsContainer/publishToast',
+    () => ({
+        __esModule: true,
+        default: (...args) => mockPublishToast(...args)
+    })
+);
+
 const VIDEO_NAME = '¿A qué debe su particular apariencia el Palacio de aguas?';
 const VIDEO_ID = 'aomrvRI3';
 const NEXT_VIDEO_NAME = 'El Obelisco: historia y secretos de un icono porteño';
@@ -19,6 +28,7 @@ const NEXT_VIDEO_ID = 'bQp9xYt2';
 describe('Components - Private - Common - videoPlayerJw - Utils', () => {
     beforeEach(() => {
         window.dataLayer = [];
+        mockPublishToast.mockClear();
         scheduleTask.mockImplementation(callback => callback());
     });
 
@@ -97,6 +107,164 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             'complete',
             expect.any(Function)
         );
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'error',
+            expect.any(Function)
+        );
+    });
+
+    it('publishes a georestriction toast when the player errors with a code in range and a manifestLoadError source', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({
+            code: 232403,
+            sourceError: { details: 'manifestLoadError' }
+        });
+
+        expect(mockPublishToast).toHaveBeenCalledWith({
+            variant: 'warning',
+            title: 'No disponible',
+            message: 'Este contenido no esta disponible en tu región.'
+        });
+    });
+
+    it('publishes a georestriction toast at the boundaries of the georestriction code range', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({
+            code: 232400,
+            sourceError: { details: 'manifestLoadError' }
+        });
+        events.error({
+            code: 232599,
+            sourceError: { details: 'manifestLoadError' }
+        });
+
+        expect(mockPublishToast).toHaveBeenCalledTimes(2);
+        expect(mockPublishToast).toHaveBeenNthCalledWith(1, {
+            variant: 'warning',
+            title: 'No disponible',
+            message: 'Este contenido no esta disponible en tu región.'
+        });
+        expect(mockPublishToast).toHaveBeenNthCalledWith(2, {
+            variant: 'warning',
+            title: 'No disponible',
+            message: 'Este contenido no esta disponible en tu región.'
+        });
+    });
+
+    it('publishes a georestriction toast when the player errors with code 224003', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({ code: 224003 });
+
+        expect(mockPublishToast).toHaveBeenCalledWith({
+            variant: 'warning',
+            title: 'No disponible',
+            message: 'Este contenido no esta disponible en tu región.'
+        });
+    });
+
+    it('publishes a generic error toast when the error code is in range but is not a manifestLoadError', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({
+            code: 232403,
+            sourceError: { details: 'otherError' }
+        });
+
+        expect(mockPublishToast).toHaveBeenCalledWith({
+            variant: 'warning',
+            title: 'Error de reproducción',
+            message: 'No se pudo reproducir el video. Intentá más tarde.'
+        });
+    });
+
+    it('publishes a generic error toast when the error code is outside the georestriction range', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({
+            code: 232600,
+            sourceError: { details: 'manifestLoadError' }
+        });
+
+        expect(mockPublishToast).toHaveBeenCalledWith({
+            variant: 'warning',
+            title: 'Error de reproducción',
+            message: 'No se pudo reproducir el video. Intentá más tarde.'
+        });
+    });
+
+    it('publishes a generic error toast for non-georestriction player errors', () => {
+        const events = {};
+        const playerMock = {
+            on: jest.fn((eventName, callback) => {
+                events[eventName] = callback;
+            }),
+            getPlaylistItem: jest.fn()
+        };
+
+        window.jwplayer = jest.fn().mockReturnValue(playerMock);
+
+        handleVideoEventsScript(VIDEO_NAME, VIDEO_ID);
+
+        events.error({ code: 500 });
+
+        expect(mockPublishToast).toHaveBeenCalledWith({
+            variant: 'warning',
+            title: 'Error de reproducción',
+            message: 'No se pudo reproducir el video. Intentá más tarde.'
+        });
     });
 
     it('fires quartiles when playback crosses the threshold even if exact percent is skipped', () => {
