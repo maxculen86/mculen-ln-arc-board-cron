@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
-import { Text } from '@ln/common-ui-text';
-import { Button } from '@ln/foodit-ui-button';
-import { Motion } from '@ln/common-ui-motion';
 import { useDisclosure } from '@ln/hooks';
-import { cx } from '@ln/cva';
-import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { useAppContext } from 'fusion:context';
+import { AnimatePresence } from '@ln/ds-common-animatepresence';
+import Button from '../../../ui/foodit/button/foodit';
+import Image from '../../../ui/foodit/image/default';
+import { variantClassesButton, variantClassesContainer } from './styles';
 
-// TODO: ver la posibilidad de crear lib para snackBar
-
-export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
+export function PromoteInstallation({
+    variant = 'snackBarDefault',
+    onClick,
+    as: Tag = 'div'
+}) {
     const { isOpen, onClose } = useDisclosure(true);
+    const { contextPath, deployment } = useAppContext();
 
     useEffect(() => {
         let timer;
@@ -23,65 +25,51 @@ export function PromoteInstallation({ variant = 'snackBarDefault', onClick }) {
 
         return () => clearTimeout(timer);
     }, [variant, isOpen, onClose]);
-
-    if (!isOpen) return null;
-
-    const { contextPath, deployment } = useAppContext();
     const path = `${contextPath}/resources/foodit/assets/foodit-color.png`;
     const deploymentPath = deployment(path);
-    const variantClassesContainer = {
-        snackBarDefault:
-            'w-100 max-w-328 max-w-508_md rounded-4 inline-flex fixed bottom-0 left-50 -translate-x-50 mb-16 z-7 shadow-snack-bar jc-center ai-center p-16 gap-8',
-        snackBarDrawer: 'flex flex-column pt-24 pb-12 px-16 gap-12 mt-24'
-    };
+    const classContainer = variantClassesContainer({ variant });
+    const classButtons = variantClassesButton({ variant });
 
-    const variantClassesButton = {
-        snackBarDefault: '',
-        snackBarDrawer: 'flex gap-24 w-100 jc-end'
+    const buttonProps = {
+        variant: 'ghost',
+        color: 'custom',
+        size: 'custom',
+        className:
+            'text-secondary-positive text-12 hover:bg-transparent hover:text-primary-light'
     };
 
     return (
-        <Motion
-            show={isOpen}
-            animation={{
-                transitionIn: ['fade-in'],
-                transitionOut: ['fade-out']
-            }}
-        >
-            <li className={cx('bg-positive', variantClassesContainer[variant])}>
-                <div className="flex gap-8 ai-center">
-                    {variant === 'snackBarDrawer' ? (
-                        <Adaptableimage
-                            width={24}
-                            height={24}
-                            src={deploymentPath}
-                            alt="icono foodit"
-                        />
-                    ) : null}
-                    <Text className="roboto roboto-regular text-14 text-light-800">
-                        Ahora podés instalar Foodit, accedé a tus recetas fácil
-                        y rápido
-                    </Text>
-                </div>
-                <div className={cx(variantClassesButton[variant])}>
-                    <Button
-                        variant="link"
-                        className="text-secondary-positive"
-                        onClick={onClick}
-                    >
-                        INSTALAR
-                    </Button>
-                    {variant === 'snackBarDrawer' ? (
-                        <Button
-                            onClick={onClose}
-                            variant="link"
-                            className="text-secondary-positive"
-                        >
-                            CANCELAR
+        <AnimatePresence show={isOpen}>
+            <Tag data-tw>
+                <div className={classContainer}>
+                    <div className="flex gap-8 items-center">
+                        {variant === 'snackBarDrawer' ? (
+                            <Image
+                                hidePlaceholder
+                                classnames={{
+                                    wrapper: 'max-w-24'
+                                }}
+                                src={deploymentPath}
+                                alt="icono foodit"
+                            />
+                        ) : null}
+                        <span className="font-secondary text-14 text-primary-default">
+                            Ahora podés instalar Foodit, accedé a tus recetas
+                            fácil y rápido
+                        </span>
+                    </div>
+                    <div className={classButtons}>
+                        <Button {...buttonProps} onClick={onClick}>
+                            INSTALAR
                         </Button>
-                    ) : null}
+                        {variant === 'snackBarDrawer' && (
+                            <Button {...buttonProps} onClick={onClose}>
+                                CANCELAR
+                            </Button>
+                        )}
+                    </div>
                 </div>
-            </li>
-        </Motion>
+            </Tag>
+        </AnimatePresence>
     );
 }
