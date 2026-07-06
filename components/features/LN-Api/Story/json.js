@@ -5,7 +5,6 @@ import browser from '../../../private/common/utils/browser';
 import dateAndTimeUtil from '../../../private/common/utils/dateAndTimeUtil';
 import get from '../../../private/common/utils/get';
 
-
 class Story {
     constructor(props) {
         // Responde al resolver que permite pasar las versiones existentes
@@ -35,8 +34,7 @@ class Story {
                                 banners,
                                 liftigniter,
                                 livefyre,
-                                hide_articles_summary_apps,
-                                hide_articles_glossary_apps
+                                hide_articles_summary_apps
                             }
                             migration {
                                 deadline_livefyre
