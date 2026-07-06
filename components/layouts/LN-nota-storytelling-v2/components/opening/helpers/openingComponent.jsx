@@ -2,16 +2,22 @@ import React from 'react';
 import OpeningImage100 from '../components/OpeningImage100';
 import OpeningImage50 from '../components/OpeningImage50';
 import OpeningImagePanoramic from '../components/OpeningImagePanoramic';
+import {
+    DEFAULT_DIAGRAM,
+    IMAGE_100_DIAGRAMS,
+    IMAGE_50_DIAGRAMS,
+    PANORAMIC_DIAGRAMS
+} from './diagramConstants';
 
-export const DEFAULT_DIAGRAM = 'image-100-title-below';
+export { DEFAULT_DIAGRAM };
+
+const mapDiagrams = (diagramKeys, Component) =>
+    diagramKeys.reduce((acc, key) => ({ ...acc, [key]: Component }), {});
 
 const diagrams = {
-    'image-100-title-left': OpeningImage100,
-    'image-100-title-above': OpeningImage100,
-    'image-100-title-below': OpeningImage100,
-    'image-100-title-centered': OpeningImage100,
-    'image-50-right-title-left': OpeningImage50,
-    'image-panoramic': OpeningImagePanoramic
+    ...mapDiagrams(IMAGE_100_DIAGRAMS, OpeningImage100),
+    ...mapDiagrams(IMAGE_50_DIAGRAMS, OpeningImage50),
+    ...mapDiagrams(PANORAMIC_DIAGRAMS, OpeningImagePanoramic)
 };
 
 export const getOpeningComponent = props => {

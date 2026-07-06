@@ -35,7 +35,7 @@ function OpeningImage100({
     return (
         <section
             className={cx(
-                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56',
+                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark md:mb-56',
                 sectionHeight
             )}
             data-diagram={diagram}
@@ -73,7 +73,7 @@ function OpeningImage100({
                         h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="font-primary text-neutral-1 text-subheading-md">
+                        <p className="font-primary text-neutral-1 text-subheading-md max-md:hidden">
                             {subheadline}
                         </p>
                     )}
