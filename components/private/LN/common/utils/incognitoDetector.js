@@ -42,16 +42,13 @@ const isIOS = () => {
 };
 
 const getToFixedEngineId = () => {
-    let engineId = 0;
     const negative = parseInt('-1', 10);
 
     try {
-        negative.toFixed(negative);
+        return negative.toFixed(negative).length;
     } catch (error) {
-        engineId = getErrorMessage(error).length;
+        return getErrorMessage(error).length;
     }
-
-    return engineId;
 };
 
 const isSafari = () => {

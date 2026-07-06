@@ -13,11 +13,84 @@ Object.defineProperty(global.self, 'crypto', {
     }
 });
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:context',
+    () => {
+        const context = {
+            useAppContext: jest.fn(() => ({
+                globalContent: {},
+                requestUri: ''
+            }))
+        };
+
+        return {
+            __esModule: true,
+            default: context,
+            get useAppContext() {
+                return context.useAppContext;
+            }
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:content',
+    () => ({
+        __esModule: true,
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:prop-types',
+    () => {
+        const propTypes = require('prop-types');
+        const withTag = validator =>
+            Object.assign(validator, {
+                tag: jest.fn(() => validator)
+            });
+
+        return {
+            __esModule: true,
+            default: {
+                ...propTypes,
+                number: withTag(propTypes.number),
+                shape: (...args) => withTag(propTypes.shape(...args))
+            }
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => {
+        const React = require('react');
+
+        return function Static({ children, ...props }) {
+            return React.createElement('static', props, children);
+        };
+    },
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        RESIZER_URL_PUBLIC: 'https://sandbox.lanacion.com.ar',
+        SITE_LANACION: 'https://sandbox.lanacion.com.ar'
+    }),
+    { virtual: true }
+);
+
+jest.mock('fusion:properties', () => () => ({}), { virtual: true });
+
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn(() => true)
+);
 
 Context.useAppContext = jest.fn(() => ({
     globalContent: {},
@@ -29,6 +102,15 @@ const props = {
     outputType: 'default',
     siteProperties: {}
 };
+
+const getImageUrls = container =>
+    Array.from(container.querySelectorAll('img, source'))
+        .flatMap(element => [
+            element.getAttribute('src'),
+            element.getAttribute('srcset')
+        ])
+        .filter(Boolean)
+        .join(' ');
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -72,6 +154,48 @@ describe('Tests when the section may interest you is visible.', () => {
     it('Should render all articles', () => {
         expect(component).toBeDefined();
         expect(screen.getAllByRole('article')).toHaveLength(2);
+    });
+
+    it('Should keep productive image URLs when rendering resizer image attributes', () => {
+        const imageUrls = getImageUrls(component.container);
+
+        expect(imageUrls).toContain('https://www.lanacion.com.ar/resizer');
+        expect(imageUrls).not.toContain(
+            'https://sandbox.lanacion.com.ar/resizer'
+        );
+    });
+
+    it('Should keep productive v2 image URLs after the image renderer normalizes resizer URLs', () => {
+        const articlesWithV2Images = liftigniterResponse.map(article => ({
+            ...article,
+            promo_items: {
+                ...article.promo_items,
+                basic: {
+                    ...article.promo_items.basic,
+                    url: 'https://sandbox.lanacion.com.ar/resizer/v2/productive-image.jpg?auth=123&width=768&quality=70&smart=false',
+                    resized_urls: article.promo_items.basic.resized_urls.map(
+                        resizedUrl => ({
+                            ...resizedUrl,
+                            resizedUrl:
+                                'https://sandbox.lanacion.com.ar/resizer/v2/productive-image.jpg?auth=123&width=360&height=240&quality=70&smart=true'
+                        })
+                    )
+                }
+            }
+        }));
+
+        component.unmount();
+        useContent.mockImplementation(() => articlesWithV2Images);
+        component = render(<TePuedeInteresar {...props} />);
+
+        const imageUrls = getImageUrls(component.container);
+
+        expect(imageUrls).toContain(
+            'https://www.lanacion.com.ar/resizer/v2/productive-image.jpg'
+        );
+        expect(imageUrls).not.toContain(
+            'https://sandbox.lanacion.com.ar/resizer/v2/productive-image.jpg'
+        );
     });
 
     it('It should contain the header "You may be interested" ', () => {

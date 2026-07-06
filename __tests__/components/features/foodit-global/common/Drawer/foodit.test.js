@@ -8,10 +8,18 @@ window.SpeechRecognition = jest.fn(() => ({
     stop: jest.fn()
 }));
 
-jest.mock('@ln/utils', () => ({
-    ...jest.requireActual('@ln/utils'),
-    getTypeOfDevicev2: jest.fn()
-}));
+window.matchMedia =
+    window.matchMedia ||
+    function (query) {
+        return {
+            matches: false,
+            media: query,
+            onchange: null,
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn()
+        };
+    };
 
 describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     beforeEach(() => {

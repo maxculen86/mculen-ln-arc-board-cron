@@ -1,9 +1,8 @@
 import React from 'react';
-import { SITE_LANACION } from 'fusion:environment';
 import { Text } from '@ln/contenidos-ui-text';
 import ComPartner from '../../../../private/common/com-partner';
 import ComLink from '../../../../private/common/com-link';
-import formatDistributorName from '../../../../private/LN/common/utils/formatDistributorName';
+import buildDistributorUrl from '../../../../private/LN/common/utils/buildDistributorUrl';
 
 const getSignatureRenderOptions = ({
     isHtmlLibre,
@@ -32,9 +31,7 @@ const getSignatureRenderOptions = ({
                 <Text className="font-bold --twoxs">{name}</Text>
             ) : (
                 <div className="flex gap-4 ai-center">
-                    <ComLink
-                        link={`${SITE_LANACION}/distributor/${formatDistributorName(name)}/`}
-                    >
+                    <ComLink link={buildDistributorUrl(name)}>
                         <ComPartner size="--twoxs">{name}</ComPartner>
                     </ComLink>
                     {subcategory?.length > 0 && name === 'EL PAIS' && (

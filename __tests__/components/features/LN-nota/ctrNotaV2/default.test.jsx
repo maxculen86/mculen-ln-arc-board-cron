@@ -8,9 +8,34 @@ import { useRankingArticles } from '../../../../../components/features/LN-10/ran
 import useNotaSegment from '../../../../../components/private/LN/common/hooks/useNotaSegment';
 import CtrNotaV2 from '../../../../../components/features/LN-nota/crtNotaV2/default';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
+let stickyMobileArticlesToShow;
+
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn()
+    }),
+    { virtual: true }
+);
+jest.mock(
+    'fusion:prop-types',
+    () => {
+        const taggedType = { tag: jest.fn(() => ({})) };
+
+        return {
+            __esModule: true,
+            default: {
+                string: taggedType,
+                boolean: taggedType,
+                label: taggedType,
+                list: taggedType,
+                bool: taggedType,
+                shape: jest.fn(() => taggedType)
+            }
+        };
+    },
+    { virtual: true }
+);
 jest.mock(
     '../../../../../components/private/common/hooks/useViewportSize',
     () => jest.fn()
@@ -22,11 +47,15 @@ jest.mock(
 jest.mock(
     '../../../../../components/features/LN-10-global/common/stickyMobile/default',
     () => ({
-        StickyMobile: ({ articlesToShow = [] }) => (
-            <div data-testid="sticky-mobile">
-                items:{articlesToShow.map(a => a._id).join(',')}
-            </div>
-        )
+        StickyMobile: ({ articlesToShow = [] }) => {
+            stickyMobileArticlesToShow = articlesToShow;
+
+            return (
+                <div data-testid="sticky-mobile">
+                    items:{articlesToShow.map(a => a._id).join(',')}
+                </div>
+            );
+        }
     })
 );
 jest.mock(
@@ -85,6 +114,7 @@ const segmentCustomFields = ({
 
 beforeEach(() => {
     jest.clearAllMocks();
+    stickyMobileArticlesToShow = undefined;
     useAppContext.mockReturnValue({
         website: 'www.lanacion.com.ar',
         arcSite: 'lanacion',
@@ -155,6 +185,48 @@ it('includes the 4th to complete 3 items when current is in top3', () => {
 
     const el = screen.getByTestId('sticky-mobile');
     expect(el.textContent).toMatch(/items:A,C,D/);
+});
+
+it('passes productive image domains to sticky mobile when ranking image URLs come from sandbox', () => {
+    useRankingArticles.mockReturnValue({
+        articles: [
+            mk('A'),
+            mk('B', {
+                promo_items: {
+                    basic: {
+                        url: 'https://sandbox.lanacion.com.ar/resizer/v2/b.jpg?auth=123&width=90',
+                        resized_urls: [
+                            {
+                                resizedUrl:
+                                    'https://sandbox.lanacion.com.ar/resizer/v2/b.jpg?auth=123&width=90'
+                            }
+                        ]
+                    }
+                }
+            }),
+            mk('C'),
+            mk('D')
+        ]
+    });
+
+    render(<CtrNotaV2 />);
+
+    act(() => {
+        scrollToY(2000);
+    });
+
+    const el = screen.getByTestId('sticky-mobile');
+    expect(el.textContent).toMatch(/items:B,C,D/);
+    expect(
+        stickyMobileArticlesToShow[0].promo_items.basic.resized_urls[0]
+            .resizedUrl
+    ).toBe('https://www.lanacion.com.ar/resizer/v2/b.jpg?auth=123&width=90');
+    expect(
+        stickyMobileArticlesToShow[0].promo_items.basic.resized_urls[0]
+            .resizedUrl
+    ).not.toBe(
+        'https://sandbox.lanacion.com.ar/resizer/v2/b.jpg?auth=123&width=90'
+    );
 });
 
 it('does not calculate segment and renders normally when segmentation is not configured', () => {

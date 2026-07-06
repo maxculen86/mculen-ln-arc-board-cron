@@ -282,9 +282,8 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content:
+                    'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1200x800.jpg'
             },
             {
                 property: 'og:image:type',
@@ -312,9 +311,8 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 name: 'twitter:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content:
+                    'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1200x800.jpg'
             },
             {
                 name: 'twitter:card',
@@ -398,9 +396,7 @@ describe('Common - getMetasOG function', () => {
             { property: 'og:locale', content: 'es_AR' },
             {
                 property: 'og:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content: 'https://www.lanacion.com.ar$LATEST'
             },
             { property: 'og:image:type', content: 'image/jpeg' },
             { property: 'og:image:alt', content: 'Placeholder de LA NACION' },
@@ -416,9 +412,7 @@ describe('Common - getMetasOG function', () => {
             { property: 'profile:username', content: 'javier-blanco-slug' },
             {
                 name: 'twitter:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content: 'https://www.lanacion.com.ar$LATEST'
             },
             { name: 'twitter:card', content: 'summary_large_image' },
             { name: 'twitter:title', content: 'Javier Blanco' },
@@ -520,9 +514,8 @@ describe('Metas home', () => {
             },
             {
                 property: 'og:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content:
+                    'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1200x800.jpg'
             },
             {
                 property: 'og:image:type',
@@ -550,9 +543,8 @@ describe('Metas home', () => {
             },
             {
                 name: 'twitter:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN-1200x800.jpg'
-                )
+                content:
+                    'https://www.lanacion.com.ar/pf/resources/images/placeholderLN-1200x800.jpg'
             },
             {
                 name: 'twitter:card',

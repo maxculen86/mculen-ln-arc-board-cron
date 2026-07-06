@@ -159,6 +159,8 @@ export const getLink = (isSearchByTag, sectionOrTag, articles = []) => {
     return link;
 };
 
+const MAX_TAGS_TO_TRY = 3;
+
 export const filterType = {
     byLastNews: ({ filteredContentElements, isRecetas }) => ({
         articles: filteredContentElements,
@@ -178,11 +180,10 @@ export const filterType = {
         isRecetas,
         tags = []
     }) => {
-        const { articles = [], link = {} } = tags.reduce((acc, tag) => {
-            if (acc.articles) return acc;
-            const { slug, text } = tag;
-            const size = setSize(cantidadNotas);
+        const size = setSize(cantidadNotas);
+        const candidateTags = tags.slice(0, MAX_TAGS_TO_TRY);
 
+        const resultsByTag = candidateTags.map(({ slug } = {}) => {
             const articlesList = useContent({
                 source: 'lnAcuSource',
                 query: {
@@ -200,21 +201,20 @@ export const filterType = {
                 staticMode: false
             });
 
-            const res = getFilteredContentElements(
+            return getFilteredContentElements(
                 articlesList,
                 idArticle,
                 cantidadNotas
             );
+        });
 
-            if (res.length >= 3) {
-                acc.articles = res;
-                acc.link = {
-                    text: text || sectionName,
-                    path: slug || path
-                };
-            }
-            return acc;
-        }, {});
+        const matchIndex = resultsByTag.findIndex(res => res.length >= 3);
+        const articles = matchIndex === -1 ? [] : resultsByTag[matchIndex];
+        const { slug, text } = candidateTags[matchIndex] || {};
+        const link =
+            matchIndex === -1
+                ? {}
+                : { text: text || sectionName, path: slug || path };
 
         return {
             articles,

@@ -1,4 +1,8 @@
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import get from '../../../private/common/utils/get';
+import config from '../../../../properties/sites/la-nacion-ar';
+
+const { layoutsName = {} } = config || {};
 
 const GAME_LAYOUT_RULES = {
     'LN10-Home_Main': ['fourVertical', 'oneHorizontalThreeVertical'],
@@ -6,7 +10,9 @@ const GAME_LAYOUT_RULES = {
         'fourVertical',
         'oneLargeFourSmall',
         'twoHorizontal',
-        'oneHorizontalThreeVertical'
+        'oneHorizontalThreeVertical',
+        'threeVertical',
+        'oneHorizontal'
     ],
     'LN-nota-infografia': ['fourVertical']
 };
@@ -18,7 +24,9 @@ const DIAGRAMATION_ITEM_LIMITS = {
 
 const MIN_DIAGRAMATION_ITEMS = {
     fourVertical: 4,
-    twoHorizontal: 2
+    twoHorizontal: 2,
+    threeVertical: 3,
+    oneHorizontal: 1
 };
 
 export const getGameDiagramationItems = (
@@ -60,4 +68,19 @@ export const validateGamesChain = (
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const shouldShowGamesCaja = ({
+    layout,
+    globalContent = {},
+    contentType = 'game'
+} = {}) => {
+    const isGamesInfografia =
+        contentType === 'game' && layout === layoutsName.Infografia;
+
+    if (!isGamesInfografia) return true;
+
+    return (
+        get(globalContent, 'label.mostrar_caja_juegos.text', '') === 'Mostrar'
+    );
 };

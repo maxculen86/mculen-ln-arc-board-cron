@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags snapshots matches snapshot with a list of tags 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="scrollarea"
+  >
+    <div
+      data-testid="scrollarea-content"
+    >
+      <a
+        href="/economia"
+      >
+        <span
+          class="flex whitespace-nowrap items-center text-label-sm font-normal text-primary-default underline decoration-solid [text-decoration-skip-ink:none]"
+        >
+          Economía
+        </span>
+      </a>
+      <i
+        data-name="bullet-filled"
+        data-testid="icon"
+      />
+      <a
+        href="/dolar"
+      >
+        <span
+          class="flex whitespace-nowrap items-center text-label-sm font-normal text-primary-default underline decoration-solid [text-decoration-skip-ink:none]"
+        >
+          Dólar hoy
+        </span>
+      </a>
+      <i
+        data-name="bullet-filled"
+        data-testid="icon"
+      />
+      <a
+        href="/inflacion"
+      >
+        <span
+          class="flex whitespace-nowrap items-center text-label-sm font-normal text-primary-default underline decoration-solid [text-decoration-skip-ink:none]"
+        >
+          Inflación
+        </span>
+      </a>
+    </div>
+    <div>
+      <div
+        data-testid="scrollarea-arrow"
+      >
+        <i
+          data-name="arrow-left"
+          data-testid="icon"
+        />
+      </div>
+      <div
+        data-testid="scrollarea-arrow"
+      >
+        <i
+          data-name="arrow-right"
+          data-testid="icon"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="scrollarea-gradient"
+    />
+  </div>
+</DocumentFragment>
+`;

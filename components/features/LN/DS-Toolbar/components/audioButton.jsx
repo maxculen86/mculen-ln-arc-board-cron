@@ -7,6 +7,7 @@ import Icon from '../../../ui/ln/icon/default';
 import getToken from '../../../../private/common/utils/getToken';
 import { handleClickAudioNews } from '../../common/audioPlayer/helpers';
 import { useAudioPlayerState } from '../../common/audioPlayer/hooks/useAudioPlayerState';
+import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
 
 export function AudioButton({
     noteId,

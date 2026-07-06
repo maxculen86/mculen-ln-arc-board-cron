@@ -1,0 +1,8 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "arc-tools",
+    "projectType": "library",
+    "root": "tools/generators",
+    "sourceRoot": "tools/generators",
+    "tags": ["type:tools", "scope:shared"]
+}

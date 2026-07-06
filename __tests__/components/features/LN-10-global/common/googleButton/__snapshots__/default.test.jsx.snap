@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Snapshots by placement and visibility snapshot with custom className 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="true"
+      data-placement="top"
+      data-testid="tooltip"
+    >
+      <div
+        class="l-none extra-class"
+      >
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+          data-disabled="false"
+          dataevent="LinkClick"
+          datasection="CompartirNotaLN"
+          style="--ds-icon-size: 20px;"
+          title="Agregar LA NACION en Google"
+        >
+          <span
+            class="text-label-sm font-secondary "
+          >
+            Agregar LA NACION en
+          </span>
+          <mock-ds-common-icon
+            color="inherit"
+            size="20"
+          >
+            <svg />
+          </mock-ds-common-icon>
+        </button>
+      </div>
+      <div>
+        <div
+          class="max-w-170 flex gap-4"
+        >
+          <span
+            class="font-secondary font-w-normal text-small-lg text-center"
+          >
+            Agregar LA NACION como medio preferido en Google
+          </span>
+          <button
+            aria-label="Cerrar"
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase aspect-1/1 w-16 h-16 p-8 rounded-full bg-muted"
+            data-disabled="false"
+            title="Cerrar"
+          >
+            <mock-ds-common-icon
+              fill="bg-base-default"
+              name="close"
+              size="14"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Snapshots by placement and visibility snapshot with placement right + visible 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="true"
+      data-placement="right"
+      data-testid="tooltip"
+    >
+      <div>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+          data-disabled="false"
+          dataevent="LinkClick"
+          datasection="CompartirNotaLN"
+          style="--ds-icon-size: 20px;"
+          title="Agregar LA NACION en Google"
+        >
+          <span
+            class="text-label-sm font-secondary "
+          >
+            Agregar LA NACION en
+          </span>
+          <mock-ds-common-icon
+            color="inherit"
+            size="20"
+          >
+            <svg />
+          </mock-ds-common-icon>
+        </button>
+      </div>
+      <div>
+        <div
+          class="max-w-170 flex gap-4"
+        >
+          <span
+            class="font-secondary font-w-normal text-small-lg text-center"
+          >
+            Agregar LA NACION como medio preferido en Google
+          </span>
+          <button
+            aria-label="Cerrar"
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase aspect-1/1 w-16 h-16 p-8 rounded-full bg-muted"
+            data-disabled="false"
+            title="Cerrar"
+          >
+            <mock-ds-common-icon
+              fill="bg-base-default"
+              name="close"
+              size="14"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Snapshots by placement and visibility snapshot with placement top + visible 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="true"
+      data-placement="top"
+      data-testid="tooltip"
+    >
+      <div>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+          data-disabled="false"
+          dataevent="LinkClick"
+          datasection="CompartirNotaLN"
+          style="--ds-icon-size: 20px;"
+          title="Agregar LA NACION en Google"
+        >
+          <span
+            class="text-label-sm font-secondary "
+          >
+            Agregar LA NACION en
+          </span>
+          <mock-ds-common-icon
+            color="inherit"
+            size="20"
+          >
+            <svg />
+          </mock-ds-common-icon>
+        </button>
+      </div>
+      <div>
+        <div
+          class="max-w-170 flex gap-4"
+        >
+          <span
+            class="font-secondary font-w-normal text-small-lg text-center"
+          >
+            Agregar LA NACION como medio preferido en Google
+          </span>
+          <button
+            aria-label="Cerrar"
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase aspect-1/1 w-16 h-16 p-8 rounded-full bg-muted"
+            data-disabled="false"
+            title="Cerrar"
+          >
+            <mock-ds-common-icon
+              fill="bg-base-default"
+              name="close"
+              size="14"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Snapshots by placement and visibility hidden snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="false"
+      data-placement="top"
+      data-testid="tooltip"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Tooltip shows tooltip content when isVisible=true (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="true"
+      data-placement="top"
+      data-testid="tooltip"
+    >
+      <div>
+        <button
+          class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 h-40 px-16 text-label-md rounded-button font-regular bg-white-default text-white-foreground hover:bg-white-light data-[disabled="true"]:bg-white-lighten px-12 border-1 border-neutral-100"
+          data-disabled="false"
+          dataevent="LinkClick"
+          datasection="CompartirNotaLN"
+          style="--ds-icon-size: 20px;"
+          title="Agregar LA NACION en Google"
+        >
+          <span
+            class="text-label-sm font-secondary "
+          >
+            Agregar LA NACION en
+          </span>
+          <mock-ds-common-icon
+            color="inherit"
+            size="20"
+          >
+            <svg />
+          </mock-ds-common-icon>
+        </button>
+      </div>
+      <div>
+        <div
+          class="max-w-170 flex gap-4"
+        >
+          <span
+            class="font-secondary font-w-normal text-small-lg text-center"
+          >
+            Agregar LA NACION como medio preferido en Google
+          </span>
+          <button
+            aria-label="Cerrar"
+            class="ds-button relative overflow-hidden inline-flex items-center justify-center gap-8 whitespace-nowrap transition-colors cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 font-bold uppercase aspect-1/1 w-16 h-16 p-8 rounded-full bg-muted"
+            data-disabled="false"
+            title="Cerrar"
+          >
+            <mock-ds-common-icon
+              fill="bg-base-default"
+              name="close"
+              size="14"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components - Features - LN-10-Global - common - googleButton - default Tooltip hides tooltip content when isVisible=false 1`] = `
+<DocumentFragment>
+  <div
+    class="contents"
+    data-tw="true"
+  >
+    <div
+      data-open="false"
+      data-placement="top"
+      data-testid="tooltip"
+    />
+  </div>
+</DocumentFragment>
+`;

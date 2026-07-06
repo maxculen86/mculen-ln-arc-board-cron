@@ -9,6 +9,39 @@ import MediaIframe from '../../../../../components/layouts/LN-Nota-Liveblog_Edit
 import MediaImage from '../../../../../components/features/LN-10-global/common/mediaImage/default';
 
 jest.mock(
+    'fusion:context',
+    () => ({
+        __esModule: true,
+        useAppContext: jest.fn(() => ({
+            arcSite: 'la-nacion-ar',
+            contextPath: '',
+            deployment: jest.fn(path => path),
+            globalContent: {}
+        }))
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:static',
+    () => ({
+        __esModule: true,
+        default: ({ children }) => children || null
+    }),
+    { virtual: true }
+);
+
+jest.mock(
+    'fusion:environment',
+    () => ({
+        __esModule: true,
+        RESIZER_URL_PUBLIC: 'https://sandbox.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    }),
+    { virtual: true }
+);
+
+jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
     () => ({
         __esModule: true,
@@ -65,7 +98,6 @@ jest.mock(
 
         return {
             __esModule: true,
-            default: replaceUrlResizerToWWW,
             replaceUrlResizerToWWW
         };
     }

@@ -10,6 +10,7 @@ import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/a
 import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import CardRanking from '../../LN-10-global/common/cardRanking/default';
 import get from '../../../private/common/utils/get';
+import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
 const getDataContent = (
     sectionId,
@@ -76,7 +77,7 @@ function RankingFeature({ id: featureId }) {
                     </div>
                 )}
                 <ol>
-                    {articles?.map(
+                    {replaceUrlsByEnvironment(articles)?.map(
                         (
                             {
                                 _id,

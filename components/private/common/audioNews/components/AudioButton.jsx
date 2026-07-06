@@ -16,6 +16,7 @@ import IconSprite from '../../../../features/private-global/common/iconSprite/Ic
 import BarrierRequiresSubscription from '../../../../features/LN/common/barrierRequiresSubscription/default';
 import { barrierMessages } from '../../../../features/LN/common/barrierRequiresSubscription/helper';
 import { useAudioPlayerState } from '../../../../features/LN/common/audioPlayer/hooks/useAudioPlayerState';
+import '../../../../../resources/packages/css/@ln/contenidos-ui-animatedicons/index.css';
 
 export function AudioButton({
     noteId,

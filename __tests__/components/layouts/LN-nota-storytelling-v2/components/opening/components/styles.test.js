@@ -55,7 +55,7 @@ describe('openingImage100Variants', () => {
                 const result = openingImage100Variants.container({ variant });
                 expect(result).toContain('flex');
                 expect(result).toContain('flex-col');
-                expect(result).toContain('gap-8');
+                expect(result).toContain('gap-12');
             });
         });
 
@@ -88,8 +88,14 @@ describe('openingImage100Variants', () => {
             const result = openingImage100Variants.container({
                 variant: 'left'
             });
-            expect(result).toContain('max-w-552');
-            expect(result).toContain('px-24');
+            expect(result).toContain('max-w-550');
+            expect(result).toContain('px-16');
+            expect(result).toContain('md:pr-0');
+            expect(result).toContain('md:pl-24');
+            expect(result).toContain('md:max-w-635');
+            expect(result).toContain('xl:pl-32');
+            expect(result).toContain('lg:pr-0');
+            expect(result).toContain('2xl:pl-64');
         });
     });
 

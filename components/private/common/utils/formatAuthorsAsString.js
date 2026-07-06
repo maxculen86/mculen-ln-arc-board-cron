@@ -1,7 +1,7 @@
-import get from '../../../private/common/utils/get';
-import { startsWithIorHiRAE } from '../../../private/common/utils/getAuthorsAsString';
+import get from './get';
+import { startsWithIorHiRAE } from './getAuthorsAsString';
 
-const formatAuthorList = (authors = []) => {
+const formatAuthorsAsString = (authors = []) => {
     if (!Array.isArray(authors) || authors.length === 0) return '';
 
     const authorFiltered = authors.filter(author => author?.type === 'author');
@@ -24,7 +24,7 @@ const formatAuthorList = (authors = []) => {
         return `${acc}, ${name}`;
     }, '');
 
-    return result.toUpperCase();
+    return result;
 };
 
-export default formatAuthorList;
+export default formatAuthorsAsString;

@@ -4,12 +4,8 @@ import { Dropdown } from '@ln/common-ui-dropdown';
 import { Link } from '@ln/foodit-ui-link';
 import MenuCategories from '../../MenuCategories/foodit';
 
-function Categories({ title, href = '', data = null }) {
-    const titleConocenos = title.toLowerCase().includes('conocenos');
-    const linkClassName = cx(
-        'text-12 roboto-bold uppercase',
-        titleConocenos && '--no-app'
-    );
+function Categories({ title, href = '', data = null, className = '' }) {
+    const linkClassName = cx('text-12 roboto-bold uppercase', className);
 
     if (data) {
         return (

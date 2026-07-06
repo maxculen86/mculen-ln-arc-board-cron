@@ -1,0 +1,12 @@
+{
+    "$schema": "../../node_modules/nx/schemas/generators-schema.json",
+    "name": "@ln/arc-tools",
+    "version": "0.0.1",
+    "generators": {
+        "ln-arc-lib": {
+            "factory": "./ln-arc-lib/index",
+            "schema": "./ln-arc-lib/schema.json",
+            "description": "Scaffold an internal @ln/arc-* lib applying repo conventions (importPath, tags scope/type, buildable & non-publishable)."
+        }
+    }
+}

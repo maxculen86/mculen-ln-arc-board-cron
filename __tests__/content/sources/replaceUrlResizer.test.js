@@ -1,12 +1,16 @@
 import promoItems from '../../../__mocks__/data/images/promoItems.json';
-import replaceUrlResizer from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
+import { replaceUrlResizerToWWW as replaceUrlResizer } from '../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
-jest.mock('fusion:environment', () => {
-    return {
-        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
-        SITE_LANACION: 'https://www.lanacion.com.ar'
-    };
-});
+jest.mock(
+    'fusion:environment',
+    () => {
+        return {
+            RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+            SITE_LANACION: 'https://www.lanacion.com.ar'
+        };
+    },
+    { virtual: true }
+);
 
 describe('Private - Common - Hooks - replaceUrlResizer', () => {
     describe('When has a promoItemas with resizer urls', () => {

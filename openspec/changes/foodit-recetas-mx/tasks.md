@@ -16,11 +16,16 @@ Fase 2 — Bundle MX: inicialización base [secuencial, incluye output-type]
   ↓
 Fase 3 — Layout migration [secuencial]
   ↓
-Fase 4 — Scope card + Component copy [paralelo con Fase 4b: libs/]
-  ├── Fase 4a: Scope card (post-layout)
-  ├── Fase 4b: libs/ + ln-arc-lib generator [puede arrancar en paralelo con 4a]
-  ├── Fase 4c: private/ Bloque Ficha-Receta [posterior a 4a]
-  └── Fase 4d: private/ + features Bloque Acumulado [posterior a 4a]
+Fase 4 — Scope card + Common foundation + Component copy
+  ├── Fase 4a:  Scope card (post-layout)
+  ├── Fase 4b:  libs/ + ln-arc-lib generator [paralelo con 4a]
+  ├── Fase 4cf: COMMON FOUNDATION — piso compartido [posterior a 4a/4b · BLOQUEANTE]
+  │              ├─ Tier 0a: breadcrumb + IconSprite + utils  ✓ hecho
+  │              └─ Tier 0b: BaseLayout shell (134) + UserBookmarks  ✓ copiado (render: dev)
+  ├── Fase 4c:  Bloque Ficha-Receta (features de ficha)   ┐
+  ├── Fase 4d:  Bloque Acumulado (AcuTema, TagCategories)  ├─ paralelos DESPUÉS de 4cf
+  ├── Fase 4e:  Fork Subcategorías                         ┘
+  └── Fase 4ot: Output-type — migrar cluster (121) + swap stub→real [cierra Fase 4]
   ↓
 Fase 5 — Deployer script [secuencial]
   ↓
@@ -126,10 +131,10 @@ Post-layout migration, crear un documento de scope card que enumere todos los fe
 
 **Criterios de aceptación**:
 
--   [ ] Existe documento/card (task o PR comment) listando componentes por layout
--   [ ] Todos los archivos de `docs/migrate-mx/private-components/audit.md` tienen una decisión copy-vs-lib asignada
--   [ ] Los bloques de copy para Fase 4c y 4d están definidos (qué archivos van en cada bloque)
--   [ ] Al menos un responsable asignado por bloque de copia
+-   [x] Existe documento/card (task o PR comment) listando componentes por layout → `docs/migrate-mx/private-components/scope-card.md`
+-   [x] Todos los archivos tienen una decisión copy-vs-lib asignada → vía el **marco per-componente just-in-time** (no label fijo por archivo; la regla determina la decisión por categoría)
+-   [x] Los bloques de copy están definidos (qué archivos van en cada bloque) → 4cf común + 4c Ficha + 4d Acumulado + 4e Subcat
+-   [ ] Al menos un responsable asignado por bloque de copia _(pendiente: asignación del equipo — tabla placeholder en `scope-card.md`)_
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `arq; dev; mx-recetas`
 
@@ -195,12 +200,12 @@ Crear los directorios base `libs/shared/{ui,util,data-access}/` y `libs/foodit/`
 
 **Criterios de aceptación**:
 
--   [ ] Existen los directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/`
--   [ ] `npx nx g ln-arc-lib --name=test-lib --scope=shared --type=util` genera `libs/shared/util/test-lib/` con `src/index.ts` y `project.json`
--   [ ] `project.json` generado tiene `importPath: "@ln/arc-test-lib"` y tags `["scope:shared", "type:util"]`
--   [ ] `tsconfig.base.json` incluye el path alias `@ln/arc-test-lib` automáticamente tras generar la lib
--   [ ] `project.json` NO contiene `publishable: true` ni configuración de npm publish
--   [ ] Un archivo en `apps/foodit-mx/` puede importar `@ln/arc-test-lib` y ESLint no reporta boundary violation
+-   [x] Existen los directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/`
+-   [x] `npx nx g ln-arc-lib --name=test-lib --scope=shared --type=util` genera `libs/shared/util/test-lib/` con `src/index.ts` y `project.json`
+-   [x] `project.json` generado tiene `importPath: "@ln/arc-test-lib"` y tags `["scope:shared", "type:util"]`
+-   [x] `tsconfig.base.json` incluye el path alias `@ln/arc-test-lib` automáticamente tras generar la lib
+-   [x] `project.json` NO contiene `publishable: true` ni configuración de npm publish
+-   [x] Un archivo en `apps/foodit-mx/` puede importar `@ln/arc-test-lib` y ESLint no reporta boundary violation
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `arq; dev; mx-recetas`
 
@@ -315,66 +320,95 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 ## 4a. Scope Card: auditoría de componentes por layout
 
 > **Spec**: `foodit-layout-migration`, `foodit-component-copy` | **US ADO**: US-NEW-4
+>
+> **Dependencias y aclaraciones (post-restructure):**
+>
+> - **4a.2 alimenta a `4cf.8`** (auditoría del cierre de `BaseLayout`): el cierre por layout que produce 4a.2 es el input para escopear el Tier 0b. 4a debe correr **antes o junto con** el inicio de 4cf.
+> - **4a.3 (copy-vs-lib) ya está resuelto a nivel global → COPIAR.** El escenario de 2 bundles (`default` + `foodit-mx`) descarta extraer a `libs/` (Fusion no consume aliases; el sharing real va por packages `@ln/*` publicados). Ver [`docs/migrate-mx/libs-strategy/fusion-libs-resolution.md`](../../../docs/migrate-mx/libs-strategy/fusion-libs-resolution.md). 4a.3 se reduce a confirmar la lista, no a decidir.
+> - **4a.5 (dos bloques) quedó superada:** la estructura real son **4cf/4c/4d/4e** (piso compartido + 3 layouts), no dos bloques Ficha/Acumulado.
 
--   [ ] 4a.1 Abrir `docs/migrate-mx/private-components/audit.md` e identificar los 59 archivos de `components/private/` auditados
--   [ ] 4a.2 Para cada layout, listar los features y `components/private/` realmente en uso (inspección de imports en los layouts del bundle MX)
--   [ ] 4a.3 Para cada archivo identificado, marcar la decisión copy-vs-lib según criterio del spec `monorepo-shared-libs`
--   [ ] 4a.4 Crear el documento de scope card (puede ser task ADO, PR comment, o Notion) con los listados por layout y las decisiones
--   [ ] 4a.5 Definir los dos bloques de copy (Ficha-Receta y Acumulado) para las US-NEW-5 y US-NEW-6
+-   [x] 4a.1 Abrir `docs/migrate-mx/private-components/audit.md` e identificar los 59 archivos de `components/private/` auditados _(consolidado en la auditoría cross-layout 4cf.8)_
+-   [x] 4a.2 Para cada layout, listar los features y `components/private/` realmente en uso _(cierres por layout en 4cf.8: Acumulado 146 / Ficha 221 / Subcat 139; exclusivos 8/83/9; compartidos 138)_
+-   [x] 4a.3 Decisión copy-vs-lib → **marco per-componente just-in-time** (Arquitectura), no label por archivo. Lean documentado: armazón→lib, exclusivos→copy, hojas-congeladas→copy. Ver `scope-card.md`
+-   [x] 4a.4 Documento de scope card creado: [`docs/migrate-mx/private-components/scope-card.md`](../../../docs/migrate-mx/private-components/scope-card.md)
+-   [x] 4a.5 Bloques de copy definidos → **4 bloques** (supera los 2 originales): 4cf común + 4c Ficha + 4d Acumulado + 4e Subcat
 
 ## 4b. Monorepo: estructura libs/ y generator (paralelo con 4a)
 
 > **Spec**: `monorepo-shared-libs` | **US ADO**: US-NEW-7
 
--   [ ] 4b.1 Crear directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/` en raíz del repo
--   [ ] 4b.2 Crear el generator `tools/generators/ln-arc-lib/index.ts` con soporte para `--name`, `--scope`, `--type`
--   [ ] 4b.3 Verificar que el generator genera `src/index.ts`, `project.json` y README en el directorio correcto
--   [ ] 4b.4 Verificar que `project.json` generado tiene `importPath: "@ln/arc-<name>"` y tags correctos (`scope:X`, `type:Y`)
--   [ ] 4b.5 Verificar que `tsconfig.base.json` se actualiza automáticamente con el alias de la nueva lib
--   [ ] 4b.6 Verificar que `project.json` NO tiene `publishable: true`
+-   [x] 4b.1 Crear directorios `libs/shared/ui/`, `libs/shared/util/`, `libs/shared/data-access/`, `libs/foodit/` en raíz del repo
+-   [x] 4b.2 Crear el generator `tools/generators/ln-arc-lib/index.ts` con soporte para `--name`, `--scope`, `--type`
+    > ⚠️ Autorado en `index.js` (no `.ts`): este workspace no tiene transpiler de generators (`@swc/core`, `ts-node`, `@swc-node/register` ausentes), así que un `.ts` no es ejecutable por `nx g`. Output y contrato idénticos. Registrado como plugin local `@ln/arc-tools` (`file:tools/generators` en `package.json` raíz) para resolver el nombre corto `nx g ln-arc-lib`.
+-   [x] 4b.3 Verificar que el generator genera `src/index.ts`, `project.json` y README en el directorio correcto
+-   [x] 4b.4 Verificar que `project.json` generado tiene `importPath: "@ln/arc-<name>"` y tags correctos (`scope:X`, `type:Y`)
+-   [x] 4b.5 Verificar que `tsconfig.base.json` se actualiza automáticamente con el alias de la nueva lib
+-   [x] 4b.6 Verificar que `project.json` NO tiene `publishable: true`
 -   [ ] 4b.7 Generar la primera lib real identificada en 4a como "extraer a libs/" y validar que el import resuelve desde `apps/foodit-mx/`
+    > ⏸️ BLOQUEADA por dos motivos: (1) 4a (scope card) aún no identifica una lib "real" a extraer; (2) **HALLAZGO CRÍTICO**: el bundler interno de Fusion NO resuelve los path aliases de `tsconfig.base.json` para imports de componentes (resuelve relativos + `node_modules` + `fusion:`). El boundary-check de ESLint sí lee el alias (por eso pasó con `@ln/arc-test-lib`), pero `import x from '@ln/arc-<name>'` **rompería el build de Fusion**. Consecuencia: `libs/` está validada como **tooling**, pero CONSUMIR una lib desde un bundle Fusion requiere cablear resolución de aliases (p.ej. `tsconfig-paths-webpack-plugin` en el webpack de Fusion, o publicar/symlinkear la lib a `node_modules`) y verificarlo con `fusion start`. Hasta entonces, el código compartido (ej. `get.js`, `capitalizeFirstLetter.js`) se **copia** al bundle, no se extrae a lib.
 
-## 4c. Component copy — Bloque Foodit-ficha-receta (posterior a 4a y 4b)
+## 4cf. Common foundation — piso compartido (posterior a 4a/4b · BLOQUEANTE de 4c/4d/4e)
+
+> **Spec**: `foodit-component-copy` | **US ADO**: (nueva — derivar de US-NEW-5/6)
+> Componentes que importan **dos o más** layouts (`BaseLayout`, `breadcrumb`, `UserBookmarks`) + sus utils. Aterrizan ANTES de 4c/4d/4e para habilitar trabajo en paralelo. Fusion no resuelve aliases → todo se **copia** en rutas espejo (ver 4b).
+
+**Tier 0a — piso liviano (sin auth/armazón) — ✓ HECHO (rama infra)**
+
+> breadcrumb + IconSprite + utils. Verificado por cierre estático (0 unresolved); render checkpoint (`fusion start`) pendiente de validación por un dev.
+
+-   [x] 4cf.1 `features/foodit-global/common/breadcrumb/foodit.jsx` — copiado real (reemplaza stub)
+-   [x] 4cf.2 `features/foodit-global/common/breadcrumb/_helpers.js` — copiado real (`getFooditAcuTitle`, `getBreadcrumbSections`)
+-   [x] 4cf.3 `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbTooltip/foodit.jsx` — copiado
+-   [x] 4cf.4 `components/private/common/utils/get.js` — copiado
+-   [x] 4cf.5 `components/private/common/utils/capitalizeFirstLetter.js` — copiado
+-   [x] 4cf.6 `private-global/common/iconSprite/IconSprite.jsx` (+`utils/getIconPath.js`) — copiado (+dep `@ln/common-ui-spriteicon`)
+-   [x] 4cf.7 `__mocks__/data/fooditCategories/parentCategoryMapping.json` — copiado
+
+**Tier 0b — piso pesado (BaseLayout shell + auth) — EPIC dedicado, NO es "reemplazar stub"**
+
+> `BaseLayout` real = cierre transitivo de **≈134 archivos** (Header/Footer/Drawers/FloatingGroupButton/PWA/Toasts/Auth). `UserBookmarks` arrastra el árbol de auth.
+>
+> **Regla copy-vs-lib (Arquitectura, per-componente / just-in-time):** al migrar cada pieza decidir — solo-foodit-nuevo → copiar; compartido **congelado** → copiar; compartido que **se va a cambiar** en ambos lados → **lib `@ln/*`** (paquete node_modules vía `file:`/symlink para dev **y** prod —Fusion hornea la lib en el bundle—; publicar versionado es opcional, solo para gobernanza de versión; NO alias de tsconfig). Disparador para libificar: toparse con que hay que CAMBIAR el código compartido. Ver `design.md` Decision 4 + `docs/migrate-mx/libs-strategy/fusion-libs-resolution.md`.
+> 📎 **Referencia patrón de lib**: POC Ingala (repo `lanacion-arcxp-mx`) consume libs vía **npm workspaces** (`workspaces: ["libs/*"]`, lib con `main: ./src/index.jsx`, import por nombre). Caveat: sus libs son Fusion-agnósticas (React puro); el armazón foodit está acoplado a `fusion:`/`@ln`, así que extraerlo es más pesado.
+
+-   [x] 4cf.8 **Auditoría de cierre cross-layout** (acumulado + ficha + subcategorías): unión **238 archivos**, **138 compartidos (≥2 layouts)**. La foundation-armazón (`BaseLayout`+breadcrumb+`UserBookmarks`+`IconSprite`) cubre **134/138**. **4 GAPS detectados** (compartidos AF que el armazón no alcanza) → agregados como `4cf.11`. Conclusión: con los gaps, la foundation cubre los 138 → **paralelo seguro**.
+-   [x] 4cf.9 `BaseLayout` + árbol (Header, Footer, Drawers, FloatingGroupButton, Modals/SaveRecipe, SubscribeLogin, MyAccount, MenuCategories, PWA, Toasts, emptyState/errorMessage + utils) **COPIADO** (decisión A — copia fiel, regla default; lib queda para cuando haya que cambiarlo). 124 archivos nuevos + 9 stubs/Tier0a sobrescritos; rutas espejo; **cierre estático 0 unresolved** ✓
+-   [x] 4cf.10 `bookmark/components/UserBookmarks.jsx` + árbol de auth (`getBookmarks`, `toggleBookmarks`, `loginHelper`, `useAuthManager`) **COPIADO** (parte del mismo cierre)
+-   [x] 4cf.11 **4 GAPS** copiados: `CommonCardFoodit/foodit.jsx` + `components/CardButton.jsx` + `components/DropdownCard.jsx` + `recetario/hooks/useApiGuard.js`. Deps agregadas al `package.json` del bundle: `@ln/ds-common-icon@1.2.1`, `@ln/ds-common-toasts@1.0.8`, `classnames@2.3.2`, `react-speech-recognition@4.0.1`, `slugify@1.6.5`
+-   [ ] 4cf.12 Checkpoint render: `BaseLayout` + armazón renderizan sin `[MISSING]`. _(lo valida un dev — no ejecutable sin runtime)_
+    > ℹ️ **Lo que desbloquea 4c/4d/4e en paralelo es el CÓDIGO del armazón (`4cf.9–11`, ya migrado), no este render.** `4cf.12` es validación, y está diferida a Fase 6 (ver abajo) — por eso NO es prerrequisito de 4c/4d/4e (sería dependencia circular: Fase 6 va después).
+    > ⚠️ **DEPENDE DE FASE 6 — no validable solo.** `BaseLayout` solo se pinta cuando un **layout lo monta**, y un layout monta cuando la ruta **resuelve su content source** (Fase 6). Hoy `/recetas` da **HTTP 500** (sin content sources) → ningún layout monta → el armazón no se referencia → no hay `[MISSING]` que mirar todavía. Que `fusion start` levante y la tab diga "Foodit MX" **solo confirma que el bundle compila + el stub del output-type renderiza**, NO que el armazón rinda. El render visual real de la foundation se valida en **Fase 6**.
+    > ✅ **Lint ya resuelto:** los archivos verbatim disparaban nits airbnb; se bajaron a `warn` durante Fase 4 en `apps/foodit-mx/.eslintrc.js` (+ `firebase` como global, + prettier `--fix`) → 0 errores, commit desbloqueado. Restaurar a `error` al cerrar Fase 4.
+
+## 4c. Component copy — Bloque Foodit-ficha-receta (posterior a 4a, 4b y 4cf)
 
 > **Spec**: `foodit-component-copy` | **US ADO**: US-NEW-5
+>
+> **Scope exclusivo de Ficha (de la auditoría 4cf.8): ≈83 archivos — el bloque más grande.** Subárboles: `PowerupsReceta` (ingredientsBox, summaryBox), `OpeningRecipe`, `Banners` (+`useAdManager`), `MenuSemanal`, `Newsletter`, `AudioFoodit`, `LayoutImpression`/`PrintIngredients`/`PrintButton`/`TimePrint`, `ShareFoodit`, `DialogFoodit`/`DialogBarrier`, `ActionsButtons`, `RoofFoodit`, `nutritionalInfo`, `subtitle`, `RelatedContent`, `videoPlayer`, `facade`, UI `badge`/`image` + utils de ficha.
 
 -   [ ] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados
 -   [ ] 4c.2 Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib` y actualizar el import en el layout
 -   [ ] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
 -   [ ] 4c.4 Checkpoint: `Foodit-ficha-receta` renderiza en `fusion start` sin `[MISSING]` ni errores JS
 
-## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4a y 4b)
+## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4cf, paralelo con 4c/4e)
 
 > **Spec**: `foodit-component-copy` | **US ADO**: US-NEW-6, 173243 (refinada)
+> Solo features **específicas de Acumulado** — el piso compartido (`BaseLayout`, breadcrumb, `UserBookmarks`, utils) está en **4cf**.
+>
+> **Scope exclusivo de Acumulado (de la auditoría 4cf.8): ≈8 archivos** — `AcuTema` (+`gridTemaServer`/`gridTemaClient`/`useGridTema`/`helpers`), `TagCategories`, `GrillaNotasAcu/loadMoreButton`.
 
--   [ ] 4d.1 Para cada archivo del bloque Acumulado (incluye componentes compartidos entre layouts) marcado "copiar": copiar con imports adaptados
--   [ ] 4d.2 Para cada archivo marcado "extraer a lib": generar la lib y actualizar imports en layouts
+-   [ ] 4d.1 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`, ya copiado en 4cf)
+-   [ ] 4d.2 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient`)
 -   [ ] 4d.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
 -   [ ] 4d.4 Checkpoint: `Foodit-acumulado` renderiza en `fusion start` sin `[MISSING]`
 -   [ ] 4d.5 Checkpoint de no-regresión: `Foodit-ficha-receta` sigue renderizando correctamente
 
-**Archivos conocidos para reemplazar stubs de `Foodit-acumulado`** (descubiertos en análisis Fase 3):
-
-_Features directas (reemplazar stubs existentes):_
-
--   [ ] 4d.6 `features/foodit-global/common/breadcrumb/foodit.jsx` — reemplazar stub con implementación real
--   [ ] 4d.7 `features/foodit-global/common/breadcrumb/_helpers.js` — reemplazar stub (`getFooditAcuTitle`, `getBreadcrumbSections`; depende de `get`, `capitalizeFirstLetter`, `parentCategoryMapping.json`)
--   [ ] 4d.8 `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbTooltip/foodit.jsx` — copiar (usa `IconSprite`, `@ln/common-ui-tooltip`, `@ln/common-ui-button`)
--   [ ] 4d.9 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`)
--   [ ] 4d.10 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient` en la task)
--   [ ] 4d.11 `features/foodit-global/common/bookmark/components/UserBookmarks.jsx` — reemplazar stub (auditar árbol completo: `getBookmarks`, `toggleBookmarks`, `loginHelper`, `useAuthManager`)
--   [ ] 4d.12 `features/foodit-global/common/BaseLayout/foodit.jsx` — reemplazar stub con implementación real del monolito
-
-_Utils compartidos (necesarios para Acumulado y Subcategorías):_
-
--   [ ] 4d.13 `components/private/common/utils/get.js` — copiar a `apps/foodit-mx/components/private/common/utils/`
--   [ ] 4d.14 `components/private/common/utils/capitalizeFirstLetter.js` — copiar
--   [ ] 4d.15 `components/private-global/common/iconSprite/IconSprite.jsx` — copiar a `apps/foodit-mx/components/private-global/`
--   [ ] 4d.16 `__mocks__/data/fooditCategories/parentCategoryMapping.json` — copiar a `apps/foodit-mx/__mocks__/data/fooditCategories/`
-
-## 4e. Layout fork — Foodit-subcategorias (paralelo con 4d)
+## 4e. Layout fork — Foodit-subcategorias (posterior a 4cf, paralelo con 4c/4d)
 
 > `/recetas` usa actualmente este layout en PageBuilder. Se forka al bundle MX para mantener paridad con el monolito mientras se valida el swap a `Foodit-acumulado` (Fase 6). Probado: el swap es compatible.
+>
+> **Scope exclusivo de Subcategorías (de la auditoría 4cf.8): ≈9 archivos** — layout `Foodit-subcategorias/` (+`_helpers`, `Card/CardCategory` +`sections`, `hooks/useImagePreload`), `subcategorias/helpers.js`, `breadcrumb/_childrens/BreadcrumbCustom`, `subcategoryKeywords.json`.
 
 -   [ ] 4e.1 Copiar `components/layouts/Foodit-subcategorias/foodit.jsx` al bundle MX con header de fork (path + fecha)
 -   [ ] 4e.2 Copiar `components/layouts/Foodit-subcategorias/_helpers.js` — contiene `getPageTitleFromUrl`, `applyPageBasedPriority`, `trackSubcategoryCard` (depende de `addEventToDataLayer`)
@@ -387,9 +421,28 @@ _Utils compartidos (necesarios para Acumulado y Subcategorías):_
 -   [ ] 4e.9 Verificar que `git diff -- components/layouts/Foodit-subcategorias/` del monolito no muestra modificaciones
 -   [ ] 4e.10 Checkpoint: `Foodit-subcategorias` renderiza en `fusion start` sin `[MISSING]` (usando rutas como `/aprende-en-la-cocina/`). `[MISSING]` es el placeholder que Fusion inserta en el HTML cuando un import no resuelve en el bundle compilado — su ausencia confirma que todos los archivos copiados en 4e.1–4e.8 están correctamente referenciados
 
+## 4ot. Output-type: migrar cluster + swap stub→real (cierre de Fase 4)
+
+> El output-type real (`_pending/output-types/foodit.full.jsx`) tiene su **propio árbol de dependencias** (`<head>`/SEO/scripts/critical-CSS/schemas/syndication), **distinto del armazón (4cf) y de los layouts (4c/4d/4e)** — no estaba cubierto por ningún bloque. Hoy `components/output-types/foodit.jsx` es un **stub** (por eso `/` y `/recetas` rinden en blanco). El swap stub→real cierra Fase 4.
+
+-   [x] 4ot.1 **Auditoría del cierre del output-type** (`components/output-types/foodit.jsx` del monolito): cierre **159 archivos**, **38 ya en bundle**, **121 a migrar**, **0 unresolved**, **0 deps `@ln`/npm faltantes**. Subárboles: `scriptManager` (31), `private/common/utils` (22), `foodit-global/common` MetaFoodit/favicon (16), `schemas` (13), `private/LN/common` (10), criticalCss + content filters sueltos.
+-   [ ] 4ot.2 Migrar los **121 archivos** del cierre a `apps/foodit-mx/` en rutas espejo, aplicando la regla copy-vs-lib por pieza (cierre estático 0 unresolved; incluir imports dinámicos + assets `.scss`)
+-   [ ] 4ot.3 **Swap** `components/output-types/foodit.jsx` (stub) → contenido real de `_pending/output-types/foodit.full.jsx` (que ya tiene `deployment()`→`pagebuilderURL()`); remover `_pending/` cuando todos sus imports resuelvan
+-   [ ] 4ot.4 Verificar que `git diff -- components/output-types/` del monolito está limpio
+-   [ ] 4ot.5 Checkpoint: `fusion start` — el output-type real renderiza un documento HTML completo (`<head>` con meta/fonts/criticalCss + schemas), sin `[MISSING]`. _(HTTP 200 en `/recetas` depende además de content sources — Fase 6)_
+
+### 4ot-opt. Optimización: especializar criticalCss a foodit-only (no bloqueante)
+
+> **Hallazgo (PR #53529):** vía `BaseLayout → criticalCss/dynamicStylesheetLoader → criticalCss/helpers.js`, el bundle foodit arrastra config **LN** (`properties/sites/la-nacion-ar.js` + `helperConfigLN/{imageConfig 2058, bannerConfig 1448, cajaTema, scripts}` ≈ **3895 líneas**). Causa: `criticalCss/helpers.js` es **multi-site en el monolito** (mapa keyed por `'la-nacion-ar'` y `'foodit'`). En el bundle foodit-only, la rama `la-nacion-ar` es **código muerto** (cargado, no usado) → peso + leak multi-site (contradice la separación del MX). Funciona, pero no es ideal. Es **cambio de código** (diverge del verbatim) → optimización deliberada, no migración.
+
+-   [ ] 4ot-opt.1 Trimear `apps/foodit-mx/components/output-types/criticalCss/helpers.js` a **foodit-only**: remover la rama `'la-nacion-ar'` del mapa + los imports `sitePropertiesLN` (`properties/sites/la-nacion-ar`) y `fontFaceLn10` (`LN-10-global/fontFace`)
+-   [ ] 4ot-opt.2 Eliminar del bundle los archivos que quedan huérfanos: `properties/sites/la-nacion-ar.js`, `properties/sites/helperConfigLN/*`, `features/LN-10-global/fontFace/*` (verificar que nada más los importe con cierre estático)
+-   [ ] 4ot-opt.3 Checkpoint: `fusion start` — el armazón sigue renderizando sin `[MISSING]` y el bundle pesa ≈3895 líneas menos. _(lo valida un dev)_
+
 ## 5. Deployer script
 
 > **Spec**: `mx-deployer` | **US ADO**: US-NEW-8
+> 📎 **Referencia**: POC Ingala (repo `lanacion-arcxp-mx`) tiene un `apps/.../deployer.js` (291 líneas) casi copiable — `--use-mxid`, `SANDBOX_MX_ID`/`PROD_MX_ID`, secuencia build→upload→deploy→promote, multi-ambiente. Adaptar a `foodit-mx`.
 
 -   [ ] 5.1 Crear `./scripts/deployer.js` con soporte para flags `--sandbox`, `--st`, `--prod`, `--use-mxid`
 -   [ ] 5.2 Implementar la secuencia build → upload → deploy → promote con `mxId "foodit-mx"` cuando `--use-mxid`
@@ -402,6 +455,7 @@ _Utils compartidos (necesarios para Acumulado y Subcategorías):_
 ## 6. Content sources + conexión PageBuilder
 
 > **Spec**: `content-source-migration` | **US ADO**: 173244
+> 📎 **Referencia**: POC Ingala (repo `lanacion-arcxp-mx`) tiene `apps/.../content/sources/` con content-api, collections, gallery, video, author, related-content, **signing-service** y caching — plantilla para los content sources de recetas.
 
 -   [ ] 6.1 Abrir `docs/migrate-mx/content-sources/audit.md` e identificar los 10 content sources en scope
 -   [ ] 6.2 Para cada content source: copiar a `apps/foodit-mx/content/sources/` con imports relativos adaptados
