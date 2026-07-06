@@ -3,7 +3,8 @@ import { render, screen } from '@testing-library/react';
 import OpeningImage50 from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningImage50';
 
 jest.mock('@ln/ds-cva', () => ({
-    cx: (...args) => args.filter(Boolean).join(' ')
+    cx: (...args) => args.filter(Boolean).join(' '),
+    cva: () => () => ''
 }));
 
 jest.mock(
@@ -228,30 +229,12 @@ describe('OpeningImage50', () => {
     });
 
     describe('image opacity', () => {
-        it('renders the image with opacity classes', () => {
+        it('renders the image with cover classes and without opacity', () => {
             const { container } = renderComponent();
-            const img = container.querySelector('.opacity-60');
+            const img = container.querySelector('img');
             expect(img).toBeInTheDocument();
-            expect(img).toHaveClass(
-                'w-full',
-                'h-full',
-                'object-cover',
-                'opacity-60'
-            );
-        });
-
-        it('does not render image with opacity when src is empty', () => {
-            const { container } = renderComponent({ src: '' });
-            expect(
-                container.querySelector('.opacity-60')
-            ).not.toBeInTheDocument();
-        });
-
-        it('does not render image with opacity when src is undefined', () => {
-            const { container } = renderComponent({ src: undefined });
-            expect(
-                container.querySelector('.opacity-60')
-            ).not.toBeInTheDocument();
+            expect(img).toHaveClass('w-full', 'h-full', 'object-cover');
+            expect(img).not.toHaveClass('opacity-60');
         });
     });
 
@@ -270,18 +253,14 @@ describe('OpeningImage50', () => {
             expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
         });
 
-        it('should render video with cover classes', () => {
+        it('should render video with cover classes and without opacity', () => {
             const { container } = renderComponent({
                 src: '',
                 videoUrl: 'https://cdn.jwplayer.com/video.mp4'
             });
             const video = container.querySelector('video');
-            expect(video).toHaveClass(
-                'w-full',
-                'h-full',
-                'object-cover',
-                'opacity-60'
-            );
+            expect(video).toHaveClass('w-full', 'h-full', 'object-cover');
+            expect(video).not.toHaveClass('opacity-60');
         });
     });
 

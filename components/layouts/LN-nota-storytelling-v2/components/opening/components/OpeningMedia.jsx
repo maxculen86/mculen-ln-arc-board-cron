@@ -1,9 +1,8 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
+import { BASE_COVER_CLASS, OPACITY_CLASS } from './styles';
 import ImageUI from '../../../../../features/ui/ln/image/default';
 import getPictureSources from '../helpers/getPictureSources';
-
-const COVER_CLASS = 'w-full h-full object-cover opacity-60';
 
 function OpeningMedia({
     videoUrl,
@@ -15,9 +14,12 @@ function OpeningMedia({
     height,
     altText,
     mobileImage,
-    classname = ''
+    classname = '',
+    withOpacity = true
 }) {
     if (!videoUrl && !src) return null;
+
+    const COVER_CLASS = cx(BASE_COVER_CLASS, withOpacity && OPACITY_CLASS);
 
     const {
         src: mobileSrc,

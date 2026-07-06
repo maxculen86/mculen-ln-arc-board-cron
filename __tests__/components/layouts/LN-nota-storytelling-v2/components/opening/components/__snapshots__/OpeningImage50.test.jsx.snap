@@ -28,7 +28,7 @@ exports[`OpeningImage50 snapshots minimal snapshot (only src) 1`] = `
       class="relative aspect-1/1 md:mx-auto xl:mx-0 md:col-start-2 md:col-end-12 xl:flex-1 xl:h-[calc(100vh-var(--header-sticky-height))] xl:max-w-none overflow-hidden"
     >
       <img
-        class="w-full h-full object-cover opacity-60 aspect-1/1"
+        class="w-full h-full object-cover aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         loading="eager"
@@ -84,7 +84,7 @@ exports[`OpeningImage50 snapshots snapshot with all props 1`] = `
     >
       <img
         alt="Alt de prueba"
-        class="w-full h-full object-cover opacity-60 aspect-1/1"
+        class="w-full h-full object-cover aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         height="675"
@@ -185,7 +185,7 @@ exports[`OpeningImage50 snapshots snapshot without subheadline 1`] = `
     >
       <img
         alt="Alt de prueba"
-        class="w-full h-full object-cover opacity-60 aspect-1/1"
+        class="w-full h-full object-cover aspect-1/1"
         data-testid="image-ui"
         fetchpriority="high"
         height="675"

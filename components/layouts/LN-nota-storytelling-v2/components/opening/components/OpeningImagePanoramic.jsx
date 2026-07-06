@@ -48,6 +48,7 @@ function OpeningImagePanoramic({
                                     : undefined
                             }
                             classname="absolute inset-0"
+                            withOpacity={false}
                         />
                     </div>
                 </div>
