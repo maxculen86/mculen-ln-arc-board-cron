@@ -48,6 +48,41 @@ describe('OpeningMedia', () => {
         ]);
     });
 
+    it('applies the opacity layer by default', () => {
+        render(
+            <OpeningMedia
+                src="desktop.jpg"
+                srcset="desktop.jpg 1200w"
+                sizes="1200px"
+                width={1200}
+                height={800}
+                altText="Opening"
+            />
+        );
+
+        expect(ImageUI.mock.calls[0][0].classnames.image).toContain(
+            'opacity-60'
+        );
+    });
+
+    it('omits the opacity layer when withOpacity is false', () => {
+        render(
+            <OpeningMedia
+                src="desktop.jpg"
+                srcset="desktop.jpg 1200w"
+                sizes="1200px"
+                width={1200}
+                height={800}
+                altText="Opening"
+                withOpacity={false}
+            />
+        );
+
+        expect(ImageUI.mock.calls[0][0].classnames.image).not.toContain(
+            'opacity-60'
+        );
+    });
+
     it('defaults the picture breakpoint to 767 when mobile sizes do not include max-width', () => {
         render(
             <OpeningMedia

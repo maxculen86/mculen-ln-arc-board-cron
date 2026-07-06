@@ -79,12 +79,18 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
         'image-100-title-below'
     );
 
+    const withOpacity = get(
+        promoItems,
+        'custom_storytelling_opening.embed.config.opacity',
+        true
+    );
+
     const videoJw = get(promoItems, 'video_jw', null);
 
     if (videoJw) {
         const { videoUrl, posterUrl } = getVideoData(videoJw);
         const mobileImageData = buildMobileImageData(promoItems);
-        return { videoUrl, posterUrl, diagram, mobileImageData };
+        return { videoUrl, posterUrl, diagram, withOpacity, mobileImageData };
     }
 
     const openingImage =
@@ -98,6 +104,7 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
         height: openingImage.height,
         altText: openingImage.alt || '',
         diagram,
+        withOpacity,
         mobileImageData: buildMobileImageData(promoItems)
     };
 };

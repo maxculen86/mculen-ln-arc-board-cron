@@ -21,7 +21,8 @@ function OpeningImage100({
     title1 = '',
     title2 = '',
     subheadline = '',
-    hasStorytellingMobile = false
+    hasStorytellingMobile = false,
+    withOpacity = true
 }) {
     const hasMedia = Boolean(videoUrl || src);
 
@@ -55,6 +56,7 @@ function OpeningImage100({
                             : undefined
                     }
                     classname="absolute inset-0"
+                    withOpacity={withOpacity}
                 />
             )}
             <div className={wrapperClass}>

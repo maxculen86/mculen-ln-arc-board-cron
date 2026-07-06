@@ -78,6 +78,7 @@ function OpeningImage50({
                                     ? mobileImageData
                                     : undefined
                             }
+                            withOpacity={false}
                         />
                     </div>
                 )}

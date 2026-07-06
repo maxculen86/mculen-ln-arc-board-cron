@@ -289,7 +289,7 @@ describe('OpeningImagePanoramic', () => {
             expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
         });
 
-        it('should render video with cover classes', () => {
+        it('should render video with cover classes and without opacity', () => {
             const { container } = render(
                 <OpeningImagePanoramic
                     {...mockProps}
@@ -298,12 +298,8 @@ describe('OpeningImagePanoramic', () => {
                 />
             );
             const video = container.querySelector('video');
-            expect(video).toHaveClass(
-                'w-full',
-                'h-full',
-                'object-cover',
-                'opacity-60'
-            );
+            expect(video).toHaveClass('w-full', 'h-full', 'object-cover');
+            expect(video).not.toHaveClass('opacity-60');
         });
 
         it('should not render the media section when neither src nor videoUrl is provided', () => {
