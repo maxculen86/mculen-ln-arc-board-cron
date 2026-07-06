@@ -17,7 +17,6 @@
         "npm": ">=10.0.0"
     },
     "dependencies": {
-        "@arc-fusion/cli": "3.2.0",
         "react": "19.2.0",
         "react-dom": "19.2.0",
         "classnames": "2.3.2",
@@ -93,5 +92,8 @@
         "sass-loader": "13.2.2",
         "webpack": "5.82.0",
         "webpack-cli": "5.0.2"
+    },
+    "devDependencies": {
+        "@arc-fusion/cli": "3.2.0"
     }
 }
