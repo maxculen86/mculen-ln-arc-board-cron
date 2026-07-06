@@ -12,16 +12,13 @@ import {
 import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 import { JwVideoContainer } from './jwVideoContainer';
 import { useCajaCarruselContext } from '../cajaCarruselContext';
+import { useKeyboardNavigation } from '../hooks/useKeyboardNavigation';
 
 export function MediaScrollerExpanded({ listVideoData = [] }) {
     const { currentIndex, setCurrentIndex, isOpenMediaScrollerExpanded } =
         useCajaCarruselContext();
     const containerRef = useRef(null);
     const carouselWrapperRef = useRef(null);
-    const currentIndexRef = useRef(currentIndex);
-    const isMobileRef = useRef(false);
-    const handleBackRef = useRef(null);
-    const handleNextRef = useRef(null);
 
     const { width: viewportWidth } = useWindowSize();
     const isMobile = viewportWidth < 768;
@@ -72,89 +69,15 @@ export function MediaScrollerExpanded({ listVideoData = [] }) {
         isOpen: isOpenMediaScrollerExpanded
     });
 
-    useEffect(() => {
-        currentIndexRef.current = currentIndex;
-    }, [currentIndex]);
-
-    useEffect(() => {
-        isMobileRef.current = isMobile;
-    }, [isMobile]);
-
-    useEffect(() => {
-        handleBackRef.current = handleBackCallback;
-        handleNextRef.current = handleNextCallback;
-    }, [handleBackCallback, handleNextCallback]);
-
-    useEffect(() => {
-        const handleKeyDown = event => {
-            if (!carouselWrapperRef.current?.contains(document.activeElement)) {
-                return;
-            }
-
-            const index = currentIndexRef.current;
-            const mobile = isMobileRef.current;
-
-            switch (event.key) {
-                case 'ArrowLeft':
-                    if (index > 0) {
-                        event.preventDefault();
-                        handleBackRef.current?.();
-                    }
-                    break;
-                case 'ArrowRight':
-                    if (index < listVideoData.length - 1) {
-                        event.preventDefault();
-                        handleNextRef.current?.();
-                    }
-                    break;
-                case 'ArrowUp':
-                    if (index > 0 && mobile) {
-                        event.preventDefault();
-                        handleBackRef.current?.();
-                    }
-                    break;
-                case 'ArrowDown':
-                    if (index < listVideoData.length - 1 && mobile) {
-                        event.preventDefault();
-                        handleNextRef.current?.();
-                    }
-                    break;
-                case 'Home':
-                    event.preventDefault();
-                    if (mobile) {
-                        containerRef.current?.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        containerRef.current?.scrollTo({
-                            left: 0,
-                            behavior: 'smooth'
-                        });
-                    }
-                    break;
-                case 'End':
-                    event.preventDefault();
-                    if (mobile) {
-                        containerRef.current?.scrollTo({
-                            top: containerRef.current.scrollHeight,
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        containerRef.current?.scrollTo({
-                            left: containerRef.current.scrollWidth,
-                            behavior: 'smooth'
-                        });
-                    }
-                    break;
-                default:
-                    break;
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [listVideoData.length]);
+    useKeyboardNavigation({
+        wrapperRef: carouselWrapperRef,
+        containerRef,
+        currentIndex,
+        isMobile,
+        itemCount: listVideoData.length,
+        handleBack: handleBackCallback,
+        handleNext: handleNextCallback
+    });
 
     return (
         <div
