@@ -59,8 +59,8 @@ describe('useKeyboardNavigation', () => {
         jest.clearAllMocks();
     });
 
-    describe('registro del listener', () => {
-        it('agrega el listener de keydown al montar y lo remueve al desmontar', () => {
+    describe('listener registration', () => {
+        it('add listener keydown when mounting and remove it when unmounting', () => {
             const addSpy = jest.spyOn(document, 'addEventListener');
             const removeSpy = jest.spyOn(document, 'removeEventListener');
 
@@ -83,8 +83,8 @@ describe('useKeyboardNavigation', () => {
         });
     });
 
-    describe('guard de foco', () => {
-        it('ignora la tecla si el wrapper no contiene al activeElement', () => {
+    describe('focus guard', () => {
+        it('ignores the key if the wrapper does not contain the activeElement', () => {
             const { handleBack, handleNext, wrapperRef } = renderNavigation();
 
             wrapperRef.current.querySelector('button').blur();
@@ -96,7 +96,7 @@ describe('useKeyboardNavigation', () => {
             expect(handleNext).not.toHaveBeenCalled();
         });
 
-        it('no hace nada si wrapperRef.current es null', () => {
+        it('does nothing if wrapperRef.current is null', () => {
             const { handleBack } = renderNavigation({
                 wrapperRef: { current: null }
             });
