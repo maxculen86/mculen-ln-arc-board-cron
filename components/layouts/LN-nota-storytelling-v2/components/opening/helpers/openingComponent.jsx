@@ -2,11 +2,13 @@ import React from 'react';
 import OpeningImage100 from '../components/OpeningImage100';
 import OpeningImage50 from '../components/OpeningImage50';
 import OpeningImagePanoramic from '../components/OpeningImagePanoramic';
+import OpeningWithoutImage from '../components/OpeningWithoutImage';
 import {
     DEFAULT_DIAGRAM,
     IMAGE_100_DIAGRAMS,
     IMAGE_50_DIAGRAMS,
-    PANORAMIC_DIAGRAMS
+    PANORAMIC_DIAGRAMS,
+    WITHOUT_IMAGE
 } from './diagramConstants';
 
 export { DEFAULT_DIAGRAM };
@@ -17,7 +19,8 @@ const mapDiagrams = (diagramKeys, Component) =>
 const diagrams = {
     ...mapDiagrams(IMAGE_100_DIAGRAMS, OpeningImage100),
     ...mapDiagrams(IMAGE_50_DIAGRAMS, OpeningImage50),
-    ...mapDiagrams(PANORAMIC_DIAGRAMS, OpeningImagePanoramic)
+    ...mapDiagrams(PANORAMIC_DIAGRAMS, OpeningImagePanoramic),
+    ...mapDiagrams(WITHOUT_IMAGE, OpeningWithoutImage)
 };
 
 export const getOpeningComponent = props => {
