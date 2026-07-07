@@ -34,7 +34,9 @@
         "create-demo": "node ./scripts/gitDemoBranch.mjs",
         "postinstall": "npm run ln:copycss",
         "analyze-css": "node scripts/analyzeCss.js",
-        "sync:mx": "node scripts/sync-mx-deps.js"
+        "sync:mx": "node scripts/sync-mx-deps.js",
+        "deploy-foodit-mx": "node ./scripts/deployerInteractive.mjs",
+        "clean:foodit-dist": "docker run --rm -v \"$(pwd)/apps/foodit-mx/dist:/dist\" alpine sh -c 'rm -rf /dist/*'"
     },
     "dependencies": {
         "@ln/common-ui-accordion": "0.0.10",

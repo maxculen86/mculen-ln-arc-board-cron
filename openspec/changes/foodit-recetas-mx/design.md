@@ -168,7 +168,16 @@ Impacto en el plan de migración (corrección no-swap):
 
 ### Decision 6: Pipeline solo local (`deployer.js`) en MVP1; CI/CD diferido
 
-**Elegido**: `./scripts/deployer.js` con flags `--sandbox/--st/--prod/--use-mxid` ejecutado manualmente. El script de routing MX (que activa/desactiva la sección en PageBuilder) también vive en `./scripts/`. `.env.example` en raíz documenta las variables necesarias. Ambos scripts se versionan en este repo (`Contenidos`); no hay repo de operaciones separado para MVP1.
+**Elegido**: `./scripts/deployer.js` con flags `--sandbox/--dev/--st/--prod` (mxId on-by-default, `--no-mxid` como escape; `--promote` opt-in) ejecutado manualmente. El script de routing MX (que activa/desactiva la sección en PageBuilder) también vive en `./scripts/`. `.env.example` en raíz documenta las variables necesarias. Ambos scripts se versionan en este repo (`Contenidos`); no hay repo de operaciones separado para MVP1.
+
+#### Addendum (2026-07-06): ambiente Development + wrapper interactivo
+
+Durante la implementación de Fase 5 se agregaron dos piezas no contempladas en el plan original:
+
+-   **Ambiente `Development`**: Arc XP expone `Development` como ambiente hermano de `Sandbox` dentro del mismo "sandbox tier" (confirmado contra [dev.arcxp.com](https://dev.arcxp.com/pagebuilder-engine/pagebuilder-basics/arc-xp-environments/)), con endpoint y token propios (`api.dev.{org}.arcpublishing.com`, verificado en vivo). Se agregó el flag `--dev` / `DEVELOP_DEPLOYER_*` en `deployer.js`, reusando `SANDBOX_MX_ID` (mismo mxId, mxId propio para Development aún no provisionado).
+-   **`scripts/deployerInteractive.mjs`**: wrapper con `inquirer` que calca la UX de `create-demo` (selector de ambiente, chequeo de cambios sin comitear, opción de correr tests) y agrega un paso que `create-demo` no tiene: confirmación explícita antes de promover en ambientes de mxId compartido (Sandbox/Development), dado que promover pisa sin aviso la demo que esté live para el resto del equipo.
+
+**Por qué no automatizar promote ni siquiera en Sandbox**: el mxId de Sandbox/Development es compartido por todo el equipo — hay un solo slot "live" por ambiente, no uno por persona. Automatizarlo arriesgaba pisar la demo de otra persona en cada deploy.
 
 **Alternativa**: Configurar Azure DevOps pipelines desde MVP1.
 
