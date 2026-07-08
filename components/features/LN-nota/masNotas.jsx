@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import { useContent } from 'fusion:content';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -15,9 +14,9 @@ import {
     sourceByFilterType,
     getFilteredContentElements
 } from '../../private/common/utils/masNotasHelper';
-import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { articleBoxesTracker } from '../../private/common/utils/noteTracker/articleBoxesTracker';
+import useMasNotasArticles from './hooks/useMasNotasArticles';
 
 function masNotas(props) {
     const {
@@ -67,11 +66,10 @@ function masNotas(props) {
             ? sourceByFilterType[filterCustomField]
             : 'lnAcuSource';
 
-    const articlesList = useContent({
+    const articlesList = useMasNotasArticles({
+        isAperturaHome,
         source: selectedSource,
-        query: refinedSearchParams,
-        filter: isAperturaHome ? undefined : filter,
-        staticMode: false
+        query: refinedSearchParams
     });
 
     const filteredContentElements = getFilteredContentElements(
