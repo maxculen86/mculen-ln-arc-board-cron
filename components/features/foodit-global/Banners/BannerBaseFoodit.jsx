@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useAppContext } from 'fusion:context';
 
 import { getTypeOfDevice } from '@ln/hooks';
+import { cx } from '@ln/ds-cva';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 
 import { useAdManager } from './hooks/useAdManager';
@@ -24,6 +25,8 @@ export function BannerBaseFoodit({ bannerType }) {
         styleBanner = ''
     } = devices[device];
 
+    const classContainer = cx(classParent, '--no-app');
+
     const targetings = useMemo(
         () => (isSSR() ? {} : getTargetings({ contentType: layout })),
         [layout]
@@ -31,7 +34,7 @@ export function BannerBaseFoodit({ bannerType }) {
 
     if (isSSR()) {
         return (
-            <div className={classParent}>
+            <div className={classContainer}>
                 <div id={divId} />
             </div>
         );
@@ -45,7 +48,7 @@ export function BannerBaseFoodit({ bannerType }) {
     }
 
     return (
-        <div className={classParent}>
+        <div className={classContainer}>
             <div id={divId} style={{ ...styleBanner }} />
         </div>
     );
