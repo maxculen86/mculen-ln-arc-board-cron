@@ -1,16 +1,14 @@
-import * as fusionConsumer from 'fusion:consumer';
-import * as Juegos from '../../../../../components/features/LN-common/Juego/json';
+import * as DSCardPromo from '../../../../../components/features/LN/DS-CardPromo/json';
 
 jest.mock('fusion:consumer', component => {
     return function (component) {
         const newComponent = component;
-        // Mock fetchContent
         newComponent.prototype.fetchContent = jest.fn();
         return newComponent;
     };
 });
 
-describe('components - features - LN-common - Juegos - json.js', () => {
+describe('components - features - LN - DS-CardPromo - json.js', () => {
     const props = {
         arcSite: 'la-nacion-ar',
         contextPath: '/pf',
@@ -21,24 +19,25 @@ describe('components - features - LN-common - Juegos - json.js', () => {
         siteProperties: {},
         key: 3,
         collection: 'features',
-        type: 'LN-common/Juegos',
+        type: 'LN/DS-CardPromo',
         id: 'f0fmW4FQNhmg6iz',
         name: null,
         customFields: {
             sectionId: '/juegos/crucigrama',
             subscriber: 'NO',
-            isNewGame: 'SI'
+            isNew: 'NUEVO'
         }
     };
+
     describe('Check props', () => {
         it('When articles load props Ok', () => {
-            const objArticle = new Juegos.default(props);
-            expect(objArticle.props).toMatchObject(props);
+            const cardPromo = new DSCardPromo.default(props);
+            expect(cardPromo.props).toMatchObject(props);
         });
 
         it('When props is OK ', () => {
-            const objArticle = new Juegos.default(props);
-            const result = objArticle.render();
+            const cardPromo = new DSCardPromo.default(props);
+            const result = cardPromo.render();
             expect(result).toMatchObject({
                 closed: 'NO',
                 id: '/juegos/crucigrama',
@@ -46,11 +45,11 @@ describe('components - features - LN-common - Juegos - json.js', () => {
             });
         });
 
-        it('When isNewGame = NO ', () => {
+        it('When isNew is not NUEVO ', () => {
             const newProps = { ...props };
-            newProps.customFields = { ...props.customFields, isNewGame: 'NO' };
-            const objArticle = new Juegos.default(newProps);
-            const result = objArticle.render();
+            newProps.customFields = { ...props.customFields, isNew: 'NO' };
+            const cardPromo = new DSCardPromo.default(newProps);
+            const result = cardPromo.render();
             expect(result).toMatchObject({
                 closed: 'NO',
                 id: '/juegos/crucigrama',
@@ -59,47 +58,47 @@ describe('components - features - LN-common - Juegos - json.js', () => {
         });
 
         it('When props is null ', () => {
-            const objArticle = new Juegos.default(null);
-            const result = objArticle.render();
-            expect(result.Message).toBe(
+            expect(() => new DSCardPromo.default(null)).toThrow(
                 `Cannot read properties of null (reading 'customFields')`
             );
         });
     });
 
-    describe('gameType Interno/Externo', () => {
+    describe('type Interno/Externo', () => {
         beforeEach(() => {
-            Juegos.default.prototype.fetchContent.mockClear();
+            DSCardPromo.default.prototype.fetchContent.mockClear();
         });
 
-        it('When gameType is Externo should use sectionId and not fetch content', () => {
+        it('When type is Externo should use sectionId and not fetch content', () => {
             const externoProps = {
                 ...props,
                 customFields: {
                     ...props.customFields,
-                    gameType: 'Externo'
+                    type: 'Externo'
                 }
             };
-            const objArticle = new Juegos.default(externoProps);
-            const result = objArticle.render();
+            const cardPromo = new DSCardPromo.default(externoProps);
+            const result = cardPromo.render();
 
             expect(
-                Juegos.default.prototype.fetchContent
+                DSCardPromo.default.prototype.fetchContent
             ).not.toHaveBeenCalled();
             expect(result.id).toBe('/juegos/crucigrama');
         });
 
-        it('When gameType is Interno should fetch lnAcuSource', () => {
+        it('When type is Interno should fetch lnAcuSource', () => {
             const internoProps = {
                 ...props,
                 customFields: {
                     ...props.customFields,
-                    gameType: 'Interno'
+                    type: 'Interno'
                 }
             };
-            new Juegos.default(internoProps);
+            new DSCardPromo.default(internoProps);
 
-            expect(Juegos.default.prototype.fetchContent).toHaveBeenCalledWith({
+            expect(
+                DSCardPromo.default.prototype.fetchContent
+            ).toHaveBeenCalledWith({
                 lnAcuSource: {
                     source: 'lnAcuSource',
                     query: {
@@ -111,37 +110,37 @@ describe('components - features - LN-common - Juegos - json.js', () => {
             });
         });
 
-        it('When gameType is Interno should use article link as id', () => {
+        it('When type is Interno should use article link as id', () => {
             const internoProps = {
                 ...props,
                 customFields: {
                     ...props.customFields,
-                    gameType: 'Interno'
+                    type: 'Interno'
                 }
             };
-            const objArticle = new Juegos.default(internoProps);
-            objArticle.state = {
+            const cardPromo = new DSCardPromo.default(internoProps);
+            cardPromo.state = {
                 lnAcuSource: {
                     content_elements: [
                         { website_url: '/juegos/criptograma/articulo' }
                     ]
                 }
             };
-            const result = objArticle.render();
+            const result = cardPromo.render();
 
             expect(result.id).toBe('/juegos/criptograma/articulo/');
         });
 
-        it('When gameType is Interno without article data should fallback to sectionId', () => {
+        it('When type is Interno without article data should fallback to sectionId', () => {
             const internoProps = {
                 ...props,
                 customFields: {
                     ...props.customFields,
-                    gameType: 'Interno'
+                    type: 'Interno'
                 }
             };
-            const objArticle = new Juegos.default(internoProps);
-            const result = objArticle.render();
+            const cardPromo = new DSCardPromo.default(internoProps);
+            const result = cardPromo.render();
 
             expect(result.id).toBe('/juegos/crucigrama');
         });
