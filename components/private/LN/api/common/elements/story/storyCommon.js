@@ -117,16 +117,12 @@ export const storyCommon = (dataNota, cuerpo) => {
         ...(domain && { domain })
     };
 
-    switch (dataNota.subtype) {
-        case '9':
+    if (cuerpo.length > 0) {
+        if (dataNota.subtype === '9') {
             resp.HTML = cuerpo;
-            break;
-        case '16':
-            break;
-        default:
+        } else {
             resp.contenido = cuerpo;
-            break;
+        }
     }
-
     return resp;
 };
