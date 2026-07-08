@@ -341,6 +341,7 @@ subtype
     embed {
         config {
             diagram
+            opacity
         }   
     }
 `;
