@@ -47,7 +47,8 @@ module.exports = (env = {}) => {
                     }
                 ]
             },
-            plugins: [new MiniCssExtractPlugin({ filename: '[name].css' })]
+            // Verificar si es necesario agregar css/ al filename, se agrego para que coincida con el path de criticalCss/helpers.js
+            plugins: [new MiniCssExtractPlugin({ filename: 'css/[name].css' })]
         }
     ];
 };
