@@ -133,7 +133,7 @@ export const getVideoOpeningShareData = ({ globalContent, layout }) => {
             mobile: mobileHeadline = ''
         } = {},
         subtype = '',
-        promo_items: { summary = '', glossary = '' } = {},
+        promo_items: { summary = '' } = {},
         comments: { display_comments: displayComments = true } = {}
     } = globalContent || {};
 
@@ -142,7 +142,6 @@ export const getVideoOpeningShareData = ({ globalContent, layout }) => {
         basicHeadline,
         mobileHeadline,
         summary,
-        glossary,
         subtype,
         layout,
         displayComments

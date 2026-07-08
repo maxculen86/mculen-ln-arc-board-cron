@@ -23,7 +23,6 @@ import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
-import HandleGlossary from '../../../common/scriptManager/handleGlossary';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
 import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
 
@@ -146,10 +145,6 @@ const scriptList = [
     {
         component: { name: 'EventsHelper', function: EventsHelpers },
         feature: 'none'
-    },
-    {
-        component: { name: 'HandleGlossary', function: HandleGlossary },
-        feature: 'LN-10/glossary'
     },
     {
         component: { name: 'ScriptJwVideoHome', function: ScriptJwVideoHome },

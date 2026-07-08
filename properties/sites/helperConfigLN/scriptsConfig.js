@@ -94,7 +94,6 @@ export default {
     ScriptCloseBanners: { props: {}, location: [BODYBOTTOM] },
     EventsHelper: { props: {}, location: [HEAD] },
     Observable: { props: {}, location: [BODYBOTTOM] },
-    HandleGlossary: { props: {}, location: [BODYBOTTOM] },
     MetaRobots: { props: {}, location: [HEAD] },
     ScriptJwVideoHome: {
         props: {},

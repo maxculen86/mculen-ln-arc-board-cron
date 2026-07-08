@@ -166,16 +166,9 @@ export const configCallbackContentElements = {
         }
         return element;
     },
-    text: ({
-        element = {},
-        glossary = [],
-        withSponsoredLink,
-        articlePath,
-        baseOrigin
-    } = {}) =>
+    text: ({ element = {}, withSponsoredLink, articlePath, baseOrigin } = {}) =>
         transformElementText({
             element,
-            glossary,
             withSponsoredLink,
             articlePath,
             baseOrigin
@@ -191,14 +184,12 @@ export const configCallbackContentElements = {
     },
     list: ({
         element = {},
-        glossary = [],
         withSponsoredLink,
         articlePath,
         baseOrigin
     } = {}) => {
         return configListWithItemText({
             element,
-            glossary,
             withSponsoredLink,
             articlePath,
             baseOrigin
@@ -215,7 +206,6 @@ const callbacksByTypeReference = {
 
 const configListWithItemText = ({
     element,
-    glossary,
     withSponsoredLink,
     articlePath,
     baseOrigin
@@ -228,7 +218,6 @@ const configListWithItemText = ({
         if (item?.type !== 'text') return item;
         return transformElementText({
             element: item,
-            glossary,
             withSponsoredLink,
             articlePath,
             baseOrigin
@@ -338,49 +327,14 @@ export const formatInterstitialLink = (interstitialLink = '') => {
     return removeErrosInterstitialLink(formatUrl);
 };
 
-export const injectGlossaryInText = (text, glossary) => {
-    let foundGlossaryWord = false;
-    // noHighlighting se debe pasar a true si se necesita apagar el subrayado azul y el tooltip en todas las notas que contengan glosario.
-    const noHighlighting = true;
-
-    if (!(glossary && glossary.length) || noHighlighting)
-        return { text, foundGlossaryWord };
-
-    const parts = text.split(/(<a[^>]*>.*?<\/a>)/g);
-    const processedParts = parts.map(part => {
-        if (part.startsWith('<a')) {
-            return part;
-        } else {
-            glossary.forEach(glossaryItem => {
-                const regex = new RegExp(`\\b${glossaryItem.key}\\b`, 'gi');
-                if (regex.test(part)) {
-                    foundGlossaryWord = true;
-                    part = part?.replace(
-                        regex,
-                        match =>
-                            `<mark class="word-glossary" onmouseenter="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }" onmouseleave="if(window.LN.handleGlossary) { window.LN.handleGlossary(event,'${glossaryItem.key}') }">${match}</mark>`
-                    );
-                }
-            });
-            return part;
-        }
-    });
-
-    return { text: processedParts.join(''), foundGlossaryWord };
-};
-
 export const transformElementText = ({
     element = {},
-    glossary = [],
     withSponsoredLink,
     articlePath,
     baseOrigin
 } = {}) => {
     const formattedElement = formatElementText(element);
     const content = get(formattedElement, 'content', '');
-
-    const { text: contentWithGlossary, foundGlossaryWord } =
-        injectGlossaryInText(content, glossary);
 
     const transformedContent = compose(
         replaceClassForMark,
@@ -389,7 +343,7 @@ export const transformElementText = ({
         setItalicText,
         setBoldText
     )({
-        content: contentWithGlossary,
+        content,
         withSponsoredLink,
         articlePath,
         baseOrigin
@@ -397,7 +351,6 @@ export const transformElementText = ({
 
     return {
         ...formattedElement,
-        content: transformedContent,
-        ...(foundGlossaryWord && { subtype: 'glossary' })
+        content: transformedContent
     };
 };
