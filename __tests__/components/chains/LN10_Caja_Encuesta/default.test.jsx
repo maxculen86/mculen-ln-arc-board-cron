@@ -40,6 +40,7 @@ jest.mock(
         };
 
         return {
+            boolean: taggable(jest.fn()),
             list: taggable(jest.fn()),
             number: taggable(jest.fn()),
             oneOf: jest.fn(() => taggable(jest.fn())),
@@ -82,13 +83,15 @@ const baseProps = ({
     controlDigits = ['0', '2'],
     boxLocation = BOX_LOCATIONS.CAJA_1,
     encuestaPostId = ENCUESTA_POST_ID,
+    isHidden = false,
     renderables = [makeRenderable(boxLocation, encuestaPostId)]
 } = {}) => ({
     customFields: {
         testDigits,
         controlDigits,
         boxLocation,
-        encuestaPostId
+        encuestaPostId,
+        isHidden
     },
     renderables
 });
@@ -222,6 +225,21 @@ describe('LN10_Caja_Encuesta', () => {
 
         expect(container).toBeEmptyDOMElement();
         expect(document.getElementById(ENCUESTA_SCRIPT_ID)).toBeNull();
+    });
+
+    it('does not render when isHidden is true', () => {
+        const { container } = render(
+            <CajaEncuesta {...baseProps({ isHidden: true })} />
+        );
+
+        expect(container).toBeEmptyDOMElement();
+        expect(document.getElementById(ENCUESTA_SCRIPT_ID)).toBeNull();
+    });
+
+    it('renders normally when isHidden is false', () => {
+        render(<CajaEncuesta {...baseProps({ isHidden: false })} />);
+
+        expect(screen.getByTestId('encuesta-wrapper')).toBeInTheDocument();
     });
 
     it('does not render when encuestaPostId is zero (single instance)', () => {
