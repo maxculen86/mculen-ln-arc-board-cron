@@ -1,6 +1,6 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
 import get from '../../private/common/utils/get';
-import { addEventToDataLayerV2 } from '../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../features/foodit-global/common/utils/pushFooditEvent';
 
 const normalizeVideoId = videoId =>
     typeof videoId === 'string' ? videoId.trim() : videoId;
@@ -56,7 +56,7 @@ export const handleEventVideoView = ({
 
     registeredVideoIds.add(videoIdObserved);
 
-    addEventToDataLayerV2({
+    pushFooditEvent({
         event: 'video_view',
         contentType: 'video_story',
         origin: 'home',

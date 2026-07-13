@@ -3,14 +3,14 @@ import {
     CHECKOUT_URL,
     API_ENV
 } from 'fusion:environment';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 import handleCookie from '../../../../private/LN/common/utils/handleCookie';
 
 const currentUrl = isSSR() ? '' : window?.btoa(window.location?.href);
 
 export const paywallViewEvent = ({ pageName, formaContacto, canalVenta }) => {
-    addEventToDataLayerV2({
+    pushFooditEvent({
         rest: {
             event: 'trackViewPaywall',
             pageName,
@@ -23,7 +23,7 @@ export const paywallViewEvent = ({ pageName, formaContacto, canalVenta }) => {
 };
 
 export const trackPageEvent = ({ pageName, formaContacto, canalVenta }) => {
-    addEventToDataLayerV2({
+    pushFooditEvent({
         rest: {
             event: 'trackPage',
             pageName,
@@ -48,7 +48,7 @@ export const addToCartEvent = ({
         prod: `${CHECKOUT_URL}/C/${id}/?skn=F&productoWall=mini_wall_foodit&cv=${canalVenta}&fc=${formaContacto}&productCategory=Cerrado&callback=${currentUrl}&ref=${currentUrl}`
     };
 
-    addEventToDataLayerV2({
+    pushFooditEvent({
         rest: {
             event: 'trackClickProd',
             ecommerce: {

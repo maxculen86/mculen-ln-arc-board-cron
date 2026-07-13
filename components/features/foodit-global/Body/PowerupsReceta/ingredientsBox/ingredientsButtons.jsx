@@ -4,7 +4,7 @@ import { Text } from '@ln/common-ui-text';
 import { useDisclosure } from '@ln/hooks';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { DialogFoodit } from '../../../common/DialogFoodit/foodit';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../common/utils/pushFooditEvent';
 
 export function IngredientsButtons({
     currentPortion = 0,
@@ -21,7 +21,7 @@ export function IngredientsButtons({
 
     const trackPortionChange = () => {
         if (!hasTrackedPortion.current) {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'interaction',
                 label: 'Receta',

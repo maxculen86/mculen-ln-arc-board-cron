@@ -4,7 +4,7 @@ import {
     addErrorToast,
     TOAST
 } from '../../../common/bookmark/api/_helper';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../common/utils/pushFooditEvent';
 import deleteIngredientList from '../../../common/bookmark/api/deleteIngredientList';
 
 export const saveIngredientsList = async ({
@@ -66,7 +66,7 @@ export const handleIngredientListButton = async ({
     canonicalUrl
 }) => {
     if (isSuscriptor) {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             category: 'interaction',
             label: 'receta',

@@ -1,4 +1,4 @@
-import { addEventToDataLayerV2 } from '../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../features/foodit-global/common/utils/pushFooditEvent';
 
 const PAGE_PRIORITY_CONFIG = {
     '/cocina-a-tu-medida/': {
@@ -141,7 +141,7 @@ export const trackSubcategoryCard = (cardData, subcategoryUrl) => {
     const trackingConfig = getTrackingConfig(subcategoryUrl);
 
     if (trackingConfig && cardData.trackingLabel) {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             category: trackingConfig.sectionCategory,
             label: cardData.trackingLabel,
@@ -152,7 +152,7 @@ export const trackSubcategoryCard = (cardData, subcategoryUrl) => {
 
 export const trackHomeCard = cardData => {
     if (cardData && cardData.trackingLabel) {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             category: 'cards_home',
             label: cardData.trackingLabel,
