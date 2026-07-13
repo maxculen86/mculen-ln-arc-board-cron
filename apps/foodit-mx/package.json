@@ -100,5 +100,8 @@
         "sass-loader": "13.2.2",
         "webpack": "5.82.0",
         "webpack-cli": "5.0.2"
+    },
+    "devDependencies": {
+        "@arc-fusion/cli": "3.2.0"
     }
 }

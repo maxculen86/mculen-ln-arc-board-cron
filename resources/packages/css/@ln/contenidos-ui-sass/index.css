@@ -5358,13 +5358,6 @@ body:has(.disable-body-scroll) {
   overflow: hidden;
 }
 
-.word-glossary {
-  background-color: var(--primary-ia-30);
-  text-decoration: underline;
-  text-decoration-thickness: 0.09375rem;
-  text-decoration-color: var(--primary-ia);
-}
-
 @media (max-width: 767px) {
   .p-overflow_max767.p-overflow_max767 {
     margin-left: -1rem;
@@ -5389,28 +5382,18 @@ body:has(.disable-body-scroll) {
 
 .contenidos-scrollbar::-webkit-scrollbar {
   width: 8px;
-  /* Tamaño del scroll en vertical */
   height: 8px;
 }
 .contenidos-scrollbar::-webkit-scrollbar-thumb {
   background: var(--blue-400);
   border-radius: 8px;
 }
-.contenidos-scrollbar {
-  /* Cambiamos el fondo cuando esté en active */
-}
 .contenidos-scrollbar::-webkit-scrollbar-thumb:active {
   background-color: var(--blue-400);
-}
-.contenidos-scrollbar {
-  /* Ponemos un color de fondo y redondeamos las esquinas del track */
 }
 .contenidos-scrollbar::-webkit-scrollbar-track {
   background: #f7f7f4;
   border-radius: 8px;
-}
-.contenidos-scrollbar {
-  /* Cambiamos el fondo cuando esté en active o hover */
 }
 .contenidos-scrollbar::-webkit-scrollbar-track:hover, .contenidos-scrollbar::-webkit-scrollbar-track:active {
   background: #e4e4e4;
@@ -5425,28 +5408,18 @@ body:has(.disable-body-scroll) {
 
 .contenidos-scrollbar-gray::-webkit-scrollbar {
   width: 4px;
-  /* Tamaño del scroll en vertical */
   height: 4px;
 }
 .contenidos-scrollbar-gray::-webkit-scrollbar-thumb {
   background: var(--light-neutral-400);
   border-radius: 4px;
 }
-.contenidos-scrollbar-gray {
-  /* Cambiamos el fondo cuando esté en active */
-}
 .contenidos-scrollbar-gray::-webkit-scrollbar-thumb:active {
   background-color: var(--light-neutral-400);
-}
-.contenidos-scrollbar-gray {
-  /* Ponemos un color de fondo y redondeamos las esquinas del track */
 }
 .contenidos-scrollbar-gray::-webkit-scrollbar-track {
   background: #f7f7f4;
   border-radius: 4px;
-}
-.contenidos-scrollbar-gray {
-  /* Cambiamos el fondo cuando esté en active o hover */
 }
 .contenidos-scrollbar-gray::-webkit-scrollbar-track:hover, .contenidos-scrollbar-gray::-webkit-scrollbar-track:active {
   background: #e4e4e4;

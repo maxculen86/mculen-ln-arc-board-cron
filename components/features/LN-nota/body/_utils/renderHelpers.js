@@ -78,7 +78,8 @@ const renderDynamicBanners = ({
         elementPosition,
         itemIndex: elementPosition - 1,
         bannerCounter,
-        maxBanners
+        maxBanners,
+        isSubscribed: get(dynamicBanners, 'isSubscribed', false)
     };
 
     const strategy = getBannerStrategy(subtype);

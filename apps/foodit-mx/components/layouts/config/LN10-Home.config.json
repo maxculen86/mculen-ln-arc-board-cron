@@ -1,0 +1,42 @@
+{
+    "Cabezal": {
+        "position": 0
+    },
+    "Pre_Apertura": {
+        "position": 1
+    },
+    "Apertura": {
+        "position": 2,
+        "bannersMob": ["caja1Mob"],
+        "intervalMob": 1
+    },
+    "Breaking_1": {
+        "position": 3,
+        "min": 1,
+        "bannersMob": ["caja3Mob", "caja4Mob", "caja5Mob"],
+        "bannersDsk": ["billboard"],
+        "intervalMob": 2,
+        "intervalDsk": 3
+    },
+    "Breaking_2": {
+        "position": 4,
+        "min": 1,
+        "bannersMob": ["caja6Mob", "caja7Mob"],
+        "intervalMob": 2
+    },
+    "Hashtag": {
+        "position": 5,
+        "max": 4
+    },
+    "Content": {
+        "position": 6
+    },
+    "Canales_1": {
+        "position": 7,
+        "max": 10
+    },
+    "Canales_2": {
+        "position": 8,
+        "max": 8
+    }
+}

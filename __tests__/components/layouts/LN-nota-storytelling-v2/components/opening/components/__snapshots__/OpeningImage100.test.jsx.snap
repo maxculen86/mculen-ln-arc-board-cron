@@ -3,7 +3,7 @@
 exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
 <div>
   <section
-    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
     data-diagram="title-below"
   >
     <img
@@ -39,7 +39,7 @@ exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 text-subheading-md"
+          class="font-primary text-neutral-1 text-subheading-md max-md:hidden"
         >
           This is the subheadline
         </p>
@@ -52,7 +52,7 @@ exports[`OpeningImage100 snapshots matches snapshot with image 1`] = `
 exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
 <div>
   <section
-    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
     data-diagram="title-below"
   >
     <video
@@ -85,7 +85,7 @@ exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 text-subheading-md"
+          class="font-primary text-neutral-1 text-subheading-md max-md:hidden"
         >
           This is the subheadline
         </p>
@@ -98,7 +98,7 @@ exports[`OpeningImage100 snapshots matches snapshot with video 1`] = `
 exports[`OpeningImage100 snapshots matches snapshot without media 1`] = `
 <div>
   <section
-    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
+    class="relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark md:mb-56 h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height)-48px)] md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))] xl:h-[calc(100vh-var(--header-sticky-height))]"
     data-diagram="title-below"
   >
     <div
@@ -123,7 +123,7 @@ exports[`OpeningImage100 snapshots matches snapshot without media 1`] = `
           </h2>
         </div>
         <p
-          class="font-primary text-neutral-1 text-subheading-md"
+          class="font-primary text-neutral-1 text-subheading-md max-md:hidden"
         >
           This is the subheadline
         </p>

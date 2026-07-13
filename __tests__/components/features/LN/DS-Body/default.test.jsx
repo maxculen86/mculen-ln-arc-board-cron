@@ -52,10 +52,12 @@ const STORYTELLING_V2_LAYOUT = 'LN-nota-storytelling-v2';
 
 const baseGlobalContent = {
     ...globalContentMock,
-    _id: 'note-1'
+    _id: 'note-1',
+    subtype: '4',
+    subscription: 'A'
 };
 
-function renderWithBannersVisibility(labelText) {
+function renderWithBannersVisibility(labelText, subscription = 'A') {
     const { label: baseLabel = {}, ...restGlobalContent } = baseGlobalContent;
     const label =
         labelText === null
@@ -72,7 +74,7 @@ function renderWithBannersVisibility(labelText) {
     useAppContext.mockReturnValue({
         outputType: 'default',
         layout: STORYTELLING_V2_LAYOUT,
-        globalContent: { ...restGlobalContent, label }
+        globalContent: { ...restGlobalContent, label, subscription }
     });
 
     return render(<DsBody />);
@@ -108,5 +110,31 @@ describe('components - features - LN - DS-Body - default - banners visibility gu
     it('renders dynamic banner slots when the visibility label is absent', () => {
         const { container } = renderWithBannersVisibility(null);
         expect(countRenderedBannerSlots(container)).toBeGreaterThan(0);
+    });
+
+    it('renders fewer dynamic banner slots for subscribers', () => {
+        const nonSubscriberRender = renderWithBannersVisibility('Si');
+        const nonSubscriberSlots = countRenderedBannerSlots(
+            nonSubscriberRender.container
+        );
+
+        const subscriberRender = renderWithBannersVisibility('Si', 'S');
+        const subscriberSlots = countRenderedBannerSlots(
+            subscriberRender.container
+        );
+
+        expect(subscriberSlots).toBeLessThan(nonSubscriberSlots);
+    });
+
+    it('uses non-subscriber banner frequency when subscription is "D"', () => {
+        const nonSubscriberRender = renderWithBannersVisibility('Si', 'A');
+        const nonSubscriberSlots = countRenderedBannerSlots(
+            nonSubscriberRender.container
+        );
+
+        const quotaRender = renderWithBannersVisibility('Si', 'D');
+        const quotaSlots = countRenderedBannerSlots(quotaRender.container);
+
+        expect(quotaSlots).toBe(nonSubscriberSlots);
     });
 });

@@ -198,6 +198,23 @@ describe('OpeningAddons', () => {
             );
         });
 
+        it('Use logo with color in without-image, ignoring color:false', () => {
+            const globalContent = makeGlobalContent({
+                sections: withLogo({
+                    logoName: 'nacion-negocios',
+                    path: '',
+                    color: false
+                })
+            });
+
+            renderComponent({ globalContent, diagram: 'without-image' });
+
+            expect(screen.getByAltText('Negocios')).toHaveAttribute(
+                'src',
+                '/pf/resources/images/nacion-negocios.svg'
+            );
+        });
+
         it('prioritize the "A Fondo" logo over the section logo', () => {
             const globalContent = makeGlobalContent({
                 sections: withLogo({
@@ -308,6 +325,18 @@ describe('OpeningAddons', () => {
             const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
 
             renderComponent({ globalContent, diagram: 'image-panoramic' });
+
+            const badge = screen.getByTitle(
+                'Este es un contenido cerrado a suscriptores'
+            );
+            expect(badge).toHaveClass('text-base-default');
+            expect(badge).not.toHaveClass('text-neutral-1');
+        });
+
+        it('Invert to a dark text color in the without-image diagram (white background)', () => {
+            const globalContent = makeGlobalContent({ contentCode: 'cerrada' });
+
+            renderComponent({ globalContent, diagram: 'without-image' });
 
             const badge = screen.getByTitle(
                 'Este es un contenido cerrado a suscriptores'

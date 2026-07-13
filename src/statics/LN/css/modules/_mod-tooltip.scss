@@ -14,21 +14,3 @@
     position: relative;
     max-width: px(280);
 }
-
-// TODO: quitar estos estilos cuadno se use el tooltip de las libs
-.tooltip-glossary {
-    &:after {
-        content: '';
-        position: absolute;
-        background: inherit;
-        width: px(8);
-        height: px(8);
-        border-bottom: inherit;
-        border-right: inherit;
-        border-bottom-right-radius: 50%;
-        z-index: 1;
-        top: 100%;
-        left: 50%;
-        transform: rotate(45deg) translate(-50%);
-    }
-}

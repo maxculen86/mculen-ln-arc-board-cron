@@ -8,7 +8,6 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
-import Glossary from '../features/LN-10-global/glossary/default';
 import InitControlGroup from './helpers/initCtrlGrp';
 import Toasts from '../features/LN-10-global/common/toasts/default';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
@@ -76,7 +75,6 @@ function lnNotaFotoAl100({
             <Toasts />
             <AdsStrategySelector />
             <PwaModal />
-            <Glossary />
             <InitControlGroup />
         </GlobalProvider>
     );

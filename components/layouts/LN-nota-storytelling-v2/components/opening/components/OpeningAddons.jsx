@@ -13,6 +13,7 @@ import {
 } from '../../../../../private/common/utils/sectionUtils';
 import getTargetAndRelIfExternal from '../../../../../private/common/utils/getTargetAndRelIfExternal';
 import { appendPageReferrerParam } from '../../../../../private/LN/common/utils/pageReferrer';
+import { LIGHT_BACKGROUND_DIAGRAMS } from '../helpers/diagramConstants';
 
 function OpeningAddons({
     globalContent = {},
@@ -36,8 +37,11 @@ function OpeningAddons({
         color = true,
         isExternal = false
     } = logoData;
-    const isPanoramicDiagram = diagram === 'image-panoramic';
-    const withColor = isPanoramicDiagram || color;
+
+    const hasLightBackground = LIGHT_BACKGROUND_DIAGRAMS.some(
+        lightBackgroundDiagram => lightBackgroundDiagram === diagram
+    );
+    const withColor = hasLightBackground || color;
     const sponsor = !withColor && logoName ? `${logoName}-blanco` : logoName;
     const logoAlt = dictionaryAlt[logoName] || logoName;
 
@@ -111,7 +115,7 @@ function OpeningAddons({
                 <span
                     className={cx(
                         'inline-flex items-center gap-4',
-                        isPanoramicDiagram
+                        hasLightBackground
                             ? 'text-base-default'
                             : 'text-neutral-1'
                     )}
