@@ -89,8 +89,7 @@ function LoginSubscribeButtons({
     });
 
     const classContainerLoginButton = cx(
-        shouldHideLoginButtonInHeader && 'sm-none',
-        comesFromHeader && '--no-app'
+        shouldHideLoginButtonInHeader && 'sm-none'
     );
 
     return (

@@ -1,14 +1,36 @@
 import React from 'react';
-import MasNotas from '../../../../components/features/LN-nota/masNotas';
-import { render, screen } from '@testing-library/react';
-import getProperties from 'fusion:properties';
-import Consumer from 'fusion:consumer';
+import { render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
+import MasNotas from '../../../../components/features/LN-nota/masNotas';
 import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection';
 import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags';
 import mockArticles from '../../../../__mocks__/data/masNotas/articles';
-import '@testing-library/jest-dom';
+
+jest.mock(
+    'fusion:prop-types',
+    () => {
+        const taggable = validator => {
+            const fn = validator || (() => null);
+            fn.tag = () => fn;
+            fn.isRequired = fn;
+            return fn;
+        };
+        const factory = () => taggable(() => null);
+        return {
+            string: taggable(() => null),
+            number: taggable(() => null),
+            boolean: taggable(() => null),
+            list: taggable(() => null),
+            label: taggable(() => null),
+            shape: factory,
+            oneOf: factory,
+            arrayOf: factory
+        };
+    },
+    { virtual: true }
+);
 
 jest.mock('react', () => {
     const ActualReact = jest.requireActual('react');
@@ -18,29 +40,56 @@ jest.mock('react', () => {
     };
 });
 
-jest.mock('fusion:consumer', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:consumer',
+    Component => {
+        return function (Component) {
+            return props => <Component {...props} />;
+        };
+    },
+    { virtual: true }
+);
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:context',
+    Component => {
+        return function (Component) {
+            return props => <Component {...props} />;
+        };
+    },
+    { virtual: true }
+);
 
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn()
-}));
+jest.mock(
+    'fusion:content',
+    () => ({
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
 
-useContent.mockImplementation(() => {
-    return { content_elements: mockArticles.content_elements };
-});
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => []
+    }),
+    { virtual: true }
+);
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => []
-}));
+jest.mock(
+    '../../../../components/private/LN/common/cajaTema',
+    () =>
+        ({ title = '', articles = [] }) => (
+            <section>
+                <h2 dangerouslySetInnerHTML={{ __html: title }} />
+                {articles.map(({ _id, headlines = {} }) => (
+                    <article key={_id} data-id={_id}>
+                        <h3>{headlines.basic}</h3>
+                    </article>
+                ))}
+            </section>
+        )
+);
 
 Context.useAppContext = jest.fn(() => ({
     outputType: 'default'
@@ -56,12 +105,53 @@ window.IntersectionObserver = jest.fn(() => ({
     takeRecords
 }));
 
+const buildArcArticle = ({
+    id = 'OLD',
+    title = 'Nota vieja de Colapinto'
+} = {}) => ({
+    _id: id,
+    headlines: { basic: title, mobile: title },
+    display_date: '2026-06-20T10:00:00.000Z',
+    website_url: `/nota/${id}/`,
+    promo_items: {
+        basic: {
+            type: 'image',
+            url: `https://www.lanacion.com.ar/resizer/v2/${id}.jpg`
+        }
+    }
+});
+
+const buildHomeJsonArticle = ({
+    id = 'HOME',
+    title = 'Nota fresca de apertura home',
+    fecha = '2026-07-06T19:00:00.000Z'
+} = {}) => ({
+    id,
+    titulo: title,
+    volanta: 'Volanta',
+    url: `/nota/${id}/`,
+    fechaPublicacion: fecha,
+    categoria: { slug: '/politica', valor: 'Política' },
+    imagen: {
+        id: `IMG_${id}`,
+        absoluteUrl: `https://www.lanacion.com.ar/resizer/v2/${id}.jpg?auth=TOKEN&width=768&quality=70&smart=false`
+    }
+});
+
 describe('masNotas feature Test', () => {
     Object.defineProperty(window, 'performance', {
         value: {
             getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
             measure: jest.fn()
         }
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        useContent.mockImplementation(() => ({
+            content_elements: mockArticles.content_elements
+        }));
+        delete global.fetch;
     });
 
     const getMasNotasProps = (
@@ -170,27 +260,60 @@ describe('masNotas feature Test', () => {
         expect(screen.getAllByRole('article').length).toStrictEqual(4);
     });
 
-    it('aperturaHome - fetches from homeOpeningArticlesSource and renders "Últimas Noticias"', () => {
-        useContent.mockClear();
-        const props = getMasNotasProps(6, 'aperturaHome', '1', taxonomySection);
+    it('aperturaHome - fetches from home json on the client and ignores cached useContent data', async () => {
+        const staleTitle = 'Nota vieja de Colapinto';
+        const freshTitle = 'Nota fresca de apertura home';
+        useContent.mockReturnValue({
+            content_elements: [
+                buildArcArticle({ id: 'STALE', title: staleTitle })
+            ]
+        });
+        global.fetch = jest.fn().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                items: [
+                    {
+                        tipoSeccion: 'apertura',
+                        notas: [
+                            buildHomeJsonArticle({
+                                id: 'FRESH',
+                                title: freshTitle
+                            })
+                        ]
+                    },
+                    {
+                        tipoSeccion: 'tema',
+                        notas: [
+                            buildHomeJsonArticle({
+                                id: 'STALE_TOPIC',
+                                title: staleTitle
+                            })
+                        ]
+                    }
+                ]
+            })
+        });
+        const props = getMasNotasProps(3, 'aperturaHome', '1', taxonomySection);
         render(<MasNotas {...props} />);
 
-        const calls = useContent.mock.calls;
-        const aperturaCall = calls.find(
+        await waitFor(() => {
+            expect(screen.getByText(freshTitle)).toBeInTheDocument();
+        });
+        expect(screen.queryByText(staleTitle)).not.toBeInTheDocument();
+        expect(global.fetch).toHaveBeenCalledWith(
+            expect.stringContaining(
+                '/?_website=la-nacion-ar&outputType=jsonv2'
+            ),
+            expect.objectContaining({ cache: 'no-store' })
+        );
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({ source: null })
+        );
+
+        const cachedSourceCall = useContent.mock.calls.find(
             ([opts]) => opts && opts.source === 'homeOpeningArticlesSource'
         );
-        expect(aperturaCall).toBeDefined();
-        expect(aperturaCall[0]).toMatchObject({
-            source: 'homeOpeningArticlesSource',
-            query: {},
-            staticMode: false
-        });
-        expect(aperturaCall[0].filter).toBeUndefined();
-
-        expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
-            'Últimas Noticias'
-        );
-        expect(screen.getAllByRole('article').length).toStrictEqual(6);
+        expect(cachedSourceCall).toBeUndefined();
     });
 
     describe('should not render feature: data is undefined', () => {
