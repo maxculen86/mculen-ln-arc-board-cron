@@ -1,5 +1,4 @@
 {
-    "mxId": "foodit-mx",
     "compiler": {
         "parallel": true,
         "devtool": "eval",
