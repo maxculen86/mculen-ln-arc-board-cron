@@ -40,7 +40,7 @@ function SingWall() {
                             title="Ir a Suscribirse"
                             data-test-id="button-suscribe-signwall"
                             variant="accent"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=800&fc=50000046&callback=${window?.btoa(window.location?.href)}`}
+                            href={`${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=800&fc=50000046&callback=${window?.btoa(window.location?.href)}`}
                             onClick={() => {
                                 addEventToDataLayerV2({
                                     event: 'subscription_start',
