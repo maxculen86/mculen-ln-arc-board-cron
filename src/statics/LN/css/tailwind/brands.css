@@ -1,0 +1,292 @@
+/* brands.css
+   Paletas de marcas de LaNacion (comunidad-de-negocios, propiedades, etc.).
+   Cada marca define la escala default/dark/light/lighten/foreground.
+
+   Sigue el patrón de theme-lanacion: @theme inline mapea --color-* a --proxy-*,
+   y los valores viven en @layer base con bloques light/dark separados.
+   Tailwind genera las utilidades text-/bg-/border- de cada marca on-demand.
+
+   Fuente autoritativa: Light.tokens.json / Dark.tokens.json (export Figma W3C).
+*/
+
+@theme inline {
+    /* Comunidad de Negocios */
+    --color-comunidad-de-negocios-default: var(--proxy-comunidad-de-negocios-default);
+    --color-comunidad-de-negocios-dark: var(--proxy-comunidad-de-negocios-dark);
+    --color-comunidad-de-negocios-light: var(--proxy-comunidad-de-negocios-light);
+    --color-comunidad-de-negocios-lighten: var(--proxy-comunidad-de-negocios-lighten);
+    --color-comunidad-de-negocios-foreground: var(--proxy-comunidad-de-negocios-foreground);
+
+    /* Propiedades */
+    --color-propiedades-default: var(--proxy-propiedades-default);
+    --color-propiedades-dark: var(--proxy-propiedades-dark);
+    --color-propiedades-light: var(--proxy-propiedades-light);
+    --color-propiedades-lighten: var(--proxy-propiedades-lighten);
+    --color-propiedades-foreground: var(--proxy-propiedades-foreground);
+
+    /* Bienestar */
+    --color-bienestar-default: var(--proxy-bienestar-default);
+    --color-bienestar-dark: var(--proxy-bienestar-dark);
+    --color-bienestar-light: var(--proxy-bienestar-light);
+    --color-bienestar-lighten: var(--proxy-bienestar-lighten);
+    --color-bienestar-foreground: var(--proxy-bienestar-foreground);
+
+    /* Movilidad */
+    --color-movilidad-default: var(--proxy-movilidad-default);
+    --color-movilidad-dark: var(--proxy-movilidad-dark);
+    --color-movilidad-light: var(--proxy-movilidad-light);
+    --color-movilidad-lighten: var(--proxy-movilidad-lighten);
+    --color-movilidad-foreground: var(--proxy-movilidad-foreground);
+
+    /* Campo */
+    --color-campo-default: var(--proxy-campo-default);
+    --color-campo-dark: var(--proxy-campo-dark);
+    --color-campo-light: var(--proxy-campo-light);
+    --color-campo-lighten: var(--proxy-campo-lighten);
+    --color-campo-foreground: var(--proxy-campo-foreground);
+
+    /* Futuria */
+    --color-futuria-default: var(--proxy-futuria-default);
+    --color-futuria-dark: var(--proxy-futuria-dark);
+    --color-futuria-light: var(--proxy-futuria-light);
+    --color-futuria-lighten: var(--proxy-futuria-lighten);
+    --color-futuria-foreground: var(--proxy-futuria-foreground);
+
+    /* Que Sale */
+    --color-que-sale-default: var(--proxy-que-sale-default);
+    --color-que-sale-dark: var(--proxy-que-sale-dark);
+    --color-que-sale-light: var(--proxy-que-sale-light);
+    --color-que-sale-lighten: var(--proxy-que-sale-lighten);
+    --color-que-sale-foreground: var(--proxy-que-sale-foreground);
+
+    /* Deportes */
+    --color-deportes-default: var(--proxy-deportes-default);
+    --color-deportes-dark: var(--proxy-deportes-dark);
+    --color-deportes-light: var(--proxy-deportes-light);
+    --color-deportes-lighten: var(--proxy-deportes-lighten);
+    --color-deportes-foreground: var(--proxy-deportes-foreground);
+
+    /* Living */
+    --color-living-default: var(--proxy-living-default);
+    --color-living-dark: var(--proxy-living-dark);
+    --color-living-light: var(--proxy-living-light);
+    --color-living-lighten: var(--proxy-living-lighten);
+    --color-living-foreground: var(--proxy-living-foreground);
+
+    /* Jardin */
+    --color-jardin-default: var(--proxy-jardin-default);
+    --color-jardin-dark: var(--proxy-jardin-dark);
+    --color-jardin-light: var(--proxy-jardin-light);
+    --color-jardin-lighten: var(--proxy-jardin-lighten);
+    --color-jardin-foreground: var(--proxy-jardin-foreground);
+
+    /* Hola */
+    --color-hola-default: var(--proxy-hola-default);
+    --color-hola-dark: var(--proxy-hola-dark);
+    --color-hola-light: var(--proxy-hola-light);
+    --color-hola-lighten: var(--proxy-hola-lighten);
+    --color-hola-foreground: var(--proxy-hola-foreground);
+
+    /* Radio */
+    --color-radio-default: var(--proxy-radio-default);
+    --color-radio-dark: var(--proxy-radio-dark);
+    --color-radio-light: var(--proxy-radio-light);
+    --color-radio-lighten: var(--proxy-radio-lighten);
+    --color-radio-foreground: var(--proxy-radio-foreground);
+
+    /* Lugares */
+    --color-lugares-default: var(--proxy-lugares-default);
+    --color-lugares-dark: var(--proxy-lugares-dark);
+    --color-lugares-light: var(--proxy-lugares-light);
+    --color-lugares-lighten: var(--proxy-lugares-lighten);
+    --color-lugares-foreground: var(--proxy-lugares-foreground);
+}
+
+@layer base {
+    :root,
+    [data-theme='light'] {
+        /* Comunidad de Negocios */
+        --proxy-comunidad-de-negocios-default: #d83e2c;
+        --proxy-comunidad-de-negocios-dark: #9b2a1d;
+        --proxy-comunidad-de-negocios-light: #e06556;
+        --proxy-comunidad-de-negocios-lighten: #e19390;
+        --proxy-comunidad-de-negocios-foreground: #010101;
+
+        /* Propiedades */
+        --proxy-propiedades-default: #0074c4;
+        --proxy-propiedades-dark: #004777;
+        --proxy-propiedades-light: #3390d0;
+        --proxy-propiedades-lighten: #71add6;
+        --proxy-propiedades-foreground: #fefefe;
+
+        /* Bienestar */
+        --proxy-bienestar-default: #7267c3;
+        --proxy-bienestar-dark: #4a3f9f;
+        --proxy-bienestar-light: #8e85cf;
+        --proxy-bienestar-lighten: #aca7ca;
+        --proxy-bienestar-foreground: #fefefe;
+
+        /* Movilidad */
+        --proxy-movilidad-default: #ff5610;
+        --proxy-movilidad-dark: #b34700;
+        --proxy-movilidad-light: #ff8533;
+        --proxy-movilidad-lighten: #d2a181;
+        --proxy-movilidad-foreground: #010101;
+
+        /* Campo */
+        --proxy-campo-default: #259b74;
+        --proxy-campo-dark: #165d46;
+        --proxy-campo-light: #51af90;
+        --proxy-campo-lighten: #88b0a5;
+        --proxy-campo-foreground: #010101;
+
+        /* Futuria */
+        --proxy-futuria-default: #e6232a;
+        --proxy-futuria-dark: #a91319;
+        --proxy-futuria-light: #eb4f55;
+        --proxy-futuria-lighten: #e19390;
+        --proxy-futuria-foreground: #010101;
+
+        /* Que Sale */
+        --proxy-que-sale-default: #bb3b80;
+        --proxy-que-sale-dark: #812958;
+        --proxy-que-sale-light: #c96299;
+        --proxy-que-sale-lighten: #f1d1e2;
+        --proxy-que-sale-foreground: #fefefe;
+
+        /* Deportes */
+        --proxy-deportes-default: #0d880c;
+        --proxy-deportes-dark: #064206;
+        --proxy-deportes-light: #3da03d;
+        --proxy-deportes-lighten: #8bd98b;
+        --proxy-deportes-foreground: #fefefe;
+
+        /* Living */
+        --proxy-living-default: #272727;
+        --proxy-living-dark: #323232;
+        --proxy-living-light: #525252;
+        --proxy-living-lighten: #cccccc;
+        --proxy-living-foreground: #fefefe;
+
+        /* Jardin */
+        --proxy-jardin-default: #d46418;
+        --proxy-jardin-dark: #8f4410;
+        --proxy-jardin-light: #dd8346;
+        --proxy-jardin-lighten: #f8d7c0;
+        --proxy-jardin-foreground: #010101;
+
+        /* Hola */
+        --proxy-hola-default: #bf0811;
+        --proxy-hola-dark: #76050a;
+        --proxy-hola-light: #cc3941;
+        --proxy-hola-lighten: #fb989d;
+        --proxy-hola-foreground: #fefefe;
+
+        /* Radio */
+        --proxy-radio-default: #d6e903;
+        --proxy-radio-dark: #919d02;
+        --proxy-radio-light: #deed35;
+        --proxy-radio-lighten: #f8feba;
+        --proxy-radio-foreground: #010101;
+
+        /* Lugares */
+        --proxy-lugares-default: #009c9a;
+        --proxy-lugares-dark: #004f4e;
+        --proxy-lugares-light: #33b0ae;
+        --proxy-lugares-lighten: #b3f9f8;
+        --proxy-lugares-foreground: #010101;
+    }
+
+    [data-theme='dark'] {
+        /* Comunidad de Negocios */
+        --proxy-comunidad-de-negocios-default: #e19390;
+        --proxy-comunidad-de-negocios-dark: #d83e2c;
+        --proxy-comunidad-de-negocios-light: #e06556;
+        --proxy-comunidad-de-negocios-lighten: #9b2a1d;
+        --proxy-comunidad-de-negocios-foreground: #010101;
+
+        /* Propiedades */
+        --proxy-propiedades-default: #71add6;
+        --proxy-propiedades-dark: #0074c4;
+        --proxy-propiedades-light: #3390d0;
+        --proxy-propiedades-lighten: #004777;
+        --proxy-propiedades-foreground: #010101;
+
+        /* Bienestar */
+        --proxy-bienestar-default: #aca7ca;
+        --proxy-bienestar-dark: #7267c3;
+        --proxy-bienestar-light: #8e85cf;
+        --proxy-bienestar-lighten: #4a3f9f;
+        --proxy-bienestar-foreground: #010101;
+
+        /* Movilidad */
+        --proxy-movilidad-default: #d2a181;
+        --proxy-movilidad-dark: #ff5610;
+        --proxy-movilidad-light: #ff8533;
+        --proxy-movilidad-lighten: #b34700;
+        --proxy-movilidad-foreground: #010101;
+
+        /* Campo */
+        --proxy-campo-default: #88b0a5;
+        --proxy-campo-dark: #259b74;
+        --proxy-campo-light: #51af90;
+        --proxy-campo-lighten: #165d46;
+        --proxy-campo-foreground: #010101;
+
+        /* Futuria */
+        --proxy-futuria-default: #e19390;
+        --proxy-futuria-dark: #e6232a;
+        --proxy-futuria-light: #eb4f55;
+        --proxy-futuria-lighten: #a91319;
+        --proxy-futuria-foreground: #010101;
+
+        /* Que Sale */
+        --proxy-que-sale-default: #f1d1e2;
+        --proxy-que-sale-dark: #bb3b80;
+        --proxy-que-sale-light: #c96299;
+        --proxy-que-sale-lighten: #812958;
+        --proxy-que-sale-foreground: #010101;
+
+        /* Deportes */
+        --proxy-deportes-default: #8bd98b;
+        --proxy-deportes-dark: #0d880c;
+        --proxy-deportes-light: #3da03d;
+        --proxy-deportes-lighten: #064206;
+        --proxy-deportes-foreground: #010101;
+
+        /* Living */
+        --proxy-living-default: #cccccc;
+        --proxy-living-dark: #272727;
+        --proxy-living-light: #525252;
+        --proxy-living-lighten: #323232;
+        --proxy-living-foreground: #fefefe;
+
+        /* Jardin */
+        --proxy-jardin-default: #f8d7c0;
+        --proxy-jardin-dark: #d46418;
+        --proxy-jardin-light: #dd8346;
+        --proxy-jardin-lighten: #8f4410;
+        --proxy-jardin-foreground: #010101;
+
+        /* Hola */
+        --proxy-hola-default: #fb989d;
+        --proxy-hola-dark: #bf0811;
+        --proxy-hola-light: #cc3941;
+        --proxy-hola-lighten: #76050a;
+        --proxy-hola-foreground: #010101;
+
+        /* Radio */
+        --proxy-radio-default: #f8feba;
+        --proxy-radio-dark: #d6e903;
+        --proxy-radio-light: #deed35;
+        --proxy-radio-lighten: #919d02;
+        --proxy-radio-foreground: #010101;
+
+        /* Lugares */
+        --proxy-lugares-default: #b3f9f8;
+        --proxy-lugares-dark: #009c9a;
+        --proxy-lugares-light: #33b0ae;
+        --proxy-lugares-lighten: #004f4e;
+        --proxy-lugares-foreground: #010101;
+    }
+}
