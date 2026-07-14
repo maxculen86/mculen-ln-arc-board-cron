@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { register } from '../../../LN-10-global/pwaModal/register/serviceWorkerUtils';
 import { PromoteInstallation } from '../PromoteInstallation/foodit';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
 function PwaInstallPrompt({ deployment, arcSite, variant, as }) {
@@ -32,7 +32,7 @@ function PwaInstallPrompt({ deployment, arcSite, variant, as }) {
         if ('serviceWorker' in navigator) {
             register({ deployment, arcSite });
         }
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             category: 'interaction',
             label: 'PWA',

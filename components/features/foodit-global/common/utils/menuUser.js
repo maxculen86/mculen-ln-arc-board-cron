@@ -2,14 +2,14 @@ import React from 'react';
 import { MY_ACCOUNT_URL, SITE_FOODIT } from 'fusion:environment';
 import { logout } from '../../../../private/common/auth/helper/loginHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from './pushFooditEvent';
 
 export const menuUser = [
     {
         text: 'Mi cuenta',
         icon: <IconSprite name="profile" critical />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -22,7 +22,7 @@ export const menuUser = [
         text: 'Mis recetas',
         icon: <IconSprite name="bookmark" critical />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -35,7 +35,7 @@ export const menuUser = [
         text: 'Mi menú semanal',
         icon: <IconSprite name="weekly-menu" critical />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -48,7 +48,7 @@ export const menuUser = [
         text: 'Lista de compras',
         icon: <IconSprite name="shopping-list" critical />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -61,7 +61,7 @@ export const menuUser = [
         text: 'Newsletters',
         icon: <IconSprite name="newsletter" critical />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -76,7 +76,7 @@ export const menuUser = [
         text: 'club la nacion',
         icon: <IconSprite name="club-ln" />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'perfil',
@@ -89,7 +89,7 @@ export const menuUser = [
         text: '¿Cómo podemos ayudarte?',
         icon: <IconSprite name="custom-service" />,
         onClick: () => {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'autogestion',
                 label: 'ayuda',
@@ -106,7 +106,7 @@ export const logOutItem = {
     text: 'Cerrar sesión',
     icon: <IconSprite name="exit" />,
     onClick: () => {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'logout'
         });
         logout(() => {

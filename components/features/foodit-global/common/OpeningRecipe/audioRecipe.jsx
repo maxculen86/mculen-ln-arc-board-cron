@@ -8,7 +8,7 @@ import { AnimatedIcons } from '@ln/contenidos-ui-animatedicons';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { AudioFoodit } from '../AudioFoodit/foodit';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 import { DialogFoodit } from '../DialogFoodit/foodit';
 
 function AudioRecipe({ title, resizedUrl, url, article }) {
@@ -22,7 +22,7 @@ function AudioRecipe({ title, resizedUrl, url, article }) {
     const handleClick = () => {
         onOpen();
         if (isSubscribed) {
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'page_listened',
                 origin: 'receta',
                 title,

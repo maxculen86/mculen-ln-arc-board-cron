@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { useAppContext } from 'fusion:context';
-import getAuthorsInfo from '../../../../../../components/private/common/utils/getAuthorsInfo';
+import { getAuthorsInfo } from '../../../../../../components/private/common/utils/getAuthorsInfo';
 import PageViewDataLayer from '../../../../../../components/features/foodit-global/common/dataLayer/pageView';
 import mockGlobalContent from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta.json';
 
@@ -15,7 +15,7 @@ jest.mock('fusion:environment', () => ({
 
 jest.mock(
     '../../../../../../components/private/common/utils/getAuthorsInfo',
-    () => jest.fn()
+    () => ({ getAuthorsInfo: jest.fn() })
 );
 
 describe('Components - Features - Foodit-global - Common - DataLayer - PageViewDataLayer', () => {
