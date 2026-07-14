@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import { useContent } from 'fusion:content';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -15,16 +14,17 @@ import {
     sourceByFilterType,
     getFilteredContentElements
 } from '../../../private/common/utils/masNotasHelper';
-import filter from '../../../../content/filters/LN/acumulado/articleMasNotas';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 import useNotaSegment from '../../../private/LN/common/hooks/useNotaSegment';
+import useMasNotasArticles from '../hooks/useMasNotasArticles';
 import getRenderState from '../../../private/LN/common/utils/segmentation/getRenderState';
 import {
     FILTER_LABELS,
     FILTERS,
     SEGMENTATION_GROUP,
-    getAdminPreviewSegment
+    getAdminPreviewSegment,
+    resolveContent
 } from './helper';
 
 function masNotasSegmentado(props) {
@@ -101,11 +101,10 @@ function masNotasSegmentado(props) {
 
     const selectedSource = sourceByFilterType[activeFilter] || null;
 
-    const articlesList = useContent({
+    const articlesList = useMasNotasArticles({
+        isAperturaHome,
         source: selectedSource,
-        query: refinedSearchParams,
-        filter: isAperturaHome ? undefined : filter,
-        staticMode: false
+        query: refinedSearchParams
     });
 
     const filteredContentElements = getFilteredContentElements(
@@ -114,13 +113,24 @@ function masNotasSegmentado(props) {
         cantidadNotas
     );
 
-    const content =
-        activeFilter && filterType[activeFilter]
+    const byTagsContent = filterType.byTags({
+        ...searchParameters,
+        filteredContentElements
+    });
+
+    const otherFilterContent =
+        activeFilter && activeFilter !== 'byTags' && filterType[activeFilter]
             ? filterType[activeFilter]({
                   ...searchParameters,
                   filteredContentElements
               })
-            : { articles: [], title: '', sectionTitle: '' };
+            : null;
+
+    const content = resolveContent({
+        activeFilter,
+        byTagsContent,
+        otherFilterContent
+    });
 
     const { articles = [], title = '', sectionTitle } = content;
     const renderError = validateMasNotas(articles, cantidadNotas);

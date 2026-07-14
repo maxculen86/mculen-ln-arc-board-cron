@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { cx } from '@ln/cva';
 import {
     FOODIT_LOGIN_URL,
     SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useOnClickOutside } from '@ln/hooks';
+import { cx } from '@ln/ds-cva';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import getButtonCategory from './helpers/getButtonCategory';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
@@ -33,6 +33,7 @@ function LoginSubscribeButtons({
 
     const hideTooltip = comesFrom === 'ChatIA';
     const { categoryEvent, url } = getButtonCategory(comesFrom);
+    const comesFromHeader = comesFrom === 'HeaderFoodit';
 
     const textByCategory = {
         header: buttonSubscribeHeader,
@@ -43,7 +44,7 @@ function LoginSubscribeButtons({
         textByCategory[categoryEvent] ?? buttonSubscribeText;
 
     const shouldHideLoginButtonInHeader =
-        comesFrom === 'HeaderFoodit' &&
+        comesFromHeader &&
         subscribeButtonText?.toLowerCase().trim() !== 'suscribite';
 
     const tooltipText = termicasData?.tooltip_subscribe_foodit_text || '';

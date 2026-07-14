@@ -44,7 +44,7 @@ export function ButtonSearch({
                     title="audio"
                     iconOnly
                     variant="link"
-                    className="px-12 py-8"
+                    className="px-12 py-8 --no-app"
                     onClick={handleVoiceSearchClick}
                 >
                     <Icon size={24}>

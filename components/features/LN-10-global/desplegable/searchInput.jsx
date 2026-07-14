@@ -25,10 +25,6 @@ export default function InputSection({
     const compactInputRef = useRef(null);
     const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (autoFocus) compactInputRef.current?.focus();
-    }, []);
-
     useClickOutside({
         refs: [containerRef],
         handler: onClose,

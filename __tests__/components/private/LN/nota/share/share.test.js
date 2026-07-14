@@ -12,11 +12,15 @@ import { getSectionOfRequestUri } from '../../../../../../components/private/com
 
 getSectionOfRequestUri;
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:context',
+    Component =>
+        function (Component) {
+            return function (props) {
+                return <Component {...props} />;
+            };
+        }
+);
 
 jest.mock('../../../../../../components/private/common/utils/getToken', () =>
     jest.fn()
@@ -364,12 +368,12 @@ describe('Share buttons for NOTICIA subtype', () => {
 
     it('should show Google follow button for NOTICIA subtype', () => {
         const { container } = render(<Share />);
-        const googleButton = screen.getByTitle('Seguir a LA NACION en Google');
+        const googleButton = screen.getByTitle('Agregar LA NACION en Google');
 
         expect(googleButton).toBeTruthy();
         expect(googleButton).toHaveAttribute(
             'title',
-            'Seguir a LA NACION en Google'
+            'Agregar LA NACION en Google'
         );
         expect(container).toMatchSnapshot();
     });
@@ -382,8 +386,8 @@ describe('Share buttons for NOTICIA subtype', () => {
     });
 
     it('should send correct DataLayer event when clicking Google follow button', () => {
-        const { container } = render(<Share />);
-        const googleButton = screen.getByTitle('Seguir a LA NACION en Google');
+        render(<Share />);
+        const googleButton = screen.getByTitle('Agregar LA NACION en Google');
 
         fireEvent.click(googleButton);
 
@@ -399,7 +403,7 @@ describe('Share buttons for NOTICIA subtype', () => {
         const { container } = render(<Share />);
         const buttons = screen.getAllByRole('button');
         const googleButtons = screen.getAllByTitle(
-            'Seguir a LA NACION en Google'
+            'Agregar LA NACION en Google'
         );
 
         expect(buttons.length).toBe(10);

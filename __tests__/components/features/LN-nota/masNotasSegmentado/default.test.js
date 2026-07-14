@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
@@ -7,6 +7,30 @@ import MasNotasSegmentado from '../../../../../components/features/LN-nota/masNo
 import useNotaSegment from '../../../../../components/private/LN/common/hooks/useNotaSegment';
 import taxonomySection from '../../../../../__mocks__/data/masNotas/taxonomySection';
 import mockArticles from '../../../../../__mocks__/data/masNotas/articles';
+
+jest.mock(
+    'fusion:prop-types',
+    () => {
+        const taggable = validator => {
+            const fn = validator || (() => null);
+            fn.tag = () => fn;
+            fn.isRequired = fn;
+            return fn;
+        };
+        const factory = () => taggable(() => null);
+        return {
+            string: taggable(() => null),
+            number: taggable(() => null),
+            boolean: taggable(() => null),
+            list: taggable(() => null),
+            label: taggable(() => null),
+            shape: factory,
+            oneOf: factory,
+            arrayOf: factory
+        };
+    },
+    { virtual: true }
+);
 
 jest.mock('react', () => {
     const ActualReact = jest.requireActual('react');
@@ -16,29 +40,60 @@ jest.mock('react', () => {
     };
 });
 
-jest.mock('fusion:consumer', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:consumer',
+    Component => {
+        return function (Component) {
+            return props => <Component {...props} />;
+        };
+    },
+    { virtual: true }
+);
 
-jest.mock('fusion:context', Component => {
-    return function (Component) {
-        return props => <Component {...props} />;
-    };
-});
+jest.mock(
+    'fusion:context',
+    Component => {
+        return function (Component) {
+            return props => <Component {...props} />;
+        };
+    },
+    { virtual: true }
+);
 
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn()
-}));
+jest.mock(
+    'fusion:content',
+    () => ({
+        useContent: jest.fn()
+    }),
+    { virtual: true }
+);
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => []
-}));
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => []
+    }),
+    { virtual: true }
+);
 
 jest.mock(
     '../../../../../components/private/LN/common/hooks/useNotaSegment',
     () => jest.fn()
+);
+
+jest.mock(
+    '../../../../../components/private/LN/common/cajaTema',
+    () =>
+        ({ title = '', articles = [] }) => (
+            <section>
+                <h2 dangerouslySetInnerHTML={{ __html: title }} />
+                {articles.map(({ _id, headlines = {} }) => (
+                    <article key={_id}>
+                        <h3>{headlines.basic}</h3>
+                    </article>
+                ))}
+            </section>
+        )
 );
 
 useContent.mockImplementation(() => ({
@@ -97,6 +152,39 @@ const baseProps = ({
 // Default: the hook is mocked to return "test" segment, ready.
 const mockSegmentReady = (segment = 'test') =>
     useNotaSegment.mockReturnValue({ segment, ready: true });
+
+const buildArcArticle = ({
+    id = 'OLD',
+    title = 'Nota vieja de Colapinto'
+} = {}) => ({
+    _id: id,
+    headlines: { basic: title, mobile: title },
+    display_date: '2026-06-20T10:00:00.000Z',
+    website_url: `/nota/${id}/`,
+    promo_items: {
+        basic: {
+            type: 'image',
+            url: `https://www.lanacion.com.ar/resizer/v2/${id}.jpg`
+        }
+    }
+});
+
+const buildHomeJsonArticle = ({
+    id = 'HOME',
+    title = 'Nota fresca de apertura home',
+    fecha = '2026-07-06T19:00:00.000Z'
+} = {}) => ({
+    id,
+    titulo: title,
+    volanta: 'Volanta',
+    url: `/nota/${id}/`,
+    fechaPublicacion: fecha,
+    categoria: { slug: '/politica', valor: 'Política' },
+    imagen: {
+        id: `IMG_${id}`,
+        absoluteUrl: `https://www.lanacion.com.ar/resizer/v2/${id}.jpg?auth=TOKEN&width=768&quality=70&smart=false`
+    }
+});
 
 describe('masNotasSegmentado feature', () => {
     Object.defineProperty(window, 'performance', {
@@ -299,19 +387,64 @@ describe('masNotasSegmentado feature', () => {
 
     // ─── aperturaHome como activeFilter ──────────────────────────────
 
-    it('uses homeOpeningArticlesSource when active variant filter is aperturaHome', () => {
+    it('fetches aperturaHome from home json on the client and ignores cached useContent data', async () => {
         mockSegmentReady('test');
-        useContent.mockClear();
+        const staleTitle = 'Nota vieja de Colapinto';
+        const freshTitle = 'Nota fresca de apertura home';
+        useContent.mockReturnValue({
+            content_elements: [
+                buildArcArticle({ id: 'STALE', title: staleTitle })
+            ]
+        });
+        global.fetch = jest.fn().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                items: [
+                    {
+                        tipoSeccion: 'apertura',
+                        notas: [
+                            buildHomeJsonArticle({
+                                id: 'FRESH',
+                                title: freshTitle
+                            })
+                        ]
+                    },
+                    {
+                        tipoSeccion: 'tema',
+                        notas: [
+                            buildHomeJsonArticle({
+                                id: 'STALE_TOPIC',
+                                title: staleTitle
+                            })
+                        ]
+                    }
+                ]
+            })
+        });
         const props = baseProps({
+            cantidadNotas: 3,
             filterTest: 'aperturaHome',
             filterControl: 'byLastNews'
         });
         render(<MasNotasSegmentado {...props} />);
 
-        const aperturaCall = useContent.mock.calls.find(
+        await waitFor(() => {
+            expect(screen.getByText(freshTitle)).toBeInTheDocument();
+        });
+        expect(screen.queryByText(staleTitle)).not.toBeInTheDocument();
+        expect(global.fetch).toHaveBeenCalledWith(
+            expect.stringContaining(
+                '/?_website=la-nacion-ar&outputType=jsonv2'
+            ),
+            expect.objectContaining({ cache: 'no-store' })
+        );
+        expect(useContent).toHaveBeenCalledWith(
+            expect.objectContaining({ source: null })
+        );
+
+        const cachedSourceCall = useContent.mock.calls.find(
             ([opts]) => opts && opts.source === 'homeOpeningArticlesSource'
         );
-        expect(aperturaCall).toBeDefined();
-        expect(aperturaCall[0].filter).toBeUndefined();
+        expect(cachedSourceCall).toBeUndefined();
     });
 });

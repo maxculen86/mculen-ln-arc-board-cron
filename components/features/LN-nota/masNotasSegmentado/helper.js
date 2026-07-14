@@ -25,3 +25,15 @@ export const getAdminPreviewSegment = ({
     if (!isAdmin || segment || segmentationConfigError) return null;
     return filterTest ? 'test' : 'control';
 };
+
+const EMPTY_CONTENT = { articles: [], title: '', sectionTitle: '' };
+
+export const resolveContent = ({
+    activeFilter,
+    byTagsContent,
+    otherFilterContent
+}) => {
+    if (activeFilter === 'byTags') return byTagsContent;
+    if (activeFilter && otherFilterContent) return otherFilterContent;
+    return EMPTY_CONTENT;
+};

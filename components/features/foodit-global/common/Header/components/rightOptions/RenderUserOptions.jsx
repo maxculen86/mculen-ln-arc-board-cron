@@ -5,31 +5,27 @@ import { useDrawer } from '@ln/common-ui-drawer';
 import { DRAWER } from '../../../DrawerContainer/constants';
 import AvatarRecetas from '../Avatar';
 import useGetUserConfig from '../../../../hooks/useGetUserConfig';
-import IconSprite from '../../../../../../features/private-global/common/iconSprite/IconSprite';
+import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 
-const RenderUserOptions = () => {
-    const {
-        userType,
-        initials,
-        initialsClassName,
-        suscription
-    } = useGetUserConfig();
+function RenderUserOptions() {
+    const { userType, initials, initialsClassName, suscription } =
+        useGetUserConfig();
 
     const { toggleDrawer } = useDrawer({ id: DRAWER.MY_ACCOUNT });
 
-    if (userType === 'loading' || userType === 'unlogged') return <></>;
+    if (userType === 'loading' || userType === 'unlogged') return null;
     return (
         <>
             <AvatarRecetas
                 initials={initials}
                 initialsClassName={initialsClassName}
                 suscription={suscription}
-                className="lg-only"
+                className="lg-only --no-app"
             />
             <Button
                 data-test-id="button-menu-user"
                 variant="link"
-                className="lg-none"
+                className="lg-none --no-app"
                 onClick={() => toggleDrawer()}
                 title="Abrir menu de usuario"
             >
@@ -39,6 +35,6 @@ const RenderUserOptions = () => {
             </Button>
         </>
     );
-};
+}
 
 export default RenderUserOptions;

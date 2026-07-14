@@ -118,7 +118,7 @@ const buildBody = ({ globalContent = {} }) => {
             const BannerComponent = BannersFoodit[element._id];
             if (!BannerComponent) return null;
             return (
-                <section className="content">
+                <section className="content --no-app">
                     <BannerComponent />
                 </section>
             );
