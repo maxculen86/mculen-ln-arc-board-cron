@@ -1601,14 +1601,16 @@ describe('Tests articleSourceNota - _helper', () => {
     });
 
     describe('Tests getImageConfig - presetsPromoItemStorytelling', () => {
-        const fotoAl100Preset = { sizes: [{ width: 420, height: 630 }] };
         const diagramPreset = { sizes: [{ width: 560, height: 375 }] };
+        const fallbackPreset = { sizes: [{ width: 600, height: 400 }] };
 
         const baseSiteProperties = {
             imageConfig: {
                 resize: {
-                    fotoAl100: { promo_items: fotoAl100Preset },
-                    'image-50-right-title-left': { promo_items: diagramPreset },
+                    'image-50-right-title-left': {
+                        promo_items: fallbackPreset
+                    },
+                    'image-diagram-custom': { promo_items: diagramPreset },
                     l: {
                         promo_items: { sizes: [] },
                         content_elements: { sizes: [] },
@@ -1624,7 +1626,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 promo_items: {
                     custom_storytelling_opening: {
                         embed: {
-                            config: { diagram: 'image-50-right-title-left' }
+                            config: { diagram: 'image-diagram-custom' }
                         },
                         subtype: 'custom-storytelling-opening'
                     }
@@ -1640,7 +1642,7 @@ describe('Tests articleSourceNota - _helper', () => {
             expect(presets.promoItems).toEqual(diagramPreset);
         });
 
-        it('should fall back to fotoAl100 preset when custom_storytelling_opening diagram key is not in imageConfig', () => {
+        it('should fall back to image-50-right-title-left preset when custom_storytelling_opening diagram key is not in imageConfig', () => {
             const response = {
                 subtype: '4',
                 promo_items: {
@@ -1659,10 +1661,10 @@ describe('Tests articleSourceNota - _helper', () => {
                 imageConfig: null
             });
 
-            expect(presets.promoItems).toEqual(fotoAl100Preset);
+            expect(presets.promoItems).toEqual(fallbackPreset);
         });
 
-        it('should fall back to fotoAl100 preset when custom_storytelling_opening is absent', () => {
+        it('should fall back to image-50-right-title-left preset when custom_storytelling_opening is absent', () => {
             const response = {
                 subtype: '4',
                 promo_items: {}
@@ -1674,7 +1676,7 @@ describe('Tests articleSourceNota - _helper', () => {
                 imageConfig: null
             });
 
-            expect(presets.promoItems).toEqual(fotoAl100Preset);
+            expect(presets.promoItems).toEqual(fallbackPreset);
         });
     });
 

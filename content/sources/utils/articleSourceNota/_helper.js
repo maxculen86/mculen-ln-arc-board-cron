@@ -293,7 +293,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
         ) ||
             get(
                 siteProperties,
-                'imageConfig.resize.fotoAl100.promo_items',
+                'imageConfig.resize.image-50-right-title-left.promo_items',
                 null
             ));
     const presetsContentElementsFotoAl100 =
