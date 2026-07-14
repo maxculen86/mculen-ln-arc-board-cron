@@ -102,7 +102,7 @@ describe('components - layouts - LN-nota-storytelling-v2 - components - opening 
     it('should return default diagram if custom_storytelling_opening is missing', () => {
         const promoItems = {};
         const result = getOpeningMediaData(promoItems);
-        expect(result.diagram).toBe('image-100-title-below');
+        expect(result.diagram).toBe('image-50-right-title-left');
     });
 
     it('should keep storytelling responsive variants and sizes from current breakpoints', () => {

@@ -76,7 +76,7 @@ const getOpeningMediaData = (promoItems = {}, headline = '') => {
     const diagram = get(
         promoItems,
         'custom_storytelling_opening.embed.config.diagram',
-        'image-100-title-below'
+        'image-50-right-title-left'
     );
 
     const withOpacity = get(
