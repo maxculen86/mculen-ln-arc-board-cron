@@ -470,16 +470,16 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 > **Spec**: `content-source-migration` | **US ADO**: 173244
 > 📎 **Referencia**: POC Ingala (repo `lanacion-arcxp-mx`) tiene `apps/.../content/sources/` con content-api, collections, gallery, video, author, related-content, **signing-service** y caching — plantilla para los content sources de recetas.
 
--   [ ] 6.1 Abrir `docs/migrate-mx/content-sources/audit.md` e identificar los 10 content sources en scope
--   [ ] 6.2 Para cada content source: copiar a `apps/foodit-mx/content/sources/` con imports relativos adaptados
-    > 📌 **Adelanto acotado (fuera de orden):** `navigationSource` (+ `navigation-schema`) ya se portó a `apps/foodit-mx/content/sources/navigationSource.js` y `apps/foodit-mx/content/schemas/navigation-schema.js` (copia verbatim del monolito, sin deps transitivas). Motivo: `Header` → `useNavigationData` lo usa desde `BaseLayout`, que envuelve las tres layouts ya migradas (`Foodit-acumulado`, `Foodit-subcategorias`, `Foodit-ficha-receta`), así que cualquier página foodit local tiraba `Could not find source: navigationSource` al validar 4ot.5. `filterMenuSections` ya estaba copiado. Quedan pendientes los ~9 sources restantes (nota/acumulado: `fooditArticleSource`, `fooditBaseArticleSource`, `fooditVideoSource`, `videosJwCarruselSource`, `relatedContentSource`, `fooditAcuSource`, `acuArticlesSourceV2`, `fooditCategoryImageSource`, `fooditCollectionsSource`), con sus árboles de dependencias transitivas (ver audit.md §4).
--   [ ] 6.3 Para cada content source copiado: identificar y documentar dependencias transitivas (utils, filtros de Foodit)
--   [ ] 6.4 Copiar utils y filtros transitivos a `apps/foodit-mx/content/` (en `filters/` o subdirectorios equivalentes)
--   [ ] 6.5 Verificar que `arc.config.json` tiene `excludeModules` que excluye los content sources fuera de scope
--   [ ] 6.6 Verificar que ningún transform filtra el campo `_id` (requisito de cache tagging)
--   [ ] 6.7 Verificar que los transforms hacen `throw` en caso de error (no retornan error como objeto)
--   [ ] 6.8 ~~En PageBuilder sandbox: cambiar el layout de `/recetas` de `Foodit-subcategorias` → `Foodit-acumulado`~~ **CANCELADO (corrección no-swap).** `/recetas` MANTIENE `Foodit-subcategorias` (migrado en 4e). NO se ejecuta swap. Verificar únicamente que PageBuilder sandbox conserva el mapeo `/recetas` → `Foodit-subcategorias` y que el bundle MX lo sirve. `Foodit-acumulado` queda migrado pero sin ruta asignada.
--   [ ] 6.9 Conectar los 10 content sources en PageBuilder (sandbox) y verificar que resuelven sin errores HTTP
+-   [x] 6.1 Abrir `docs/migrate-mx/content-sources/audit.md` e identificar los 10 content sources en scope
+-   [x] 6.2 Para cada content source: copiar a `apps/foodit-mx/content/sources/` con imports relativos adaptados
+    > 📌 **Adelanto acotado (fuera de orden):** `navigationSource` (+ `navigation-schema`) ya se portó a `apps/foodit-mx/content/sources/navigationSource.js` y `apps/foodit-mx/content/schemas/navigation-schema.js` (copia verbatim del monolito, sin deps transitivas). Motivo: `Header` → `useNavigationData` lo usa desde `BaseLayout`, que envuelve las tres layouts ya migradas (`Foodit-acumulado`, `Foodit-subcategorias`, `Foodit-ficha-receta`), así que cualquier página foodit local tiraba `Could not find source: navigationSource` al validar 4ot.5. `filterMenuSections` ya estaba copiado. Los ~9 sources restantes (nota/acumulado: `fooditArticleSource`, `fooditBaseArticleSource`, `fooditVideoSource`, `videosJwCarruselSource`, `relatedContentSource`, `fooditAcuSource`, `acuArticlesSourceV2`, `fooditCategoryImageSource`, `fooditCollectionsSource`) se portaron en `8f8b02e`, con sus árboles de dependencias transitivas (ver audit.md §8).
+-   [x] 6.3 Para cada content source copiado: identificar y documentar dependencias transitivas (utils, filtros de Foodit)
+-   [x] 6.4 Copiar utils y filtros transitivos a `apps/foodit-mx/content/` (en `filters/` o subdirectorios equivalentes)
+-   [x] 6.5 Verificar que `arc.config.json` tiene `excludeModules` que excluye los content sources fuera de scope
+-   [x] 6.6 Verificar que ningún transform filtra el campo `_id` (requisito de cache tagging)
+-   [x] 6.7 Verificar que los transforms hacen `throw` en caso de error (no retornan error como objeto)
+-   [x] 6.8 ~~En PageBuilder sandbox: cambiar el layout de `/recetas` de `Foodit-subcategorias` → `Foodit-acumulado`~~ **CANCELADO (corrección no-swap).** `/recetas` MANTIENE `Foodit-subcategorias` (migrado en 4e). NO se ejecuta swap. Verificado: PageBuilder sandbox conserva el mapeo `/recetas` → `Foodit-subcategorias` y el bundle MX lo sirve. `Foodit-acumulado` queda migrado pero sin ruta asignada.
+-   [x] 6.9 Conectar los 10 content sources en PageBuilder (sandbox) y verificar que resuelven sin errores HTTP
 
 ## 7. Validación integral local
 

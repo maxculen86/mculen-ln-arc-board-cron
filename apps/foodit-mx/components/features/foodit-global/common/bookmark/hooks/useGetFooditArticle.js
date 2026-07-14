@@ -6,20 +6,25 @@ import { transformBookmarkContent } from '../_helper';
 
 export const useGetFooditArticles = articleIds => {
     const articles = articleIds.map(articleId => {
-        const articleContent = useContent({
-            source: articleId ? 'fooditArticleSource' : null,
-            query: {
-                id: articleId,
-                published: true,
-                website: 'foodit',
-                isInApertura: false,
-                isAdmin: false,
-                imageConfig: 'm',
-                checkExclusiveAccess: false
-            },
-            staticMode: false,
-            filter
-        });
+        let articleContent;
+        try {
+            articleContent = useContent({
+                source: articleId ? 'fooditArticleSource' : null,
+                query: {
+                    id: articleId,
+                    published: true,
+                    website: 'foodit',
+                    isInApertura: false,
+                    isAdmin: false,
+                    imageConfig: 'm',
+                    checkExclusiveAccess: false
+                },
+                staticMode: false,
+                filter
+            });
+        } catch (error) {
+            articleContent = null;
+        }
 
         if (!articleContent) return null;
 

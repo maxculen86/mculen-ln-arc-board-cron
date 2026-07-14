@@ -13,15 +13,20 @@ import {
 
 function RelatedContent({ globalContent }) {
     const id = get(globalContent, '_id', '');
-    const relatedContent = useContent({
-        source: id ? 'relatedContentSource' : null,
-        query: {
-            id,
-            website: 'foodit',
-            limit: 2
-        },
-        isStatic: true
-    });
+    let relatedContent;
+    try {
+        relatedContent = useContent({
+            source: id ? 'relatedContentSource' : null,
+            query: {
+                id,
+                website: 'foodit',
+                limit: 2
+            },
+            isStatic: true
+        });
+    } catch (error) {
+        relatedContent = null;
+    }
 
     if (!relatedContent || relatedContent?.length === 0) return null;
 

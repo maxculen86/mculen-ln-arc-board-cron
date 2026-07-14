@@ -43,12 +43,17 @@ export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
               checkExclusiveAccess: false
           };
 
-    const preloadContent = useContent({
-        source,
-        query: queryConfig,
-        staticMode: true,
-        filter: validVideoId ? videoJwFilter : filter
-    });
+    let preloadContent;
+    try {
+        preloadContent = useContent({
+            source,
+            query: queryConfig,
+            staticMode: true,
+            filter: validVideoId ? videoJwFilter : filter
+        });
+    } catch (error) {
+        preloadContent = null;
+    }
 
     if (validVideoId) {
         return [{ resizedUrl: get(preloadContent, 'poster', '') }];

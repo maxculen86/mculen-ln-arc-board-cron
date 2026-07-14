@@ -5,6 +5,7 @@
 -   **Fuente original:** `openspec/analysis/recetas-content-sources-mx.html`
 -   **Contexto:** 63 sources en el monolito → **11–12 necesarios** para MX
 -   **Corrección (verificación en vivo, 2026-07-02):** `sectionSource` estaba categorizado "no necesario" (§5) pero el `resolver_config` real restaurado desde el dump de sandbox — el resolver `"Foodit Acu Section"` (`note: "Resolver para acumulados de Foodit"`), que matchea `/recetas/` vía patrón catch-all con `priority: 7` — tiene `contentSourceId: 'sectionSource'`, no `fooditAcuSource` como asumía este audit. Confirmado con HTTP 500 `Could not find source: sectionSource` al pegarle a `/recetas/?_website=foodit` sin este source. Ver corrección aplicada en §3 y §7.
+-   **Corrección (cierre transitivo real, verificación en repo, 2026-07-14):** Un walker de imports recursivo (resuelve `.js`/`.jsx`/`.json`/index, ignora `fusion:*`) corrido desde los 9 entrypoints de notas/acumulados dio un cierre real de **74 archivos**, muy por encima de lo que documentaba §4 (que solo cubría imports de primer/segundo nivel). Además, **3 archivos categorizados "no necesario" en §5 son en realidad dependencias transitivas activas**: `signingServiceSource`, `fooditHasVideoSource` y `videoJwArticleSource` — no se registran en PageBuilder, pero son invocados internamente vía `cachedCall` desde dentro de los 10 sources, y sin ellos el build no resuelve. Detalle completo, incluyendo un trim de 19 archivos por leak multi-sitio (cierre final: 53 archivos), en **§8**.
 
 ---
 
@@ -181,7 +182,7 @@ fooditCollectionsSource
 | `fooditCollectionsSource`   | necesario-acumulados       | 120s |
 | `navigationSource`          | compartido LN+Foodit       | 300s |
 | `fooditQuerylySource`       | opcional (/tema, buscador) | 360s |
-| `fooditHasVideoSource`      | no necesario               | 120s |
+| `fooditHasVideoSource`      | transitivo-interno (ver §8)| 120s |
 | `chefsSource`               | no necesario               | —    |
 | `acuArticlesSource`         | no necesario               | —    |
 | `acuArticlesSourcebyIds`    | no necesario               | —    |
@@ -224,11 +225,11 @@ fooditCollectionsSource
 | `sectionSource`             | no necesario               | —    |
 | `seguirSource`              | no necesario               | —    |
 | `servicesSource`            | no necesario               | —    |
-| `signingServiceSource`      | no necesario (wrapper SSR) | —    |
+| `signingServiceSource`      | transitivo-interno (ver §8)| —    |
 | `summarySource`             | no necesario               | —    |
 | `tagSource`                 | no necesario               | —    |
 | `videoFichaJwSource`        | no necesario               | —    |
-| `videoJwArticleSource`      | no necesario               | —    |
+| `videoJwArticleSource`      | transitivo-interno (ver §8)| —    |
 | `videosJwSource`            | no necesario               | —    |
 | `weatherSource`             | no necesario               | —    |
 | `widgetsSource`             | no necesario               | —    |
@@ -309,3 +310,82 @@ API_KEY_QUERYLY           # (opcional) API Key de Queryly
 → content/filters/foodit/filterMenuSections.js
 → content/filters/foodit/videoJwFilter.js
 ```
+
+---
+
+## 8. Cierre real post-implementación (Fase 6, 2026-07-14)
+
+Esta sección reemplaza a §4/§7 como referencia de lo efectivamente migrado — §4/§7 documentaban solo el análisis de imports de primer/segundo nivel hecho antes de implementar; esta es la lista verificada contra el repo después de migrar.
+
+### 8.1 — Metodología
+
+Walker de imports recursivo desde los 9 entrypoints de notas/acumulados (`navigationSource` ya estaba portado de una fase previa), resolviendo `.js`/`.jsx`/`.json`/index y descartando `fusion:*`. Cierre inicial: **74 archivos, 0 unresolved**. Tras el trim descripto en 8.2: **53 archivos, 0 unresolved**.
+
+### 8.2 — Trim por leak multi-sitio (19 archivos eliminados)
+
+`utils/articleSourceNota/_helper.js` y `utils/articleSourceNota/_configs.js` en el monolito traen código exclusivo de LN (flujo `transform` legacy, `updateUrlIfMatch`, etc.) que arrastraba `properties/sites/la-nacion-ar.js` + `helperConfigLN/*` y otros ~13 archivos sin uso real desde Foodit. Se aplicó el criterio **"compartido pero congelado → copiar"** de `openspec/changes/foodit-recetas-mx/specs/monorepo-shared-libs/spec.md` (§ Requirement: Criterio copy-vs-lib per-componente): como Foodit no va a modificar este código en conjunto con LN, se copia y se recorta a solo lo que Foodit usa, en vez de extraerlo a `libs/shared/data-access/` (que se reserva para código que **se vaya a mantener** en ambos lados — no es el caso acá).
+
+-   `_helper.js` quedó con **7 exports**: `setRedirect`, `getUrlQuery`, `transformSubtype`, `transformElementsBasedOnType`, `transformPromoItems`, `transformAuthors`, `filterSections`.
+-   `_configs.js` quedó con **2 funciones puras**: `addHttpsInterstitialLink`, `removeErrosInterstitialLink`.
+-   Los 19 archivos que quedaron sin ningún import real tras el trim (incluye `la-nacion-ar.js` y los 4 `helperConfigLN/*`) se eliminaron — detalle línea por línea en `openspec/changes/foodit-recetas-mx/tasks.md` §6.2.
+-   Verificado (2026-07-14): no queda ningún import a esos 19 archivos en `apps/foodit-mx/`, y las funciones conservadas son copia verbatim del monolito.
+
+> **Nota:** esta decisión copy-vs-lib no estaba documentada explícitamente contra el criterio del spec hasta esta actualización — quedaba solo como detalle técnico en `tasks.md`. Si en el futuro Foodit necesita *evolucionar* alguno de estos 9 exports/funciones en paralelo con LN, ese es el disparador para extraerlo a `libs/shared/data-access/` (no antes).
+
+### 8.3 — 3 archivos transitivo-interno (no registrados en PageBuilder, pero requeridos para build)
+
+| Archivo | Invocado desde | Rol |
+| --- | --- | --- |
+| `content/sources/signingServiceSource.js` | `utils/signingServiceSource/getImagesAuth.js` (`signingServiceCachedCall`) | Firma de URLs de imágenes vía `cachedCall`, usado por los 5 sources de notas/acumulados que traen imágenes |
+| `content/sources/fooditHasVideoSource.js` | `utils/fooditSources/fooditCollectionsSource/helper.js` (`getArticleHasVideo`) | Chequeo "tiene video" por item de colección, vía `cachedCall` |
+| `content/sources/videoJwArticleSource.js` | `utils/articleSourceNota/cachedCalls/convertVideoArcToJW.js`, usado por `utils/fooditSources/fooditArticleSource/_configs.js` (`configPromoItems.video`) | Conversión de video Arc → JWPlayer para notas con video en el `promo_item` |
+
+Ninguno se conecta directo en PageBuilder (no aplica a §6.9) — son dependencias de código de los 10 sources en scope, no rutas independientes. §5 estaba desactualizado marcándolos "no necesario"; corregido arriba.
+
+### 8.4 — Resiliencia de las llamadas anidadas (fix 2026-07-14)
+
+`components/private/common/utils/logger.js` tira `throw` de forma incondicional salvo que el error sea un 404 con `justWarning: true` explícito — esto aplica también dentro de `signingServiceCachedCall` y `getArticleHasVideo` (los puntos de entrada a 8.3), que antes de este fix **no podían degradar con gracia**: la firma fallida de una sola imagen, o el chequeo de video fallido de un solo item, tiraba abajo el fetch completo del artículo o de la colección. Se agregó soporte de `justWarning` a `regularFlow` (antes solo lo respetaba `flow404`) y se pasa `justWarning: true` en esos 2 catches puntuales — los 10 sources en scope no lo pasan, así que siguen tirando `throw` sin cambios ante cualquier error.
+
+### 8.5 — Utils y filtros migrados (lista completa verificada en repo)
+
+Superset real de §7 — incluye los archivos que §7 no anticipaba (descubiertos por el walker):
+
+```
+content/sources/utils/acuArticleSourceV2/getQueryParams.js
+content/sources/utils/articleSourceNota/_configs.js            (trimeado, ver 8.2)
+content/sources/utils/articleSourceNota/_helper.js              (trimeado, ver 8.2)
+content/sources/utils/articleSourceNota/cachedCalls/convertVideoArcToJW.js
+content/sources/utils/common/textTransformHelpers.js
+content/sources/utils/common/volantaHelper.js
+content/sources/utils/fooditSources/acuArticleSourceV2/helper.js
+content/sources/utils/fooditSources/fooditArticleSource/_configs.js
+content/sources/utils/fooditSources/fooditArticleSource/index.js
+content/sources/utils/fooditSources/fooditCollectionsSource/helper.js
+content/sources/utils/fooditSources/utils/authImage.js
+content/sources/utils/getRequest.js
+content/sources/utils/getVideoJwDataCarrusel.js
+content/sources/utils/getVideoJwDataHome.js
+content/sources/utils/hasVideo.js
+content/sources/utils/isNotShowcase.js
+content/sources/utils/notFoundError.js
+content/sources/utils/paywall.js
+content/sources/utils/presets.js
+content/sources/utils/redirect.js
+content/sources/utils/relatedContentSource/_helper.js
+content/sources/utils/signingImageAuth.js
+content/sources/utils/signingServiceSource/getImagesAuth.js
+content/sources/utils/validateExclusiveAccess.js
+content/sources/utils/validateSponsoredLink.js
+
+content/filters/foodit/article/articleFilterNota.js
+content/filters/foodit/fooditHasVideoSource.js
+
+components/private/common/utils/LN-Error.jsx
+components/private/common/utils/handleHttpError.js
+components/private/common/utils/logger.js
+components/private/common/utils/stringFallback.js
+components/private/common/utils/image/resizer/addResizerUrls.js
+components/private/common/utils/image/resizer/v2/resizerFactory.js
+```
+
+Ver `openspec/changes/foodit-recetas-mx/tasks.md` §6.2-§6.7 para el detalle línea por línea de cada decisión (trims, adaptaciones Foodit ya existentes, verificación `_id`/throw).
