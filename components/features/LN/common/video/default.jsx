@@ -1,41 +1,24 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
-import { cx } from '@ln/ds-cva';
+import { useAppContext } from 'fusion:context';
 import VideoFacade from './component/VideoFacade';
-import {
-    extractVideoData,
-    buildPlaylistConfig,
-    buildVideoConfig,
-    shouldShowFigureCaption,
-    getVideoOrientation
-} from './utils/videoDataUtils';
 
-import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
-import getSourcesJw from '../../../../private/LN/common/utils/getSourcesJw';
 import get from '../../../../private/common/utils/get';
 import VideoPlayerSnippet from '../../../../private/common/scriptManager/snippetVideo';
-import {
-    STORYTELLING,
-    VIDEO,
-    LIVEBLOG_EDITORIAL,
-    VIDEOAL100,
-    VIDEO_VERTICAL,
-    OPINION
-} from '../../../../private/common/utils/subtypes/subtypeHelper';
-import { WrapperBody } from '../wrapperBody/default';
+import urlForPrerollAds from '../../../../private/LN/common/utils/urlForPrerollAds';
+import getSourcesJw from '../../../../private/LN/common/utils/getSourcesJw';
+import { buildVideoConfig, buildPlaylistConfig } from './utils/videoDataUtils';
 
-const SUBTYPES_WITHOUT_CAPTION = [
-    STORYTELLING,
-    VIDEO,
-    LIVEBLOG_EDITORIAL,
-    VIDEOAL100,
-    VIDEO_VERTICAL,
-    OPINION
-];
-
-function VideoPlayer({ data, hasAutoplay = false }) {
-    const videoData = extractVideoData(data);
+function VideoPlayer({
+    videoData,
+    className,
+    loadingType = 'lazy',
+    fetchPriority = 'low',
+    subtype = '',
+    showCaption = false,
+    hasAutoplay = false
+}) {
+    const { arcSite, deployment, contextPath } = useAppContext();
     const {
         playerId,
         title,
@@ -48,12 +31,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
         fallbackImage,
         firstVideo,
         duration
-    } = videoData;
-    const { arcSite, deployment, contextPath, globalContent } = useAppContext();
-    const subtype = get(globalContent, 'subtype', '');
-    const promoItems = get(globalContent, 'promo_items', {});
-    const isPromoItemVideo =
-        get(promoItems, 'video_jw.embed.config.idVideo', '') === mediaId;
+    } = videoData || {};
 
     const tagsUrl = urlForPrerollAds();
     const playlistConfig = buildPlaylistConfig(playlist, mediaId, sources);
@@ -67,34 +45,11 @@ function VideoPlayer({ data, hasAutoplay = false }) {
         arcSite,
         duration
     });
-    const showCaption = shouldShowFigureCaption({
-        isPromoItemVideo,
-        subtype,
-        subtypesWithoutCaption: SUBTYPES_WITHOUT_CAPTION
-    });
-
     const minStream =
         firstVideo && getSourcesJw(get(firstVideo, 'sources', []));
 
-    const isOpeningVideo = subtype === VIDEO || isPromoItemVideo;
-    const orientation = getVideoOrientation(playerId);
-
-    const containerClass = cx(
-        'border-1 border-neutral-200 w-full box-content',
-        !isOpeningVideo && orientation === 'vertical'
-            ? 'aspect-9/16'
-            : 'aspect-16/9',
-        {
-            'max-md:border-x-0 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none':
-                isOpeningVideo
-        }
-    );
-
     return (
-        <WrapperBody
-            variant={isOpeningVideo ? null : 'narrow'}
-            className="mb-48"
-        >
+        <>
             <Static id="scriptJwVideoNote">
                 <script
                     defer
@@ -109,21 +64,21 @@ function VideoPlayer({ data, hasAutoplay = false }) {
                         data-has-jwplayer="true"
                         data-video-id-jw={mediaId}
                         data-config={JSON.stringify(videoConfig)}
-                        className={containerClass}
+                        className={className}
                     >
                         <VideoFacade
                             mediaId={mediaId}
                             images={images}
                             fallbackSrc={fallbackImage}
                             alt={title}
-                            loading={isOpeningVideo ? 'eager' : 'lazy'}
-                            fetchPriority={isOpeningVideo ? 'high' : 'low'}
+                            loading={loadingType}
+                            fetchPriority={fetchPriority}
                             subtype={subtype}
                         />
                         <div id={mediaId} />
                     </div>
                 </div>
-                {showCaption && (
+                {showCaption && epigraphTitle && (
                     <figcaption className="py-8">
                         <span className="font-normal text-base-default text-16 text-center leading-[140%] tracking-[-0.3px]">
                             {epigraphTitle}
@@ -136,10 +91,8 @@ function VideoPlayer({ data, hasAutoplay = false }) {
                     minStream={{ url: get(minStream, 'file', '') }}
                 />
             </Static>
-        </WrapperBody>
+        </>
     );
 }
-
-VideoPlayer.arcType = 'video_jw';
 
 export default VideoPlayer;

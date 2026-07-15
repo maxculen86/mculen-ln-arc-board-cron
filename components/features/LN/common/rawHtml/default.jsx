@@ -3,15 +3,15 @@ import HtmlPym from '../../../../private/LN/nota/cuerpo/htmlPym';
 import hasIframeWithPYM from '../utils/hasIframeWithPYM';
 import { WrapperBody } from '../wrapperBody/default';
 
-function RawHtml(props) {
-    const { data = {} } = props;
+export default function RawHtml(props) {
+    const { data = {}, variant = '' } = props;
     const { content, _id: idMedia } = data;
 
     if (!content) return null;
 
     if (hasIframeWithPYM(content)) {
         return (
-            <WrapperBody className="mb-64">
+            <WrapperBody variant={variant} className="mb-64">
                 <HtmlPym
                     data={data}
                     className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
@@ -21,7 +21,7 @@ function RawHtml(props) {
     }
 
     return (
-        <WrapperBody className="mb-64">
+        <WrapperBody variant={variant} className="mb-64">
             <div
                 className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
                 id={`anexo-${idMedia}`}
@@ -31,8 +31,3 @@ function RawHtml(props) {
         </WrapperBody>
     );
 }
-
-RawHtml.arcType = 'raw_html';
-RawHtml.outputType = 'default';
-
-export default RawHtml;
