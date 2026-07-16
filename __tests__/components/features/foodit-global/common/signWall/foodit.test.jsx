@@ -80,7 +80,7 @@ describe('SingWall Component', () => {
         const subscribeLink = screen.getByRole('link', { name: /suscribite/i });
         expect(subscribeLink).toHaveAttribute(
             'href',
-            expect.stringContaining('/suscripcion/V/4')
+            expect.stringContaining('/foodit/suscribirme')
         );
     });
 
