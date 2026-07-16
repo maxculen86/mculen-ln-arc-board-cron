@@ -1,28 +1,76 @@
 import get from '../../../get';
-import { FOTOAL100, STORYTELLING } from '../../../subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    NOTICIA,
+    STORYTELLING,
+    shouldPreloadForSubtype
+} from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
 import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
 import setMediaCondition from '../../../../../../../properties/sites/utils/setMediaCondition';
 import { replaceUrlResizerToWWW } from '../../resizer/v2/resizerHelper';
 
-const getImageListStorytelling = (imageData, proportion) =>
-    replaceAllUrlsResizerArray(getImageData(imageData, proportion));
+const isMobileDimension = image =>
+    Boolean(get(image, 'option.isMobileDimension', false));
+
+const getImageResizedUrls = imageData => get(imageData, 'resized_urls', []);
+
+const STORYTELLING_V2_LAYOUT = 'LN-nota-storytelling-v2';
+
+const isVideoJwOpening = promoItems =>
+    get(promoItems, 'apertura_multimedia.subtype', '') === 'video_jw' ||
+    get(promoItems, 'video_jw.subtype', '') === 'video_jw';
+
+const isStorytellingVideoOpening = promoItems =>
+    get(promoItems, 'storytelling.type', '') === 'video';
+
+const isNotaVideoOpening = ({ subtype, promoItems }) =>
+    String(subtype) === NOTICIA && isVideoJwOpening(promoItems);
+
+const isStorytellingV2PictureOpening = ({ subtype, layout, promoItems }) =>
+    String(subtype) === STORYTELLING &&
+    layout === STORYTELLING_V2_LAYOUT &&
+    Boolean(get(promoItems, 'storytelling_mobile', null)) &&
+    !isVideoJwOpening(promoItems) &&
+    !isStorytellingVideoOpening(promoItems);
+
+export const shouldUseManualNotePreload = ({ subtype, layout, promoItems }) =>
+    shouldPreloadForSubtype(subtype) ||
+    isNotaVideoOpening({ subtype, promoItems }) ||
+    isStorytellingV2PictureOpening({ subtype, layout, promoItems });
+
+const getDesktopImageList = imageData => {
+    const resizedUrls = getImageResizedUrls(imageData);
+    const desktopImages = resizedUrls.filter(
+        image => !isMobileDimension(image)
+    );
+
+    return replaceAllUrlsResizerArray(
+        desktopImages.length ? desktopImages : resizedUrls
+    );
+};
+
+const getMobileImageList = imageData => {
+    const resizedUrls = getImageResizedUrls(imageData);
+    const mobileImages = resizedUrls.filter(isMobileDimension);
+    const fallbackImages = mobileImages.length
+        ? mobileImages
+        : getImageData(imageData, '2:3');
+
+    return replaceAllUrlsResizerArray(fallbackImages);
+};
 
 const getImagesList = ({ promoItems, basicDefault }) => {
+    const storytellingMobile = get(promoItems, 'storytelling_mobile', []);
+
     if (get(promoItems, 'storytelling', null)) {
-        return getImageListStorytelling(
-            get(promoItems, 'storytelling_mobile', []),
-            '2:3'
-        );
+        return getMobileImageList(storytellingMobile);
     }
 
     return [
-        ...getImageListStorytelling(basicDefault, '3:2'),
-        ...getImageListStorytelling(
-            get(promoItems, 'storytelling_mobile', []),
-            '2:3'
-        )
+        ...getDesktopImageList(basicDefault),
+        ...getMobileImageList(storytellingMobile)
     ];
 };
 

@@ -1,9 +1,25 @@
-import { getBannerStrategy } from '../../../../../../components/features/LN-nota/body/_utils/dynamicBannerStrategies';
+import {
+    getBannerStrategy,
+    getUserBannerInsertInterval,
+    NON_SUBSCRIBER_BANNER_INSERT_INTERVAL,
+    SUBSCRIBER_BANNER_INSERT_INTERVAL
+} from '../../../../../../components/features/LN-nota/body/_utils/dynamicBannerStrategies';
+import {
+    OPINION,
+    STORYTELLING
+} from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('bannerStrategies', () => {
     describe('getBannerStrategy', () => {
         it('should return opinion strategy when subtype is OPINION', () => {
-            const strategy = getBannerStrategy('3');
+            const strategy = getBannerStrategy(OPINION);
+
+            expect(strategy).toHaveProperty('shouldInsert');
+            expect(strategy).toHaveProperty('getBannerIndex');
+        });
+
+        it('should return user type strategy when subtype is STORYTELLING', () => {
+            const strategy = getBannerStrategy(STORYTELLING);
 
             expect(strategy).toHaveProperty('shouldInsert');
             expect(strategy).toHaveProperty('getBannerIndex');
@@ -75,13 +91,9 @@ describe('bannerStrategies', () => {
 
         describe('getBannerIndex', () => {
             it('should calculate correct bannerIndex', () => {
-                expect(
-                    strategy.getBannerIndex({ elementPosition: 4 })
-                ).toBe(1);
+                expect(strategy.getBannerIndex({ elementPosition: 4 })).toBe(1);
 
-                expect(
-                    strategy.getBannerIndex({ elementPosition: 8 })
-                ).toBe(2);
+                expect(strategy.getBannerIndex({ elementPosition: 8 })).toBe(2);
             });
         });
 
@@ -108,96 +120,98 @@ describe('bannerStrategies', () => {
         });
     });
 
-    describe('opinionBannerStrategy', () => {
-        const strategy = getBannerStrategy('3');
-        const maxBanners = 4;
+    describe('getUserBannerInsertInterval', () => {
+        it('should return a 5 element interval for non-subscribers', () => {
+            expect(getUserBannerInsertInterval(false)).toBe(
+                NON_SUBSCRIBER_BANNER_INSERT_INTERVAL
+            );
+        });
+
+        it('should return an 8 element interval for subscribers', () => {
+            expect(getUserBannerInsertInterval(true)).toBe(
+                SUBSCRIBER_BANNER_INSERT_INTERVAL
+            );
+        });
+    });
+
+    describe('userTypeBannerStrategy', () => {
+        const strategy = getBannerStrategy(OPINION);
+        const maxBanners = undefined;
 
         describe('shouldInsert', () => {
-            it('should insert first banner after 2 elements', () => {
-                const bannerCounter = { current: 0 };
-
+            it('should insert banners every 5 elements for non-subscribers', () => {
                 expect(
                     strategy.shouldInsert({
-                        itemIndex: 1,
-                        bannerCounter,
+                        itemIndex: 4,
                         bannerIndex: 1,
-                        maxBanners
-                    })
-                ).toBe(true);
-            });
-
-            it('should not insert first banner before position 2', () => {
-                const bannerCounter = { current: 0 };
-
-                expect(
-                    strategy.shouldInsert({
-                        itemIndex: 0,
-                        bannerCounter,
-                        bannerIndex: 1,
-                        maxBanners
-                    })
-                ).toBe(false);
-            });
-
-            it('should insert subsequent banners every 4 elements after shift', () => {
-                const bannerCounter = { current: 1 };
-
-                expect(
-                    strategy.shouldInsert({
-                        itemIndex: 5,
-                        bannerCounter,
-                        bannerIndex: 2,
-                        maxBanners
+                        maxBanners,
+                        isSubscribed: false
                     })
                 ).toBe(true);
 
                 expect(
                     strategy.shouldInsert({
                         itemIndex: 9,
-                        bannerCounter,
-                        bannerIndex: 3,
-                        maxBanners
+                        bannerIndex: 2,
+                        maxBanners,
+                        isSubscribed: false
                     })
                 ).toBe(true);
             });
 
-            it('should not insert in non-matching positions after first banner', () => {
-                const bannerCounter = { current: 1 };
+            it('should insert banners every 8 elements for subscribers', () => {
+                expect(
+                    strategy.shouldInsert({
+                        itemIndex: 7,
+                        bannerIndex: 1,
+                        maxBanners,
+                        isSubscribed: true
+                    })
+                ).toBe(true);
 
-                [2, 3, 4, 6, 7, 8].forEach(index => {
+                expect(
+                    strategy.shouldInsert({
+                        itemIndex: 15,
+                        bannerIndex: 2,
+                        maxBanners,
+                        isSubscribed: true
+                    })
+                ).toBe(true);
+            });
+
+            it('should not insert non-subscriber banners outside 5 element intervals', () => {
+                [0, 1, 2, 3, 5, 6, 7, 8].forEach(index => {
                     expect(
                         strategy.shouldInsert({
                             itemIndex: index,
-                            bannerCounter,
-                            bannerIndex: 2,
-                            maxBanners
+                            bannerIndex: 1,
+                            maxBanners,
+                            isSubscribed: false
                         })
                     ).toBe(false);
                 });
             });
 
-            it('should not insert when shiftedIndex is negative', () => {
-                const bannerCounter = { current: 1 };
-
-                expect(
-                    strategy.shouldInsert({
-                        itemIndex: 1,
-                        bannerCounter,
-                        bannerIndex: 2,
-                        maxBanners
-                    })
-                ).toBe(false);
+            it('should not insert subscriber banners outside 8 element intervals', () => {
+                [0, 1, 2, 3, 4, 5, 6, 8, 9].forEach(index => {
+                    expect(
+                        strategy.shouldInsert({
+                            itemIndex: index,
+                            bannerIndex: 1,
+                            maxBanners,
+                            isSubscribed: true
+                        })
+                    ).toBe(false);
+                });
             });
 
             it('should not insert when exceeding maxBanners', () => {
-                const bannerCounter = { current: 0 };
-
                 expect(
                     strategy.shouldInsert({
-                        itemIndex: 1,
-                        bannerCounter,
+                        itemIndex: 4,
                         bannerIndex: 5,
-                        maxBanners
+                        maxBanners: 4,
+                        isSubscribed: false
                     })
                 ).toBe(false);
             });
@@ -220,7 +234,7 @@ describe('bannerStrategies', () => {
         });
 
         describe('banner insertion sequence', () => {
-            it('should follow expected full sequence for opinion subtype and respect maxBanners (after 2 elements, then every 4 → 0-based: 1, 5, 9, 13)', () => {
+            it('should follow the non-subscriber sequence every 5 elements', () => {
                 const bannerCounter = { current: 0 };
                 let bannerIndex = 1;
 
@@ -232,7 +246,8 @@ describe('bannerStrategies', () => {
                             itemIndex: i,
                             bannerCounter,
                             bannerIndex,
-                            maxBanners
+                            maxBanners,
+                            isSubscribed: false
                         })
                     ) {
                         insertPositions.push(i);
@@ -241,7 +256,32 @@ describe('bannerStrategies', () => {
                     }
                 }
 
-                expect(insertPositions).toEqual([1, 5, 9, 13]);
+                expect(insertPositions).toEqual([4, 9, 14, 19, 24, 29]);
+            });
+
+            it('should follow the subscriber sequence every 8 elements', () => {
+                const bannerCounter = { current: 0 };
+                let bannerIndex = 1;
+
+                const insertPositions = [];
+
+                for (let i = 0; i < 30; i++) {
+                    if (
+                        strategy.shouldInsert({
+                            itemIndex: i,
+                            bannerCounter,
+                            bannerIndex,
+                            maxBanners,
+                            isSubscribed: true
+                        })
+                    ) {
+                        insertPositions.push(i);
+                        bannerCounter.current++;
+                        bannerIndex++;
+                    }
+                }
+
+                expect(insertPositions).toEqual([7, 15, 23]);
             });
         });
     });

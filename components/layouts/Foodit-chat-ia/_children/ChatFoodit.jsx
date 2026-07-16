@@ -19,7 +19,7 @@ import { SourceLink } from './MessageContainer/SourceLink';
 import { FormContainer } from './formContainer';
 import { ButtonScroll } from './buttonScroll';
 import { ButtonNavigation } from './buttonNavigation';
-import { addEventToDataLayerV2 } from '../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../features/foodit-global/common/utils/pushFooditEvent';
 import { cleanUrl } from '../../../features/foodit-global/common/dataLayer/_helpers';
 import { getAuthTokens } from '../../../private/common/auth/helper/loginHelper';
 import { EmptyStateChat } from './emptyStateChat';
@@ -69,7 +69,7 @@ function ChatIaFoodit({ onSearchTermChange }) {
                 accessToken: accessTokenUser
             });
             const pageLocation = cleanUrl(`${SITE_FOODIT}${requestUri}`);
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 rest: {
                     event: 'enviar_consulta',
                     page_location: pageLocation,
@@ -131,7 +131,7 @@ function ChatIaFoodit({ onSearchTermChange }) {
 
     useEffect(() => {
         const pageLocation = cleanUrl(`${SITE_FOODIT}${requestUri}`);
-        addEventToDataLayerV2({
+        pushFooditEvent({
             rest: {
                 event: 'chat_open',
                 page_location: pageLocation

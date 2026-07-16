@@ -82,7 +82,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
     const containerClass = cx(
         'border-1 border-neutral-200 w-full box-content',
         !isOpeningVideo && orientation === 'vertical'
-            ? 'aspect-9/16 max-w-480'
+            ? 'aspect-9/16'
             : 'aspect-16/9',
         {
             'max-md:border-x-0 -mx-16 md:mx-0 w-[calc(100%+2rem)] md:w-full max-md:max-w-none':
@@ -92,7 +92,7 @@ function VideoPlayer({ data, hasAutoplay = false }) {
 
     return (
         <WrapperBody
-            variant={isOpeningVideo ? null : 'medium'}
+            variant={isOpeningVideo ? null : 'narrow'}
             className="mb-48"
         >
             <Static id="scriptJwVideoNote">

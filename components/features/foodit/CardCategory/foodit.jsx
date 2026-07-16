@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
@@ -11,6 +11,8 @@ import {
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { useGetImage } from './hooks/useGetImage';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
+import { isMobileWebView } from '../../foodit-global/common/utils/isMobileWebView';
+import { pushFooditEvent } from '../../foodit-global/common/utils/pushFooditEvent';
 
 function CardCategory({ id: featureId, isAdmin, customFields }) {
     const {
@@ -43,13 +45,24 @@ function CardCategory({ id: featureId, isAdmin, customFields }) {
         () => transformCategoryData({ title, url, rapida, facil }),
         [title, url, rapida, facil]
     );
+
+    const handleNavbarClick = useCallback(() => {
+        if (!isMobileWebView()) return;
+        pushFooditEvent({
+            event: 'navbar',
+            button: modifiedTitle,
+            label: cardCategoryLabel
+        });
+    }, [modifiedTitle, cardCategoryLabel]);
+
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
 
     return (
         <Static id={featureId}>
-            <div className="h-100">
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
+            <div className="h-100" onClick={handleNavbarClick}>
                 <Category
                     title={modifiedTitle}
                     imageProps={{

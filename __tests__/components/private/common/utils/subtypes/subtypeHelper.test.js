@@ -4,7 +4,11 @@ import {
     translateStringFromSubitypeToID,
     shouldPreloadForSubtype,
     CARDS,
-    NOTICIA
+    NOTICIA,
+    OPINION,
+    STORYTELLING,
+    FOTOAL100,
+    INFOGRAFIA
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
@@ -156,11 +160,14 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
 
     describe('shouldPreloadForSubtype', () => {
         it('Should return false when subtype is excluded', () => {
-            expect(shouldPreloadForSubtype(CARDS)).toBe(false);
+            [CARDS, NOTICIA, OPINION, STORYTELLING].forEach(subtype => {
+                expect(shouldPreloadForSubtype(subtype)).toBe(false);
+            });
         });
 
         it('Should return true when subtype is not excluded', () => {
-            expect(shouldPreloadForSubtype(NOTICIA)).toBe(true);
+            expect(shouldPreloadForSubtype(INFOGRAFIA)).toBe(true);
+            expect(shouldPreloadForSubtype(FOTOAL100)).toBe(true);
         });
 
         it('Should return true when subtype is empty', () => {

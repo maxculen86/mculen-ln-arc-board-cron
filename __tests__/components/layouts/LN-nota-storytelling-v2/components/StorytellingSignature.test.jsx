@@ -5,6 +5,7 @@ import { useSignature } from '../../../../../components/features/LN/DS-Signature
 import { getAuthorsNameAndLink } from '../../../../../components/private/common/utils/firmaHelper';
 import { getAuthorData } from '../../../../../components/features/LN-nota/signature/signatureHelper';
 import StorytellingSignature from '../../../../../components/layouts/LN-nota-storytelling-v2/components/StorytellingSignature';
+import { IMAGE_100_DIAGRAMS } from '../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/helpers/diagramConstants';
 
 jest.mock('@ln/contenidos-ui-author', () => ({ Author: jest.fn() }));
 jest.mock(
@@ -29,6 +30,19 @@ const MULTI_AUTHORS = [
     { name: 'Jane Doe', link: '/autor/jane-doe' },
     { name: 'John Smith', link: '/autor/john-smith' }
 ];
+
+const SUBHEADLINE = 'Un copete de prueba para mobile';
+const GLOBAL_CONTENT_WITH_SUBHEADLINE = {
+    ...GLOBAL_CONTENT,
+    subheadlines: { basic: SUBHEADLINE }
+};
+
+const withDiagram = diagram => ({
+    ...GLOBAL_CONTENT_WITH_SUBHEADLINE,
+    promo_items: {
+        custom_storytelling_opening: { embed: { config: { diagram } } }
+    }
+});
 
 const realGetAuthorData = (author, authors, key) =>
     author ? author[key] : authors.map(a => a[key]);
@@ -92,7 +106,75 @@ describe('StorytellingSignature', () => {
             );
 
             expect(container.firstChild.className).toContain('flex');
-            expect(container.firstChild.className).toContain('jc-center');
+            expect(container.firstChild.className).toContain('justify-center');
+            expect(container.firstChild.className).toContain('items-center');
+        });
+    });
+
+    describe('mobile subheadline', () => {
+        beforeEach(() => {
+            useSignature.mockReturnValue({ authors: [SINGLE_AUTHOR] });
+            getAuthorsNameAndLink.mockReturnValue({ author: SINGLE_AUTHOR });
+            getAuthorData.mockImplementation(realGetAuthorData);
+        });
+
+        it('should render the subheadline paragraph when subheadlines.basic exists', () => {
+            render(
+                <StorytellingSignature
+                    globalContent={GLOBAL_CONTENT_WITH_SUBHEADLINE}
+                />
+            );
+
+            expect(screen.getByText(SUBHEADLINE)).toBeInTheDocument();
+        });
+
+        it('should hide the subheadline from md up via md:hidden when it exists', () => {
+            render(
+                <StorytellingSignature
+                    globalContent={GLOBAL_CONTENT_WITH_SUBHEADLINE}
+                />
+            );
+
+            expect(screen.getByText(SUBHEADLINE)).toHaveClass('md:hidden');
+        });
+
+        it('should not render the subheadline paragraph when subheadlines.basic is empty', () => {
+            render(<StorytellingSignature globalContent={GLOBAL_CONTENT} />);
+
+            expect(screen.queryByText(SUBHEADLINE)).not.toBeInTheDocument();
+        });
+
+        it.each(IMAGE_100_DIAGRAMS)(
+            'should render the subheadline when diagram is %s',
+            diagram => {
+                render(
+                    <StorytellingSignature
+                        globalContent={withDiagram(diagram)}
+                    />
+                );
+
+                expect(screen.getByText(SUBHEADLINE)).toBeInTheDocument();
+            }
+        );
+
+        it('should not render the subheadline when diagram is image-panoramic', () => {
+            render(
+                <StorytellingSignature
+                    globalContent={withDiagram('image-panoramic')}
+                />
+            );
+
+            expect(screen.queryByText(SUBHEADLINE)).not.toBeInTheDocument();
+        });
+
+        it('should not render the subheadline when diagram is image-50-right-title-left', () => {
+            render(
+                <StorytellingSignature
+                    globalContent={withDiagram('image-50-right-title-left')}
+                />
+            );
+
+            expect(screen.queryByText(SUBHEADLINE)).not.toBeInTheDocument();
         });
     });
 
@@ -155,6 +237,20 @@ describe('StorytellingSignature', () => {
 
             const { asFragment } = render(
                 <StorytellingSignature globalContent={GLOBAL_CONTENT} />
+            );
+
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('matches snapshot with a subheadline on mobile', () => {
+            useSignature.mockReturnValue({ authors: [SINGLE_AUTHOR] });
+            getAuthorsNameAndLink.mockReturnValue({ author: SINGLE_AUTHOR });
+            getAuthorData.mockImplementation(realGetAuthorData);
+
+            const { asFragment } = render(
+                <StorytellingSignature
+                    globalContent={GLOBAL_CONTENT_WITH_SUBHEADLINE}
+                />
             );
 
             expect(asFragment()).toMatchSnapshot();

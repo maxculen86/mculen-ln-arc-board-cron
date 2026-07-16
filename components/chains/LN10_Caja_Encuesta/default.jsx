@@ -21,8 +21,12 @@ function CajaEncuesta({ customFields = {}, renderables = [], isAdmin }) {
         testDigits = [],
         controlDigits = [],
         boxLocation = BOX_LOCATIONS.CAJA_1,
-        encuestaPostId = 0
+        encuestaPostId = 0,
+        isHidden = false
     } = customFields;
+
+    if (isHidden) return null;
+
     const { segment, ready } = useNotaSegment({
         experimentName: ENCUESTA_HOME_EXPERIMENT_NAME,
         testDigits,
@@ -89,6 +93,11 @@ CajaEncuesta.defaultProps = {
 
 CajaEncuesta.propTypes = {
     customFields: PropTypes.shape({
+        isHidden: PropTypes.boolean.tag({
+            name: 'Ocultar Caja',
+            description: 'Marque para ocultar la caja',
+            defaultValue: false
+        }),
         testDigits: PropTypes.list.tag({
             label: 'Ultimo digito del Client ID - TEST',
             defaultValue: [],

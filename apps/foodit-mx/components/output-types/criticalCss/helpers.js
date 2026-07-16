@@ -1,27 +1,13 @@
-import { fontFaceLn10 } from '../../features/LN-10-global/fontFace/default';
-import sitePropertiesLN from '../../../properties/sites/la-nacion-ar';
 import { fontFaceFoodit } from '../../features/foodit-global/common/fontFace/foodit';
 import get from '../../private/common/utils/get';
 
-const { layoutsName: layoutsNameLN = {} } = sitePropertiesLN || {};
-
 export const criticalCssPathsBySite = {
-    'la-nacion-ar': {
-        [layoutsNameLN.HomeLN10]:
-            'resources/dist/css/ln/pages/ln10-home-critical.css',
-        default: 'resources/dist/css/ln/pages/critical-internas.css'
-    },
     foodit: {
         default: 'resources/dist/css/foodit/base/index.css'
     }
 };
 
 export const cssPathsBySiteAndLayout = {
-    'la-nacion-ar': {
-        [layoutsNameLN.HomeLN10]:
-            'resources/dist/css/ln/pages/ln10-home-main.css',
-        default: ''
-    },
     foodit: {
         default: 'resources/packages/css/@ln/foodit-ui-logo/index.css'
     }
@@ -30,10 +16,6 @@ export const cssPathsBySiteAndLayout = {
 export const stylesFormat = (fonts = '', styles = '') => `${fonts}${styles}`;
 
 export const fontsBySite = (contextPath, deployment) => ({
-    'la-nacion-ar': fontFaceLn10({
-        contextPath,
-        deployment
-    }),
     foodit: fontFaceFoodit({
         contextPath,
         deployment

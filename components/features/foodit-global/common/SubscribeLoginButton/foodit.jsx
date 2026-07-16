@@ -8,7 +8,7 @@ import { useOnClickOutside } from '@ln/hooks';
 import { cx } from '@ln/ds-cva';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import getButtonCategory from './helpers/getButtonCategory';
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 import { SubscribeButton } from './components/subscribeButton';
 import { LoginButton } from './components/loginButton';
 
@@ -65,7 +65,7 @@ function LoginSubscribeButtons({
         requestAnimationFrame(() => {
             window.location.href = href;
         });
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'subscription_start',
             button: categoryEvent
         });
@@ -76,7 +76,7 @@ function LoginSubscribeButtons({
         requestAnimationFrame(() => {
             window.location.href = href;
         });
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             action: 'N/A',
             category: categoryEvent,

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Badge } from '@ln/contenidos-ui-badge';
 import { useAppContext } from 'fusion:context';
 import { Divider } from '@ln/ds-common-divider';
 import { cx } from '@ln/ds-cva';
 import get from '../../../../../private/common/utils/get';
 import LogoImage from '../../../../../features/ui/ln/logoImage/default';
+import IconSubscribe from '../../../../../features/LN/common/iconSubscribe/default';
 import {
     dictionaryAlt,
     getSectionLogo,
@@ -13,6 +13,7 @@ import {
 } from '../../../../../private/common/utils/sectionUtils';
 import getTargetAndRelIfExternal from '../../../../../private/common/utils/getTargetAndRelIfExternal';
 import { appendPageReferrerParam } from '../../../../../private/LN/common/utils/pageReferrer';
+import { LIGHT_BACKGROUND_DIAGRAMS } from '../helpers/diagramConstants';
 
 function OpeningAddons({
     globalContent = {},
@@ -36,7 +37,11 @@ function OpeningAddons({
         color = true,
         isExternal = false
     } = logoData;
-    const withColor = ['image-panoramic'].includes(diagram) || color;
+
+    const hasLightBackground = LIGHT_BACKGROUND_DIAGRAMS.some(
+        lightBackgroundDiagram => lightBackgroundDiagram === diagram
+    );
+    const withColor = hasLightBackground || color;
     const sponsor = !withColor && logoName ? `${logoName}-blanco` : logoName;
     const logoAlt = dictionaryAlt[logoName] || logoName;
 
@@ -59,10 +64,16 @@ function OpeningAddons({
     const showDividerContentLab = showContentLab && isSubscriberContent;
     if (!hasAddons) return null;
 
+    // La chapita de suscriptores queda en fila junto al logo/divider tambien en
+    // mobile; el resto de las distribuciones se sigue apilando como estaba.
+    const stackOnMobile = !isSubscriberContent;
+    const dividerClassName = stackOnMobile ? 'hidden md:block' : '';
+
     return (
         <div
             className={cx(
-                'flex items-center justify-center gap-8 flex-col md:flex-row',
+                'flex items-center justify-center gap-8',
+                stackOnMobile && 'flex-col md:flex-row',
                 classnames.container
             )}
         >
@@ -82,7 +93,7 @@ function OpeningAddons({
             )}
 
             {showDividerSponsor && (
-                <Divider className="hidden md:block" direction="vertical" />
+                <Divider className={dividerClassName} direction="vertical" />
             )}
 
             {/* Content Lab */}
@@ -96,12 +107,25 @@ function OpeningAddons({
             )}
 
             {showDividerContentLab && (
-                <Divider className="hidden md:block" direction="vertical" />
+                <Divider className={dividerClassName} direction="vertical" />
             )}
 
             {/* Suscriptores */}
             {isSubscriberContent && (
-                <Badge type="subscriber">Suscriptores</Badge>
+                <span
+                    className={cx(
+                        'inline-flex items-center gap-4',
+                        hasLightBackground
+                            ? 'text-base-default'
+                            : 'text-neutral-1'
+                    )}
+                    title="Este es un contenido cerrado a suscriptores"
+                >
+                    <IconSubscribe containerProps={{ withBorder: false }} />
+                    <strong className="font-bold text-body-sm">
+                        Suscriptores
+                    </strong>
+                </span>
             )}
         </div>
     );

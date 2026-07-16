@@ -170,19 +170,13 @@ export const transformPromoItems = async ({
     arcSite,
     configCallbacks,
     promoItemObject = {},
-    showGlossary,
     sections
 }) => {
     const isValidSectionForIA = isValidSectionIA(sections);
     const promoItemObjectCopy = { ...promoItemObject };
 
     if (!isValidSectionForIA) {
-        delete promoItemObjectCopy.glossary;
         delete promoItemObjectCopy.summary;
-    }
-
-    if (!showGlossary) {
-        delete promoItemObjectCopy.glossary;
     }
 
     const promiseArr = [];
@@ -299,7 +293,7 @@ export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
         ) ||
             get(
                 siteProperties,
-                'imageConfig.resize.fotoAl100.promo_items',
+                'imageConfig.resize.image-50-right-title-left.promo_items',
                 null
             ));
     const presetsContentElementsFotoAl100 =
@@ -427,8 +421,6 @@ export const transform = async (response, query, cachedCall) => {
     const sections = get(response, 'taxonomy.sections', []);
     const authors = get(response, 'credits.by', []);
     const layout = 'LN-nota-noticia';
-    const notShowGlossary =
-        get(response, 'label.glosario_nota.text', 'No') === 'No';
 
     const avatarWWW =
         isInApertura && (!subtype || !isFotoAl100orStorytelling(subtype));
@@ -457,14 +449,6 @@ export const transform = async (response, query, cachedCall) => {
         withSponsoredLink,
         articlePath,
         baseOrigin,
-        glossary:
-            !notShowGlossary && isValidSectionIA(sections)
-                ? get(
-                      response,
-                      'promo_items.glossary.embed.config.arrayData',
-                      []
-                  )
-                : [],
         isShowGalleryEmbed: isFotoAl100orStorytelling(subtype)
     };
 
@@ -475,7 +459,6 @@ export const transform = async (response, query, cachedCall) => {
                 arcSite,
                 configCallbacks: configPromoItems,
                 promoItemObject: get(result, 'promo_items', {}),
-                showGlossary: !notShowGlossary,
                 sections
             }),
             transformContentElements({

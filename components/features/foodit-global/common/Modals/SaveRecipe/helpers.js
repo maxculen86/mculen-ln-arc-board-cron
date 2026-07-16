@@ -1,4 +1,4 @@
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../utils/pushFooditEvent';
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { toggleBookmarks } from '../../bookmark/iconHelper';
@@ -92,7 +92,7 @@ export const addSavedBookmarksToDataLayer = ({
                 ? dataLayerContainerDictionary[layout]
                 : dataLayerLayoutDictionary[layout] || '';
 
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'e_linkclick',
             category: 'interaction',
             origin,

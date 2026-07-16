@@ -2,12 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import OpeningImagePanoramic from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningImagePanoramic';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({
-        deployment: jest.fn(path => path),
-        contextPath: '/pf'
-    }))
-}));
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({
+            deployment: jest.fn(path => path),
+            contextPath: '/pf'
+        }))
+    }),
+    { virtual: true }
+);
 
 jest.mock(
     '../../../../../../../components/features/ui/ln/image/default',
@@ -285,7 +289,7 @@ describe('OpeningImagePanoramic', () => {
             expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
         });
 
-        it('should render video with cover classes', () => {
+        it('should render video with cover classes and without opacity', () => {
             const { container } = render(
                 <OpeningImagePanoramic
                     {...mockProps}
@@ -294,12 +298,8 @@ describe('OpeningImagePanoramic', () => {
                 />
             );
             const video = container.querySelector('video');
-            expect(video).toHaveClass(
-                'w-full',
-                'h-full',
-                'object-cover',
-                'opacity-60'
-            );
+            expect(video).toHaveClass('w-full', 'h-full', 'object-cover');
+            expect(video).not.toHaveClass('opacity-60');
         });
 
         it('should not render the media section when neither src nor videoUrl is provided', () => {

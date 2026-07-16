@@ -216,10 +216,6 @@ const labels = `
             display
             text
         }
-        glosario_nota {
-            display
-            text
-        }
         mostrar_caja_autores{
             ${label}
         }
@@ -345,6 +341,7 @@ subtype
     embed {
         config {
             diagram
+            opacity
         }   
     }
 `;
@@ -416,19 +413,6 @@ const customSummary = `
         config {
             arrayBullets
         }
-    }
-`;
-
-const customGlossary = ` 
-    _id
-    embed {
-        config {
-            arrayData 
-            {
-            key
-            value
-            }
-        } 
     }
 `;
 
@@ -526,9 +510,6 @@ export default `
         }
         custom_storytelling_opening {
         ${openingStorytelling}
-        }
-        glossary {          
-            ${customGlossary}
         }
        Storytelling {
             _id

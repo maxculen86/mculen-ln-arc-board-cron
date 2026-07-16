@@ -26,7 +26,8 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         videoUrl,
         posterUrl,
         mobileImageData,
-        diagram = DEFAULT_DIAGRAM
+        diagram = DEFAULT_DIAGRAM,
+        withOpacity = true
     } = getOpeningMediaData(promoItems, title1);
 
     const sharedProps = {
@@ -40,6 +41,7 @@ function Opening({ globalContent = {}, layout = '', children = [] }) {
         videoUrl,
         posterUrl,
         mobileImageData,
+        withOpacity,
         globalContent,
         layout,
         title1,

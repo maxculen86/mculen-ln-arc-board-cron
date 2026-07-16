@@ -3,7 +3,7 @@ import { NewsletterActionButton } from './NewsletterActionButtons';
 import { addToast, TOAST } from '../../bookmark/api/_helper';
 import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHelper';
 import { postNewsletter } from '../helpers/helpers';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../utils/pushFooditEvent';
 
 export function NewsletterSubscriptionButton({
     id,
@@ -36,7 +36,7 @@ export function NewsletterSubscriptionButton({
                 setSelected(!selected);
 
                 if (isSubscribing) {
-                    addEventToDataLayerV2({
+                    pushFooditEvent({
                         event: 'e_linkclick',
                         action: 'newsletter',
                         category,

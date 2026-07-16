@@ -21,8 +21,11 @@ function OpeningImage100({
     title1 = '',
     title2 = '',
     subheadline = '',
-    hasStorytellingMobile = false
+    hasStorytellingMobile = false,
+    withOpacity = true
 }) {
+    const hasMedia = Boolean(videoUrl || src);
+
     const variant = diagram.split('title-')[1];
 
     const wrapperClass = openingImage100Variants.wrapper({ variant });
@@ -32,27 +35,30 @@ function OpeningImage100({
     return (
         <section
             className={cx(
-                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark mb-16 md:mb-56',
+                'relative w-screen overflow-hidden -translate-x-1/2 left-1/2 bg-black-dark md:mb-56',
                 sectionHeight
             )}
             data-diagram={diagram}
         >
-            <OpeningMedia
-                videoUrl={videoUrl}
-                posterUrl={posterUrl}
-                src={src}
-                srcset={srcset}
-                sizes={sizes}
-                width={width}
-                height={height}
-                altText={altText}
-                mobileImage={
-                    hasStorytellingMobile && mobileImageData?.src
-                        ? mobileImageData
-                        : undefined
-                }
-                classname="absolute inset-0"
-            />
+            {hasMedia && (
+                <OpeningMedia
+                    videoUrl={videoUrl}
+                    posterUrl={posterUrl}
+                    src={src}
+                    srcset={srcset}
+                    sizes={sizes}
+                    width={width}
+                    height={height}
+                    altText={altText}
+                    mobileImage={
+                        hasStorytellingMobile && mobileImageData?.src
+                            ? mobileImageData
+                            : undefined
+                    }
+                    classname="absolute inset-0"
+                    withOpacity={withOpacity}
+                />
+            )}
             <div className={wrapperClass}>
                 <div className={containerClass}>
                     <OpeningAddons
@@ -67,7 +73,7 @@ function OpeningImage100({
                         h2Props={{ text: title2, className: 'text-neutral-1' }}
                     />
                     {subheadline && (
-                        <p className="font-primary text-neutral-1 text-subheading-md">
+                        <p className="font-primary text-neutral-1 text-subheading-md max-md:hidden">
                             {subheadline}
                         </p>
                     )}

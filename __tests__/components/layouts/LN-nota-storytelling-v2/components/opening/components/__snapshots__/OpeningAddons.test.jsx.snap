@@ -3,13 +3,26 @@
 exports[`OpeningAddons snapshots snapshot  1`] = `
 <div>
   <div
-    class="flex items-center justify-center gap-8 flex-col md:flex-row"
+    class="flex items-center justify-center gap-8"
   >
     <span
-      data-testid="badge"
-      data-type="subscriber"
+      class="inline-flex items-center gap-4 text-neutral-1"
+      title="Este es un contenido cerrado a suscriptores"
     >
-      Suscriptores
+      <div
+        class="flex items-center justify-center h-24 w-24 rounded-full bg-warning-default"
+      >
+        <mock-ds-common-icon
+          fill="--color-primary-dark"
+          name="logo-suscriptores"
+          size="14"
+        />
+      </div>
+      <strong
+        class="font-bold text-body-sm"
+      >
+        Suscriptores
+      </strong>
     </span>
   </div>
 </div>

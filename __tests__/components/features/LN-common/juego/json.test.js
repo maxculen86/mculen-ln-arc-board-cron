@@ -2,7 +2,7 @@ import * as fusionConsumer from 'fusion:consumer';
 import * as Juegos from '../../../../../components/features/LN-common/Juego/json';
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         const newComponent = component;
         // Mock fetchContent
         newComponent.prototype.fetchContent = jest.fn();
@@ -64,6 +64,86 @@ describe('components - features - LN-common - Juegos - json.js', () => {
             expect(result.Message).toBe(
                 `Cannot read properties of null (reading 'customFields')`
             );
+        });
+    });
+
+    describe('gameType Interno/Externo', () => {
+        beforeEach(() => {
+            Juegos.default.prototype.fetchContent.mockClear();
+        });
+
+        it('When gameType is Externo should use sectionId and not fetch content', () => {
+            const externoProps = {
+                ...props,
+                customFields: {
+                    ...props.customFields,
+                    gameType: 'Externo'
+                }
+            };
+            const objArticle = new Juegos.default(externoProps);
+            const result = objArticle.render();
+
+            expect(
+                Juegos.default.prototype.fetchContent
+            ).not.toHaveBeenCalled();
+            expect(result.id).toBe('/juegos/crucigrama');
+        });
+
+        it('When gameType is Interno should fetch lnAcuSource', () => {
+            const internoProps = {
+                ...props,
+                customFields: {
+                    ...props.customFields,
+                    gameType: 'Interno'
+                }
+            };
+            new Juegos.default(internoProps);
+
+            expect(Juegos.default.prototype.fetchContent).toHaveBeenCalledWith({
+                lnAcuSource: {
+                    source: 'lnAcuSource',
+                    query: {
+                        sectionId: '/juegos/crucigrama',
+                        size: 1,
+                        website: 'la-nacion-ar'
+                    }
+                }
+            });
+        });
+
+        it('When gameType is Interno should use article link as id', () => {
+            const internoProps = {
+                ...props,
+                customFields: {
+                    ...props.customFields,
+                    gameType: 'Interno'
+                }
+            };
+            const objArticle = new Juegos.default(internoProps);
+            objArticle.state = {
+                lnAcuSource: {
+                    content_elements: [
+                        { website_url: '/juegos/criptograma/articulo' }
+                    ]
+                }
+            };
+            const result = objArticle.render();
+
+            expect(result.id).toBe('/juegos/criptograma/articulo/');
+        });
+
+        it('When gameType is Interno without article data should fallback to sectionId', () => {
+            const internoProps = {
+                ...props,
+                customFields: {
+                    ...props.customFields,
+                    gameType: 'Interno'
+                }
+            };
+            const objArticle = new Juegos.default(internoProps);
+            const result = objArticle.render();
+
+            expect(result.id).toBe('/juegos/crucigrama');
         });
     });
 });

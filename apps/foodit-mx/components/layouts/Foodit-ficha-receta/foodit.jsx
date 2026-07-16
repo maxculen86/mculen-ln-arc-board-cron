@@ -1,6 +1,6 @@
-// Forked from: components/layouts/Foodit-ficha-receta/foodit.jsx
-// Fork date: 2026-06-10
-// Direct copy with minimal adaptations: imports and layout registration only.
+// Migrated from: components/layouts/Foodit-ficha-receta/foodit.jsx
+// Migration date: 2026-06-10
+// Strategy: direct copy — minimal adaptations (imports + layout registration only).
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';

@@ -2,12 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import OpeningImage100 from '../../../../../../../components/layouts/LN-nota-storytelling-v2/components/opening/components/OpeningImage100';
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn(() => ({
-        deployment: jest.fn(path => path),
-        contextPath: '/pf'
-    }))
-}));
+jest.mock(
+    'fusion:context',
+    () => ({
+        useAppContext: jest.fn(() => ({
+            deployment: jest.fn(path => path),
+            contextPath: '/pf'
+        }))
+    }),
+    { virtual: true }
+);
 
 jest.mock(
     '../../../../../../../components/features/ui/ln/image/default',
@@ -295,6 +299,21 @@ describe('OpeningImage100', () => {
             expect(
                 screen.queryByAltText('Article image')
             ).not.toBeInTheDocument();
+        });
+    });
+
+    describe('null guard', () => {
+        it('should render titles when neither src nor videoUrl is provided', () => {
+            const { container } = render(
+                <OpeningImage100 {...mockProps} src="" videoUrl="" />
+            );
+            expect(container.querySelector('section')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-addons')).toBeInTheDocument();
+            expect(screen.getByTestId('opening-titles')).toBeInTheDocument();
+            expect(
+                screen.queryByAltText('Article image')
+            ).not.toBeInTheDocument();
+            expect(container.querySelector('video')).not.toBeInTheDocument();
         });
     });
 

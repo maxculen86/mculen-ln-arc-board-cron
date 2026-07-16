@@ -38,3 +38,6 @@ export const sectionHeight = cx(
     'md:h-[calc(100vh-var(--header-sticky-height)-var(--header-navbar-height))]',
     'xl:h-[calc(100vh-var(--header-sticky-height))]'
 );
+
+export const BASE_COVER_CLASS = 'w-full h-full object-cover';
+export const OPACITY_CLASS = 'opacity-60';

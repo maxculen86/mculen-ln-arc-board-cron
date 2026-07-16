@@ -1,0 +1,210 @@
+{
+  "aprende-en-la-cocina": [
+    {
+      "title": "Tutoriales de cocina salada",
+      "href": "/tema/tutorial-cocina-salada/?query=recetas&title=Tutorial%20Cocina%20Salada&groups=occasions&itemGroups=Tutorial%20Cocina%20Salada",
+      "trackingLabel": "tutoriales_de_cocina_salada",
+      "src": "tutoriales-salada.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Tutoriales de pastelería",
+      "href": "/tema/tutorial-pasteler%C3%ADa/?query=recetas&title=Tutorial%20Pasteler%C3%ADa&groups=occasions&itemGroups=Tutorial%20Pasteler%C3%ADa",
+      "trackingLabel": "tutoriales_de_pasteleria",
+      "src": "tutoriales-pasteleria.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Masterclass de chef",
+      "href": "/masterclass/",
+      "trackingLabel": "masterclass_de_chef",
+      "src": "masterclass.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Guías de cocina",
+      "href": "/guias-de-cocina/",
+      "trackingLabel": "guias_de_cocina",
+      "src": "guias.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Recomendaciones del chef",
+      "href": "/chefs/",
+      "trackingLabel": "recomendaciones_del_chef",
+      "src": "recomendaciones-chef.webp",
+      "classNames": "min-h-80 min-h-100_md min-h-80_lg",
+      "container": "double"
+    },
+    {
+      "title": "Trucos y secretos",
+      "href": "/trucos/",
+      "trackingLabel": "trucos_y_secretos",
+      "src": "trucos-y-secretos.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Protocolo en la mesa",
+      "href": "/protocolo/",
+      "trackingLabel": "protocolo_en_la_mesa",
+      "src": "protocolo.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    }
+  ],
+  "cocina-facil": [
+    {
+      "title": "Meal prep",
+      "href": "/recetas/que-cocinar-hoy/meal-prep/",
+      "trackingLabel": "meal_prep",
+      "src": "mealprep.webp",
+      "classNames": "min-h-80 min-h-100_md min-h-80_lg",
+      "container": "double"
+    },
+    {
+      "title": "Recetas fáciles",
+      "href": "/recetas/que-cocinar-hoy/facil/",
+      "trackingLabel": "recetas_faciles",
+      "src": "recetas-faciles.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    },
+    {
+      "title": "Recetas rápidas",
+      "href": "/recetas/que-cocinar-hoy/rapida/",
+      "trackingLabel": "recetas_rapidas",
+      "src": "recetas-rapidas.webp",
+      "classNames": "min-h-100 min-h-80_lg"
+    }
+  ],
+  "cocina-a-tu-medida": [
+    {
+      "title": "Menú semanal",
+      "href": "/menu-semanal/",
+      "trackingLabel": "menu_semanal",
+      "src": "menu-semanal.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Ingredientes de cocina",
+      "href": "/ingredientes/",
+      "trackingLabel": "ingredientes_de_cocina",
+      "src": "ingredientes-cocina.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Vegetariana",
+      "href": "/recetas/dieta/vegetariana/",
+      "trackingLabel": "recetas_vegetariana",
+      "src": "vegetariana.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Sin gluten",
+      "href": "/recetas/dieta/sin-gluten/",
+      "trackingLabel": "recetas_sin_gluten",
+      "src": "sin-gluten.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Keto",
+      "href": "/recetas/dieta/keto/",
+      "trackingLabel": "recetas_keto",
+      "src": "keto.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Sin lactosa",
+      "href": "/recetas/dieta/sin-lactosa/",
+      "trackingLabel": "recetas_sin_lactosa",
+      "src": "sin-lactosa.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Vegana",
+      "href": "/recetas/dieta/vegana/",
+      "trackingLabel": "recetas_vegana",
+      "src": "vegana.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Saludable",
+      "href": "/recetas/que-cocinar-hoy/saludable/",
+      "trackingLabel": "recetas_saludable",
+      "src": "saludable.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    }
+  ],
+  "receta": [
+    {
+      "title": "Saladas",
+      "href": "/recetas/saladas/",
+      "trackingLabel": "saladas",
+      "src": "saladas.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Dulces",
+      "href": "/recetas/dulces/",
+      "trackingLabel": "dulces",
+      "src": "dulces.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "De autor",
+      "href": "/recetas/que-cocinar-hoy/de-autor/",
+      "trackingLabel": "de_autor",
+      "src": "autor.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Bebidas",
+      "href": "/recetas/bebidas/",
+      "trackingLabel": "bebidas",
+      "src": "bebidas.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Tendencias en la cocina",
+      "href": "/tendencias/",
+      "trackingLabel": "tendencias-en-la-cocina",
+      "src": "tendencias-cocina.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    },
+    {
+      "title": "Chefs protagonistas",
+      "href": "/chefs-protagonistas/",
+      "trackingLabel": "chefs-protagonistas",
+      "src": "chefs-protagonistas.webp",
+      "classNames": "min-h-100 min-h-80_lg col-span-4_md"
+    }
+  ],
+   "ejes-home": [
+    {
+      "title": "Aprendé en la cocina",
+      "href": "/aprende-en-la-cocina/",
+      "trackingLabel": "aprende_a_cocinar",
+      "src": "aprende.webp",
+      "classNames": "min-h-full hover:text-primary-light"
+    },
+    {
+      "title": "Cociná fácil y rápido",
+      "href": "/cocina-facil-y-rapido/",
+      "trackingLabel": "cocina_facil",
+      "src": "cocina-facil.webp",
+      "classNames": "min-h-full hover:text-primary-light"
+    },
+    {
+      "title": "Cociná a tu medida",
+      "href": "/cocina-a-tu-medida/",
+      "trackingLabel": "cocina_a_tu_manera",
+      "src": "cocina-a-tu-medida.webp",
+      "classNames": "min-h-full hover:text-primary-light"
+    },
+    {
+      "title": "Todas las recetas",
+      "href": "/recetas/",
+      "trackingLabel": "recetas",
+      "src": "recetas.webp",
+      "classNames": "min-h-full hover:text-primary-light"
+    }
+  ]
+}

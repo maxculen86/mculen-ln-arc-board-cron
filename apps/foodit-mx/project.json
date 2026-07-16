@@ -6,6 +6,13 @@
     "sourceRoot": "apps/foodit-mx",
     "tags": ["type:app", "scope:foodit"],
     "targets": {
+        "serve": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npm start",
+                "cwd": "apps/foodit-mx"
+            }
+        },
         "build": {
             "executor": "nx:run-commands",
             "options": {
@@ -23,8 +30,8 @@
         "test": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "jest --passWithNoTests",
-                "cwd": "apps/foodit-mx"
+                "command": "jest apps/foodit-mx --passWithNoTests",
+                "cwd": "."
             }
         }
     }

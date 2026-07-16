@@ -1,8 +1,8 @@
 import React from 'react';
 import { cx } from '@ln/ds-cva';
+import { BASE_COVER_CLASS, OPACITY_CLASS } from './styles';
 import ImageUI from '../../../../../features/ui/ln/image/default';
-
-const COVER_CLASS = 'w-full h-full object-cover opacity-60';
+import getPictureSources from '../helpers/getPictureSources';
 
 function OpeningMedia({
     videoUrl,
@@ -14,9 +14,12 @@ function OpeningMedia({
     height,
     altText,
     mobileImage,
-    classname = ''
+    classname = '',
+    withOpacity = true
 }) {
     if (!videoUrl && !src) return null;
+
+    const COVER_CLASS = cx(BASE_COVER_CLASS, withOpacity && OPACITY_CLASS);
 
     const {
         src: mobileSrc,
@@ -64,43 +67,49 @@ function OpeningMedia({
         );
     }
 
-    return (
-        <>
-            {hasMobile && (
-                <ImageUI
-                    alt={mobileAltText}
-                    src={mobileSrc}
-                    srcSet={mobileSrcset}
-                    sizes={mobileSizes}
-                    width={mobileWidth}
-                    height={mobileHeight}
-                    renderImgOnly
-                    classnames={{
-                        image: cx(COVER_CLASS, classname, 'md:hidden')
-                    }}
-                    fetchPriority="high"
-                    loading="eager"
-                />
-            )}
+    if (hasMobile) {
+        return (
             <ImageUI
-                alt={altText}
+                alt={altText || mobileAltText}
                 src={src}
                 srcSet={srcset}
                 sizes={sizes}
                 width={width}
                 height={height}
-                renderImgOnly
+                sources={getPictureSources({
+                    src,
+                    srcset,
+                    sizes,
+                    mobileSrc,
+                    mobileSrcset,
+                    mobileSizes
+                })}
                 classnames={{
-                    image: cx(
-                        COVER_CLASS,
-                        classname,
-                        hasMobile ? 'hidden md:block' : ''
-                    )
+                    wrapper: classname,
+                    image: COVER_CLASS
                 }}
+                hidePlaceholder
                 fetchPriority="high"
                 loading="eager"
             />
-        </>
+        );
+    }
+
+    return (
+        <ImageUI
+            alt={altText}
+            src={src}
+            srcSet={srcset}
+            sizes={sizes}
+            width={width}
+            height={height}
+            renderImgOnly
+            classnames={{
+                image: cx(COVER_CLASS, classname)
+            }}
+            fetchPriority="high"
+            loading="eager"
+        />
     );
 }
 
