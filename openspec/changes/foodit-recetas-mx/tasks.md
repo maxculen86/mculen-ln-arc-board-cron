@@ -486,12 +486,15 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 > **Spec**: D5 deploy progresivo | **US ADO**: 173249
 > ⚠️ Antes de `fusion start` local: ver `design.md` § Risks/Trade-offs — 2 hallazgos operativos (mocks del admin de PageBuilder faltantes en `apps/foodit-mx/mocks/`; version-pinning `FUSION_RELEASE`↔Mongo) que causan crashes que no parecen tener relación con esta fase si no se conocen de antemano.
 
--   [ ] 7.1 Ejecutar `fusion start` en `apps/foodit-mx/` completo (output-type + layouts + componentes + content sources)
+-   [x] 7.1 Ejecutar `fusion start` en `apps/foodit-mx/` completo (output-type + layouts + componentes + content sources)
+    > ✅ Verificado (2026-07-15): `npm run build-dev` compila sin errores; `fusion start` levanta los 9 contenedores (`webpack`, `cache-proxy`, `origin`, `engine`, `content-cache`, `fusion-cli-api`, `admin`, `themes`, `data`, `resolver`) sin crashear — no se reproducen los 2 riesgos operativos de `design.md` (mocks de PageBuilder, version-pinning Mongo).
 -   [ ] 7.2 Verificar HTTP 200 en al menos 3 URLs representativas: `/recetas` (listado), `/recetas/<slug>` (ficha), `/recetas/<categoría>` (categoría)
--   [ ] 7.3 Verificar que no hay componentes `[MISSING]` en ningún HTML de las 3 URLs
--   [ ] 7.4 Verificar que los estilos del site foodit se aplican correctamente (no estilos de la-nacion-ar)
--   [ ] 7.5 Ejecutar `fusion build` en `apps/foodit-mx/` y verificar que completa sin errores
--   [ ] 7.6 Verificar que el tamaño del bundle compilado es menor al del bundle Contenidos completo
+-   [ ] 7.3 Verificar que no hay componentes `[MISSING]` en ningún HTML de las 3 URLs _(bloqueado por 7.2 — mismo motivo)_
+-   [ ] 7.4 Verificar que los estilos del site foodit se aplican correctamente (no estilos de la-nacion-ar) _(bloqueado por 7.2 — mismo motivo)_
+-   [x] 7.5 Ejecutar `fusion build` en `apps/foodit-mx/` y verificar que completa sin errores
+    > ✅ Verificado (2026-07-15): `npx fusion verify` (build:prod completo — components, content sources, configs, engine) sale con exit code 0. Solo warnings de tamaño de asset (`foodit.server.js` 1.36 MiB, `foodit.js` 572 KiB superan el límite recomendado de 244 KiB de webpack), no errores. `.fusion/verify/dist/` refleja el trabajo de sesión (`GrillaNotasAcu`, `sectionSource` presentes en el output).
+-   [x] 7.6 Verificar que el tamaño del bundle compilado es menor al del bundle Contenidos completo
+    > ✅ Verificado (2026-07-15): `apps/foodit-mx/.fusion/verify/dist/` = 3.3 MB vs `.fusion/verify/dist/` (bundle Contenidos, build del 2026-06-03) = 47 MB — ~14x más chico. Nota: la comparación default no es de una corrida del mismo día, pero la diferencia de magnitud hace improbable que cambie la conclusión.
 
 ## 8. Routing script MX
 
