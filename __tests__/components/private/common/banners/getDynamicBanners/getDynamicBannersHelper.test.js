@@ -384,6 +384,34 @@ describe('Components - private - common - banners - dynamicBanners - getDynamicB
             expect(result[0].props.customFields.hideTitle).toBe(false);
         });
 
+        it('should ignore LN10_Caja_Encuesta on desktop even if hideTitle is false', () => {
+            getViewport.mockReturnValueOnce({ device: 'desktop' });
+
+            const sectionChildren = [
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Encuesta',
+                    props: { customFields: { hideTitle: false } }
+                },
+                {
+                    collection: 'chains',
+                    type: 'LN10_Caja_Manual',
+                    props: { customFields: { hideTitle: true } }
+                }
+            ];
+
+            const result = filterChildrenWithNoRoof(sectionChildren);
+
+            expect(result).toHaveLength(1);
+            expect(result[0].type).toBe('LN10_Caja_Manual');
+            expect(result[0].props.customFields.hideTitle).toBe(false);
+        });
+
         it('should ignore LN10_Caja_Segmentada and LN10_Caja_Carrusel on desktop and mantain only visible and not excluded roofs', () => {
             getViewport.mockReturnValueOnce({ device: 'desktop' });
 
