@@ -21,10 +21,13 @@ import {
 import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 import DrawerSections from '../DrawerSections/foodit';
 import ToastsContainer from '../../../ui/foodit/toastContainer/foodit';
+import { initWebviewLinkGuard } from '../utils/disableWebviewLinks';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
         useAppContext();
+
+    useEffect(() => initWebviewLinkGuard(), []);
 
     const { toggleDrawer: toggleRecetarioDrawer } = useDrawer({
         id: DRAWER.RECETARIO

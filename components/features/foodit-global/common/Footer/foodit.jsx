@@ -123,6 +123,7 @@ function FooterFoodit({ contextPath, deployment, layout, siteProperties }) {
                         <Text> Contenido y curaduría por</Text>
                         <Link
                             data-test-id="footer-link-lanacion"
+                            data-webview-disabled
                             href="https://www.lanacion.com.ar/"
                             unstyled
                             title="Ir a la página principal de LA NACION"
@@ -150,6 +151,7 @@ function FooterFoodit({ contextPath, deployment, layout, siteProperties }) {
                         </Text>
                         <Link
                             data-test-id="footer-link-afip"
+                            data-webview-disabled
                             href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                             unstyled
                             title="Data fiscal"
@@ -177,6 +179,7 @@ function FooterFoodit({ contextPath, deployment, layout, siteProperties }) {
                         <div className="flex my-auto">
                             <Link
                                 data-test-id="footer-link-condiciones"
+                                data-webview-disabled
                                 href="https://policies.google.com/terms?hl=es-419/"
                                 uppercase
                                 bold
@@ -195,6 +198,7 @@ function FooterFoodit({ contextPath, deployment, layout, siteProperties }) {
                             </Icon>
                             <Link
                                 data-test-id="footer-link-privacidad"
+                                data-webview-disabled
                                 href="https://policies.google.com/privacy?hl=es-419/"
                                 uppercase
                                 bold
