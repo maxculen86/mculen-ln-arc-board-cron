@@ -44,8 +44,7 @@ export const getMenuUser = () => {
                 'text-blue-500 p-12 border border-bottom border-thin border-light-300 bg-blue-100__hover rounded-4'
         },
         {
-            // eslint-disable-next-line no-script-url
-            url: 'javascript:void(0);',
+            url: '#',
             text: LogoutText,
             title: LogoutText,
             target: '_self',

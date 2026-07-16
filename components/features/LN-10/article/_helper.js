@@ -356,7 +356,7 @@ export const generateLazyLoadEmbedCode = embedCode => {
 
     const thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
-    const uniqueId = `youtube-${Math.random().toString(36).substring(7)}`;
+    const uniqueId = `youtube-${Math.random().toString(36).substring(7)}`; // NOSONAR
 
     const isAutoplay = embedCode.includes('autoplay');
 
