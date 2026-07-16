@@ -309,6 +309,9 @@ const customPowerUps = `
             date
             time
             isoDate
+            mediaType
+            variant
+            content
             ${configPowerUpVideoJw}
         }
     }

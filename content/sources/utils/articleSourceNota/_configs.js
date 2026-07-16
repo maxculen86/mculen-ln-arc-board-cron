@@ -19,10 +19,13 @@ import {
     setItalicText,
     deleteTagsForTitle
 } from '../common/textTransformHelpers';
+import { STORYTELLING } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 const replaceClassForMark = createReplaceClassForMark(
     'yellow|pink|purple|orange|green|gold'
 );
+
+const isStorytellingSubtype = subtype => String(subtype) === STORYTELLING;
 
 export const setExternalLinks = ({
     content = '',
@@ -123,6 +126,8 @@ export const configPromoItems = {
 };
 
 export const configCallbackCustomEmbed = {
+    'custom-multimedia': ({ element, subtype } = {}) =>
+        isStorytellingSubtype(subtype) ? element : {},
     'gallery-embed': async ({
         cachedCall,
         element,
@@ -152,7 +157,8 @@ export const configCallbackContentElements = {
         cachedCall,
         element,
         arcSite,
-        isShowGalleryEmbed
+        isShowGalleryEmbed,
+        subtype
     } = {}) => {
         const selectedCallback =
             configCallbackCustomEmbed[get(element, 'subtype', '')];
@@ -161,7 +167,8 @@ export const configCallbackContentElements = {
                 cachedCall,
                 element,
                 arcSite,
-                isShowGalleryEmbed
+                isShowGalleryEmbed,
+                subtype
             });
         }
         return element;
