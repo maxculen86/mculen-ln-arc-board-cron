@@ -7,8 +7,9 @@ export const gridContentVariants = cva('col-span-8', {
             medium: 'md:col-span-12 xl:col-span-10 xl:col-start-4 max-w-750',
             'full-screen':
                 'md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen',
-            seventy: 'w-screen lg:w-[70vw] lg:mx-auto',
-            hundred: 'w-screen'
+            seventy:
+                'md:col-span-12 xl:col-span-10 xl:col-start-4 lg:w-[70vw] w-screen',
+            hundred: 'md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen'
         }
     }
 });

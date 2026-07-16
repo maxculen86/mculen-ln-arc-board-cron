@@ -1,6 +1,7 @@
 import React from 'react';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
+import { cx } from '@ln/ds-cva';
 import VideoFacade from './component/VideoFacade';
 
 import get from '../../../../private/common/utils/get';
@@ -11,7 +12,7 @@ import { buildVideoConfig, buildPlaylistConfig } from './utils/videoDataUtils';
 
 function VideoPlayer({
     videoData,
-    className,
+    classnames = {},
     loadingType = 'lazy',
     fetchPriority = 'low',
     subtype = '',
@@ -64,7 +65,7 @@ function VideoPlayer({
                         data-has-jwplayer="true"
                         data-video-id-jw={mediaId}
                         data-config={JSON.stringify(videoConfig)}
-                        className={className}
+                        className={classnames.container}
                     >
                         <VideoFacade
                             mediaId={mediaId}
@@ -79,8 +80,8 @@ function VideoPlayer({
                     </div>
                 </div>
                 {showCaption && epigraphTitle && (
-                    <figcaption className="py-8">
-                        <span className="font-normal text-base-default text-16 text-center leading-[140%] tracking-[-0.3px]">
+                    <figcaption className={cx('py-8', classnames.caption)}>
+                        <span className="text-body-sm font-secondary">
                             {epigraphTitle}
                         </span>
                     </figcaption>

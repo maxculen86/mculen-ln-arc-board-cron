@@ -55,11 +55,13 @@ function VideoJw({ data, hasAutoplay = false }) {
     return (
         <WrapperBody
             variant={isOpeningVideo ? null : 'narrow'}
-            className="mb-48"
+            className="mb-64"
         >
             <VideoPlayer
                 videoData={videoData}
-                className={containerClass}
+                classnames={{
+                    container: containerClass
+                }}
                 loadingType={isOpeningVideo ? 'eager' : 'lazy'}
                 fetchPriority={isOpeningVideo ? 'high' : 'low'}
                 subtype={subtype}

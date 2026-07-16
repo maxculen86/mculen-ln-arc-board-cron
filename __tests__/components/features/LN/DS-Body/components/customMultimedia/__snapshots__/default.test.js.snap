@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomMultimedia defaults to hundred when variant is missing for video 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen mb-64 aspect-16/9"
+  >
+    <script
+      defer=""
+      src="/pf/resources/js/LN/scriptJwVideoNote.min.js"
+    />
+    <div
+      class="w-full flex justify-center bg-neutral-50"
+    >
+      <div
+        class="w-full"
+        data-config="{"title":"Test Video Title","mediaId":"testMedia123","playerId":"mockPlayer123","playlist":[{"mediaid":"testMedia123","sources":[{"file":"s.mp4","type":"video/mp4"}]}],"hasAutoplay":false,"autostart":true,"tagsUrl":"https://mock-tags-url.com","arcSite":"la-nacion-ar"}"
+        data-has-jwplayer="true"
+        data-video-id-jw="testMedia123"
+      >
+        <div
+          data-testid="video-facade"
+          id="facade-testMedia123"
+        />
+        <div
+          id="testMedia123"
+        />
+      </div>
+    </div>
+    <figcaption
+      class="py-8 mx-auto w-fit"
+    >
+      <span
+        class="text-body-sm font-secondary"
+      >
+        Epigraph
+      </span>
+    </figcaption>
+    <script
+      data-testid="video-snippet"
+    />
+  </div>
+</div>
+`;
+
+exports[`CustomMultimedia renders HTML inline when mediaType is html and variant is 100 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen mb-64"
+  >
+    <div
+      class="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden h-full"
+      id="anexo-embed-123"
+    >
+      <div
+        class="embed"
+      >
+        hello
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomMultimedia renders HTML module with seventy variant when variant is 70 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 lg:w-[70vw] w-screen mb-64"
+  >
+    <div
+      class="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden h-full"
+      id="anexo-embed-123"
+    >
+      <p>
+        x
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CustomMultimedia renders HtmlPym when html content contains a PYM iframe 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen mb-64"
+  >
+    <div
+      data-testid="html-pym"
+    />
+  </div>
+</div>
+`;
+
+exports[`CustomMultimedia renders hundred variant when variant is 100 for video 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 w-screen mb-64 aspect-16/9"
+  >
+    <script
+      defer=""
+      src="/pf/resources/js/LN/scriptJwVideoNote.min.js"
+    />
+    <div
+      class="w-full flex justify-center bg-neutral-50"
+    >
+      <div
+        class="w-full"
+        data-config="{"title":"Test Video Title","mediaId":"testMedia123","playerId":"mockPlayer123","playlist":[{"mediaid":"testMedia123","sources":[{"file":"s.mp4","type":"video/mp4"}]}],"hasAutoplay":false,"autostart":true,"tagsUrl":"https://mock-tags-url.com","arcSite":"la-nacion-ar"}"
+        data-has-jwplayer="true"
+        data-video-id-jw="testMedia123"
+      >
+        <div
+          data-testid="video-facade"
+          id="facade-testMedia123"
+        />
+        <div
+          id="testMedia123"
+        />
+      </div>
+    </div>
+    <figcaption
+      class="py-8 mx-auto w-fit"
+    >
+      <span
+        class="text-body-sm font-secondary"
+      >
+        Epigraph
+      </span>
+    </figcaption>
+    <script
+      data-testid="video-snippet"
+    />
+  </div>
+</div>
+`;
+
+exports[`CustomMultimedia renders the JW player with seventy variant when mediaType is video and variant is 70 1`] = `
+<div>
+  <div
+    class="col-span-8 md:col-span-12 xl:col-span-10 xl:col-start-4 lg:w-[70vw] w-screen mb-64 aspect-16/9"
+  >
+    <script
+      defer=""
+      src="/pf/resources/js/LN/scriptJwVideoNote.min.js"
+    />
+    <div
+      class="w-full flex justify-center bg-neutral-50"
+    >
+      <div
+        class="w-full"
+        data-config="{"title":"Test Video Title","mediaId":"testMedia123","playerId":"mockPlayer123","playlist":[{"mediaid":"testMedia123","sources":[{"file":"s.mp4","type":"video/mp4"}]}],"hasAutoplay":false,"autostart":true,"tagsUrl":"https://mock-tags-url.com","arcSite":"la-nacion-ar"}"
+        data-has-jwplayer="true"
+        data-video-id-jw="testMedia123"
+      >
+        <div
+          data-testid="video-facade"
+          id="facade-testMedia123"
+        />
+        <div
+          id="testMedia123"
+        />
+      </div>
+    </div>
+    <figcaption
+      class="py-8 mx-auto w-fit"
+    >
+      <span
+        class="text-body-sm font-secondary"
+      >
+        Epigraph
+      </span>
+    </figcaption>
+    <script
+      data-testid="video-snippet"
+    />
+  </div>
+</div>
+`;

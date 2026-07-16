@@ -236,7 +236,9 @@ describe('components - features - LN - common - video - VideoPlayer (pure)', () 
         render(
             <VideoPlayer
                 videoData={videoData}
-                className="custom-class aspect-16/9"
+                classnames={{
+                    container: 'custom-class aspect-16/9'
+                }}
             />
         );
         const container = document.querySelector('[data-has-jwplayer="true"]');

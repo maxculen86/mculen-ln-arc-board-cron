@@ -50,6 +50,7 @@ describe('useVideoJwBody', () => {
         expect(body.videoData.mediaId).toBe('testMedia123');
         expect(body.videoData.playerId).toBe('mockPlayer123');
         expect(body.videoData.title).toBe('Test');
+        expect(container).toMatchSnapshot();
     });
 
     it('exposes playerId and mediaId at the top level from videoData', () => {
