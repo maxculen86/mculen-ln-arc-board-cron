@@ -4,6 +4,16 @@ exports[`CardPromoTitle snapshots matches snapshot when no children (renders nul
 
 exports[`CardPromoTitle snapshots matches snapshot with children 1`] = `
 <DocumentFragment>
+  <h2
+    class="ds-card-title"
+  >
+    Mi Juego
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`CardPromoTitle snapshots matches snapshot with children and span tag 1`] = `
+<DocumentFragment>
   <span
     class="ds-card-title"
   >
