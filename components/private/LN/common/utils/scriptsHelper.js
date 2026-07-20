@@ -24,6 +24,7 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
+import YouTubeVideoTrackingScript from '../../../common/scriptManager/YouTubeVideoTrackingScript';
 import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
 
 import { pipe } from '../../../common/utils/functional';
@@ -33,6 +34,8 @@ import MetaRobots from '../../../common/scriptManager/MetaRobots';
 import TikTokPixel from '../../../common/scriptManager/TikTokPixel';
 import FacebookPixel from '../../../common/scriptManager/FacebookPixel';
 import GoogleOneTap from '../../../common/scriptManager/GoogleOneTap';
+
+export const YOUTUBE_VIDEO_TRACKING_LAYOUTS = ['LN10-Home_Main'];
 
 const scriptList = [
     {
@@ -151,6 +154,14 @@ const scriptList = [
         feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
     },
     {
+        component: {
+            name: 'YouTubeVideoTrackingScript',
+            function: YouTubeVideoTrackingScript
+        },
+        feature: 'none',
+        includedLayouts: YOUTUBE_VIDEO_TRACKING_LAYOUTS
+    },
+    {
         component: { name: 'DsPromoEvents', function: DsPromoEventsScript },
         feature: ['LN/DS-CardPromo']
     },
@@ -177,11 +188,19 @@ const isGPTAndDisabled = (script, bannersDisabled) =>
 export const shouldExcludeByLayout = (script, layout) =>
     !!script.excludedLayouts?.includes(layout);
 
+export const shouldIncludeByLayout = (script, layout) =>
+    !script.includedLayouts || script.includedLayouts.includes(layout);
+
 const getScriptsFilterFunction =
     (scripts, bannersDisabled, layout) => features => {
         const filteredScripts = scripts
             .filter(script => {
-                if (shouldExcludeByLayout(script, layout)) return false;
+                if (
+                    shouldExcludeByLayout(script, layout) ||
+                    !shouldIncludeByLayout(script, layout)
+                )
+                    return false;
+
                 return (
                     (script.feature === 'none' ||
                         features.find(feature =>

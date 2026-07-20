@@ -1,13 +1,51 @@
 import React, { Component } from 'react';
-import Consumer from 'fusion:consumer';
 import { render } from '@testing-library/react';
+jest.mock(
+    'fusion:context',
+    () => ({
+        __esModule: true,
+        default: Component => Component,
+        useAppContext: jest.fn(() => ({
+            arcSite: 'la-nacion-ar',
+            contextPath: '',
+            deployment: path => path
+        }))
+    }),
+    { virtual: true }
+);
+jest.mock(
+    'fusion:environment',
+    () => ({
+        DATADOG_CONFIG: '{}'
+    }),
+    { virtual: true }
+);
+jest.mock(
+    'fusion:consumer',
+    () => ({
+        __esModule: true,
+        default: Component => Component
+    }),
+    { virtual: true }
+);
+jest.mock(
+    'fusion:prop-types',
+    () => ({
+        __esModule: true,
+        default: jest.requireActual('prop-types')
+    }),
+    { virtual: true }
+);
+
 import ScriptManager, {
     ERRORS
 } from '../../../../../components/private/common/scriptManager';
 import renderables from '../../../../../__mocks__/data/renderables/data1';
 import {
     getScriptsToLoad,
-    shouldExcludeByLayout
+    shouldExcludeByLayout,
+    shouldIncludeByLayout,
+    YOUTUBE_VIDEO_TRACKING_LAYOUTS
 } from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
 describe('ScriptManager ...', () => {
@@ -201,6 +239,24 @@ describe('getScriptsToLoad', () => {
         expect(result.Datadog).toBeDefined();
     });
 
+    it('should include YouTube tracking only on configured Home layouts', () => {
+        YOUTUBE_VIDEO_TRACKING_LAYOUTS.forEach(layout => {
+            const resultHome = getScriptsToLoad(false, renderables, layout);
+            expect(resultHome.YouTubeVideoTrackingScript).toBeDefined();
+        });
+
+        [
+            'LN-Nota',
+            'LN-Home_Sports',
+            'Foodit-home',
+            'LN-Home_Main',
+            'LN10-Home_Main-V2'
+        ].forEach(layout => {
+            const resultNotHome = getScriptsToLoad(false, renderables, layout);
+            expect(resultNotHome.YouTubeVideoTrackingScript).toBeUndefined();
+        });
+    });
+
     it('should returns an object with the scripts to include when banners are disabled', () => {
         const bannersDisabled = true;
         const result = getScriptsToLoad(bannersDisabled, renderables);
@@ -250,6 +306,30 @@ describe('shouldExcludeByLayout', () => {
     it('returns false if layout not in list', () => {
         expect(
             shouldExcludeByLayout({ excludedLayouts: ['Error'] }, 'home')
+        ).toBe(false);
+    });
+});
+
+describe('shouldIncludeByLayout', () => {
+    it('returns true if includedLayouts missing', () => {
+        expect(shouldIncludeByLayout({}, 'LN-Nota')).toBe(true);
+    });
+
+    it('returns true if layout is included', () => {
+        expect(
+            shouldIncludeByLayout(
+                { includedLayouts: ['LN10-Home_Main'] },
+                'LN10-Home_Main'
+            )
+        ).toBe(true);
+    });
+
+    it('returns false if layout is not included', () => {
+        expect(
+            shouldIncludeByLayout(
+                { includedLayouts: ['LN10-Home_Main'] },
+                'LN-Nota'
+            )
         ).toBe(false);
     });
 });
