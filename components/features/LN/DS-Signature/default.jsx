@@ -48,13 +48,22 @@ function DsSignature({
 
     const socialItems = buildSocialItems(socialLinks);
 
+    const bioCustomSpacing = Boolean(
+        isOpinionLayout && position === place.Bottom && bio
+    );
+
     return (
         <div
             data-tw={position === place.Top ? undefined : true}
             style={{ display: 'contents' }}
         >
             <WrapperBody variant={position === place.Bottom ? 'narrow' : null}>
-                <div className={signatureVariants({ position })}>
+                <div
+                    className={signatureVariants({
+                        position,
+                        bioCustomSpacing
+                    })}
+                >
                     <Divider />
                     <Distributor
                         name={name}
