@@ -17,11 +17,12 @@ const {
         FooditAcumulado,
         FooditMenuSemanal,
         FooditChef,
-        FooditBuscador
+        FooditBuscador,
+        Foodit404,
+        FooditSubcategorias,
+        FooditAcumuladoChef
     }
 } = config;
-
-// TODO: Borrar comentarios y agregar pages a la constante listOfAllowedSection cuales se quiera agregar tailwindcss. Por ej: { pageLayout: FooditHome }
 
 export function GetCriticalCss({ layout, Resource, globalContent }) {
     if (!Resource || typeof Resource !== 'function') {
@@ -37,7 +38,10 @@ export function GetCriticalCss({ layout, Resource, globalContent }) {
         { pageLayout: FooditAcumulado },
         { pageLayout: FooditMenuSemanal },
         { pageLayout: FooditChef },
-        { pageLayout: FooditBuscador }
+        { pageLayout: FooditBuscador },
+        { pageLayout: Foodit404 },
+        { pageLayout: FooditSubcategorias },
+        { pageLayout: FooditAcumuladoChef }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

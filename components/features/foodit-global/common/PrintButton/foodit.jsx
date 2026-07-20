@@ -33,7 +33,7 @@ export function PrintButton({ printType, description, IconButton, article }) {
         setShouldRenderPrint(true);
     };
     return (
-        <Dropdown hideArrow className="print-hide">
+        <Dropdown hideArrow className="print-hide --no-app">
             <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
                 <Button
                     key={printType}
