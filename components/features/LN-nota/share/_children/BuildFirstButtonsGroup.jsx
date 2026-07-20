@@ -131,7 +131,7 @@ function BuildFirtsButtonsGroup({
                     onClick={handleSummaryClick}
                 >
                     {/* data-tw habilita los estilos del DS/tailwind sobre el Icon de UI */}
-                    <div data-tw>
+                    <div data-tw className="contents">
                         <IconLn
                             name={
                                 isSummaryOpen ? 'sparkling-filled' : 'sparkling'

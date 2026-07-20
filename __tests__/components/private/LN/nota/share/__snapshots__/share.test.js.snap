@@ -27,6 +27,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             type="button"
           >
             <div
+              class="contents"
               data-tw="true"
             >
               <mock-ds-common-icon
@@ -225,6 +226,7 @@ exports[`Share buttons for NOTICIA subtype should show Google follow button for 
             type="button"
           >
             <div
+              class="contents"
               data-tw="true"
             >
               <mock-ds-common-icon
@@ -462,6 +464,7 @@ exports[`Share buttons for NOTICIA subtype should show correct number of buttons
             type="button"
           >
             <div
+              class="contents"
               data-tw="true"
             >
               <mock-ds-common-icon
@@ -699,6 +702,7 @@ exports[`components - private - LN - nota - share Clicking on bookmark should DE
             type="button"
           >
             <div
+              class="contents"
               data-tw="true"
             >
               <mock-ds-common-icon
@@ -914,6 +918,7 @@ exports[`components - private - LN - nota - share Snapshot - Should show correct
             type="button"
           >
             <div
+              class="contents"
               data-tw="true"
             >
               <mock-ds-common-icon
