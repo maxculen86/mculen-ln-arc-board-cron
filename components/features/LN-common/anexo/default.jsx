@@ -80,6 +80,7 @@ export const getComponentFromConfig = (
                     </div>
 
                     <div
+                        data-youtube-video-mode="live"
                         data-testid={
                             videoComercial
                                 ? 'vivoYoutube-container-anexo-disabled'

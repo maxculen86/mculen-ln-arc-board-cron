@@ -2,8 +2,16 @@ import { addEventToDataLayerV2 } from '../../LN/common/utils/addEventToDataLayer
 
 const YOUTUBE_EMBED_URL_REGEX =
     /((?:https?:)?\/\/(?:www\.)?youtube\.com\/embed\/([\w-]+)?[^"'<>\s]*)/i;
+const YOUTUBE_LIVE_EMBED_URL_REGEX =
+    /(?:https?:)?\/\/(?:www\.)?youtube\.com\/embed\/live_stream(?:[/?#]|$)/i;
 
 const DEFAULT_MILESTONES = [10, 25, 50, 75];
+
+export const YOUTUBE_VIDEO_MODES = {
+    MANUAL: 'manual',
+    AUTOPLAY: 'autoplay',
+    LIVE: 'live'
+};
 
 export const YOUTUBE_PLAYER_STATES = {
     ENDED: 0,
@@ -32,6 +40,19 @@ const removeYoutubeJsApiParams = url => {
     return videoUrl.toString();
 };
 
+const getYoutubeUrlParam = (url = '', paramName = '') => {
+    if (!url || !paramName) return '';
+
+    try {
+        return new URL(url, window.location.origin).searchParams.get(paramName);
+    } catch (error) {
+        return '';
+    }
+};
+
+const normalizeYoutubeVideoId = videoId =>
+    videoId === 'live_stream' ? '' : videoId;
+
 export const extractYoutubeVideoData = value => {
     const match = normalizeValue(value).match(YOUTUBE_EMBED_URL_REGEX);
     const url = removeYoutubeJsApiParams(normalizeUrl(match?.[1] || ''));
@@ -39,7 +60,7 @@ export const extractYoutubeVideoData = value => {
     if (!url) return { id: '', url: '' };
 
     return {
-        id: match?.[2] || '',
+        id: normalizeYoutubeVideoId(match?.[2] || ''),
         url
     };
 };
@@ -55,6 +76,32 @@ export const ensureYoutubeJsApiParams = (rawUrl = '', origin = '') => {
     }
 
     return url.toString();
+};
+
+export const getYoutubeVideoMode = ({
+    url = '',
+    mode = '',
+    playerData = {}
+} = {}) => {
+    if (
+        mode === YOUTUBE_VIDEO_MODES.LIVE ||
+        playerData?.isLive ||
+        YOUTUBE_LIVE_EMBED_URL_REGEX.test(url)
+    ) {
+        return YOUTUBE_VIDEO_MODES.LIVE;
+    }
+
+    if (mode === YOUTUBE_VIDEO_MODES.AUTOPLAY) {
+        return YOUTUBE_VIDEO_MODES.AUTOPLAY;
+    }
+
+    if (mode === YOUTUBE_VIDEO_MODES.MANUAL) {
+        return YOUTUBE_VIDEO_MODES.MANUAL;
+    }
+
+    return getYoutubeUrlParam(url, 'autoplay') === '1'
+        ? YOUTUBE_VIDEO_MODES.AUTOPLAY
+        : YOUTUBE_VIDEO_MODES.MANUAL;
 };
 
 const createMilestoneTracker = (milestones = []) => {
@@ -79,10 +126,12 @@ export const createYoutubeDataLayerTracker = ({
     let hasStarted = false;
     let wasPaused = false;
     let hasCompleted = false;
+    const videoMode = video.mode || YOUTUBE_VIDEO_MODES.MANUAL;
 
     const dataLayerEventPayload = {
         contentType: video.context?.content_type,
         rest: {
+            mode: videoMode,
             videoID: video.id,
             ...(video.url && { videoURL: video.url }),
             videoName: video.title
@@ -90,7 +139,7 @@ export const createYoutubeDataLayerTracker = ({
     };
 
     const trackProgress = ({ currentTime = 0, duration = 0 }) => {
-        if (!duration) return;
+        if (videoMode === YOUTUBE_VIDEO_MODES.LIVE || !duration) return;
 
         const percent = Math.floor((currentTime / duration) * 100);
 

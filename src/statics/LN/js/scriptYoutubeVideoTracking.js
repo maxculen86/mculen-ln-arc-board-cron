@@ -2,6 +2,7 @@ import {
     createYoutubeDataLayerTracker,
     ensureYoutubeJsApiParams,
     extractYoutubeVideoData,
+    getYoutubeVideoMode,
     YOUTUBE_PLAYER_STATES
 } from '../../../../components/private/common/youtubeTracking/utils';
 
@@ -9,6 +10,7 @@ const YOUTUBE_API_SRC = 'https://www.youtube.com/iframe_api';
 const YOUTUBE_IFRAME_SELECTOR =
     'iframe[src*="youtube.com/embed/"], iframe[data-src*="youtube.com/embed/"]';
 const TRACKING_ATTR = 'data-youtube-tracking-initialized';
+const YOUTUBE_MODE_ATTR = 'data-youtube-video-mode';
 const PROGRESS_INTERVAL = 1000;
 const API_READY_CHECK_INTERVAL = 100;
 const YOUTUBE_EMBED_URL_REGEX = /youtube\.com\/embed\//i;
@@ -53,10 +55,15 @@ const ensureIframeId = iframe => {
     return iframeId;
 };
 
-const getVideoTitle = (player, iframe) => {
-    const videoData = player.getVideoData && player.getVideoData();
-    return (videoData && videoData.title) || iframe.getAttribute('title') || '';
-};
+const getVideoTitle = (playerData, iframe) =>
+    (playerData && playerData.title) || iframe.getAttribute('title') || '';
+
+const getVideoMode = iframe =>
+    iframe.getAttribute(YOUTUBE_MODE_ATTR) ||
+    iframe
+        .closest?.(`[${YOUTUBE_MODE_ATTR}]`)
+        ?.getAttribute(YOUTUBE_MODE_ATTR) ||
+    '';
 
 const safePlayerNumber = (player, method) => {
     if (!player || typeof player[method] !== 'function') return 0;
@@ -134,11 +141,19 @@ const initializeIframe = iframe => {
 
             window.dataLayer = window.dataLayer || [];
 
+            const playerData =
+                (player.getVideoData && player.getVideoData()) || {};
+
             tracker = createYoutubeDataLayerTracker({
                 video: {
                     id: videoData.id,
                     url: videoData.url,
-                    title: getVideoTitle(player, iframe),
+                    title: getVideoTitle(playerData, iframe),
+                    mode: getYoutubeVideoMode({
+                        url: videoData.url,
+                        mode: getVideoMode(iframe),
+                        playerData
+                    }),
                     context: {
                         content_type: 'home'
                     }
