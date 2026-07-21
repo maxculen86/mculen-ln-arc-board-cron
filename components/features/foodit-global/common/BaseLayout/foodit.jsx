@@ -22,12 +22,16 @@ import PwaInstallPrompt from '../PWAInstallPrompt/PWAInstallPrompt';
 import DrawerSections from '../DrawerSections/foodit';
 import ToastsContainer from '../../../ui/foodit/toastContainer/foodit';
 import { initWebviewLinkGuard } from '../utils/disableWebviewLinks';
+import { useWebviewPageView } from '../dataLayer/useWebviewPageView';
+import { TRANSLATE_LAYOUTS } from '../dataLayer/_helpers';
 
 function BaseLayout({ children }) {
     const { layout, contextPath, deployment, arcSite, siteProperties } =
         useAppContext();
 
     useEffect(() => initWebviewLinkGuard(), []);
+
+    useWebviewPageView({ content_type: TRANSLATE_LAYOUTS[layout] || layout });
 
     const { toggleDrawer: toggleRecetarioDrawer } = useDrawer({
         id: DRAWER.RECETARIO

@@ -6,7 +6,6 @@ import get from '../../../../private/common/utils/get';
 import { getAuthorsInfo } from '../../../../private/common/utils/getAuthorsInfo';
 import { TRANSLATE_LAYOUTS } from './_helpers';
 import removeAccents from '../../../../private/common/utils/removeAccents';
-import { useWebviewPageView } from './useWebviewPageView';
 
 function PageViewDataLayer({ globalContent = {} }) {
     const {
@@ -32,18 +31,6 @@ function PageViewDataLayer({ globalContent = {} }) {
         layout,
         requestUri = ''
     } = useAppContext();
-
-    useWebviewPageView({
-        id: _id || 'N/A',
-        section: parentSection.split('/').pop() || 'N/A',
-        sub_section: removeAccents(primarySection.toLowerCase()),
-        content_type: TRANSLATE_LAYOUTS[layout] || '',
-        published_day: date || '',
-        published_time: time || '',
-        author_name: authorsName,
-        valor: get(contentRestrictions, 'content_code'),
-        author_url: authorsIds
-    });
 
     return (
         <script
