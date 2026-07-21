@@ -16,10 +16,10 @@ import { CategoryDefault } from './sections/CategoryDefault';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 
 export function CardCategory() {
-    const { deployment, requestUri, contextPath } = useAppContext();
+    const { pagebuilderURL, requestUri, contextPath } = useAppContext();
 
     const assetsPath = file =>
-        deployment(
+        pagebuilderURL(
             `${contextPath}/resources/foodit/assets/images/subcategories/${file}`
         );
 
