@@ -2,7 +2,9 @@ import {
     createYoutubeDataLayerTracker,
     ensureYoutubeJsApiParams,
     extractYoutubeVideoData,
-    YOUTUBE_PLAYER_STATES
+    getYoutubeVideoMode,
+    YOUTUBE_PLAYER_STATES,
+    YOUTUBE_VIDEO_MODES
 } from '../../../../../components/private/common/youtubeTracking/utils';
 
 describe('youtubeTracking utils', () => {
@@ -47,6 +49,17 @@ describe('youtubeTracking utils', () => {
         });
     });
 
+    it('does not treat the live_stream embed path as a video id', () => {
+        expect(
+            extractYoutubeVideoData(
+                'https://www.youtube.com/embed/live_stream?channel=UC123'
+            )
+        ).toEqual({
+            id: '',
+            url: 'https://www.youtube.com/embed/live_stream?channel=UC123'
+        });
+    });
+
     it('removes YouTube JS API params from the tracked video url', () => {
         expect(
             extractYoutubeVideoData(
@@ -68,12 +81,49 @@ describe('youtubeTracking utils', () => {
         ).toEqual({ id: '', url: '' });
     });
 
-    it('maps YouTube player states to the agreed YouTube dataLayer events', () => {
+    it('resolves manual mode by default', () => {
+        expect(
+            getYoutubeVideoMode({
+                url: 'https://www.youtube.com/embed/abc123def45'
+            })
+        ).toBe(YOUTUBE_VIDEO_MODES.MANUAL);
+    });
+
+    it('resolves autoplay mode from the embed autoplay parameter', () => {
+        expect(
+            getYoutubeVideoMode({
+                url: 'https://www.youtube.com/embed/abc123def45?autoplay=1&mute=1'
+            })
+        ).toBe(YOUTUBE_VIDEO_MODES.AUTOPLAY);
+    });
+
+    it('resolves live mode from an explicit mode, live player data, or live stream embed', () => {
+        expect(
+            getYoutubeVideoMode({
+                mode: YOUTUBE_VIDEO_MODES.LIVE,
+                url: 'https://www.youtube.com/embed/abc123def45?autoplay=1'
+            })
+        ).toBe(YOUTUBE_VIDEO_MODES.LIVE);
+        expect(
+            getYoutubeVideoMode({
+                playerData: { isLive: true },
+                url: 'https://www.youtube.com/embed/abc123def45?autoplay=1'
+            })
+        ).toBe(YOUTUBE_VIDEO_MODES.LIVE);
+        expect(
+            getYoutubeVideoMode({
+                url: 'https://www.youtube.com/embed/live_stream?channel=UC123'
+            })
+        ).toBe(YOUTUBE_VIDEO_MODES.LIVE);
+    });
+
+    it('maps YouTube player states to the agreed YouTube dataLayer events with mode', () => {
         const tracker = createYoutubeDataLayerTracker({
             video: {
                 id: 'abc123def45',
-                url: 'https://www.youtube.com/embed/abc123def45',
+                url: 'https://www.youtube.com/embed/abc123def45?autoplay=1',
                 title: 'Demo',
+                mode: YOUTUBE_VIDEO_MODES.AUTOPLAY,
                 context: {
                     content_type: 'home'
                 }
@@ -121,14 +171,18 @@ describe('youtubeTracking utils', () => {
             'videoCompleteYoutube'
         ]);
         expect(window.dataLayer[0]).toMatchObject({
+            mode: 'autoplay',
             videoID: 'abc123def45',
-            videoURL: 'https://www.youtube.com/embed/abc123def45',
+            videoURL: 'https://www.youtube.com/embed/abc123def45?autoplay=1',
             videoName: 'Demo',
             content_type: 'home'
         });
+        expect(window.dataLayer.every(item => item.mode === 'autoplay')).toBe(
+            true
+        );
         expect(
             window.dataLayer
-                .filter(item => item.event.startsWith('videoProgressYoutube'))
+                .filter(item => /^videoProgressYoutube\d+$/.test(item.event))
                 .map(item => item.event)
         ).toEqual([
             'videoProgressYoutube10',
@@ -136,5 +190,49 @@ describe('youtubeTracking utils', () => {
             'videoProgressYoutube50',
             'videoProgressYoutube75'
         ]);
+    });
+    it('does not emit progress milestones for live videos', () => {
+        const tracker = createYoutubeDataLayerTracker({
+            video: {
+                id: 'live12345',
+                url: 'https://www.youtube.com/embed/live12345?autoplay=1',
+                title: 'Live Demo',
+                mode: YOUTUBE_VIDEO_MODES.LIVE,
+                context: {
+                    content_type: 'home'
+                }
+            }
+        });
+
+        tracker.handleStateChange({
+            state: YOUTUBE_PLAYER_STATES.PLAYING,
+            currentTime: 100,
+            duration: 100
+        });
+        tracker.trackProgress({ currentTime: 100, duration: 100 });
+        tracker.handleStateChange({
+            state: YOUTUBE_PLAYER_STATES.PAUSED,
+            currentTime: 100,
+            duration: 100
+        });
+        tracker.handleStateChange({
+            state: YOUTUBE_PLAYER_STATES.PLAYING,
+            currentTime: 100,
+            duration: 100
+        });
+        tracker.handleStateChange({
+            state: YOUTUBE_PLAYER_STATES.ENDED,
+            currentTime: 100,
+            duration: 100
+        });
+        jest.advanceTimersByTime(0);
+
+        expect(window.dataLayer.map(item => item.event)).toEqual([
+            'videoPlayYoutube',
+            'videoPauseYoutube',
+            'videoResumeYoutube',
+            'videoCompleteYoutube'
+        ]);
+        expect(window.dataLayer.every(item => item.mode === 'live')).toBe(true);
     });
 });
