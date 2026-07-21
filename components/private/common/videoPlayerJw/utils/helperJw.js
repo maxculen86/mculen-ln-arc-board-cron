@@ -123,12 +123,16 @@ export const handleTimeTracking = ({
     event,
     sentProgressRef,
     videoId,
-    title
+    title,
+    lastPlaybackPercent = 0
 }) => {
     const percent = Math.floor((event.currentTime / event.duration) * 100);
 
+    // Defaults to 0 so the home script (which never passes this) keeps
+    // emitting every milestone from playback start; only the carousel feeds
+    // a real seek-derived value to skip milestones jumped over by a seek.
     PROGRESS_MILESTONES.forEach(percentage => {
-        if (percent >= percentage) {
+        if (lastPlaybackPercent < percentage && percent >= percentage) {
             trackMilestone({
                 sentProgressRef,
                 percentage,

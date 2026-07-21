@@ -35,7 +35,7 @@ function CardCarruselContainer({
     const skipProductClickScore =
         _id.includes('quesale') || _id.includes('que-sale');
 
-    const { setCurrentIndex, onOpenMediaScrollerExpanded } =
+    const { onOpenMediaScrollerExpanded, setCurrentIndex } =
         useCajaCarruselContext();
 
     const containerCardRef = useRef(null);
@@ -56,8 +56,11 @@ function CardCarruselContainer({
 
     const handleClickCard = useCallback(
         event => {
-            onOpenMediaScrollerExpanded();
+            // Set the index to the clicked card BEFORE opening so the expanded
+            // view starts on the clicked video, not on the last-viewed index
+            // from a previous open.
             setCurrentIndex(cardPosition);
+            onOpenMediaScrollerExpanded();
             handleProductClick(event);
         },
         [cardPosition, onOpenMediaScrollerExpanded, setCurrentIndex]

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useMemo } from 'react';
 
-const CarouselBoxContext = createContext(undefined);
+export const CarouselBoxContext = createContext(undefined);
 
 const initialState = {
     currentIndex: 0,
@@ -19,7 +19,7 @@ const actionTypes = {
 
 const reducer = (state, action) => {
     if (action.type === actionTypes.SET_PREFERRED_VIDEO_FILE) {
-        const { videoId, file } = action.payload || {};
+        const { videoId, file } = action.payload;
         const currentFile = state.preferredVideoFiles?.[videoId];
 
         if (!videoId || !file || currentFile === file) return state;
@@ -34,7 +34,7 @@ const reducer = (state, action) => {
     }
 
     if (action.type === actionTypes.SET_VIDEO_METADATA) {
-        const { videoId, duration, titleJwPlayer } = action.payload || {};
+        const { videoId, duration, titleJwPlayer } = action.payload;
         const current = state.videoMetadata?.[videoId];
 
         if (

@@ -152,6 +152,63 @@ describe('tests - LN10_Caja_Carrusel - helpers.js', () => {
             expect(result[1].counterVideo).toBe(1);
             expect(result[2].counterVideo).toBe(2);
         });
+
+        it('assigns stable occurrence keys without changing repeated media ids', () => {
+            const props = getProps({
+                childProps: [
+                    {
+                        type: 'LN-10/itemCarrusel',
+                        customFields: { video: ' repeated-id ', title: 'First' }
+                    },
+                    {
+                        type: 'LN-10/itemCarrusel',
+                        customFields: { video: 'repeated-id', title: 'Second' }
+                    }
+                ],
+                children: [<MockChild label="1" />, <MockChild label="2" />]
+            });
+
+            const firstRender = transformNodes(props);
+            const secondRender = transformNodes(props);
+
+            expect(firstRender.map(item => item.id)).toEqual([
+                'repeated-id',
+                'repeated-id'
+            ]);
+            expect(firstRender.map(item => item.renderKey)).toEqual([
+                JSON.stringify(['media', 'repeated-id', 0]),
+                JSON.stringify(['media', 'repeated-id', 1])
+            ]);
+            expect(secondRender.map(item => item.renderKey)).toEqual(
+                firstRender.map(item => item.renderKey)
+            );
+        });
+
+        it('assigns source-index keys to banners and missing media', () => {
+            const result = transformNodes(
+                getProps({
+                    childProps: [
+                        {
+                            type: 'LN-common/bannerRefactor',
+                            customFields: {}
+                        },
+                        {
+                            type: 'LN-10/itemCarrusel',
+                            customFields: { title: 'Missing media' }
+                        }
+                    ],
+                    children: [
+                        <MockChild label="banner" />,
+                        <MockChild label="missing" />
+                    ]
+                })
+            );
+
+            expect(result.map(item => item.renderKey)).toEqual([
+                JSON.stringify(['banner', 0]),
+                JSON.stringify(['missing-media', 1])
+            ]);
+        });
     });
 
     describe('getAdsConfigVideoJw', () => {
