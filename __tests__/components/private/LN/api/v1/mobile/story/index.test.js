@@ -129,21 +129,13 @@ describe('Test de index en JSON de nota', () => {
         const resp = NotaIndex(PWMLKBWMCVCIFLKOPVUVHURDAM);
         expect(resp.ia).not.toBeNull();
         expect(resp.ia.summary).not.toBeNull();
-        expect(resp.ia.glossary).toBeUndefined();
     });
-    it('the story must have the glossary property when only glossary is present in promo_items', () => {
-        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
-        expect(resp.ia).not.toBeNull();
-        expect(resp.ia.glossary).not.toBeNull();
-        expect(resp.ia.summary).toBeUndefined();
-    });
-    it('the story should not have summary and glossary properties when these are not present in promo_items', () => {
+    it('the story should not have summary properties when these are not present in promo_items', () => {
         const resp = NotaIndex(M3UNX7ATAZHEFJGPGFZX366ZAQ);
         expect(resp.ia).not.toBeNull();
-        expect(resp.ia.glossary).not.toBeNull();
         expect(resp.ia.summary).not.toBeNull();
     });
-    it('the story should not have the ia property when the promo_items object does not have the glossary or summary properties', () => {
+    it('the story should not have the ia property when the promo_items object does not have summary properties', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
         expect(resp.ia).toBeUndefined();
     });

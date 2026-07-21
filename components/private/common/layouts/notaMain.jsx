@@ -2,7 +2,6 @@
 import React from 'react';
 import Header from '../../../features/LN-10-global/header/default';
 import Footer from '../../LN10/footer';
-import Glossary from '../../../features/LN-10-global/glossary/default';
 import Toasts from '../../../features/LN-10-global/common/toasts/default';
 
 function NotaMain({ children, className }) {
@@ -67,7 +66,6 @@ function NotaMain({ children, className }) {
             <div className="footer-container --no-app">
                 <Footer />
             </div>
-            <Glossary />
             <Toasts />
         </div>
     );

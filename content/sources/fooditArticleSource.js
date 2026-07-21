@@ -52,7 +52,7 @@ const fetch = (query, { cachedCall } = {}) => {
                     response,
                     query: queryWithArcSite,
                     siteUrl: SITE_FOODIT,
-                    paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=800&fc=825&callback=`
+                    paywallUrl: `${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=800&fc=825&callback=`
                 });
 
             return transform(

@@ -44,6 +44,8 @@ Fase 8 — Routing script MX [secuencial, último]
 -   El deployer se implementa DESPUÉS de que el bundle compila localmente con componentes, ANTES de conectar content sources (deploy progresivo a sandbox primero).
 -   El routing script va al FINAL (Fase 8), una vez que el bundle está deployado y validado.
 
+> **📋 Plan de paralelización post-4c**: ver [`docs/migrate-mx/parallelization-plan.md`](../../../docs/migrate-mx/parallelization-plan.md). Resumen: 4 streams de código arrancan en paralelo (A=4ot, B=Fase 5 deployer, C=Fase 6.1-6.7 content sources, D=Fase 8.1-8.3 routing script); convergen en Fase 7 (validación integral, JOIN); luego 6.9 + 8.4-8.5 quedan gateadas por deploy. Única zona de roce: `components/private/common/utils/` (idempotente). Prioridad: B (deployer) primero.
+
 ---
 
 ## ADO: US existentes — revisión
@@ -115,7 +117,7 @@ Copiar ambos layouts al bundle MX siguiendo la estrategia del `design.md` (D3): 
 -   [x] `apps/foodit-mx/components/layouts/Foodit-ficha-receta/` existe con adaptaciones de imports
 -   [x] `git diff HEAD -- components/layouts/` en el monolito no muestra modificaciones
 -   [x] `fusion start` en `apps/foodit-mx/` con ambos layouts presentes levanta sin errores
--   [ ] `/recetas` responde HTTP 200 con `Foodit-acumulado` en local _(pendiente Fase 6: content sources + swap layout en PageBuilder)_
+-   [ ] `/recetas` responde HTTP 200 con `Foodit-subcategorias` en local _(pendiente Fase 6: content sources. **Corrección no-swap**: el layout productivo de `/recetas` es `Foodit-subcategorias`, NO `Foodit-acumulado` — sin swap en PageBuilder)_
 -   [ ] `/recetas/<slug-nid>` responde HTTP 200 con `Foodit-ficha-receta` en local _(pendiente Fase 6: content sources)_
 
 **ADO**: Area `Gestion LANACION-ARC\Arquitectura\Frontend` | Iteration `2026 - Q2\Mayo` | Parent: 173242 | Tags: `dev; mx-recetas`
@@ -386,10 +388,11 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 >
 > **Scope exclusivo de Ficha (de la auditoría 4cf.8): ≈83 archivos — el bloque más grande.** Subárboles: `PowerupsReceta` (ingredientsBox, summaryBox), `OpeningRecipe`, `Banners` (+`useAdManager`), `MenuSemanal`, `Newsletter`, `AudioFoodit`, `LayoutImpression`/`PrintIngredients`/`PrintButton`/`TimePrint`, `ShareFoodit`, `DialogFoodit`/`DialogBarrier`, `ActionsButtons`, `RoofFoodit`, `nutritionalInfo`, `subtitle`, `RelatedContent`, `videoPlayer`, `facade`, UI `badge`/`image` + utils de ficha.
 
--   [ ] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados
--   [ ] 4c.2 Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib` y actualizar el import en el layout
--   [ ] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
+-   [x] 4c.1 Para cada archivo del bloque Ficha-Receta marcado "copiar": copiar a `apps/foodit-mx/components/` con imports relativos adaptados ✓ **82 archivos** copiados verbatim a rutas espejo (74 nuevos + 8 stubs reemplazados: Banners/PowerupsReceta/AIImageDisclaimer/Newsletter/OpeningRecipe/nutritionalInfo/subtitle/RelatedContent). Cierre estático computado con walker (recursivo, resuelve .js/.jsx/.json/.scss/index + imports dinámicos): **cierre 220 archivos, 0 unresolved**. Deps npm: agregadas 2 faltantes al `package.json` — `@ln/ds-common-badge@0.1.0`, `@ln/ds-common-image@1.2.4` (pinneadas); el resto ya presentes.
+-   [x] 4c.2 ~~Para cada archivo marcado "extraer a lib": generar la lib con `ln-arc-lib`~~ **N/A** — la decisión copy-vs-lib se resolvió globalmente a **COPIAR** (4a.3 + `fusion-libs-resolution.md`: Fusion no consume aliases). 0 libs en este bloque.
+-   [x] 4c.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones ✓ diff limpio en `components/` y `__mocks__/`; solo adiciones en `apps/foodit-mx/`
 -   [ ] 4c.4 Checkpoint: `Foodit-ficha-receta` renderiza en `fusion start` sin `[MISSING]` ni errores JS
+    > ⚠️ **Diferido a Fase 6** (mismo razonamiento que `4cf.12`/`3.4`/`4d.4`/`4e.10`): el layout solo se pinta cuando `/recetas/<slug>` resuelve su content source (`fooditArticleSource` → globalContent). Cierre estático ya garantiza 0 imports sin resolver. Lo valida un dev con runtime.
 
 ## 4d. Component copy — Bloque Foodit-acumulado (posterior a 4cf, paralelo con 4c/4e)
 
@@ -398,45 +401,55 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 >
 > **Scope exclusivo de Acumulado (de la auditoría 4cf.8): ≈8 archivos** — `AcuTema` (+`gridTemaServer`/`gridTemaClient`/`useGridTema`/`helpers`), `TagCategories`, `GrillaNotasAcu/loadMoreButton`.
 
--   [ ] 4d.1 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`, ya copiado en 4cf)
--   [ ] 4d.2 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient`)
--   [ ] 4d.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones
+-   [x] 4d.1 `features/foodit-global/common/TagCategories/foodit.jsx` — reemplazar stub (usa `IconSprite` de `private-global/`, ya copiado en 4cf) ✓ copia fiel verbatim
+-   [x] 4d.2 `features/foodit-global/common/AcuTema/foodit.jsx` — reemplazar stub (solo activo cuando `globalContent._id === '/tema'`; auditar árbol `helpers/GridTemaServer` + `GridTemaClient`) ✓ árbol completo copiado: `foodit.jsx` + `helpers/{index,gridTemaServer,gridTemaClient}` + `hooks/useGridTema` + dep transitiva `foodit/GrillaNotasAcu/helpers/loadMoreButton.jsx`. **Cierre estático 0 unresolved** (12/12 imports relativos resueltos; deps `notaFooditHelper`/`CommonCardFoodit`/`get`/`isSSR`/`safeJSONParse`/`IconSprite` ya en bundle por 4cf; npm `@ln/foodit-ui-{button,link}`, `@ln/common-ui-icon` presentes en `package.json`)
+-   [x] 4d.3 Verificar que `git diff -- components/` del monolito no muestra modificaciones ✓ diff limpio, solo adiciones en `apps/foodit-mx/`
 -   [ ] 4d.4 Checkpoint: `Foodit-acumulado` renderiza en `fusion start` sin `[MISSING]`
+    > ⚠️ **DEPENDE DE FASE 6 — no validable solo** (mismo razonamiento que `4cf.12`/`3.4`). El layout solo se pinta cuando `/recetas` resuelve su content source (Fase 6); hoy da HTTP 500. Además `AcuTema` solo monta con `globalContent._id === '/tema'`. Lo valida un dev con runtime. Cierre estático ya garantiza 0 imports sin resolver.
 -   [ ] 4d.5 Checkpoint de no-regresión: `Foodit-ficha-receta` sigue renderizando correctamente
+    > ⚠️ Diferido a Fase 6 (mismo motivo que 4d.4). 4d solo agregó archivos NUEVOS (AcuTema/TagCategories/loadMoreButton); no tocó ningún archivo compartido con Ficha → sin superficie de regresión a nivel código.
 
 ## 4e. Layout fork — Foodit-subcategorias (posterior a 4cf, paralelo con 4c/4d)
 
-> `/recetas` usa actualmente este layout en PageBuilder. Se forka al bundle MX para mantener paridad con el monolito mientras se valida el swap a `Foodit-acumulado` (Fase 6). Probado: el swap es compatible.
+> `/recetas` usa este layout en PageBuilder y **lo mantiene** (corrección no-swap: la tarea 6.8 quedó cancelada). Se copia al bundle MX como copia fiel en paridad con el monolito; es el layout **productivo definitivo** de `/recetas`, no un fallback temporal. `Foodit-acumulado` queda migrado pero sin ruta asignada.
 >
 > **Scope exclusivo de Subcategorías (de la auditoría 4cf.8): ≈9 archivos** — layout `Foodit-subcategorias/` (+`_helpers`, `Card/CardCategory` +`sections`, `hooks/useImagePreload`), `subcategorias/helpers.js`, `breadcrumb/_childrens/BreadcrumbCustom`, `subcategoryKeywords.json`.
 
--   [ ] 4e.1 Copiar `components/layouts/Foodit-subcategorias/foodit.jsx` al bundle MX con header de fork (path + fecha)
--   [ ] 4e.2 Copiar `components/layouts/Foodit-subcategorias/_helpers.js` — contiene `getPageTitleFromUrl`, `applyPageBasedPriority`, `trackSubcategoryCard` (depende de `addEventToDataLayer`)
--   [ ] 4e.3 Copiar `components/layouts/Foodit-subcategorias/Card/CardCategory.jsx` y sus secciones `Card/sections/CategoryCustom.jsx` + `Card/sections/CategoryDefault.jsx`
--   [ ] 4e.4 Copiar `components/layouts/Foodit-subcategorias/hooks/useImagePreload.js`
--   [ ] 4e.5 Copiar `features/foodit-global/common/subcategorias/helpers.js` (contiene mocks de categorías; depende de `subcategoryKeywords.json`)
--   [ ] 4e.6 Copiar `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit.jsx`
--   [ ] 4e.7 Copiar utils adicionales: `private/LN/common/utils/isSSR.js`, `private/LN/common/utils/addEventToDataLayer.js`
--   [ ] 4e.8 Copiar `__mocks__/data/fooditCategories/subcategoryKeywords.json` a `apps/foodit-mx/__mocks__/data/fooditCategories/`
--   [ ] 4e.9 Verificar que `git diff -- components/layouts/Foodit-subcategorias/` del monolito no muestra modificaciones
+-   [x] 4e.1 Copiar `components/layouts/Foodit-subcategorias/foodit.jsx` al bundle MX con header de fork (path + fecha) ✓ header de **copia-fiel-en-paridad** (no fork divergente): `/recetas` mantiene este layout, no hay swap a `Foodit-acumulado` (ver corrección Fase 6)
+-   [x] 4e.2 Copiar `components/layouts/Foodit-subcategorias/_helpers.js` — contiene `getPageTitleFromUrl`, `applyPageBasedPriority`, `trackSubcategoryCard` (depende de `addEventToDataLayer`) ✓ verbatim
+-   [x] 4e.3 Copiar `components/layouts/Foodit-subcategorias/Card/CardCategory.jsx` y sus secciones `Card/sections/CategoryCustom.jsx` + `Card/sections/CategoryDefault.jsx` ✓ verbatim
+-   [x] 4e.4 Copiar `components/layouts/Foodit-subcategorias/hooks/useImagePreload.js` ✓ verbatim
+-   [x] 4e.5 Copiar `features/foodit-global/common/subcategorias/helpers.js` (contiene mocks de categorías; depende de `subcategoryKeywords.json`) ✓ verbatim
+-   [x] 4e.6 Copiar `features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit.jsx` ✓ verbatim (dep `capitalizeFirstLetter` ya en bundle por 4cf.5)
+-   [x] 4e.7 Copiar utils adicionales: `private/LN/common/utils/isSSR.js`, `private/LN/common/utils/addEventToDataLayer.js` ✓ **ya estaban en bundle por el cierre de 4cf** (verificado); `addEventToDataLayer` arrastra `scheduleTask` → también presente
+-   [x] 4e.8 Copiar `__mocks__/data/fooditCategories/subcategoryKeywords.json` a `apps/foodit-mx/__mocks__/data/fooditCategories/` ✓ verbatim
+-   [x] 4e.9 Verificar que `git diff -- components/layouts/Foodit-subcategorias/` del monolito no muestra modificaciones ✓ diff limpio en `components/` y `__mocks__/`; solo adiciones en `apps/foodit-mx/`. **Cierre estático 15/15 imports relativos resueltos, 0 unresolved.** npm requeridos presentes: `@ln/{common-ui-text,utils,foodit-ui-category,common-ui-breadcrumb,foodit-ui-link,cva}`
 -   [ ] 4e.10 Checkpoint: `Foodit-subcategorias` renderiza en `fusion start` sin `[MISSING]` (usando rutas como `/aprende-en-la-cocina/`). `[MISSING]` es el placeholder que Fusion inserta en el HTML cuando un import no resuelve en el bundle compilado — su ausencia confirma que todos los archivos copiados en 4e.1–4e.8 están correctamente referenciados
+    > ⚠️ **Diferido a Fase 6** (mismo razonamiento que `4cf.12`/`3.4`/`4d.4`): el layout solo se pinta cuando la ruta resuelve su content source. Cierre estático ya garantiza 0 imports sin resolver. Lo valida un dev con runtime.
 
 ## 4ot. Output-type: migrar cluster + swap stub→real (cierre de Fase 4)
 
 > El output-type real (`_pending/output-types/foodit.full.jsx`) tiene su **propio árbol de dependencias** (`<head>`/SEO/scripts/critical-CSS/schemas/syndication), **distinto del armazón (4cf) y de los layouts (4c/4d/4e)** — no estaba cubierto por ningún bloque. Hoy `components/output-types/foodit.jsx` es un **stub** (por eso `/` y `/recetas` rinden en blanco). El swap stub→real cierra Fase 4.
 
 -   [x] 4ot.1 **Auditoría del cierre del output-type** (`components/output-types/foodit.jsx` del monolito): cierre **159 archivos**, **38 ya en bundle**, **121 a migrar**, **0 unresolved**, **0 deps `@ln`/npm faltantes**. Subárboles: `scriptManager` (31), `private/common/utils` (22), `foodit-global/common` MetaFoodit/favicon (16), `schemas` (13), `private/LN/common` (10), criticalCss + content filters sueltos.
--   [ ] 4ot.2 Migrar los **121 archivos** del cierre a `apps/foodit-mx/` en rutas espejo, aplicando la regla copy-vs-lib por pieza (cierre estático 0 unresolved; incluir imports dinámicos + assets `.scss`)
--   [ ] 4ot.3 **Swap** `components/output-types/foodit.jsx` (stub) → contenido real de `_pending/output-types/foodit.full.jsx` (que ya tiene `deployment()`→`pagebuilderURL()`); remover `_pending/` cuando todos sus imports resuelvan
--   [ ] 4ot.4 Verificar que `git diff -- components/output-types/` del monolito está limpio
--   [ ] 4ot.5 Checkpoint: `fusion start` — el output-type real renderiza un documento HTML completo (`<head>` con meta/fonts/criticalCss + schemas), sin `[MISSING]`. _(HTTP 200 en `/recetas` depende además de content sources — Fase 6)_
+-   [x] 4ot.2 Migrar los **121 archivos** del cierre a `apps/foodit-mx/` en rutas espejo, aplicando la regla copy-vs-lib por pieza (cierre estático 0 unresolved; incluir imports dinámicos + assets `.scss`) ✓ 120 archivos copiados vía resolución de cierre transitivo (1 ya estaba en bundle de más — total 159 en el cierre completo, coincide con la auditoría 4ot.1). 0 unresolved, 0 deps `@ln`/npm faltantes.
+-   [x] 4ot.3 **Swap** `components/output-types/foodit.jsx` (stub) → contenido real de `_pending/output-types/foodit.full.jsx` (que ya tiene `deployment()`→`pagebuilderURL()`); remover `_pending/` cuando todos sus imports resuelvan ✓ swap hecho, `_pending/` eliminado
+    > ⚠️ **Corrección (code review post-swap):** el rename `deployment()`→`pagebuilderURL()` hecho en Fase 2 sobre `foodit.full.jsx` no se propagó a los componentes hijos que ya existían con su propio prop `deployment` (copiados verbatim del monolito en 4ot.2): `FontPreload`, `GetFonts` y `MetaFoodit` invocan `deployment` como función sin guard, así que con `deployment: undefined` explotan con `TypeError: deployment is not a function` en **cualquier** render, sin depender de layout ni de content source — `PreloadFooditImages`/`FooditSchemas` (rama `Foodit-home`) y `Favicon` tienen el mismo mismatch pero degradan en silencio en vez de crashear. Fix: las 6 llamadas JSX en `output-types/foodit.jsx` ahora pasan `deployment={pagebuilderURL}` en vez de `pagebuilderURL={pagebuilderURL}`; no se tocó ningún componente hijo (siguen copia fiel del monolito). El bug ya existía desde `b37b74c7f3` (Fase 2, 2026-06-05) dentro de `_pending/`, dormido hasta este swap.
+    > 📌 **Pendiente separado:** `RecipeSchema` (layout `Foodit-ficha-receta`, el que importa a esta migración) resuelve `deployment` vía `useAppContext()` y no estaba afectado; `HomeSchema`/`OrganizationSchema` (`Foodit-home`) sí lo estaban y quedan resueltos por el mismo fix vía `FooditSchemas`.
+-   [x] 4ot.4 Verificar que `git diff -- components/output-types/` del monolito está limpio ✓ diff limpio, solo adiciones en `apps/foodit-mx/`
+-   [ ] 4ot.5 Checkpoint: `fusion start` — el output-type real renderiza un documento HTML completo (`<head>` con meta/fonts/criticalCss + schemas), sin `[MISSING]`. _(HTTP 200 en `/recetas` depende además de content sources — Fase 6; con el fix de arriba ya no debería haber TypeError en el `<head>`, pero sigue sin validarse con `fusion start` real)_
+    > ⚠️ **Corrección:** `criticalCss/foodit.jsx` (copiado verbatim en 4ot.2) pedía vía `<Resource>` el CSS de `resources/dist/css/foodit/tailwind/global.css` para casi todos los layouts en scope (`isAllowedSection` cubre Home/ChatIA/FichaReceta/FichaNota/ListadoCompras/Recetario/Acumulado/MenuSemanal/Chef/Buscador), y tiraba `ENOENT` en cualquier render. Causa: en el monolito raíz existen tanto el source tailwind (`src/statics/FOODIT/css/tailwind/global.css`) como el loader postcss en el webpack root; ninguna de las dos piezas fue portada a `apps/foodit-mx` (su `webpack.config.js` solo compila `.scss` vía `sass-loader`, sin paso de tailwind/postcss). Fix: se comentó el bloque `<Resource>` de tailwind en `criticalCss/foodit.jsx` (mismo patrón que las dos llamadas a `TagsLoadingList` ya comentadas más abajo en `output-types/foodit.jsx`). El critical CSS base (`base/index.css`) no se vio afectado.
+    > 📌 **Pendiente separado:** portar el pipeline de tailwind CSS de Foodit a `apps/foodit-mx` (source css + postcss loader en webpack) antes de que Foodit dependa de estilos tailwind en producción. No bloqueante para 4ot.5.
+    > ℹ️ **Nota de testing local (2026-07-06):** para pegarle al bundle MX en `fusion start` hay que usar el contextPath + params que bypasean el resolver de PageBuilder: `http://localhost:3000/pf/recetas/?_website=foodit&outputType=foodit&mxId=00000000` (sin `/pf` y sin `outputType`/`mxId` explícitos, el engine no resuelve `outputTypeMap` y tira un `TypeError` previo al output-type — no es un bug de código, es la URL de prueba incorrecta). Con la URL correcta, `outputTypeMap` resuelve bien (`foodit`) y el único error es el esperado: `Could not find source: fooditAcuSource` — confirma en vivo el gap de Fase 6 ya documentado (uno de los ~9 sources de nota/acumulado pendientes), nada nuevo. Sigue sin marcarse porque el render completo (incluido el `<head>`) no se puede confirmar end-to-end hasta que al menos un content source de body resuelva — Fusion aborta el render completo si falta cualquier source usado en el árbol, no solo el del `<head>`.
 
 ### 4ot-opt. Optimización: especializar criticalCss a foodit-only (no bloqueante)
 
 > **Hallazgo (PR #53529):** vía `BaseLayout → criticalCss/dynamicStylesheetLoader → criticalCss/helpers.js`, el bundle foodit arrastra config **LN** (`properties/sites/la-nacion-ar.js` + `helperConfigLN/{imageConfig 2058, bannerConfig 1448, cajaTema, scripts}` ≈ **3895 líneas**). Causa: `criticalCss/helpers.js` es **multi-site en el monolito** (mapa keyed por `'la-nacion-ar'` y `'foodit'`). En el bundle foodit-only, la rama `la-nacion-ar` es **código muerto** (cargado, no usado) → peso + leak multi-site (contradice la separación del MX). Funciona, pero no es ideal. Es **cambio de código** (diverge del verbatim) → optimización deliberada, no migración.
 
--   [ ] 4ot-opt.1 Trimear `apps/foodit-mx/components/output-types/criticalCss/helpers.js` a **foodit-only**: remover la rama `'la-nacion-ar'` del mapa + los imports `sitePropertiesLN` (`properties/sites/la-nacion-ar`) y `fontFaceLn10` (`LN-10-global/fontFace`)
--   [ ] 4ot-opt.2 Eliminar del bundle los archivos que quedan huérfanos: `properties/sites/la-nacion-ar.js`, `properties/sites/helperConfigLN/*`, `features/LN-10-global/fontFace/*` (verificar que nada más los importe con cierre estático)
+-   [x] 4ot-opt.1 Trimear `apps/foodit-mx/components/output-types/criticalCss/helpers.js` a **foodit-only**: remover la rama `'la-nacion-ar'` del mapa + los imports `sitePropertiesLN` (`properties/sites/la-nacion-ar`) y `fontFaceLn10` (`LN-10-global/fontFace`)
+-   [x] 4ot-opt.2 Eliminar del bundle los archivos que quedan huérfanos: `properties/sites/la-nacion-ar.js`, `properties/sites/helperConfigLN/*`, `features/LN-10-global/fontFace/*`
+    > ⚠️ **Corrección (2026-07-02):** `components/private/LN/common/utils/shareHelper.js` (bloque Ficha-Receta, consumido por `features/foodit-global/common/ShareFoodit/socials.js`) importaba `config` de `la-nacion-ar.js` para `shareConfig.facebook.appID` — un **bug real**: el botón de compartir en Facebook de una receta de Foodit iba a usar el App ID de Facebook de LA NACION, no el de Foodit. Fix: el import se redirigió a `properties/sites/foodit.js`, que ya tiene la misma forma (`shareConfig.facebook.appID: '154042854349421'`, propio de Foodit). Con eso, `la-nacion-ar.js`/`helperConfigLN/*` quedaron genuinamente huérfanos y se borraron.
+    > 📌 **Pendiente separado (no resuelto acá, decisión de producto):** `shareHelper.js` sigue con varias URLs/textos hardcodeados de LA NACION no derivados de `config` (fallbacks de X/Facebook/Google+/RSS apuntando a `lanacion.com.ar`, copy de mailto "esta nota de LA NACION"). No se tocaron porque requieren confirmar los equivalentes reales de Foodit (handles sociales, URL de ayuda RSS), no son parte de este cleanup de huérfanos.
 -   [ ] 4ot-opt.3 Checkpoint: `fusion start` — el armazón sigue renderizando sin `[MISSING]` y el bundle pesa ≈3895 líneas menos. _(lo valida un dev)_
 
 ## 5. Deployer script
@@ -444,13 +457,27 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 > **Spec**: `mx-deployer` | **US ADO**: US-NEW-8
 > 📎 **Referencia**: POC Ingala (repo `lanacion-arcxp-mx`) tiene un `apps/.../deployer.js` (291 líneas) casi copiable — `--use-mxid`, `SANDBOX_MX_ID`/`PROD_MX_ID`, secuencia build→upload→deploy→promote, multi-ambiente. Adaptar a `foodit-mx`.
 
--   [ ] 5.1 Crear `./scripts/deployer.js` con soporte para flags `--sandbox`, `--st`, `--prod`, `--use-mxid`
--   [ ] 5.2 Implementar la secuencia build → upload → deploy → promote con `mxId "foodit-mx"` cuando `--use-mxid`
--   [ ] 5.3 Agregar validación de variables de entorno al inicio del script (fail rápido con mensaje descriptivo)
--   [ ] 5.4 Crear `apps/foodit-mx/.env.example` con todas las variables por sección de entorno (sandbox/staging/prod)
--   [ ] 5.5 Smoke test: `node ./scripts/deployer.js --sandbox --use-mxid` con `.env` válido ejecuta sin errores fatales
--   [ ] 5.6 Smoke test: ejecutar sin variable requerida → error descriptivo, no intento de deploy parcial
--   [ ] 5.7 Verificar que `azure-pipeline.yml` no fue modificado y no se crearon pipelines ADO nuevos
+-   [x] 5.1 Crear `./scripts/deployer.js` con soporte para flags `--sandbox`, `--st`, `--prod`
+    > ⚠️ **Corrección (2026-07-03):** `--use-mxid` pasó de flag opt-in a comportamiento **por defecto** (con `--no-mxid` como vía de escape explícita, no recomendada). Justificación: este script solo opera sobre `apps/foodit-mx/`, que nunca debería deployarse como el bundle "default" — hacerlo por accidente pisaría el bundle que sirve el monolito en producción. Como efecto secundario, el script ahora **no deploya nada** hasta que `SANDBOX_MX_ID`/`PROD_MX_ID` esté provisionado (US #173238), incluso sin pasar ningún flag — es la garantía de seguridad más fuerte posible: ningún deploy accidental es posible hasta que el mxId real exista.
+    > 📦 **Sin dependencias nuevas:** usa `fetch`/`FormData`/`Blob` nativos de Node 22 en vez de `axios`/`form-data`, y un parser de `.env` propio (~15 líneas) en vez de `dotenv`. Cero paquetes agregados a `package.json`.
+-   [x] 5.2 Implementar la secuencia build → upload → deploy → promote con `mxId "foodit-mx"` (por defecto, ver 5.1)
+    > Build vía `fusion build` (no `webpack`, el bundle MX es JS+CSS) y empaquetado vía `fusion zip` (no depende del binario `zip` del sistema — confirmado que no está instalado en la máquina de desarrollo).
+    > ⚠️ **Corrección (2026-07-06):** promote dejó de ser parte automática de la secuencia. La secuencia real es build → upload → deploy → checkDeployment, y promote quedó **opt-in** vía flag `--promote` (nunca automático, en ningún ambiente). Justificación: el mxId de Sandbox/Development es compartido por todo el equipo — hay un solo slot "live" por ambiente, no uno por persona — y un promote automático pisaría sin aviso la demo que esté live para otra persona. `deployerInteractive.mjs` (ver 5.8) pide confirmación explícita antes de pasar `--promote` cuando el ambiente elegido comparte mxId.
+-   [x] 5.3 Agregar validación de variables de entorno al inicio del script (fail rápido con mensaje descriptivo)
+-   [x] 5.4 Crear `apps/foodit-mx/.env.example` con todas las variables por sección de entorno (sandbox/staging/prod)
+    > Endpoints confirmados con evidencia: `SANDBOX_DEPLOYER_ENDPOINT`/`STAGING_DEPLOYER_ENDPOINT` verificados contra `.env` real y `azure-pipeline.yml`. `PROD_DEPLOYER_ENDPOINT` es inferido por patrón (`api.<org>.arcpublishing.com`), no verificado — pendiente de confirmar cuando se consiga ese token.
+-   [x] 5.5 Smoke test: `node ./scripts/deployer.js --sandbox` con `.env` válido ejecuta sin errores fatales
+    > ✅ Verificado en vivo (2026-07-03): `SANDBOX_MX_ID` (`97f9a1c9`, confirmado vía `Fusion.mxId` en el editor de `pb-devlab-ln`) + token de deploy (Developer Center, scope `Deployments: Full Access`) + endpoint. El script corrió `fusion build` → `fusion zip` → upload → deploy-trigger sin ningún error propio; el bundle se subió correctamente a `api.sandbox.lanacionar.arcpublishing.com/bundles`.
+    > ⚠️ **Bloqueante externo descubierto**: el build en la nube de Arc falla con `npm error 404 ... '@ln/ds-common-badge@0.1.0' is not in this registry` — falta `apps/foodit-mx/.npmrc-encrypted` (paquetes `@ln/*` privados no resuelven en el build remoto sin él). Se genera desde la "Maestro Secrets Page" de Arc XP (encripta las credenciales del registry privado); pendiente ubicar esa página en el Arc Home de la org. Ver [How to Use a Private NPM Repository](https://dev.arcxp.com/pagebuilder-engine/how-to-guides/basics/using-private-npm-repository-in-your-bundle/).
+    > 📌 El `checkDeployment` hizo timeout correctamente a los 5 min (falla descriptiva, sugiere verificar el panel de Arc a mano) — comportamiento esperado dado que el build remoto nunca terminó.
+    > 🎉 **Deploy real exitoso (2026-07-06)**: tras 6 intentos fallidos por auth (`E401`, probado con `.npmrc-encrypted` en distintos formatos, con el token compartido `vstsagent` y con un PAT personal — todos con error idéntico), la causa real era que `apps/foodit-mx/.npmrc`/`.npmrc-encrypted` estaban armados distinto a como los tiene el monolito (`default`); una vez alineados, la auth funcionó al toque. Descubierto un segundo bloqueante en el camino ("bundle size too big"): `apps/foodit-mx/package.json` no tenía sección `devDependencies` — `@arc-fusion/cli`, `webpack`, `webpack-cli`, `css-loader`, `mini-css-extract-plugin`, `sass`, `sass-loader` y `glob` (herramientas de build local, sin uso en runtime) estaban todos en `dependencies`, así que el install "production" de Arc los instalaba igual. Se movieron a `devDependencies` (igual que en la raíz) + se corrió `npm install` para resincronizar `package-lock.json`. Resultado: `fusion build` → `fusion zip` → upload → **deploy (versión 3) → promote, completos**. Bug menor encontrado y arreglado de paso: el cleanup final (`fs.unlinkSync(zipPath)`) tiraba `EACCES` (el zip queda con dueño `root`, generado por Docker) y hacía que el script reportara error pese a que el deploy ya había sido exitoso — envuelto en try/catch, no bloqueante.
+-   [x] 5.6 Smoke test: ejecutar sin variable requerida → error descriptivo, no intento de deploy parcial
+    > ✅ Verificado en vivo: con `SANDBOX_MX_ID` vacío, el script cortó ANTES de tocar build/zip/upload con `❌ SANDBOX_MX_ID está vacío...` — sin intento de deploy parcial. También se encontró y arregló un bug real en el parser de `.env` (una key duplicada en el archivo hacía que la primera ocurrencia -vacía- ganara sobre la segunda con el valor real); fix: la última ocurrencia en el archivo gana.
+-   [x] 5.7 Verificar que `azure-pipeline.yml` no fue modificado y no se crearon pipelines ADO nuevos
+-   [x] 5.8 Agregar ambiente `Development` (flag `--dev`, `DEVELOP_DEPLOYER_*`) — no contemplado en el plan original de esta fase
+    > Arc XP expone `Development` como ambiente hermano de `Sandbox` dentro del mismo "sandbox tier" (confirmado contra [dev.arcxp.com](https://dev.arcxp.com/pagebuilder-engine/pagebuilder-basics/arc-xp-environments/)), con endpoint y token propios. ✅ Verificado en vivo (2026-07-06): deploy real a `api.dev.lanacionar.arcpublishing.com`, versión 1, sin promover. Reusa `SANDBOX_MX_ID` (mxId propio para Development aún no provisionado).
+-   [x] 5.9 Crear `scripts/deployerInteractive.mjs` — wrapper con UX calcada de `create-demo` — no contemplado en el plan original de esta fase
+    > Selector de ambiente (Development/Sandbox/Staging/Producción), chequeo de cambios sin comitear, opción de correr tests, y confirmación explícita antes de pasar `--promote` cuando el ambiente elegido comparte mxId (Sandbox/Development). `npm run deploy-foodit-mx` (raíz) y `npm run deploy:interactive` (`apps/foodit-mx/`).
 
 ## 6. Content sources + conexión PageBuilder
 
@@ -459,17 +486,19 @@ Crear `./scripts/mx-routing.js` que puede activar o desactivar el MX Router en P
 
 -   [ ] 6.1 Abrir `docs/migrate-mx/content-sources/audit.md` e identificar los 10 content sources en scope
 -   [ ] 6.2 Para cada content source: copiar a `apps/foodit-mx/content/sources/` con imports relativos adaptados
+    > 📌 **Adelanto acotado (fuera de orden):** `navigationSource` (+ `navigation-schema`) ya se portó a `apps/foodit-mx/content/sources/navigationSource.js` y `apps/foodit-mx/content/schemas/navigation-schema.js` (copia verbatim del monolito, sin deps transitivas). Motivo: `Header` → `useNavigationData` lo usa desde `BaseLayout`, que envuelve las tres layouts ya migradas (`Foodit-acumulado`, `Foodit-subcategorias`, `Foodit-ficha-receta`), así que cualquier página foodit local tiraba `Could not find source: navigationSource` al validar 4ot.5. `filterMenuSections` ya estaba copiado. Quedan pendientes los ~9 sources restantes (nota/acumulado: `fooditArticleSource`, `fooditBaseArticleSource`, `fooditVideoSource`, `videosJwCarruselSource`, `relatedContentSource`, `fooditAcuSource`, `acuArticlesSourceV2`, `fooditCategoryImageSource`, `fooditCollectionsSource`), con sus árboles de dependencias transitivas (ver audit.md §4).
 -   [ ] 6.3 Para cada content source copiado: identificar y documentar dependencias transitivas (utils, filtros de Foodit)
 -   [ ] 6.4 Copiar utils y filtros transitivos a `apps/foodit-mx/content/` (en `filters/` o subdirectorios equivalentes)
 -   [ ] 6.5 Verificar que `arc.config.json` tiene `excludeModules` que excluye los content sources fuera de scope
 -   [ ] 6.6 Verificar que ningún transform filtra el campo `_id` (requisito de cache tagging)
 -   [ ] 6.7 Verificar que los transforms hacen `throw` en caso de error (no retornan error como objeto)
--   [ ] 6.8 En PageBuilder sandbox: cambiar el layout asignado a la sección `/recetas` de `Foodit-subcategorias` → `Foodit-acumulado` (el bundle MX no incluye `Foodit-subcategorias`; probado anteriormente y es compatible)
+-   [ ] 6.8 ~~En PageBuilder sandbox: cambiar el layout de `/recetas` de `Foodit-subcategorias` → `Foodit-acumulado`~~ **CANCELADO (corrección no-swap).** `/recetas` MANTIENE `Foodit-subcategorias` (migrado en 4e). NO se ejecuta swap. Verificar únicamente que PageBuilder sandbox conserva el mapeo `/recetas` → `Foodit-subcategorias` y que el bundle MX lo sirve. `Foodit-acumulado` queda migrado pero sin ruta asignada.
 -   [ ] 6.9 Conectar los 10 content sources en PageBuilder (sandbox) y verificar que resuelven sin errores HTTP
 
 ## 7. Validación integral local
 
 > **Spec**: D5 deploy progresivo | **US ADO**: 173249
+> ⚠️ Antes de `fusion start` local: ver `design.md` § Risks/Trade-offs — 2 hallazgos operativos (mocks del admin de PageBuilder faltantes en `apps/foodit-mx/mocks/`; version-pinning `FUSION_RELEASE`↔Mongo) que causan crashes que no parecen tener relación con esta fase si no se conocen de antemano.
 
 -   [ ] 7.1 Ejecutar `fusion start` en `apps/foodit-mx/` completo (output-type + layouts + componentes + content sources)
 -   [ ] 7.2 Verificar HTTP 200 en al menos 3 URLs representativas: `/recetas` (listado), `/recetas/<slug>` (ficha), `/recetas/<categoría>` (categoría)

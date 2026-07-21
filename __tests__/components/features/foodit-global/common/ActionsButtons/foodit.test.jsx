@@ -7,7 +7,10 @@ jest.mock('fusion:context', () => ({
         deployment: jest.fn(path => `pathDeployment/${path}`),
         contextPath: 'contextPath',
         arcSite: 'ott',
-        siteProperties: {}
+        layout: 'FooditRecipe',
+        siteProperties: {
+            layoutsName: { FooditRecipePaywall: 'FooditRecipePaywall' }
+        }
     })),
     useComponentContext: jest.fn(() => ({
         // Agrega los valores mockeados necesarios aquí
@@ -67,6 +70,36 @@ describe('ActionsButtons component', () => {
         expect(screen.getByTitle('Imprimir')).toBeInTheDocument();
         expect(screen.getByTitle('Copiar')).toBeInTheDocument();
         expect(screen.getByTitle('Compartir')).toBeInTheDocument();
+    });
+
+    it('should render print button with --no-app class', () => {
+        render(
+            <ActionsButtons
+                article={{
+                    _id: 'ABC',
+                    type: 'story',
+                    comments: { display_comments: true }
+                }}
+            />
+        );
+        const printButton = screen.getByTitle('Imprimir');
+        expect(printButton).toHaveClass('--no-app');
+    });
+
+    it('should render dropdown print button with --no-app class', () => {
+        render(
+            <ActionsButtons
+                article={{
+                    _id: 'ABC',
+                    type: 'story',
+                    comments: { display_comments: true }
+                }}
+                printButtonType="dropdown"
+            />
+        );
+        const printButton = screen.getByTitle('Imprimir');
+        const printDropdown = printButton.closest('.print-hide');
+        expect(printDropdown).toHaveClass('--no-app');
     });
 
     it('should render only public buttons when isPrivate is true', () => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../../common/utils/pushFooditEvent';
 
 export function Tags({ items = [] }) {
     const handleClick = text => {
-        addEventToDataLayerV2({
+        pushFooditEvent({
             event: 'click_tag',
             button: text
         });

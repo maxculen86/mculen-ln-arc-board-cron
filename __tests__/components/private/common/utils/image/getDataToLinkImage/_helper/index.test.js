@@ -4,14 +4,22 @@ import {
     getWWWResizedUrls
 } from '../../../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper';
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
-}));
+jest.mock(
+    'fusion:properties',
+    () => () => ({
+        getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+    }),
+    { virtual: true }
+);
 
-jest.mock('fusion:environment', () => ({
-    SITE_LANACION: 'https://www.lanacion.com.ar',
-    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
-}));
+jest.mock(
+    'fusion:environment',
+    () => ({
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
+    }),
+    { virtual: true }
+);
 
 describe('getDataToLinkImage - _helper', () => {
     describe('getResizedUrls', () => {
@@ -335,6 +343,110 @@ describe('getDataToLinkImage - _helper', () => {
                     resizedUrl:
                         'https://resizer.glanacion.com/resizer/v2/cristina-conto-en-que-coincidian-nestor-kirchner-6NCIS6VGMJDIFJUJL44KSEGRM4.jpg?auth=3054c851c3d140b5abacb1a75e9c54b41c96948246a2cc1ddf5eadb2bbbe5951&width=351&quality=70&smart=false'
                 }
+            ]);
+        });
+
+        it('should separate storytelling image preloads by isMobileDimension metadata', () => {
+            const result = getResizedUrls(
+                '4',
+                {
+                    storytelling_mobile: {
+                        resized_urls: [
+                            {
+                                resizedUrl:
+                                    'https://example.com/mobile-770.jpg',
+                                option: {
+                                    width: 770,
+                                    height: 770,
+                                    proportion: '1:1',
+                                    isMobileDimension: true
+                                }
+                            },
+                            {
+                                resizedUrl:
+                                    'https://example.com/mobile-desktop-like.jpg',
+                                option: {
+                                    width: 1200,
+                                    height: 800,
+                                    proportion: '3:2'
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    resized_urls: [
+                        {
+                            resizedUrl: 'https://example.com/desktop-1920.jpg',
+                            option: {
+                                width: 1920,
+                                height: 830,
+                                proportion: '21:9'
+                            }
+                        },
+                        {
+                            resizedUrl: 'https://example.com/desktop-1280.jpg',
+                            option: {
+                                width: 1280,
+                                height: 580,
+                                proportion: '21:9'
+                            }
+                        },
+                        {
+                            resizedUrl:
+                                'https://example.com/desktop-mobile-like.jpg',
+                            option: {
+                                width: 512,
+                                height: 512,
+                                proportion: '1:1',
+                                isMobileDimension: true
+                            }
+                        }
+                    ]
+                }
+            );
+
+            expect(result.map(({ resizedUrl }) => resizedUrl)).toEqual([
+                'https://example.com/desktop-1920.jpg',
+                'https://example.com/desktop-1280.jpg',
+                'https://example.com/mobile-770.jpg'
+            ]);
+        });
+
+        it('should not use unmarked mobile resized urls as mobile fallback', () => {
+            const result = getResizedUrls(
+                '4',
+                {
+                    storytelling_mobile: {
+                        resized_urls: [
+                            {
+                                resizedUrl:
+                                    'https://example.com/mobile-desktop-like.jpg',
+                                option: {
+                                    width: 1200,
+                                    height: 800,
+                                    proportion: '3:2'
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    resized_urls: [
+                        {
+                            resizedUrl: 'https://example.com/desktop-1920.jpg',
+                            option: {
+                                width: 1920,
+                                height: 830,
+                                proportion: '21:9'
+                            }
+                        }
+                    ]
+                }
+            );
+
+            expect(result.map(({ resizedUrl }) => resizedUrl)).toEqual([
+                'https://example.com/desktop-1920.jpg'
             ]);
         });
     });

@@ -11,7 +11,7 @@ import { FooterMenu } from '../SaveMenu/FooterMenu';
 import get from '../../../../../private/common/utils/get';
 import { addToast, TOAST } from '../../bookmark/api/_helper';
 import { saveMenu } from '../../bookmark/api/menuSave';
-import { addEventToDataLayerV2 } from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../../utils/pushFooditEvent';
 import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import { dayFoodQuantities } from '../helpers/_helper';
@@ -92,7 +92,7 @@ function MenuSemanalDialog({
         if (result && result.bookmarkId) {
             setWeeklyMenu(prevState => [...prevState, result]);
 
-            addEventToDataLayerV2({
+            pushFooditEvent({
                 event: 'e_linkclick',
                 category: 'interaction',
                 action: 'guardar',

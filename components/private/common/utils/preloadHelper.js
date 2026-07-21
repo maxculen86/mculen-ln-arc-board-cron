@@ -102,6 +102,12 @@ export const getDataPreloadAcu = (idCollectionApertura, nodeType) => ({
     imageConfig: getImageConfig(idCollectionApertura)
 });
 
+const SECTIONS_EXCLUDED_FROM_PRELOAD_ACU = [
+    '/ultimas-noticias',
+    '/deportes',
+    '/economia/dolar'
+];
+
 export const excludePreloadAcu = ({
     nodeType = '',
     id = '',
@@ -110,7 +116,6 @@ export const excludePreloadAcu = ({
     hasChainBeforeGrid
 }) =>
     nodeType === 'section' &&
-    id !== '/ultimas-noticias' &&
-    id !== '/deportes' &&
+    !SECTIONS_EXCLUDED_FROM_PRELOAD_ACU.includes(id) &&
     (!hasFeatureAcumuladoApertura ||
         (!idCollectionApertura && hasChainBeforeGrid));

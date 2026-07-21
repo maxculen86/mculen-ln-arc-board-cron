@@ -11,6 +11,7 @@ function DsBody() {
     const { outputType, globalContent = {}, layout } = useAppContext();
     const { _id, content_elements: contentElements } = globalContent;
     const device = useViewportSize();
+    const userIsSubscribed = get(globalContent, 'subscription') === 'S';
 
     const {
         bodyComponents: finalBodyComponents,
@@ -30,6 +31,10 @@ function DsBody() {
         bannersDisabledByEditor && dynamicBanners
             ? { ...dynamicBanners, enabled: false }
             : dynamicBanners;
+    const dynamicBannersWithSubscription = {
+        ...gatedDynamicBanners,
+        isSubscribed: userIsSubscribed
+    };
 
     return (
         <BaseBodyWrapper
@@ -44,7 +49,7 @@ function DsBody() {
                 globalContent,
                 bodyComponents: finalBodyComponents,
                 ruleConditions: finalRuleConditions,
-                dynamicBanners: gatedDynamicBanners,
+                dynamicBanners: dynamicBannersWithSubscription,
                 currentDevice: device,
                 layout
             })}

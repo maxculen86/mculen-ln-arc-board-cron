@@ -131,7 +131,7 @@ describe('storyCommon', () => {
         expect(resp.openingMode).toBe('Native');
     });
 
-    it('should not return content when subtype is 16', () => {
+    it('should return content when subtype is 16', () => {
         const notaSubtype16 = {
             _id: 'TEST123',
             subtype: '16',
@@ -158,6 +158,30 @@ describe('storyCommon', () => {
         const result = storyCommon(notaSubtype16, [
             { type: 'text', content: 'body content' }
         ]);
+        expect(result.contenido).not.toBeUndefined();
+        expect(result.HTML).toBeUndefined();
+    });
+
+    it('should not return content when subtype is 16 and content is empty', () => {
+        const notaSubtype16 = {
+            _id: 'TEST123',
+            subtype: '16',
+            website_url: '/video/test',
+            taxonomy: { primary_section: { name: 'Videos' } },
+            content_elements: [],
+            promo_items: {
+                video_jw: {
+                    embed: {
+                        config: {
+                            idPlayer: 'player123',
+                            idVideo: 'video123'
+                        }
+                    }
+                }
+            }
+        };
+
+        const result = storyCommon(notaSubtype16, []);
         expect(result.contenido).toBeUndefined();
         expect(result.HTML).toBeUndefined();
     });

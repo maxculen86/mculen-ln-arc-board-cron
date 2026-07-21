@@ -1,5 +1,16 @@
 import { BANNER_INSERT_INTERVAL } from '../../../../private/common/banners/dynamicBanners/dynamicBannersHelper';
-import { OPINION } from '../../../../private/common/utils/subtypes/subtypeHelper';
+import {
+    OPINION,
+    STORYTELLING
+} from '../../../../private/common/utils/subtypes/subtypeHelper';
+
+export const NON_SUBSCRIBER_BANNER_INSERT_INTERVAL = 5;
+export const SUBSCRIBER_BANNER_INSERT_INTERVAL = 8;
+
+export const getUserBannerInsertInterval = isSubscribed =>
+    isSubscribed
+        ? SUBSCRIBER_BANNER_INSERT_INTERVAL
+        : NON_SUBSCRIBER_BANNER_INSERT_INTERVAL;
 
 const defaultBannerStrategy = {
     shouldInsert: ({ itemIndex, bannerIndex, maxBanners }) => {
@@ -14,30 +25,22 @@ const defaultBannerStrategy = {
         elementPosition / BANNER_INSERT_INTERVAL
 };
 
-const opinionBannerStrategy = {
-    shouldInsert: ({ itemIndex, bannerCounter, bannerIndex, maxBanners }) => {
+const userTypeBannerStrategy = {
+    shouldInsert: ({ itemIndex, bannerIndex, maxBanners, isSubscribed }) => {
+        const insertInterval = getUserBannerInsertInterval(isSubscribed);
+        const isInsertPosition =
+            (itemIndex + 1) % insertInterval === 0 && itemIndex >= 0;
         const withinLimit =
             maxBanners === undefined || bannerIndex <= maxBanners;
 
-        if (!withinLimit) return false;
-
-        if (bannerCounter.current === 0) {
-            return itemIndex === 1;
-        }
-
-        const shiftedIndex = itemIndex - 2;
-
-        const isInsertPosition =
-            shiftedIndex >= 0 &&
-            (shiftedIndex + 1) % BANNER_INSERT_INTERVAL === 0;
-
-        return isInsertPosition;
+        return isInsertPosition && withinLimit;
     },
     getBannerIndex: ({ bannerCounter }) => bannerCounter.current + 1
 };
 
 const BANNER_STRATEGIES = {
-    [OPINION]: opinionBannerStrategy,
+    [OPINION]: userTypeBannerStrategy,
+    [STORYTELLING]: userTypeBannerStrategy,
     default: defaultBannerStrategy
 };
 

@@ -94,7 +94,6 @@ const props = {
         first_publish_date: 'firstPublishDate',
         subtype: '',
         promo_items: {
-            glossary: {},
             summary: {
                 embed: {
                     config: {
@@ -111,7 +110,6 @@ const props = {
             type: 'LN-10/IA',
             props: {
                 customFields: {
-                    hideGlossary: false,
                     hideSummary: false
                 }
             }

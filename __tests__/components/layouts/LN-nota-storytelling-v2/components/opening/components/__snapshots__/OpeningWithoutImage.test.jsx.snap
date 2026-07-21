@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpeningWithoutImage snapshots matches snapshot with all props 1`] = `
+<DocumentFragment>
+  <section
+    class="w-full pt-40 md:pt-80"
+    data-diagram="without-image"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1>
+          Main Title
+        </h1>
+        <h2>
+          Subtitle
+        </h2>
+      </div>
+      <p
+        class="font-primary text-subheading-md text-center max-w-635"
+      >
+        This is the subheadline
+      </p>
+      <hr
+        class="w-80 min-w-80 max-w-80 mt-28 mb-16"
+        data-color="black"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`OpeningWithoutImage snapshots matches snapshot without subheadline 1`] = `
+<DocumentFragment>
+  <section
+    class="w-full pt-40 md:pt-80"
+    data-diagram="without-image"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-12 max-w-835 m-auto"
+    >
+      <div
+        data-testid="opening-addons"
+      >
+        OpeningAddons
+      </div>
+      <div
+        data-testid="opening-titles"
+      >
+        <h1>
+          Main Title
+        </h1>
+        <h2>
+          Subtitle
+        </h2>
+      </div>
+      <hr
+        class="w-80 min-w-80 max-w-80 mt-28 mb-16"
+        data-color="black"
+        data-testid="divider"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

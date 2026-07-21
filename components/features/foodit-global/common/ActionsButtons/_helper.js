@@ -4,6 +4,7 @@ import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/common-ui-tooltip';
 import { useDisclosure } from '@ln/hooks';
 import { useAppContext } from 'fusion:context';
+import { cx } from '@ln/ds-cva';
 import get from '../../../../private/common/utils/get';
 
 import { ShareFoodit } from '../ShareFoodit/foodit';
@@ -112,10 +113,11 @@ const renderRegularButton = ({
 
         handleClick(article);
     };
-
+    const classNamePrint = cx(type === 'print' && '--no-app');
     return (
         <>
             <Button
+                className={classNamePrint}
                 key={type}
                 title={description}
                 variant="link"

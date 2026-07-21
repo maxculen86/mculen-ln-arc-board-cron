@@ -15,7 +15,9 @@ jest.mock(
             height,
             classnames,
             fetchPriority,
-            loading
+            loading,
+            sources,
+            hidePlaceholder
         }) => (
             <img
                 data-testid="image-ui"
@@ -26,8 +28,11 @@ jest.mock(
                 width={width}
                 height={height}
                 className={classnames?.image}
+                data-wrapper-class={classnames?.wrapper}
                 data-fetch-priority={fetchPriority}
                 data-loading={loading}
+                data-sources={sources ? JSON.stringify(sources) : undefined}
+                data-hide-placeholder={hidePlaceholder ? 'true' : undefined}
             />
         )
     })
@@ -40,6 +45,15 @@ const imageProps = {
     width: 1024,
     height: 576,
     altText: 'Article image'
+};
+
+const mobileImageProps = {
+    src: 'https://example.com/mobile.jpg',
+    srcset: 'mobile-small.jpg 420w, mobile-large.jpg 770w',
+    sizes: '(max-width: 767px) 420px, 770px',
+    width: 420,
+    height: 630,
+    altText: 'Mobile article image'
 };
 
 const videoProps = {
@@ -73,9 +87,27 @@ describe('OpeningMedia', () => {
             expect(container.querySelector('video')).toBeInTheDocument();
         });
 
-        it('should not render ImageUI when videoUrl is provided', () => {
+        it('should not render ImageUI when videoUrl is provided without mobile image', () => {
             render(<OpeningMedia {...videoProps} />);
             expect(screen.queryByTestId('image-ui')).not.toBeInTheDocument();
+        });
+
+        it('should render mobile image and desktop video when videoUrl and mobile image are provided', () => {
+            const { container } = render(
+                <OpeningMedia
+                    {...videoProps}
+                    mobileImage={mobileImageProps}
+                    classname="absolute inset-0"
+                />
+            );
+
+            const img = screen.getByTestId('image-ui');
+            const video = container.querySelector('video');
+
+            expect(img).toHaveAttribute('src', mobileImageProps.src);
+            expect(img).toHaveClass('md:hidden', 'absolute', 'inset-0');
+            expect(img).toHaveAttribute('data-fetch-priority', 'high');
+            expect(video).toHaveClass('hidden', 'md:block');
         });
 
         it('should set src and poster attributes on the video element', () => {
@@ -116,7 +148,6 @@ describe('OpeningMedia', () => {
 
         it('should render video with muted property set to true', () => {
             const { container } = render(<OpeningMedia {...videoProps} />);
-            // jsdom exposes `muted` as a DOM property, not an HTML attribute
             expect(container.querySelector('video').muted).toBe(true);
         });
 
@@ -145,6 +176,42 @@ describe('OpeningMedia', () => {
         it('should not render a video element when only src is provided', () => {
             const { container } = render(<OpeningMedia {...imageProps} />);
             expect(container.querySelector('video')).not.toBeInTheDocument();
+        });
+
+        it('should pass desktop and mobile sources to ImageUI when mobile image exists', () => {
+            const { container } = render(
+                <OpeningMedia
+                    {...imageProps}
+                    mobileImage={mobileImageProps}
+                    classname="absolute inset-0"
+                />
+            );
+
+            const image = screen.getByTestId('image-ui');
+            const sources = JSON.parse(image.getAttribute('data-sources'));
+
+            expect(container.querySelector('picture')).not.toBeInTheDocument();
+            expect(sources).toEqual([
+                {
+                    minWidth: 768,
+                    srcSet: imageProps.srcset,
+                    sizes: imageProps.sizes
+                },
+                {
+                    maxWidth: 767,
+                    srcSet: mobileImageProps.srcset,
+                    sizes: mobileImageProps.sizes
+                }
+            ]);
+            expect(image).toHaveAttribute('src', imageProps.src);
+            expect(image).toHaveAttribute('data-hide-placeholder', 'true');
+            expect(image).toHaveAttribute(
+                'data-wrapper-class',
+                'absolute inset-0'
+            );
+            expect(image).not.toHaveClass('md:hidden');
+            expect(image).not.toHaveClass('hidden');
+            expect(image).not.toHaveClass('md:block');
         });
 
         it('should pass cover classes to ImageUI via classnames.image', () => {

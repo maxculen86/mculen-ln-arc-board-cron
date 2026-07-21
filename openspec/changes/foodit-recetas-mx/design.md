@@ -111,15 +111,15 @@ La sección `/recetas` usa dos layouts con contextos distintos; cada uno justifi
 -   `Foodit-ficha-receta` es exclusivo de `/recetas/<*-nid>`; no existe en otras secciones del monolito, por lo que no hay riesgo de regresión cruzada.
 -   La copia es mecánica: ajustar imports relativos y el registro del layout en el bundle. Sin lógica adicional de desacoplamiento.
 
-#### Nota post-Fase 3: PageBuilder y el swap de layout para `/recetas`
+#### Nota post-Fase 3: PageBuilder y el layout de `/recetas` — corrección no-swap
 
-Durante la implementación de Fase 3 se descubrió que PageBuilder tiene el path `/recetas` mapeado actualmente al layout `Foodit-subcategorias`, no a `Foodit-acumulado` como se asumía originalmente. Las pruebas anteriores al equipo confirmaron que el swap es compatible: `Foodit-acumulado` puede servir `/recetas` sin problemas.
+Durante la implementación de Fase 3 se descubrió que PageBuilder tiene el path `/recetas` mapeado actualmente al layout `Foodit-subcategorias`, no a `Foodit-acumulado` como se asumía originalmente. Aunque las pruebas confirmaron que el swap a `Foodit-acumulado` era técnicamente compatible, **se decidió NO ejecutar el swap**: `/recetas` mantiene `Foodit-subcategorias` como layout productivo.
 
-Impacto en el plan de migración:
+Impacto en el plan de migración (corrección no-swap):
 
--   `Foodit-subcategorias` se agrega como layout requerido en el bundle MX (Fase 4e). Debe estar funcional en el bundle con todas sus dependencias para no romper el ruteo existente mientras se valida el swap.
--   El swap definitivo de `Foodit-subcategorias` → `Foodit-acumulado` en PageBuilder se ejecuta en Fase 6 (tarea 6.8), una vez validado el render end-to-end con datos reales.
--   Mientras tanto ambos layouts coexisten en el bundle MX: `Foodit-subcategorias` como layout activo en PageBuilder, `Foodit-acumulado` como layout destino post-swap.
+-   `Foodit-subcategorias` se agrega al bundle MX (Fase 4e) como **layout definitivo de `/recetas`** (copia fiel en paridad con el monolito), no como fallback temporal. PageBuilder conserva el mapeo existente.
+-   La tarea 6.8 (swap en PageBuilder) queda **CANCELADA**. No hay cambio de routing.
+-   `Foodit-acumulado` se conserva migrado en el bundle MX (Fase 3 + bloque 4d) como duplicación estratégica desacoplada del monolito, **pero sin ruta asignada** — disponible para evolución/uso futuro, no sirve `/recetas` por defecto.
 
 ### Decision 4: `libs/` con generator local `ln-arc-lib` self-contained (no wrappea `@nx/js:lib`)
 
@@ -168,7 +168,16 @@ Impacto en el plan de migración:
 
 ### Decision 6: Pipeline solo local (`deployer.js`) en MVP1; CI/CD diferido
 
-**Elegido**: `./scripts/deployer.js` con flags `--sandbox/--st/--prod/--use-mxid` ejecutado manualmente. El script de routing MX (que activa/desactiva la sección en PageBuilder) también vive en `./scripts/`. `.env.example` en raíz documenta las variables necesarias. Ambos scripts se versionan en este repo (`Contenidos`); no hay repo de operaciones separado para MVP1.
+**Elegido**: `./scripts/deployer.js` con flags `--sandbox/--dev/--st/--prod` (mxId on-by-default, `--no-mxid` como escape; `--promote` opt-in) ejecutado manualmente. El script de routing MX (que activa/desactiva la sección en PageBuilder) también vive en `./scripts/`. `.env.example` en raíz documenta las variables necesarias. Ambos scripts se versionan en este repo (`Contenidos`); no hay repo de operaciones separado para MVP1.
+
+#### Addendum (2026-07-06): ambiente Development + wrapper interactivo
+
+Durante la implementación de Fase 5 se agregaron dos piezas no contempladas en el plan original:
+
+-   **Ambiente `Development`**: Arc XP expone `Development` como ambiente hermano de `Sandbox` dentro del mismo "sandbox tier" (confirmado contra [dev.arcxp.com](https://dev.arcxp.com/pagebuilder-engine/pagebuilder-basics/arc-xp-environments/)), con endpoint y token propios (`api.dev.{org}.arcpublishing.com`, verificado en vivo). Se agregó el flag `--dev` / `DEVELOP_DEPLOYER_*` en `deployer.js`, reusando `SANDBOX_MX_ID` (mismo mxId, mxId propio para Development aún no provisionado).
+-   **`scripts/deployerInteractive.mjs`**: wrapper con `inquirer` que calca la UX de `create-demo` (selector de ambiente, chequeo de cambios sin comitear, opción de correr tests) y agrega un paso que `create-demo` no tiene: confirmación explícita antes de promover en ambientes de mxId compartido (Sandbox/Development), dado que promover pisa sin aviso la demo que esté live para el resto del equipo.
+
+**Por qué no automatizar promote ni siquiera en Sandbox**: el mxId de Sandbox/Development es compartido por todo el equipo — hay un solo slot "live" por ambiente, no uno por persona. Automatizarlo arriesgaba pisar la demo de otra persona en cada deploy.
 
 **Alternativa**: Configurar Azure DevOps pipelines desde MVP1.
 
@@ -201,6 +210,12 @@ Impacto en el plan de migración:
 -   **Trade-off**: Bundle MX en blanco (`fusion init`) requiere más adaptación inicial que copiar el bundle de referencia, pero produce un repo más auditable.
 
 -   **Trade-off**: Duplicar `Foodit-acumulado` en lugar de extraer a `libs/` aumenta superficie a mantener, a cambio de aislamiento de release.
+
+-   **Riesgo** (hallazgo operativo, 2026-07-02): El editor local de PageBuilder (`/pagebuilder/experiences/_default/pages`) crashea con `TypeError: Cannot read properties of undefined (reading 'hasWriteAccess')` si `apps/foodit-mx/mocks/` no tiene los mocks que el contenedor `origin` necesita para simular servicios que solo existen en la nube de Arc (Composer, Arc Home, tracking): `dashboard.json`, `siteservice/api/v3/website`, `settings/api/v1/user/pinned` y `user`. No es un problema de datos en Mongo ni de credenciales — verificado con 129 páginas reales restauradas y el crash persistió — es exclusivamente la ausencia de estos mocks locales.
+    → **Mitigación**: copiar los 4 archivos desde `mocks/` (raíz del monolito) a `apps/foodit-mx/mocks/`, respetando la misma estructura de carpetas. **Ya aplicado y verificado** en `apps/foodit-mx/mocks/` (2026-07-02).
+
+-   **Riesgo** (hallazgo operativo, 2026-07-02): `@arc-fusion/cli` calcula automáticamente la versión de Mongo del contenedor `data` (`mongo-vandelay:6` vs `:3.6`) a partir de `FUSION_RELEASE` en `.env` (ver `node_modules/@arc-fusion/cli/bin/environment.js`: `FUSION_RELEASE >= 7.0.0` o `'latest'` → Mongo 6; cualquier otro caso → Mongo 3.6). Si `apps/foodit-mx/data/db/` ya tiene datos persistidos por una versión de Mongo y una corrida posterior de `fusion start` genera el compose con la OTRA versión, Mongo falla con `WiredTiger metadata corruption` — error fatal, no reparable por esa versión — y el contenedor `fusion-data` muere al segundo de arrancar. Esto se manifiesta como crashes del admin/editor que parecen no tener relación con Mongo.
+    → **Mitigación**: mantener `FUSION_RELEASE=7.0.2` fijo en `.env` (ya resuelve a Mongo 6, consistente con los datos ya restaurados). Si el error de corrupción ya ocurrió, borrar `apps/foodit-mx/data/db/` (datos locales descartables, en `.gitignore`) y dejar que `fusion start` restaure limpio desde `data/restore/`.
 
 ## Migration Plan
 

@@ -9,7 +9,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Text } from '@ln/common-ui-text';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 
-import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { pushFooditEvent } from '../utils/pushFooditEvent';
 
 function SingWall() {
     const { userType = 'loading' } = useGetUserConfig();
@@ -40,9 +40,9 @@ function SingWall() {
                             title="Ir a Suscribirse"
                             data-test-id="button-suscribe-signwall"
                             variant="accent"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=800&fc=50000046&callback=${window?.btoa(window.location?.href)}`}
+                            href={`${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=800&fc=50000046&callback=${window?.btoa(window.location?.href)}`}
                             onClick={() => {
-                                addEventToDataLayerV2({
+                                pushFooditEvent({
                                     event: 'subscription_start',
                                     button: 'soft_paywall'
                                 });
@@ -60,7 +60,7 @@ function SingWall() {
                                     window.location?.href
                                 )}`}
                                 onClick={() => {
-                                    addEventToDataLayerV2({
+                                    pushFooditEvent({
                                         event: 'e_linkclick',
                                         action: 'N/A',
                                         category: 'soft_paywall',
