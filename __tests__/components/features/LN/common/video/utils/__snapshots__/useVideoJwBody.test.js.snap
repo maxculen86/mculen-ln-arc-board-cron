@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useVideoJwBody returns videoData extracted from data 1`] = `
+<div>
+  <div
+    data-body="{"videoData":{"playerId":"mockPlayer123","title":"Test","description":"desc","playlist":[{"mediaid":"testMedia123","images":[],"image":"fallback.jpg","sources":[{"file":"s.mp4","type":"video/mp4"}]}],"epigraphTitle":"Epigraph","mediaId":"testMedia123","sources":[{"file":"s.mp4","type":"video/mp4"}],"images":[],"fallbackImage":"fallback.jpg","firstVideo":{"mediaid":"testMedia123","images":[],"image":"fallback.jpg","sources":[{"file":"s.mp4","type":"video/mp4"}]}},"playerId":"mockPlayer123","mediaId":"testMedia123"}"
+    data-testid="harness"
+  />
+</div>
+`;

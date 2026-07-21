@@ -5,13 +5,14 @@ import HowTo from '../components/howTo/default';
 import GalleryEmbed from '../components/galleryEmbed/default';
 import Table from '../components/table/default';
 import Heading from '../components/heading/default';
+import CustomMultimedia from '../components/customMultimedia/default';
+import RawHtml from '../components/rawHtml/default';
+import VideoJw from '../components/videoJw/default';
 import Text from '../../common/text/default';
 import List from '../../common/list/default';
-import RawHtml from '../../common/rawHtml/default';
 import Image from '../../common/image/default';
 import OEmbed from '../../common/oEmbed/default';
 import Divider from '../../common/divider/default';
-import VideoPlayer from '../../common/video/default';
 import BlockQuote from '../../common/blockquote/default';
 import PullQuote from '../../common/pullquote/default';
 import Interstitial from '../../common/interstitial/default';
@@ -24,14 +25,15 @@ const DS_DEFAULT_BODY_COMPONENTS = [
     Image,
     OEmbed,
     Divider,
-    VideoPlayer,
+    VideoJw,
     BlockQuote,
     PullQuote,
     Interstitial,
     HowTo,
     Heading,
     GalleryEmbed,
-    Table
+    Table,
+    CustomMultimedia
 ];
 
 const BASE_BODY_CONFIG = {
@@ -51,7 +53,7 @@ const BASE_BODY_CONFIG = {
         'list',
         'pullquote'
     ],
-    allowedCustomSubtypes: ['gallery-embed', 'video_jw'],
+    allowedCustomSubtypes: ['gallery-embed', 'video_jw', 'custom-multimedia'],
     dynamicBanners: { enabled: true }
 };
 
@@ -95,8 +97,8 @@ function buildCustomBodyComponents(allowedArcTypes = []) {
 }
 
 const STORYTELLING_V2_BODY_CONFIG = buildBodyConfig({
-    allowedArcTypes: ['custom-how-to', 'canchallena'],
-    allowedCustomSubtypes: ['custom-how-to', 'canchallena']
+    allowedArcTypes: ['custom-how-to', 'canchallena', 'custom-multimedia'],
+    allowedCustomSubtypes: ['custom-how-to', 'canchallena', 'custom-multimedia']
 });
 
 const OPINION_BODY_CONFIG = buildBodyConfig();
