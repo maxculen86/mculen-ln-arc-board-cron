@@ -63,6 +63,10 @@ exports[`components - feature - LN-nota - signature - default renders with autho
           </button>
         </div>
       </div>
+      <div
+        class="hidden lg:inline-flex"
+        data-testid="google-button"
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -88,6 +92,10 @@ exports[`components - feature - LN-nota - signature - default renders with distr
           Escuchar Nota
         </button>
       </div>
+      <div
+        class="hidden lg:inline-flex"
+        data-testid="google-button"
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -156,6 +164,10 @@ exports[`components - feature - LN-nota - signature - default renders with story
           </button>
         </div>
       </div>
+      <div
+        class="hidden lg:inline-flex"
+        data-testid="google-button"
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -166,7 +178,12 @@ exports[`components - feature - LN-nota - signature - default renders without si
   <div>
     <div
       class="flex jc-between ai-center"
-    />
+    >
+      <div
+        class="hidden lg:inline-flex md:mb-24"
+        data-testid="google-button"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -239,6 +256,10 @@ exports[`components - feature - LN-nota - signature - default should not render 
           </button>
         </div>
       </div>
+      <div
+        class="hidden lg:inline-flex"
+        data-testid="google-button"
+      />
     </div>
   </div>
 </DocumentFragment>

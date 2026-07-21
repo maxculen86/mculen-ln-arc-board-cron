@@ -79,3 +79,28 @@ export const signatureWithAuthorsClasses = cva(
         ]
     }
 );
+
+export const googleButtonClasses = cva(['hidden', 'lg:inline-flex'], {
+    variants: {
+        hasVisibleContent: {
+            false: 'md:mb-24',
+            true: ''
+        },
+        position: {
+            [place.Top]: '',
+            [place.Bottom]: ''
+        },
+        hasAuthors: {
+            true: '',
+            false: ''
+        }
+    },
+    compoundVariants: [
+        {
+            position: place.Top,
+            hasAuthors: true,
+            subtype: withMargin,
+            className: 'mb-16'
+        }
+    ]
+});
