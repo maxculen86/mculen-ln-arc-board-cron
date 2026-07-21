@@ -34,7 +34,8 @@ import {
 import {
     buildPrimaryImageOfPage,
     buildMainEntityFromTags,
-    getSchemaImages
+    getSchemaImages,
+    buildAuthorPersonSchema
 } from './helpers/newsArticleSchemaHelper';
 import getElementsText from '../../../common/utils/getElementsText';
 import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
@@ -53,6 +54,13 @@ const SUBTYPE_CONFIG = {
         cssSelector: '.liveblog-editorial'
     }
 };
+const AUTHOR_PROFILE_SCHEMA_TYPES = new Set([
+    'NewsArticle',
+    'OpinionNewsArticle'
+]);
+
+const isAuthorProfileSchemaType = schemaType =>
+    AUTHOR_PROFILE_SCHEMA_TYPES.has(schemaType);
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -63,26 +71,29 @@ const extractDataFromTags = tags => {
     return { keywords };
 };
 
-const setAuthorSnippetStructure = author => {
-    const bioPage = get(author, 'additional_properties.original.bio_page', '');
+const buildBasicAuthorSchema = author => ({
+    '@type': 'Person',
+    name: getAuthorByline(author),
+    url: `${SITE_LANACION}${get(
+        author,
+        'additional_properties.original.bio_page',
+        ''
+    )}`
+});
 
-    return {
-        '@type': 'Person',
-        name: getAuthorByline(author),
-        url: `${SITE_LANACION}${bioPage}`
-    };
-};
-
-const extracDataFromCredits = (by, config = {}) => {
+const extractDataFromCredits = (
+    by,
+    { withAuthorProfileSchema = false } = {}
+) => {
     let authors = [];
 
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
             .map(author =>
-                config.snippet
-                    ? setAuthorSnippetStructure(author)
-                    : getAuthorByline(author)
+                withAuthorProfileSchema
+                    ? buildAuthorPersonSchema(author)
+                    : buildBasicAuthorSchema(author)
             );
     }
     return { authors: authors.length ? authors : [] };
@@ -185,7 +196,7 @@ function SnippetNoticia({
         '@type': subtypeConfig.distributorAuthorType || 'Organization',
         name: subtypeConfig.distributorAuthorName || distributorName
     };
-    const { authors } = extracDataFromCredits(by, { snippet: true });
+    const { authors: basicAuthors } = extractDataFromCredits(by);
     const { keywords } = extractDataFromTags(tags);
     const promoItemsWithWWW = {
         ...promoItems,
@@ -221,8 +232,8 @@ function SnippetNoticia({
     const noteUrl = `${schemaHost}${canonicalUrl || ''}`;
     const noteUrlWithSlash = addForwardSlash(noteUrl);
     const trust = get(label, 'trust.text', 'Noticia Original');
-    const hasAuthors = isNonEmptyArray(authors);
-    const creators = authors.map(a => a.name);
+    const hasAuthors = isNonEmptyArray(basicAuthors);
+    const creators = basicAuthors.map(a => a.name);
     const firtsParagraph = getFirstParagraph(contentElements);
     const articleBody = getElementsText(contentElements) || firtsParagraph;
     const mainEntity = buildMainEntityFromTags({
@@ -263,8 +274,6 @@ function SnippetNoticia({
             name: 'Acceso Digital Monthly Test',
             productID: 'lanacion.com.ar:acceso_digital'
         },
-        author: hasAuthors ? authors : distributorAuthor,
-        creator: creators,
         keywords,
         ...(mainEntity && { mainEntity }),
         ...(contentLocation && { contentLocation }),
@@ -277,6 +286,18 @@ function SnippetNoticia({
 
     data = getTrustProject(trust, schemaHost)(data)(sponsored);
 
+    const shouldEnrichAuthors =
+        hasAuthors && isAuthorProfileSchemaType(get(data, '@type', ''));
+    const schemaAuthors = shouldEnrichAuthors
+        ? extractDataFromCredits(by, { withAuthorProfileSchema: true }).authors
+        : basicAuthors;
+
+    data = {
+        ...data,
+        author: hasAuthors ? schemaAuthors : distributorAuthor,
+        creator: creators
+    };
+
     const ratingValue = getNumericRatingValue(contentElements);
     const shouldRenderReviewSchema =
         subtype === NOTICIA && ratingValue && canonicalUrl;
@@ -285,7 +306,7 @@ function SnippetNoticia({
               canonicalUrl,
               reviewUrl: noteUrlWithSlash,
               headline: headlineResolved,
-              author: getReviewAuthor({ authors, hasAuthors }),
+              author: getReviewAuthor({ authors: basicAuthors, hasAuthors }),
               datePublished: datePublishedISO,
               ratingValue,
               image: reviewImage

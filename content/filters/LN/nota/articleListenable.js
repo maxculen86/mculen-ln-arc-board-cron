@@ -593,6 +593,19 @@ export default `
                     gplus
                     bio
                     longBio
+                    expertise
+                    education {
+                        name
+                    }
+                    languages
+                    affiliations
+                    twitter
+                    instagram
+                    facebook
+                    linkedin
+                    youtube
+                    tiktok
+                    personal_website
                 }
             }
         }
