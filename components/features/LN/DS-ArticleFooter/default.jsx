@@ -23,7 +23,11 @@ function ArticleFooter() {
     const { globalContent = {} } = useAppContext();
     const { label, taxonomy = {}, distributor = {} } = globalContent;
     const { tags = [] } = taxonomy;
-    const { name: distributorName, subcategory } = distributor;
+    const {
+        name: distributorName,
+        subcategory,
+        mode: distributorMode
+    } = distributor;
     const trust = get(label, 'trust.text', null);
     const tooltipData = useSiteTooltip(trust);
     const trustProjectData = useTrustProjectData();
@@ -33,6 +37,7 @@ function ArticleFooter() {
             <ArticleFooterUi>
                 <ArticleFooterUi.AuthorAndDescription
                     distributor={distributorName}
+                    distributorMode={distributorMode}
                     complementaryText={subcategory}
                     href={buildDistributorUrl(distributorName)}
                 />
