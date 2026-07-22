@@ -25,7 +25,7 @@ jest.mock('fusion:context', () => {
 });
 
 jest.mock(
-    '../../../../../components/private/common/audioNews/components/AudioButton',
+    '../../../../../components/features/LN-nota/signature/components/audioButton',
     () => ({
         AudioButton: jest.fn(() => <button>Escuchar Nota</button>)
     })
