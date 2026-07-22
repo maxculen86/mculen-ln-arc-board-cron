@@ -464,6 +464,10 @@ export default `
             type
             url
             slug
+            social_links {
+                site
+                url
+            }
             image {
                 url
                 resized_urls {
@@ -480,6 +484,21 @@ export default `
                     role
                     bio_page
                     author_type
+                    bio
+                    longBio
+                    expertise
+                    education {
+                        name
+                    }
+                    languages
+                    affiliations
+                    twitter
+                    instagram
+                    facebook
+                    linkedin
+                    youtube
+                    tiktok
+                    personal_website
                 }
             }
         }
