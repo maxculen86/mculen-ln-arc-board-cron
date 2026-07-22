@@ -535,6 +535,7 @@ export default `
         type
         url
         content
+        alignment
         additional_properties {
             iptc_source
         }
