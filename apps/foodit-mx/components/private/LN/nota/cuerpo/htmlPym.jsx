@@ -1,0 +1,134 @@
+import React, { useRef } from 'react';
+import '../../../../../resources/dist/css/foodit/components/com-embed.css';
+import AnexoIframe from '../../acumulado/anexoIframe';
+
+export const parseStyles = styles =>
+    styles
+        .split(';')
+        .filter(item => item !== '')
+        .reduce((obj, key) => {
+            const style = key.split(':');
+            return { ...obj, [style[0].trim()]: style[1] };
+        }, {});
+
+export const getPropsFromNode = node =>
+    node && node.nodeType === 1 && node.attributes
+        ? [...node.attributes].reduce((obj, attr) => {
+              let { name, value } = attr;
+              name = name === 'class' ? 'className' : name;
+              value = name === 'async' ? true : value;
+              return {
+                  ...obj,
+                  [name]: name === 'style' ? parseStyles(value) : value || ''
+              };
+          }, {})
+        : null;
+
+export const convertNodeToComponent = (node, id) => {
+    if (!node) return null;
+    const {
+        tagName,
+        nodeName,
+        innerHTML,
+        outerText,
+        nodeValue,
+        classList,
+        childNodes
+    } = node;
+
+    const tag = (tagName || nodeName).toLocaleLowerCase();
+
+    if (node.nodeType !== 1) return null;
+
+    const _props = getPropsFromNode(node);
+
+    if (tag === 'iframe' && classList && classList.contains('pym'))
+        return (
+            <div key={id} className="contenido-externo">
+                <AnexoIframe
+                    url={_props.src}
+                    id={id}
+                    styles={_props.styles}
+                    _props={_props}
+                />
+            </div>
+        );
+
+    if (!Object.keys(node.childNodes).length)
+        return React.createElement(tag, { ..._props, key: id });
+
+    if (
+        node.querySelectorAll('iframe.pym').length &&
+        childNodes &&
+        childNodes.length
+    ) {
+        return React.createElement(
+            tag,
+            { ..._props, key: id },
+            // TODO: Refactorizar para evitar el eslint disable
+            // eslint-disable-next-line no-use-before-define
+            getComponentsFromNodeList(childNodes, id)
+        );
+    }
+
+    return React.createElement(tag, {
+        ..._props,
+        key: id,
+        dangerouslySetInnerHTML: {
+            __html: tag === 'style' ? outerText : innerHTML || nodeValue || ''
+        }
+    });
+};
+
+export const getComponentsFromNodeList = (nodeList, id) => {
+    if (!nodeList) return null;
+    return [...nodeList]
+        .map((node, index) => convertNodeToComponent(node, `${id}-${index}`))
+        .filter(item => item != null);
+};
+
+export const getChildren = (nodes, id) => {
+    const {
+        head: { childNodes: headElements = [] },
+        childNodes = null,
+        body: { childNodes: bodyChildNodes = null }
+    } = nodes;
+
+    // El DOMParser retorna un nodo #document
+    // los estilos se encuentran en el tag <head> y los elementos en el tag <body>
+    // para luego convertir todos los nodos en componentes de la misma forma se colocaron en un arreglo
+    return [headElements, bodyChildNodes || childNodes || []]
+        .map(nodeList => getComponentsFromNodeList(nodeList, id))
+        .filter(item => item != null);
+};
+
+function HtmlPym({ data = { _id: '', content: '' } }) {
+    const { content } = data || { content: null };
+    const { _id: id } = data || '';
+    const parser = useRef();
+
+    if (!content) return null;
+
+    if (!parser.current) {
+        parser.current = new DOMParser();
+    }
+    if (
+        !parser.current
+            .parseFromString(content, 'text/html')
+            .querySelectorAll('.pym').length
+    )
+        return null;
+
+    const _children = getChildren(
+        parser.current.parseFromString(content, 'text/html'),
+        id
+    );
+
+    if (!_children.length) return null;
+    return <div className="com-embed --html">{_children}</div>;
+}
+
+HtmlPym.arcType = 'raw_html';
+HtmlPym.outputType = 'default';
+
+export default HtmlPym;
