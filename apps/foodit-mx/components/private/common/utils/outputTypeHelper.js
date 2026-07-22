@@ -3,7 +3,6 @@ import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
 import { LIVEBLOG_EDITORIAL, RECETA } from './subtypes/subtypeHelper';
 import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
 import get from './get';
-import { getEconomicIndicesMetaData } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
 
 export const getSectionOfRequestUri = (requestUri = '') => {
     const [section] = requestUri
@@ -95,8 +94,7 @@ export const getMetaDescriptionDefault = (
     nodeType,
     name,
     arcSite,
-    requestUri,
-    globalContent
+    requestUri
 ) => {
     if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
         return metaValue ? `${metaValue}` : defaultDescription;
@@ -114,15 +112,6 @@ export const getMetaDescriptionDefault = (
                 layout
             ) || ''
         );
-    }
-
-    if (globalContent?.serviceType === 'detalle-indices' && metaValue) {
-        return metaValue;
-    }
-
-    const isEconomiaIndicesHome = requestUri?.startsWith('/economia/indices');
-    if (isEconomiaIndicesHome) {
-        return getEconomicIndicesMetaData('default').description;
     }
 
     return defaultDescription;
