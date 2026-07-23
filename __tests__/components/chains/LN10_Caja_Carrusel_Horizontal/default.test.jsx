@@ -3,6 +3,7 @@ import { useAppContext } from 'fusion:context';
 import { render, screen } from '@testing-library/react';
 import { validateCarruselChildren } from '../../../../components/chains/utils/validateCarruselChildren';
 import { useRoofData } from '../../../../components/chains/utils/_helpers';
+import { transformNodes } from '../../../../components/chains/LN10_Caja_Carrusel/components/helpers';
 import CajaCarruselHorizontal from '../../../../components/chains/LN10_Caja_Carrusel_Horizontal/default';
 
 jest.mock('fusion:consumer', Component => {
@@ -27,9 +28,35 @@ jest.mock('../../../../components/chains/utils/_helpers', () => ({
 }));
 
 jest.mock(
+    '../../../../components/chains/LN10_Caja_Carrusel/components/helpers',
+    () => {
+        const actual = jest.requireActual(
+            '../../../../components/chains/LN10_Caja_Carrusel/components/helpers'
+        );
+        return {
+            ...actual,
+            transformNodes: jest.fn((...args) => actual.transformNodes(...args))
+        };
+    }
+);
+
+jest.mock(
     '../../../../components/features/private-global/common/utils/hideParentNode',
     () => jest.fn()
 );
+
+jest.mock('../../../../components/features/ui/ln/mediaScroller/default', () => {
+    const React = require('react');
+    const MediaScroller = ({ children }) => (
+        <div data-testid="media-scroller">{children}</div>
+    );
+
+    MediaScroller.Item = ({ children }) => (
+        <div data-testid="media-scroller-item">{children}</div>
+    );
+
+    return { __esModule: true, default: MediaScroller };
+});
 
 describe('components - chains - LN10_Caja_Carrusel_Horizontal', () => {
     useAppContext.mockReturnValue({
@@ -60,7 +87,17 @@ describe('components - chains - LN10_Caja_Carrusel_Horizontal', () => {
         },
         siteProperties: { layoutsName: { HomeLN10: 'LN10-Home_Main' } },
         layout: 'LN10-LN-Home_Sports',
-        childProps: [childPropBase, childPropBase],
+        childProps: [
+            childPropBase,
+            {
+                ...childPropBase,
+                id: 'f0fT3DeljGTD3Xg-second',
+                customFields: {
+                    ...childPropBase.customFields,
+                    video: '551Qg3uY-second'
+                }
+            }
+        ],
         chainId: 'test-chain-id',
         renderables: []
     };
@@ -218,6 +255,34 @@ describe('components - chains - LN10_Caja_Carrusel_Horizontal', () => {
         );
     });
 
+    it('keeps hook order stable when error and hide states change across rerenders', () => {
+        const { rerender } = render(
+            <CajaCarruselHorizontal {...defaultProps} />
+        );
+
+        expect(() => {
+            useAppContext.mockReturnValue({ isAdmin: true });
+            validateCarruselChildren.mockReturnValue({
+                type: 'error',
+                message: 'Advertencia. Se requiere la carga de items.'
+            });
+
+            rerender(<CajaCarruselHorizontal {...defaultProps} />);
+
+            rerender(
+                <CajaCarruselHorizontal
+                    {...defaultProps}
+                    customFields={{
+                        ...defaultProps.customFields,
+                        hideCarousel: true
+                    }}
+                />
+            );
+
+            rerender(<CajaCarruselHorizontal {...defaultProps} />);
+        }).not.toThrow();
+    });
+
     it('should pass correct viewability data to roof', () => {
         const propsWithViewability = {
             ...defaultProps,
@@ -228,5 +293,56 @@ describe('components - chains - LN10_Caja_Carrusel_Horizontal', () => {
         render(<CajaCarruselHorizontal {...propsWithViewability} />);
 
         expect(screen.getByText(/child 1/i)).toBeInTheDocument();
+    });
+
+    describe('memoization of transformNodes', () => {
+        it('should not recompute nodes when props do not change', () => {
+            const { rerender } = render(
+                <CajaCarruselHorizontal {...defaultProps} />
+            );
+            transformNodes.mockClear();
+
+            rerender(<CajaCarruselHorizontal {...defaultProps} />);
+
+            expect(transformNodes).not.toHaveBeenCalled();
+        });
+
+        it('should recompute nodes when childProps change', () => {
+            const { rerender } = render(
+                <CajaCarruselHorizontal {...defaultProps} />
+            );
+            transformNodes.mockClear();
+
+            rerender(
+                <CajaCarruselHorizontal
+                    {...defaultProps}
+                    childProps={[
+                        ...defaultProps.childProps,
+                        {
+                            ...childPropBase,
+                            id: 'f0fT3DeljGTD3Xg-third',
+                            customFields: {
+                                ...childPropBase.customFields,
+                                video: '551Qg3uY-third'
+                            }
+                        }
+                    ]}
+                />
+            );
+
+            expect(transformNodes).toHaveBeenCalledTimes(2);
+        });
+
+        it('should recompute nodes when roofData changes', () => {
+            const { rerender } = render(
+                <CajaCarruselHorizontal {...defaultProps} />
+            );
+            transformNodes.mockClear();
+            useRoofData.mockReturnValue({ ...mockRoofData, updated: true });
+
+            rerender(<CajaCarruselHorizontal {...defaultProps} />);
+
+            expect(transformNodes).toHaveBeenCalledTimes(2);
+        });
     });
 });

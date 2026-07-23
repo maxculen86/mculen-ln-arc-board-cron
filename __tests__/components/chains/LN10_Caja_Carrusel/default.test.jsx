@@ -5,6 +5,26 @@ import { validateCarruselChildren } from '../../../../components/chains/utils/va
 import { useRoofData } from '../../../../components/chains/utils/_helpers';
 import CajaCarrusel from '../../../../components/chains/LN10_Caja_Carrusel/default';
 
+jest.mock(
+    '../../../../components/chains/LN10_Caja_Carrusel/components/mediaScrollerExpanded/wrapper',
+    () => ({
+        __esModule: true,
+        default: ({ children }) => (
+            <div data-testid="media-scroller-expanded-wrapper">{children}</div>
+        )
+    })
+);
+
+jest.mock(
+    '../../../../components/chains/LN10_Caja_Carrusel/components/mediaScrollerExpanded/mediaScrollerExpanded',
+    () => ({
+        __esModule: true,
+        default: ({ variant }) => (
+            <div data-testid="media-scroller-expanded" data-variant={variant} />
+        )
+    })
+);
+
 jest.mock('fusion:consumer', Component => {
     return function (Component) {
         return props => <Component {...props} />;
@@ -53,7 +73,17 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         },
         siteProperties: { layoutsName: { HomeLN10: 'LN10-Home_Main' } },
         layout: 'LN10-LN-Home_Sports',
-        childProps: [childPropBase, childPropBase],
+        childProps: [
+            childPropBase,
+            {
+                ...childPropBase,
+                id: 'f0fT3DeljGTD3Xg-second',
+                customFields: {
+                    ...childPropBase.customFields,
+                    video: '551Qg3uY-second'
+                }
+            }
+        ],
         enabledDays: ['lunes', 'martes', 'miercoles']
     };
 
@@ -152,5 +182,17 @@ describe('components - chains - LN10_Caja_Carrusel', () => {
         );
 
         expect(screen.getAllByText(/child/i)).toHaveLength(20);
+    });
+
+    it('renders the per-chain expanded wrapper with the vertical variant', () => {
+        render(<CajaCarrusel {...defaultProps} />);
+
+        expect(
+            screen.getByTestId('media-scroller-expanded-wrapper')
+        ).toBeInTheDocument();
+        expect(screen.getByTestId('media-scroller-expanded')).toHaveAttribute(
+            'data-variant',
+            'vertical'
+        );
     });
 });

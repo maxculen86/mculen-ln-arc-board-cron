@@ -2,7 +2,6 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
 import { ejesMapping } from './_helpers';
-import { useWebviewPageView } from './useWebviewPageView';
 
 function EjesHomePageView() {
     const { contextPath, deployment, requestUri = '' } = useAppContext();
@@ -13,8 +12,6 @@ function EjesHomePageView() {
     const ejeName = ejeMatch ? ejeMatch[1] : '';
 
     const ejeData = ejesMapping[ejeName];
-
-    useWebviewPageView(ejeData ? { content_type: ejeData.contentType } : {});
 
     if (!ejeData) return null;
 

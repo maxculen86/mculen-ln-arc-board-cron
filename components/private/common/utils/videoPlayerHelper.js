@@ -205,7 +205,8 @@ export const registerJwVideoControlsTracking = ({
 export const registerVideoResumeTracking = ({
     player,
     defaultTitle,
-    defaultId
+    defaultId,
+    isAdBreakActive
 }) => {
     if (!player) return () => {};
 
@@ -213,6 +214,7 @@ export const registerVideoResumeTracking = ({
     let currentId = defaultId;
     let wasPaused = false;
     let skipPlayForSeek = false;
+    let pausedDuringAdBreak = false;
 
     const updateCurrentMedia = source => {
         ({ title: currentTitle, id: currentId } = updatedMediaData(source, {
@@ -235,6 +237,12 @@ export const registerVideoResumeTracking = ({
 
         if (wasPaused) {
             wasPaused = false;
+            const skipAdBreakResume =
+                pausedDuringAdBreak || Boolean(isAdBreakActive?.());
+            pausedDuringAdBreak = false;
+
+            if (skipAdBreakResume) return;
+
             addEventToDataLayerV2({
                 event: 'videoResume',
                 videoName: `${currentTitle}`,
@@ -244,6 +252,7 @@ export const registerVideoResumeTracking = ({
     };
 
     const handlePause = () => {
+        pausedDuringAdBreak = Boolean(isAdBreakActive?.());
         wasPaused = true;
     };
 

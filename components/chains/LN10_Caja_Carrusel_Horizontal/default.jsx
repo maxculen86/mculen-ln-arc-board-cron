@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import { useAppContext } from 'fusion:context';
 import {
@@ -18,8 +18,8 @@ import hideParentNode from '../../features/private-global/common/utils/hideParen
 import CajaCarruselProvider from '../LN10_Caja_Carrusel/components/cajaCarruselContext';
 import MediaScrollerContainer from '../LN10_Caja_Carrusel/components/mediaScroller/mediaScroller';
 import MediaScrollerExpandedWrapper from '../LN10_Caja_Carrusel/components/mediaScrollerExpanded/wrapper';
-import MediaScroller from '../../features/ui/ln/mediaScroller/default';
 import MediaScrollerExpanded from '../LN10_Caja_Carrusel/components/mediaScrollerExpanded/mediaScrollerExpanded';
+import MediaScroller from '../../features/ui/ln/mediaScroller/default';
 
 function CajaCarruselHorizontal(props) {
     const {
@@ -89,6 +89,31 @@ function CajaCarruselHorizontal(props) {
         shouldSchedule
     });
 
+    const nodes = useMemo(
+        () =>
+            transformNodes({
+                children,
+                isAdmin,
+                childProps,
+                bannerRef: divRefInCarrusel,
+                roofData
+            }),
+        [children, isAdmin, childProps, divRefInCarrusel, roofData]
+    );
+
+    const nodesByExpanded = useMemo(
+        () =>
+            transformNodes({
+                children,
+                isAdmin,
+                childProps,
+                isExpanded: true,
+                layoutType: 'horizontal',
+                roofData
+            }),
+        [children, isAdmin, childProps, roofData]
+    );
+
     useEffect(() => {
         if (!isAdmin) {
             hideParentNode(divRefInCarrusel, 'DIV');
@@ -103,18 +128,16 @@ function CajaCarruselHorizontal(props) {
         return null;
     }
 
-    const nodes = transformNodes({
-        children,
-        isAdmin,
-        childProps,
-        bannerRef: divRefInCarrusel,
-        roofData
-    });
-
     return (
         <CajaCarruselProvider>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
+                    <MediaScrollerExpandedWrapper>
+                        <MediaScrollerExpanded
+                            listVideoData={nodesByExpanded}
+                            variant="horizontal"
+                        />
+                    </MediaScrollerExpandedWrapper>
                     <MediaScrollerContainer
                         roofData={roofData}
                         responsive={{
@@ -122,6 +145,7 @@ function CajaCarruselHorizontal(props) {
                             md: { gap: '16px', width: '575px' }
                         }}
                         elementsToScroll={1}
+                        overflowOnMobile
                     >
                         {nodes.map(child => (
                             <MediaScroller.Item key={child.key}>
@@ -133,13 +157,6 @@ function CajaCarruselHorizontal(props) {
                             </MediaScroller.Item>
                         ))}
                     </MediaScrollerContainer>
-
-                    <MediaScrollerExpandedWrapper>
-                        <MediaScrollerExpanded
-                            variant="horizontal"
-                            listVideoData={nodes}
-                        />
-                    </MediaScrollerExpandedWrapper>
                 </section>
             </div>
         </CajaCarruselProvider>
