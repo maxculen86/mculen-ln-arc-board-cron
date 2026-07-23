@@ -1,6 +1,4 @@
 import initializeAuth, {
-    setMultiplyCookies,
-    setupCookies,
     getAuthTokens,
     initializeGoogleOneTap
 } from '../../../components/private/common/auth/helper/loginHelper';
@@ -10,33 +8,7 @@ import handleCookie from '../../../components/private/LN/common/utils/handleCook
 jest.mock('../../../components/private/LN/common/utils/handleCookie', () => ({
     __esModule: true,
     default: jest.fn().mockReturnValue({
-        setCookie: jest.fn(),
-        getCookie: jest.fn(),
-        eraseCookie: jest.fn(),
-        DiccionarioCookiesAGuardar: [
-            'usuariosexo',
-            'usuarioemail',
-            'usuarioanio',
-            'usuarioDetalleClubNacion',
-            'UsuarioDetalleGuid',
-            'UsuarioDetalleNick',
-            'UsuarioDetalleNombre',
-            'UsuarioDetalleApellido',
-            'UsuarioId',
-            'UsuarioUsuario',
-            'usuario%5Fusuario',
-            'usuarioLogTkn',
-            'cookieLogin',
-            'syncLfLN',
-            'Provinciaid',
-            'Paisid',
-            'LNPreferencias',
-            'Crm_id',
-            'ProductoPremiumId',
-            'token',
-            'xvalue',
-            'TokenJWT'
-        ]
+        getCookie: jest.fn()
     })
 }));
 
@@ -76,88 +48,10 @@ jest.mock('fusion:environment', () => ({
             defaultPrivacyLevel: 'mask-user-input'
         }
     },
-    API_INGRESAR: 'https://mock-api.com',
     GOOGLE_ONE_TAP: 'mock-google-client-id'
 }));
 
 describe('Tests functions loginHelper', () => {
-    const mockFunctionRefreshAsync = jest.fn();
-    describe('Tests function setupCookies', () => {
-        const { setCookie, eraseCookie } = handleCookie();
-
-        beforeEach(() => {
-            jest.clearAllMocks();
-        });
-
-        it('should set cookies for userData', () => {
-            const userData = {
-                UsuarioDetalleGuid: 'guid123',
-                UsuarioDetalleNick: 'nick123'
-            };
-
-            setupCookies({
-                ...userData,
-                RefreshAsync: mockFunctionRefreshAsync
-            });
-
-            expect(eraseCookie).toHaveBeenCalledWith(
-                'usuario%5Fdetalle%5Fguid'
-            );
-            expect(setCookie).toHaveBeenCalledWith(
-                'usuario%5Fdetalle%5Fguid',
-                'guid123'
-            );
-            expect(eraseCookie).toHaveBeenCalledWith(
-                'usuario%5Fdetalle%5Fnick'
-            );
-            expect(setCookie).toHaveBeenCalledWith(
-                'usuario%5Fdetalle%5Fnick',
-                'nick123'
-            );
-        });
-
-        it('should not set cookies for non-string values', () => {
-            const userData = {
-                UsuarioDetalleGuid: 12345
-            };
-
-            setupCookies({
-                ...userData,
-                RefreshAsync: mockFunctionRefreshAsync
-            });
-
-            expect(eraseCookie).not.toHaveBeenCalled();
-            expect(setCookie).not.toHaveBeenCalled();
-        });
-    });
-
-    describe('Tests function setMultiplyCookies', () => {
-        const { setCookie, eraseCookie } = handleCookie();
-
-        beforeEach(() => {
-            jest.clearAllMocks();
-        });
-
-        it('should set multiple cookies and call setupCookies', () => {
-            const userData = { id: 1, name: 'John Doe' };
-            const newToken = 'newToken123';
-            const dataUser = {
-                ...userData,
-                RefreshAsync: mockFunctionRefreshAsync
-            };
-
-            setMultiplyCookies({
-                dataUser,
-                newToken,
-                RefreshAsync: mockFunctionRefreshAsync
-            });
-
-            expect(eraseCookie).toHaveBeenCalledWith('token');
-            expect(setCookie).toHaveBeenCalledWith('token', newToken);
-            expect(handleCookie().setCookie).toHaveBeenCalled();
-        });
-    });
-
     describe('initializeAuth', () => {
         const mockSetTokens = jest.fn();
         const { getCookie } = handleCookie();
