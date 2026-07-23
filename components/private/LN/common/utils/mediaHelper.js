@@ -164,7 +164,10 @@ export const getImagesToLoadWithPicture = (isPreload, sourceActive = []) => {
 };
 
 // TODO: Modularizar este componente y llevarlo a un .jsx
-export function LinkImagePreload({ resizedUrls = [] }) {
+export function LinkImagePreload({
+    resizedUrls = [],
+    disableImageSrcSet = false
+}) {
     if (resizedUrls.length === 0) return null;
 
     const images = getImagesToLoadWithPicture(true, resizedUrls);
@@ -175,7 +178,9 @@ export function LinkImagePreload({ resizedUrls = [] }) {
                 as: 'image',
                 fetchPriority: 'high',
                 ...(mediaPreload && { media: mediaPreload }),
-                ...(withConfigPixelRatio && srcSet && { imageSrcSet: srcSet })
+                ...(!disableImageSrcSet &&
+                    withConfigPixelRatio &&
+                    srcSet && { imageSrcSet: srcSet })
             });
         }
     );
