@@ -13,7 +13,8 @@ export function EmptyStateChat() {
                 <div className="flex gap-4">
                     <Icon
                         size={20}
-                        className="pt-4 text-accent-default"
+                        className="pt-4"
+                        fill="var(--proxy-accent-default)"
                         name="sprak"
                     />
                     <p className="roboto roboto-bold text-16">Foodit IA:</p>

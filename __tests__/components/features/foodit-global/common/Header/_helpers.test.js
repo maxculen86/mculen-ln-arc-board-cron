@@ -1,9 +1,13 @@
 import React from 'react';
-import transformMenuData from '../../../../../../components/features/foodit-global/common/Header/_helpers';
+import transformMenuData, {
+    RESPONSE_FORMAT,
+    sendChatMessage
+} from '../../../../../../components/features/foodit-global/common/Header/_helpers';
 
 jest.mock('fusion:environment', () => {
     return {
-        SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+        SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+        API_IA_FOODIT: 'https://foodit-chatbot.test'
     };
 });
 
@@ -318,5 +322,37 @@ describe('transformMenuData function', () => {
                 className: 'lg-none'
             }
         ]);
+    });
+});
+
+describe('sendChatMessage', () => {
+    beforeEach(() => {
+        global.fetch = jest.fn().mockResolvedValue({ json: async () => ({}) });
+    });
+
+    // Contra la constante y no contra el literal: es la misma que alimenta el render
+    it('should ask for the format the chat renders with', async () => {
+        await sendChatMessage({
+            sessionId: 's-1',
+            message: 'hola',
+            accessToken: 'jwt',
+            userId: 'u-1'
+        });
+
+        const body = JSON.parse(global.fetch.mock.calls[0][1].body);
+        expect(body.response_type).toBe(RESPONSE_FORMAT);
+        expect(RESPONSE_FORMAT).toBe('markdown');
+        expect(body).toMatchObject({
+            session_id: 's-1',
+            message: 'hola',
+            user_id: 'u-1'
+        });
+    });
+
+    it('should send the token in the x-authorization header', async () => {
+        await sendChatMessage({ accessToken: 'jwt' });
+
+        const [, options] = global.fetch.mock.calls[0];
+        expect(options.headers['x-authorization']).toBe('jwt');
     });
 });

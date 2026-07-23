@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmptyState matches snapshot when isSubscribed is false 1`] = `
+exports[`EmptyState snapshots should match snapshot when the user is not subscribed 1`] = `
 <div
   badge="[object Object]"
   class="xl:col-span-10"
@@ -11,7 +11,7 @@ exports[`EmptyState matches snapshot when isSubscribed is false 1`] = `
 />
 `;
 
-exports[`EmptyState matches snapshot when isSubscribed is true 1`] = `
+exports[`EmptyState snapshots should match snapshot when the user is subscribed 1`] = `
 <div
   data-testid="icon-subscribe"
 />

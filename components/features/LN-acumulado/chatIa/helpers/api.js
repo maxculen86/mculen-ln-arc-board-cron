@@ -35,6 +35,8 @@ export async function createMundialSession({ userId, accessToken }) {
     return data;
 }
 
+export const RESPONSE_FORMAT = 'text';
+
 export async function sendMundialChatMessage({
     userId,
     sessionId,
@@ -46,7 +48,8 @@ export async function sendMundialChatMessage({
         {
             user_id: userId,
             session_id: sessionId,
-            message
+            message,
+            response_type: RESPONSE_FORMAT
         },
         accessToken
     );
@@ -58,11 +61,15 @@ export const FALLBACK_SUGGESTED_QUESTIONS = [
     '¿Quién es hasta el momento el goleador del torneo?'
 ];
 
-export async function getSuggestedQuestions({ userId, accessToken } = {}) {
+export async function getSuggestedQuestions({
+    userId,
+    accessToken,
+    query = ''
+} = {}) {
     try {
         const data = await apiFetch(
             '/api/sq',
-            { user_id: userId },
+            { query, user_id: userId },
             accessToken
         );
         if (Array.isArray(data) && data.length > 0) {

@@ -36,7 +36,7 @@ jest.mock(
                 data-is-last={String(isLastOutput)}
                 data-is-generating={String(isGenerating)}
             >
-                {message?.response_chat?.descripcion}
+                {message?.data?.message?.answer}
             </div>
         )
     })
@@ -47,89 +47,110 @@ const userMessage = (content = 'Hola') => ({
     content
 });
 
-const assistantMessage = (descripcion = 'Respuesta IA') => ({
+const assistantMessage = (answer = 'Respuesta IA', overrides = {}) => ({
+    success: true,
     message_type: 'input',
-    response_chat: { descripcion, fuentes: [] }
+    error: null,
+    data: {
+        message: {
+            query: '',
+            answer,
+            follow_up_query: null,
+            sources: []
+        },
+        session_id: 'mundial-1',
+        chat_count: 1,
+        max_reached: false,
+        session_status: 'active',
+        ...overrides
+    }
 });
 
+const renderContainer = (messages = []) =>
+    render(
+        <MessageContainer
+            messages={messages}
+            isGenerating={false}
+            onTypingDone={jest.fn()}
+        />
+    );
+
 describe('MessageContainer', () => {
-    it('matches snapshot with empty messages', () => {
-        const { container } = render(
-            <MessageContainer
-                messages={[]}
-                isGenerating={false}
-                onTypingDone={jest.fn()}
-            />
-        );
-        expect(container.firstChild).toMatchSnapshot();
+    // `message_type` es lo único que distingue quién habla: `output` usuario, `input` asistente
+    describe('message routing', () => {
+        it('should render the user message when the type is output', () => {
+            renderContainer([userMessage('Pregunta del usuario')]);
+
+            expect(screen.getByTestId('message-user')).toBeInTheDocument();
+        });
+
+        it('should show the user content when the type is output', () => {
+            renderContainer([userMessage('Pregunta del usuario')]);
+
+            expect(
+                screen.getByText('Pregunta del usuario')
+            ).toBeInTheDocument();
+        });
+
+        it('should render the assistant message when the type is input', () => {
+            renderContainer([assistantMessage('Texto IA')]);
+
+            expect(screen.getByTestId('message-assistant')).toBeInTheDocument();
+        });
+
+        it('should read the answer from data.message when the type is input', () => {
+            renderContainer([assistantMessage('Texto IA')]);
+
+            expect(screen.getByText('Texto IA')).toBeInTheDocument();
+        });
+
+        it('should render nothing when the message type is unknown', () => {
+            renderContainer([{ message_type: 'unknown' }]);
+
+            expect(
+                screen.queryByTestId('message-user')
+            ).not.toBeInTheDocument();
+            expect(
+                screen.queryByTestId('message-assistant')
+            ).not.toBeInTheDocument();
+        });
     });
 
-    it('matches snapshot with user and assistant messages', () => {
-        const messages = [
-            userMessage('¿Quién ganó?'),
-            assistantMessage('Argentina')
-        ];
-        const { container } = render(
-            <MessageContainer
-                messages={messages}
-                isGenerating={false}
-                onTypingDone={jest.fn()}
-            />
-        );
-        expect(container.firstChild).toMatchSnapshot();
+    describe('typing animation', () => {
+        it('should flag the last assistant message so it animates', () => {
+            renderContainer([userMessage(), assistantMessage()]);
+
+            expect(screen.getByTestId('message-assistant')).toHaveAttribute(
+                'data-is-last',
+                'true'
+            );
+        });
     });
 
-    it('renders MessageUserLN for output messages', () => {
-        render(
-            <MessageContainer
-                messages={[userMessage('Pregunta del usuario')]}
-                isGenerating={false}
-            />
-        );
+    describe('generating state', () => {
+        it('should render the thinking copy', () => {
+            renderContainer();
 
-        expect(screen.getByTestId('message-user')).toBeInTheDocument();
-        expect(screen.getByText('Pregunta del usuario')).toBeInTheDocument();
+            expect(screen.getByTestId('thread-generating')).toHaveTextContent(
+                'Pensando...'
+            );
+        });
     });
 
-    it('renders MessageAssistantLN for input messages', () => {
-        render(
-            <MessageContainer
-                messages={[assistantMessage('Texto IA')]}
-                isGenerating={false}
-            />
-        );
+    describe('snapshots', () => {
+        it('should match snapshot when there are no messages', () => {
+            const { container } = renderContainer();
 
-        expect(screen.getByTestId('message-assistant')).toBeInTheDocument();
-        expect(screen.getByText('Texto IA')).toBeInTheDocument();
-    });
+            expect(container.firstChild).toMatchSnapshot();
+        });
 
-    it('renders nothing for unknown message_type', () => {
-        render(
-            <MessageContainer
-                messages={[{ message_type: 'unknown' }]}
-                isGenerating={false}
-            />
-        );
+        it('should match snapshot with user and assistant messages', () => {
+            const { container } = renderContainer([
+                userMessage('¿Quién ganó?'),
+                assistantMessage('Argentina')
+            ]);
 
-        expect(screen.queryByTestId('message-user')).not.toBeInTheDocument();
-        expect(
-            screen.queryByTestId('message-assistant')
-        ).not.toBeInTheDocument();
-    });
-
-    it('passes isLastOutput=true to the last assistant message', () => {
-        const messages = [userMessage(), assistantMessage()];
-        render(<MessageContainer messages={messages} isGenerating={false} />);
-
-        const assistant = screen.getByTestId('message-assistant');
-        expect(assistant).toHaveAttribute('data-is-last', 'true');
-    });
-
-    it('renders Thread.Generating with correct text', () => {
-        render(<MessageContainer messages={[]} isGenerating={false} />);
-
-        expect(screen.getByTestId('thread-generating')).toHaveTextContent(
-            'Pensando...'
-        );
+            expect(container.firstChild).toMatchSnapshot();
+        });
     });
 });

@@ -8,11 +8,12 @@ const PLACEHOLDER_TEXT =
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: {
-        Input: ({ children, disabled, inputProps }) => (
+        // El `disabled` del root solo llega al wrapper: el textarea lee `inputProps.disabled`
+        Input: ({ children, inputProps }) => (
             <div>
                 <input
                     data-testid="chat-input"
-                    disabled={disabled}
+                    disabled={!!inputProps?.disabled}
                     placeholder={inputProps?.placeholder}
                     className={inputProps?.className}
                 />
@@ -49,60 +50,84 @@ jest.mock('../../../../../../components/features/ui/ln/icon/default', () => ({
 }));
 
 describe('InputChat', () => {
-    it('matches snapshot with default props', () => {
-        const { container } = render(<InputChat />);
-        expect(container.firstChild).toMatchSnapshot();
+    describe('placeholder', () => {
+        it('should show the prompt copy when the chat is open', () => {
+            render(<InputChat isBlocked={false} />);
+
+            expect(screen.getByTestId('chat-input')).toHaveAttribute(
+                'placeholder',
+                PLACEHOLDER_TEXT
+            );
+        });
+
+        it('should show no placeholder when the chat is blocked', () => {
+            render(<InputChat isBlocked={true} />);
+
+            expect(screen.getByTestId('chat-input')).toHaveAttribute(
+                'placeholder',
+                ''
+            );
+        });
     });
 
-    it('matches snapshot when disabled', () => {
-        const { container } = render(
-            <InputChat disabled={true} isGenerating={false} isBlocked={false} />
-        );
-        expect(container.firstChild).toMatchSnapshot();
+    describe('when the input is disabled', () => {
+        it('should disable the text field', () => {
+            render(<InputChat disabled={true} />);
+
+            expect(screen.getByTestId('chat-input')).toBeDisabled();
+        });
+
+        it('should disable the submit button', () => {
+            render(<InputChat disabled={true} />);
+
+            expect(screen.getByTestId('submit-button')).toBeDisabled();
+        });
+
+        it('should apply the muted placeholder style', () => {
+            render(<InputChat disabled={true} />);
+
+            const input = screen.getByTestId('chat-input');
+            expect(input.className).toContain('placeholder:text-neutral-300');
+            expect(input.className).not.toContain(
+                'placeholder:text-base-default'
+            );
+        });
     });
 
-    it('matches snapshot when isBlocked', () => {
-        const { container } = render(<InputChat isBlocked={true} />);
-        expect(container.firstChild).toMatchSnapshot();
+    describe('when the chat is blocked', () => {
+        it('should disable the text field', () => {
+            render(<InputChat isBlocked={true} />);
+
+            expect(screen.getByTestId('chat-input')).toBeDisabled();
+        });
+
+        it('should disable the submit button', () => {
+            render(<InputChat isBlocked={true} />);
+
+            expect(screen.getByTestId('submit-button')).toBeDisabled();
+        });
     });
 
-    it('shows placeholder when not blocked', () => {
-        render(<InputChat isBlocked={false} />);
+    describe('snapshots', () => {
+        it('should match snapshot with default props', () => {
+            const { container } = render(<InputChat />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
 
-        expect(screen.getByTestId('chat-input')).toHaveAttribute(
-            'placeholder',
-            PLACEHOLDER_TEXT
-        );
-    });
+        it('should match snapshot when disabled', () => {
+            const { container } = render(
+                <InputChat
+                    disabled={true}
+                    isGenerating={false}
+                    isBlocked={false}
+                />
+            );
+            expect(container.firstChild).toMatchSnapshot();
+        });
 
-    it('shows empty placeholder when isBlocked', () => {
-        render(<InputChat isBlocked={true} />);
-
-        expect(screen.getByTestId('chat-input')).toHaveAttribute(
-            'placeholder',
-            ''
-        );
-    });
-
-    it('disables input and button when disabled=true', () => {
-        render(<InputChat disabled={true} />);
-
-        expect(screen.getByTestId('chat-input')).toBeDisabled();
-        expect(screen.getByTestId('submit-button')).toBeDisabled();
-    });
-
-    it('disables input and button when isBlocked=true', () => {
-        render(<InputChat isBlocked={true} />);
-
-        expect(screen.getByTestId('chat-input')).toBeDisabled();
-        expect(screen.getByTestId('submit-button')).toBeDisabled();
-    });
-
-    it('applies disabled placeholder class when isDisabled', () => {
-        render(<InputChat disabled={true} />);
-
-        const input = screen.getByTestId('chat-input');
-        expect(input.className).toContain('placeholder:text-neutral-300');
-        expect(input.className).not.toContain('placeholder:text-base-default');
+        it('should match snapshot when blocked', () => {
+            const { container } = render(<InputChat isBlocked={true} />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
     });
 });

@@ -3,37 +3,19 @@ import { Thread } from '@ln/ds-blocks-thread';
 import { MessageAssistant } from './MessageAssistant';
 import { MessageUser } from './MessageUser';
 
-export function MessageContainer({
-    messages,
-    requestLimit,
-    errorCode,
-    showAfterRenderAssistant
-}) {
-    function errorMessages() {
-        if (errorCode === 'session_limit_reached') {
-            return (
-                <p className="roboto roboto-bold text-16 pl-4 pt-16">
-                    Espero haberte ayudado. Si querés podés comenzar una nueva
-                    búsqueda.
-                </p>
-            );
-        }
+// Los cierres de sesión no son errores: los renderiza `SessionEnd`. Ver docs/chat-ia/
+const isBlockingError = (error, status) =>
+    error.code !== 'session_terminated' &&
+    error.code !== 'session_completed' &&
+    (status === 'error' || status === 'blocked');
 
-        return (
-            <p className="roboto roboto-bold text-16 pl-4 pt-16">
-                ¡Upssss! Hubo un error
-            </p>
-        );
-    }
+export function MessageContainer({ messages, showAfterRenderAssistant }) {
     return (
         <>
             <Thread.Messages className="flex flex-column gap-16">
                 <>
                     {messages.map((message, index) => {
-                        const key =
-                            message.message_type === 'input'
-                                ? `in:${message.session_id}:${message.chat_count}`
-                                : `out:${message.content}`;
+                        const key = `${message.message_type}:${index}`;
 
                         const isLastOutput =
                             index === messages.length - 1 &&
@@ -56,8 +38,6 @@ export function MessageContainer({
                                     <MessageAssistant
                                         message={message}
                                         isLastOutput={isLastOutput}
-                                        requestLimit={requestLimit}
-                                        errorCode={errorCode}
                                         showAfterRender={
                                             showAfterRenderAssistant
                                         }
@@ -69,11 +49,11 @@ export function MessageContainer({
                     })}
                 </>
             </Thread.Messages>
-            {showAfterRenderAssistant && errorCode !== 'session_terminated' && (
-                <Thread.Error className="md:pl-[94px]">
-                    {errorMessages()}
-                </Thread.Error>
-            )}
+            <Thread.Error className="md:pl-[94px]" filter={isBlockingError}>
+                <p className="roboto roboto-bold text-16 pl-4 pt-16">
+                    ¡Upssss! Hubo un error
+                </p>
+            </Thread.Error>
         </>
     );
 }

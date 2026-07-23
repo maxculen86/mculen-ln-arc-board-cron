@@ -8,11 +8,13 @@ export function FormContainer({
     isSessionExpired,
     requestLimit,
     disableInput,
-    errorCode
+    hasError,
+    isTypingAnswer
 }) {
     const getInputPlaceholder = () => {
         if (isSessionExpired) return 'Sesión expirada';
-        if (errorCode) return '¡Ups! Hubo un error';
+        if (hasError) return '¡Ups! Hubo un error';
+        if (isTypingAnswer) return 'Foodit está escribiendo…';
         return 'Continuá preguntándole a Foodit';
     };
 
@@ -27,7 +29,9 @@ export function FormContainer({
             className="border-2 border-secondary-lighten text-base-default rounded-sm focus-within:ring-transparent"
             inputProps={{
                 className: classNamePlaceholder,
-                placeholder: getInputPlaceholder()
+                placeholder: getInputPlaceholder(),
+                // El textarea solo mira `inputProps.disabled`: el `disabled` del root queda en el wrapper
+                disabled: disableInput
             }}
             disabled={disableInput}
         >

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { FormContainer } from '../../../../../components/layouts/Foodit-chat-ia/_children/formContainer';
 
+// El `disabled` del root solo llega al wrapper: el textarea lee `inputProps.disabled`
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: {
         Input: ({ inputProps, disabled, className, children }) => (
@@ -13,7 +14,7 @@ jest.mock('@ln/ds-blocks-thread', () => ({
             >
                 <input
                     data-testid="thread-native-input"
-                    disabled={disabled}
+                    disabled={!!inputProps?.disabled}
                     placeholder={inputProps && inputProps.placeholder}
                 />
                 {children}
@@ -46,61 +47,84 @@ jest.mock('../../../../../components/features/ui/foodit/icon/default', () => ({
     default: ({ name }) => <span data-testid="icon">{name}</span>
 }));
 
+const renderForm = (props = {}) =>
+    render(
+        <FormContainer
+            isSessionExpired={false}
+            requestLimit={false}
+            disableInput={false}
+            {...props}
+        />
+    );
+
 describe('FormContainer', () => {
-    it('renderiza el placeholder default cuando no hay estados especiales', () => {
-        render(
-            <FormContainer
-                isSessionExpired={false}
-                requestLimit={false}
-                disableInput={false}
-            />
-        );
+    describe('placeholder', () => {
+        it('should show the default placeholder when there is no special state', () => {
+            renderForm();
 
-        expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
-            'placeholder',
-            'Continuá preguntándole a Foodit'
-        );
+            expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
+                'placeholder',
+                'Continuá preguntándole a Foodit'
+            );
+        });
+
+        it('should say the assistant is writing while the answer types', () => {
+            renderForm({ isTypingAnswer: true, disableInput: true });
+
+            expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
+                'placeholder',
+                'Foodit está escribiendo…'
+            );
+        });
+
+        it('should prefer the error copy over the typing one', () => {
+            renderForm({ isTypingAnswer: true, hasError: true });
+
+            expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
+                'placeholder',
+                '¡Ups! Hubo un error'
+            );
+        });
     });
 
-    it('muestra el placeholder de límite alcanzado cuando requestLimit=true', () => {
-        render(
-            <FormContainer
-                isSessionExpired={false}
-                requestLimit={true}
-                disableInput={false}
-            />
-        );
+    describe('when the request limit is reached', () => {
+        it('should not render the input at all', () => {
+            renderForm({ requestLimit: true });
 
-        expect(
-            screen.queryByTestId('thread-native-input')
-        ).not.toBeInTheDocument();
+            expect(
+                screen.queryByTestId('thread-native-input')
+            ).not.toBeInTheDocument();
+        });
     });
 
-    it('deshabilita el input y el botón cuando disableInput=true', () => {
-        render(
-            <FormContainer
-                isSessionExpired={false}
-                requestLimit={false}
-                disableInput={true}
-            />
-        );
+    describe('when the input is disabled', () => {
+        it('should disable the native input', () => {
+            renderForm({ disableInput: true });
 
-        expect(screen.getByTestId('thread-native-input')).toBeDisabled();
-        expect(screen.getByTestId('send-button')).toBeDisabled();
-        expect(screen.getByTestId('thread-input')).toHaveAttribute(
-            'data-disabled',
-            'true'
-        );
+            expect(screen.getByTestId('thread-native-input')).toBeDisabled();
+        });
+
+        it('should disable the send button', () => {
+            renderForm({ disableInput: true });
+
+            expect(screen.getByTestId('send-button')).toBeDisabled();
+        });
+
+        it('should forward the disabled state to the Thread input', () => {
+            renderForm({ disableInput: true });
+
+            expect(screen.getByTestId('thread-input')).toHaveAttribute(
+                'data-disabled',
+                'true'
+            );
+        });
     });
 
-    it('should match snapshot', () => {
-        const { container } = render(
-            <FormContainer
-                isSessionExpired={false}
-                requestLimit={false}
-                disableInput={true}
-            />
-        );
-        expect(container).toMatchSnapshot();
+    describe('snapshots', () => {
+        it('should match snapshot when the input is disabled', () => {
+            const { container } = renderForm({ disableInput: true });
+
+            expect(container).toMatchSnapshot();
+        });
     });
 });

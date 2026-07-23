@@ -34,7 +34,7 @@ export function ButtonScroll({ composerSentinelRef }) {
             >
                 <Icon
                     size={20}
-                    className="text-secondary-positive"
+                    fill="var(--proxy-accent-default)"
                     name="arrow-down"
                 />
             </Button>

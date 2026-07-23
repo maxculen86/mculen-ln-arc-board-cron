@@ -16,6 +16,7 @@ import {
     FALLBACK_SUGGESTED_QUESTIONS,
     getSuggestedQuestions,
     resolveErrorMessage,
+    RESPONSE_FORMAT,
     sendMundialChatMessage
 } from './helpers/api';
 import useTermica from '../../../private/common/hooks/useTermica';
@@ -36,6 +37,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
         FALLBACK_SUGGESTED_QUESTIONS
     );
     const [isLastTypingDone, setIsLastTypingDone] = useState(true);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         if (!isSubscribed || !userId || !accessToken) return;
@@ -88,14 +90,9 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                 accessToken
             });
         } catch (err) {
-            const errorMsg = resolveErrorMessage(err);
-            return {
-                message_type: 'input',
-                content: errorMsg,
-                response_chat: {
-                    descripcion: errorMsg
-                }
-            };
+            // El runtime no ve el status HTTP: el copy se resuelve acá y el error se propaga
+            setErrorMessage(resolveErrorMessage(err));
+            throw err;
         }
     };
 
@@ -119,6 +116,11 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
 
     const isIdle = runtime.status === 'idle';
 
+    // En `error` no hay respuesta que tipear: esperarla dejaría el chat sin salida
+    const canReset =
+        runtime.status === 'error' ||
+        (runtime.status === 'blocked' && isLastTypingDone);
+
     useEffect(() => {
         if (isGenerating) setIsLastTypingDone(false);
     }, [isGenerating]);
@@ -138,6 +140,8 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
             runtime.setMessages([]);
             runtime.setStatus('idle');
             runtime.setError(null);
+            setErrorMessage('');
+            setIsLastTypingDone(true);
             try {
                 const questions = await getSuggestedQuestions({
                     userId,
@@ -213,7 +217,10 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
 
                 <div className="relative flex flex-column xl:grid xl:grid-cols-16 gap-responsive">
                     <div className="xl:col-span-10">
-                        <Thread runtime={runtime}>
+                        <Thread
+                            runtime={runtime}
+                            responseOptions={{ answerFormat: RESPONSE_FORMAT }}
+                        >
                             <Thread.Composer className="flex flex-col gap-16">
                                 <>
                                     <InputChat
@@ -236,6 +243,15 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                                             onTypingDone={handleTypingDone}
                                         />
                                     </Thread.Viewport>
+
+                                    <Thread.Error
+                                        className="font-secondary text-small-lg text-base-default"
+                                        filter={(error, status) =>
+                                            status === 'error'
+                                        }
+                                    >
+                                        {errorMessage}
+                                    </Thread.Error>
                                     {showSuggestions && isSubscribed && (
                                         <div className="flex flex-column md:flex-row gap-responsive">
                                             {suggestedQuestions.map(
@@ -260,7 +276,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                                         </div>
                                     )}
 
-                                    {isBlocked && isLastTypingDone && (
+                                    {canReset && (
                                         <div className="flex justify-center py-8">
                                             <Button
                                                 type="button"

@@ -7,7 +7,14 @@ import useGetUserData from '../../../../../components/private/common/auth/hooks/
 
 jest.mock('@ln/ds-blocks-thread', () => ({
     Thread: Object.assign(
-        ({ children }) => <div data-testid="thread">{children}</div>,
+        ({ children, responseOptions }) => (
+            <div
+                data-testid="thread"
+                data-answer-format={responseOptions?.answerFormat}
+            >
+                {children}
+            </div>
+        ),
         {
             Composer: ({ children }) => <div>{children}</div>,
             Viewport: ({ children, className }) => (
@@ -15,11 +22,26 @@ jest.mock('@ln/ds-blocks-thread', () => ({
                     {children}
                 </div>
             ),
-            Error: ({ children, className }) => (
-                <div data-testid="thread-error" className={className}>
-                    {children}
-                </div>
-            )
+            // Replica la visibilidad real: sin error no monta, y el `filter` del consumidor pisa el default por status
+            Error: ({ children, className, filter }) => {
+                const { status, error } = jest.requireMock(
+                    '@ln/ds-blocks-thread'
+                ).useChatRuntime.mock.results[0].value;
+
+                if (!error || !status) return null;
+
+                const isVisible = filter
+                    ? filter(error, status)
+                    : status === 'error' || status === 'blocked';
+
+                if (!isVisible) return null;
+
+                return (
+                    <div data-testid="thread-error" className={className}>
+                        {children}
+                    </div>
+                );
+            }
         }
     ),
     useChatRuntime: jest.fn()
@@ -126,6 +148,7 @@ jest.mock(
             .fn()
             .mockResolvedValue(['Pregunta 1', 'Pregunta 2', 'Pregunta 3']),
         resolveErrorMessage: jest.fn(),
+        RESPONSE_FORMAT: 'text',
         FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
     })
 );
@@ -160,6 +183,7 @@ const mockOnSubmit = jest.fn();
 
 const createRuntime = (overrides = {}) => ({
     status: 'idle',
+    error: null,
     messages: [],
     setMessages: mockSetMessages,
     setStatus: mockSetStatus,
@@ -179,18 +203,18 @@ beforeEach(() => {
 
 describe('ChatLN', () => {
     describe('snapshots', () => {
-        it('matches snapshot when subscribed and idle', () => {
+        it('should match snapshot when subscribed and idle', () => {
             const { container } = render(<ChatLN />);
             expect(container.firstChild).toMatchSnapshot();
         });
 
-        it('matches snapshot when not subscribed', () => {
+        it('should match snapshot when not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             const { container } = render(<ChatLN />);
             expect(container.firstChild).toMatchSnapshot();
         });
 
-        it('matches snapshot when blocked', () => {
+        it('should match snapshot when blocked', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
@@ -198,7 +222,7 @@ describe('ChatLN', () => {
             expect(container.firstChild).toMatchSnapshot();
         });
 
-        it('matches snapshot when error', () => {
+        it('should match snapshot when the runtime errors', () => {
             useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             const { container } = render(<ChatLN />);
             expect(container.firstChild).toMatchSnapshot();
@@ -206,21 +230,21 @@ describe('ChatLN', () => {
     });
 
     describe('heading', () => {
-        it('renders the LA NACION IA title', () => {
+        it('should render the LA NACION IA title', () => {
             render(<ChatLN />);
             expect(screen.getByText('LA NACION IA')).toBeInTheDocument();
         });
     });
 
     describe('suggested questions', () => {
-        it('shows suggestions when idle with no messages', () => {
+        it('should show suggestions when idle with no messages', () => {
             render(<ChatLN />);
             expect(screen.getByText('Pregunta 1')).toBeInTheDocument();
             expect(screen.getByText('Pregunta 2')).toBeInTheDocument();
             expect(screen.getByText('Pregunta 3')).toBeInTheDocument();
         });
 
-        it('hides suggestions when there are messages', () => {
+        it('should hide suggestions when the conversation already started', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({
                     messages: [{ message_type: 'output', content: 'hola' }]
@@ -230,13 +254,13 @@ describe('ChatLN', () => {
             expect(screen.queryByText('Pregunta 1')).not.toBeInTheDocument();
         });
 
-        it('hides suggestions when not subscribed', () => {
+        it('should hide suggestions when the user is not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             render(<ChatLN />);
             expect(screen.queryByText('Pregunta 1')).not.toBeInTheDocument();
         });
 
-        it('enables suggestion buttons when subscribed', async () => {
+        it('should enable the suggestion buttons when the user is subscribed', async () => {
             render(<ChatLN />);
             await waitFor(() => {
                 const buttons = screen.getAllByRole('button', {
@@ -246,7 +270,7 @@ describe('ChatLN', () => {
             });
         });
 
-        it('calls onSubmit with the suggestion text on click', async () => {
+        it('should submit the suggestion text when a suggestion is clicked', async () => {
             render(<ChatLN />);
             await waitFor(() =>
                 expect(screen.getByText('Pregunta 1')).not.toBeDisabled()
@@ -257,7 +281,7 @@ describe('ChatLN', () => {
     });
 
     describe('reset button', () => {
-        it('shows reset button when blocked', () => {
+        it('should show the reset button when the session is blocked', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
@@ -265,20 +289,20 @@ describe('ChatLN', () => {
             expect(screen.getByTestId('reset-button')).toBeInTheDocument();
         });
 
-        it('shows reset button when error (ambiguous / no answer)', () => {
+        it('should show the reset button when the runtime errors', () => {
             useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
             expect(screen.getByTestId('reset-button')).toBeInTheDocument();
         });
 
-        it('does not show reset button when idle', () => {
+        it('should not show the reset button when idle', () => {
             render(<ChatLN />);
             expect(
                 screen.queryByTestId('reset-button')
             ).not.toBeInTheDocument();
         });
 
-        it('does not show reset button when generating', () => {
+        it('should not show the reset button while generating', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'generating' })
             );
@@ -288,7 +312,7 @@ describe('ChatLN', () => {
             ).not.toBeInTheDocument();
         });
 
-        it('creates new session and resets runtime on reset click', async () => {
+        it('should create a new session and clear the runtime when reset from blocked', async () => {
             const { createMundialSession, getSuggestedQuestions } =
                 jest.requireMock(
                     '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
@@ -323,7 +347,7 @@ describe('ChatLN', () => {
             });
         });
 
-        it('creates new session and resets runtime on reset click from error state', async () => {
+        it('should create a new session and clear the runtime when reset from error', async () => {
             const { createMundialSession, getSuggestedQuestions } =
                 jest.requireMock(
                     '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
@@ -354,15 +378,120 @@ describe('ChatLN', () => {
         });
     });
 
+    describe('request failures', () => {
+        const { sendMundialChatMessage, resolveErrorMessage } =
+            jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+        const submitFailingMessage = async () => {
+            const { onNewMessage } = useChatRuntime.mock.calls[0][0];
+            await expect(onNewMessage('pregunta')).rejects.toBeDefined();
+        };
+
+        it('should let the error propagate so the runtime marks it', async () => {
+            sendMundialChatMessage.mockRejectedValue({ status: 500 });
+            resolveErrorMessage.mockReturnValue('Ocurrió un error.');
+
+            render(<ChatLN />);
+
+            await submitFailingMessage();
+        });
+
+        it('should show the resolved copy for the HTTP status that failed', async () => {
+            sendMundialChatMessage.mockRejectedValue({ status: 403 });
+            resolveErrorMessage.mockReturnValue('No puedo responder eso.');
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'error',
+                    error: { code: 'internal_error', message: null }
+                })
+            );
+
+            render(<ChatLN />);
+            await submitFailingMessage();
+
+            await waitFor(() =>
+                expect(screen.getByTestId('thread-error')).toHaveTextContent(
+                    'No puedo responder eso.'
+                )
+            );
+        });
+
+        it('should still offer the reset CTA when the request failed', async () => {
+            sendMundialChatMessage.mockRejectedValue({ status: 500 });
+            resolveErrorMessage.mockReturnValue('Ocurrió un error.');
+            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
+
+            render(<ChatLN />);
+            await submitFailingMessage();
+
+            await waitFor(() =>
+                expect(screen.getByTestId('reset-button')).toBeInTheDocument()
+            );
+        });
+
+        it('should render with the same format it asks the API for', () => {
+            const { RESPONSE_FORMAT } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+            render(<ChatLN />);
+
+            expect(screen.getByTestId('thread')).toHaveAttribute(
+                'data-answer-format',
+                RESPONSE_FORMAT
+            );
+        });
+
+        it('should not show the error banner while the chat is idle', () => {
+            render(<ChatLN />);
+
+            expect(
+                screen.queryByTestId('thread-error')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should not show the error banner when the session just ended', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'blocked',
+                    error: { code: 'session_completed', message: null }
+                })
+            );
+
+            render(<ChatLN />);
+
+            expect(
+                screen.queryByTestId('thread-error')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should still offer the reset CTA when the session ended', async () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'blocked',
+                    error: { code: 'session_completed', message: null }
+                })
+            );
+
+            render(<ChatLN />);
+
+            await waitFor(() =>
+                expect(screen.getByTestId('reset-button')).toBeInTheDocument()
+            );
+        });
+    });
+
     describe('disclaimer', () => {
-        it('shows disclaimer when subscribed', () => {
+        it('should show the disclaimer when the user is subscribed', () => {
             render(<ChatLN />);
             expect(
                 screen.getByText(/Las respuestas se basan/)
             ).toBeInTheDocument();
         });
 
-        it('hides disclaimer when not subscribed', () => {
+        it('should hide the disclaimer when the user is not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             render(<ChatLN />);
             expect(
@@ -370,20 +499,20 @@ describe('ChatLN', () => {
             ).not.toBeInTheDocument();
         });
 
-        it('shows divider only when subscribed', () => {
+        it('should show the divider when the user is subscribed', () => {
             render(<ChatLN />);
             expect(screen.getByTestId('divider')).toBeInTheDocument();
         });
 
-        it('hides divider when not subscribed', () => {
+        it('should hide the divider when the user is not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             render(<ChatLN />);
             expect(screen.queryByTestId('divider')).not.toBeInTheDocument();
         });
     });
 
-    describe('InputChat props', () => {
-        it('passes disabled=true to InputChat when not subscribed', () => {
+    describe('input state', () => {
+        it('should disable the input when the user is not subscribed', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             render(<ChatLN />);
             expect(screen.getByTestId('input-chat')).toHaveAttribute(
@@ -392,7 +521,7 @@ describe('ChatLN', () => {
             );
         });
 
-        it('passes disabled=false to InputChat when subscribed', () => {
+        it('should enable the input when the user is subscribed', () => {
             render(<ChatLN />);
             expect(screen.getByTestId('input-chat')).toHaveAttribute(
                 'data-disabled',
@@ -400,7 +529,7 @@ describe('ChatLN', () => {
             );
         });
 
-        it('passes isGenerating=true to InputChat when generating', () => {
+        it('should flag the input as generating while a response streams', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'generating' })
             );
@@ -411,7 +540,7 @@ describe('ChatLN', () => {
             );
         });
 
-        it('passes isBlocked=true to InputChat when blocked', () => {
+        it('should block the input when the session is blocked', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
             );
@@ -422,7 +551,7 @@ describe('ChatLN', () => {
             );
         });
 
-        it('passes isBlocked=true to InputChat when error', () => {
+        it('should block the input when the runtime errors', () => {
             useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
             render(<ChatLN />);
             expect(screen.getByTestId('input-chat')).toHaveAttribute(
@@ -432,15 +561,15 @@ describe('ChatLN', () => {
         });
     });
 
-    describe('customFields - hideChat', () => {
-        it('hides chat when hideChat is true', () => {
+    describe('when hideChat is set', () => {
+        it('should render nothing when hideChat is true', () => {
             const { container } = render(
                 <ChatLN customFields={{ hideChat: true }} />
             );
             expect(container.firstChild).toBeNull();
         });
 
-        it('shows chat when hideChat is false', () => {
+        it('should render the chat when hideChat is false', () => {
             useGetUserData.mockReturnValue({ isSubscribed: false });
             const { container } = render(
                 <ChatLN customFields={{ hideChat: false }} />
@@ -449,7 +578,7 @@ describe('ChatLN', () => {
         });
     });
 
-    describe('hideChat and termica coexist', () => {
+    describe('when the termica flag and hideChat coexist', () => {
         let restoreUseTermica;
 
         beforeEach(() => {
@@ -466,7 +595,7 @@ describe('ChatLN', () => {
             useTermica.mockImplementation(restoreUseTermica);
         });
 
-        it('hides chat when termica flag is true even if hideChat is false', () => {
+        it('should render nothing when the termica flag is on, even if hideChat is false', () => {
             const useTermica = jest.requireMock(
                 '../../../../../components/private/common/hooks/useTermica'
             ).default;
@@ -479,12 +608,12 @@ describe('ChatLN', () => {
     });
 
     describe('viewport visibility', () => {
-        it('applies hidden class to viewport when no messages', () => {
+        it('should hide the viewport when there are no messages', () => {
             render(<ChatLN />);
             expect(screen.getByTestId('thread-viewport')).toHaveClass('hidden');
         });
 
-        it('does not apply hidden class when there are messages', () => {
+        it('should show the viewport when there are messages', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({
                     messages: [{ message_type: 'output', content: 'hola' }]

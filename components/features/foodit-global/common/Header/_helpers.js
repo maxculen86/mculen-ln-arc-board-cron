@@ -101,10 +101,11 @@ export const searchFood = async ({ query, userId, accessToken }) => {
     return response.json();
 };
 
-export const createSessionChat = async ({ accessToken }) => {
+export const createSessionChat = async ({ accessToken, userId }) => {
     const response = await fetch(`${API_IA_FOODIT}/api/session`, {
         method: 'POST',
-        headers: getAuthHeaders(accessToken)
+        headers: getAuthHeaders(accessToken),
+        body: JSON.stringify({ user_id: userId })
     });
 
     const sessionResponse = await response.json();
@@ -116,13 +117,23 @@ export const createSessionChat = async ({ accessToken }) => {
     return sessionResponse;
 };
 
-export const sendChatMessage = async ({ sessionId, message, accessToken }) => {
+// Alimenta el `response_type` del request y el `answerFormat` del render: si divergen, el markdown se ve crudo
+export const RESPONSE_FORMAT = 'markdown';
+
+export const sendChatMessage = async ({
+    sessionId,
+    message,
+    accessToken,
+    userId
+}) => {
     const response = await fetch(`${API_IA_FOODIT}/api/chat`, {
         method: 'POST',
         headers: getAuthHeaders(accessToken),
         body: JSON.stringify({
             session_id: sessionId,
-            message
+            message,
+            user_id: userId,
+            response_type: RESPONSE_FORMAT
         })
     });
 
