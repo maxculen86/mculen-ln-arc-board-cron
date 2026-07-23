@@ -3,11 +3,9 @@ import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
-import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/contenidos-ui-text';
 import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
 import { articleBoxesTracker } from '../../../private/common/utils/noteTracker/articleBoxesTracker';
-import IconSprite from '../../private-global/common/iconSprite/IconSprite';
 import CardRanking from '../../LN-10-global/common/cardRanking/default';
 import get from '../../../private/common/utils/get';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
@@ -71,9 +69,6 @@ function RankingFeature({ id: featureId }) {
                         <Text className="--prumo --font-l --font-medium">
                             {customTitle}
                         </Text>
-                        <Icon height={16.8}>
-                            <IconSprite name="arrow" fill="#333" />
-                        </Icon>
                     </div>
                 )}
                 <ol>
