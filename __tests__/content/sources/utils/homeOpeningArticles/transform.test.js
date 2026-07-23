@@ -12,7 +12,7 @@ const baseImage = {
         'https://www.lanacion.com.ar/resizer/v2/javier-IMG123.jpg?auth=AUTHTOKEN&width=768&quality=70&smart=false'
 };
 
-const makeJsonV2Article = ({
+const makeOpeningArticle = ({
     id = 'A1',
     titulo = 'Titulo',
     fecha = '2026-05-12T10:00:00.000Z',
@@ -45,22 +45,22 @@ describe('homeOpeningArticles transform', () => {
     describe('transformArticle', () => {
         it('returns null when article has no id', () => {
             expect(
-                transformArticle({ ...makeJsonV2Article(), id: null })
+                transformArticle({ ...makeOpeningArticle(), id: null })
             ).toBeNull();
         });
 
         it('returns null when article has no image', () => {
             expect(
-                transformArticle({ ...makeJsonV2Article(), imagen: null })
+                transformArticle({ ...makeOpeningArticle(), imagen: null })
             ).toBeNull();
             expect(
-                transformArticle({ ...makeJsonV2Article(), imagen: {} })
+                transformArticle({ ...makeOpeningArticle(), imagen: {} })
             ).toBeNull();
         });
 
         it('maps id/titulo/url/fecha/volanta to Arc Content API shape', () => {
             const article = transformArticle(
-                makeJsonV2Article({
+                makeOpeningArticle({
                     id: 'XYZ',
                     titulo: 'Mi titulo',
                     volanta: 'Mi volanta',
@@ -80,14 +80,14 @@ describe('homeOpeningArticles transform', () => {
 
         it('passes fechaPublicacion through as display_date verbatim', () => {
             const article = transformArticle(
-                makeJsonV2Article({ fecha: '2026-05-13 09:41:09' })
+                makeOpeningArticle({ fecha: '2026-05-13 09:41:09' })
             );
             expect(article.display_date).toBe('2026-05-13 09:41:09');
         });
 
         it('maps `categoria { slug, valor }` to Arc taxonomy.primary_section', () => {
             const article = transformArticle({
-                ...makeJsonV2Article(),
+                ...makeOpeningArticle(),
                 categoria: { slug: '/politica', valor: 'Política' }
             });
             expect(article.taxonomy.primary_section).toEqual({
@@ -99,14 +99,14 @@ describe('homeOpeningArticles transform', () => {
 
         it('returns an empty taxonomy.primary_section when categoria is missing', () => {
             const article = transformArticle({
-                ...makeJsonV2Article(),
+                ...makeOpeningArticle(),
                 categoria: undefined
             });
             expect(article.taxonomy.primary_section).toEqual({});
         });
 
         it('builds promo_items.basic with resized_urls following boxArticles promo_items sizes', () => {
-            const article = transformArticle(makeJsonV2Article());
+            const article = transformArticle(makeOpeningArticle());
             expect(article.promo_items.basic.type).toBe('image');
             expect(article.promo_items.basic._id).toBe('IMG123');
             expect(article.promo_items.basic.url).toBe(baseImage.absoluteUrl);
@@ -152,15 +152,15 @@ describe('homeOpeningArticles transform', () => {
                 items: [
                     makeBox({
                         tipoSeccion: 'apertura',
-                        notas: [makeJsonV2Article({ id: 'a1' })]
+                        notas: [makeOpeningArticle({ id: 'a1' })]
                     }),
                     makeBox({
                         tipoSeccion: 'enVivo',
-                        notas: [makeJsonV2Article({ id: 'env1' })]
+                        notas: [makeOpeningArticle({ id: 'env1' })]
                     }),
                     makeBox({
                         tipoSeccion: 'tema',
-                        notas: [makeJsonV2Article({ id: 't1' })]
+                        notas: [makeOpeningArticle({ id: 't1' })]
                     })
                 ]
             };
@@ -173,11 +173,11 @@ describe('homeOpeningArticles transform', () => {
                 items: [
                     makeBox({
                         tipoSeccion: 'apertura',
-                        notas: [makeJsonV2Article({ id: 'main1' })]
+                        notas: [makeOpeningArticle({ id: 'main1' })]
                     }),
                     makeBox({
                         tipoSeccion: 'apertura',
-                        notas: [makeJsonV2Article({ id: 'pre1' })]
+                        notas: [makeOpeningArticle({ id: 'pre1' })]
                     })
                 ]
             };
@@ -191,11 +191,11 @@ describe('homeOpeningArticles transform', () => {
                     makeBox({
                         tipoSeccion: 'anticipo',
                         idSeccion: 501,
-                        notas: [makeJsonV2Article({ id: 'antic' })]
+                        notas: [makeOpeningArticle({ id: 'antic' })]
                     }),
                     makeBox({
                         tipoSeccion: 'apertura',
-                        notas: [makeJsonV2Article({ id: 'ok' })]
+                        notas: [makeOpeningArticle({ id: 'ok' })]
                     })
                 ]
             };
@@ -209,8 +209,8 @@ describe('homeOpeningArticles transform', () => {
                     makeBox({
                         tipoSeccion: 'apertura',
                         notas: [
-                            makeJsonV2Article({ id: 'withImg' }),
-                            makeJsonV2Article({ id: 'noImg', imagen: null })
+                            makeOpeningArticle({ id: 'withImg' }),
+                            makeOpeningArticle({ id: 'noImg', imagen: null })
                         ]
                     })
                 ]
@@ -225,15 +225,15 @@ describe('homeOpeningArticles transform', () => {
                     makeBox({
                         tipoSeccion: 'apertura',
                         notas: [
-                            makeJsonV2Article({
+                            makeOpeningArticle({
                                 id: 'old',
                                 fecha: '2026-05-10T08:00:00.000Z'
                             }),
-                            makeJsonV2Article({
+                            makeOpeningArticle({
                                 id: 'newest',
                                 fecha: '2026-05-12T15:00:00.000Z'
                             }),
-                            makeJsonV2Article({
+                            makeOpeningArticle({
                                 id: 'mid',
                                 fecha: '2026-05-11T12:00:00.000Z'
                             })
@@ -250,13 +250,13 @@ describe('homeOpeningArticles transform', () => {
                 items: [
                     makeBox({
                         tipoSeccion: 'apertura',
-                        notas: [makeJsonV2Article({ id: 'shared' })]
+                        notas: [makeOpeningArticle({ id: 'shared' })]
                     }),
                     makeBox({
                         tipoSeccion: 'apertura',
                         notas: [
-                            makeJsonV2Article({ id: 'shared' }),
-                            makeJsonV2Article({ id: 'unique' })
+                            makeOpeningArticle({ id: 'shared' }),
+                            makeOpeningArticle({ id: 'unique' })
                         ]
                     })
                 ]
@@ -268,7 +268,7 @@ describe('homeOpeningArticles transform', () => {
 
         it('caps the result at 10 articles', () => {
             const notas = Array.from({ length: 20 }, (_, i) =>
-                makeJsonV2Article({
+                makeOpeningArticle({
                     id: `n${i}`,
                     fecha: new Date(2026, 4, 12, 23 - i).toISOString()
                 })
@@ -282,9 +282,9 @@ describe('homeOpeningArticles transform', () => {
             expect(result[9]._id).toBe('n9');
         });
 
-        it('processes a realistic jsonv2 endpoint response shape (two apertura boxes + enVivo + tema + banners)', () => {
+        it('processes a realistic Opening endpoint response shape (two apertura boxes + enVivo + tema + banners)', () => {
             const realShape = {
-                metadata: { paginate: false, outputType: 'jsonv2' },
+                metadata: { paginate: false, outputType: 'Opening' },
                 items: [
                     {
                         tipoSeccion: 'apertura',
