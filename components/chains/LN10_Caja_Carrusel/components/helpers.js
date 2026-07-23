@@ -54,6 +54,7 @@ export const transformNodes = ({
     roofData
 }) => {
     let counterVideos = 0;
+    const mediaOccurrences = new Map();
     return childProps.reduce((acc, properties, index) => {
         const { video, title } = get(properties, 'customFields', {});
         const type = get(properties, 'type', 'LN-10/itemCarrusel');
@@ -61,10 +62,23 @@ export const transformNodes = ({
         const child = children[index];
         counterVideos += isBanner ? 0 : 1;
         const videoId = normalizeVideoId(video);
+        const occurrence = mediaOccurrences.get(videoId) || 0;
+        if (!isBanner && videoId) {
+            mediaOccurrences.set(videoId, occurrence + 1);
+        }
+        let renderKey;
+        if (isBanner) {
+            renderKey = JSON.stringify(['banner', index]);
+        } else if (videoId) {
+            renderKey = JSON.stringify(['media', videoId, occurrence]);
+        } else {
+            renderKey = JSON.stringify(['missing-media', index]);
+        }
 
         const newChildren = {
             id: isBanner ? null : videoId,
-            key: isBanner ? `banner-${index}` : videoId || `video-${index}`,
+            key: renderKey,
+            renderKey,
             title: isBanner ? null : title,
             type,
             counterVideo: counterVideos,

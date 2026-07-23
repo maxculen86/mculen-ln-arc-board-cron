@@ -7,9 +7,9 @@ import { useRoofData } from '../utils/_helpers';
 import setCarouselCustomfields from '../utils/setCarouselCustomfields';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import CajaCarruselProvider from './components/cajaCarruselContext';
-import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
-import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
 import MediaScrollerContainer from './components/mediaScroller/mediaScroller';
+import MediaScrollerExpandedWrapper from './components/mediaScrollerExpanded/wrapper';
+import MediaScrollerExpanded from './components/mediaScrollerExpanded/mediaScrollerExpanded';
 import { shouldHideCarrusel, transformNodes } from './components/helpers';
 import {
     getCommonProps,
@@ -87,14 +87,6 @@ function CajaCarrusel(props) {
         shouldSchedule
     });
 
-    if (hasError) {
-        return <WarningMessage type={error.type} message={error.message} />;
-    }
-
-    if (hide) {
-        return null;
-    }
-
     useEffect(() => {
         if (!isAdmin) {
             hideParentNode(divRefInCarrusel, 'DIV');
@@ -128,11 +120,25 @@ function CajaCarrusel(props) {
                 layoutType: normalizedLayout,
                 roofData
             }),
-        [children, isAdmin, childProps, normalizedLayout]
+        [children, isAdmin, childProps, normalizedLayout, roofData]
     );
+
+    if (hasError) {
+        return <WarningMessage type={error.type} message={error.message} />;
+    }
+
+    if (hide) {
+        return null;
+    }
 
     return (
         <CajaCarruselProvider>
+            <MediaScrollerExpandedWrapper>
+                <MediaScrollerExpanded
+                    listVideoData={nodesByExpanded}
+                    variant="vertical"
+                />
+            </MediaScrollerExpandedWrapper>
             <div {...extraOptsDiv}>
                 <section {...viewabilityData} data-chain-id={chainId}>
                     <MediaScrollerContainer roofData={roofData}>
@@ -146,11 +152,6 @@ function CajaCarrusel(props) {
                             </MediaScroller.Item>
                         ))}
                     </MediaScrollerContainer>
-                    <MediaScrollerExpandedWrapper>
-                        <MediaScrollerExpanded
-                            listVideoData={nodesByExpanded}
-                        />
-                    </MediaScrollerExpandedWrapper>
                 </section>
             </div>
         </CajaCarruselProvider>
