@@ -25,6 +25,7 @@ import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
 import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
+import VwoScript from '../../../common/scriptManager/VwoScript';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -33,6 +34,11 @@ import MetaRobots from '../../../common/scriptManager/MetaRobots';
 import TikTokPixel from '../../../common/scriptManager/TikTokPixel';
 import FacebookPixel from '../../../common/scriptManager/FacebookPixel';
 import GoogleOneTap from '../../../common/scriptManager/GoogleOneTap';
+import isAllowedSection from './isAllowedSection';
+
+export const VWO_ALLOWED_SECTIONS = [
+    { section: '/espectaculos', pageLayout: 'all', subtype: '' }
+];
 
 const scriptList = [
     {
@@ -165,6 +171,12 @@ const scriptList = [
     {
         component: { name: 'GoogleOneTap', function: GoogleOneTap },
         feature: 'none'
+    },
+    {
+        component: { name: 'VwoScript', function: VwoScript },
+        feature: 'none',
+        allowedTypes: ['story'],
+        allowedSections: VWO_ALLOWED_SECTIONS
     }
 ];
 
@@ -178,16 +190,33 @@ export const shouldExcludeByLayout = (script, layout) =>
     !!script.excludedLayouts?.includes(layout);
 
 const getScriptsFilterFunction =
-    (scripts, bannersDisabled, layout) => features => {
+    (scripts, bannersDisabled, layout, globalContent) => features => {
         const filteredScripts = scripts
             .filter(script => {
-                if (shouldExcludeByLayout(script, layout)) return false;
+                const type = get(globalContent, 'type', '');
+
+                const isLayoutAllowed = !shouldExcludeByLayout(script, layout);
+                const isTypeAllowed =
+                    !script.allowedTypes || script.allowedTypes.includes(type);
+                const isSectionAllowed =
+                    !script.allowedSections ||
+                    isAllowedSection({
+                        globalContent,
+                        listOfAllowedSection: script.allowedSections,
+                        layout,
+                        noteType: ''
+                    });
+                const isFeatureActive =
+                    script.feature === 'none' ||
+                    features.some(f => script.feature.includes(f.type));
+                const isGptEnabled = !isGPTAndDisabled(script, bannersDisabled);
+
                 return (
-                    (script.feature === 'none' ||
-                        features.find(feature =>
-                            script.feature.includes(feature.type)
-                        ) !== undefined) &&
-                    !isGPTAndDisabled(script, bannersDisabled)
+                    isLayoutAllowed &&
+                    isTypeAllowed &&
+                    isSectionAllowed &&
+                    isFeatureActive &&
+                    isGptEnabled
                 );
             })
             .map(element => element.component)
@@ -209,11 +238,17 @@ const getScriptsFilterFunction =
 export const getScriptsToLoad = (
     bannersDisabled,
     renderables = [],
-    layout = ''
+    layout = '',
+    globalContent = {}
 ) =>
     pipe(
         getPageBuilderFeatures,
-        getScriptsFilterFunction(scriptList, bannersDisabled, layout)
+        getScriptsFilterFunction(
+            scriptList,
+            bannersDisabled,
+            layout,
+            globalContent
+        )
     )(renderables);
 
 const buildScriptComponent = ({
@@ -229,7 +264,7 @@ const buildScriptComponent = ({
     );
 
     return ScriptManager(
-        getScriptsToLoad(bannersDisabled, renderables, layout),
+        getScriptsToLoad(bannersDisabled, renderables, layout, globalContent),
         sitePropertiesScripts,
         globalContent,
         isArcPreview
