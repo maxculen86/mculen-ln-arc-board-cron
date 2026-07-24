@@ -14,6 +14,7 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
+import getHtmlLang from '../private/LN/common/utils/getHtmlLang';
 import Syndication from '../private/common/syndication';
 import LinkCanonicalAndAlternate from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
@@ -90,6 +91,8 @@ function Default(props) {
         dataService
     } = globalContent;
 
+    const htmlLang = getHtmlLang({ globalContent });
+
     const {
         meta_title: metaTitle,
         basic: basicTitle,
@@ -145,7 +148,7 @@ function Default(props) {
     );
 
     return (
-        <html lang="es">
+        <html lang={htmlLang}>
             <head>
                 <meta charset="utf-8" />
                 <meta
