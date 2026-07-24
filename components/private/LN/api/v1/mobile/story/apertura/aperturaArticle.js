@@ -2,7 +2,8 @@ import {
     promoItemArticle,
     promoItemArticleBasicImage,
     apertura,
-    validToSetImagenesAcumulado
+    validToSetImagenesAcumulado,
+    validToSetImagenesForStorytelling
 } from '../../../../common/elements/story/apertura/aperturaArticle';
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
@@ -22,15 +23,19 @@ const setPromoByType = (
     // eslint-disable-next-line default-case
     switch (typePromoItem) {
         case 'image':
-            resp.imagenes = [image(promoItem)];
-            // eslint-disable-next-line no-underscore-dangle
-            if (
+            if (validToSetImagenesForStorytelling(article)) {
+                resp.imagenes = [image(promoItem)];
                 // eslint-disable-next-line no-underscore-dangle
-                promoItemBasicImage &&
-                get(promoItem, '_id', null) !==
-                    get(promoItemBasicImage, '_id', null)
-            ) {
-                resp.imagenesAcumulado = [imageAcumulado(promoItemBasicImage)];
+                if (
+                    // eslint-disable-next-line no-underscore-dangle
+                    promoItemBasicImage &&
+                    get(promoItem, '_id', null) !==
+                        get(promoItemBasicImage, '_id', null)
+                ) {
+                    resp.imagenesAcumulado = [
+                        imageAcumulado(promoItemBasicImage)
+                    ];
+                }
             }
             break;
         case 'video':
@@ -48,8 +53,11 @@ const setPromoByType = (
             break;
         default:
             // Here it goes because the promoItem is null or other type how us html
-            // eslint-disable-next-line no-underscore-dangle
-            if (promoItemBasicImage && promoItemBasicImage._id) {
+            if (
+                promoItemBasicImage &&
+                get(promoItemBasicImage, '_id', null) &&
+                validToSetImagenesForStorytelling(article)
+            ) {
                 if (validToSetImagenesAcumulado(article, isPromoInContent)) {
                     resp.imagenesAcumulado = [
                         imageAcumulado(promoItemBasicImage)
