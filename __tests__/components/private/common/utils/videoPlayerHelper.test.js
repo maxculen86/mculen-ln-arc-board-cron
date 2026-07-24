@@ -159,6 +159,127 @@ describe('registerVideoResumeTracking', () => {
             videoID: NEXT_VIDEO_ID
         });
     });
+
+    // Resume mis-attribution fix (engram #1935, topic
+    // sdd/carrusel-session-reducer/resume-milestone-misattribution): a
+    // preroll ad break pauses the content player programmatically (to let
+    // the ad play on a separate throwaway player) and later resumes it once
+    // the ad hands off. That pause/resume pair is NOT a user action and must
+    // never report a videoResume.
+    it('should NOT fire videoResume for a pause/resume caused by an ad break (preroll)', () => {
+        let adBreakActive = false;
+
+        registerVideoResumeTracking({
+            player: playerMock,
+            defaultTitle: VIDEO_NAME,
+            defaultId: VIDEO_ID,
+            isAdBreakActive: () => adBreakActive
+        });
+
+        // Ad break starts: jwPlayerManager's maybeStartPreroll() pauses the
+        // content player before playing the ad elsewhere.
+        adBreakActive = true;
+        events.pause();
+
+        // Ad break resolves BEFORE the content resume fires (mirrors
+        // production: onHandoff clears prerollInProgress synchronously,
+        // before commanding playlistItem()+play() on the content player) —
+        // the guard must have latched at pause-time, not re-read at play-time.
+        adBreakActive = false;
+        events.play();
+
+        expect(addEventToDataLayerV2).not.toHaveBeenCalledWith(
+            expect.objectContaining({ event: 'videoResume' })
+        );
+    });
+
+    // Pause-time latch is not enough on its own: on an auto-advance to the
+    // preroll video, JW's native playlist advance can fire a pause/play
+    // flicker on the content player BEFORE jwPlayerManager marks the ad
+    // break (queuePrerollIfNeeded/maybeStartPreroll). That early pause
+    // latches pausedDuringAdBreak=false, and maybeStartPreroll's own pause()
+    // is then a no-op on the already-paused player, so it never re-latches.
+    // The content can then emit a play WHILE the ad is on screen (observed on
+    // localhost: content position climbs behind the preroll), which the
+    // latch alone would report as a spurious videoResume. A live
+    // isAdBreakActive() read AT play-time closes that gap.
+    it('should NOT fire videoResume for a play that lands while an ad break is active (pause-time latch missed)', () => {
+        let adBreakActive = false;
+
+        registerVideoResumeTracking({
+            player: playerMock,
+            defaultTitle: VIDEO_NAME,
+            defaultId: VIDEO_ID,
+            isAdBreakActive: () => adBreakActive
+        });
+
+        // Native auto-advance flicker pauses the content BEFORE the preroll
+        // is marked — the pause-time latch cannot capture the ad break.
+        adBreakActive = false;
+        events.pause();
+
+        // The content then plays back while the ad break IS active (content
+        // leaking behind the preroll).
+        adBreakActive = true;
+        events.play();
+
+        expect(addEventToDataLayerV2).not.toHaveBeenCalledWith(
+            expect.objectContaining({ event: 'videoResume' })
+        );
+    });
+
+    it('should still fire videoResume for a genuine user pause/resume after an ad break has resolved', () => {
+        let adBreakActive = false;
+
+        registerVideoResumeTracking({
+            player: playerMock,
+            defaultTitle: VIDEO_NAME,
+            defaultId: VIDEO_ID,
+            isAdBreakActive: () => adBreakActive
+        });
+
+        // Ad break pause/resume — swallowed.
+        adBreakActive = true;
+        events.pause();
+        adBreakActive = false;
+        events.play();
+
+        // A later, genuine user pause/resume must still be reported.
+        events.pause();
+        events.play();
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'videoResume',
+            videoName: VIDEO_NAME,
+            videoID: VIDEO_ID
+        });
+    });
+
+    it('should attribute a post-handoff user resume to the handed-off video', () => {
+        let adBreakActive = true;
+
+        registerVideoResumeTracking({
+            player: playerMock,
+            defaultTitle: VIDEO_NAME,
+            defaultId: VIDEO_ID,
+            isAdBreakActive: () => adBreakActive
+        });
+
+        events.pause();
+        adBreakActive = false;
+        events.playlistItem({
+            title: NEXT_VIDEO_NAME,
+            mediaid: NEXT_VIDEO_ID
+        });
+        events.pause();
+        events.play();
+
+        expect(addEventToDataLayerV2).toHaveBeenCalledWith({
+            event: 'videoResume',
+            videoName: NEXT_VIDEO_NAME,
+            videoID: NEXT_VIDEO_ID
+        });
+    });
 });
 
 describe('registerJwVideoControlsTracking', () => {

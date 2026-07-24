@@ -17,7 +17,6 @@ function MediaScrollerExpandedWrapper({ children }) {
         window?.LN?.observable?.publish?.(eventName);
     }, [isOpenMediaScrollerExpanded]);
 
-    // TODO: quitar cuando se implemente la mejora de desmontar el dialog cuando se clickea en boton nativo BACK de ANDROID
     if (!isOpenMediaScrollerExpanded) {
         return null;
     }
@@ -32,7 +31,6 @@ function MediaScrollerExpandedWrapper({ children }) {
                 wrapper: 'flex w-100 h-100'
             }}
             overlay
-            closeOnClickOutside
         >
             {children}
         </Dialog>

@@ -17,7 +17,7 @@ export const paywallViewEvent = ({ pageName, formaContacto, canalVenta }) => {
             formaContacto,
             canalVenta,
             url_nota_PW: window.location.href,
-            page_location: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=${canalVenta}&fc=${formaContacto}`
+            page_location: `${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=${canalVenta}&fc=${formaContacto}`
         }
     });
 };
@@ -29,8 +29,9 @@ export const trackPageEvent = ({ pageName, formaContacto, canalVenta }) => {
             pageName,
             formaContacto,
             canalVenta,
+            variante_ab: 'N/A',
             url_nota_PW: window.location.href,
-            page_location: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=${canalVenta}&fc=${formaContacto}`
+            page_location: `${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=${canalVenta}&fc=${formaContacto}`
         }
     });
 };
@@ -71,7 +72,7 @@ export const addToCartEvent = ({
                     }
                 ]
             },
-            page_location: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=${canalVenta}&fc=${formaContacto}`
+            page_location: `${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=${canalVenta}&fc=${formaContacto}`
         }
     });
 
@@ -102,6 +103,6 @@ export const errorProps = {
     button: {
         children: 'SUSCRIBITE',
         variant: 'primary',
-        href: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4?cv=800&fc=50000046&callback=${currentUrl}`
+        href: `${SITIO_SEGURO_REGISTRACION}/foodit/suscribirme?cv=800&fc=50000046&callback=${currentUrl}`
     }
 };

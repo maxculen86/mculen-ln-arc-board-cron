@@ -1,11 +1,9 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_FOODIT } from 'fusion:environment';
-import { useWebviewPageView } from './useWebviewPageView';
 
 function ChatIaPageView() {
     const { contextPath, deployment } = useAppContext();
-    useWebviewPageView({ section: 'chat', content_type: 'buscador' });
 
     return (
         <script

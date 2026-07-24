@@ -191,14 +191,14 @@ describe('LoginSubscribeButtons', () => {
             [
                 'DialogFoodit',
                 'modal_funcionalidades',
-                '/suscripcion/V/4/?cv=670&fc=826&callback='
+                '/foodit/suscribirme?cv=670&fc=826&callback='
             ],
-            ['SaleBox', 'home', '/suscripcion/V/4/?cv=670&fc=831&callback='],
-            ['HeaderFoodit', 'header', '/suscripcion/V/3/?callback='],
+            ['SaleBox', 'home', '/foodit/suscribirme?cv=670&fc=831&callback='],
+            ['HeaderFoodit', 'header', '/foodit/suscribirme?callback='],
             [
                 'AnythingElse',
                 'paginas_exclusivas',
-                '/suscripcion/V/4/?cv=670&fc=826&callback='
+                '/foodit/suscribirme?cv=670&fc=826&callback='
             ]
         ])(
             'fires correct dataLayer event and builds URL for comesFrom="%s"',

@@ -26,7 +26,12 @@ export const getSectionId = (renderables, featureId) => {
     return get(layoutSection, 'props.id');
 };
 
-const EXCLUDED_TYPES_DESKTOP = ['LN10_Caja_Segmentada', 'LN10_Caja_Carrusel', 'LN10_Caja_Carrusel_Horizontal'];
+const EXCLUDED_TYPES_DESKTOP = [
+    'LN10_Caja_Segmentada',
+    'LN10_Caja_Carrusel',
+    'LN10_Caja_Carrusel_Horizontal',
+    'LN10_Caja_Encuesta'
+];
 
 export const filterChildrenWithNoRoof = sectionChildren => {
     const { device } = getViewport();
@@ -54,8 +59,8 @@ export const validateBanner = (
 ) =>
     isMobile
         ? validateInterval(sectionValues.intervalMob, index) &&
-        !(sectionName === 'Apertura' && hasBomba(renderables)) &&
-        bannersHome[sectionValues.bannersMob[currentBanner]]
+          !(sectionName === 'Apertura' && hasBomba(renderables)) &&
+          bannersHome[sectionValues.bannersMob[currentBanner]]
         : sectionValues.intervalDsk === index + 1 && bannersHome.billboard;
 
 export const matchesEnabledDay = child => {

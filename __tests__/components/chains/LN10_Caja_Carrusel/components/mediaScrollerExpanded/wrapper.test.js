@@ -70,6 +70,12 @@ describe('MediaScrollerExpandedWrapper', () => {
         );
     });
 
+    it('should render Dialog without closeOnClickOutside to preserve ad-interaction UX', () => {
+        render(<MediaScrollerExpandedWrapper {...defaultProps} />);
+        const [dialogProps] = Dialog.mock.calls[0];
+        expect(dialogProps).not.toHaveProperty('closeOnClickOutside');
+    });
+
     it('should publish clearTimeout when expanded', () => {
         render(<MediaScrollerExpandedWrapper {...defaultProps} />);
         expect(mockPublish).toHaveBeenCalledWith('pauseTimeout');

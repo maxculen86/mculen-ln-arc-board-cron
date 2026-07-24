@@ -15,11 +15,18 @@ import {
     useUpdateVideoWidth
 } from '../hooks';
 import useHandlerBanner from '../hooks/useHandlerBanner';
-import { mediaScrollerExpandedClasses, arrowsClassNames } from './styles';
+import {
+    mediaScrollerExpandedClasses,
+    arrowsClassNames,
+    ensureArrowButtonPointerEventsStyle
+} from './styles';
 
 function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
     const { currentIndex, setCurrentIndex } = useCajaCarruselContext();
     const containerRef = useRef(null);
+    // useScrollTo is the sole owner of this gate's full lifecycle (including
+    // clearing it once positioning has settled) — see useScrollTo in ../hooks.
+    const isInitialPositioningRef = useRef(true);
 
     const { width: viewportWidth } = useWindowSize();
     const isMobile = viewportWidth < 768;
@@ -43,7 +50,8 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
     useObserverItems({
         containerRef,
         setCurrentIndex,
-        currentIndex
+        currentIndex,
+        isInitialPositioningRef
     });
 
     const handleNextSuccess = useCallback(() => {
@@ -68,7 +76,9 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
     const handleBackCallback = useHandleBack({
         containerRef,
         showBack,
-        callback: handleBackSuccess
+        isMobile,
+        callback: handleBackSuccess,
+        currentIndex
     });
 
     useUpdateVideoWidth({
@@ -80,7 +90,8 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
     useScrollTo({
         containerRef,
         isMobile,
-        currentIndex
+        currentIndex,
+        isInitialPositioningRef
     });
 
     useEffect(
@@ -90,8 +101,21 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
         []
     );
 
+    // Arrows must stay clickable above the JW player host, which is set to
+    // pointer-events: none — see ensureArrowButtonPointerEventsStyle.
+    useEffect(() => {
+        ensureArrowButtonPointerEventsStyle();
+    }, []);
+
     return (
         <div className={mediaScrollerExpandedClasses({ variant })}>
+            <JwVideoContainer
+                ref={containerRef}
+                handleNextCallback={handleNextCallback}
+                isLastVideo={currentIndex < listVideoData.length - 1}
+                listVideoData={listVideoData}
+                variant={variant}
+            />
             {showBack && (
                 <Button
                     title="Regresar"
@@ -99,6 +123,7 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
                     className={arrowsClassNames({ direction: 'left' })}
                     variant="custom"
                     iconOnly
+                    style={{ willChange: 'transform', cursor: 'pointer' }}
                 >
                     <Icon size={24} color="dark">
                         <IconSprite
@@ -108,13 +133,6 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
                     </Icon>
                 </Button>
             )}
-            <JwVideoContainer
-                ref={containerRef}
-                handleNextCallback={handleNextCallback}
-                isLastVideo={currentIndex < listVideoData.length - 1}
-                listVideoData={listVideoData}
-                variant={variant}
-            />
             {showNext && (
                 <Button
                     title="Avanzar"
@@ -124,6 +142,7 @@ function MediaScrollerExpanded({ listVideoData = [], variant = 'vertical' }) {
                     })}
                     variant="custom"
                     iconOnly
+                    style={{ willChange: 'transform' }}
                 >
                     <Icon size={24} color="dark">
                         <IconSprite
