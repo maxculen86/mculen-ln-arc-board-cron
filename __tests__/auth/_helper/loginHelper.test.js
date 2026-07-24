@@ -163,9 +163,7 @@ describe('Tests functions loginHelper', () => {
                 googleIdClient: 'mock-google-client-id'
             });
             expect(mockSetTokens).not.toHaveBeenCalled();
-            expect(consoleErrorMock).toHaveBeenCalledWith(
-                'No token found, UCL ready for Google One Tap login'
-            );
+            expect(consoleErrorMock).not.toHaveBeenCalled();
         });
 
         it('should handle errors gracefully', async () => {
