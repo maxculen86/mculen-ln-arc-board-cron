@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubscribeButtonText snapshots should match snapshot with the fallback 1`] = `
+<DocumentFragment>
+  <span
+    class="text-12 leading-0"
+  >
+    suscribite
+  </span>
+</DocumentFragment>
+`;
+
+exports[`SubscribeButtonText snapshots should match snapshot with the promo on home 1`] = `
+<DocumentFragment>
+  <span
+    class="text-12 leading-0"
+    id="button-text"
+  >
+    suscribite por 
+    <s>
+      $9800
+    </s>
+     $990
+  </span>
+</DocumentFragment>
+`;

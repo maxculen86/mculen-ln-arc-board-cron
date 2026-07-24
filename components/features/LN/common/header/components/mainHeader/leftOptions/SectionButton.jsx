@@ -25,7 +25,7 @@ function SectionButton() {
                 });
             }}
         >
-            SECCIONES
+            <span className="text-12 leading-0">SECCIONES</span>
         </Button>
     );
 }

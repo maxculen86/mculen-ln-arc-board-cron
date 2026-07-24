@@ -11,22 +11,19 @@ function SubscribeButtonText({
         termicaValues;
 
     const isSticky = position === HEADER_VARIANTS.POSITION.STICKY;
+    const showStickyText = isSticky || !isHome;
 
-    const textToDisplay = isSticky ? stickyButtonText : buttonText;
-    const textId = isSticky ? 'sticky-button-text' : 'button-text';
+    const textToDisplay = showStickyText ? stickyButtonText : buttonText;
+    const textId = showStickyText ? 'sticky-button-text' : 'button-text';
 
-    if (
-        !isActiveTermicaSubscribe ||
-        !buttonText ||
-        !stickyButtonText ||
-        !isHome
-    ) {
-        return <span>suscribite</span>;
+    if (!isActiveTermicaSubscribe || !buttonText || !stickyButtonText) {
+        return <span className="text-12 leading-0">suscribite</span>;
     }
 
     return (
         <span
             id={textId}
+            className="text-12 leading-0"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: textToDisplay }}
         />

@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useAppContext } from 'fusion:context';
 import { Text } from '@ln/common-ui-text';
-import { Tooltip } from '@ln/ds-common-tooltip';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { openGoogleDiscoverFollow } from '../../../../private/LN/common/utils/shareHelper';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
@@ -9,17 +8,7 @@ import { NOTICIA } from '../../../../private/common/utils/subtypes/subtypeHelper
 import useGoogleTooltip from './hooks/useGoogleTooltip';
 import Icon from '../../../ui/ln/icon/default';
 import Button from '../../../ui/ln/button/default';
-
-function TooltipScope({ children, show, onExitComplete }) {
-    useEffect(() => {
-        if (!show) onExitComplete();
-    }, [show, onExitComplete]);
-    return (
-        <div data-tw style={{ display: 'contents' }}>
-            {children}
-        </div>
-    );
-}
+import Tooltip from '../../../ui/ln/tooltip/default';
 
 const GoogleButton = React.forwardRef(
     (
@@ -87,11 +76,7 @@ const GoogleButton = React.forwardRef(
                             </Button>
                         </div>
                     </Tooltip.Trigger>
-                    <Tooltip.Content
-                        color="accent"
-                        arrow
-                        customWrapper={TooltipScope}
-                    >
+                    <Tooltip.Content color="accent" arrow>
                         <div className="max-w-170 flex gap-4">
                             <span className="font-secondary font-w-normal text-small-lg text-center">
                                 Agregar LA NACION como medio preferido en Google

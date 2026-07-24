@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpsellingButton snapshots should match snapshot for a subscriber with a valid combo 1`] = `
+<DocumentFragment>
+  <button
+    class="relative"
+    data-color="subscription"
+    id="btn-upselling"
+    title="Pasate a DUO"
+    type="button"
+  >
+    <a
+      aria-label="Pasate a DUO"
+      href="https://mi.cuenta.test/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277"
+    >
+      <span
+        class="text-12 leading-0"
+        id="button-text-upselling"
+      >
+        Pasate a DUO
+      </span>
+    </a>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`UpsellingButton snapshots should match snapshot when nothing is rendered 1`] = `<DocumentFragment />`;
