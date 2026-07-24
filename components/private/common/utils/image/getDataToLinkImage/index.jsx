@@ -53,7 +53,6 @@ function GetDataToLinkImage({
     const isAuthor = nodeType === 'author';
     const isDeportes = id === '/deportes';
     const shouldUseManualPreload = shouldUseManualNotePreload({
-        subtype,
         layout,
         promoItems
     });
@@ -68,7 +67,13 @@ function GetDataToLinkImage({
 
             return (
                 <LinkImagePreload
-                    resizedUrls={getResizedUrls(subtype, promoItems, basic)}
+                    resizedUrls={getResizedUrls(
+                        subtype,
+                        promoItems,
+                        basic,
+                        layout
+                    )}
+                    disableImageSrcSet
                 />
             );
         },

@@ -101,6 +101,29 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
         }
     ];
 
+    const pixelDensityResizedUrls = [
+        {
+            option: {
+                configPixelRatio: {
+                    forScreenWidth: 320,
+                    xDescriptor: '2x'
+                },
+                media_preload: '(max-width: 767px)',
+                minScreenWidth: 1024,
+                width: 640
+            },
+            resizedUrl: 'https://example.com/image-640.jpg'
+        },
+        {
+            option: {
+                media_preload: '(max-width: 767px)',
+                minScreenWidth: 320,
+                width: 320
+            },
+            resizedUrl: 'https://example.com/image-320.jpg'
+        }
+    ];
+
     describe('Tests - helper - getImagesToLoadWithPicture', () => {
         const result = [
             {
@@ -238,6 +261,30 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                         media: mediaPreload
                     })
                 );
+            });
+        });
+
+        test('keeps imageSrcSet support enabled for existing consumers by default', () => {
+            render(<LinkImagePreload resizedUrls={pixelDensityResizedUrls} />);
+
+            expect(
+                preload.mock.calls.some(
+                    ([, options]) => options && options.imageSrcSet
+                )
+            ).toBe(true);
+        });
+
+        test('can disable imageSrcSet for note openings rendered with picture', () => {
+            render(
+                <LinkImagePreload
+                    resizedUrls={pixelDensityResizedUrls}
+                    disableImageSrcSet
+                />
+            );
+
+            expect(preload).toHaveBeenCalledTimes(2);
+            preload.mock.calls.forEach(([, options]) => {
+                expect(options).not.toHaveProperty('imageSrcSet');
             });
         });
 

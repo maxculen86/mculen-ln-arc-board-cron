@@ -75,26 +75,45 @@ describe('Common - GetDataToLinkImage', () => {
     });
 
     describe('When section is note,', () => {
-        it('with resized Media and no subtype, return array media data', () => {
-            render(<GetDataToLinkImage data={globalContent} section="nota" />);
-            expect(preload).toHaveBeenCalledTimes(3);
+        it('defaults to React-managed preload when layout is missing', () => {
+            render(
+                <GetDataToLinkImage data={globalContent} section={'nota'} />
+            );
+            expect(preload).not.toHaveBeenCalled();
         });
 
         it('Noticia with resized Media delegates preload to React 19', () => {
             render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '1' }}
-                    section="nota"
+                    section={'nota'}
+                    layout={'LN-nota-noticia'}
                 />
             );
             expect(preload).not.toHaveBeenCalled();
         });
 
+        test.each(['6', '13', '10'])(
+            'Noticia subtype %s delegates preload to React 19',
+            subtype => {
+                render(
+                    <GetDataToLinkImage
+                        data={{ ...globalContent, subtype }}
+                        section={'nota'}
+                        layout={'LN-nota-noticia'}
+                    />
+                );
+
+                expect(preload).not.toHaveBeenCalled();
+            }
+        );
+
         it('Noticia opening with video keeps the manual facade preload', () => {
             render(
                 <GetDataToLinkImage
                     data={{ ...globalContentWithVideo, subtype: '1' }}
-                    section="nota"
+                    section={'nota'}
+                    layout={'LN-nota-noticia'}
                 />
             );
 
@@ -102,7 +121,9 @@ describe('Common - GetDataToLinkImage', () => {
         });
 
         it('without resized Media, return empty string', () => {
-            const { container } = render(<GetDataToLinkImage section="nota" />);
+            const { container } = render(
+                <GetDataToLinkImage section={'nota'} />
+            );
             expect(container.innerHTML).toEqual('');
             expect(preload).not.toHaveBeenCalled();
         });
@@ -111,7 +132,20 @@ describe('Common - GetDataToLinkImage', () => {
             render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '8' }}
-                    section="nota"
+                    section={'nota'}
+                    layout={'LN-nota-foto-al-100'}
+                />
+            );
+
+            expect(preload).toHaveBeenCalledTimes(3);
+        });
+
+        it('legacy Storytelling keeps manual picture preloads', () => {
+            render(
+                <GetDataToLinkImage
+                    data={{ ...globalContent, subtype: '4' }}
+                    section={'nota'}
+                    layout={'LN-nota-storytelling'}
                 />
             );
 
@@ -123,7 +157,8 @@ describe('Common - GetDataToLinkImage', () => {
                 <GetDataToLinkImage
                     {...{
                         data: { ...globalContent, subtype: '4' },
-                        section: 'nota'
+                        section: 'nota',
+                        layout: 'LN-nota-storytelling-v2'
                     }}
                 />
             );
@@ -135,7 +170,18 @@ describe('Common - GetDataToLinkImage', () => {
             render(
                 <GetDataToLinkImage
                     {...{
-                        data: { ...articleToExclude, subtype: '4' },
+                        data: {
+                            ...articleToExclude,
+                            subtype: '4',
+                            promo_items: {
+                                ...articleToExclude.promo_items,
+                                storytelling_mobile: {
+                                    ...articleToExclude.promo_items
+                                        .storytelling_mobile,
+                                    url: 'https://example.com/mobile.jpg'
+                                }
+                            }
+                        },
                         section: 'nota',
                         layout: 'LN-nota-storytelling-v2'
                     }}
@@ -150,7 +196,7 @@ describe('Common - GetDataToLinkImage', () => {
             ).toBe(false);
         });
 
-        it('If the opening has video and image for desktop, it delegates preload to rendered media.', () => {
+        it('ignores legacy Storytelling video data and keeps v2 picture preloads', () => {
             render(
                 <GetDataToLinkImage
                     {...{
@@ -164,6 +210,36 @@ describe('Common - GetDataToLinkImage', () => {
                 />
             );
 
+            expect(preload).toHaveBeenCalled();
+            expect(
+                preload.mock.calls.some(
+                    ([, options]) => options && options.imageSrcSet
+                )
+            ).toBe(false);
+        });
+
+        it('delegates Storytelling v2 video with a mobile image to React', () => {
+            render(
+                <GetDataToLinkImage
+                    data={{
+                        ...articleToExclude,
+                        subtype: '4',
+                        promo_items: {
+                            ...articleToExclude.promo_items,
+                            storytelling_mobile: {
+                                ...articleToExclude.promo_items
+                                    .storytelling_mobile,
+                                url: 'https://example.com/mobile.jpg'
+                            },
+                            video_jw:
+                                globalContentWithVideo.promo_items.video_jw
+                        }
+                    }}
+                    section={'nota'}
+                    layout={'LN-nota-storytelling-v2'}
+                />
+            );
+
             expect(preload).not.toHaveBeenCalled();
         });
 
@@ -171,21 +247,23 @@ describe('Common - GetDataToLinkImage', () => {
             const { container } = render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '14' }}
-                    section="nota"
+                    section={'nota'}
+                    layout={'LN-Nota-Cards'}
                 />
             );
             expect(container.innerHTML).toEqual('');
             expect(preload).not.toHaveBeenCalled();
         });
 
-        it('does not exclude preload when subtype is not in the React 19 delegated list', () => {
+        it('defaults an unknown layout to React-managed preload', () => {
             render(
                 <GetDataToLinkImage
                     data={{ ...globalContent, subtype: '2' }}
-                    section="nota"
+                    section={'nota'}
+                    layout={'LN-unknown-note-layout'}
                 />
             );
-            expect(preload).toHaveBeenCalledTimes(3);
+            expect(preload).not.toHaveBeenCalled();
         });
     });
 
@@ -306,7 +384,7 @@ describe('Common - GetDataToLinkImage', () => {
             const { container } = render(
                 <GetDataToLinkImage
                     data={globalContent}
-                    section="nuevaSeccion"
+                    section={'nuevaSeccion'}
                     renderables={renderables}
                 />
             );
