@@ -19,7 +19,7 @@ const useHomeOpeningArticlesClient = ({ isAperturaHome }) => {
                 if (controller) requestOptions.signal = controller.signal;
 
                 const response = await fetch(
-                    '/?_website=la-nacion-ar&outputType=jsonv2',
+                    '/?_website=la-nacion-ar&outputType=opening',
                     requestOptions
                 );
 

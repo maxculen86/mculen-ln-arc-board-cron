@@ -21,7 +21,7 @@ const logGetNewPageElementsError = (e, layoutPage, b) => {
     );
 };
 
-const isValidChildArray = (child) => Array.isArray(child) && child.length > 0;
+const isValidChildArray = child => Array.isArray(child) && child.length > 0;
 
 const processElement = (b, sectionWeb, configurations, layoutPage) => {
     if (!b) return [];
@@ -32,12 +32,23 @@ const processElement = (b, sectionWeb, configurations, layoutPage) => {
     return [];
 };
 
-const getNewPageElements = (r, child, configurations, layoutPage, sectionWeb) => {
+const getNewPageElements = (
+    r,
+    child,
+    configurations,
+    layoutPage,
+    sectionWeb
+) => {
     if (!isValidChildArray(child)) return r;
 
     const processedChildren = child.reduce((res, b) => {
         try {
-            const processed = processElement(b, sectionWeb, configurations, layoutPage);
+            const processed = processElement(
+                b,
+                sectionWeb,
+                configurations,
+                layoutPage
+            );
             return res.concat(processed);
         } catch (e) {
             logGetNewPageElementsError(e, layoutPage, b);
@@ -48,11 +59,20 @@ const getNewPageElements = (r, child, configurations, layoutPage, sectionWeb) =>
     return r.concat(processedChildren);
 };
 
+const matchesSectionNames = (sectionWeb, sectionNames) => {
+    if (!Array.isArray(sectionNames) || sectionNames.length === 0) {
+        return true;
+    }
+    const sectionKey = sectionWeb.toLowerCase();
+    return sectionNames.some(name => name.toLowerCase() === sectionKey);
+};
+
 const getPageElements = ({
     children,
     renderables,
     arcSite,
-    layout: layoutPage
+    layout: layoutPage,
+    sectionNames
 }) => {
     const configurations = {
         arcSite
@@ -67,6 +87,10 @@ const getPageElements = ({
     const elementsPage = pageMergeSections?.sections?.reduce(
         (r, sectionWeb, i) => {
             try {
+                if (!matchesSectionNames(sectionWeb, sectionNames)) {
+                    return r;
+                }
+
                 // Check Section
                 const sectionChildren = validateChildrensByLayout[layoutPage][
                     '1'
@@ -89,13 +113,6 @@ const getPageElements = ({
                     diagramations,
                     positionsArticlesbyDiagramation
                 );
-                // Para probar en esta etapa los elementos o cualquier cosa dentro de este reduce coloca:
-                // if (get(checkElement, 'isValid', checkElement) !== true) {
-                //     console.log(sectionWeb);
-                //     console.log(checkElement);
-                // }
-                // r.push(elements);
-                // return r;
 
                 const child = elements;
                 return getNewPageElements(
