@@ -104,5 +104,6 @@ export default {
         location: [BODYBOTTOM]
     },
     FacebookPixel: { props: { id: '492459597522335' }, location: [HEAD] },
-    GoogleOneTap: { props: {}, location: [HEAD] }
+    GoogleOneTap: { props: {}, location: [HEAD] },
+    VwoScript: { props: {}, location: [HEAD] }
 };

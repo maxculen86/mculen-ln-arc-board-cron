@@ -10,6 +10,8 @@ const EXCLUDED_SCRIPTS_BY_SECTION = {
     '/estados-unidos': ['oneTag']
 };
 
+const SCRIPT_MANAGER_MANAGED_SCRIPT_IDS = ['vwoCode'];
+
 function TagsLoadingList({
     arcSite: website = 'la-nacion-ar',
     location = 'body-bottom',
@@ -78,7 +80,9 @@ function TagsLoadingList({
             const currentSection = getSectionOfRequestUri(requestUri);
             const excludedScripts =
                 EXCLUDED_SCRIPTS_BY_SECTION[`/${currentSection}`] || [];
-            const shouldExclude = excludedScripts.includes(scriptData.id);
+            const shouldExclude =
+                excludedScripts.includes(scriptData.id) ||
+                SCRIPT_MANAGER_MANAGED_SCRIPT_IDS.includes(scriptData.id);
 
             return (
                 !shouldExclude &&

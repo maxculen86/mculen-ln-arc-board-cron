@@ -17,7 +17,7 @@
 
 ## Workflows
 **OpenSpec**: `/opsx:new` → `/opsx:continue` → `/opsx:apply` → `/opsx:archive`
-**Fusion shortcuts**: `/fusion-component`, `/fusion-debug`, `/fusion-update-libs`
+**Fusion shortcuts**: `/fusion-component`, `/fusion-debug`, `/fusion-update-libs`, `/fusion-add-script`, `/fusion-remove-script`
 **Git**: `/git-commit` (follows git-commits.md spec)
 
 ## Tool Preferences
