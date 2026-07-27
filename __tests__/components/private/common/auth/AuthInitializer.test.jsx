@@ -46,9 +46,7 @@ describe('components - private - common - auth - AuthInitializer', () => {
         );
 
         await waitFor(() => {
-            expect(initializeGoogleOneTap).toHaveBeenCalledWith(
-                'la-nacion-ar'
-            );
+            expect(initializeGoogleOneTap).toHaveBeenCalledWith('la-nacion-ar');
         });
 
         expect(dispatchEventSpy).toHaveBeenCalledWith(expect.any(CustomEvent));
@@ -97,5 +95,4 @@ describe('components - private - common - auth - AuthInitializer', () => {
             );
         });
     });
-
 });
