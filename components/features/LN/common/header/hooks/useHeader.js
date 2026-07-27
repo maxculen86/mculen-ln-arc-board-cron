@@ -47,6 +47,8 @@ const useHeader = () => {
             : HEADER_VARIANTS.THEME.LIGHT
     });
 
+    const [isSentinelInView, setIsSentinelInView] = useState(true);
+
     useEffect(() => {
         if (!shouldBePositionDefault && !shouldBeDarkTheme) return undefined;
 
@@ -59,11 +61,15 @@ const useHeader = () => {
         if (!sentinelElement) return undefined;
 
         const observer = new IntersectionObserver(
-            entries =>
+            entries => {
                 handleSentinelIntersection(entries, setVariants, {
                     positionDefault: shouldBePositionDefault,
                     darkTheme: shouldBeDarkTheme
-                }),
+                });
+                entries.forEach(entry =>
+                    setIsSentinelInView(entry.isIntersecting)
+                );
+            },
             {
                 threshold: 0,
                 rootMargin: '0px'
@@ -85,7 +91,8 @@ const useHeader = () => {
     return {
         position,
         theme,
-        animation
+        animation,
+        isSentinelInView
     };
 };
 

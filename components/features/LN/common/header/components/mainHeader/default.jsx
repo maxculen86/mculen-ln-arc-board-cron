@@ -24,7 +24,7 @@ function MainHeader() {
                 position
             })}
         >
-            <CommonHeader.Grid>
+            <CommonHeader.Grid className="xl:gap-x-0">
                 <CommonHeader.GridSection
                     position="left"
                     className="max-xl:hidden items-center gap-24"

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
-import { Popper } from '@ln/ds-common-popper';
-import { cx } from '@ln/ds-cva';
+import React, { useEffect, useState } from 'react';
+import Tooltip from '../../../../../../ui/ln/tooltip/default';
+import { useHeaderContext } from '../../../context';
 
 function TooltipPromotions({
     children,
@@ -9,39 +9,33 @@ function TooltipPromotions({
     placement = 'bottom',
     ...props
 }) {
-    // TODO: componente sin definicion, por eso se uso directamente el popper, al definirse pasar al facade
+    const { isSentinelInView = true, isHome = false } = useHeaderContext();
+    const headerChangedColor = !isSentinelInView;
     const [isOpen, setIsOpen] = useState(defaultOpen);
-    const tooltipContentRef = useRef(null);
 
-    if (!content) return children;
+    useEffect(() => {
+        if (headerChangedColor) setIsOpen(false);
+    }, [headerChangedColor]);
+
+    if (!content || !isHome) return children;
 
     return (
-        <Popper
+        <Tooltip
             open={isOpen}
-            onOpenChange={e => setIsOpen(e)}
+            onOpenChange={setIsOpen}
             closeOnClickOutside={false}
             placement={placement}
+            strategy="fixed"
             {...props}
         >
-            <Popper.Trigger>{children}</Popper.Trigger>
-            <Popper.Content
-                className={cx(
-                    'bg-[#272727] text-base-foreground p-8 rounded-4 text-12'
-                )}
-                ref={tooltipContentRef}
-            >
-                <div
-                    className="absolute w-8 h-8 bg-[#272727] rotate-45 -top-4 left-1/2 -translate-x-1/2"
-                    aria-hidden="true"
-                />
+            <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
+            <Tooltip.Content color="black">
                 <span
                     // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: content
-                    }}
+                    dangerouslySetInnerHTML={{ __html: content }}
                 />
-            </Popper.Content>
-        </Popper>
+            </Tooltip.Content>
+        </Tooltip>
     );
 }
 

@@ -19,7 +19,7 @@ function Header() {
     const isHome = layout === layoutsName.HomeLN10;
 
     const loginData = useGetUserData(SUBSCRIBED_HELPER.LN);
-    const { position, theme, animation } = useHeader({
+    const { position, theme, animation, isSentinelInView } = useHeader({
         layout,
         section,
         layoutsName
@@ -29,7 +29,9 @@ function Header() {
         <>
             <div data-tw style={{ display: 'contents' }}>
                 {isHome && <PreHeader />}
-                <HeaderProvider value={{ position, isHome, ...loginData }}>
+                <HeaderProvider
+                    value={{ position, isHome, isSentinelInView, ...loginData }}
+                >
                     <CommonHeader
                         className={wrapperHeaderVariants({
                             position

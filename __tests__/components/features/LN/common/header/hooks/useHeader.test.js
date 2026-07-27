@@ -331,6 +331,53 @@ describe('Components - features - LN - common - header - hooks - useHeader', () 
         });
     });
 
+    describe('isSentinelInView', () => {
+        it('is true on the initial state', () => {
+            const { result } = renderHook(() => useHeader());
+
+            expect(result.current.isSentinelInView).toBe(true);
+        });
+
+        it('becomes false when the sentinel leaves the viewport', () => {
+            getHeaderValidations.mockReturnValue({
+                shouldBePositionDefault: true,
+                shouldBeDarkTheme: false
+            });
+
+            const sentinelEl = document.createElement('div');
+            jest.spyOn(document, 'querySelector').mockReturnValue(sentinelEl);
+
+            const { result } = renderHook(() => useHeader());
+
+            act(() => {
+                intersectionCallback([{ isIntersecting: false }]);
+            });
+
+            expect(result.current.isSentinelInView).toBe(false);
+        });
+
+        it('becomes true again when the sentinel re-enters the viewport', () => {
+            getHeaderValidations.mockReturnValue({
+                shouldBePositionDefault: true,
+                shouldBeDarkTheme: false
+            });
+
+            const sentinelEl = document.createElement('div');
+            jest.spyOn(document, 'querySelector').mockReturnValue(sentinelEl);
+
+            const { result } = renderHook(() => useHeader());
+
+            act(() => {
+                intersectionCallback([{ isIntersecting: false }]);
+            });
+            act(() => {
+                intersectionCallback([{ isIntersecting: true }]);
+            });
+
+            expect(result.current.isSentinelInView).toBe(true);
+        });
+    });
+
     describe('animation', () => {
         it('returns ANIMATION_IN when shouldBePositionDefault and position is STICKY', () => {
             getHeaderValidations.mockReturnValue({
