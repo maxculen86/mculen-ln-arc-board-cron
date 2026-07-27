@@ -218,5 +218,30 @@ describe('TagsLoadingList', () => {
             );
             expect(container.innerHTML).toContain('no-id.js');
         });
+
+        it('should exclude VWO from remote config because ScriptManager owns its eligibility', () => {
+            const vwoScript = JSON.stringify({
+                id: 'vwoCode',
+                type: 'text/javascript',
+                src: 'resources/js/vwoScript.js',
+                location: 'head',
+                section: 'nota'
+            });
+
+            useContent.mockReturnValueOnce([vwoScript, otherScript]);
+            const { container } = render(
+                <TagsLoadingList
+                    arcSite="la-nacion-ar"
+                    Tag="script"
+                    section="nota"
+                    requestUri="/politica/some-article"
+                    location="head"
+                />
+            );
+
+            expect(container.innerHTML).not.toContain('vwoCode');
+            expect(container.innerHTML).not.toContain('vwoScript.js');
+            expect(container.innerHTML).toContain('otherScript');
+        });
     });
 });

@@ -5,6 +5,8 @@ exports[`Tests when the section may interest you is visible. Match Snapshot with
   <div
     class="row interest"
     data-module="tema_tePuedeInteresar"
+    data-vwo-candidate="ln-te-puede-interesar"
+    data-vwo-hook="article-recommendations"
   >
     <div>
       <section

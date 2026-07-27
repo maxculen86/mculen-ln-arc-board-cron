@@ -54,6 +54,8 @@ function TePuedeInteresar(props) {
                 className="row interest"
                 ref={sectionReference}
                 data-module="tema_tePuedeInteresar"
+                data-vwo-hook="article-recommendations"
+                data-vwo-candidate="ln-te-puede-interesar"
             >
                 <CajaTema
                     title="Te puede interesar"
