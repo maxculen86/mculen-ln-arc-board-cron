@@ -6,7 +6,7 @@ import {
     place,
     getAuthorsNameAndLink
 } from '../../../private/common/utils/firmaHelper';
-import { AudioButton } from '../../../private/common/audioNews/components/AudioButton';
+import { AudioButton } from './components/audioButton';
 import { isCustomVoice } from '../../../../content/sources/utils/audioNews/helper';
 import AudioPlayer from '../../LN/common/audioPlayer/default';
 import SignatureWithAuthors from './signatureWithAuthors';
@@ -83,7 +83,6 @@ function SignatureFeature(props) {
             showVariantIa={showVariantIa}
             withAudio={withAudio}
             authorNames={author?.name}
-            showTooltipVariantIA={showVariantIa}
             showListenButton={showListenButton}
         />
     );
