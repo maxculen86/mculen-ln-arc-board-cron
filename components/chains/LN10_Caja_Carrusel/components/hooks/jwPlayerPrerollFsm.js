@@ -1,5 +1,7 @@
 // Leaf module — pure Preroll FSM transition function, no module-level state.
 
+const INVALID_TRANSITION = 'invalid-transition';
+
 const createIdlePrerollState = ({
     controllerId = 0,
     aborted = false
@@ -21,7 +23,7 @@ export const nextPreroll = (state, event) => {
 
     switch (event.type) {
         case 'QUEUE':
-            if (current.status !== 'idle') return reject('invalid-transition');
+            if (current.status !== 'idle') return reject(INVALID_TRANSITION);
 
             return {
                 state: {
@@ -37,8 +39,7 @@ export const nextPreroll = (state, event) => {
 
         case 'START':
             if (isStaleCallback) return reject('stale-callback');
-            if (current.status !== 'queued')
-                return reject('invalid-transition');
+            if (current.status !== 'queued') return reject(INVALID_TRANSITION);
 
             return {
                 state: { ...current, status: 'loading' },
@@ -48,8 +49,7 @@ export const nextPreroll = (state, event) => {
 
         case 'IMPRESSION':
             if (isStaleCallback) return reject('stale-callback');
-            if (current.status !== 'loading')
-                return reject('invalid-transition');
+            if (current.status !== 'loading') return reject(INVALID_TRANSITION);
 
             return {
                 state: { ...current, status: 'playing' },
@@ -67,7 +67,7 @@ export const nextPreroll = (state, event) => {
                 current.status !== 'loading' &&
                 current.status !== 'playing'
             ) {
-                return reject('invalid-transition');
+                return reject(INVALID_TRANSITION);
             }
 
             return {
@@ -79,7 +79,7 @@ export const nextPreroll = (state, event) => {
         case 'FINISH_HANDOFF':
             if (isStaleCallback) return reject('stale-callback');
             if (current.status !== 'handing-off') {
-                return reject('invalid-transition');
+                return reject(INVALID_TRANSITION);
             }
 
             return {
@@ -105,7 +105,7 @@ export const nextPreroll = (state, event) => {
             };
 
         default:
-            return reject('invalid-transition');
+            return reject(INVALID_TRANSITION);
     }
 };
 
