@@ -205,6 +205,37 @@ describe('Tests when the section may interest you is visible.', () => {
     it('should call the tracking function of liftigniter. ', () => {
         expect(window.$p).toHaveBeenCalled();
     });
+
+    it('should render the VWO hook attributes on the wrapper', () => {
+        const { container } = component;
+        const wrapper = container.querySelector(
+            '[data-vwo-hook="article-recommendations"]'
+        );
+        expect(wrapper).toBeInTheDocument();
+        expect(wrapper).toHaveAttribute(
+            'data-vwo-candidate',
+            'ln-te-puede-interesar'
+        );
+    });
+
+    it('should keep the hardcoded VWO candidate regardless of prop changes', () => {
+        const customProps = {
+            ...props,
+            customFields: { vwoCandidate: 'other-candidate' },
+            siteProperties: { vwoCandidate: 'other-candidate' }
+        };
+        const { container: newContainer } = render(
+            <TePuedeInteresar {...customProps} />
+        );
+        const wrapper = newContainer.querySelector(
+            '[data-vwo-hook="article-recommendations"]'
+        );
+        expect(wrapper).toBeInTheDocument();
+        expect(wrapper).toHaveAttribute(
+            'data-vwo-candidate',
+            'ln-te-puede-interesar'
+        );
+    });
 });
 
 describe('Tests when the section may interest you is not visible.', () => {
