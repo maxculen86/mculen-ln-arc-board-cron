@@ -19,7 +19,7 @@ jest.mock('@ln/ds-common-spinner', () => ({
 }));
 
 jest.mock(
-    '../../../../../../../components/features/LN-10-global/common/toasts/renderToastAdapter',
+    '../../../../../../../components/features/ui/ln/toastsContainer/renderToast',
     () => jest.fn()
 );
 
@@ -116,8 +116,8 @@ describe('Components - features - LN - common - audioPlayer - components - Build
         ).not.toBeInTheDocument();
     });
 
-    it('sets error in the store and shows a toast via the legacy system on old templates', async () => {
-        const renderToastAdapter = require('../../../../../../../components/features/LN-10-global/common/toasts/renderToastAdapter');
+    it('sets error in the store and shows a toast via renderToasts', async () => {
+        const renderToasts = require('../../../../../../../components/features/ui/ln/toastsContainer/renderToast');
         let noContentHandler;
         mockBwPlayer.addEventListener.mockImplementation((event, handler) => {
             if (event === 'NoContentAvailable') noContentHandler = handler;
@@ -132,37 +132,8 @@ describe('Components - features - LN - common - audioPlayer - components - Build
 
         await waitFor(() => {
             expect(audioPlayerStore.getSnapshot().hasError).toBe(true);
-            expect(renderToastAdapter).toHaveBeenCalledWith(
-                expect.objectContaining({ variant: 'danger' }),
-                false
-            );
-        });
-    });
-
-    it('shows the error toast via the Design System on migrated templates', async () => {
-        const { useAppContext } = require('fusion:context');
-        useAppContext.mockReturnValue({
-            globalContent: { _id: 'note-123' },
-            globalContentConfig: {},
-            layout: 'LN-nota-storytelling-v2'
-        });
-        const renderToastAdapter = require('../../../../../../../components/features/LN-10-global/common/toasts/renderToastAdapter');
-        let noContentHandler;
-        mockBwPlayer.addEventListener.mockImplementation((event, handler) => {
-            if (event === 'NoContentAvailable') noContentHandler = handler;
-        });
-
-        render(<BuildAudioPlayer />);
-        await loadBeyondWordsScript();
-
-        await act(async () => {
-            noContentHandler?.();
-        });
-
-        await waitFor(() => {
-            expect(renderToastAdapter).toHaveBeenCalledWith(
-                expect.objectContaining({ variant: 'danger' }),
-                true
+            expect(renderToasts).toHaveBeenCalledWith(
+                expect.objectContaining({ color: 'error' })
             );
         });
     });

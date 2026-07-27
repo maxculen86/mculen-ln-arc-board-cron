@@ -9,7 +9,7 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import InitControlGroup from './helpers/initCtrlGrp';
-import Toasts from '../features/LN-10-global/common/toasts/default';
+import ToastsContainer from '../features/ui/ln/toastsContainer/default';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import '../../resources/dist/css/ln/pages/photo100.css';
 
@@ -72,7 +72,7 @@ function lnNotaFotoAl100({
                     <Footer />
                 </div>
             </div>
-            <Toasts />
+            <ToastsContainer />
             <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />

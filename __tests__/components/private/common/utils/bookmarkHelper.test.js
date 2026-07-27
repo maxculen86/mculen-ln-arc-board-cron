@@ -148,8 +148,8 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(result).toEqual({
                 ...baseToastProps,
                 title: '¡Listo!',
-                variant: 'success',
-                message: 'Podés acceder desde "Menú de usuario"'
+                color: 'success',
+                description: 'Podés acceder desde "Menú de usuario"'
             });
         });
 
@@ -158,8 +158,8 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(result).toEqual({
                 ...baseToastProps,
                 title: '¡Listo!',
-                variant: 'success',
-                message: 'Se borró de "Mis notas"'
+                color: 'success',
+                description: 'Se borró de "Mis notas"'
             });
         });
 
@@ -168,8 +168,8 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(result).toEqual({
                 ...baseToastProps,
                 title: '¡Atención!',
-                variant: 'warning',
-                message:
+                color: 'warning',
+                description:
                     'No se pudo guardar porque llegaste al límite permitido.'
             });
         });
@@ -179,8 +179,9 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(result).toEqual({
                 ...baseToastProps,
                 title: '¡Ups!',
-                variant: 'danger',
-                message: 'Hubo un problema de conexión. Reintenta más tarde.'
+                color: 'error',
+                description:
+                    'Hubo un problema de conexión. Reintenta más tarde.'
             });
         });
     });

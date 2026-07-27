@@ -45,8 +45,8 @@ function renderToasts({
         customContent: buttonProps?.href ? (
             <Button
                 variant="outline"
-                color="secondary"
-                className="w-fit"
+                color="custom"
+                className="bg-neutral-1 text-black-default hover:bg-neutral-1-lighten border-black-default w-fit"
                 {...buttonProps}
                 asChild
             >

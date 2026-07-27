@@ -1,12 +1,11 @@
 import Consumer from 'fusion:consumer';
 import { LAZY_OFFSETTOP, API_ENV } from 'fusion:environment';
-import { useAppContext } from 'fusion:context';
 import React, { useEffect, useState } from 'react';
 import { NewsletterBox } from '@ln/lib-newsletter';
 import LazyLoad from '../../../common/LazyLoad/LazyLoad';
 import get from '../../../private/common/utils/get';
-import { TOAST_CONFIG } from '../../LN-10-global/common/toasts/helpers';
-import renderToastAdapter from '../../LN-10-global/common/toasts/renderToastAdapter';
+import { TOAST_CONFIG } from '../../ui/ln/toastsContainer/helpers';
+import renderToasts from '../../ui/ln/toastsContainer/renderToast';
 import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
 import useAuthManager from '../../../private/common/auth/hooks/useAuthManager';
 
@@ -20,12 +19,6 @@ function NewsLetter({ globalContent }) {
         onSubscription: () => {}
     });
     const { token, accessToken } = useAuthManager();
-
-    const { layout, siteProperties } = useAppContext();
-
-    const { layoutsName } = siteProperties || {};
-
-    const isOpinion = layout === layoutsName.NotaOpinion;
 
     useEffect(() => {
         const primarySection = get(
@@ -42,26 +35,20 @@ function NewsLetter({ globalContent }) {
             userAccessToken: accessToken || '',
             onSubscription: ({ code }) => {
                 if (code >= 200 && code < 400) {
-                    renderToastAdapter(
-                        {
-                            variant: TOAST_CONFIG.SUCCESS.VARIANT,
-                            title: TOAST_CONFIG.SUCCESS.TITLE,
-                            message:
-                                TOAST_CONFIG.SUCCESS.MESSAGE.ADD_NEWSLLETER,
-                            buttonProps:
-                                TOAST_CONFIG.BUTTON_PROPS.NEWSLETTER_BOX
-                        },
-                        isOpinion
-                    );
+                    renderToasts({
+                        title: TOAST_CONFIG.SUCCESS.TITLE,
+                        description:
+                            TOAST_CONFIG.SUCCESS.DESCRIPTION.ADD_NEWSLLETER,
+                        color: TOAST_CONFIG.SUCCESS.COLOR,
+                        buttonProps: TOAST_CONFIG.BUTTON_PROPS.NEWSLETTER_BOX
+                    });
                 } else {
-                    renderToastAdapter(
-                        {
-                            variant: TOAST_CONFIG.ERROR.VARIANT,
-                            title: TOAST_CONFIG.ERROR.TITLE,
-                            message: TOAST_CONFIG.ERROR.MESSAGE.ADD_NEWSLLETER
-                        },
-                        isOpinion
-                    );
+                    renderToasts({
+                        title: TOAST_CONFIG.ERROR.TITLE,
+                        description:
+                            TOAST_CONFIG.ERROR.DESCRIPTION.ADD_NEWSLLETER,
+                        color: TOAST_CONFIG.ERROR.COLOR
+                    });
                 }
             }
         });

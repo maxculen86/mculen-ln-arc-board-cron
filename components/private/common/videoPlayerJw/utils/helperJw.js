@@ -204,17 +204,17 @@ export const handleVideoEventsScript = (
             e?.code === 224003;
         if (isGeoBlocked) {
             publishToast({
-                variant: 'warning',
+                color: 'warning',
                 title: 'No disponible',
-                message: 'Este contenido no esta disponible en tu región.'
+                description: 'Este contenido no esta disponible en tu región.'
             });
             return;
         }
 
         publishToast({
-            variant: 'warning',
+            color: 'warning',
             title: 'Error de reproducción',
-            message: 'No se pudo reproducir el video. Intentá más tarde.'
+            description: 'No se pudo reproducir el video. Intentá más tarde.'
         });
     });
 

@@ -5,7 +5,7 @@ import toggleBookmark, {
     getStatusMessage
 } from '../../../../private/common/utils/bookmarkHelper';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import renderToast from '../../../private-global/common/utils/renderToast';
+import renderToasts from '../../../ui/ln/toastsContainer/renderToast';
 import { addEventToDataLayerV2 } from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 function BarrierDeleteNote({
@@ -67,7 +67,7 @@ function BarrierDeleteNote({
                                 status,
                                 bookmarkContent
                             );
-                            renderToast(toastConfig);
+                            renderToasts(toastConfig);
                         });
                     }}
                 >
