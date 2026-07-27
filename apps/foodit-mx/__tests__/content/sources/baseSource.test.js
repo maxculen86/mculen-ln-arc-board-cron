@@ -1,4 +1,4 @@
-import baseSource from '../baseSource';
+import baseSource from '../../../content/sources/baseSource';
 
 describe('baseSource (content source)', () => {
     it('expone la config que Fusion espera de un content source', () => {
