@@ -103,8 +103,6 @@ const initializeAuth = async ({ website = 'la-nacion-ar', setTokens } = {}) => {
                 token,
                 accessToken
             });
-        } else {
-            console.error('No token found, UCL ready for Google One Tap login');
         }
     } catch (error) {
         console.error(
