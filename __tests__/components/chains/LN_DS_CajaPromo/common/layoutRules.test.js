@@ -39,19 +39,19 @@ describe('LN_DS_CajaPromo - layoutRules', () => {
         });
 
         describe('twoHorizontal layout', () => {
-            it('should return horizontal card rule at index 0', () => {
+            it('should return horizontal rule scaling 18 to 24 from md at index 0', () => {
                 expect(getRuleForIndex('twoHorizontal', 0)).toEqual({
                     range: [0, 1],
-                    size: { default: 24 },
-                    orientation: { default: 'vertical', md: 'horizontal' }
+                    size: { default: 18, md: 24 },
+                    orientation: 'horizontal'
                 });
             });
 
-            it('should return horizontal card rule at index 1', () => {
+            it('should return horizontal rule scaling 18 to 24 from md at index 1', () => {
                 expect(getRuleForIndex('twoHorizontal', 1)).toEqual({
                     range: [0, 1],
-                    size: { default: 24 },
-                    orientation: { default: 'vertical', md: 'horizontal' }
+                    size: { default: 18, md: 24 },
+                    orientation: 'horizontal'
                 });
             });
 
@@ -132,18 +132,18 @@ describe('LN_DS_CajaPromo - layoutRules', () => {
         });
 
         describe('threeVertical layout', () => {
-            it('should return vertical size 32 rule at index 0', () => {
+            it('should return vertical rule scaling 24 to 32 from md at index 0', () => {
                 expect(getRuleForIndex('threeVertical', 0)).toEqual({
                     range: [0, 2],
-                    size: { default: 32 },
+                    size: { default: 24, md: 32 },
                     orientation: 'vertical'
                 });
             });
 
-            it('should return vertical size 32 rule at index 2 (last slot)', () => {
+            it('should return vertical rule scaling 24 to 32 from md at index 2 (last slot)', () => {
                 expect(getRuleForIndex('threeVertical', 2)).toEqual({
                     range: [0, 2],
-                    size: { default: 32 },
+                    size: { default: 24, md: 32 },
                     orientation: 'vertical'
                 });
             });
@@ -167,6 +167,65 @@ describe('LN_DS_CajaPromo - layoutRules', () => {
 
             it('should return default rule when index is out of range', () => {
                 expect(getRuleForIndex('oneHorizontal', 1)).toEqual({
+                    size: 24,
+                    orientation: 'vertical'
+                });
+            });
+        });
+
+        describe('page layout overrides', () => {
+            it('should return size 24 from md for fourVertical in acumulado', () => {
+                expect(
+                    getRuleForIndex('fourVertical', 0, 'LN-acumulado')
+                ).toEqual({
+                    range: [0, 3],
+                    size: { default: 18, md: 24 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should apply the acumulado override to every card slot', () => {
+                expect(
+                    getRuleForIndex('fourVertical', 3, 'LN-acumulado')
+                ).toEqual({
+                    range: [0, 3],
+                    size: { default: 18, md: 24 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should keep base rules for fourVertical in home', () => {
+                expect(
+                    getRuleForIndex('fourVertical', 0, 'LN10-Home_Main')
+                ).toEqual({
+                    range: [0, 3],
+                    size: { default: 18 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should keep base rules for diagramations without override in acumulado', () => {
+                expect(
+                    getRuleForIndex('threeVertical', 0, 'LN-acumulado')
+                ).toEqual({
+                    range: [0, 2],
+                    size: { default: 24, md: 32 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should keep base rules when pageLayout is not provided', () => {
+                expect(getRuleForIndex('fourVertical', 0)).toEqual({
+                    range: [0, 3],
+                    size: { default: 18 },
+                    orientation: 'vertical'
+                });
+            });
+
+            it('should return default rule when index is out of range in acumulado', () => {
+                expect(
+                    getRuleForIndex('fourVertical', 4, 'LN-acumulado')
+                ).toEqual({
                     size: 24,
                     orientation: 'vertical'
                 });
