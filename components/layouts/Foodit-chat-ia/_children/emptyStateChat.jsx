@@ -1,7 +1,7 @@
 import React from 'react';
-import EmptyState from '../../../features/foodit-global/common/emptyState/foodit';
 import { getVariantBarrier } from '../../../features/foodit-global/common/emptyState/helpers';
 import Icon from '../../../features/ui/foodit/icon/default';
+import { EmptyStateDS } from '../../../features/ui/foodit/emptyState/default';
 
 export function EmptyStateChat() {
     return (
@@ -20,10 +20,10 @@ export function EmptyStateChat() {
                 </div>
                 <p>En foodit podes encontrar las recetas y tecnicas...</p>
             </div>
-            <EmptyState
+            <EmptyStateDS
                 variant={getVariantBarrier('unlogged')}
-                direction="row"
-                className="bg-positive px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 text-center md:text-left"
+                direction="horizontal"
+                className="bg-positive md:flex-row xl:gap-32 px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 text-center md:text-left"
                 comesFrom="ChatIA"
             />
         </>

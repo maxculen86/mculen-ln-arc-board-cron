@@ -20,7 +20,9 @@ const {
         FooditBuscador,
         Foodit404,
         FooditSubcategorias,
-        FooditAcumuladoChef
+        FooditAcumuladoChef,
+        FooditRecipePaywall,
+        FooditNotePaywall
     }
 } = config;
 
@@ -41,7 +43,9 @@ export function GetCriticalCss({ layout, Resource, globalContent }) {
         { pageLayout: FooditBuscador },
         { pageLayout: Foodit404 },
         { pageLayout: FooditSubcategorias },
-        { pageLayout: FooditAcumuladoChef }
+        { pageLayout: FooditAcumuladoChef },
+        { pageLayout: FooditRecipePaywall },
+        { pageLayout: FooditNotePaywall }
     ];
     const shouldLoadTailwidcss = isAllowedSection({
         globalContent,

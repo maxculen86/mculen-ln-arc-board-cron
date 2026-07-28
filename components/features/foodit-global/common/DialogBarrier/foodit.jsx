@@ -3,7 +3,7 @@ import { Dialog } from '@ln/common-ui-dialog';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import EmptyState from '../emptyState/foodit';
+import { EmptyStateDS } from '../../../ui/foodit/emptyState/default';
 import { getVariantBarrier } from '../emptyState/helpers';
 
 export function DialogBarrier({ isOpen, onClose, userType }) {
@@ -32,7 +32,7 @@ export function DialogBarrier({ isOpen, onClose, userType }) {
                 </Button>
             </Dialog.Header>
             <Dialog.Body>
-                <EmptyState
+                <EmptyStateDS
                     variant={getVariantBarrier(userType)}
                     className="pt-4 pt-12_md pt-20_lg"
                     direction="column"

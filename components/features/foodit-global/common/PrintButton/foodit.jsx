@@ -7,7 +7,7 @@ import { useDisclosure } from '@ln/hooks';
 import usePrint from '../utils/PrintFoodit/usePrint';
 import { FooditPrint } from '../LayoutImpression/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
-import { DialogBarrier } from '../DialogBarrier/foodit';
+import { DialogFoodit } from '../DialogFoodit/foodit';
 
 export function PrintButton({ printType, description, IconButton, article }) {
     const [includePhotos, setIncludePhotos] = useState(false);
@@ -86,7 +86,8 @@ export function PrintButton({ printType, description, IconButton, article }) {
                     )}
                 </Dropdown.Menu>
             ) : (
-                <DialogBarrier
+                <DialogFoodit
+                    isSubscribed={false}
                     isOpen={isOpen}
                     onClose={onClose}
                     userType={userType}

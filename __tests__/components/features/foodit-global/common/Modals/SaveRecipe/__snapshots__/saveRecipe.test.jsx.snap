@@ -4,7 +4,7 @@ exports[`SaveRecipe Component should match snapshot when userType is logged 1`] 
 <body>
   <div>
     <div
-      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4 overflow-hidden"
       data-testid="dialog"
       role="dialog"
     >
@@ -33,16 +33,9 @@ exports[`SaveRecipe Component should match snapshot when userType is logged 1`] 
           data-testid="dialog-body"
         >
           <div
-            data-direction="column"
-          >
-            <div
-              data-testid="empty-state-barrier-logged"
-            >
-              <button>
-                Suscribite
-              </button>
-            </div>
-          </div>
+            data-testid="empty-state"
+            data-variant="barrier-logged"
+          />
         </div>
       </div>
     </div>
@@ -169,7 +162,7 @@ exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`
 <body>
   <div>
     <div
-      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4"
+      class="p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4 overflow-hidden"
       data-testid="dialog"
       role="dialog"
     >
@@ -198,19 +191,9 @@ exports[`SaveRecipe Component should match snapshot when userType is unlogged 1`
           data-testid="dialog-body"
         >
           <div
-            data-direction="column"
-          >
-            <div
-              data-testid="empty-state-barrier-unlogged"
-            >
-              <button>
-                Suscribite
-              </button>
-              <button>
-                Iniciá sesión
-              </button>
-            </div>
-          </div>
+            data-testid="empty-state"
+            data-variant="barrier-unlogged"
+          />
         </div>
       </div>
     </div>

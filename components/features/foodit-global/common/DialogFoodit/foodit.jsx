@@ -4,8 +4,8 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { cx } from '@ln/cva';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import EmptyState from '../emptyState/foodit';
 import { getVariantBarrier } from '../emptyState/helpers';
+import { EmptyStateDS } from '../../../ui/foodit/emptyState/default';
 
 export function DialogFoodit({
     isOpen,
@@ -18,7 +18,7 @@ export function DialogFoodit({
         'mx-auto',
         isSubscribed
             ? 'pt-16 pb-16 pb-24_md pb-32_lg px-16 px-24_md px-32_lg w-100 w-520_md shadow-up-md'
-            : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4'
+            : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4 overflow-hidden'
     );
 
     const position = isSubscribed ? 'bottom' : 'center';
@@ -51,10 +51,9 @@ export function DialogFoodit({
                 {isSubscribed ? (
                     children
                 ) : (
-                    <EmptyState
+                    <EmptyStateDS
                         variant={getVariantBarrier(userType)}
                         className="pt-4 pt-12_md pt-20_lg"
-                        direction="column"
                         comesFrom="DialogFoodit"
                     />
                 )}

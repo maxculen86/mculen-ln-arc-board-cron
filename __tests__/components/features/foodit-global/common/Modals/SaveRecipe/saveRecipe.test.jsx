@@ -182,6 +182,20 @@ jest.mock('@ln/cva', () => ({
     cx: (...args) => args.filter(Boolean).join(' ')
 }));
 
+jest.mock(
+    '../../../../../../../components/features/ui/foodit/emptyState/default',
+    () => ({
+        __esModule: true,
+        EmptyStateDS: ({ variant, direction }) => (
+            <div
+                data-testid="empty-state"
+                data-variant={variant}
+                data-direction={direction}
+            />
+        )
+    })
+);
+
 describe('SaveRecipe Component', () => {
     const mockClose = jest.fn();
     const mockSetIndexStep = jest.fn();
@@ -378,10 +392,10 @@ describe('SaveRecipe Component', () => {
         });
 
         render(<SaveRecipe {...defaultProps} />);
-        const buttonSubscribe = screen.getByText('Suscribite');
-        const buttonLogin = screen.getByText('Iniciá sesión');
-        expect(buttonSubscribe).toBeInTheDocument();
-        expect(buttonLogin).toBeInTheDocument();
+        expect(screen.getByTestId('empty-state')).toBeInTheDocument();
+        expect(
+            screen.queryByTestId('main-save-recipe')
+        ).not.toBeInTheDocument();
     });
 
     it('should render emptyState when userType is logged', () => {
@@ -391,8 +405,10 @@ describe('SaveRecipe Component', () => {
         });
 
         render(<SaveRecipe {...defaultProps} />);
-        const buttonSubscribe = screen.getByText('Suscribite');
-        expect(buttonSubscribe).toBeInTheDocument();
+        expect(screen.getByTestId('empty-state')).toBeInTheDocument();
+        expect(
+            screen.queryByTestId('main-save-recipe')
+        ).not.toBeInTheDocument();
     });
 
     it('dialog should return null when showModal is false', () => {

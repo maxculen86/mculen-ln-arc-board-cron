@@ -15,8 +15,8 @@ import useGetUserConfig from '../../foodit-global/hooks/useGetUserConfig';
 import LazyLoadComponent from '../../foodit-global/common/LazyLoad/foodit';
 import LoadingFoodit from '../../foodit-global/common/Loading/foodit';
 import CommentsViafoura from '../../foodit-global/common/CommentFoodit/foodit';
-import EmptyState from '../../foodit-global/common/emptyState/foodit';
 import { getVariantBarrier } from '../../foodit-global/common/emptyState/helpers';
+import { EmptyStateDS } from '../../ui/foodit/emptyState/default';
 
 function CommentFoodit(props) {
     const {
@@ -55,10 +55,10 @@ function CommentFoodit(props) {
             {subscription ? (
                 <HeaderComments />
             ) : (
-                <EmptyState
+                <EmptyStateDS
+                    className="mb-40 bg-brand-sal md:flex-row md:text-left w-full p-16 md:p-24 xl:p-32"
                     variant={getVariantBarrier(userType)}
-                    direction="row"
-                    className="bg-positive mb-40 py-24"
+                    direction="horizontal"
                     comesFrom="CommentFoodit"
                 />
             )}

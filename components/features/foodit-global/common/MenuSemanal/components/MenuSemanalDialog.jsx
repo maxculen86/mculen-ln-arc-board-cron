@@ -12,9 +12,9 @@ import get from '../../../../../private/common/utils/get';
 import { addToast, TOAST } from '../../bookmark/api/_helper';
 import { saveMenu } from '../../bookmark/api/menuSave';
 import { pushFooditEvent } from '../../utils/pushFooditEvent';
-import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import { dayFoodQuantities } from '../helpers/_helper';
+import { EmptyStateDS } from '../../../../ui/foodit/emptyState/default';
 
 function MenuSemanalDialog({
     article,
@@ -126,7 +126,8 @@ function MenuSemanalDialog({
             position="center"
             classnames={{
                 base: classContainer,
-                wrapper: 'flex flex-column gap-16 gap-24_md gap-32_lg'
+                wrapper:
+                    'flex flex-column gap-16 gap-24_md gap-32_lg overflow-hidden'
             }}
             overlay
             closeOnClickOutside
@@ -163,10 +164,7 @@ function MenuSemanalDialog({
                 <>
                     {renderDialogHeader('flex jc-end')}
                     <Dialog.Body>
-                        <EmptyState
-                            variant={getVariantBarrier(userType)}
-                            direction="column"
-                        />
+                        <EmptyStateDS variant={getVariantBarrier(userType)} />
                     </Dialog.Body>
                 </>
             )}
