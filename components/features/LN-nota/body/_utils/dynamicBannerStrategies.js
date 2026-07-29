@@ -6,6 +6,7 @@ import {
 
 export const NON_SUBSCRIBER_BANNER_INSERT_INTERVAL = 5;
 export const SUBSCRIBER_BANNER_INSERT_INTERVAL = 8;
+const INITIAL_BANNER_ITEM_INDEX = 1;
 
 export const getUserBannerInsertInterval = isSubscribed =>
     isSubscribed
@@ -28,12 +29,16 @@ const defaultBannerStrategy = {
 const userTypeBannerStrategy = {
     shouldInsert: ({ itemIndex, bannerIndex, maxBanners, isSubscribed }) => {
         const insertInterval = getUserBannerInsertInterval(isSubscribed);
-        const isInsertPosition =
-            (itemIndex + 1) % insertInterval === 0 && itemIndex >= 0;
         const withinLimit =
             maxBanners === undefined || bannerIndex <= maxBanners;
+        const isInitialBanner =
+            bannerIndex === 1 && itemIndex === INITIAL_BANNER_ITEM_INDEX;
+        const isSubsequentBanner =
+            bannerIndex > 1 &&
+            itemIndex > INITIAL_BANNER_ITEM_INDEX &&
+            (itemIndex - INITIAL_BANNER_ITEM_INDEX) % insertInterval === 0;
 
-        return isInsertPosition && withinLimit;
+        return withinLimit && (isInitialBanner || isSubsequentBanner);
     },
     getBannerIndex: ({ bannerCounter }) => bannerCounter.current + 1
 };
