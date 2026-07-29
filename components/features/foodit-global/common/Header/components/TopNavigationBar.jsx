@@ -60,7 +60,7 @@ export function TopNavigationBar({ categories = [] }) {
                     </Link>
                     <Link
                         data-test-id="header-link-newsletter"
-                        href="https://newsletter.lanacion.com.ar/#foodit"
+                        href="https://newsletter.lanacion.com.ar/#planifica-tu-semana"
                         title="Ir a newsletter"
                         className="gap-8"
                         data-interaction="dataLayerInteraction"
