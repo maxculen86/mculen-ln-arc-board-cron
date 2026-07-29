@@ -3,7 +3,6 @@ import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 import { getAuthTokens } from '../auth/helper/loginHelper';
-import { TOAST_CONFIG } from '../../../features/LN-10-global/common/toasts/helpers';
 import { replaceResizerBaseUrl } from './image/resizer/v2/resizerHelper';
 
 export function getBookmarkContent(globalContent) {
@@ -164,29 +163,3 @@ export default function toggleBookmark({
         ? getDataFromAPI()
         : null;
 }
-
-export const getStatusMessage = (status, bookmarkContent) => {
-    const statusConfig = {
-        200: {
-            title: TOAST_CONFIG.SUCCESS.TITLE,
-            variant: TOAST_CONFIG.SUCCESS.VARIANT,
-            message: !bookmarkContent
-                ? TOAST_CONFIG.SUCCESS.MESSAGE.DELETE_BOOKMARK
-                : TOAST_CONFIG.SUCCESS.MESSAGE.ADD_BOOKMARK
-        },
-        409: {
-            title: TOAST_CONFIG.WARNING.TITLE,
-            variant: TOAST_CONFIG.WARNING.VARIANT,
-            message: TOAST_CONFIG.WARNING.MESSAGE.LIMIT_REACHED
-        }
-    };
-
-    return {
-        buttonProps: TOAST_CONFIG.BUTTON_PROPS.BOOKMARK,
-        ...(statusConfig[status] || {
-            title: '¡Ups!',
-            variant: TOAST_CONFIG.ERROR.VARIANT,
-            message: TOAST_CONFIG.ERROR.MESSAGE.CONNECTION
-        })
-    };
-};

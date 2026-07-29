@@ -43,21 +43,7 @@ export default function useBookmark({
         }).then(({ status, bookmarkContent }) => {
             const statusConfig = getStatusMessage(status, bookmarkContent);
 
-            renderToasts({
-                title: statusConfig.title,
-                description: statusConfig.message,
-                color:
-                    statusConfig.variant === 'danger'
-                        ? 'error'
-                        : statusConfig.variant,
-                buttonProps: {
-                    ...statusConfig.buttonProps,
-                    color: 'custom',
-                    variant: 'outline',
-                    className:
-                        'ds-custom-buttom-toast bg-neutral-1 text-black-default hover:bg-neutral-1-lighten border-black-default w-fit'
-                }
-            });
+            renderToasts(statusConfig);
         });
     };
 

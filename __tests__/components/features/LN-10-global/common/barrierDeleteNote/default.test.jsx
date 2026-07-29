@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import BarrierDeleteNote from '../../../../../../components/features/LN-10-global/common/barrierDeleteNote/default';
-import renderToast from '../../../../../../components/features/private-global/common/utils/renderToast';
+import renderToasts from '../../../../../../components/features/ui/ln/toastsContainer/renderToast';
 import * as bookmarkHelper from '../../../../../../components/private/common/utils/bookmarkHelper';
 import { addEventToDataLayerV2 } from '../../../../../../components/private/LN/common/utils/addEventToDataLayer';
 
@@ -14,15 +14,15 @@ jest.mock(
             Promise.resolve({ status: 200, bookmarkContent: null })
         ),
         getStatusMessage: jest.fn(() => ({
-            variant: 'success',
+            color: 'success',
             title: '¡Listo!',
-            message: 'Nota eliminada'
+            description: 'Nota eliminada'
         }))
     })
 );
 
 jest.mock(
-    '../../../../../../components/features/private-global/common/utils/renderToast',
+    '../../../../../../components/features/ui/ln/toastsContainer/renderToast',
     () => jest.fn()
 );
 
@@ -88,10 +88,11 @@ describe('Features - LN-10-Global - Common - BarrierDeleteNote - default', () =>
             expect(mockProps.substractOne).toHaveBeenCalledTimes(1);
 
             expect(mockProps.closeBarrier).toHaveBeenCalledTimes(1);
-            expect(renderToast).toHaveBeenCalledWith({
-                variant: 'success',
+            expect(renderToasts).toHaveBeenCalledWith({
                 title: '¡Listo!',
-                message: 'Nota eliminada'
+                description: 'Nota eliminada',
+                color: 'success',
+                buttonProps: undefined
             });
         });
     });
@@ -102,8 +103,8 @@ describe('Features - LN-10-Global - Common - BarrierDeleteNote - default', () =>
         );
         bookmarkHelper.getStatusMessage.mockImplementationOnce(() => ({
             title: '¡Ups!',
-            variant: 'danger',
-            message: 'Hubo un problema de conexión. Reintenta más tarde.'
+            color: 'error',
+            description: 'Hubo un problema de conexión. Reintenta más tarde.'
         }));
 
         render(<BarrierDeleteNote {...mockProps} />);
@@ -113,10 +114,12 @@ describe('Features - LN-10-Global - Common - BarrierDeleteNote - default', () =>
             expect(mockProps.deleteArticle).not.toHaveBeenCalled();
             expect(mockProps.substractOne).not.toHaveBeenCalled();
             expect(mockProps.closeBarrier).toHaveBeenCalledTimes(1);
-            expect(renderToast).toHaveBeenCalledWith({
+            expect(renderToasts).toHaveBeenCalledWith({
                 title: '¡Ups!',
-                variant: 'danger',
-                message: 'Hubo un problema de conexión. Reintenta más tarde.'
+                description:
+                    'Hubo un problema de conexión. Reintenta más tarde.',
+                color: 'error',
+                buttonProps: undefined
             });
         });
     });

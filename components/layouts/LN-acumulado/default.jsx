@@ -15,7 +15,7 @@ import PwaModal from '../../features/LN-10-global/pwaModal/default';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 import InitControlGroup from '../helpers/initCtrlGrp';
-import Toasts from '../../features/LN-10-global/common/toasts/default';
+import ToastsContainer from '../../features/ui/ln/toastsContainer/default';
 import { CLASS_ACU_REVISTA, revistas, getSectionClassName } from './helpers';
 import '../../../resources/dist/css/ln/pages/acumulado.css';
 import '../../../resources/dist/css/ln/pages/lotteries.css';
@@ -217,7 +217,7 @@ function LNAcumuladoLayout(props) {
                         <Footer />
                     </div>
                 </div>
-                <Toasts />
+                <ToastsContainer />
                 <AdsStrategySelector />
                 <PwaModal />
                 <InitControlGroup />
