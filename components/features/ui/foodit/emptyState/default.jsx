@@ -73,7 +73,8 @@ export function EmptyStateDS({
                     </Emptystate.Text>
                 </Emptystate.Body>
                 {shouldRenderButtons && (
-                    <div className="flex ai-center gap-24">
+                    <div className="flex items-center gap-24">
+                        {/* TODO: Reemplazar los botones por el componente del nuevo DS. */}
                         <LoginSubscribeButtons
                             classNameButtons="min-h-32 xl:min-h-40"
                             loginClassName="font-secondary font-bold"
@@ -89,10 +90,7 @@ export function EmptyStateDS({
                         <Divider />
                     </div>
                     <div className="flex flex-col justify-center">
-                        <p
-                            style={{ '--vf-wght': 70 }}
-                            className="text-center font-primary text-24 pb-24"
-                        >
+                        <p className="text-center font-primary text-24 pb-24 font-w-light">
                             ¿Por qué suscribirme a Foodit?
                         </p>
                         <CardInfo />

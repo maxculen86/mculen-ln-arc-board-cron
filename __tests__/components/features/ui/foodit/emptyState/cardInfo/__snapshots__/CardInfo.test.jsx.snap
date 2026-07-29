@@ -19,8 +19,7 @@ exports[`CardInfo snapshots FooditListadoCompras layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Agregá ingredientes a la lista de compras
         </p>
@@ -43,8 +42,7 @@ exports[`CardInfo snapshots FooditListadoCompras layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Guardá tu receta favorita
         </p>
@@ -67,8 +65,7 @@ exports[`CardInfo snapshots FooditListadoCompras layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Planificá tu semana
         </p>
@@ -102,8 +99,7 @@ exports[`CardInfo snapshots FooditMenuSemanal layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Planificá tu semana
         </p>
@@ -126,8 +122,7 @@ exports[`CardInfo snapshots FooditMenuSemanal layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Guardá tu receta favorita
         </p>
@@ -150,8 +145,7 @@ exports[`CardInfo snapshots FooditMenuSemanal layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Agregá ingredientes a la lista de compras
         </p>
@@ -185,8 +179,7 @@ exports[`CardInfo snapshots default layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Guardá tu receta favorita
         </p>
@@ -209,8 +202,7 @@ exports[`CardInfo snapshots default layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Agregá ingredientes a la lista de compras
         </p>
@@ -233,8 +225,7 @@ exports[`CardInfo snapshots default layout 1`] = `
         class="flex flex-col text-center justify-center items-center gap-4"
       >
         <p
-          class="font-primary font-semibold text-18"
-          style="--vf-wght: 130;"
+          class="font-primary font-w-semibold text-18"
         >
           Planificá tu semana
         </p>

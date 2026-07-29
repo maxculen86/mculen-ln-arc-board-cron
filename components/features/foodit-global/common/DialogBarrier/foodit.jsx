@@ -34,7 +34,7 @@ export function DialogBarrier({ isOpen, onClose, userType }) {
             <Dialog.Body>
                 <EmptyStateDS
                     variant={getVariantBarrier(userType)}
-                    className="pt-4 pt-12_md pt-20_lg"
+                    className="pt-4 md:pt-12 xl:pt-20"
                     direction="column"
                 />
             </Dialog.Body>

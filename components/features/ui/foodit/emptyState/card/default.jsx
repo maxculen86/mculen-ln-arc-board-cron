@@ -58,10 +58,7 @@ function CardInfo() {
                     <Icon size={32} name={iconName} type="critical" />
 
                     <div className="flex flex-col text-center justify-center items-center gap-4">
-                        <p
-                            className="font-primary font-semibold text-18"
-                            style={{ '--vf-wght': 130 }}
-                        >
+                        <p className="font-primary font-w-semibold text-18">
                             {title}
                         </p>
                         <p className="font-secondary font-regular text-16 text-secondary-default">

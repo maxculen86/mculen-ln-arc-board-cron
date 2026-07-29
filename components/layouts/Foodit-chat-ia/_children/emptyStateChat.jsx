@@ -23,7 +23,7 @@ export function EmptyStateChat() {
             <EmptyStateDS
                 variant={getVariantBarrier('unlogged')}
                 direction="horizontal"
-                className="bg-positive md:flex-row xl:gap-32 px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 text-center md:text-left"
+                className="bg-brand-sal md:flex-row xl:gap-32 px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32 text-center md:text-left"
                 comesFrom="ChatIA"
             />
         </>

@@ -61,7 +61,7 @@ exports[`EmptyStateDS snapshots barrier-logged — non-subscriber en layout targ
         </p>
       </div>
       <div
-        class="flex ai-center gap-24"
+        class="flex items-center gap-24"
       >
         <div
           data-comes-from=""
@@ -80,8 +80,7 @@ exports[`EmptyStateDS snapshots barrier-logged — non-subscriber en layout targ
       class="flex flex-col justify-center"
     >
       <p
-        class="text-center font-primary text-24 pb-24"
-        style="--vf-wght: 70;"
+        class="text-center font-primary text-24 pb-24 font-w-light"
       >
         ¿Por qué suscribirme a Foodit?
       </p>
@@ -119,7 +118,7 @@ exports[`EmptyStateDS snapshots barrier-logged — subscriber 1`] = `
         </p>
       </div>
       <div
-        class="flex ai-center gap-24"
+        class="flex items-center gap-24"
       >
         <div
           data-comes-from=""
@@ -157,7 +156,7 @@ exports[`EmptyStateDS snapshots barrier-unlogged — non-subscriber horizontal (
         </p>
       </div>
       <div
-        class="flex ai-center gap-24"
+        class="flex items-center gap-24"
       >
         <div
           data-comes-from=""
@@ -195,7 +194,7 @@ exports[`EmptyStateDS snapshots barrier-unlogged — non-subscriber vertical 1`]
         </p>
       </div>
       <div
-        class="flex ai-center gap-24"
+        class="flex items-center gap-24"
       >
         <div
           data-comes-from="ficha_receta"
@@ -214,8 +213,7 @@ exports[`EmptyStateDS snapshots barrier-unlogged — non-subscriber vertical 1`]
       class="flex flex-col justify-center"
     >
       <p
-        class="text-center font-primary text-24 pb-24"
-        style="--vf-wght: 70;"
+        class="text-center font-primary text-24 pb-24 font-w-light"
       >
         ¿Por qué suscribirme a Foodit?
       </p>
@@ -258,7 +256,7 @@ exports[`EmptyStateDS snapshots empty-state — subscriber con className custom 
         </p>
       </div>
       <div
-        class="flex ai-center gap-24"
+        class="flex items-center gap-24"
       >
         <div
           data-comes-from=""

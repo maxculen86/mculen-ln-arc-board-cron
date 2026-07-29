@@ -53,7 +53,7 @@ export function DialogFoodit({
                 ) : (
                     <EmptyStateDS
                         variant={getVariantBarrier(userType)}
-                        className="pt-4 pt-12_md pt-20_lg"
+                        className="pt-4 md:pt-12 xl:pt-20"
                         comesFrom="DialogFoodit"
                     />
                 )}
