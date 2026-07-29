@@ -3,7 +3,7 @@ import { Badge } from '@ln/ds-common-badge';
 
 function CardPromoBadge({ label = 'nuevo' }) {
     return (
-        <div className="absolute z-10 top-9 right-4">
+        <div className="absolute z-10 top-4 right-4">
             <Badge
                 color="black"
                 variant="solid"

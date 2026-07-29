@@ -66,6 +66,15 @@ describe('CardPromoRibbon', () => {
             const { container } = render(<CardPromoRibbon />);
             expect(container.querySelector('svg')).toHaveClass('size-24');
         });
+
+        it('should keep the icon from shrinking below its declared size', () => {
+            useCardPromoContext.mockReturnValue({
+                size: 18,
+                responsiveSize: {}
+            });
+            const { container } = render(<CardPromoRibbon />);
+            expect(container.querySelector('svg')).toHaveClass('shrink-0');
+        });
     });
 
     describe('snapshots', () => {

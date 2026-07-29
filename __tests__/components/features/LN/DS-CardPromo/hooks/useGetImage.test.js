@@ -49,7 +49,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'abc123',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -66,7 +66,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'abc123',
                     isFirstCard: true,
-                    parentLayout: 'oneLargeFourSmall'
+                    diagramation: 'oneLargeFourSmall'
                 })
             );
 
@@ -89,7 +89,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: '',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -111,7 +111,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: '',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -132,7 +132,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'valid-id',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -155,7 +155,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'valid-id',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -172,7 +172,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'valid-id',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -190,7 +190,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'valid-id',
                     isFirstCard: false,
-                    parentLayout: ''
+                    diagramation: ''
                 })
             );
 
@@ -202,7 +202,7 @@ describe('useGetImage', () => {
     });
 
     describe('getImageSettings integration', () => {
-        it('should call getImageSettings with isFirstCard and parentLayout as diagramation', () => {
+        it('should call getImageSettings with isFirstCard and diagramation', () => {
             checkForId.mockReturnValue(true);
             useContent.mockReturnValue({});
 
@@ -210,7 +210,7 @@ describe('useGetImage', () => {
                 useGetImage({
                     imageId: 'abc',
                     isFirstCard: true,
-                    parentLayout: 'oneLargeFourSmall'
+                    diagramation: 'oneLargeFourSmall'
                 })
             );
 

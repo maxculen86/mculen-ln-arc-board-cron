@@ -22,6 +22,24 @@ describe('CardPromoBadge', () => {
         });
     });
 
+    describe('positioning', () => {
+        it('should sit 4px inside the top-right corner', () => {
+            const { container } = render(<CardPromoBadge />);
+
+            expect(container.firstChild).toHaveClass(
+                'absolute',
+                'top-4',
+                'right-4'
+            );
+        });
+
+        it('should stack above the media', () => {
+            const { container } = render(<CardPromoBadge />);
+
+            expect(container.firstChild).toHaveClass('z-10');
+        });
+    });
+
     describe('snapshots', () => {
         it('matches snapshot with a custom label', () => {
             const { asFragment } = render(<CardPromoBadge label="NUEVO" />);

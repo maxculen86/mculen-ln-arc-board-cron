@@ -7,7 +7,7 @@ import {
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
 
-const useGetImage = ({ imageId, isFirstCard, parentLayout }) => {
+const useGetImage = ({ imageId, isFirstCard, diagramation }) => {
     const imageData =
         useContent({
             source: checkForId(imageId) ? 'relatedImageSource' : null,
@@ -15,7 +15,7 @@ const useGetImage = ({ imageId, isFirstCard, parentLayout }) => {
                 id: imageId,
                 imageConfig: getImageSettings({
                     isFirstCard,
-                    diagramation: parentLayout
+                    diagramation
                 })
             }
         }) || {};

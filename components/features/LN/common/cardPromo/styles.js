@@ -1,5 +1,8 @@
 import { cva } from '@ln/ds-cva';
 
+// Los tokens tipográficos del DS rompen los overrides responsive: ver el README
+// de LN_DS_CajaPromo antes de reemplazar estas utilities por un token.
+
 export const cardRootVariants = cva(
     'ds-card relative w-full h-full border border-neutral-50 shadow-[0_8px_16px_0_rgba(16,16,16,0.06)] @container transition-opacity hover:opacity-80',
     {
@@ -14,7 +17,7 @@ export const cardRootVariants = cva(
             {
                 size: 18,
                 orientation: 'horizontal',
-                className: 'grid-cols-[96px_1fr]'
+                className: 'grid-cols-[96px_1fr] gap-0'
             }
         ],
         defaultVariants: { size: 24, orientation: 'vertical' }
@@ -122,18 +125,24 @@ export const cardTitleVariants = cva(
             {
                 size: 24,
                 orientation: 'vertical',
-                className: 'text-subheading-md'
+                className: 'text-24 leading-[110%] tracking-[-0.3px] opsz-50'
             },
             {
                 size: 24,
                 orientation: 'horizontal',
-                className: 'text-subheading-md'
+                className: 'text-24 leading-[110%] tracking-[-0.3px] opsz-50'
             },
-            { size: 32, orientation: 'vertical', className: 'text-heading-sm' },
+            {
+                size: 32,
+                orientation: 'vertical',
+                className:
+                    'text-24 md:text-28 xl:text-32 leading-[110%] tracking-[-0.6px] opsz-50'
+            },
             {
                 size: 32,
                 orientation: 'horizontal',
-                className: 'text-heading-sm'
+                className:
+                    'text-24 md:text-28 xl:text-32 leading-[110%] tracking-[-0.6px] opsz-50'
             }
         ],
         defaultVariants: { size: 24, orientation: 'vertical', clamp: false }
@@ -153,8 +162,6 @@ export const cardDescriptionVariants = cva(
             {
                 size: 32,
                 orientation: 'vertical',
-                // text-body-lg suelto (text-18 140% -0.6px) para que el override
-                // responsive de md (horizontal → text-body-md) pueda pisarlo.
                 className:
                     'line-clamp-3 text-18 leading-[140%] tracking-[-0.6px] text-center'
             },
@@ -163,7 +170,8 @@ export const cardDescriptionVariants = cva(
             {
                 size: 32,
                 orientation: 'horizontal',
-                className: 'line-clamp-3 text-body-md'
+                className:
+                    'line-clamp-3 text-16 leading-[140%] tracking-[-0.3px]'
             }
         ],
         defaultVariants: { size: 24, orientation: 'vertical' }
@@ -240,10 +248,6 @@ const CARD_RESPONSIVE = {
         }
     },
     title: {
-        // text-* tokens (@layer components) no aceptan variantes responsive en
-        // Tailwind v4: se expanden a las utilities crudas que aplica el token.
-        // text-subheading-md → text-24 leading-[110%] tracking-[-0.3px] opsz-50
-        // text-heading-sm    → text-24 md:text-28 xl:text-32 leading-[110%] tracking-[-0.6px] opsz-50
         md: {
             '18_vertical':
                 'md:text-18 md:leading-[140%] md:tracking-[-0.6px] md:text-center md:flex-[0_1_auto]',
@@ -262,10 +266,8 @@ const CARD_RESPONSIVE = {
             '18_vertical': 'md:hidden',
             '24_vertical': 'md:hidden',
             '24_horizontal': 'md:line-clamp-3',
-            // text-body-lg → text-18 leading-[140%] tracking-[-0.6px]
             '32_vertical':
                 'md:line-clamp-3 md:text-18 md:leading-[140%] md:tracking-[-0.6px] md:text-center',
-            // text-body-md → text-16 leading-[140%] tracking-[-0.3px]
             '32_horizontal':
                 'md:line-clamp-3 md:text-16 md:leading-[140%] md:tracking-[-0.3px] md:text-start'
         }

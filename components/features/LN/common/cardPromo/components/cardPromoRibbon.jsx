@@ -28,6 +28,7 @@ function CardPromoRibbon({
                 viewBox="0 0 24 24"
                 fill="none"
                 className={cx(
+                    'shrink-0',
                     size === 18 ? 'size-16' : 'size-24',
                     responsiveIcon
                 )}
