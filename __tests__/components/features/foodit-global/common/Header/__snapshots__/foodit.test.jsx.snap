@@ -1406,7 +1406,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       data-label="newsletter"
                       data-test-id="header-link-newsletter"
                       data-variant="primary"
-                      href="https://newsletter.lanacion.com.ar/#foodit"
+                      href="https://newsletter.lanacion.com.ar/#planifica-tu-semana"
                       target="_self"
                       title="Ir a newsletter"
                     >
