@@ -3,6 +3,7 @@ const BODYTOP = 'body-top';
 const HEAD = 'head';
 
 export default {
+    ScriptBrowsi: { props: {}, location: [HEAD] },
     AmazonPublisherServices: {
         props: {},
         location: [HEAD]

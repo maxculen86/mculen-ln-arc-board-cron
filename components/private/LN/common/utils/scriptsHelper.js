@@ -14,6 +14,7 @@ import OptaEmbed from '../../../common/scriptManager/optaEmbed';
 import Petametrics from '../../../common/scriptManager/petametrics';
 import PostBid from '../../../common/scriptManager/postbid';
 import ScriptHtmlLibre from '../../../common/scriptManager/scriptHtmlLibre';
+import ScriptBrowsi from '../../../common/scriptManager/ScriptBrowsi';
 import SocialEmbeds from '../../../common/scriptManager/socialEmbeds';
 import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
@@ -41,9 +42,19 @@ export const VWO_ALLOWED_SECTIONS = [
     { section: '/espectaculos', pageLayout: 'all', subtype: '' }
 ];
 
+export const BROWSI_ALLOWED_SECTIONS = [
+    { section: '/lifestyle', pageLayout: 'all', subtype: '' }
+];
+
 export const YOUTUBE_VIDEO_TRACKING_LAYOUTS = ['LN10-Home_Main'];
 
 const scriptList = [
+    {
+        component: { name: 'ScriptBrowsi', function: ScriptBrowsi },
+        feature: 'none',
+        allowedTypes: ['story'],
+        allowedSections: BROWSI_ALLOWED_SECTIONS
+    },
     {
         component: { name: 'Datadog', function: Datadog },
         feature: 'none'
