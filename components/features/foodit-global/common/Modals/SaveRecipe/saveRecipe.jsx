@@ -13,9 +13,9 @@ import FooterSaveRecipe from './components/footer';
 
 import { getConfig, saveRecipeConfig } from './helpers';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
+import { EmptyStateDS } from '../../../../ui/foodit/emptyState/default';
 
 function SaveRecipe({
     showModal,
@@ -43,7 +43,7 @@ function SaveRecipe({
     const classNameModal = cx(
         isSubscribed
             ? 'w-328 overflow-visible rounded-4 h-fit p-16 p-24_md p-32_lg gap-16 gap-24_md gap-32_lg bg-light-1'
-            : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4'
+            : 'p-16 p-24_md p-32_lg max-w-328 min-w-720_md min-w-944_lg bg-positive rounded-4 overflow-hidden'
     );
 
     const {
@@ -182,10 +182,7 @@ function SaveRecipe({
                 <>
                     {renderDialogHeader('flex flex-column ai-end')}
                     <Dialog.Body>
-                        <EmptyState
-                            variant={getVariantBarrier(userType)}
-                            direction="column"
-                        />
+                        <EmptyStateDS variant={getVariantBarrier(userType)} />
                     </Dialog.Body>
                 </>
             )}

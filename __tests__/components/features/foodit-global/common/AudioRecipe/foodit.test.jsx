@@ -82,6 +82,14 @@ jest.mock(
 );
 
 jest.mock(
+    '../../../../../../components/features/ui/foodit/emptyState/default',
+    () => ({
+        __esModule: true,
+        EmptyStateDS: () => <div data-testid="empty-state" />
+    })
+);
+
+jest.mock(
     '../../../../../../components/features/foodit-global/common/AudioFoodit/foodit',
     () => ({
         AudioFoodit: () => <div data-testid="audio-foodit" />

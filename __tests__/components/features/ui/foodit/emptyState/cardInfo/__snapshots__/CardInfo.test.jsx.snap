@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardInfo snapshots FooditListadoCompras layout 1`] = `
+<div>
+  <div
+    class="flex justify-center"
+    data-responsive="{"base":{"columns":4,"span":3},"md":{"columns":9,"span":3},"xl":{"columns":12,"span":4}}"
+    data-testid="media-scroller"
+  >
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="shopping-list"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Agregá ingredientes a la lista de compras
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="bookmark"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Guardá tu receta favorita
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="weekly-menu"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Planificá tu semana
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CardInfo snapshots FooditMenuSemanal layout 1`] = `
+<div>
+  <div
+    class="flex justify-center"
+    data-responsive="{"base":{"columns":4,"span":3},"md":{"columns":9,"span":3},"xl":{"columns":12,"span":4}}"
+    data-testid="media-scroller"
+  >
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="weekly-menu"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Planificá tu semana
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="bookmark"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Guardá tu receta favorita
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="shopping-list"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Agregá ingredientes a la lista de compras
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CardInfo snapshots default layout 1`] = `
+<div>
+  <div
+    class="flex justify-center"
+    data-responsive="{"base":{"columns":4,"span":3},"md":{"columns":9,"span":3},"xl":{"columns":12,"span":4}}"
+    data-testid="media-scroller"
+  >
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="bookmark"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Guardá tu receta favorita
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Podés guardar una o varias recetas a la vez creando colecciones para mantenerlas organizadas.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="shopping-list"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Agregá ingredientes a la lista de compras
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Gestioná tu lista,  podés compartirla, copiarla o eliminarla en un solo click.
+        </p>
+      </div>
+    </div>
+    <div
+      class="text-primary-default flex flex-col items-center border border-neutral-200 p-16 md:p-24 xl:p-32 gap-16 w-full h-full"
+    >
+      <span
+        data-icon-name="weekly-menu"
+        data-size="32"
+        data-testid="card-icon"
+      />
+      <div
+        class="flex flex-col text-center justify-center items-center gap-4"
+      >
+        <p
+          class="font-primary font-w-semibold text-18"
+        >
+          Planificá tu semana
+        </p>
+        <p
+          class="font-secondary font-regular text-16 text-secondary-default"
+        >
+          Agregá recetas al menú semanal eligiendo día de la semana y tipo de comida.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

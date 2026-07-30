@@ -9,7 +9,8 @@ import useGetRecetarioData from './hooks/useGetRecetarioData';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import CollectionBox from '../collectionBox/foodit';
 
-import { EmptyStateComponent } from './helpers';
+import { getVariantBarrier } from '../emptyState/helpers';
+import { EmptyStateDS } from '../../../ui/foodit/emptyState/default';
 import DrawerRecetario from '../drawerRecetario/foodit';
 import BookmarkedArticles from './components/BookmarkedArticles';
 import EditFolderModal from './components/EditFolderModal';
@@ -62,9 +63,9 @@ function RecetarioBody() {
                     ) : null}
                     <section className={classEmptyState}>
                         <div className="floating-button-sentinel" />
-                        <div className="flex ai-center gap-24 mb-24">
+                        <div className="flex ai-center gap-24">
                             <Text
-                                className="prumo prumo-light text-24 text-32_md text-36_lg"
+                                className="prumo prumo-light text-24 text-32_md mt-24 text-36_lg"
                                 as="h2"
                             >
                                 {selectedItemId}
@@ -94,10 +95,11 @@ function RecetarioBody() {
                                 selectedItemQuantity={selectedItemQuantity}
                             />
                         ) : (
-                            <EmptyStateComponent
-                                userType={userType}
-                                loading={loading}
-                            />
+                            <div>
+                                <EmptyStateDS
+                                    variant={getVariantBarrier(userType)}
+                                />
+                            </div>
                         )}
                     </section>
                 </div>

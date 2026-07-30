@@ -159,6 +159,20 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../../../../components/features/ui/foodit/emptyState/default',
+    () => ({
+        __esModule: true,
+        EmptyStateDS: ({ variant, direction }) => (
+            <div
+                data-testid="empty-state"
+                data-variant={variant}
+                data-direction={direction}
+            />
+        )
+    })
+);
+
 const mockArticle = {
     _id: 'article-123',
     headlines: {
