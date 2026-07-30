@@ -24,7 +24,18 @@ jest.mock(
     '../../../../../components/private/LN/common/utils/dynamicallyLoadScript'
 );
 
-jest.mock('../../../../../components/private/common/utils/commentsHelper');
+jest.mock(
+    '../../../../../components/private/common/utils/commentsHelper',
+    () => ({
+        CLOSED_BY_TERMIC: 'CLOSED_BY_TERMIC',
+        useValidateComments: jest.fn(),
+        getLoginAndRegistrationURLS: jest.fn(() => ({
+            loginUrl: 'https://login.test',
+            registracionUrl: 'https://register.test'
+        })),
+        CALLBACKS_BY_CHANNEL_AND_EVENT: {}
+    })
+);
 
 jest.mock('../../../../../components/private/common/hooks/useTermica');
 

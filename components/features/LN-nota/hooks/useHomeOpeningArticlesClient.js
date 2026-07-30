@@ -1,42 +1,58 @@
 import { useEffect, useState } from 'react';
 import { extractAperturaHomeArticles } from '../../../../content/sources/utils/homeOpeningArticles/transform';
 
+let fetchPromise = null;
+let cachedContentElements = null;
+
 const useHomeOpeningArticlesClient = ({ isAperturaHome }) => {
-    const [articlesList, setArticlesList] = useState({ content_elements: [] });
+    const [articlesList, setArticlesList] = useState({
+        content_elements: cachedContentElements || []
+    });
 
     useEffect(() => {
         if (!isAperturaHome) return () => {};
 
+        if (cachedContentElements) {
+            setArticlesList({ content_elements: cachedContentElements });
+            return () => {};
+        }
+
         let cancelled = false;
-        const controller =
-            typeof AbortController !== 'undefined'
-                ? new AbortController()
-                : null;
 
         const fetchHomeOpeningArticles = async () => {
             try {
-                const requestOptions = { cache: 'no-store' };
-                if (controller) requestOptions.signal = controller.signal;
+                if (!fetchPromise) {
+                    const requestOptions = { cache: 'no-store' };
 
-                const response = await fetch(
-                    '/?_website=la-nacion-ar&outputType=opening',
-                    requestOptions
-                );
-
-                if (!response || !response.ok) {
-                    throw new Error(
-                        `HTTP ${response?.status || 'no-response'}`
-                    );
+                    fetchPromise = fetch(
+                        '/?_website=la-nacion-ar&outputType=opening',
+                        requestOptions
+                    )
+                        .then(async response => {
+                            if (!response || !response.ok) {
+                                throw new Error(
+                                    `HTTP ${response?.status || 'no-response'}`
+                                );
+                            }
+                            const homePage = await response.json();
+                            const contentElements =
+                                extractAperturaHomeArticles(homePage);
+                            cachedContentElements = contentElements;
+                            return contentElements;
+                        })
+                        .catch(error => {
+                            fetchPromise = null;
+                            throw error;
+                        });
                 }
 
-                const homePage = await response.json();
-                const contentElements = extractAperturaHomeArticles(homePage);
+                const contentElements = await fetchPromise;
 
                 if (!cancelled) {
                     setArticlesList({ content_elements: contentElements });
                 }
             } catch (error) {
-                if (!cancelled && error?.name !== 'AbortError') {
+                if (!cancelled) {
                     setArticlesList({ content_elements: [] });
                 }
             }
@@ -46,7 +62,6 @@ const useHomeOpeningArticlesClient = ({ isAperturaHome }) => {
 
         return () => {
             cancelled = true;
-            if (controller) controller.abort();
         };
     }, [isAperturaHome]);
 
