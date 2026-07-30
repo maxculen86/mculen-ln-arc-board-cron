@@ -16,7 +16,8 @@ const BOX_ARTICLES_SIZES = [
 
 const MAX_ARTICLES = 10;
 
-const isOpeningBox = box => box?.tipoSeccion === 'apertura';
+const isOpeningBox = box =>
+    box?.tipoSeccion === 'apertura' || box?.tipoSeccion === 'bombita';
 
 const rewriteResizedUrl = (sourceUrl, { width, height }) => {
     const [base, query] = sourceUrl.split('?');

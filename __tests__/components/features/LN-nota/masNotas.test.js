@@ -302,7 +302,7 @@ describe('masNotas feature Test', () => {
         expect(screen.queryByText(staleTitle)).not.toBeInTheDocument();
         expect(global.fetch).toHaveBeenCalledWith(
             expect.stringContaining(
-                '/?_website=la-nacion-ar&outputType=jsonv2'
+                '/?_website=la-nacion-ar&outputType=opening'
             ),
             expect.objectContaining({ cache: 'no-store' })
         );
