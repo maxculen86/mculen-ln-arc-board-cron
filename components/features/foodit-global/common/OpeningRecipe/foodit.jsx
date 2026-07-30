@@ -20,12 +20,12 @@ import {
 import get from '../../../../private/common/utils/get';
 import replaceBaseUrl from '../utils/replaceBaseUrl';
 import getImageAltText from '../utils/getImageAltText';
-import AudioRecipe from './audioRecipe';
 import MenuSemanalDialog from '../MenuSemanal/components/MenuSemanalDialog';
 import { useGetWeeklyMenu } from '../MenuSemanal/hooks/useGetWeeklyMenu';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
 import { RecipeActionsDropdown } from './recipeActionsDropdown';
+import { CookMode } from './cookMode/default';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
@@ -54,7 +54,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
 
     return (
         <Recipe>
-            <Recipe.Media className="z-1">
+            <Recipe.Media>
                 {!isPrivate && videoJW ? (
                     <Static id="opening-media-recipe">
                         <VideoPlayer
@@ -111,12 +111,7 @@ export function OpeningRecipe({ article = {}, isPrivate = false }) {
                         />
                     </div>
                     <div className="flex flex-column flex-column_lg gap-24 jc-between_md">
-                        <AudioRecipe
-                            title={title}
-                            resizedUrl={resizedUrl}
-                            url={url}
-                            article={article}
-                        />
+                        <CookMode title={title} article={article} />
                         <div className="flex ai-center gap-16 gap-24_md">
                             {article && (
                                 <ButtonsGroup
