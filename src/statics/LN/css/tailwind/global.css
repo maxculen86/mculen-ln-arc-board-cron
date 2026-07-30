@@ -2,6 +2,7 @@
 @import '@ln/theme-base';
 @import '@ln/theme-lanacion';
 
+@import './brands.css';
 @import './custom.css';
 @import './components.css';
 @import './overrides.css';

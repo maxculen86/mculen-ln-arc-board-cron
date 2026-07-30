@@ -13,7 +13,7 @@ import PwaModal from '../features/LN-10-global/pwaModal/default';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import get from '../private/common/utils/get';
 import InitControlGroup from './helpers/initCtrlGrp';
-import Toasts from '../features/LN-10-global/common/toasts/default';
+import ToastsContainer from '../features/ui/ln/toastsContainer/default';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import '../../resources/dist/css/ln/pages/storytelling.css';
 
@@ -87,7 +87,7 @@ function lnNotaStorytelling({
                     <Footer outputType={outputType} />
                 </div>
             </div>
-            <Toasts />
+            <ToastsContainer />
             <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />

@@ -36,7 +36,11 @@ describe('components - ui - ln - Heading', () => {
         });
 
         it('renders level 3 (default) as h4 with correct structure', () => {
-            const dataLevel3 = { level: 3, content: 'Level 3 Heading' };
+            const dataLevel3 = {
+                level: 3,
+                content: 'Level 3 Heading',
+                alignment: 'center'
+            };
             const { container, getByText } = render(
                 <Heading data={dataLevel3} />
             );
@@ -100,6 +104,84 @@ describe('components - ui - ln - Heading', () => {
             );
             expect(getByText('Hello World')).toBeInTheDocument();
             expect(container.querySelector('strong')).toBeNull();
+        });
+    });
+
+    describe('Alignment variants', () => {
+        it('applies text-right class when alignment is right', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 2, content: 'Right', alignment: 'right' }}
+                />
+            );
+            const heading = container.querySelector('h3');
+            expect(heading).toHaveClass('text-right');
+        });
+
+        it('applies text-center class when alignment is center', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 2, content: 'Center', alignment: 'center' }}
+                />
+            );
+            const heading = container.querySelector('h3');
+            expect(heading).toHaveClass('text-center');
+        });
+
+        it('applies text-left class when alignment is left', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 2, content: 'Left', alignment: 'left' }}
+                />
+            );
+            const heading = container.querySelector('h3');
+            expect(heading).toHaveClass('text-left');
+        });
+
+        it('applies default text-left when no alignment is provided', () => {
+            const { container } = render(
+                <Heading data={{ level: 2, content: 'No alignment' }} />
+            );
+            const heading = container.querySelector('h3');
+            expect(heading).toHaveClass('text-left');
+        });
+
+        it('does not apply right/center when alignment is left', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 1, content: 'Only left', alignment: 'left' }}
+                />
+            );
+            const heading = container.querySelector('h2');
+            expect(heading).toHaveClass('text-left');
+            expect(heading).not.toHaveClass('text-right');
+            expect(heading).not.toHaveClass('text-center');
+        });
+
+        it('combines level classes with alignment class', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 1, content: 'Combo', alignment: 'center' }}
+                />
+            );
+            const heading = container.querySelector('h2');
+            expect(heading).toHaveClass('font-primary');
+            expect(heading).toHaveClass('font-w-bold');
+            expect(heading).toHaveClass('text-subheading-lg');
+            expect(heading).toHaveClass('text-center');
+        });
+
+        it('merges custom classname with cva classes', () => {
+            const { container } = render(
+                <Heading
+                    data={{ level: 3, content: 'Custom', alignment: 'right' }}
+                    classname="custom-extra"
+                />
+            );
+            const heading = container.querySelector('h4');
+            expect(heading).toHaveClass('custom-extra');
+            expect(heading).toHaveClass('text-right');
+            expect(heading).toHaveClass('font-w-bold');
         });
     });
 

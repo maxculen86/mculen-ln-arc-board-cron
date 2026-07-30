@@ -1,7 +1,5 @@
 import React from 'react';
 
-import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
-import HomeDataLayer from '../LN/home/dataLayer/dataLayerHome';
 import PageViewDataLayer from '../../features/foodit-global/common/dataLayer/pageView';
 import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPageVIew';
 import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
@@ -11,20 +9,6 @@ import ChatIaPageView from '../../features/foodit-global/common/dataLayer/chatIa
 import DataLayerOrigin from '../../features/foodit-global/common/dataLayer/origin';
 
 const config = {
-    'la-nacion-ar': {
-        'LN-nota-receta': NotaDataLayer,
-        'LN-nota-noticia': NotaDataLayer,
-        'LN-nota-storytelling': NotaDataLayer,
-        'LN-nota-storytelling-v2': NotaDataLayer,
-        'LN-nota-infografia': NotaDataLayer,
-        'LN-nota-html-libre': NotaDataLayer,
-        'LN-nota-foto-al-100': NotaDataLayer,
-        'LN-nota-opta': NotaDataLayer,
-        'LN-nota-video': NotaDataLayer,
-        'LN-Home_Sports': HomeDataLayer,
-        'LN-Home_Main': HomeDataLayer,
-        'LN10-Home_Main': HomeDataLayer
-    },
     foodit: {
         'Foodit-home': PageViewDataLayer,
         'Foodit-ficha-receta': PageViewDataLayer,

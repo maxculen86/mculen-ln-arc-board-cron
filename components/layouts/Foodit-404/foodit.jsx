@@ -1,13 +1,14 @@
+import React from 'react';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import EmptyState from '../../features/foodit-global/common/emptyState/foodit';
+import { EmptyStateDS } from '../../features/ui/foodit/emptyState/default';
 
-const Foodit404 = () => {
+function Foodit404() {
     return (
         <BaseLayout>
-            <EmptyState variant="404" direction="column" />
+            <EmptyStateDS variant="404" />
         </BaseLayout>
     );
-};
+}
 
 Foodit404.sections = ['Cuerpo'];
 

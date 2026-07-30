@@ -1,25 +1,29 @@
 import React from 'react';
-import { cx } from '@ln/ds-cva';
 import get from '../../../../private/common/utils/get';
 import { parseHeading } from '../../../../private/common/utils/parseHelper';
-import { getHeadingConfig } from './_helpers';
+import { getHeadingTag } from './_helpers';
+import { headingVariants } from './styles';
 
 function Heading({ data, classname, ...props }) {
     const level = get(data, 'level');
     const content = get(data, 'content');
+    const alignment = get(data, 'alignment', '');
 
     if (typeof content !== 'string' || !content) return null;
 
-    const config = getHeadingConfig(level);
+    const Tag = getHeadingTag(level);
 
     const parsedContent = <span>{parseHeading(content)}</span>;
 
-    const Tag = config.tag || 'h4';
-
-    if (!content) return null;
-
     return (
-        <Tag className={cx(config.className, classname)} {...props}>
+        <Tag
+            className={headingVariants({
+                level,
+                alignment: alignment || undefined,
+                className: classname
+            })}
+            {...props}
+        >
             {parsedContent}
         </Tag>
     );

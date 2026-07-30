@@ -13,8 +13,24 @@ const useGetUserData = (productPremiumToValidate = '') => {
     });
 
     useEffect(() => {
-        setUserData(getUserData(productPremiumToValidate));
-    }, []);
+        let isMounted = true;
+
+        const loadUserData = async () => {
+            const data = await getUserData(productPremiumToValidate);
+
+            if (isMounted) {
+                setUserData(data);
+            }
+        };
+
+        loadUserData();
+        window.addEventListener('ucl-ready', loadUserData);
+
+        return () => {
+            isMounted = false;
+            window.removeEventListener('ucl-ready', loadUserData);
+        };
+    }, [productPremiumToValidate]);
 
     const {
         userType = 'loading',

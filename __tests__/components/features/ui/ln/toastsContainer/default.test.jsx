@@ -38,7 +38,7 @@ describe('ToastsContainer (DS) - puente al bus global', () => {
 
         expect(screen.getByTestId('ds-toast-portal')).toBeInTheDocument();
         expect(screen.getByTestId('ds-toast-container')).toHaveClass(
-            'z-105 max-md:mb-61'
+            'z-1550 max-md:mb-61'
         );
     });
 
@@ -58,16 +58,16 @@ describe('ToastsContainer (DS) - puente al bus global', () => {
         );
     });
 
-    it('forwards addToast to the DS renderToasts mapping variant->color and message->description', () => {
+    it('forwards addToast to the DS renderToasts as a passthrough', () => {
         render(<ToastsContainer />);
 
         const handleAddToast = window.LN.observable.subscribe.mock.calls[0][1];
 
         act(() => {
             handleAddToast({
-                variant: 'danger',
+                color: 'error',
                 title: 'Ups',
-                message: 'Algo salió mal',
+                description: 'Algo salió mal',
                 duration: 5000,
                 buttonProps: { children: 'Reintentar' }
             });
@@ -80,19 +80,5 @@ describe('ToastsContainer (DS) - puente al bus global', () => {
             duration: 5000,
             buttonProps: { children: 'Reintentar' }
         });
-    });
-
-    it('defaults color to info for an unknown variant', () => {
-        render(<ToastsContainer />);
-
-        const handleAddToast = window.LN.observable.subscribe.mock.calls[0][1];
-
-        act(() => {
-            handleAddToast({ title: 'Hola', message: 'Mundo' });
-        });
-
-        expect(renderToasts).toHaveBeenCalledWith(
-            expect.objectContaining({ color: 'info' })
-        );
     });
 });

@@ -216,6 +216,42 @@ describe('articleBoxesTracker funtion for all article boxes', () => {
         ]);
     });
 
+    test('apertura home sends combo impression with aperturaHome brand', () => {
+        const articles = [
+            createArticle('JLOPWY7WHRDSBAWJCOLGTH2HRM', 'articulo1'),
+            createArticle('3JUXSTTEVDODB4XQXAZ7VJF7A', 'articulo2'),
+            createArticle('E3GPRH2GPJAHTIAT4FLVLWGXKY', 'articulo3')
+        ];
+
+        appendArticlesBox('n_ultimas_noticias', articles);
+
+        articleBoxesTracker({
+            boxType: 'masNotas',
+            diagramation: 9,
+            sectionTitle: 'UltimasNoticias',
+            isAperturaHome: true
+        });
+
+        intersect(intersectionCallback, [articles[0]]);
+        fireEvent.click(articles[2]);
+
+        expect(window.dataLayer).toStrictEqual([
+            {
+                event: 'impressioncajanota',
+                ctr_brand: 'aperturaHome',
+                ctr_position: '100001,100002,100003',
+                combo_notas:
+                    'JLOPWY7WHRDSBAWJCOLGTH2HRM, 3JUXSTTEVDODB4XQXAZ7VJF7A, E3GPRH2GPJAHTIAT4FLVLWGXKY'
+            },
+            {
+                event: 'clicknota',
+                nota_id_arc: 'E3GPRH2GPJAHTIAT4FLVLWGXKY',
+                ctr_brand: 'aperturaHome',
+                ctr_position: '100003'
+            }
+        ]);
+    });
+
     test('groups impressions by the real DOM row', () => {
         const articles = [
             createArticle('JLOPWY7WHRDSBAWJCOLGTH2HRM', 'articulo1', 0),

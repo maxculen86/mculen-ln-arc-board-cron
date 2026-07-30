@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import useFilterManager from '../hooks/useFilterManager';
 import get from '../../../../private/common/utils/get';
-import EmptyState from '../../common/emptyState/foodit';
+import { EmptyStateDS } from '../../../ui/foodit/emptyState/default';
 
 export const SearchContext = createContext();
 
@@ -17,11 +17,7 @@ export default function QuerylyContext({ children, dynamicQuery }) {
     return (
         <SearchContext.Provider value={result}>
             {!loading && !articlesGrid.length && isLayoutBuscador ? (
-                <EmptyState
-                    variant="search-engine"
-                    className="search-bar-area flex flex-column ai-center"
-                    direction="column"
-                />
+                <EmptyStateDS variant="search-engine" />
             ) : (
                 children
             )}

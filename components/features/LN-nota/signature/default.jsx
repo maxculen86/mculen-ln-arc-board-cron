@@ -6,7 +6,7 @@ import {
     place,
     getAuthorsNameAndLink
 } from '../../../private/common/utils/firmaHelper';
-import { AudioButton } from '../../../private/common/audioNews/components/AudioButton';
+import { AudioButton } from './components/audioButton';
 import { isCustomVoice } from '../../../../content/sources/utils/audioNews/helper';
 import AudioPlayer from '../../LN/common/audioPlayer/default';
 import SignatureWithAuthors from './signatureWithAuthors';
@@ -15,7 +15,7 @@ import get from '../../../private/common/utils/get';
 import WithoutSignature from './withoutSignature';
 import { useSignature } from '../../LN/DS-Signature/hooks/useSignature';
 import isExternalDistributor from '../../../private/common/utils/isExternalDistributor';
-import { signatureClasses } from './styles';
+import { googleButtonClasses, signatureClasses } from './styles';
 import GoogleButton from '../../LN-10-global/common/googleButton/default';
 import useTermica from '../../../private/common/hooks/useTermica';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
@@ -67,9 +67,13 @@ function SignatureFeature(props) {
 
     const hasVisibleContent =
         showSignatureWithDistributor || hasAuthors || showListenButton;
-    const googleButtonClassName = cx('hidden lg:inline-flex', {
-        'md:mb-24': !hasVisibleContent
+    const googleButtonClassName = googleButtonClasses({
+        hasVisibleContent,
+        hasAuthors: Boolean(hasAuthors),
+        position,
+        subtype
     });
+
     const googleButton = <GoogleButton className={googleButtonClassName} />;
 
     const audioButton = (
@@ -79,7 +83,6 @@ function SignatureFeature(props) {
             showVariantIa={showVariantIa}
             withAudio={withAudio}
             authorNames={author?.name}
-            showTooltipVariantIA={showVariantIa}
             showListenButton={showListenButton}
         />
     );

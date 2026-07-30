@@ -24,6 +24,7 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
+import YouTubeVideoTrackingScript from '../../../common/scriptManager/YouTubeVideoTrackingScript';
 import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
 import VwoScript from '../../../common/scriptManager/VwoScript';
 
@@ -39,6 +40,8 @@ import isAllowedSection from './isAllowedSection';
 export const VWO_ALLOWED_SECTIONS = [
     { section: '/espectaculos', pageLayout: 'all', subtype: '' }
 ];
+
+export const YOUTUBE_VIDEO_TRACKING_LAYOUTS = ['LN10-Home_Main'];
 
 const scriptList = [
     {
@@ -157,6 +160,14 @@ const scriptList = [
         feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
     },
     {
+        component: {
+            name: 'YouTubeVideoTrackingScript',
+            function: YouTubeVideoTrackingScript
+        },
+        feature: 'none',
+        includedLayouts: YOUTUBE_VIDEO_TRACKING_LAYOUTS
+    },
+    {
         component: { name: 'DsPromoEvents', function: DsPromoEventsScript },
         feature: ['LN/DS-CardPromo']
     },
@@ -189,13 +200,18 @@ const isGPTAndDisabled = (script, bannersDisabled) =>
 export const shouldExcludeByLayout = (script, layout) =>
     !!script.excludedLayouts?.includes(layout);
 
+export const shouldIncludeByLayout = (script, layout) =>
+    !script.includedLayouts || script.includedLayouts.includes(layout);
+
 const getScriptsFilterFunction =
     (scripts, bannersDisabled, layout, globalContent) => features => {
         const filteredScripts = scripts
             .filter(script => {
                 const type = get(globalContent, 'type', '');
 
-                const isLayoutAllowed = !shouldExcludeByLayout(script, layout);
+                const isLayoutAllowed =
+                    !shouldExcludeByLayout(script, layout) &&
+                    shouldIncludeByLayout(script, layout);
                 const isTypeAllowed =
                     !script.allowedTypes || script.allowedTypes.includes(type);
                 const isSectionAllowed =

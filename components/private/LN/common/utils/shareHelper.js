@@ -7,7 +7,7 @@ import get from '../../../common/utils/get';
 import toggleBookmark, {
     getStatusMessage
 } from '../../../common/utils/bookmarkHelper';
-import renderToast from '../../../../features/private-global/common/utils/renderToast';
+import renderToasts from '../../../../features/ui/ln/toastsContainer/renderToast';
 import {
     VIDEO,
     VIDEO_VERTICAL
@@ -193,7 +193,7 @@ export const onButtonClicked = (
             _globalContent: globalContent
         }).then(({ status, bookmarkContent }) => {
             const toastConfig = getStatusMessage(status, bookmarkContent);
-            renderToast(toastConfig);
+            renderToasts(toastConfig);
         });
     } else {
         openBarrier(barrierMessages.BOOKMARK);

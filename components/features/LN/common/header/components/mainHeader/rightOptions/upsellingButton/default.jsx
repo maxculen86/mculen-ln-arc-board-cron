@@ -69,7 +69,7 @@ function UpsellingButton({ isHome }) {
             <Button
                 id="btn-upselling"
                 title={upsellingText}
-                color="subscribe"
+                color="subscription"
                 className="relative"
                 asChild
                 onClick={() => {
@@ -84,6 +84,7 @@ function UpsellingButton({ isHome }) {
                 <a href={upsellingUrl} aria-label={upsellingText}>
                     <span
                         id="button-text-upselling"
+                        className="text-12 leading-0"
                         // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={{
                             __html: upsellingText

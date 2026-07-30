@@ -13,7 +13,6 @@ import {
     getPublishDate
 } from './schema/liveBlog/generatePostObject';
 import removeExtraSpaces from './removeExtraSpaces';
-import { getEconomicIndicesMetaData } from '../../../../content/sources/utils/servicesSource/economicIndices/_helpers';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -28,17 +27,8 @@ export const getDescription = ({
     subheadlinesBasic,
     section,
     descriptionDefault,
-    metaDescription,
-    isEconomicIndices,
-    metaDescriptionIndices,
-    requestUri
+    metaDescription
 }) => {
-    if (isEconomicIndices && metaDescriptionIndices)
-        return metaDescriptionIndices;
-
-    if (requestUri?.startsWith('/economia/indices'))
-        return getEconomicIndicesMetaData('default').description;
-
     if (section === 'home') return descriptionDefault;
 
     if (isArticle) return subheadlinesBasic || '';
@@ -237,16 +227,11 @@ export const getData = ({
 
     const contentUrl = canonicalUrl || _id;
 
-    const isEconomicIndicesPage =
-        get(globalContent, 'serviceType', '') === 'detalle-indices' ||
-        requestUri?.startsWith('/economia/indices');
-
     const isDistributor = get(globalContent, 'node_type') === 'distributor';
 
     const getPageUrl = () => {
         if (layout === 'LN-mapa-del-sitio') return '/mapa-del-sitio';
-        if (isEconomicIndicesPage || isDistributor)
-            return requestUri?.split('?')[0];
+        if (isDistributor) return requestUri?.split('?')[0];
         return contentUrl;
     };
 
@@ -257,15 +242,7 @@ export const getData = ({
         subheadlinesBasic,
         section,
         descriptionDefault,
-        metaDescription,
-        isEconomicIndices:
-            get(globalContent, 'serviceType', '') === 'detalle-indices',
-        metaDescriptionIndices: get(
-            globalContent,
-            'metaData.description',
-            descriptionDefault
-        ),
-        requestUri
+        metaDescription
     });
 
     const authors = get(globalContent, 'credits.by', []);

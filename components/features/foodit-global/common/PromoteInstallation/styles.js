@@ -1,6 +1,6 @@
 import { cva } from '@ln/ds-cva';
 
-export const variantClassesContainer = cva('bg-brand-sal', {
+export const variantClassesContainer = cva('--no-app bg-brand-sal', {
     variants: {
         variant: {
             snackBarDefault:

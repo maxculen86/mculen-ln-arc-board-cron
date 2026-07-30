@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyStateDS snapshots 404 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <img
+        alt="Logo Foodit"
+        data-testid="empty-state-image"
+        src="/assets/logo-404.png"
+      />
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          ¡Uppps! Contenido en preparación
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots barrier-logged — non-subscriber en layout target (color primario) 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="font-secondary text-primary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-24"
+      >
+        <div
+          data-comes-from=""
+          data-testid="login-subscribe-buttons"
+        />
+      </div>
+    </div>
+    <div
+      class="md:w-320 h-2 py-32 mx-auto"
+    >
+      <hr
+        data-testid="divider"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center"
+    >
+      <p
+        class="text-center font-primary text-24 pb-24 font-w-light"
+      >
+        ¿Por qué suscribirme a Foodit?
+      </p>
+      <div
+        data-testid="card-info"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots barrier-logged — subscriber 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-24"
+      >
+        <div
+          data-comes-from=""
+          data-testid="login-subscribe-buttons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots barrier-unlogged — non-subscriber horizontal (sin card section) 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-24"
+      >
+        <div
+          data-comes-from=""
+          data-testid="login-subscribe-buttons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots barrier-unlogged — non-subscriber vertical 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          Exclusivo para suscriptores
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-24"
+      >
+        <div
+          data-comes-from="ficha_receta"
+          data-testid="login-subscribe-buttons"
+        />
+      </div>
+    </div>
+    <div
+      class="md:w-320 h-2 py-32 mx-auto"
+    >
+      <hr
+        data-testid="divider"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center"
+    >
+      <p
+        class="text-center font-primary text-24 pb-24 font-w-light"
+      >
+        ¿Por qué suscribirme a Foodit?
+      </p>
+      <div
+        data-testid="card-info"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots empty-state — subscriber con className custom 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class="custom-class"
+      data-testid="emptystate"
+    >
+      <img
+        alt="¡Aún no hay nada por acá!"
+        data-testid="empty-state-image"
+        src="/assets/empty-state-recetario.webp"
+      />
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          ¡Aún no hay nada por acá!
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+      <div
+        class="flex items-center gap-24"
+      >
+        <div
+          data-comes-from=""
+          data-testid="login-subscribe-buttons"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmptyStateDS snapshots search-engine 1`] = `
+<div>
+  <div
+    data-tw="true"
+  >
+    <div
+      class=""
+      data-testid="emptystate"
+    >
+      <img
+        alt="¡Aún no hay nada por acá!"
+        data-testid="empty-state-image"
+        src="/assets/empty-state-recetario.webp"
+      />
+      <div
+        class="w-full"
+        data-testid="emptystate-body"
+      >
+        <p
+          data-testid="emptystate-text-title"
+        >
+          ¡Nada por acá!
+        </p>
+        <p
+          class="font-secondary text-secondary-default"
+          data-testid="emptystate-text-subtitle"
+        >
+          Descripción de prueba
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

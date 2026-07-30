@@ -4,11 +4,18 @@ import {
     getPrefixText,
     buildCategories,
     isPrimarySection,
-    buildSubNavContentData
+    buildSubNavContentData,
+    getBrandFromSection
 } from '../../../../../components/features/LN/DS-SubNav/_helpers';
+import { getSectionClassName } from '../../../../../components/layouts/LN-acumulado/helpers';
 
 jest.mock('fusion:environment', () => ({
     SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
+jest.mock('../../../../../components/layouts/LN-acumulado/helpers', () => ({
+    getSectionClassName: jest.fn(),
+    revistas: ['ohlala', 'lugares', 'hola', 'living', 'brando', 'jardin']
 }));
 
 jest.mock(
@@ -57,6 +64,36 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
             };
             const result = setTitle(null, globalContent);
             expect(result).toBe('Section name');
+        });
+
+        it('returns the override title when section id is overridden', () => {
+            const globalContent = {
+                _id: '/economia/indices',
+                node_type: 'section',
+                name: 'Indices'
+            };
+            const result = setTitle(null, globalContent);
+            expect(result).toBe('Índices');
+        });
+
+        it('falls back to capitalized name for a non-overridden section', () => {
+            const globalContent = {
+                _id: '/economia',
+                node_type: 'section',
+                name: 'economia'
+            };
+            const result = setTitle(null, globalContent);
+            expect(result).toBe('Economia');
+        });
+
+        it('prioritizes replaceTitle over the section override', () => {
+            const globalContent = {
+                _id: '/economia/indices',
+                node_type: 'section',
+                name: 'Indices'
+            };
+            const result = setTitle('otro titulo', globalContent);
+            expect(result).toBe('Otro titulo');
         });
 
         it('returns byline when available', () => {
@@ -183,17 +220,17 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
 
     describe('buildCategories', () => {
         it('returns null when navigationList is empty', () => {
-            const result = buildCategories([], '#000');
+            const result = buildCategories([]);
             expect(result).toBeNull();
         });
 
         it('returns null when navigationList is null', () => {
-            const result = buildCategories(null, '#000');
+            const result = buildCategories(null);
             expect(result).toBeNull();
         });
 
         it('returns null when navigationList is undefined', () => {
-            const result = buildCategories(undefined, '#000');
+            const result = buildCategories(undefined);
             expect(result).toBeNull();
         });
 
@@ -205,15 +242,14 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
                     node_type: 'section'
                 }
             ];
-            const result = buildCategories(navigationList, '#ff0000');
+            const result = buildCategories(navigationList);
 
             expect(result).toHaveLength(1);
             expect(result[0]).toEqual({
                 key: '/categoria-1',
                 link: '/categoria-1/',
                 textname: 'Categoria 1',
-                title: 'Ir a Categoria 1',
-                style: { color: '#ff0000' }
+                title: 'Ir a Categoria 1'
             });
         });
 
@@ -225,7 +261,7 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
                     navigation: { nav_title: 'Nav Title' }
                 }
             ];
-            const result = buildCategories(navigationList, null);
+            const result = buildCategories(navigationList);
 
             expect(result[0].textname).toBe('Nav Title');
         });
@@ -240,7 +276,7 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
                     url: 'https://external.com'
                 }
             ];
-            const result = buildCategories(navigationList, null);
+            const result = buildCategories(navigationList);
 
             expect(result[0].textname).toBe('Display Name');
             expect(result[0].link).toBe('https://external.com');
@@ -254,16 +290,9 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
                     parent: { default: '/recetas' }
                 }
             ];
-            const result = buildCategories(navigationList, null);
+            const result = buildCategories(navigationList);
 
             expect(result[0].title).toBe('Ir a notas de Pollo');
-        });
-
-        it('does not add style when colorCategory is not provided', () => {
-            const navigationList = [{ _id: '/cat', name: 'Cat' }];
-            const result = buildCategories(navigationList, null);
-
-            expect(result[0].style).toBeUndefined();
         });
 
         it('filters out falsy items', () => {
@@ -273,7 +302,7 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
                 undefined,
                 { _id: '/cat2', name: 'Cat2' }
             ];
-            const result = buildCategories(navigationList, null);
+            const result = buildCategories(navigationList);
 
             expect(result).toHaveLength(2);
         });
@@ -321,7 +350,6 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
             },
             navigation: [{ _id: '/cat', name: 'Cat' }],
             isPrimary: true,
-            colorCategory: '#ff0000',
             logoImage: null,
             idLogoImage: ''
         };
@@ -455,6 +483,59 @@ describe('Components - features - LN - DS-SubNav - _helpers', () => {
             });
 
             expect(result.titleText).toBe('Custom Title');
+        });
+    });
+
+    describe('getBrandFromSection', () => {
+        it('returns the section slug when it is a branded section', () => {
+            getSectionClassName.mockReturnValue('economia');
+            const result = getBrandFromSection('/economia');
+            expect(result).toBe('economia');
+        });
+
+        it('returns the section slug for a branded subsection', () => {
+            getSectionClassName.mockReturnValue('campo');
+            const result = getBrandFromSection('/economia/campo');
+            expect(result).toBe('campo');
+        });
+
+        it('returns none for a non-branded section', () => {
+            getSectionClassName.mockReturnValue('juegos');
+            const result = getBrandFromSection('/juegos');
+            expect(result).toBe('none');
+        });
+
+        it('returns none when the section has no class', () => {
+            getSectionClassName.mockReturnValue('');
+            const result = getBrandFromSection('/unknown');
+            expect(result).toBe('none');
+        });
+
+        it('delegates the section resolution to getSectionClassName', () => {
+            getSectionClassName.mockReturnValue('propiedades');
+            getBrandFromSection('/propiedades');
+            expect(getSectionClassName).toHaveBeenCalledWith('/propiedades');
+        });
+
+        it('returns none when called without arguments', () => {
+            getSectionClassName.mockReturnValue('');
+            const result = getBrandFromSection();
+            expect(result).toBe('none');
+        });
+
+        it('returns the revista slug when it is a branded revista', () => {
+            const result = getBrandFromSection('/revista-lugares', 'lugares');
+            expect(result).toBe('lugares');
+        });
+
+        it('returns none for a revista without brand color', () => {
+            const result = getBrandFromSection('/revista-brando', 'brando');
+            expect(result).toBe('none');
+        });
+
+        it('resolves the revista by style name without using the uri', () => {
+            getBrandFromSection('/any', 'lugares');
+            expect(getSectionClassName).not.toHaveBeenCalled();
         });
     });
 });

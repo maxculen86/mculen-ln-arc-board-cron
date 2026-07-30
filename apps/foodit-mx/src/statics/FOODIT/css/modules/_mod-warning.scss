@@ -1,0 +1,40 @@
+// Fork foodit-only de src/statics/LN/css/modules/_mod-warning.scss del monolito.
+// Valores hardcodeados (compilados desde el original con `npx sass`, sin @import de
+// abstracts/variables de LN) para no arrastrar el sistema de diseño de LN al bundle foodit-only.
+.mod-warning {
+    font-family: 'Arial', 'sans-serif';
+    padding: 15px;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #000;
+    &.--info {
+        background: #bee4ff;
+        border: 1px solid #003f5b;
+        color: #003f5b;
+    }
+    &.--success {
+        background: #cfedda;
+        border: 1px solid #10703c;
+        color: #10703c;
+    }
+    &.--warning {
+        background: #fff2cc;
+        border: 1px solid #8a6913;
+        color: #8a6913;
+    }
+    &.--danger {
+        background: #fdd5db;
+        border: 1px solid #7c2a35;
+        color: #7c2a35;
+    }
+    .title {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

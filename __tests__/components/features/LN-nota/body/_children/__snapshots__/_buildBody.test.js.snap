@@ -1208,7 +1208,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     style="display: contents;"
   >
     <h2
-      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 1
@@ -1238,7 +1238,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     style="display: contents;"
   >
     <h3
-      class="font-primary text-subheading-lg container-center-100 mb-8"
+      class="font-primary text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 2
@@ -1301,7 +1301,7 @@ exports[`BuildBody should render all body elements for default 1`] = `
     style="display: contents;"
   >
     <h4
-      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-md text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 3
@@ -4929,7 +4929,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     style="display: contents;"
   >
     <h2
-      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 1
@@ -4959,7 +4959,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     style="display: contents;"
   >
     <h3
-      class="font-primary text-subheading-lg container-center-100 mb-8"
+      class="font-primary text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 2
@@ -5022,7 +5022,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 1`] 
     style="display: contents;"
   >
     <h4
-      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-md text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 3
@@ -8650,7 +8650,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     style="display: contents;"
   >
     <h2
-      class="font-primary font-w-bold text-subheading-lg container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 1
@@ -8680,7 +8680,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     style="display: contents;"
   >
     <h3
-      class="font-primary text-subheading-lg container-center-100 mb-8"
+      class="font-primary text-subheading-lg text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 2
@@ -8743,7 +8743,7 @@ exports[`BuildBody should render only allowed body elements for FOTO al 100 2`] 
     style="display: contents;"
   >
     <h4
-      class="font-primary font-w-bold text-subheading-md container-center-100 mb-8"
+      class="font-primary font-w-bold text-subheading-md text-left container-center-100 mb-8"
     >
       <span>
         Subtitulo 3

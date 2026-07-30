@@ -377,6 +377,9 @@ const customPowerUps = `
             date
             time
             isoDate
+            mediaType
+            variant
+            content
             ${configPowerUpVideoJw}
             widgetUrl
             embedType
@@ -593,6 +596,19 @@ export default `
                     gplus
                     bio
                     longBio
+                    expertise
+                    education {
+                        name
+                    }
+                    languages
+                    affiliations
+                    twitter
+                    instagram
+                    facebook
+                    linkedin
+                    youtube
+                    tiktok
+                    personal_website
                 }
             }
         }

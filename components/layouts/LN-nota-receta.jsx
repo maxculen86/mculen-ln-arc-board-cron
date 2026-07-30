@@ -6,7 +6,7 @@ import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import PwaModal from '../features/LN-10-global/pwaModal/default';
 import InitControlGroup from './helpers/initCtrlGrp';
-import Toasts from '../features/LN-10-global/common/toasts/default';
+import ToastsContainer from '../features/ui/ln/toastsContainer/default';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import '../../resources/dist/css/ln/pages/recipe.css';
 
@@ -93,7 +93,7 @@ function LNNotaReceta({ children }) {
                     <Footer />
                 </div>
             </div>
-            <Toasts />
+            <ToastsContainer />
             <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />

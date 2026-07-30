@@ -1,8 +1,3 @@
-import handleCookie from '../../../LN/common/utils/handleCookie';
-import { isSubscribed } from '../helper/loginHelper';
-
-const { getCookie } = handleCookie();
-
 export const getUserType = (userEmail, userIsSubscribed) => {
     if (userIsSubscribed) {
         return 'subscribed';
@@ -15,31 +10,41 @@ export const getUserType = (userEmail, userIsSubscribed) => {
     return 'unlogged';
 };
 
-const getUserData = (valueSuscription = '') => {
-    if (getCookie('token')) {
-        const userName = getCookie('usuario%5Fdetalle%5Fnombre');
-        const userLastName = getCookie('usuario%5Fdetalle%5Fapellido');
-        const userEmail = getCookie('usuarioemail');
-        const userId = getCookie('usuario%5Fid');
-        const isSubscriber = isSubscribed(valueSuscription);
+const getUnloggedUserData = () => ({
+    userType: 'unlogged',
+    userEmail: '',
+    userName: '',
+    userLastName: '',
+    userId: '',
+    isSubscribed: false
+});
 
-        return {
-            userType: getUserType(userEmail, isSubscriber),
-            userName,
-            userEmail,
-            userId,
-            userLastName,
-            isSubscribed: isSubscriber
-        };
+const getUserData = async (valueSuscription = '') => {
+    const userInfo = await window?.UCL?.GetUserInfo?.();
+
+    if (!userInfo) {
+        return getUnloggedUserData();
     }
 
+    const {
+        given_name: userName,
+        family_name: userLastName,
+        current_login_email: userEmail,
+        ln_user_id: userId,
+        productos_premium: productosPremium
+    } = userInfo;
+
+    const isSubscriber =
+        Array.isArray(productosPremium) &&
+        productosPremium.includes(Number(valueSuscription));
+
     return {
-        userType: 'unlogged',
-        userEmail: '',
-        userName: '',
-        userLastName: '',
-        userId: '',
-        isSubscribed: false
+        userType: getUserType(userEmail, isSubscriber),
+        userName,
+        userEmail,
+        userId,
+        userLastName,
+        isSubscribed: isSubscriber
     };
 };
 

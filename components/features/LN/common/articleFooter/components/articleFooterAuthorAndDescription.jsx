@@ -6,15 +6,22 @@ import { cx } from '@ln/ds-cva';
  *
  * @param {object} props
  * @param {string} props.distributor - Nombre del distribuidor (link destacado).
+ * @param {string} props.distributorMode - Modo del distribuidor; 'custom' renderiza como texto plano.
  * @param {string} props.complementaryText - Texto complementario al distribuidor.
  * @param {string} props.href - URL del distribuidor.
  * @returns {React.ReactElement}
  */
 
-function AuthorAndDescription({ distributor, complementaryText, href }) {
+function AuthorAndDescription({
+    distributor,
+    distributorMode,
+    complementaryText,
+    href
+}) {
     if (!distributor && !complementaryText) return null;
 
-    const hasLink = Boolean(href);
+    const isCustomMode = distributorMode === 'custom';
+    const hasLink = Boolean(href) && !isCustomMode;
 
     const distributorClassName = cx(
         'text-label-lg tracking-(--tracking-normal) leading-[100%] font-bold ',

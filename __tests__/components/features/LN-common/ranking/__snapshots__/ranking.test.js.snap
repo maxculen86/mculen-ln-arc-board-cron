@@ -16,15 +16,6 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
         >
           Más leídas de Política
         </span>
-        <i
-          class="icon"
-          style="height: 16.8px;"
-        >
-          <mock-icon
-            fill="#333"
-            name="arrow"
-          />
-        </i>
       </div>
       <ol>
         <li

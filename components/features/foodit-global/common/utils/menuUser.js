@@ -68,7 +68,7 @@ export const menuUser = [
                 action: 'newsletters'
             });
             window.location.replace(
-                'https://newsletter.lanacion.com.ar/#foodit'
+                'https://newsletter.lanacion.com.ar/#planifica-tu-semana'
             );
         }
     },

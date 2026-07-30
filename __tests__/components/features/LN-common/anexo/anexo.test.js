@@ -85,6 +85,10 @@ describe('features - LN-common - anexo - default', () => {
                 'vivoYoutube-container-anexo-disabled'
             );
             expect(container.innerHTML).toBe('<div>Video Content</div>');
+            expect(container).toHaveAttribute(
+                'data-youtube-video-mode',
+                'live'
+            );
         });
 
         it('calls setupIntersectionObserver when videoComercial is false', () => {

@@ -24,7 +24,10 @@ module.exports = {
         'no-unused-expressions': 'warn',
         'arrow-body-style': 'warn',
         radix: 'warn',
-        'import/no-useless-path-segments': 'warn'
+        'import/no-useless-path-segments': 'warn',
+        'no-restricted-globals': 'warn',
+        'jsx-a11y/click-events-have-key-events': 'warn',
+        'jsx-a11y/no-static-element-interactions': 'warn'
     },
     overrides: [
         {

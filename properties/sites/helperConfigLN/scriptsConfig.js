@@ -99,6 +99,10 @@ export default {
         props: {},
         location: [BODYBOTTOM]
     },
+    YouTubeVideoTrackingScript: {
+        props: {},
+        location: [BODYBOTTOM]
+    },
     FacebookPixel: { props: { id: '492459597522335' }, location: [HEAD] },
     GoogleOneTap: { props: {}, location: [HEAD] },
     VwoScript: { props: {}, location: [HEAD] }

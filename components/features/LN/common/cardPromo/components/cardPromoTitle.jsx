@@ -3,7 +3,12 @@ import { cx } from '@ln/ds-cva';
 import { useCardPromoContext } from '../context/cardPromoContext';
 import { cardTitleVariants, getResponsiveCardClasses } from '../styles';
 
-function CardPromoTitle({ children, className, clamp = false }) {
+function CardPromoTitle({
+    children,
+    className,
+    clamp = false,
+    as: TitleTag = 'h2'
+}) {
     if (!children) return null;
 
     const { size, orientation, responsiveSize, responsiveOrientation } =
@@ -18,7 +23,7 @@ function CardPromoTitle({ children, className, clamp = false }) {
     );
 
     return (
-        <span
+        <TitleTag
             className={cardTitleVariants({
                 size,
                 orientation,
@@ -27,7 +32,7 @@ function CardPromoTitle({ children, className, clamp = false }) {
             })}
         >
             {children}
-        </span>
+        </TitleTag>
     );
 }
 

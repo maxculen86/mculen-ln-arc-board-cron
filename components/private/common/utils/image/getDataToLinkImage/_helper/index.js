@@ -1,10 +1,5 @@
 import get from '../../../get';
-import {
-    FOTOAL100,
-    NOTICIA,
-    STORYTELLING,
-    shouldPreloadForSubtype
-} from '../../../subtypes/subtypeHelper';
+import { FOTOAL100, STORYTELLING } from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
 import { getImageData } from '../../../getApertura';
 import { transformImages } from '../../../../videoPlayerJw/utils/helperJw';
@@ -18,27 +13,41 @@ const getImageResizedUrls = imageData => get(imageData, 'resized_urls', []);
 
 const STORYTELLING_V2_LAYOUT = 'LN-nota-storytelling-v2';
 
+const MANUAL_PRELOAD_LAYOUTS = [
+    'LN-nota-storytelling',
+    'LN-nota-foto-al-100',
+    'LN-nota-receta',
+    'LN-Nota-Liveblog_Editorial',
+    'LN-nota-video',
+    'LN-Nota-Video-100'
+];
+
+const NO_OPENING_MEDIA_LAYOUTS = [
+    'LN-Nota-Cards',
+    'LN-nota-html-libre',
+    'LN-nota-opta'
+];
+
 const isVideoJwOpening = promoItems =>
     get(promoItems, 'apertura_multimedia.subtype', '') === 'video_jw' ||
     get(promoItems, 'video_jw.subtype', '') === 'video_jw';
 
-const isStorytellingVideoOpening = promoItems =>
-    get(promoItems, 'storytelling.type', '') === 'video';
+const hasStorytellingV2MobileImage = promoItems =>
+    Boolean(get(promoItems, 'storytelling_mobile.url', ''));
 
-const isNotaVideoOpening = ({ subtype, promoItems }) =>
-    String(subtype) === NOTICIA && isVideoJwOpening(promoItems);
+export const shouldUseManualNotePreload = ({ layout, promoItems }) => {
+    if (NO_OPENING_MEDIA_LAYOUTS.includes(layout)) return false;
 
-const isStorytellingV2PictureOpening = ({ subtype, layout, promoItems }) =>
-    String(subtype) === STORYTELLING &&
-    layout === STORYTELLING_V2_LAYOUT &&
-    Boolean(get(promoItems, 'storytelling_mobile', null)) &&
-    !isVideoJwOpening(promoItems) &&
-    !isStorytellingVideoOpening(promoItems);
+    if (layout === STORYTELLING_V2_LAYOUT) {
+        const hasMobileImage = hasStorytellingV2MobileImage(promoItems);
 
-export const shouldUseManualNotePreload = ({ subtype, layout, promoItems }) =>
-    shouldPreloadForSubtype(subtype) ||
-    isNotaVideoOpening({ subtype, promoItems }) ||
-    isStorytellingV2PictureOpening({ subtype, layout, promoItems });
+        return isVideoJwOpening(promoItems) ? !hasMobileImage : hasMobileImage;
+    }
+
+    return (
+        MANUAL_PRELOAD_LAYOUTS.includes(layout) || isVideoJwOpening(promoItems)
+    );
+};
 
 const getDesktopImageList = imageData => {
     const resizedUrls = getImageResizedUrls(imageData);
@@ -84,7 +93,7 @@ export const fillMaxWidth = images =>
         return acc;
     }, []);
 
-export const getResizedUrls = (subtype, promoItems, basicDefault) => {
+export const getResizedUrls = (subtype, promoItems, basicDefault, layout) => {
     const propertyVideoJw = get(promoItems, 'apertura_multimedia', null)
         ? 'apertura_multimedia'
         : 'video_jw';
@@ -117,7 +126,8 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     }
 
     if (
-        (subtype === STORYTELLING || subtype === FOTOAL100) &&
+        ([STORYTELLING, FOTOAL100].includes(String(subtype)) ||
+            layout === STORYTELLING_V2_LAYOUT) &&
         get(promoItems, 'storytelling_mobile')
     ) {
         return getImagesList({

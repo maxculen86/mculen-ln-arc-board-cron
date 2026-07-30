@@ -132,9 +132,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         });
 
         expect(mockPublishToast).toHaveBeenCalledWith({
-            variant: 'warning',
+            color: 'warning',
             title: 'No disponible',
-            message: 'Este contenido no esta disponible en tu región.'
+            description: 'Este contenido no esta disponible en tu región.'
         });
     });
 
@@ -162,14 +162,14 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
 
         expect(mockPublishToast).toHaveBeenCalledTimes(2);
         expect(mockPublishToast).toHaveBeenNthCalledWith(1, {
-            variant: 'warning',
+            color: 'warning',
             title: 'No disponible',
-            message: 'Este contenido no esta disponible en tu región.'
+            description: 'Este contenido no esta disponible en tu región.'
         });
         expect(mockPublishToast).toHaveBeenNthCalledWith(2, {
-            variant: 'warning',
+            color: 'warning',
             title: 'No disponible',
-            message: 'Este contenido no esta disponible en tu región.'
+            description: 'Este contenido no esta disponible en tu región.'
         });
     });
 
@@ -189,9 +189,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         events.error({ code: 224003 });
 
         expect(mockPublishToast).toHaveBeenCalledWith({
-            variant: 'warning',
+            color: 'warning',
             title: 'No disponible',
-            message: 'Este contenido no esta disponible en tu región.'
+            description: 'Este contenido no esta disponible en tu región.'
         });
     });
 
@@ -214,9 +214,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         });
 
         expect(mockPublishToast).toHaveBeenCalledWith({
-            variant: 'warning',
+            color: 'warning',
             title: 'Error de reproducción',
-            message: 'No se pudo reproducir el video. Intentá más tarde.'
+            description: 'No se pudo reproducir el video. Intentá más tarde.'
         });
     });
 
@@ -239,9 +239,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         });
 
         expect(mockPublishToast).toHaveBeenCalledWith({
-            variant: 'warning',
+            color: 'warning',
             title: 'Error de reproducción',
-            message: 'No se pudo reproducir el video. Intentá más tarde.'
+            description: 'No se pudo reproducir el video. Intentá más tarde.'
         });
     });
 
@@ -261,9 +261,9 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         events.error({ code: 500 });
 
         expect(mockPublishToast).toHaveBeenCalledWith({
-            variant: 'warning',
+            color: 'warning',
             title: 'Error de reproducción',
-            message: 'No se pudo reproducir el video. Intentá más tarde.'
+            description: 'No se pudo reproducir el video. Intentá más tarde.'
         });
     });
 

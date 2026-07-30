@@ -117,6 +117,42 @@ const mockBodyImage = {
         }
     ]
 };
+const mockAuthorWithProfile = {
+    _id: 'gaston-roitberg-35',
+    name: 'Gaston Roitberg',
+    type: 'author',
+    url: '/autor/gaston-roitberg-35/',
+    image: {
+        url: 'https://author-service-images.example.com/gaston.png'
+    },
+    additional_properties: {
+        original: {
+            bio_page: '/autor/gaston-roitberg-35/',
+            byline: 'Gaston Roitberg',
+            longBio: 'Bio completa del autor',
+            expertise: 'Digital, medios, periodismo',
+            affiliations: 'FOPEA',
+            languages: 'Espanol, Ingles',
+            twitter: '@grmadryn'
+        }
+    }
+};
+const mockAuthorWithPartialProfile = {
+    _id: 'luciano-roman-10462',
+    name: 'Luciano Roman',
+    type: 'author',
+    url: '/autor/luciano-roman-10462/',
+    image: {
+        url: 'https://author-service-images.example.com/luciano.png'
+    },
+    additional_properties: {
+        original: {
+            bio_page: '/autor/luciano-roman-10462/',
+            byline: 'Luciano Roman',
+            longBio: ''
+        }
+    }
+};
 
 describe('SnippetNoticia', () => {
     describe('default subtype (NewsArticle)', () => {
@@ -154,6 +190,134 @@ describe('SnippetNoticia', () => {
                     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
             });
             expect(jsonData.hasPart).toBeUndefined();
+        });
+
+        it('should render enriched author data for NewsArticle schema', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        credits: { by: [mockAuthorWithProfile] }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                '@type': 'NewsArticle',
+                author: [
+                    {
+                        '@type': 'Person',
+                        name: 'Gaston Roitberg',
+                        url: 'https://www.lanacion.com.ar/autor/gaston-roitberg-35/',
+                        image: {
+                            '@type': 'ImageObject',
+                            url: 'https://author-service-images.example.com/gaston.png'
+                        },
+                        description: 'Bio completa del autor',
+                        knowsAbout: ['Digital, medios, periodismo'],
+                        affiliation: [
+                            {
+                                '@type': 'Organization',
+                                name: 'FOPEA'
+                            }
+                        ],
+                        knowsLanguage: ['Espanol', 'Ingles'],
+                        sameAs: ['https://twitter.com/grmadryn/']
+                    }
+                ],
+                creator: ['Gaston Roitberg']
+            });
+        });
+
+        it('should render multiple authors for NewsArticle schema', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        credits: {
+                            by: [
+                                mockAuthorWithProfile,
+                                mockAuthorWithPartialProfile
+                            ]
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.author).toHaveLength(2);
+            expect(jsonData.author).toMatchObject([
+                {
+                    '@type': 'Person',
+                    name: 'Gaston Roitberg',
+                    description: 'Bio completa del autor',
+                    knowsAbout: ['Digital, medios, periodismo'],
+                    sameAs: ['https://twitter.com/grmadryn/']
+                },
+                {
+                    '@type': 'Person',
+                    name: 'Luciano Roman',
+                    url: 'https://www.lanacion.com.ar/autor/luciano-roman-10462/',
+                    image: {
+                        '@type': 'ImageObject',
+                        url: 'https://author-service-images.example.com/luciano.png'
+                    }
+                }
+            ]);
+            expect(jsonData.creator).toEqual([
+                'Gaston Roitberg',
+                'Luciano Roman'
+            ]);
+            expect(jsonData.author[1].description).toBeUndefined();
+            expect(jsonData.author[1].knowsAbout).toBeUndefined();
+        });
+
+        it('should keep basic author data for non NewsArticle or OpinionNewsArticle schemas', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        credits: { by: [mockAuthorWithProfile] },
+                        label: { trust: { text: 'Análisis' } }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                '@type': 'AnalysisNewsArticle',
+                author: [
+                    {
+                        '@type': 'Person',
+                        name: 'Gaston Roitberg',
+                        url: 'https://www.lanacion.com.ar/autor/gaston-roitberg-35/'
+                    }
+                ],
+                creator: ['Gaston Roitberg']
+            });
+            expect(jsonData.author[0].knowsAbout).toBeUndefined();
+            expect(jsonData.author[0].affiliation).toBeUndefined();
+            expect(jsonData.author[0].knowsLanguage).toBeUndefined();
+            expect(jsonData.author[0].sameAs).toBeUndefined();
         });
 
         it('should include contentLocation built from K&L Location label', () => {
@@ -329,6 +493,45 @@ describe('SnippetNoticia', () => {
                     '@type': 'Person',
                     name: 'Redacción LA NACION'
                 }
+            });
+        });
+
+        it('should render enriched author data for OpinionNewsArticle schema', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockOpinionContent,
+                        credits: { by: [mockAuthorWithProfile] }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData).toMatchObject({
+                '@type': 'OpinionNewsArticle',
+                author: [
+                    {
+                        '@type': 'Person',
+                        name: 'Gaston Roitberg',
+                        description: 'Bio completa del autor',
+                        knowsAbout: ['Digital, medios, periodismo'],
+                        affiliation: [
+                            {
+                                '@type': 'Organization',
+                                name: 'FOPEA'
+                            }
+                        ],
+                        knowsLanguage: ['Espanol', 'Ingles'],
+                        sameAs: ['https://twitter.com/grmadryn/']
+                    }
+                ],
+                creator: ['Gaston Roitberg']
             });
         });
 

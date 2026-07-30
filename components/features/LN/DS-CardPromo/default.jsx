@@ -5,7 +5,7 @@ import { useContent } from 'fusion:content';
 import { getChainParentOfFeature } from '../../LN-10/article/common/_helper-WebApi';
 import {
     getCardPosition,
-    getParentLayout,
+    getParentLayout as getDiagramation,
     getFirstCard,
     getHrefLink
 } from '../../LN-common/Juego/helper';
@@ -25,7 +25,7 @@ import {
 } from './_helpers';
 
 function DSCardPromo({ id: featureId, customFields, isAdmin }) {
-    const { arcSite, renderables } = useAppContext() || {};
+    const { arcSite, renderables, layout: pageLayout } = useAppContext() || {};
     const { contentType } = usePromoContext();
 
     const {
@@ -47,13 +47,13 @@ function DSCardPromo({ id: featureId, customFields, isAdmin }) {
 
     const parentChain = getChainParentOfFeature(featureId, renderables);
     const cardPosition = getCardPosition(parentChain, featureId);
-    const parentLayout = getParentLayout(parentChain);
-    const isFirstCard = getFirstCard(cardPosition, parentLayout);
+    const diagramation = getDiagramation(parentChain);
+    const isFirstCard = getFirstCard(cardPosition, diagramation);
 
     const { resizedUrl, sources } = useGetImage({
         imageId,
         isFirstCard,
-        parentLayout
+        diagramation
     });
 
     const { name: sectionTitle = '' } =
@@ -103,8 +103,9 @@ function DSCardPromo({ id: featureId, customFields, isAdmin }) {
     const forSubscriber = subscriber === 'SI';
 
     const { size, orientation, clampTitle } = getRuleForIndex(
-        parentLayout,
-        cardPosition
+        diagramation,
+        cardPosition,
+        pageLayout
     );
 
     const linkProps = buildLinkProps({ href: hrefLink, title, contentType });

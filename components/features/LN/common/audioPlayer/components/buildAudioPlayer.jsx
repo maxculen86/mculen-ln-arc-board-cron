@@ -6,14 +6,7 @@ import { useAudioPlayerState } from '../hooks/useAudioPlayerState';
 import { useAudioPlayerActions } from '../hooks/useAudioPlayerActions';
 import { useBeyondWordsScript } from '../hooks/useBeyondWordsScript';
 import { setupBwReproductionTracking } from '../helpers';
-import renderToastAdapter from '../../../../LN-10-global/common/toasts/renderToastAdapter';
-import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
-
-const { layoutsName } = siteConfig;
-
-// Layouts ya migrados al nuevo Design System de toasts. Agregar acá cada
-// template nuevo a medida que adopte el DS, hasta completar la migración.
-const DS_TOAST_LAYOUTS = [layoutsName.StoryTellingV2, layoutsName.NotaOpinion];
+import renderToasts from '../../../../ui/ln/toastsContainer/renderToast';
 
 function BuildAudioPlayer() {
     const [contentAvailable, setContentAvailable] = useState(false);
@@ -21,13 +14,7 @@ function BuildAudioPlayer() {
     const { noteId, isSummary, summaryAvailable, hasError } =
         useAudioPlayerState();
     const actions = useAudioPlayerActions();
-    const {
-        globalContent = {},
-        globalContentConfig = {},
-        layout
-    } = useAppContext();
-
-    const useDesignSystem = DS_TOAST_LAYOUTS.includes(layout);
+    const { globalContent = {}, globalContentConfig = {} } = useAppContext();
 
     const isScriptLoaded = useBeyondWordsScript();
     const playerRef = useRef(null);
@@ -37,18 +24,12 @@ function BuildAudioPlayer() {
         if (hasNotifiedError.current) return;
         hasNotifiedError.current = true;
         actions.setError();
-        // TODO: usar directamente renderToasts del DS y eliminar el adapter
-        // (y DS_TOAST_LAYOUTS) cuando todos los templates estén migrados al
-        // nuevo Design System de toasts.
-        renderToastAdapter(
-            {
-                variant: 'danger',
-                title: 'Error de audio',
-                message: 'Parece que hubo un problema.',
-                duration: 5000
-            },
-            useDesignSystem
-        );
+        renderToasts({
+            color: 'error',
+            title: 'Error de audio',
+            description: 'Parece que hubo un problema.',
+            duration: 5000
+        });
     };
 
     useEffect(() => {

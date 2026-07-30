@@ -1,7 +1,8 @@
 import {
     getResizedUrls,
     getResizerUrlJw,
-    getWWWResizedUrls
+    getWWWResizedUrls,
+    shouldUseManualNotePreload
 } from '../../../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper';
 
 jest.mock(
@@ -22,6 +23,75 @@ jest.mock(
 );
 
 describe('getDataToLinkImage - _helper', () => {
+    describe('shouldUseManualNotePreload', () => {
+        it('delegates a plain Noticia layout to React 19', () => {
+            expect(
+                shouldUseManualNotePreload({
+                    layout: 'LN-nota-noticia',
+                    promoItems: {}
+                })
+            ).toBe(false);
+        });
+
+        test.each([
+            'LN-nota-storytelling',
+            'LN-nota-foto-al-100',
+            'LN-nota-receta',
+            'LN-Nota-Liveblog_Editorial'
+        ])('keeps manual preloads for picture layout %s', layout => {
+            expect(shouldUseManualNotePreload({ layout, promoItems: {} })).toBe(
+                true
+            );
+        });
+
+        it('keeps a manual facade preload for JW video', () => {
+            expect(
+                shouldUseManualNotePreload({
+                    layout: 'LN-nota-noticia',
+                    promoItems: {
+                        video_jw: { subtype: 'video_jw' }
+                    }
+                })
+            ).toBe(true);
+        });
+
+        it('keeps manual preloads for a Storytelling v2 picture', () => {
+            expect(
+                shouldUseManualNotePreload({
+                    layout: 'LN-nota-storytelling-v2',
+                    promoItems: {
+                        storytelling_mobile: {
+                            url: 'https://example.com/mobile.jpg'
+                        }
+                    }
+                })
+            ).toBe(true);
+        });
+
+        it('delegates Storytelling v2 video with a mobile image to React', () => {
+            expect(
+                shouldUseManualNotePreload({
+                    layout: 'LN-nota-storytelling-v2',
+                    promoItems: {
+                        storytelling_mobile: {
+                            url: 'https://example.com/mobile.jpg'
+                        },
+                        video_jw: { subtype: 'video_jw' }
+                    }
+                })
+            ).toBe(false);
+        });
+
+        it('defaults unknown image layouts to React-managed preload', () => {
+            expect(
+                shouldUseManualNotePreload({
+                    layout: 'LN-unknown-note-layout',
+                    promoItems: {}
+                })
+            ).toBe(false);
+        });
+    });
+
     describe('getResizedUrls', () => {
         const videoConfig = {
             subtype: 'video_jw',

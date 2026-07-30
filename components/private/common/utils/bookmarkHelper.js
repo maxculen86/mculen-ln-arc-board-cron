@@ -3,7 +3,7 @@ import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 import { getAuthTokens } from '../auth/helper/loginHelper';
-import { TOAST_CONFIG } from '../../../features/LN-10-global/common/toasts/helpers';
+import { TOAST_CONFIG } from '../../../features/ui/ln/toastsContainer/helpers';
 import { replaceResizerBaseUrl } from './image/resizer/v2/resizerHelper';
 
 export function getBookmarkContent(globalContent) {
@@ -169,15 +169,15 @@ export const getStatusMessage = (status, bookmarkContent) => {
     const statusConfig = {
         200: {
             title: TOAST_CONFIG.SUCCESS.TITLE,
-            variant: TOAST_CONFIG.SUCCESS.VARIANT,
-            message: !bookmarkContent
-                ? TOAST_CONFIG.SUCCESS.MESSAGE.DELETE_BOOKMARK
-                : TOAST_CONFIG.SUCCESS.MESSAGE.ADD_BOOKMARK
+            color: TOAST_CONFIG.SUCCESS.COLOR,
+            description: !bookmarkContent
+                ? TOAST_CONFIG.SUCCESS.DESCRIPTION.DELETE_BOOKMARK
+                : TOAST_CONFIG.SUCCESS.DESCRIPTION.ADD_BOOKMARK
         },
         409: {
             title: TOAST_CONFIG.WARNING.TITLE,
-            variant: TOAST_CONFIG.WARNING.VARIANT,
-            message: TOAST_CONFIG.WARNING.MESSAGE.LIMIT_REACHED
+            color: TOAST_CONFIG.WARNING.COLOR,
+            description: TOAST_CONFIG.WARNING.DESCRIPTION.LIMIT_REACHED
         }
     };
 
@@ -185,8 +185,8 @@ export const getStatusMessage = (status, bookmarkContent) => {
         buttonProps: TOAST_CONFIG.BUTTON_PROPS.BOOKMARK,
         ...(statusConfig[status] || {
             title: '¡Ups!',
-            variant: TOAST_CONFIG.ERROR.VARIANT,
-            message: TOAST_CONFIG.ERROR.MESSAGE.CONNECTION
+            color: TOAST_CONFIG.ERROR.COLOR,
+            description: TOAST_CONFIG.ERROR.DESCRIPTION.CONNECTION
         })
     };
 };

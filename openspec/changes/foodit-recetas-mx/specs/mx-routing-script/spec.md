@@ -32,3 +32,16 @@ Cada ejecución del script (activación o desactivación) SHALL registrar la ope
 #### Scenario: Log de desactivación generado
 - **WHEN** se desactiva el MX Router para `/recetas`
 - **THEN** el script genera un log indicando el rollback al bundle `default` con timestamp de la operación
+
+### Requirement: El script parametriza el path a rutear (multi-sección)
+El script SHALL aceptar el path como parámetro (`--path <prefix>`), de modo que pueda enrutar cualquier subárbol del site Foodit al MX, no solo `/recetas`. `/recetas` es el objetivo de MVP1; secciones futuras (`/postres`, etc.) se rutean con el mismo script, una corrida por subárbol, después de migrar y deployar su código. El MX se identifica por su **slug** (configurable por entorno vía `{ENV}_MX_SLUG`), distinto del id numérico que usa el deployer.
+
+> **Nota (realidad post-implementación)**: el bundle no vive en un MX llamado `foodit-mx` sino dentro de un MX existente (ej. `devlab-ln` en sandbox). Las menciones a "mxId `foodit-mx`" en este spec son el nombre aspiracional; el identificador real es el slug por entorno (`{ENV}_MX_SLUG`).
+
+#### Scenario: Ruteo de un path arbitrario
+- **WHEN** se ejecuta el script con `--path <prefix>` para un subárbol válido del site
+- **THEN** el script agrega (activación) o quita (rollback) ese prefijo de los `siteMappings` del MX, sin estar limitado a `/recetas`
+
+#### Scenario: El prefijo cubre todo el subárbol
+- **WHEN** se rutea `/recetas` (prefijo) al MX
+- **THEN** todas las sub-rutas (`/recetas/<slug>`, `/recetas/<categoría>`) quedan servidas por el mismo MX sin necesidad de un mapping por ruta

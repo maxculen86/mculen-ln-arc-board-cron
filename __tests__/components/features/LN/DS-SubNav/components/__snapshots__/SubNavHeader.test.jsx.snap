@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN - DS-SubNav - SubNavHeader snapshots matches snapshot when it renders nothing 1`] = `<DocumentFragment />`;
+
+exports[`Components - features - LN - DS-SubNav - SubNavHeader snapshots matches snapshot with the logo 1`] = `
+<DocumentFragment>
+  <h1>
+    <span
+      class="hidden"
+    >
+      Propiedades
+    </span>
+    <img
+      alt="Propiedades"
+      class="w-auto max-h-46 md:max-h-70 lg:max-h-90"
+      decoding="async"
+      fetchpriority="high"
+      height="40"
+      loading="eager"
+      src="/logo.png"
+      style="height: 40px;"
+      width="120"
+    />
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Components - features - LN - DS-SubNav - SubNavHeader snapshots matches snapshot with the title link 1`] = `
+<DocumentFragment>
+  <h1>
+    <a
+      class="ds-link relative inline-flex items-center gap-4 transition-colors cursor-pointer text-black-default hover:text-black-light data-[active="true"]:text-black-dark data-[disabled="true"]:text-black-lighten font-bold font-primary text-heading-lg font-w-extrabold"
+      data-active="false"
+      data-disabled="false"
+      href="/economia/"
+      target="_self"
+      title="Ir a Economía"
+    >
+      Economía
+    </a>
+  </h1>
+</DocumentFragment>
+`;

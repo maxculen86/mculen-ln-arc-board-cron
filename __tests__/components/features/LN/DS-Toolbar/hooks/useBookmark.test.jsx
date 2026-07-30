@@ -36,8 +36,12 @@ describe('Components - features - LN - DS-Toolbar - hooks - useBookmark', () => 
         });
         getStatusMessage.mockReturnValue({
             title: 'Guardado',
-            message: 'Nota guardada correctamente',
-            variant: 'success'
+            description: 'Nota guardada correctamente',
+            color: 'success',
+            buttonProps: {
+                children: 'Mis Notas',
+                href: '/mis-notas/'
+            }
         });
     });
 
@@ -116,10 +120,8 @@ describe('Components - features - LN - DS-Toolbar - hooks - useBookmark', () => 
 
             expect(renderToasts).toHaveBeenCalledWith({
                 buttonProps: {
-                    className:
-                        'ds-custom-buttom-toast bg-neutral-1 text-black-default hover:bg-neutral-1-lighten border-black-default w-fit',
-                    color: 'custom',
-                    variant: 'outline'
+                    children: 'Mis Notas',
+                    href: '/mis-notas/'
                 },
                 title: 'Guardado',
                 description: 'Nota guardada correctamente',
