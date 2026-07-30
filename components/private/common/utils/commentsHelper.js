@@ -13,12 +13,30 @@ const COMMENTS_SECTION_POSITION = '11';
 const COMMENTS_PAGE_POSITION = '00';
 const COMMENTS_DEFAULT_VALUE = '00';
 
+const redirectToAuthenticationFlow = ({
+    loginUrl = '',
+    registracionUrl = '',
+    sessionToken = '',
+    subscription = false
+}) => {
+    let redirectUrl = loginUrl;
+
+    if (sessionToken && !subscription) {
+        redirectUrl = registracionUrl;
+    }
+
+    if (redirectUrl) {
+        window?.vf?.$publish?.('tray', 'close');
+        window.location.href = redirectUrl;
+    }
+
+    return false;
+};
+
 export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     authentication: {
-        required: ({ registracionUrl }) => {
-            if (registracionUrl) window.location.href = registracionUrl;
-            return false;
-        }
+        needed: redirectToAuthenticationFlow,
+        required: redirectToAuthenticationFlow
     },
     commenting: {
         loaded: ({ setIsReady, outputType, articleId }) => {
