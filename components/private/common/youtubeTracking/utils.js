@@ -145,7 +145,7 @@ export const createYoutubeDataLayerTracker = ({
 
         milestoneTracker.getMilestones(percent).forEach(milestone => {
             addEventToDataLayerV2({
-                event: `videoProgressYoutube${milestone}`,
+                event: `${milestone}`,
                 ...dataLayerEventPayload
             });
         });
@@ -192,7 +192,7 @@ export const createYoutubeDataLayerTracker = ({
             ) {
                 hasCompleted = true;
                 addEventToDataLayerV2({
-                    event: 'videoCompleteYoutube',
+                    event: 'videoComplete',
                     ...dataLayerEventPayload
                 });
             }

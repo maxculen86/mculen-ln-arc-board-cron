@@ -162,13 +162,13 @@ describe('youtubeTracking utils', () => {
 
         expect(window.dataLayer.map(item => item.event)).toEqual([
             'videoPlayYoutube',
-            'videoProgressYoutube10',
-            'videoProgressYoutube25',
-            'videoProgressYoutube50',
+            '10',
+            '25',
+            '50',
             'videoPauseYoutube',
             'videoResumeYoutube',
-            'videoProgressYoutube75',
-            'videoCompleteYoutube'
+            '75',
+            'videoComplete'
         ]);
         expect(window.dataLayer[0]).toMatchObject({
             mode: 'autoplay',
@@ -182,14 +182,9 @@ describe('youtubeTracking utils', () => {
         );
         expect(
             window.dataLayer
-                .filter(item => /^videoProgressYoutube\d+$/.test(item.event))
+                .filter(item => ['10', '25', '50', '75'].includes(item.event))
                 .map(item => item.event)
-        ).toEqual([
-            'videoProgressYoutube10',
-            'videoProgressYoutube25',
-            'videoProgressYoutube50',
-            'videoProgressYoutube75'
-        ]);
+        ).toEqual(['10', '25', '50', '75']);
     });
     it('does not emit progress milestones for live videos', () => {
         const tracker = createYoutubeDataLayerTracker({
@@ -231,7 +226,7 @@ describe('youtubeTracking utils', () => {
             'videoPlayYoutube',
             'videoPauseYoutube',
             'videoResumeYoutube',
-            'videoCompleteYoutube'
+            'videoComplete'
         ]);
         expect(window.dataLayer.every(item => item.mode === 'live')).toBe(true);
     });
