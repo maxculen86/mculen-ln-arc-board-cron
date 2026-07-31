@@ -243,27 +243,30 @@ export function useAudioApi(
 
     const seekToSegment = useCallback(
         index => {
-            if (!audioRef.current || !segments.length) return;
-            const targetIndex = Math.max(
-                0,
-                Math.min(index, segments.length - 1)
-            );
-            const targetTimeMs = segments[targetIndex]?.start_time ?? 0;
-
             clearPauseTimeout(pauseTimeoutRef);
 
-            audioRef.current.currentTime = targetTimeMs / 1000;
+            // Always update the segment index so steps navigation works
+            // even when the audio fetch fails or is still loading.
+            const targetIndex = segments.length
+                ? Math.max(0, Math.min(index, segments.length - 1))
+                : Math.max(0, index);
+
             segmentIndexRef.current = targetIndex;
             setSegmentIndex(targetIndex);
-            audioRef.current.play().catch(() => {});
 
-            scheduleAutoPause(
-                audioRef.current,
-                segments,
-                targetIndex,
-                targetTimeMs,
-                pauseTimeoutRef
-            );
+            // Audio operations: only if we have data loaded
+            if (audioRef.current && segments.length) {
+                const targetTimeMs = segments[targetIndex]?.start_time ?? 0;
+                audioRef.current.currentTime = targetTimeMs / 1000;
+                audioRef.current.play().catch(() => {});
+                scheduleAutoPause(
+                    audioRef.current,
+                    segments,
+                    targetIndex,
+                    targetTimeMs,
+                    pauseTimeoutRef
+                );
+            }
         },
         [segments]
     );

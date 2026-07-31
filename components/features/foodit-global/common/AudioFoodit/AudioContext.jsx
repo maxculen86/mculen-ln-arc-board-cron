@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useRef } from 'react';
 import { BEYONDWORDS_PROJECT_ID_FOODIT } from 'fusion:environment';
 import { useAudioApi } from './useAudioApi';
 
@@ -21,8 +21,9 @@ const DEFAULT_AUDIO = {
     totalSegments: 0
 };
 
-export function AudioProvider({ article, children }) {
+export function AudioProvider({ article, children, autoStart = false }) {
     const audio = useAudioApi(article?._id, BEYONDWORDS_PROJECT_ID_FOODIT);
+    const hasAutoStarted = useRef(false);
 
     useEffect(() => {
         audioApiRef.current = {
@@ -34,6 +35,18 @@ export function AudioProvider({ article, children }) {
             audioApiRef.current = null;
         };
     }, [audio.startPlaying, audio.pausePlaying, audio.restart]);
+
+    useEffect(() => {
+        if (
+            autoStart &&
+            !audio.isLoading &&
+            !audio.error &&
+            !hasAutoStarted.current
+        ) {
+            hasAutoStarted.current = true;
+            audio.restart();
+        }
+    }, [autoStart, audio.isLoading, audio.error, audio.restart]);
 
     return (
         <AudioContext.Provider value={audio}>{children}</AudioContext.Provider>

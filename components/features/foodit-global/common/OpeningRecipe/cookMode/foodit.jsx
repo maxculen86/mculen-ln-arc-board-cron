@@ -7,7 +7,7 @@ import { DRAWERS_ID } from '../../DrawerSections/helpers';
 import { DrawerMode } from './components/drawerMode';
 import { DialogFoodit } from '../../DialogFoodit/foodit';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
-import { AudioProvider, audioApiRef } from '../../AudioFoodit/AudioContext';
+import { AudioProvider } from '../../AudioFoodit/AudioContext';
 import Icon from '../../../../ui/foodit/icon/default';
 
 function DataTwWrapper({ children, show, onExitComplete }) {
@@ -21,6 +21,7 @@ export function CookMode({ title, article }) {
     const { isSubscribed, userType } = useGetUserConfig();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isTooltipOpen, setIsTooltipOpen] = useState(true);
+    const [isAudioEnabled, setIsAudioEnabled] = useState(false);
 
     const handleClick = () => {
         addEventToDataLayerV2({
@@ -30,8 +31,8 @@ export function CookMode({ title, article }) {
             action: 'cook_mode'
         });
         if (isSubscribed) {
+            setIsAudioEnabled(true);
             drawerManager.show(DRAWERS_ID.COOK_MODE);
-            audioApiRef.current?.restart?.();
         } else {
             setIsDialogOpen(true);
         }
@@ -70,17 +71,21 @@ export function CookMode({ title, article }) {
                     </Tooltip.Content>
                 </Tooltip>
             </div>
-            {isSubscribed ? (
-                <AudioProvider article={article}>
-                    <DrawerMode title={title} article={article} />
-                </AudioProvider>
-            ) : (
+            {!isSubscribed && (
                 <DialogFoodit
                     isOpen={isDialogOpen}
                     onClose={() => setIsDialogOpen(false)}
                     isSubscribed={isSubscribed}
                     userType={userType}
                 />
+            )}
+            {isSubscribed && isAudioEnabled && (
+                <AudioProvider article={article} autoStart>
+                    <DrawerMode title={title} article={article} />
+                </AudioProvider>
+            )}
+            {isSubscribed && !isAudioEnabled && (
+                <DrawerMode title={title} article={article} />
             )}
         </>
     );
