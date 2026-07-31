@@ -25,7 +25,7 @@ import { useGetWeeklyMenu } from '../MenuSemanal/hooks/useGetWeeklyMenu';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import { getMealTotalById } from '../MenuSemanal/helpers/_helper';
 import { RecipeActionsDropdown } from './recipeActionsDropdown';
-import { CookMode } from './cookMode/default';
+import { CookMode } from './cookMode/foodit';
 
 export function OpeningRecipe({ article = {}, isPrivate = false }) {
     const {
