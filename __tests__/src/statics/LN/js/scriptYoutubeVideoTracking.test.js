@@ -93,12 +93,12 @@ describe('scriptYoutubeVideoTracking', () => {
 
         expect(window.dataLayer.map(item => item.event)).toEqual([
             'videoPlayYoutube',
-            'videoProgressYoutube10',
-            'videoProgressYoutube25',
-            'videoProgressYoutube50',
+            '10',
+            '25',
+            '50',
             'videoPauseYoutube',
             'videoResumeYoutube',
-            'videoCompleteYoutube'
+            'videoComplete'
         ]);
         expect(window.dataLayer[0]).toMatchObject({
             mode: 'autoplay',
@@ -112,13 +112,9 @@ describe('scriptYoutubeVideoTracking', () => {
         );
         expect(
             window.dataLayer
-                .filter(item => /^videoProgressYoutube\d+$/.test(item.event))
+                .filter(item => ['10', '25', '50'].includes(item.event))
                 .map(item => item.event)
-        ).toEqual([
-            'videoProgressYoutube10',
-            'videoProgressYoutube25',
-            'videoProgressYoutube50'
-        ]);
+        ).toEqual(['10', '25', '50']);
     });
 
     it('pushes manual mode when the embed does not request autoplay', () => {
