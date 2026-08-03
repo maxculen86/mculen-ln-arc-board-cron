@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Steps matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col flex-1 min-h-0 md:w-292 justify-center"
+  >
+    <div
+      class="flex-1 min-h-0 overflow-y-auto"
+    >
+      <div
+        class="flex flex-col gap-8 w-full text-body-lg"
+      >
+        <p>
+          Hervir agua con sal en una olla grande a fuego alto.
+        </p>
+        <div
+          class="aspect-3/2 w-full overflow-hidden"
+        >
+          <img
+            alt="Paso 1"
+            class="object-cover"
+            src="https://images.unsplash.com/photo-1.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-neutral-1 pt-16 border-t border-muted"
+    >
+      <div
+        class="w-full flex gap-24 pb-12"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            data-testid="progress"
+            data-value="25"
+          />
+          <p
+            class="pt-8 text-secondary-light text-label-lg"
+          >
+            Paso 
+            <span
+              class="font-bold"
+            >
+              1
+            </span>
+             de 4
+          </p>
+        </div>
+        <div
+          class="flex items-center gap-8"
+        >
+          <button
+            class="hover:bg-transparent px-0"
+            type="button"
+            variant="ghost"
+          >
+            <span
+              data-size="24"
+              data-testid="icon-replay"
+            />
+          </button>
+          <button
+            class="hover:bg-transparent px-0"
+            type="button"
+            variant="ghost"
+          >
+            <span
+              data-size="24"
+              data-testid="icon-megaphone"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-full flex gap-24"
+      >
+        <button
+          class="rounded-4 w-full text-accent-default hover:text-primary-light"
+          color="black"
+          disabled=""
+          rounded="custom"
+          variant="outline"
+        >
+          <span
+            data-size="16"
+            data-testid="icon-arrow-left"
+          />
+          anterior
+        </button>
+        <button
+          class="rounded-4 w-full"
+          color="black"
+          rounded="custom"
+          variant="solid"
+        >
+          siguiente
+          <span
+            data-size="16"
+            data-testid="icon-arrow-right"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
