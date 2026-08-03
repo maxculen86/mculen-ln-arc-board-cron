@@ -248,5 +248,309 @@
             "id": "b2f81e789757d",
             "url": "https://www.lanacion.com.ar/"
         }
+    },
+    {
+        "_id": "3OQTLLPCMZECXFFDJNK7WVXGVE",
+        "embed": {
+            "config": {
+                "idPlayer": "ih0086X3",
+                "idVideo": "sAoKd2ye",
+                "mediaType": "video",
+                "selectedPowerUpId": "custom-multimedia",
+                "variant": "100",
+                "videoJw": {
+                    "description": "",
+                    "epigraphTitle": "Cuti Romero casi nos infarta: El lujo del central y sus mejores momentos",
+                    "feed_instance_id": "2cbd0fb5-22a8-4fb9-87a6-9a7247c2eb1a",
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "sAoKd2ye",
+                    "kind": "Single Item",
+                    "playerName": "Player with Ads",
+                    "playlist": [
+                        {
+                            "content_source_type": "file",
+                            "description": "",
+                            "duration": 123,
+                            "image": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=720",
+                            "images": [
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=320",
+                                    "type": "image/jpeg",
+                                    "width": 320
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=480",
+                                    "type": "image/jpeg",
+                                    "width": 480
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=640",
+                                    "type": "image/jpeg",
+                                    "width": 640
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=720",
+                                    "type": "image/jpeg",
+                                    "width": 720
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=1280",
+                                    "type": "image/jpeg",
+                                    "width": 1280
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/sAoKd2ye/poster.jpg?width=1920",
+                                    "type": "image/jpeg",
+                                    "width": 1920
+                                }
+                            ],
+                            "link": "https://cdn.jwplayer.com/previews/sAoKd2ye",
+                            "mediaid": "sAoKd2ye",
+                            "pubdate": 1784215987,
+                            "section": "El noticiero AM",
+                            "site": "la-nacion-ar",
+                            "siteid": "uafFIXv2",
+                            "sources": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/manifests/sAoKd2ye.m3u8",
+                                    "type": "application/vnd.apple.mpegurl"
+                                },
+                                {
+                                    "bitrate": 379883,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-kTExGaWf.mp4",
+                                    "filesize": 5840715,
+                                    "framerate": 30,
+                                    "height": 180,
+                                    "label": "180p",
+                                    "type": "video/mp4",
+                                    "width": 320
+                                },
+                                {
+                                    "bitrate": 569275,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-K8B0kybS.mp4",
+                                    "filesize": 8752606,
+                                    "framerate": 30,
+                                    "height": 270,
+                                    "label": "270p",
+                                    "type": "video/mp4",
+                                    "width": 480
+                                },
+                                {
+                                    "bitrate": 1451523,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-46NIuRKO.mp4",
+                                    "filesize": 22317175,
+                                    "framerate": 30,
+                                    "height": 720,
+                                    "label": "720p",
+                                    "type": "video/mp4",
+                                    "width": 1280
+                                },
+                                {
+                                    "bitrate": 114059,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-hz5z2Tv4.m4a",
+                                    "filesize": 1753670,
+                                    "label": "AAC Audio",
+                                    "type": "audio/mp4"
+                                },
+                                {
+                                    "bitrate": 719755,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-FnZGUVnC.mp4",
+                                    "filesize": 11066245,
+                                    "framerate": 30,
+                                    "height": 360,
+                                    "label": "360p",
+                                    "type": "video/mp4",
+                                    "width": 640
+                                },
+                                {
+                                    "bitrate": 1156608,
+                                    "file": "https://cdn.jwplayer.com/videos/sAoKd2ye-0G6Pwvlw.mp4",
+                                    "filesize": 17782849,
+                                    "framerate": 30,
+                                    "height": 540,
+                                    "label": "540p",
+                                    "type": "video/mp4",
+                                    "width": 960
+                                }
+                            ],
+                            "tags": "sociedad",
+                            "title": "Cuti Romero casi nos infarta: El lujo del central y sus mejores momentos",
+                            "tracks": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/strips/sAoKd2ye-120.vtt",
+                                    "kind": "thumbnails"
+                                }
+                            ],
+                            "updated": 1784216025,
+                            "variations": {}
+                        }
+                    ],
+                    "showEpigraph": true,
+                    "siteid": "uafFIXv2",
+                    "title": "Cuti Romero casi nos infarta: El lujo del central y sus mejores momentos"
+                }
+            },
+            "id": "10904a616a596",
+            "url": "https://www.lanacion.com.ar/"
+        },
+        "subtype": "custom-multimedia",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "E3P3N3KFWVEEPJIMBM6QVWYYEI",
+        "embed": {
+            "config": {
+                "content": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19910.222755935698!2d-73.94808855!3d40.81566505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f66e2188a29f%3A0xb408afef09e2702e!2sHarlem%2C%20Nueva%20York%2C%20EE.%20UU.!5e1!3m2!1ses!2sar!4v1779018641737!5m2!1ses!2sar\" width=\"1700\" height=\"435\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mediaType": "html",
+                "selectedPowerUpId": "custom-multimedia",
+                "variant": "100"
+            },
+            "id": "8042062f3262b",
+            "url": "https://www.lanacion.com.ar/"
+        },
+        "subtype": "custom-multimedia",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "4Q3KJZDKSBFVPLGIPG56OBVBSY",
+        "embed": {
+            "config": {
+                "content": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19910.222755935698!2d-73.94808855!3d40.81566505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f66e2188a29f%3A0xb408afef09e2702e!2sHarlem%2C%20Nueva%20York%2C%20EE.%20UU.!5e1!3m2!1ses!2sar!4v1779018641737!5m2!1ses!2sar\" width=\"100%\" height=\"750\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mediaType": "html",
+                "selectedPowerUpId": "custom-multimedia",
+                "variant": "70"
+            },
+            "id": "51c3e35aea767",
+            "url": "https://www.lanacion.com.ar/"
+        },
+        "subtype": "custom-multimedia",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "FLVGR6UT3RHKZJKSUIEQDEO6FE",
+        "embed": {
+            "config": {
+                "idPlayer": "ih0086X3",
+                "idVideo": "ATouD0ga",
+                "mediaType": "video",
+                "selectedPowerUpId": "custom-multimedia",
+                "variant": "70",
+                "videoJw": {
+                    "description": "Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford",
+                    "epigraphTitle": "Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford",
+                    "feed_instance_id": "cd2672db-257c-49eb-b31c-b1f8f85dbcf1",
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "ATouD0ga",
+                    "kind": "Single Item",
+                    "playerName": "Player with Ads",
+                    "playlist": [
+                        {
+                            "content_source_type": "file",
+                            "description": "Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford",
+                            "duration": 46,
+                            "image": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=720",
+                            "images": [
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=320",
+                                    "type": "image/jpeg",
+                                    "width": 320
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=480",
+                                    "type": "image/jpeg",
+                                    "width": 480
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=640",
+                                    "type": "image/jpeg",
+                                    "width": 640
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=720",
+                                    "type": "image/jpeg",
+                                    "width": 720
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=1280",
+                                    "type": "image/jpeg",
+                                    "width": 1280
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/ATouD0ga/poster.jpg?width=1920",
+                                    "type": "image/jpeg",
+                                    "width": 1920
+                                }
+                            ],
+                            "link": "https://cdn.jwplayer.com/previews/ATouD0ga",
+                            "mediaid": "ATouD0ga",
+                            "pubdate": 1784214192,
+                            "section": "El noticiero AM",
+                            "site": "la-nacion-ar",
+                            "siteid": "uafFIXv2",
+                            "sources": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/manifests/ATouD0ga.m3u8",
+                                    "type": "application/vnd.apple.mpegurl"
+                                },
+                                {
+                                    "bitrate": 501978,
+                                    "file": "https://cdn.jwplayer.com/videos/ATouD0ga-kTExGaWf.mp4",
+                                    "filesize": 2886379,
+                                    "framerate": 30,
+                                    "height": 180,
+                                    "label": "180p",
+                                    "type": "video/mp4",
+                                    "width": 320
+                                },
+                                {
+                                    "bitrate": 749227,
+                                    "file": "https://cdn.jwplayer.com/videos/ATouD0ga-K8B0kybS.mp4",
+                                    "filesize": 4308057,
+                                    "framerate": 30,
+                                    "height": 270,
+                                    "label": "270p",
+                                    "type": "video/mp4",
+                                    "width": 480
+                                },
+                                {
+                                    "bitrate": 113869,
+                                    "file": "https://cdn.jwplayer.com/videos/ATouD0ga-hz5z2Tv4.m4a",
+                                    "filesize": 654747,
+                                    "label": "AAC Audio",
+                                    "type": "audio/mp4"
+                                },
+                                {
+                                    "bitrate": 950489,
+                                    "file": "https://cdn.jwplayer.com/videos/ATouD0ga-FnZGUVnC.mp4",
+                                    "filesize": 5465316,
+                                    "framerate": 30,
+                                    "height": 360,
+                                    "label": "360p",
+                                    "type": "video/mp4",
+                                    "width": 640
+                                }
+                            ],
+                            "tags": "pickford",
+                            "title": "Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford",
+                            "tracks": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/strips/ATouD0ga-120.vtt",
+                                    "kind": "thumbnails"
+                                }
+                            ],
+                            "updated": 1784214216,
+                            "variations": {}
+                        }
+                    ],
+                    "showEpigraph": true,
+                    "siteid": "uafFIXv2",
+                    "title": "Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford"
+                }
+            },
+            "id": "19953290617d6f",
+            "url": "https://www.lanacion.com.ar/"
+        },
+        "subtype": "custom-multimedia",
+        "type": "custom_embed"
     }
 ]

@@ -83,7 +83,6 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
         expect(resp[0]['value']).toBe('08:46 Gym 1 Ciudad Plateada');
     });
 
-
     describe('Test de los elementos custom-how-to en el cuerpo de una nota', () => {
         it('Test custom-how-to con step y título', () => {
             const nodo = {
@@ -98,7 +97,9 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             const resp = CustomEmbed(nodo);
             expect(resp[0]['_t']).toBe('header');
             expect(resp[0]['level']).toBe(1);
-            expect(resp[0]['value']).toBe('1 - ¿Cómo usar el estilo <i>Studio Ghibli </i>en ChatGPT?');
+            expect(resp[0]['value']).toBe(
+                '1 - ¿Cómo usar el estilo <i>Studio Ghibli </i>en ChatGPT?'
+            );
         });
 
         it('Test custom-how-to sin step', () => {
@@ -143,9 +144,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
         });
     });
 
-
     describe('customEmbed - gallery-embed', () => {
-
         const baseNode = {
             subtype: 'gallery-embed',
             embed: {
@@ -154,7 +153,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
                     count: 2,
                     galleryImages: [
                         { url: 'https://img.com/1.jpg' },
-                        { url: 'https://img.com/2.jpg' },
+                        { url: 'https://img.com/2.jpg' }
                     ]
                 }
             }
@@ -163,9 +162,14 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
         test('Debe mapear la cantidad de imágenes según el count de la diagramacion', () => {
             const result = CustomEmbed(baseNode);
             expect(result.length).toBe(2);
-            expect(result[0]).toEqual({ _t: 'image', url: 'https://img.com/1.jpg' },
-                { _t: 'image', url: 'https://img.com/2.jpg', epigraph: 'Epígrafe de prueba' });
-
+            expect(result[0]).toEqual(
+                { _t: 'image', url: 'https://img.com/1.jpg' },
+                {
+                    _t: 'image',
+                    url: 'https://img.com/2.jpg',
+                    epigraph: 'Epígrafe de prueba'
+                }
+            );
         });
 
         test('Debe agregar epígrafe solo a la última imagen', () => {
@@ -183,9 +187,7 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
                     config: {
                         caption: 'Epígrafe único',
                         count: 1,
-                        galleryImages: [
-                            { url: 'https://img.com/one.jpg' }
-                        ]
+                        galleryImages: [{ url: 'https://img.com/one.jpg' }]
                     }
                 }
             };
@@ -199,7 +201,6 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
                 epigraph: 'Epígrafe único'
             });
         });
-
 
         test('Si no hay caption no se agrega epigraph', () => {
             const nodo = {
@@ -227,5 +228,66 @@ describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
             expect(result).toEqual([]);
         });
     });
+});
 
+describe('Test de los elementos custom-multimedia en el cuerpo de una nota', () => {
+    it('Test custom-multimedia video variant 100', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[8]);
+        expect(resp).toHaveLength(1);
+        expect(resp[0]._t).toBe('video');
+        expect(resp[0].duration).toBe(123000);
+        expect(resp[0].title).toBe(
+            'Cuti Romero casi nos infarta: El lujo del central y sus mejores momentos'
+        );
+    });
+
+    it('Test custom-multimedia html variant 100', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[9]);
+        expect(resp._t).toBe('ext');
+        expect(resp.src).toBe(
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19910.222755935698!2d-73.94808855!3d40.81566505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f66e2188a29f%3A0xb408afef09e2702e!2sHarlem%2C%20Nueva%20York%2C%20EE.%20UU.!5e1!3m2!1ses!2sar!4v1779018641737!5m2!1ses!2sar'
+        );
+    });
+
+    it('Test custom-multimedia html variant 70', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[10]);
+        expect(resp._t).toBe('ext');
+        expect(resp.src).toBe(
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19910.222755935698!2d-73.94808855!3d40.81566505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f66e2188a29f%3A0xb408afef09e2702e!2sHarlem%2C%20Nueva%20York%2C%20EE.%20UU.!5e1!3m2!1ses!2sar!4v1779018641737!5m2!1ses!2sar'
+        );
+    });
+
+    it('Test custom-multimedia video variant 70', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[11]);
+        expect(resp).toHaveLength(1);
+        expect(resp[0]._t).toBe('video');
+        expect(resp[0].duration).toBe(46000);
+        expect(resp[0].title).toBe(
+            'Lionel Messi, Nicolás González y Marcos Senesi revisando el machete de Pickford'
+        );
+    });
+
+    it('Test custom-multimedia sin videoJw ni content html retorna null', () => {
+        const nodo = {
+            subtype: 'custom-multimedia',
+            embed: {
+                config: {
+                    mediaType: 'video'
+                }
+            }
+        };
+        expect(CustomEmbed(nodo)).toBe(null);
+    });
+
+    it('Test custom-multimedia mediaType html sin content retorna null', () => {
+        const nodo = {
+            subtype: 'custom-multimedia',
+            embed: {
+                config: {
+                    mediaType: 'html'
+                }
+            }
+        };
+        expect(CustomEmbed(nodo)).toBe(null);
+    });
 });
