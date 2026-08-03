@@ -326,8 +326,19 @@ describe('transformMenuData function', () => {
 });
 
 describe('sendChatMessage', () => {
+    const okResponse = (body = {}) => ({
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify(body)
+    });
+
     beforeEach(() => {
-        global.fetch = jest.fn().mockResolvedValue({ json: async () => ({}) });
+        global.fetch = jest.fn().mockResolvedValue(okResponse());
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        console.error.mockRestore();
     });
 
     // Contra la constante y no contra el literal: es la misma que alimenta el render
@@ -354,5 +365,58 @@ describe('sendChatMessage', () => {
 
         const [, options] = global.fetch.mock.calls[0];
         expect(options.headers['x-authorization']).toBe('jwt');
+    });
+
+    it('should return the parsed body for a successful response', async () => {
+        global.fetch.mockResolvedValue(okResponse({ success: true }));
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).resolves.toEqual({
+            success: true
+        });
+    });
+
+    it('should log and rethrow when the fetch itself rejects', async () => {
+        const networkError = new TypeError('Failed to fetch');
+        global.fetch.mockRejectedValue(networkError);
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).rejects.toBe(
+            networkError
+        );
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('fetch falló'),
+            networkError
+        );
+    });
+
+    it('should log but still return the body when the API answers with an HTTP error', async () => {
+        global.fetch.mockResolvedValue({
+            ok: false,
+            status: 401,
+            text: async () => JSON.stringify({ error: 'Unauthorized' })
+        });
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).resolves.toEqual({
+            error: 'Unauthorized'
+        });
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('respondió con error'),
+            401,
+            expect.any(String)
+        );
+    });
+
+    it('should log and rethrow when the body is not valid JSON', async () => {
+        global.fetch.mockResolvedValue({
+            ok: false,
+            status: 504,
+            text: async () => '<html>Gateway Timeout</html>'
+        });
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).rejects.toThrow();
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('no es JSON válido'),
+            504,
+            '<html>Gateway Timeout</html>'
+        );
     });
 });

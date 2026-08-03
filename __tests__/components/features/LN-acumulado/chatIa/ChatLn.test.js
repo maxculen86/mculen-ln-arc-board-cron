@@ -38,7 +38,11 @@ jest.mock('@ln/ds-blocks-thread', () => ({
 
                 return (
                     <div data-testid="thread-error" className={className}>
-                        {children}
+                        {/* El default de la lib cuando los children vienen
+                            vacíos es el código crudo del error. Replicarlo acá
+                            es lo que hace que un banner sin copy se vea como el
+                            bug que es, en vez de pasar como un div vacío. */}
+                        {children || <p>Error: {error.code}</p>}
                     </div>
                 );
             }
@@ -148,6 +152,7 @@ jest.mock(
             .fn()
             .mockResolvedValue(['Pregunta 1', 'Pregunta 2', 'Pregunta 3']),
         resolveErrorMessage: jest.fn(),
+        MSG_GENERIC_ERROR: 'Ocurrió un error genérico.',
         RESPONSE_FORMAT: 'text',
         FALLBACK_SUGGESTED_QUESTIONS: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3']
     })
@@ -418,6 +423,28 @@ describe('ChatLN', () => {
             );
         });
 
+        it('should show a readable copy when the response is out of contract', () => {
+            const { MSG_GENERIC_ERROR } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+            // 200 fuera de contrato: `onNewMessage` retorna sin tirar, así que
+            // el `catch` no corre y no hay copy resuelto por status HTTP.
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'error',
+                    error: { code: 'unusable_response', message: null }
+                })
+            );
+
+            render(<ChatLN />);
+
+            const banner = screen.getByTestId('thread-error');
+            expect(banner).toHaveTextContent(MSG_GENERIC_ERROR);
+            // Lo que nunca tiene que llegar a pantalla es el código técnico.
+            expect(banner).not.toHaveTextContent('unusable_response');
+        });
+
         it('should still offer the reset CTA when the request failed', async () => {
             sendMundialChatMessage.mockRejectedValue({ status: 500 });
             resolveErrorMessage.mockReturnValue('Ocurrió un error.');
@@ -604,6 +631,52 @@ describe('ChatLN', () => {
                 <ChatLN customFields={{ hideChat: false }} />
             );
             expect(container.firstChild).toBeNull();
+        });
+
+        // El early return del render no frena los efectos: con el chat apagado no
+        // puede quedar pegándole a la API del chatbot.
+        it('should not create a session when the termica flag is on', async () => {
+            const useTermica = jest.requireMock(
+                '../../../../../components/private/common/hooks/useTermica'
+            ).default;
+            useTermica.mockImplementation(() => 'true');
+            const { createMundialSession } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+            render(<ChatLN />);
+
+            await waitFor(() =>
+                expect(createMundialSession).not.toHaveBeenCalled()
+            );
+        });
+
+        it('should not fetch the suggested questions when the termica flag is on', async () => {
+            const useTermica = jest.requireMock(
+                '../../../../../components/private/common/hooks/useTermica'
+            ).default;
+            useTermica.mockImplementation(() => 'true');
+            const { getSuggestedQuestions } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+            render(<ChatLN />);
+
+            await waitFor(() =>
+                expect(getSuggestedQuestions).not.toHaveBeenCalled()
+            );
+        });
+
+        it('should not create a session when hideChat is set from PageBuilder', async () => {
+            const { createMundialSession } = jest.requireMock(
+                '../../../../../components/features/LN-acumulado/chatIa/helpers/api'
+            );
+
+            render(<ChatLN customFields={{ hideChat: true }} />);
+
+            await waitFor(() =>
+                expect(createMundialSession).not.toHaveBeenCalled()
+            );
         });
     });
 

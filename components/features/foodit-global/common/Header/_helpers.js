@@ -120,22 +120,48 @@ export const createSessionChat = async ({ accessToken, userId }) => {
 // Alimenta el `response_type` del request y el `answerFormat` del render: si divergen, el markdown se ve crudo
 export const RESPONSE_FORMAT = 'markdown';
 
+// El runtime de `Thread` sólo appendea mensaje cuando esta promesa resuelve
 export const sendChatMessage = async ({
     sessionId,
     message,
     accessToken,
     userId
 }) => {
-    const response = await fetch(`${API_IA_FOODIT}/api/chat`, {
-        method: 'POST',
-        headers: getAuthHeaders(accessToken),
-        body: JSON.stringify({
-            session_id: sessionId,
-            message,
-            user_id: userId,
-            response_type: RESPONSE_FORMAT
-        })
-    });
+    let response;
+    try {
+        response = await fetch(`${API_IA_FOODIT}/api/chat`, {
+            method: 'POST',
+            headers: getAuthHeaders(accessToken),
+            body: JSON.stringify({
+                session_id: sessionId,
+                message,
+                user_id: userId,
+                response_type: RESPONSE_FORMAT
+            })
+        });
+    } catch (err) {
+        console.error('ChatFoodit - /api/chat: fetch falló (red o CORS)', err);
+        throw err;
+    }
 
-    return response.json();
+    const rawBody = await response.text();
+
+    if (!response.ok) {
+        console.error(
+            'ChatFoodit - /api/chat respondió con error',
+            response.status,
+            rawBody
+        );
+    }
+
+    try {
+        return JSON.parse(rawBody);
+    } catch (err) {
+        console.error(
+            'ChatFoodit - /api/chat: body no es JSON válido',
+            response.status,
+            rawBody
+        );
+        throw err;
+    }
 };

@@ -24,10 +24,16 @@ import { pushFooditEvent } from '../../../features/foodit-global/common/utils/pu
 import { cleanUrl } from '../../../features/foodit-global/common/dataLayer/_helpers';
 import { getAuthTokens } from '../../../private/common/auth/helper/loginHelper';
 import { EmptyStateChat } from './emptyStateChat';
+import {
+    isChatMockEnabled,
+    MOCK_SESSION_ID,
+    MOCK_USER,
+    sendMockChatMessage
+} from './chatMock';
 
 function ChatIaFoodit({ onSearchTermChange }) {
     const [sessionId, setSessionId] = useState('');
-    const [showSkeleton, setShowSkeleton] = useState(true);
+    const [isHydrated, setIsHydrated] = useState(false);
 
     const [accessTokenUser, setAccessTokenUser] = useState('');
     const { requestUri } = useAppContext();
@@ -41,8 +47,11 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const query = getQueryParamValue('query', `${SITE_FOODIT}/${requestUri}`);
     const queryUrl = decodeURIComponent(query) || '¿Qué es Foodit?';
 
-    const user = useGetUserConfig();
-    const { isSubscribed, id: userId } = user;
+    const [isMock] = useState(isChatMockEnabled);
+
+    const realUser = useGetUserConfig();
+    const user = isMock ? { ...realUser, ...MOCK_USER } : realUser;
+    const { isSubscribed, id: userId, userType } = user;
 
     const initialMessages = [];
     if (!isSubscribed) {
@@ -64,6 +73,9 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const runtime = useChatRuntime({
         onNewMessage: async userContent => {
             resetInactivity();
+
+            if (isMock) return sendMockChatMessage({ message: userContent });
+
             const resp = await sendChatMessage({
                 sessionId,
                 message: userContent,
@@ -95,12 +107,20 @@ function ChatIaFoodit({ onSearchTermChange }) {
     }, [lastSearchTerm, onSearchTermChange]);
 
     useEffect(() => {
-        setShowSkeleton(false);
+        setIsHydrated(true);
     }, []);
+
+    const showSkeleton = !isHydrated || userType === 'loading';
 
     useEffect(() => {
         async function fetchSession() {
             if (sessionId) return;
+
+            // `session_id` falso en mock
+            if (isMock) {
+                setSessionId(MOCK_SESSION_ID);
+                return;
+            }
 
             try {
                 const { accessToken } = await getAuthTokens();
@@ -118,6 +138,8 @@ function ChatIaFoodit({ onSearchTermChange }) {
                 setSessionId(sessionIdResponse);
             } catch (error) {
                 console.error('ChatFoodit - error create session chat', error);
+                runtime.setError({ code: 'internal_error', message: null });
+                runtime.setStatus('error');
             }
         }
         if (!isSubscribed) {
@@ -158,9 +180,16 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const isSessionCompleted =
         requestLimit && runtime.error?.code === 'session_completed';
 
+    const hasAnswer = runtime.messages.some(
+        message => message.message_type === 'input'
+    );
+
+    // Un solo gate para todo el arranque. Crear la sesión, enviar y generar son
+    // pasos internos con huecos de `idle` en el medio: colgar el cartel de cada
+    // uno lo hace parpadear en cada transición
     const showIsThinking =
         runtime.status === 'generating' ||
-        (runtime.messages.length === 1 && isSubscribed);
+        (isSubscribed && !hasAnswer && !hasError && !requestLimit);
 
     useEffect(() => {
         if (runtime.status === 'sending' || runtime.status === 'generating') {

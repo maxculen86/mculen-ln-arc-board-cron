@@ -6,7 +6,7 @@ exports[`MessageAssistant snapshots should match snapshot with a link inside bol
     class="ds-thread flex flex-col w-full text-base-default"
   >
     <div
-      class="flex flex-col md:flex-row pr-[32px] max-w-[500px] xl:max-w-[700px]"
+      class="flex flex-col md:flex-row pr-[32px] max-w-[500px] xl:max-w-[700px] min-w-0"
     >
       <div
         class="flex gap-4 shrink-0 pt-4"
@@ -23,7 +23,7 @@ exports[`MessageAssistant snapshots should match snapshot with a link inside bol
         </p>
       </div>
       <div
-        class="roboto text-16 flex flex-col gap-8"
+        class="roboto text-16 flex flex-col gap-8 min-w-0"
       >
         <div
           class="flex flex-col gap-8 p-4"
@@ -39,7 +39,7 @@ exports[`MessageAssistant snapshots should match snapshot with a link inside bol
                   data-active="false"
                   data-disabled="false"
                   href="https://foodit.lanacion.com.ar/recetas/x/"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
                   arroz con pollo

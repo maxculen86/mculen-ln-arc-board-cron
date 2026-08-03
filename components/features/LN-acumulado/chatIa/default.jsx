@@ -15,6 +15,7 @@ import {
     createMundialSession,
     FALLBACK_SUGGESTED_QUESTIONS,
     getSuggestedQuestions,
+    MSG_GENERIC_ERROR,
     resolveErrorMessage,
     RESPONSE_FORMAT,
     sendMundialChatMessage
@@ -29,7 +30,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
     const { accessToken } = useAuthManager();
     const [showSkeleton, setShowSkeleton] = useState(true);
 
-    const hideChatIa = useTermica('hide_chat_ia_mundial_ln');
+    const isChatHidden = useTermica('hide_chat_ia_mundial_ln') || hideChat;
 
     const [sessionId, setSessionId] = useState('');
     const [isCreatingSession, setIsCreatingSession] = useState(false);
@@ -39,8 +40,10 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
     const [isLastTypingDone, setIsLastTypingDone] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
 
+    // `isChatHidden` también: el early return del render no frena los efectos,
+    // así que sin esta guarda la sesión se crea igual con el chat apagado
     useEffect(() => {
-        if (!isSubscribed || !userId || !accessToken) return;
+        if (!isSubscribed || !userId || !accessToken || isChatHidden) return;
 
         async function initSession() {
             try {
@@ -69,10 +72,14 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
 
         initSession();
         loadQuestions();
-    }, [isSubscribed, userId, accessToken]);
+    }, [isSubscribed, userId, accessToken, isChatHidden]);
 
     const onNewMessage = async userQuestion => {
         setIsLastTypingDone(false);
+        // El copy del intento anterior no aplica a este: si este también falla,
+        // el `catch` lo vuelve a resolver. Sin limpiarlo, un fallo que no pasa
+        // por el `catch` (200 fuera de contrato) mostraría el mensaje viejo.
+        setErrorMessage('');
 
         addEventToDataLayerV2({
             rest: {
@@ -165,7 +172,7 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
         setShowSkeleton(false);
     }, []);
 
-    if (hideChatIa || hideChat) {
+    if (isChatHidden) {
         return null;
     }
 
@@ -244,13 +251,19 @@ export function ChatLN({ customFields: { hideChat = false } = {} }) {
                                         />
                                     </Thread.Viewport>
 
+                                    {/* El fallback no es decorativo: `Thread.Error`
+                                        con children vacíos muestra su default,
+                                        que es el código técnico del runtime. Y
+                                        `errorMessage` queda vacío justo en el
+                                        caso que el `catch` no ve: la respuesta
+                                        200 fuera de contrato. */}
                                     <Thread.Error
                                         className="font-secondary text-small-lg text-base-default"
                                         filter={(error, status) =>
                                             status === 'error'
                                         }
                                     >
-                                        {errorMessage}
+                                        {errorMessage || MSG_GENERIC_ERROR}
                                     </Thread.Error>
                                     {showSuggestions && isSubscribed && (
                                         <div className="flex flex-column md:flex-row gap-responsive">

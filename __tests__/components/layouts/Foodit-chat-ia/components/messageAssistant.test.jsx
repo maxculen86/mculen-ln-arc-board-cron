@@ -96,9 +96,11 @@ describe('MessageAssistant', () => {
                 )
             );
 
+            // `nofollow` lo pone el default del DS: el markdown no manda `rel`
+            // justamente para no pisarlo
             const link = screen.getByRole('link', { name: 'receta' });
             expect(link).toHaveAttribute('target', '_blank');
-            expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+            expect(link).toHaveAttribute('rel', 'noopener noreferrer nofollow');
         });
 
         it('should not render a link when the url is unsafe', () => {

@@ -154,6 +154,8 @@ jest.mock(
 
 const mockSetMessages = jest.fn();
 const mockOnSubmit = jest.fn();
+const mockSetStatus = jest.fn();
+const mockSetError = jest.fn();
 
 const createRuntime = (overrides = {}) => ({
     status: 'idle',
@@ -161,6 +163,8 @@ const createRuntime = (overrides = {}) => ({
     error: null,
     setMessages: mockSetMessages,
     onSubmit: mockOnSubmit,
+    setStatus: mockSetStatus,
+    setError: mockSetError,
     ...overrides
 });
 
@@ -197,6 +201,36 @@ afterEach(() => {
 });
 
 describe('ChatIaFoodit', () => {
+    // Pintar el chat antes de saber si el usuario tiene acceso obliga a
+    // cambiarlo apenas resuelve, y eso es un salto de layout a la vista
+    describe('skeleton', () => {
+        it('should hold the skeleton while the user is still loading', () => {
+            useGetUserConfig.mockReturnValue({
+                isSubscribed: false,
+                id: '',
+                userType: 'loading'
+            });
+
+            render(<ChatIaFoodit />);
+
+            expect(screen.getByTestId('skeleton')).toBeInTheDocument();
+            expect(screen.queryByTestId('thread')).not.toBeInTheDocument();
+        });
+
+        it('should swap to the thread once the user resolved', () => {
+            useGetUserConfig.mockReturnValue({
+                isSubscribed: true,
+                id: 'user-42',
+                userType: 'subscribed'
+            });
+
+            render(<ChatIaFoodit />);
+
+            expect(screen.getByTestId('thread')).toBeInTheDocument();
+            expect(screen.queryByTestId('skeleton')).not.toBeInTheDocument();
+        });
+    });
+
     describe('session creation', () => {
         it('should send the user id required by the new contract when subscribed', async () => {
             render(<ChatIaFoodit />);
@@ -286,6 +320,21 @@ describe('ChatIaFoodit', () => {
                         message: expect.stringContaining('sin accessToken')
                     })
                 )
+            );
+        });
+
+        // Sin sesión no hay a quién pedirle el mensaje: se reusa el estado
+        // `error` del runtime para que salga el mismo cartel que un fallo de chat
+        it('should flag the runtime as errored so the generic banner shows', async () => {
+            createSessionChat.mockRejectedValue(new Error('500 del proxy'));
+
+            render(<ChatIaFoodit />);
+
+            await waitFor(() =>
+                expect(mockSetStatus).toHaveBeenCalledWith('error')
+            );
+            expect(mockSetError).toHaveBeenCalledWith(
+                expect.objectContaining({ code: 'internal_error' })
             );
         });
     });
@@ -492,6 +541,127 @@ describe('ChatIaFoodit', () => {
         });
     });
 
+    describe('thinking indicator', () => {
+        it('should show it while the runtime is generating', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'generating',
+                    messages: [{ message_type: 'output', content: 'hola' }]
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.getByText('Foodit está pensando ...')
+            ).toBeInTheDocument();
+        });
+
+        // Regresión: un error de red no appendea mensaje del asistente, así que
+        // `messages.length` se queda en 1 para siempre. Gatear por eso, y no
+        // por `status`, dejaba este cartel colgado en vez de ceder el lugar al error.
+        it('should hide it when a failed request leaves the reply unanswered', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'error',
+                    error: { code: 'internal_error' },
+                    messages: [{ message_type: 'output', content: 'hola' }]
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.queryByText('Foodit está pensando ...')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should hide it when the session got blocked before any answer', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'blocked',
+                    error: { code: 'session_terminated' },
+                    messages: [{ message_type: 'output', content: 'hola' }]
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.queryByText('Foodit está pensando ...')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should hide it once idle with an answered message', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'idle',
+                    messages: [
+                        { message_type: 'output', content: 'hola' },
+                        assistantMessage('hola')
+                    ]
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.queryByText('Foodit está pensando ...')
+            ).not.toBeInTheDocument();
+        });
+
+        // El hueco que hacía el segundo parpadeo: la sesión ya está creada pero
+        // el `onSubmit` todavía no movió el status, así que el runtime pasa por `idle`
+        it('should keep it on in the idle gap between session and submit', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({ status: 'idle', messages: [] })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.getByText('Foodit está pensando ...')
+            ).toBeInTheDocument();
+        });
+
+        it('should not show it to a user without subscription', () => {
+            useGetUserConfig.mockReturnValue({
+                isSubscribed: false,
+                id: 'user-42',
+                userType: 'unlogged'
+            });
+
+            render(<ChatIaFoodit />);
+
+            expect(
+                screen.queryByText('Foodit está pensando ...')
+            ).not.toBeInTheDocument();
+        });
+
+        // Antes de tener sesión el runtime sigue en `idle`, sin mensajes: sin
+        // este gate el usuario ve el chat vacío mientras arma la sesión
+        it('should show it while the session is still being created', async () => {
+            let resolveSession;
+            createSessionChat.mockReturnValue(
+                new Promise(resolve => {
+                    resolveSession = resolve;
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            await waitFor(() =>
+                expect(
+                    screen.getByText('Foodit está pensando ...')
+                ).toBeInTheDocument()
+            );
+
+            await act(async () => {
+                resolveSession({ session_id: 'session-abc' });
+            });
+        });
+    });
+
     // El runtime vuelve a `idle` en cuanto llega la respuesta: el tipeo corre con el chat "libre"
     describe('input while the answer types', () => {
         const typingRuntime = () =>
@@ -638,7 +808,21 @@ describe('ChatIaFoodit', () => {
     });
 
     describe('snapshots', () => {
-        it('should match snapshot when subscribed and idle', () => {
+        it('should match snapshot when subscribed and waiting for the first answer', () => {
+            const { container } = render(<ChatIaFoodit />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
+
+        it('should match snapshot when the first answer already arrived', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    messages: [
+                        { message_type: 'output', content: 'hola' },
+                        assistantMessage('hola')
+                    ]
+                })
+            );
+
             const { container } = render(<ChatIaFoodit />);
             expect(container.firstChild).toMatchSnapshot();
         });

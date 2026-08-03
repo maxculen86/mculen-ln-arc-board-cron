@@ -83,7 +83,9 @@ export async function getSuggestedQuestions({
 
 const MSG_OUT_OF_CONTEXT =
     'En este momento no puedo responder tu consulta. Intenta nuevamente más tarde.';
-const MSG_GENERIC_ERROR =
+
+// Evita mostrar el código técnico al usuario ("Error: unusable_response").
+export const MSG_GENERIC_ERROR =
     'Ocurrió un error. Te invitamos a retomar el chat más adelante.';
 
 export function resolveErrorMessage(err) {
