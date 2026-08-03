@@ -48,6 +48,7 @@ describe('components - features - LN - DS-ArticleFooter - ArticleFooter', () => 
         expect(() => render(<ArticleFooter />)).not.toThrow();
 
         expect(AuthorAndDescription).not.toHaveBeenCalled();
+        expect(document.querySelector('#fin-de-nota')).toBeInTheDocument();
     });
 
     it('passes undefined distributor fields and a null href when there is no distributor but there is a subcategory', () => {
