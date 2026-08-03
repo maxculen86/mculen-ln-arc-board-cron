@@ -46,6 +46,7 @@ function ArticleFooter() {
                 <ArticleFooterUi.TheTrustProject {...trustProjectData.image} />
                 <ArticleFooterUi.WorkType tooltipData={tooltipData} />
             </ArticleFooterUi>
+            <div id="fin-de-nota" />
         </WrapperBody>
     );
 }

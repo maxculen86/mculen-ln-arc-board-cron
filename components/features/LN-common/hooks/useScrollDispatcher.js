@@ -25,14 +25,14 @@ const useScrollDispatcher = ({ startSelector, endSelector } = {}) => {
     useEffect(() => {
         const alreadyDispatched = new Set();
 
-        //Si no se envian selectores, considera el documento entero
+        // Si no se envian selectores, considera el documento entero
         const startEl = startSelector
             ? document.querySelector(startSelector)
             : document.documentElement;
 
         const endEl = endSelector ? document.querySelector(endSelector) : null;
 
-        let ticking = false; //Para no llamar tanto a requestAnimationFrame
+        let ticking = false; // Para no llamar tanto a requestAnimationFrame
 
         const handleScroll = () => {
             if (ticking) return;
