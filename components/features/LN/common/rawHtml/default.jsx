@@ -1,38 +1,32 @@
 import React from 'react';
+import { cx } from '@ln/ds-cva';
 import HtmlPym from '../../../../private/LN/nota/cuerpo/htmlPym';
 import hasIframeWithPYM from '../utils/hasIframeWithPYM';
-import { WrapperBody } from '../wrapperBody/default';
 
-function RawHtml(props) {
-    const { data = {} } = props;
-    const { content, _id: idMedia } = data;
+export default function RawHtml({ htmlData, idMedia = '', className = '' }) {
+    if (!htmlData || !idMedia) return null;
 
-    if (!content) return null;
-
-    if (hasIframeWithPYM(content)) {
+    if (hasIframeWithPYM(htmlData)) {
         return (
-            <WrapperBody className="mb-64">
-                <HtmlPym
-                    data={data}
-                    className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
-                />
-            </WrapperBody>
+            <HtmlPym
+                data={{ content: htmlData, _id: idMedia }}
+                className={cx(
+                    'flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden',
+                    className
+                )}
+            />
         );
     }
 
     return (
-        <WrapperBody className="mb-64">
-            <div
-                className="flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden"
-                id={`anexo-${idMedia}`}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: content }}
-            />
-        </WrapperBody>
+        <div
+            className={cx(
+                'flex items-center [&>*]:w-full justify-center min-w-0 overflow-hidden',
+                className
+            )}
+            id={`anexo-${idMedia}`}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: htmlData }}
+        />
     );
 }
-
-RawHtml.arcType = 'raw_html';
-RawHtml.outputType = 'default';
-
-export default RawHtml;

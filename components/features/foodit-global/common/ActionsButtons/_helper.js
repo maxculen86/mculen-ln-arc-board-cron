@@ -12,7 +12,7 @@ import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addActionToDataLayer from '../utils/addActionToDataLayer';
 import { PrintButton } from '../PrintButton/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
-import { DialogBarrier } from '../DialogBarrier/foodit';
+import { DialogFoodit } from '../DialogFoodit/foodit';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -126,9 +126,10 @@ const renderRegularButton = ({
                 <Icon size={24}>{IconButton}</Icon>
             </Button>
 
-            <DialogBarrier
+            <DialogFoodit
                 isOpen={isOpen}
                 onClose={onClose}
+                isSubscribed={false}
                 userType={userType}
             />
         </>

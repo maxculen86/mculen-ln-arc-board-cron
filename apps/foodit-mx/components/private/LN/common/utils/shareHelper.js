@@ -4,16 +4,11 @@ import { cx } from '@ln/ds-cva';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/foodit';
 import get from '../../../common/utils/get';
-import toggleBookmark, {
-    getStatusMessage
-} from '../../../common/utils/bookmarkHelper';
-import renderToast from '../../../../features/private-global/common/utils/renderToast';
 import {
     VIDEO,
     VIDEO_VERTICAL
 } from '../../../common/utils/subtypes/subtypeHelper';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import { barrierMessages } from '../../../../features/LN/common/barrierRequiresSubscription/helper';
 
 const noPaddingSmNone = 'p-0 sm-none';
 
@@ -178,27 +173,6 @@ export const getFirstGroupClassNames = ({ isCustomLayout }) => ({
             : 'h-40_max1023 h-fit-content_min1024 w-40_min1024 flex-column_l'
     )
 });
-
-export const onButtonClicked = (
-    suscription,
-    globalContent,
-    bookmark,
-    setBookmark,
-    openBarrier
-) => {
-    if (suscription) {
-        toggleBookmark({
-            isDelete: bookmark,
-            setBookmark,
-            _globalContent: globalContent
-        }).then(({ status, bookmarkContent }) => {
-            const toastConfig = getStatusMessage(status, bookmarkContent);
-            renderToast(toastConfig);
-        });
-    } else {
-        openBarrier(barrierMessages.BOOKMARK);
-    }
-};
 
 export function BtnContainer({ children, withContainer, id }) {
     if (withContainer) {

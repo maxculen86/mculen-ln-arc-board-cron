@@ -4,8 +4,11 @@ const MASK_USER_INPUT = 'mask-user-input';
 export default {
     IS_DEV: false,
     API_ENV: 'prod',
-    RESIZER_URL: 'https://resizer.glanacion.com/resizer',
-    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+    // TODO: SE PONE LAS DE SANDBOX PARA PROBAR, DESPUES SE DEBE CAMBIAR A LAS DE PROD CUANDO SE CONFIGUREN BIEN LOS ENTORNOS
+    /* RESIZER_URL: 'https://resizer.glanacion.com/resizer',
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com', */
+    RESIZER_URL: 'https://sandbox-resizer.glanacion.com/resizer',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
     RESIZER_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}', // NOSONAR
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',

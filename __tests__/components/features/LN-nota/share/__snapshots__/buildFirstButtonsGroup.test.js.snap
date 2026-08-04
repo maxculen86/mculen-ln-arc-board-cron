@@ -20,6 +20,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
           type="button"
         >
           <div
+            class="contents"
             data-tw="true"
           >
             <mock-ds-common-icon
@@ -86,6 +87,7 @@ exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
         type="button"
       >
         <div
+          class="contents"
           data-tw="true"
         >
           <mock-ds-common-icon

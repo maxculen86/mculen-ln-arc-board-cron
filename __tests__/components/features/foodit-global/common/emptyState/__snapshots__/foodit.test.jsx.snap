@@ -8,7 +8,7 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
     >
       <img
         alt="Logo Foodit"
-        class="image -mb-8 w-87 h-91 flex --fill"
+        class="image -mb-8 max-w-87 max-h-91 flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -25,23 +25,23 @@ exports[`EmptyState component should match snapshot with variant "404" 1`] = `
         <p
           class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
-          <span>
+          <p
+            class="text-16"
+          >
             <span
-              class="roboto text-16 text-light-600"
+              class="font-secondary text-secondary-default"
             >
               Mientras te invitamos a seguir navegando en
                
             </span>
             <a
-              class="link foodit-link flex gap-8 ai-center roboto-regular inline-flex"
-              data-variant="secondary"
+              class="inline-flex text-accent-default hover:opacity-80"
               href="/"
-              target="_self"
               title="Ir a Foodit"
             >
               Foodit
             </a>
-          </span>
+          </p>
         </p>
       </div>
     </section>
@@ -153,7 +153,7 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
     >
       <img
         alt="¡Aún no hay nada por acá!"
-        class="image -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg flex --fill"
+        class="image -mb-8 max-w-78 max-h-80 md:max-w-94 md:max-h-96 xl:max-w-110 xl:max-h-112 flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -173,12 +173,18 @@ exports[`EmptyState component should match snapshot with variant "empty-state 1`
           <span>
             Presioná el botón
             <i
-              class="icon vertical-align-middle mx-4 --icon-16"
+              aria-hidden="true"
+              class="ds-icon inline-flex justify-center items-center [&>svg]:size-[inherit] [&>svg]:align-top size-16 data-[has-wrapper="true"]:p-8 pt-6 mx-4"
+              data-has-wrapper="false"
+              role="presentation"
             >
-              <mock-icon
-                critical=""
-                name="bookmark"
-              />
+              <svg
+                fill="currentColor"
+              >
+                <use
+                  href="/pf/resources/images/foodit-sprite-critical.svg#bookmark"
+                />
+              </svg>
             </i>
             GUARDAR en la receta para acceder al contenido cuando quieras y ¡Listo!
           </span>
@@ -220,7 +226,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
     >
       <img
         alt="¡Aún no hay nada por acá!"
-        class="image -mb-8 w-78 h-80 w-94_md h-96_md w-110_lg h-112_lg flex --fill"
+        class="image -mb-8 max-w-78 max-h-80 md:max-w-94 md:max-h-96 xl:max-w-110 xl:max-h-112 flex --fill"
         decoding="async"
         fetchpriority="low"
         loading="lazy"
@@ -238,7 +244,7 @@ exports[`EmptyState component should match snapshot with variant "search-engine"
           class="text text-16 text-light-600 text-center text-start_md md:text-left"
         >
           <span
-            class="roboto text-16 text-light-600 text-center"
+            class="font-secondary text-16 text-secondary-default text-center"
           >
             No se encontraron resultados
           </span>

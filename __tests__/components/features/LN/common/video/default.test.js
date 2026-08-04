@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import VideoPlayer from '../../../../../../components/features/LN/common/video/default';
+import { extractVideoData } from '../../../../../../components/features/LN/common/video/utils/videoDataUtils';
 import Context from 'fusion:context';
 
 jest.mock(
@@ -22,14 +23,15 @@ jest.mock(
             images,
             fallbackSrc,
             alt,
-            className,
-            containerClassName
+            loading,
+            fetchPriority
         }) {
             return (
                 <div
                     id={`facade-${mediaId}`}
-                    className={`content-facade-jw ${containerClassName}`}
                     data-testid="video-facade"
+                    data-loading={loading}
+                    data-priority={fetchPriority}
                 >
                     <div id="button-play" data-testid="play-button">
                         Play
@@ -37,7 +39,6 @@ jest.mock(
                     <img
                         src={fallbackSrc}
                         alt={alt}
-                        className={className}
                         data-testid="facade-image"
                     />
                 </div>
@@ -61,21 +62,7 @@ jest.mock('fusion:context', () => ({
 
 jest.mock('fusion:static', () => ({ children }) => <>{children}</>);
 
-describe('components - features - LN - common - video - VideoPlayer', () => {
-    beforeEach(() => {
-        Context.useAppContext.mockReturnValue({
-            outputType: 'default',
-            arcSite: 'la-nacion-ar',
-            deployment: jest.fn(path => path),
-            contextPath: '/pf',
-            globalContent: {
-                subtype: '',
-                promo_items: {}
-            },
-            layout: ''
-        });
-    });
-
+describe('components - features - LN - common - video - VideoPlayer (pure)', () => {
     const mockData = {
         embed: {
             config: {
@@ -105,100 +92,54 @@ describe('components - features - LN - common - video - VideoPlayer', () => {
         }
     };
 
-    it('renders the video player container', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
+    let videoData;
 
-        const container = document.querySelector('[alt="Test Video Title"]');
-        expect(container).toBeInTheDocument();
+    beforeEach(() => {
+        Context.useAppContext.mockReturnValue({
+            outputType: 'default',
+            arcSite: 'la-nacion-ar',
+            deployment: jest.fn(path => path),
+            contextPath: '/pf',
+            globalContent: { subtype: '', promo_items: {} },
+            layout: ''
+        });
+        videoData = extractVideoData(mockData);
     });
 
     it('renders the video facade with correct mediaId', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
+        render(<VideoPlayer videoData={videoData} />);
         const facadeDiv = document.querySelector('#facade-testMedia123');
         expect(facadeDiv).toBeInTheDocument();
     });
 
     it('renders the play button', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
-        const playButton = screen.getByTestId('play-button');
-        expect(playButton).toBeInTheDocument();
+        render(<VideoPlayer videoData={videoData} />);
+        expect(screen.getByTestId('play-button')).toBeInTheDocument();
     });
 
     it('renders the player container div with correct id', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
-        const playerContainer = document.querySelector('#testMedia123');
-        expect(playerContainer).toBeInTheDocument();
+        render(<VideoPlayer videoData={videoData} />);
+        expect(document.querySelector('#testMedia123')).toBeInTheDocument();
     });
 
     it('renders data-has-jwplayer attribute', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
-        const jwPlayerElement = document.querySelector(
-            '[data-has-jwplayer="true"]'
-        );
-        expect(jwPlayerElement).toBeInTheDocument();
+        render(<VideoPlayer videoData={videoData} />);
+        expect(
+            document.querySelector('[data-has-jwplayer="true"]')
+        ).toBeInTheDocument();
     });
 
     it('renders data-video-id-jw attribute with correct mediaId', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
-        const videoIdElement = document.querySelector(
-            '[data-video-id-jw="testMedia123"]'
-        );
-        expect(videoIdElement).toBeInTheDocument();
+        render(<VideoPlayer videoData={videoData} />);
+        expect(
+            document.querySelector('[data-video-id-jw="testMedia123"]')
+        ).toBeInTheDocument();
     });
 
     it('renders data-config attribute with video configuration', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
+        render(<VideoPlayer videoData={videoData} />);
         const configElement = document.querySelector('[data-config]');
         expect(configElement).toBeInTheDocument();
-
         const config = JSON.parse(configElement.getAttribute('data-config'));
         expect(config.title).toBe('Test Video Title');
         expect(config.mediaId).toBe('testMedia123');
@@ -206,56 +147,51 @@ describe('components - features - LN - common - video - VideoPlayer', () => {
     });
 
     it('renders figcaption with epigraphTitle when showCaption is true', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
+        render(<VideoPlayer videoData={videoData} showCaption={true} />);
         const figCaption = document.querySelector('figcaption');
         expect(figCaption).toBeInTheDocument();
         expect(figCaption).toHaveTextContent('Test epigraph');
     });
 
-    it('does not render figcaption for VIDEO subtype with promo item', () => {
-        Context.useAppContext.mockReturnValue({
-            outputType: 'default',
-            arcSite: 'la-nacion-ar',
-            deployment: jest.fn(path => path),
-            contextPath: '/pf',
-            globalContent: {
-                subtype: '5', // VIDEO subtype
-                promo_items: {
-                    video_jw: {
-                        embed: {
-                            config: {
-                                idVideo: 'testMedia123'
-                            }
-                        }
-                    }
-                }
-            },
-            layout: ''
-        });
-
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-            />
-        );
-
-        const figCaption = document.querySelector('figcaption');
-        expect(figCaption).not.toBeInTheDocument();
+    it('does not render figcaption when showCaption is false', () => {
+        render(<VideoPlayer videoData={videoData} showCaption={false} />);
+        expect(document.querySelector('figcaption')).not.toBeInTheDocument();
     });
 
-    it('uses default player ID when not provided', () => {
+    it('does not render figcaption when epigraphTitle is missing', () => {
+        const dataNoEpigraph = {
+            embed: {
+                config: {
+                    idPlayer: 'mockPlayer123',
+                    videoJw: {
+                        title: 'Test',
+                        description: '',
+                        playlist: [
+                            {
+                                mediaid: 'testMedia123',
+                                images: [],
+                                image: '',
+                                sources: []
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+        render(
+            <VideoPlayer
+                videoData={extractVideoData(dataNoEpigraph)}
+                showCaption={true}
+            />
+        );
+        expect(document.querySelector('figcaption')).not.toBeInTheDocument();
+    });
+
+    it('uses default player ID when not provided in data', () => {
         const dataWithoutPlayer = {
             embed: {
                 config: {
+                    idPlayer: '',
                     videoJw: {
                         title: 'Test',
                         playlist: [
@@ -270,36 +206,46 @@ describe('components - features - LN - common - video - VideoPlayer', () => {
                 }
             }
         };
-
-        render(
-            <VideoPlayer
-                data={dataWithoutPlayer}
-                parrafo="Test"
-                tituloNota="Test"
-            />
-        );
-
+        render(<VideoPlayer videoData={extractVideoData(dataWithoutPlayer)} />);
         const configElement = document.querySelector('[data-config]');
         const config = JSON.parse(configElement.getAttribute('data-config'));
         expect(config.playerId).toBe('ih0086X3');
     });
 
     it('renders with hasAutoplay in config', () => {
-        render(
-            <VideoPlayer
-                data={mockData}
-                parrafo="Test paragraph"
-                tituloNota="Test note title"
-                hasAutoplay={true}
-            />
-        );
-
+        render(<VideoPlayer videoData={videoData} hasAutoplay={true} />);
         const configElement = document.querySelector('[data-config]');
         const config = JSON.parse(configElement.getAttribute('data-config'));
         expect(config.hasAutoplay).toBe(true);
     });
 
-    it('has arcType property set to video_jw', () => {
-        expect(VideoPlayer.arcType).toBe('video_jw');
+    it('passes loadingType and fetchPriority to the facade', () => {
+        render(
+            <VideoPlayer
+                videoData={videoData}
+                loadingType="eager"
+                fetchPriority="high"
+            />
+        );
+        const facade = screen.getByTestId('video-facade');
+        expect(facade).toHaveAttribute('data-loading', 'eager');
+        expect(facade).toHaveAttribute('data-priority', 'high');
+    });
+
+    it('applies className to the player container', () => {
+        render(
+            <VideoPlayer
+                videoData={videoData}
+                classnames={{
+                    container: 'custom-class aspect-16/9'
+                }}
+            />
+        );
+        const container = document.querySelector('[data-has-jwplayer="true"]');
+        expect(container).toHaveClass('custom-class', 'aspect-16/9');
+    });
+
+    it('does not declare arcType (registry is responsibility of wrappers)', () => {
+        expect(VideoPlayer.arcType).toBeUndefined();
     });
 });

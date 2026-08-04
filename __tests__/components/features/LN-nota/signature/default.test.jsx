@@ -25,9 +25,19 @@ jest.mock('fusion:context', () => {
 });
 
 jest.mock(
-    '../../../../../components/private/common/audioNews/components/AudioButton',
+    '../../../../../components/features/LN-nota/signature/components/audioButton',
     () => ({
         AudioButton: jest.fn(() => <button>Escuchar Nota</button>)
+    })
+);
+
+jest.mock(
+    '../../../../../components/features/LN-10-global/common/googleButton/default',
+    () => ({
+        __esModule: true,
+        default: jest.fn(({ className }) => (
+            <div data-testid="google-button" className={className} />
+        ))
     })
 );
 
@@ -204,5 +214,45 @@ describe('components - feature - LN-nota - signature - default', () => {
 
         render(<SignatureFeature {...props} />);
         expect(AudioPlayer).not.toHaveBeenCalled();
+    });
+
+    it('renders google button with mb-16 when there is an author, position is Top and subtype is noticia', () => {
+        const props = {
+            ...defaultProps,
+            globalContent: {
+                ...defaultProps.globalContent,
+                subtype: '1'
+            }
+        };
+
+        const { container } = render(<SignatureFeature {...props} />);
+        const googleButton = container.querySelector(
+            '[data-testid="google-button"]'
+        );
+
+        expect(googleButton).not.toBeNull();
+        expect(googleButton.className).toContain('mb-16');
+    });
+
+    it('renders google button with md:mb-24 when there is no visible content and subtype is noticia', () => {
+        const props = {
+            ...defaultProps,
+            globalContent: {
+                ...defaultProps.globalContent,
+                subtype: '1',
+                credits: { by: [] },
+                distributor: { name: '' },
+                withFirmaDistributor: false,
+                isListenable: false
+            }
+        };
+
+        const { container } = render(<SignatureFeature {...props} />);
+        const googleButton = container.querySelector(
+            '[data-testid="google-button"]'
+        );
+
+        expect(googleButton).not.toBeNull();
+        expect(googleButton.className).toContain('md:mb-24');
     });
 });

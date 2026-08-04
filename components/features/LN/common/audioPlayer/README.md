@@ -213,22 +213,16 @@ El trigger (`AudioButton` en `DS-Toolbar`) decide mostrarse con:
 
 ---
 
-## 7. Sistema de toasts (migración en curso)
+## 7. Sistema de toasts
 
-El toast de error se enruta por `renderToastAdapter`, que elige entre el sistema legacy y el DS según
-el layout:
+El toast de error se enruta por `renderToasts` del Design System con el shape
+nativo del DS (`color`/`description`):
 
 ```js
-const DS_TOAST_LAYOUTS = [layoutsName.StoryTellingV2, layoutsName.NotaOpinion];
-const useDesignSystem = DS_TOAST_LAYOUTS.includes(layout);
-renderToastAdapter({ variant: 'danger', title, message, duration }, useDesignSystem);
+renderToasts({ color: 'error', title, description, duration });
 ```
 
-Los nombres de layout se importan de `properties/sites/la-nacion-ar.js` (fuente única).
-
-> **TODO:** cuando todos los templates estén migrados al DS, eliminar el adapter y
-> `DS_TOAST_LAYOUTS`, y llamar directo a `renderToasts` del DS. Ver el TODO inline en
-> `buildAudioPlayer.jsx`.
+Todos los templates LN ya montan el contenedor del DS.
 
 ---
 

@@ -6,7 +6,7 @@ exports[`PromoteInstallation should match snapshot snackBarDefault 1`] = `
     data-tw="true"
   >
     <div
-      class="bg-brand-sal w-full max-w-328 md:max-w-508 rounded-4 inline-flex fixed bottom-0 left-1/2 -translate-x-1/2 mb-16 z-7 shadow-lg justify-center items-center p-16 gap-8"
+      class="--no-app bg-brand-sal w-full max-w-328 md:max-w-508 rounded-4 inline-flex fixed bottom-0 left-1/2 -translate-x-1/2 mb-16 z-7 shadow-lg justify-center items-center p-16 gap-8"
     >
       <div
         class="flex gap-8 items-center"
@@ -38,7 +38,7 @@ exports[`PromoteInstallation should match snapshot snackBarDrawer 1`] = `
     data-tw="true"
   >
     <div
-      class="bg-brand-sal flex flex-col pt-24 pb-12 px-16 gap-12 mt-24"
+      class="--no-app bg-brand-sal flex flex-col pt-24 pb-12 px-16 gap-12 mt-24"
     >
       <div
         class="flex gap-8 items-center"

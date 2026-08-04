@@ -1,4 +1,6 @@
+import { SITE_LANACION } from 'fusion:environment';
 import get from '../../../../common/utils/get';
+import getAuthorByline from '../../../../common/utils/getAuthorByline';
 import { addForwardSlash } from '../../../common/utils/addForwardSlash';
 import { extractDataFromPromoItems } from '../../../common/utils/extractDataFromPromoItems';
 import { getImageProps } from '../../../../common/utils/getMetasOGHelper';
@@ -94,4 +96,79 @@ export const buildMainEntityFromTags = ({ tags = [], host = '' }) => {
               itemListElement
           }
         : null;
+};
+
+const SOCIAL_PROFILES = [
+    { site: 'twitter', baseUrl: 'https://twitter.com/' },
+    { site: 'instagram', baseUrl: 'https://www.instagram.com/' },
+    { site: 'facebook', baseUrl: 'https://www.facebook.com/' },
+    { site: 'linkedin', baseUrl: 'https://www.linkedin.com/in/' },
+    { site: 'youtube', baseUrl: 'https://www.youtube.com/' },
+    { site: 'tiktok', baseUrl: 'https://www.tiktok.com/@' },
+    { site: 'personal_website' }
+];
+
+const formatSocialUrl = (value, baseUrl) => {
+    if (!value) return '';
+    if (value.startsWith('http')) return value;
+    if (!baseUrl) return value;
+
+    return `${baseUrl}${value.replace(/^@/, '').replace(/^\/+|\/+$/g, '')}/`;
+};
+
+export const buildAuthorPersonSchema = (author = {}) => {
+    const original = get(author, 'additional_properties.original', {});
+    const socialLinks = get(author, 'social_links', []);
+    const bioPage = original.bio_page || get(author, 'url', '');
+    const authorUrl = bioPage ? `${SITE_LANACION}${bioPage}` : '';
+    const imageUrl =
+        get(author, 'image.url', '') ||
+        get(author, 'image.resized_urls[0].resizedUrl', '') ||
+        original.image;
+    const description = (original.longBio || original.bio || '').trim();
+    const knowsAbout = original.expertise ? [original.expertise] : [];
+    const alumniOf = Array.isArray(original.education)
+        ? original.education
+              .filter(({ name }) => name)
+              .map(({ name }) => ({
+                  '@type': 'EducationalOrganization',
+                  name
+              }))
+        : [];
+    const affiliation = original.affiliations
+        ? [
+              {
+                  '@type': 'Organization',
+                  name: original.affiliations
+              }
+          ]
+        : [];
+    const knowsLanguage = original.languages
+        ? original.languages.split(',').map(language => language.trim())
+        : [];
+    const sameAs = SOCIAL_PROFILES.map(({ site, baseUrl }) => {
+        const socialLink = Array.isArray(socialLinks)
+            ? socialLinks.find(link => link.site === site)
+            : null;
+
+        return formatSocialUrl(original[site] || socialLink?.url, baseUrl);
+    }).filter((url, index, urls) => url && urls.indexOf(url) === index);
+
+    return {
+        '@type': 'Person',
+        name: getAuthorByline(author),
+        ...(authorUrl && { url: authorUrl }),
+        ...(imageUrl && {
+            image: {
+                '@type': 'ImageObject',
+                url: imageUrl
+            }
+        }),
+        ...(description && { description }),
+        ...(knowsAbout.length && { knowsAbout }),
+        ...(alumniOf.length && { alumniOf }),
+        ...(affiliation.length && { affiliation }),
+        ...(knowsLanguage.length && { knowsLanguage }),
+        ...(sameAs.length && { sameAs })
+    };
 };

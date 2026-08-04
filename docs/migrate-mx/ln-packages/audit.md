@@ -4,21 +4,22 @@
 -   **Repositorio:** `/home/cgomes/Arc`
 -   **Autor:** cgomes (Gomes Carlos — Producto y Tecnologia)
 -   **US ADO:** [#173241](https://dev.azure.com/lndigital/336c835e-ca0b-48f3-b1f9-a65e3390b603/_workitems/edit/173241)
+-   **Actualizado:** 27/07/2026 — Alexander (eliminación de `@ln/common-ui-toast` por migración de toasts al DS)
 -   **Objetivo:** identificar el subset de `@ln/*` necesario para el bundle MX de recetas, con versiones exactas y análisis de árbol de dependencias.
 
 ## Resumen
 
 | Métrica                                           | Valor |
 | ------------------------------------------------- | ----: |
-| Total `@ln/*` en package.json de Contenidos       |   123 |
+| Total `@ln/*` en package.json de Contenidos       |   122 |
 | Archivos escaneados (scope MX recetas)            |  1156 |
 | Matches grep `@ln/`                               |   412 |
-| Paquetes directos únicos usados por MX recetas    |    54 |
+| Paquetes directos únicos usados por MX recetas    |    53 |
 | Transitivos `@ln/*` adicionales                   |    18 |
 | Transitivos no declarados en root package.json    |     4 |
 | Conflictos de dependencias/peer deps obligatorias |     0 |
 
-> Nota: en el estado actual del repo hay **123** paquetes `@ln/*` en Contenidos (no 124).
+> Nota: en el estado actual del repo hay **122** paquetes `@ln/*` en Contenidos (no 124).
 
 ## Scope de grep (archivos a copiar para MX recetas)
 
@@ -48,7 +49,7 @@
 
 ## Lista final de paquetes directos `@ln/*` con versión exacta (pinneada)
 
-Breakdown: common-ui (23), contenidos-ui (6), ds/cva (6), foodit-ui (13), libs/utils (6).
+Breakdown: common-ui (22), contenidos-ui (6), ds/cva (6), foodit-ui (13), libs/utils (6).
 
 Ver también [`package-json-snippet.json`](./package-json-snippet.json) para copiar directamente en el `package.json` del MX.
 
@@ -75,7 +76,6 @@ Ver también [`package-json-snippet.json`](./package-json-snippet.json) para cop
 | @ln/common-ui-spinner            | 2.0.0                        |
 | @ln/common-ui-tabs               | 0.0.6                        |
 | @ln/common-ui-text               | 1.1.1                        |
-| @ln/common-ui-toast              | 1.0.0                        |
 | @ln/common-ui-tooltip            | 2.0.2                        |
 | @ln/contenidos-ui-animatedicons  | 0.0.3                        |
 | @ln/contenidos-ui-badge          | 1.1.22                       |
@@ -111,7 +111,7 @@ Ver también [`package-json-snippet.json`](./package-json-snippet.json) para cop
 
 ## Dependency tree y peer deps
 
--   Se analizó el árbol de dependencias de los **54** paquetes directos.
+-   Se analizó el árbol de dependencias de los **53** paquetes directos.
 -   Resultado: **0 conflictos** (deps + peer deps obligatorias).
 
 ### Transitivas `@ln/*` adicionales (no directas)
@@ -122,8 +122,8 @@ Ver también [`package-json-snippet.json`](./package-json-snippet.json) para cop
 | @ln/common-ui-infinitescroll | 0.0.3       | @ln/lib-personalizacion                                                                   | **No**               |
 | @ln/common-ui-interfaces     | 1.1.1       | @ln/common-ui-text, @ln/foodit-ui-card                                                    | Sí                   |
 | @ln/common-ui-link           | 1.1.1       | @ln/common-ui-header, @ln/contenidos-ui-link, @ln/foodit-ui-link, @ln/lib-personalizacion | Sí                   |
-| @ln/common-ui-portal         | 0.0.3       | @ln/common-ui-dialog, @ln/common-ui-toast, @ln/common-ui-tooltip, @ln/lib-personalizacion | Sí                   |
-| @ln/common-ui-progress       | 0.0.2       | @ln/common-ui-mediascroller, @ln/common-ui-toast                                          | Sí                   |
+| @ln/common-ui-portal         | 0.0.3       | @ln/common-ui-dialog, @ln/common-ui-tooltip, @ln/lib-personalizacion                       | Sí                   |
+| @ln/common-ui-progress       | 0.0.2       | @ln/common-ui-mediascroller                                                                | Sí                   |
 | @ln/common-ui-video          | 1.1.0       | @ln/foodit-ui-card                                                                        | Sí                   |
 | @ln/contenidos-ui-interfaces | 1.1.3       | @ln/contenidos-ui-badge                                                                   | Sí                   |
 | @ln/ds-common-divider        | 1.2.0       | @ln/ds-common-drawer                                                                      | Sí                   |
@@ -151,6 +151,6 @@ Se resuelven automáticamente vía npm al instalar las dependencias directas:
 -   [x] Grep ejecutado sobre todos los archivos identificados para el bundle MX
 -   [x] Lista de paquetes `@ln/*` únicos con versión exacta de Contenidos
 -   [x] Dependency tree de cada paquete analizado (sin conflictos de peer deps)
--   [x] Estimación validada: 54 paquetes directos (el rango 20-30 era conservador para este scope)
+-   [x] Estimación validada: 53 paquetes directos (el rango 20-30 era conservador para este scope)
 -   [x] Versiones pinneadas documentadas para `package.json` del MX
 -   [x] Documento final disponible para Feature 2

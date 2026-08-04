@@ -7,7 +7,7 @@ function MockItems({ quantity = 1 }) {
     return (
         <div className="flex flex-col gap-16">
             {Array.from({ length: quantity }, (_, i) => ({
-                id: `mock-${Date.now()}-${i}-${Math.random()}`
+                id: `mock-${Date.now()}-${i}-${Math.random()}` // NOSONAR
             })).map(item => (
                 <div
                     key={item.id}

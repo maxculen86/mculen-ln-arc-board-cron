@@ -49,8 +49,14 @@ describe('CardPromoTitle', () => {
     });
 
     describe('when children is provided', () => {
-        it('should render a span element', () => {
+        it('should render default a h2 element', () => {
             render(<CardPromoTitle>Mi Juego</CardPromoTitle>);
+            const h2 = screen.getByText('Mi Juego');
+            expect(h2.tagName).toBe('H2');
+        });
+
+        it('should render a span element', () => {
+            render(<CardPromoTitle as="span">Mi Juego</CardPromoTitle>);
             const span = screen.getByText('Mi Juego');
             expect(span.tagName).toBe('SPAN');
         });
@@ -75,6 +81,13 @@ describe('CardPromoTitle', () => {
         it('matches snapshot with children', () => {
             const { asFragment } = render(
                 <CardPromoTitle>Mi Juego</CardPromoTitle>
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
+
+        it('matches snapshot with children and span tag', () => {
+            const { asFragment } = render(
+                <CardPromoTitle as="span">Mi Juego</CardPromoTitle>
             );
             expect(asFragment()).toMatchSnapshot();
         });

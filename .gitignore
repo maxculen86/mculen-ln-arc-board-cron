@@ -31,3 +31,6 @@ resources/packages/css/LN10-Home_Main.min.css
 resources/packages/css/LN10-Home_Main-critical.min.css
 
 localhost.json
+
+# MX routing audit log (runtime, no commitear)
+scripts/logs/

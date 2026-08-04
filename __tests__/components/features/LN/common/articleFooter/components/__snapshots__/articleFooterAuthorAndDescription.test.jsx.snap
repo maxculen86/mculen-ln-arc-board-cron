@@ -22,3 +22,26 @@ exports[`AuthorAndDescription snapshots matches snapshot with both props 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`AuthorAndDescription snapshots matches snapshot with custom distributor mode 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-row items-center md:w-auto md:shrink-0 min-h-20"
+  >
+    <div
+      class="flex flex-row items-center gap-8"
+    >
+      <span
+        class="text-label-lg tracking-(--tracking-normal) leading-[100%] font-bold  text-secondary-default underline underline-offset-2 decoration-2 [text-decoration-skip-ink:none]"
+      >
+        lanacion.ar
+      </span>
+      <span
+        class="text-small-lg font-normal text-base-default"
+      >
+        Texto complementario
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

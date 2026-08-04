@@ -1,7 +1,7 @@
 import { useContent } from 'fusion:content';
 
 import get from '../../../../../private/common/utils/get';
-import { checkForId } from '../../../../LN-10/article/common/_helper-WebApi';
+import { checkForId } from '../../utils/checkForId';
 import { filterImagesByDevice } from '../../../../private-global/common/utils/filterImagesByDevice';
 import { getVideoData } from '../../../../private-global/common/utils/getVideoData';
 
@@ -43,12 +43,17 @@ export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
               checkExclusiveAccess: false
           };
 
-    const preloadContent = useContent({
-        source,
-        query: queryConfig,
-        staticMode: true,
-        filter: validVideoId ? videoJwFilter : filter
-    });
+    let preloadContent;
+    try {
+        preloadContent = useContent({
+            source,
+            query: queryConfig,
+            staticMode: true,
+            filter: validVideoId ? videoJwFilter : filter
+        });
+    } catch (error) {
+        preloadContent = null;
+    }
 
     if (validVideoId) {
         return [{ resizedUrl: get(preloadContent, 'poster', '') }];

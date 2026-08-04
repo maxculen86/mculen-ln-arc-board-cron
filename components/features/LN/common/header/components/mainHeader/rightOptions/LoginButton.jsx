@@ -22,7 +22,7 @@ function LoginButton() {
                     href={`${LOGIN_URL}${currentUrlCallback}`}
                     rel="noopener noreferrer"
                 >
-                    Iniciar sesión
+                    <span className="text-12 leading-0">Iniciar sesión</span>
                 </a>
             </Button>
         </div>

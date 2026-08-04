@@ -12,7 +12,8 @@ const VALID_SUBTYPES = [
     'video_jw',
     'custom-how-to',
     'canchallena',
-    'gallery-embed'
+    'gallery-embed',
+    'custom-multimedia'
 ];
 
 const VIDEO_SUBTYPES = ['custom-video-jw', 'video_jw'];
@@ -30,8 +31,10 @@ const getTime = time => {
 
 const isValidSubtype = nodo => nodo && VALID_SUBTYPES.includes(nodo.subtype);
 
+const getVideoJWElement = nodo => get(nodo, 'embed.config.videoJw', null);
+
 const handleVideo = nodo => {
-    const videoJWElement = get(nodo, 'embed.config.videoJw', null);
+    const videoJWElement = getVideoJWElement(nodo);
     return [videoJW(videoJWElement)];
 };
 
@@ -105,10 +108,25 @@ const buildDefaultContent = nodo => {
     return res.length ? res : null;
 };
 
+const handleCustomMultimedia = nodo => {
+    const videoJWElement = getVideoJWElement(nodo);
+    if (videoJWElement) {
+        return handleVideo(nodo);
+    }
+    const id = get(nodo, '_id');
+    const mediaType = get(nodo, 'embed.config.mediaType', null);
+    const content = get(nodo, 'embed.config.content', null);
+
+    return mediaType === 'html' && content
+        ? html({ _id: id, content, type: 'raw_html' })
+        : null;
+};
+
 const embedHandlers = {
     canchallena: handleCanchallena,
     'custom-how-to': handleHowTo,
-    'gallery-embed': handleGallery
+    'gallery-embed': handleGallery,
+    'custom-multimedia': handleCustomMultimedia
 };
 
 const customEmbed = nodo => {

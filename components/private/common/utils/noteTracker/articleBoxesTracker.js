@@ -30,7 +30,7 @@ const addPositionInBox = (elem, brand, elemPosition, indexElem) => {
 };
 
 const boxArticleEventBuilder = {
-    masNotas: ({ grid = 9, sectionTitle }) => {
+    masNotas: ({ grid = 9, sectionTitle, isAperturaHome }) => {
         if (grid === 3 && sectionTitle === 'OtrasNoticias') {
             const boxArticlesOtherNews = document.querySelectorAll(
                 '[data-block-name="n_otras_noticias"] div article'
@@ -48,7 +48,12 @@ const boxArticleEventBuilder = {
         );
 
         boxArticlesLastNews.forEach((boxArt, i) => {
-            addPositionInBox(boxArt, 'ultimasNoticias', '1000', i);
+            addPositionInBox(
+                boxArt,
+                isAperturaHome ? 'aperturaHome' : 'ultimasNoticias',
+                '1000',
+                i
+            );
         });
 
         return boxArticlesLastNews;
@@ -135,7 +140,8 @@ export const articleBoxesTracker = ({
     boxType,
     diagramation,
     sectionTitle,
-    articles = []
+    articles = [],
+    isAperturaHome = false
 }) => {
     const refresh = checkUserRealoadAction(window);
 
@@ -143,7 +149,8 @@ export const articleBoxesTracker = ({
         ...(boxArticleEventBuilder[boxType]?.({
             grid: diagramation,
             sectionTitle,
-            articles
+            articles,
+            isAperturaHome
         }) || [])
     ].filter(Boolean);
 

@@ -8,7 +8,7 @@ import PwaModal from '../features/LN-10-global/pwaModal/default';
 import GlobalProvider from '../private/common/context/globalContext';
 import AdsStrategySelector from '../features/LN/common/adsManager/components/adsStrategySelector';
 import InitControlGroup from './helpers/initCtrlGrp';
-import Toasts from '../features/LN-10-global/common/toasts/default';
+import ToastsContainer from '../features/ui/ln/toastsContainer/default';
 import '../../resources/dist/css/ln/pages/video.css';
 import NotaVideoOpening from './LN-nota-video/components/NotaVideoOpening';
 import NotaVideoOpeningDescription from './LN-nota-video/components/NotaVideoOpeningDescription';
@@ -94,7 +94,7 @@ function lnNotaVideo({ children, globalContent, layout }) {
                     <Footer />
                 </div>
             </div>
-            <Toasts />
+            <ToastsContainer />
             <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />

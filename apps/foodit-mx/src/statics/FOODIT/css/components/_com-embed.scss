@@ -1,0 +1,38 @@
+// Fork foodit-only de src/statics/LN/css/components/_com-embed.scss del monolito.
+// Valores hardcodeados (sin @import de abstracts/variables ni abstracts/mixins de LN)
+// para no arrastrar el sistema de diseño de LN al bundle foodit-only.
+.com-embed {
+    &.--soundcloud,
+    &.--youtube,
+    &.--vimeo,
+    &.--dailymotion {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 3 / 2;
+        position: relative;
+        iframe {
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    iframe {
+        width: 100%;
+    }
+
+    .nota & {
+        margin-bottom: 64px; // $spacing-2xl en LN
+    }
+
+    @media (min-width: 48em) {
+        // $media-m en LN
+        .liveblog-editorial .preLiveBlog_p & {
+            margin-bottom: 32px; // $spacing-lg en LN
+        }
+    }
+}

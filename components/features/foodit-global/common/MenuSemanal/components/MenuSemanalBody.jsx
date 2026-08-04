@@ -6,10 +6,10 @@ import { Image } from '@ln/foodit-ui-image';
 import { Link } from '@ln/foodit-ui-link';
 import { MenuOptions } from './MenuOptions/MenuOptions';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import EmptyState from '../../emptyState/foodit';
 import { getVariantBarrier } from '../../emptyState/helpers';
 import useGetUserConfig from '../../../hooks/useGetUserConfig';
 import { menusDayTransform } from '../helpers/_helper';
+import { EmptyStateDS } from '../../../../ui/foodit/emptyState/default';
 
 function MenuSemanalBody({
     weeklyMenu,
@@ -103,9 +103,8 @@ function MenuSemanalBody({
                                     </tbody>
                                 </table>
                             ) : (
-                                <EmptyState
+                                <EmptyStateDS
                                     variant={getVariantBarrier(userType)}
-                                    direction="column"
                                 />
                             )}
                         </div>

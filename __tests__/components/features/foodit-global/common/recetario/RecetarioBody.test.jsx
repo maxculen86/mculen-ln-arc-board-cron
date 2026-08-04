@@ -77,18 +77,18 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/features/foodit-global/common/recetario/helpers',
+    '../../../../../../components/features/ui/foodit/emptyState/default',
     () => ({
-        EmptyStateComponent: ({ userType }) => (
-            <div data-testid="empty-state">
-                <h2>Exclusivo para suscriptores</h2>
-                <p>
-                    Para realizar esta acción es necesario que tengas una
-                    suscripción.
-                </p>
-                <span>User type: {userType}</span>
-            </div>
-        )
+        EmptyStateDS: ({ variant }) =>
+            variant === 'barrier-unlogged' || variant === 'barrier-logged' ? (
+                <div data-testid="empty-state">
+                    <h2>Exclusivo para suscriptores</h2>
+                    <p>
+                        Para realizar esta acción es necesario que tengas una
+                        suscripción.
+                    </p>
+                </div>
+            ) : null
     })
 );
 

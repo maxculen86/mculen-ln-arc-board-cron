@@ -3,7 +3,7 @@ import Header from '../../header/default';
 import Footer from '../../../../private/LN10/footer';
 import PwaModal from '../../pwaModal/default';
 import InitControlGroup from '../../../../layouts/helpers/initCtrlGrp';
-import Toasts from '../toasts/default';
+import ToastsContainer from '../../../ui/ln/toastsContainer/default';
 import AdsStrategySelector from '../../../LN/common/adsManager/components/adsStrategySelector';
 
 export function BaseLayout({ children, className = '' }) {
@@ -14,7 +14,7 @@ export function BaseLayout({ children, className = '' }) {
             <div className="footer-container --no-app">
                 <Footer />
             </div>
-            <Toasts />
+            <ToastsContainer />
             <AdsStrategySelector />
             <PwaModal />
             <InitControlGroup />

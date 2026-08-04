@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useShoppingList } from './hooks/useShoppingList';
 import { getVariantBarrier } from '../emptyState/helpers';
-import EmptyState from '../emptyState/foodit';
 import { ModalRemoveIngredient } from '../Modals/RemoveIngredients/foodit';
 import useGetUserConfig from '../../hooks/useGetUserConfig';
 import TabIngredients from '../ingredientsList/components/TabIngredients';
 import { SkeletonShoppingList } from '../skeletons/ShoppingList/foodit';
+import { EmptyStateDS } from '../../../ui/foodit/emptyState/default';
 
 function ShoppingList() {
     const { loading, shoppingList, setShoppingList } = useShoppingList();
@@ -29,10 +29,7 @@ function ShoppingList() {
     if (!shoppingList.length)
         return (
             <div className="min-h-344">
-                <EmptyState
-                    variant={getVariantBarrier(userType)}
-                    direction="column"
-                />
+                <EmptyStateDS variant={getVariantBarrier(userType)} />
             </div>
         );
 

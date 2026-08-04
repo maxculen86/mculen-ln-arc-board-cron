@@ -1,7 +1,8 @@
 import {
     buildPrimaryImageOfPage,
     buildMainEntityFromTags,
-    getSchemaImages
+    getSchemaImages,
+    buildAuthorPersonSchema
 } from '../../../../../../../components/private/LN/nota/snippet/helpers/newsArticleSchemaHelper';
 
 jest.mock('fusion:environment', () => ({
@@ -263,6 +264,60 @@ describe('newsArticleSchemaHelper', () => {
                 url: PLACEHOLDER,
                 width: 1200,
                 height: 800
+            });
+        });
+    });
+
+    describe('buildAuthorPersonSchema', () => {
+        it('builds enriched Person data from author fields in articleSourceNota credits', () => {
+            const author = {
+                type: 'author',
+                name: 'Gaston Roitberg',
+                url: '/autor/gaston-roitberg-35/',
+                image: {
+                    url: 'https://author-service-images.example.com/gaston.png'
+                },
+                additional_properties: {
+                    original: {
+                        byline: 'Gaston Roitberg',
+                        longBio: 'Bio completa del autor',
+                        expertise: 'Digital, medios, periodismo',
+                        education: [
+                            {
+                                name: 'Licenciado en Ciencias de la Comunicacion (UBA)'
+                            }
+                        ],
+                        languages: 'Espanol, Ingles',
+                        affiliations: 'FOPEA',
+                        twitter: '@grmadryn'
+                    }
+                }
+            };
+
+            expect(buildAuthorPersonSchema(author)).toMatchObject({
+                '@type': 'Person',
+                name: 'Gaston Roitberg',
+                url: 'https://www.lanacion.com.ar/autor/gaston-roitberg-35/',
+                image: {
+                    '@type': 'ImageObject',
+                    url: 'https://author-service-images.example.com/gaston.png'
+                },
+                description: 'Bio completa del autor',
+                knowsAbout: ['Digital, medios, periodismo'],
+                alumniOf: [
+                    {
+                        '@type': 'EducationalOrganization',
+                        name: 'Licenciado en Ciencias de la Comunicacion (UBA)'
+                    }
+                ],
+                affiliation: [
+                    {
+                        '@type': 'Organization',
+                        name: 'FOPEA'
+                    }
+                ],
+                knowsLanguage: ['Espanol', 'Ingles'],
+                sameAs: ['https://twitter.com/grmadryn/']
             });
         });
     });

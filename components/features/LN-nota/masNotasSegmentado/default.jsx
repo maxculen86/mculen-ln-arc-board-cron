@@ -148,7 +148,8 @@ function masNotasSegmentado(props) {
         articleBoxesTracker({
             boxType: 'masNotas',
             diagramation: cantidadNotas,
-            sectionTitle
+            sectionTitle,
+            isAperturaHome
         });
     }, [cantidadNotas, sectionTitle, shouldTrackBox]);
 

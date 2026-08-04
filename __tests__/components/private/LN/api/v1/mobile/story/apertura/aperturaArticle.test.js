@@ -7,6 +7,7 @@ import articleBasic from '../../../../../../../../../__mocks__/data/articles/YJJ
 import articleMultimedia from '../../../../../../../../../__mocks__/data/articles/JLMPIDPYXFH3JPLFTZNJGONPNA.json';
 import articleWithOutApertura from '../../../../../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
 import articleWithVideoJW from '../../../../../../../../../__mocks__/data/articles/FJ5DHWYC2BEKFOFGFBJI5WWUCA.json';
+import historyTellingArticle from '../../../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -256,5 +257,104 @@ describe('Test apetura StoryTelling', () => {
         expect(resp.tituloNative).toBe('native headlines');
         expect(resp.tituloMobile).toBe('mobile headlines');
         expect(resp.titulo).toBe('basic headlines');
+    });
+});
+
+describe('Test apertura storytelling without-image', () => {
+    test('Retorna diagram image-panoramic cuando el embed viene con without-image', () => {
+        const resp = aperturaArticle({
+            ...article,
+            subtype: '4',
+            promo_items: {
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'without-image'
+                        }
+                    }
+                }
+            },
+            headlines: {
+                basic: 'basic headlines',
+                mobile: 'mobile headlines'
+            }
+        });
+
+        expect(resp.diagram).toBe('image-panoramic');
+    });
+
+    test('No retorna imagenes cuando storytelling tiene diagram without-image e imagen en promo', () => {
+        const resp = aperturaArticle({
+            ...historyTellingArticle,
+            promo_items: {
+                ...historyTellingArticle.promo_items,
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'without-image'
+                        }
+                    }
+                }
+            }
+        });
+
+        expect(resp.imagenes).toBeUndefined();
+        expect(resp.imagenesAcumulado).toBeUndefined();
+    });
+
+    test('Retorna imagenes cuando storytelling tiene diagram image-panoramic e imagen en promo', () => {
+        const resp = aperturaArticle({
+            ...historyTellingArticle,
+            promo_items: {
+                ...historyTellingArticle.promo_items,
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'image-panoramic'
+                        }
+                    }
+                }
+            }
+        });
+
+        expect(resp.imagenes).toBeDefined();
+        expect(resp.imagenes.length).toBeGreaterThan(0);
+    });
+
+    test('No retorna imagenes ni imagenesAcumulado en default case con basic image y without-image', () => {
+        const resp = aperturaArticle({
+            ...articleWithOutApertura,
+            subtype: '4',
+            promo_items: {
+                basic: articleWithOutApertura.promo_items.basic,
+                custom_storytelling_opening: {
+                    embed: {
+                        config: {
+                            diagram: 'without-image'
+                        }
+                    }
+                }
+            }
+        });
+
+        expect(resp.imagenes).toBeUndefined();
+        expect(resp.imagenesAcumulado).toBeUndefined();
+    });
+
+    test('Retorna imagenes para nota comun con promo image', () => {
+        const resp = aperturaArticle(articleWithOutApertura);
+
+        expect(resp.imagenes).toBeDefined();
+        expect(resp.imagenes.length).toBeGreaterThan(0);
+    });
+
+    test('Usa imagenesAcumulado cuando el promo principal ya esta en content_elements', () => {
+        const promoId =
+            historyTellingArticle.promo_items.storytelling_mobile._id;
+
+        const resp = aperturaArticle(historyTellingArticle, [promoId]);
+
+        expect(resp.imagenes).toBeUndefined();
+        expect(resp.imagenesAcumulado).toBeDefined();
     });
 });

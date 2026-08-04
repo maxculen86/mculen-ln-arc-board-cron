@@ -1,3 +1,7 @@
+import config from '../../../../properties/sites/la-nacion-ar';
+
+const { layoutsName = {} } = config || {};
+
 export const LAYOUT_RULES = {
     oneLargeFourSmall: [
         {
@@ -14,8 +18,8 @@ export const LAYOUT_RULES = {
     twoHorizontal: [
         {
             range: [0, 1],
-            size: { default: 24 },
-            orientation: { default: 'vertical', md: 'horizontal' }
+            size: { default: 18, md: 24 },
+            orientation: 'horizontal'
         }
     ],
     fourVertical: [
@@ -41,7 +45,7 @@ export const LAYOUT_RULES = {
     threeVertical: [
         {
             range: [0, 2],
-            size: { default: 32 },
+            size: { default: 24, md: 32 },
             orientation: 'vertical'
         }
     ],
@@ -54,9 +58,24 @@ export const LAYOUT_RULES = {
     ]
 };
 
+export const PAGE_OVERRIDES = {
+    [layoutsName.Acumulado]: {
+        fourVertical: [
+            {
+                range: [0, 3],
+                size: { default: 18, md: 24 },
+                orientation: 'vertical'
+            }
+        ]
+    }
+};
+
 const DEFAULT_RULE = { size: 24, orientation: 'vertical' };
 
-export const getRuleForIndex = (layout, index) =>
-    LAYOUT_RULES[layout]?.find(
+const getRules = (diagramation, pageLayout) =>
+    PAGE_OVERRIDES[pageLayout]?.[diagramation] ?? LAYOUT_RULES[diagramation];
+
+export const getRuleForIndex = (diagramation, index, pageLayout) =>
+    getRules(diagramation, pageLayout)?.find(
         ({ range }) => index >= range[0] && index <= range[1]
     ) ?? DEFAULT_RULE;

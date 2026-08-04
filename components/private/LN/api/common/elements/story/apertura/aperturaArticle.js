@@ -11,6 +11,9 @@ import { volanta as getVolanta } from '../../label/volanta';
 import { getFeaturedTag } from '../../tag';
 import AperturaReceta from './aperturaReceta';
 
+const DIAGRAM_WITHOUT_IMAGE = 'without-image';
+const DIAGRAM_IMAGE_PANORAMIC = 'image-panoramic';
+
 // For to set Image Basic to BookMark when PromoItems is Html regularly
 export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
     const validSubtypesForBookmark = [4, 8]; // For Types StoryTelling and Photo Al 100
@@ -18,6 +21,19 @@ export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
     return (
         isPromoInContent || validSubtypesForBookmark.includes(Number(subtype))
     );
+};
+
+const getDiagram = article =>
+    get(
+        article,
+        'promo_items.custom_storytelling_opening.embed.config.diagram',
+        null
+    );
+
+export const validToSetImagenesForStorytelling = article => {
+    const { subtype } = article;
+    const diagram = getDiagram(article);
+    return !(subtype === STORYTELLING && diagram === DIAGRAM_WITHOUT_IMAGE);
 };
 
 export const storyTitleAndResume = article => {
@@ -111,12 +127,9 @@ const patchBrand = article => {
 };
 
 const patchDiagram = article => {
-    const diagram = get(
-        article,
-        'promo_items.custom_storytelling_opening.embed.config.diagram',
-        null
-    );
-
+    let diagram = getDiagram(article);
+    if (diagram && diagram === DIAGRAM_WITHOUT_IMAGE)
+        diagram = DIAGRAM_IMAGE_PANORAMIC;
     return diagram ? { diagram } : {};
 };
 

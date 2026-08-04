@@ -14,6 +14,7 @@ import OptaEmbed from '../../../common/scriptManager/optaEmbed';
 import Petametrics from '../../../common/scriptManager/petametrics';
 import PostBid from '../../../common/scriptManager/postbid';
 import ScriptHtmlLibre from '../../../common/scriptManager/scriptHtmlLibre';
+import ScriptBrowsi from '../../../common/scriptManager/ScriptBrowsi';
 import SocialEmbeds from '../../../common/scriptManager/socialEmbeds';
 import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
@@ -24,6 +25,7 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import Observable from '../../../../output-types/Helper/observable';
 import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 import ScriptJwVideoHome from '../../../common/scriptManager/ScriptJwVideoHome';
+import YouTubeVideoTrackingScript from '../../../common/scriptManager/YouTubeVideoTrackingScript';
 import DsPromoEventsScript from '../../../common/scriptManager/DsPromoEventsScript';
 import VwoScript from '../../../common/scriptManager/VwoScript';
 
@@ -40,7 +42,19 @@ export const VWO_ALLOWED_SECTIONS = [
     { section: '/espectaculos', pageLayout: 'all', subtype: '' }
 ];
 
+export const BROWSI_ALLOWED_SECTIONS = [
+    { section: '/lifestyle', pageLayout: 'all', subtype: '' }
+];
+
+export const YOUTUBE_VIDEO_TRACKING_LAYOUTS = ['LN10-Home_Main'];
+
 const scriptList = [
+    {
+        component: { name: 'ScriptBrowsi', function: ScriptBrowsi },
+        feature: 'none',
+        allowedTypes: ['story'],
+        allowedSections: BROWSI_ALLOWED_SECTIONS
+    },
     {
         component: { name: 'Datadog', function: Datadog },
         feature: 'none'
@@ -157,6 +171,14 @@ const scriptList = [
         feature: ['LN-10/videoPlayer', 'LN-10/videoPlayerNota']
     },
     {
+        component: {
+            name: 'YouTubeVideoTrackingScript',
+            function: YouTubeVideoTrackingScript
+        },
+        feature: 'none',
+        includedLayouts: YOUTUBE_VIDEO_TRACKING_LAYOUTS
+    },
+    {
         component: { name: 'DsPromoEvents', function: DsPromoEventsScript },
         feature: ['LN/DS-CardPromo']
     },
@@ -189,13 +211,18 @@ const isGPTAndDisabled = (script, bannersDisabled) =>
 export const shouldExcludeByLayout = (script, layout) =>
     !!script.excludedLayouts?.includes(layout);
 
+export const shouldIncludeByLayout = (script, layout) =>
+    !script.includedLayouts || script.includedLayouts.includes(layout);
+
 const getScriptsFilterFunction =
     (scripts, bannersDisabled, layout, globalContent) => features => {
         const filteredScripts = scripts
             .filter(script => {
                 const type = get(globalContent, 'type', '');
 
-                const isLayoutAllowed = !shouldExcludeByLayout(script, layout);
+                const isLayoutAllowed =
+                    !shouldExcludeByLayout(script, layout) &&
+                    shouldIncludeByLayout(script, layout);
                 const isTypeAllowed =
                     !script.allowedTypes || script.allowedTypes.includes(type);
                 const isSectionAllowed =

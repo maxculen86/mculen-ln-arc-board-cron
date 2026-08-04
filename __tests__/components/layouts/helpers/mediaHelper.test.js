@@ -12,12 +12,34 @@ jest.mock(
     })
 );
 
+jest.mock(
+    '../../../../components/features/LN/common/video/utils/useVideoJwBody',
+    () => ({
+        __esModule: true,
+        default: jest.fn(() => ({
+            videoData: { mediaId: 'mock-id', playerId: 'p', title: 't' },
+            playerId: 'p',
+            mediaId: 'mock-id'
+        }))
+    })
+);
+
 jest.mock('../../../../components/features/LN/common/video/default', () => ({
     __esModule: true,
-    default: ({ data }) => (
-        <div data-testid="video-component">{data?.subtype}</div>
+    default: ({ videoData }) => (
+        <div data-testid="video-component">{videoData?.mediaId}</div>
     )
 }));
+
+jest.mock(
+    '../../../../components/features/LN/common/wrapperBody/default',
+    () => ({
+        __esModule: true,
+        WrapperBody: jest.fn(({ children }) => (
+            <div className="wrapper-body-mock">{children}</div>
+        ))
+    })
+);
 
 jest.mock('../../../../components/features/LN/common/iframe/default', () => ({
     __esModule: true,

@@ -17,6 +17,7 @@ export default {
     host: 'https://foodit.lanacion.com.ar/',
     layoutsName: {
         FooditFichaReceta: 'Foodit-ficha-receta',
-        FooditAcumulado: 'Foodit-acumulado'
+        FooditAcumulado: 'Foodit-acumulado',
+        FooditSubcategorias: 'Foodit-subcategorias'
     }
 };

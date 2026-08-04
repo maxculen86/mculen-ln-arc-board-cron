@@ -6,7 +6,14 @@ const mb = 'mb-16 md:mb-24 xl:mb-32';
 
 function CardGridHalf({ children, className }) {
     return (
-        <div className={cx('grid grid-cols-2', gap, mb, className)}>
+        <div
+            className={cx(
+                'grid grid-cols-1 md:grid-cols-2',
+                gap,
+                mb,
+                className
+            )}
+        >
             {Children.toArray(children).slice(0, 2)}
         </div>
     );

@@ -3,7 +3,7 @@
 exports[`CardPromoBadge snapshots matches snapshot with a custom label 1`] = `
 <DocumentFragment>
   <div
-    class="absolute z-10 top-9 right-4"
+    class="absolute z-10 top-4 right-4"
   >
     <span
       data-testid="badge"
@@ -17,7 +17,7 @@ exports[`CardPromoBadge snapshots matches snapshot with a custom label 1`] = `
 exports[`CardPromoBadge snapshots matches snapshot with the default label 1`] = `
 <DocumentFragment>
   <div
-    class="absolute z-10 top-9 right-4"
+    class="absolute z-10 top-4 right-4"
   >
     <span
       data-testid="badge"
