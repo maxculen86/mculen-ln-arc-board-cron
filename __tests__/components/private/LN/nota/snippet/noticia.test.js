@@ -182,7 +182,8 @@ describe('SnippetNoticia', () => {
                 isAccessibleForFree: true,
                 author: {
                     '@type': 'Organization',
-                    name: 'LA NACION'
+                    name: 'LA NACION',
+                    url: 'https://www.lanacion.com.ar'
                 },
                 creator: [],
                 keywords: [],
@@ -283,6 +284,48 @@ describe('SnippetNoticia', () => {
             ]);
             expect(jsonData.author[1].description).toBeUndefined();
             expect(jsonData.author[1].knowsAbout).toBeUndefined();
+        });
+
+        it('should use the author id to build author url when bio page is missing', () => {
+            const { container } = render(
+                <SnippetNoticia
+                    siteProperties={mockSiteProperties}
+                    globalContent={{
+                        ...mockGlobalContent,
+                        credits: {
+                            by: [
+                                {
+                                    _id: 'Paula-Ikeda',
+                                    name: 'Paula Ikeda',
+                                    type: 'author',
+                                    additional_properties: {
+                                        original: {
+                                            author_type: 'Estándar',
+                                            byline: 'Paula Ikeda',
+                                            bio_page: ''
+                                        }
+                                    },
+                                    url: ''
+                                }
+                            ]
+                        }
+                    }}
+                    contextPath={mockContextPath}
+                    deployment={mockDeployment}
+                />
+            );
+
+            const jsonData = JSON.parse(
+                container.querySelector('script').innerHTML
+            );
+
+            expect(jsonData.author).toMatchObject([
+                {
+                    '@type': 'Person',
+                    name: 'Paula Ikeda',
+                    url: 'https://www.lanacion.com.ar/autor/Paula-Ikeda/'
+                }
+            ]);
         });
 
         it('should keep basic author data for non NewsArticle or OpinionNewsArticle schemas', () => {
@@ -491,7 +534,8 @@ describe('SnippetNoticia', () => {
                 articleSection: 'Opinión',
                 author: {
                     '@type': 'Person',
-                    name: 'Redacción LA NACION'
+                    name: 'Redacción LA NACION',
+                    url: 'https://www.lanacion.com.ar'
                 }
             });
         });

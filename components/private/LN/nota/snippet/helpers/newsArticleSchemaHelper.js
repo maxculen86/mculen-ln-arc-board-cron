@@ -116,11 +116,22 @@ const formatSocialUrl = (value, baseUrl) => {
     return `${baseUrl}${value.replace(/^@/, '').replace(/^\/+|\/+$/g, '')}/`;
 };
 
+export const getAuthorUrl = author => {
+    const authorId = get(author, '_id', '');
+    const authorPath =
+        (authorId && `/autor/${authorId}/`) ||
+        get(author, 'additional_properties.original.bio_page', '') ||
+        get(author, 'url', '');
+
+    return authorPath.startsWith('http')
+        ? authorPath
+        : `${SITE_LANACION}${authorPath}`;
+};
+
 export const buildAuthorPersonSchema = (author = {}) => {
     const original = get(author, 'additional_properties.original', {});
     const socialLinks = get(author, 'social_links', []);
-    const bioPage = original.bio_page || get(author, 'url', '');
-    const authorUrl = bioPage ? `${SITE_LANACION}${bioPage}` : '';
+    const authorUrl = getAuthorUrl(author);
     const imageUrl =
         get(author, 'image.url', '') ||
         get(author, 'image.resized_urls[0].resizedUrl', '') ||
@@ -157,7 +168,7 @@ export const buildAuthorPersonSchema = (author = {}) => {
     return {
         '@type': 'Person',
         name: getAuthorByline(author),
-        ...(authorUrl && { url: authorUrl }),
+        url: authorUrl,
         ...(imageUrl && {
             image: {
                 '@type': 'ImageObject',

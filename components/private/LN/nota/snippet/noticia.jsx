@@ -35,7 +35,8 @@ import {
     buildPrimaryImageOfPage,
     buildMainEntityFromTags,
     getSchemaImages,
-    buildAuthorPersonSchema
+    buildAuthorPersonSchema,
+    getAuthorUrl
 } from './helpers/newsArticleSchemaHelper';
 import getElementsText from '../../../common/utils/getElementsText';
 import { getPublishingPrinciplesUrl } from './helpers/reviewSchemaConstants';
@@ -74,11 +75,7 @@ const extractDataFromTags = tags => {
 const buildBasicAuthorSchema = author => ({
     '@type': 'Person',
     name: getAuthorByline(author),
-    url: `${SITE_LANACION}${get(
-        author,
-        'additional_properties.original.bio_page',
-        ''
-    )}`
+    url: getAuthorUrl(author)
 });
 
 const extractDataFromCredits = (
@@ -194,7 +191,8 @@ function SnippetNoticia({
     const subtypeConfig = SUBTYPE_CONFIG[subtype] || {};
     const distributorAuthor = {
         '@type': subtypeConfig.distributorAuthorType || 'Organization',
-        name: subtypeConfig.distributorAuthorName || distributorName
+        name: subtypeConfig.distributorAuthorName || distributorName,
+        url: SITE_LANACION
     };
     const { authors: basicAuthors } = extractDataFromCredits(by);
     const { keywords } = extractDataFromTags(tags);
