@@ -8,6 +8,7 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render a NewsArticl
   "author": {
     "@type": "Organization",
     "name": "LA NACION",
+    "url": "https://www.lanacion.com.ar",
   },
   "creator": [],
   "dateCreated": "2023-01-01T00:00:00.000Z",
@@ -54,6 +55,7 @@ exports[`SnippetNoticia default subtype (NewsArticle) should render the full sch
   "author": {
     "@type": "Organization",
     "name": "LA NACION",
+    "url": "https://www.lanacion.com.ar",
   },
   "creator": [],
   "dateCreated": "2023-01-01T00:00:00.000Z",
