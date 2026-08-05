@@ -119,7 +119,7 @@ describe('components - features - LN-nota - signature - components - AudioButton
 
     it('renders "Escuchar" label and headphone icon when player is closed', () => {
         renderComponent();
-        expect(screen.getByText('Escuchar')).toBeInTheDocument();
+        expect(screen.getByText('Escuchar nota')).toBeInTheDocument();
         expect(screen.getByTestId('icon-headphone')).toBeInTheDocument();
         expect(screen.queryByTestId('animated-icon')).not.toBeInTheDocument();
     });
@@ -152,7 +152,7 @@ describe('components - features - LN-nota - signature - components - AudioButton
             isOpen: true
         });
         renderComponent();
-        expect(screen.getByTestId('btnAudioDesktop')).toBeDisabled();
+        expect(screen.getByTestId('btnAudioSignature')).toBeDisabled();
     });
 
     it('disables button when hasError is true', () => {
@@ -161,12 +161,12 @@ describe('components - features - LN-nota - signature - components - AudioButton
             hasError: true
         });
         renderComponent();
-        expect(screen.getByTestId('btnAudioDesktop')).toBeDisabled();
+        expect(screen.getByTestId('btnAudioSignature')).toBeDisabled();
     });
 
     it('calls handleClickAudioNews with correct args on click', () => {
         renderComponent({ showVariantIa: true });
-        fireEvent.click(screen.getByTestId('btnAudioDesktop'));
+        fireEvent.click(screen.getByTestId('btnAudioSignature'));
         expect(handleClickAudioNews).toHaveBeenCalledWith(
             expect.objectContaining({
                 noteId: 'test-note-id',
@@ -231,7 +231,7 @@ describe('components - features - LN-nota - signature - components - AudioButton
         } = require('../../../../../../components/private/common/auth/helper/loginHelper');
         isSubscribed.mockReturnValue(false);
         renderComponent();
-        fireEvent.click(screen.getByTestId('btnAudioDesktop'));
+        fireEvent.click(screen.getByTestId('btnAudioSignature'));
         expect(handleClickAudioNews).toHaveBeenCalledWith(
             expect.objectContaining({
                 subscription: false
@@ -245,7 +245,7 @@ describe('components - features - LN-nota - signature - components - AudioButton
             isSummary: true
         });
         renderComponent();
-        fireEvent.click(screen.getByTestId('btnAudioDesktop'));
+        fireEvent.click(screen.getByTestId('btnAudioSignature'));
         expect(handleClickAudioNews).toHaveBeenCalledWith(
             expect.objectContaining({
                 isSummary: true
@@ -271,7 +271,7 @@ describe('components - features - LN-nota - signature - components - AudioButton
             onClose: jest.fn()
         });
         renderComponent();
-        fireEvent.click(screen.getByTestId('btnAudioDesktop'));
+        fireEvent.click(screen.getByTestId('btnAudioSignature'));
         expect(handleClickAudioNews).toHaveBeenCalledWith(
             expect.objectContaining({
                 openBarrier
