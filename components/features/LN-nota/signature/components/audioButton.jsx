@@ -60,33 +60,31 @@ export function AudioButton({
 
             <div data-tw className="contents">
                 <Button
-                    id="btnAudioDesktop"
+                    id="btnAudioSignature"
                     title="Escuchar nota"
                     variant="outline"
                     color="black"
                     dataEvent="LinkClick"
                     dataSection="Escuchar Nota"
-                    className="h-40 w-40 md:w-fit rounded-4 px-8 py-12 md:px-12 --no-app"
                     onClick={handleClickAudioButton}
                     disabled={isOpen || hasError}
-                    textTransform="none"
                     weight="bold"
                     iconLeft={
                         isOpen ? (
                             <AnimatedIcons
                                 name="logo-listen"
-                                height={20}
-                                width={20}
+                                height={16}
+                                width={16}
                                 fill="currentColor"
                                 stopAnimation={!isPlaying}
                             />
                         ) : (
-                            <Icon name="headphone" />
+                            <Icon name="headphone" size={16} />
                         )
                     }
                 >
-                    <span className="max-md:hidden text-label-sm">
-                        {isOpen ? 'Escuchando' : 'Escuchar'}
+                    <span className="text-12 leading-[100%]">
+                        {isOpen ? 'Escuchando' : 'Escuchar nota'}
                     </span>
                 </Button>
             </div>
