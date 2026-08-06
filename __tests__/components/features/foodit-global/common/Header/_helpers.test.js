@@ -1,13 +1,18 @@
 import React from 'react';
 import transformMenuData, {
+    CHAT_TIMEOUT_MS,
+    createSessionChat,
     RESPONSE_FORMAT,
-    sendChatMessage
+    sendChatMessage,
+    SESSION_TIMEOUT_MS
 } from '../../../../../../components/features/foodit-global/common/Header/_helpers';
 
 jest.mock('fusion:environment', () => {
     return {
         SITE_FOODIT: 'https://foodit.lanacion.com.ar',
-        API_IA_FOODIT: 'https://foodit-chatbot.test'
+        API_IA_FOODIT: 'https://foodit-chatbot.test',
+        API_IA_CHAT_TIMEOUT: '60000',
+        API_IA_SESSION_TIMEOUT: '10000'
     };
 });
 
@@ -418,5 +423,63 @@ describe('sendChatMessage', () => {
             504,
             '<html>Gateway Timeout</html>'
         );
+    });
+});
+
+describe('timeouts', () => {
+    // Babel transpila los `async` a generadores, así que el cuerpo del helper
+    // arranca en un microtask: sin drenarlos, el reloj se mueve antes de que el
+    // `fetch` (y su `setTimeout`) existan
+    const flushUntilFetchStarts = async () => {
+        for (let i = 0; i < 10 && !global.fetch.mock.calls.length; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+            await Promise.resolve();
+        }
+    };
+
+    beforeEach(() => {
+        jest.useFakeTimers();
+        global.fetch = jest.fn(
+            (url, options) =>
+                new Promise((resolve, reject) => {
+                    options?.signal?.addEventListener('abort', () => {
+                        const abortError = new Error('Aborted');
+                        abortError.name = 'AbortError';
+                        reject(abortError);
+                    });
+                })
+        );
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        console.error.mockRestore();
+        jest.useRealTimers();
+    });
+
+    // `/api/chat` genera con el LLM: si compartiera el timeout corto de sesión,
+    // cortaría respuestas largas que están llegando bien
+    it('should give the chat endpoint more room than the session one', () => {
+        expect(CHAT_TIMEOUT_MS).toBeGreaterThan(SESSION_TIMEOUT_MS);
+    });
+
+    it.each([
+        ['sendChatMessage', sendChatMessage, CHAT_TIMEOUT_MS],
+        ['createSessionChat', createSessionChat, SESSION_TIMEOUT_MS]
+    ])('should cut a hung %s by time', async (_label, call, timeoutMs) => {
+        const pending = call({ accessToken: 'jwt' });
+        const assertion = expect(pending).rejects.toMatchObject({
+            isTimeout: true
+        });
+
+        await flushUntilFetchStarts();
+
+        // Un tick antes del corte el request sigue vivo: prueba que el valor que
+        // se aplica es el de este endpoint y no otro
+        jest.advanceTimersByTime(timeoutMs - 1);
+        expect(global.fetch.mock.calls[0][1].signal.aborted).toBe(false);
+
+        jest.advanceTimersByTime(1);
+        await assertion;
     });
 });

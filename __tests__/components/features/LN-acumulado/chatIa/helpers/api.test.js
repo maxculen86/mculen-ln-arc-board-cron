@@ -1,10 +1,20 @@
+// Sin esto los valores llegan `undefined`: `fusion:environment` lo inyecta
+// Fusion en el build y en test no existe
+jest.mock('fusion:environment', () => ({
+    API_IA_MUNDIAL: 'https://mundial-chatbot.test',
+    API_IA_CHAT_TIMEOUT: '60000',
+    API_IA_SESSION_TIMEOUT: '10000'
+}));
+
 import {
+    CHAT_TIMEOUT_MS,
     createMundialSession,
     FALLBACK_SUGGESTED_QUESTIONS,
     getSuggestedQuestions,
     resolveErrorMessage,
     RESPONSE_FORMAT,
-    sendMundialChatMessage
+    sendMundialChatMessage,
+    SESSION_TIMEOUT_MS
 } from '../../../../../../components/features/LN-acumulado/chatIa/helpers/api';
 
 const okResponse = data => ({
@@ -21,6 +31,16 @@ const errorResponse = status => ({
 });
 
 const bodyOf = call => JSON.parse(call[1].body);
+
+// Babel transpila los `async` a generadores, así que el cuerpo del helper
+// arranca en un microtask: sin drenarlos, el reloj se mueve antes de que el
+// `fetch` (y su `setTimeout`) existan
+const flushUntilFetchStarts = async () => {
+    for (let i = 0; i < 10 && !global.fetch.mock.calls.length; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+    }
+};
 
 beforeEach(() => {
     jest.clearAllMocks();
@@ -155,5 +175,56 @@ describe('chatIa api helpers', () => {
                 );
             }
         );
+
+        // El corte por tiempo no tiene respuesta HTTP, así que sin la rama de
+        // `isTimeout` cae en el genérico "retomá el chat más adelante", que
+        // sugiere esperar justo cuando reintentar es lo que corresponde
+        it('should use the timeout copy when the request was cut by time', () => {
+            expect(resolveErrorMessage({ isTimeout: true })).toMatch(
+                /demorando más de lo habitual/
+            );
+        });
+    });
+
+    describe('timeouts', () => {
+        // `/api/chat` genera con el LLM: si compartiera el timeout corto de
+        // sesión, cortaría respuestas largas que están llegando bien
+        it('should give the chat endpoint more room than the session one', () => {
+            expect(CHAT_TIMEOUT_MS).toBeGreaterThan(SESSION_TIMEOUT_MS);
+        });
+
+        it.each([
+            ['sendMundialChatMessage', sendMundialChatMessage, CHAT_TIMEOUT_MS],
+            ['createMundialSession', createMundialSession, SESSION_TIMEOUT_MS]
+        ])('should cut a hung %s by time', async (_label, call, timeoutMs) => {
+            jest.useFakeTimers();
+            global.fetch.mockImplementation(
+                (url, options) =>
+                    new Promise((resolve, reject) => {
+                        options?.signal?.addEventListener('abort', () => {
+                            const abortError = new Error('Aborted');
+                            abortError.name = 'AbortError';
+                            reject(abortError);
+                        });
+                    })
+            );
+
+            const pending = call({ accessToken: 'jwt' });
+            const assertion = expect(pending).rejects.toMatchObject({
+                isTimeout: true
+            });
+
+            await flushUntilFetchStarts();
+
+            // Un tick antes del corte el request sigue vivo: prueba que el valor
+            // que se aplica es el de este endpoint y no otro
+            jest.advanceTimersByTime(timeoutMs - 1);
+            expect(global.fetch.mock.calls[0][1].signal.aborted).toBe(false);
+
+            jest.advanceTimersByTime(1);
+            await assertion;
+
+            jest.useRealTimers();
+        });
     });
 });

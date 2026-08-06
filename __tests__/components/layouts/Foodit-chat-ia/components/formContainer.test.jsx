@@ -77,12 +77,25 @@ describe('FormContainer', () => {
             );
         });
 
-        it('should prefer the error copy over the typing one', () => {
+        // El placeholder solo habla de estados que deshabilitan el campo. En
+        // error el input queda usable, así que anunciar el error acá invitaba a
+        // no escribir justo cuando reintentar es la salida. `hasError` se pasa a
+        // propósito: si alguien devuelve la rama, este test lo frena
+        it('should keep the default copy when the chat is in error', () => {
+            renderForm({ hasError: true });
+
+            expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
+                'placeholder',
+                'Continuá preguntándole a Foodit'
+            );
+        });
+
+        it('should say the assistant is writing even when there was an error', () => {
             renderForm({ isTypingAnswer: true, hasError: true });
 
             expect(screen.getByTestId('thread-native-input')).toHaveAttribute(
                 'placeholder',
-                '¡Ups! Hubo un error'
+                'Foodit está escribiendo…'
             );
         });
     });

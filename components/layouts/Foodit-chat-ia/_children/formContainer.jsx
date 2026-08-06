@@ -8,12 +8,15 @@ export function FormContainer({
     isSessionExpired,
     requestLimit,
     disableInput,
-    hasError,
     isTypingAnswer
 }) {
+    // El placeholder explica por qué NO se puede escribir, así que solo habla de
+    // estados que además deshabilitan el campo. El error no está acá a
+    // propósito: no bloquea (ver `disableInput`), y anunciarlo sobre un input
+    // que funciona invita a no usarlo. Del error ya avisa el cartel de
+    // `Thread.Error`, que es donde corresponde
     const getInputPlaceholder = () => {
         if (isSessionExpired) return 'Sesión expirada';
-        if (hasError) return '¡Ups! Hubo un error';
         if (isTypingAnswer) return 'Foodit está escribiendo…';
         return 'Continuá preguntándole a Foodit';
     };

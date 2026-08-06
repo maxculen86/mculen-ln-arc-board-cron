@@ -167,10 +167,13 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const isTypingAnswer =
         lastMessage?.message_type === 'input' && !showAfterRenderAssistant;
 
+    // `error` queda afuera a propósito: es transitorio y el reintento es la
+    // única salida del chat (el CTA de `SessionEnd` espera un `onTypingComplete`
+    // que en error nunca llega). Trabar acá dejaba input muerto + cartel de
+    // error y sin forma de seguir salvo refrescar la página
     const disableInput =
         runtime.status === 'generating' ||
         runtime.status === 'blocked' ||
-        runtime.status === 'error' ||
         isTypingAnswer ||
         isSessionExpired;
 
@@ -242,7 +245,6 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                                     }
                                                     disableInput={disableInput}
                                                     requestLimit={requestLimit}
-                                                    hasError={hasError}
                                                     isTypingAnswer={
                                                         isTypingAnswer
                                                     }

@@ -108,12 +108,11 @@ jest.mock(
 jest.mock(
     '../../../../../components/layouts/Foodit-chat-ia/_children/formContainer',
     () => ({
-        FormContainer: ({ disableInput, requestLimit, hasError }) => (
+        FormContainer: ({ disableInput, requestLimit }) => (
             <div
                 data-testid="form-container"
                 data-disabled={String(disableInput)}
                 data-request-limit={String(requestLimit)}
-                data-has-error={String(hasError)}
             />
         )
     })
@@ -487,33 +486,6 @@ describe('ChatIaFoodit', () => {
             );
         });
 
-        it('should not flag an error when the runtime recovered and is idle', () => {
-            useChatRuntime.mockReturnValue(
-                createRuntime({
-                    status: 'idle',
-                    error: { code: 'internal_error' }
-                })
-            );
-
-            render(<ChatIaFoodit />);
-
-            expect(screen.getByTestId('form-container')).toHaveAttribute(
-                'data-has-error',
-                'false'
-            );
-        });
-
-        it('should flag an error when the runtime status is error', () => {
-            useChatRuntime.mockReturnValue(createRuntime({ status: 'error' }));
-
-            render(<ChatIaFoodit />);
-
-            expect(screen.getByTestId('form-container')).toHaveAttribute(
-                'data-has-error',
-                'true'
-            );
-        });
-
         it('should disable the input when the runtime blocks the session', () => {
             useChatRuntime.mockReturnValue(
                 createRuntime({ status: 'blocked' })
@@ -537,6 +509,25 @@ describe('ChatIaFoodit', () => {
             expect(screen.getByTestId('form-container')).toHaveAttribute(
                 'data-disabled',
                 'true'
+            );
+        });
+
+        // Regresión: el error no tiene respuesta que tipear, así que el CTA de
+        // `SessionEnd` nunca aparece. Si además se traba el input, la única
+        // salida del chat es refrescar la página
+        it('should keep the input usable on error, which is the only way out', () => {
+            useChatRuntime.mockReturnValue(
+                createRuntime({
+                    status: 'error',
+                    error: { code: 'internal_error' }
+                })
+            );
+
+            render(<ChatIaFoodit />);
+
+            expect(screen.getByTestId('form-container')).toHaveAttribute(
+                'data-disabled',
+                'false'
             );
         });
     });

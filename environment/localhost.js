@@ -26,6 +26,8 @@ export default {
     // API_IA_FOODIT: 'https://foodit-chatbot.clanacion.com.ar', // 🚀 prod
     API_IA_MUNDIAL: 'https://dp-mundial-chatbot.clanacion.com.ar',
     // API_IA_MUNDIAL: 'https://mundial-chatbot.clanacion.com.ar', // 🚀 prod
+    API_IA_CHAT_TIMEOUT: '90000',
+    API_IA_SESSION_TIMEOUT: '15000',
     // Fin variables de sandbox
 
     // 🔐 Claves API y configuración:

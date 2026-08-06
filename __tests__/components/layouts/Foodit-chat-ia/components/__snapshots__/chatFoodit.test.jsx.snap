@@ -81,7 +81,6 @@ exports[`ChatIaFoodit snapshots should match snapshot when subscribed and waitin
           <div>
             <div
               data-disabled="false"
-              data-has-error="false"
               data-request-limit="false"
               data-testid="form-container"
             />
@@ -129,7 +128,6 @@ exports[`ChatIaFoodit snapshots should match snapshot when the first answer alre
           <div>
             <div
               data-disabled="true"
-              data-has-error="false"
               data-request-limit="false"
               data-testid="form-container"
             />

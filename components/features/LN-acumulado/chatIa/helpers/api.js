@@ -1,16 +1,29 @@
-import { API_IA_MUNDIAL } from 'fusion:environment';
+import {
+    API_IA_MUNDIAL,
+    API_IA_CHAT_TIMEOUT,
+    API_IA_SESSION_TIMEOUT
+} from 'fusion:environment';
+import fetchWithTimeout from '../../../../private/common/utils/fetchWithTimeout';
 
 export const getAuthHeaders = accessToken => ({
     'Content-Type': 'application/json',
     'x-authorization': accessToken
 });
 
-async function apiFetch(path, body, accessToken) {
-    const response = await fetch(`${API_IA_MUNDIAL}${path}`, {
-        method: 'POST',
-        headers: getAuthHeaders(accessToken),
-        body: JSON.stringify(body)
-    });
+// Los valores viajan como string desde `fusion:environment`
+export const CHAT_TIMEOUT_MS = Number(API_IA_CHAT_TIMEOUT);
+export const SESSION_TIMEOUT_MS = Number(API_IA_SESSION_TIMEOUT);
+
+async function apiFetch(path, body, accessToken, timeoutMs) {
+    const response = await fetchWithTimeout(
+        `${API_IA_MUNDIAL}${path}`,
+        {
+            method: 'POST',
+            headers: getAuthHeaders(accessToken),
+            body: JSON.stringify(body)
+        },
+        timeoutMs
+    );
 
     if (!response.ok) {
         const error = new Error(
@@ -27,7 +40,8 @@ export async function createMundialSession({ userId, accessToken }) {
     const data = await apiFetch(
         '/api/session',
         { user_id: userId },
-        accessToken
+        accessToken,
+        SESSION_TIMEOUT_MS
     );
     if (!data.session_id) {
         throw new Error('Mundial Chat: no se recibió session_id');
@@ -51,7 +65,8 @@ export async function sendMundialChatMessage({
             message,
             response_type: RESPONSE_FORMAT
         },
-        accessToken
+        accessToken,
+        CHAT_TIMEOUT_MS
     );
 }
 
@@ -70,7 +85,8 @@ export async function getSuggestedQuestions({
         const data = await apiFetch(
             '/api/sq',
             { query, user_id: userId },
-            accessToken
+            accessToken,
+            SESSION_TIMEOUT_MS
         );
         if (Array.isArray(data) && data.length > 0) {
             return data;
@@ -88,7 +104,12 @@ const MSG_OUT_OF_CONTEXT =
 export const MSG_GENERIC_ERROR =
     'Ocurrió un error. Te invitamos a retomar el chat más adelante.';
 
+export const MSG_TIMEOUT =
+    'La respuesta está demorando más de lo habitual. Probá de nuevo.';
+
 export function resolveErrorMessage(err) {
+    // Antes que el status: el corte por tiempo no tiene respuesta HTTP
+    if (err?.isTimeout) return MSG_TIMEOUT;
     const status = err?.status;
     if (status === 403 || status === 400) return MSG_OUT_OF_CONTEXT;
     return MSG_GENERIC_ERROR;
