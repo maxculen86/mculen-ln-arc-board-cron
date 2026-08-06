@@ -1,28 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Thread } from '@ln/ds-blocks-thread';
 import { MessageAssistant } from '../../../../../components/layouts/Foodit-chat-ia/_children/MessageContainer/MessageAssistant';
-// --- Mocks ---
-// Solo se mockea `Thread` (componente). `partitionSourcesByMatch` se usa real
-// (requireActual) para ejercitar el MISMO matcher que el render inline.
-jest.mock('@ln/ds-blocks-thread', () => ({
-    ...jest.requireActual('@ln/ds-blocks-thread'),
-    Thread: {
-        Message: ({ message, isLastOutput }) => (
-            <div data-testid="thread-message" data-is-last={!!isLastOutput}>
-                {message && message.content}
-            </div>
-        )
-    }
-}));
 
-jest.mock('@ln/ds-common-link', () => ({
-    Link: ({ href, className, children }) => (
-        <a data-testid="source-link" href={href} className={className}>
-            {children}
-        </a>
-    )
-}));
+// `@ln/ds-blocks-thread` va sin mockear: se verifica el render real del markdown
 
 jest.mock('../../../../../components/features/ui/foodit/icon/default', () => ({
     __esModule: true,
@@ -31,119 +13,160 @@ jest.mock('../../../../../components/features/ui/foodit/icon/default', () => ({
     )
 }));
 
+const assistantMessage = (answer, overrides = {}) => ({
+    success: true,
+    message_type: 'input',
+    error: null,
+    data: {
+        message: {
+            query: 'tengo pollo y arroz',
+            answer,
+            follow_up_query: null,
+            sources: [],
+            ...overrides
+        },
+        session_id: 'foodit-1',
+        chat_count: 1,
+        max_reached: false,
+        session_status: 'active'
+    }
+});
+
+// `isLastOutput={false}` desactiva el tipeo: la respuesta se renderiza completa
+const renderMessage = (message, props = {}) =>
+    render(
+        <Thread>
+            <MessageAssistant
+                message={message}
+                isLastOutput={false}
+                {...props}
+            />
+        </Thread>
+    );
+
 describe('MessageAssistant', () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
+    describe('markdown rendering', () => {
+        it('should render bold text when the answer contains emphasis', () => {
+            renderMessage(
+                assistantMessage(
+                    'Podés hacer **arroz con pollo** en 40 minutos.'
+                )
+            );
+
+            expect(screen.getByText('arroz con pollo').tagName).toBe('STRONG');
+        });
+
+        it('should render list items when the answer contains a list', () => {
+            renderMessage(
+                assistantMessage('Opciones:\n\n* Pollo al horno\n* Risotto')
+            );
+
+            expect(screen.getAllByRole('listitem')).toHaveLength(2);
+        });
+
+        it('should render the list content when the answer contains a list', () => {
+            renderMessage(
+                assistantMessage('Opciones:\n\n* Pollo al horno\n* Risotto')
+            );
+
+            expect(screen.getByText('Pollo al horno')).toBeInTheDocument();
+        });
     });
 
-    it('renderiza fuentes no mencionadas cuando showAfterRender=true', () => {
-        render(
-            <MessageAssistant
-                message={{
-                    message_type: 'input',
-                    content: 'x',
-                    response_chat: {
-                        descripcion: 'desc',
-                        fuentes: [
-                            { titulo: 'Fuente 1', url: 'https://a.com' },
-                            { titulo: 'Fuente 2', url: 'https://b.com' }
-                        ]
-                    }
-                }}
-                isLastOutput={false}
-            />
-        );
+    describe('embedded links', () => {
+        it('should link to the embedded url when the answer contains a link', () => {
+            renderMessage(
+                assistantMessage(
+                    'Mirá la [receta](https://foodit.lanacion.com.ar/recetas/x/).'
+                )
+            );
 
-        const links = screen.getAllByTestId('source-link');
-        expect(links).toHaveLength(2);
-        expect(links[0]).toHaveAttribute('href', 'https://a.com');
-        expect(links[0]).toHaveTextContent('Fuente 1');
-        expect(links[1]).toHaveAttribute('href', 'https://b.com');
+            expect(
+                screen.getByRole('link', { name: 'receta' })
+            ).toHaveAttribute(
+                'href',
+                'https://foodit.lanacion.com.ar/recetas/x/'
+            );
+        });
+
+        it('should open embedded links in a new tab', () => {
+            renderMessage(
+                assistantMessage(
+                    'Mirá la [receta](https://foodit.lanacion.com.ar/recetas/x/).'
+                )
+            );
+
+            // `nofollow` lo pone el default del DS: el markdown no manda `rel`
+            // justamente para no pisarlo
+            const link = screen.getByRole('link', { name: 'receta' });
+            expect(link).toHaveAttribute('target', '_blank');
+            expect(link).toHaveAttribute('rel', 'noopener noreferrer nofollow');
+        });
+
+        it('should not render a link when the url is unsafe', () => {
+            renderMessage(
+                assistantMessage('Peligro [click](javascript:alert(1)).')
+            );
+
+            expect(screen.queryByRole('link')).not.toBeInTheDocument();
+        });
+
+        it('should keep the text visible when the url is unsafe', () => {
+            renderMessage(
+                assistantMessage('Peligro [click](javascript:alert(1)).')
+            );
+
+            expect(screen.getByText(/click/)).toBeInTheDocument();
+        });
     });
 
-    it('si una fuente no tiene url, no la renderiza', () => {
-        render(
-            <MessageAssistant
-                message={{
-                    message_type: 'input',
-                    content: 'x',
-                    response_chat: {
-                        descripcion: 'desc',
-                        fuentes: [
-                            { titulo: 'Sin URL', url: '' },
-                            { titulo: 'Con URL', url: 'https://ok.com' }
-                        ]
-                    }
-                }}
-                isLastOutput={false}
-            />
-        );
+    describe('feedback visibility', () => {
+        it('should show the feedback when the message finished rendering', () => {
+            const { container } = renderMessage(
+                assistantMessage('Respuesta.'),
+                {
+                    isLastOutput: true,
+                    showAfterRender: true
+                }
+            );
 
-        const links = screen.getAllByTestId('source-link');
-        expect(links).toHaveLength(1);
-        expect(links[0]).toHaveAttribute('href', 'https://ok.com');
-        expect(links[0]).toHaveTextContent('Con URL');
+            expect(container.querySelector('button')).toBeInTheDocument();
+        });
+
+        it('should hide the feedback while the last message is still typing', () => {
+            const { container } = renderMessage(
+                assistantMessage('Respuesta.'),
+                {
+                    isLastOutput: true,
+                    showAfterRender: false
+                }
+            );
+
+            expect(container.querySelector('button')).not.toBeInTheDocument();
+        });
     });
 
-    it('excluye de la lista las fuentes ya mencionadas en la descripcion', () => {
-        render(
-            <MessageAssistant
-                message={{
-                    message_type: 'input',
-                    content: 'x',
-                    response_chat: {
-                        descripcion: 'segun Fuente 1 esto es asi',
-                        fuentes: [
-                            { titulo: 'Fuente 1', url: 'https://a.com' },
-                            { titulo: 'Fuente 2', url: 'https://b.com' }
-                        ]
-                    }
-                }}
-                isLastOutput={false}
-            />
-        );
+    describe('when the response is outside the contract', () => {
+        it('should still render without crashing when data is missing', () => {
+            renderMessage({
+                success: false,
+                message_type: 'input',
+                error: null
+            });
 
-        const links = screen.getAllByTestId('source-link');
-        expect(links).toHaveLength(1);
-        expect(links[0]).toHaveTextContent('Fuente 2');
+            expect(screen.getByText('Foodit IA:')).toBeInTheDocument();
+        });
     });
 
-    it('no muestra fuentes mientras showAfterRender=false (ultimo output sin tipeo)', () => {
-        render(
-            <MessageAssistant
-                message={{
-                    message_type: 'input',
-                    content: 'x',
-                    response_chat: {
-                        descripcion: 'desc',
-                        fuentes: [{ titulo: 'Fuente 1', url: 'https://a.com' }]
-                    }
-                }}
-                isLastOutput
-                showAfterRender={false}
-            />
-        );
+    describe('snapshots', () => {
+        it('should match snapshot with a link inside bold text', () => {
+            const { container } = renderMessage(
+                assistantMessage(
+                    'Probá el **[arroz con pollo](https://foodit.lanacion.com.ar/recetas/x/)**.'
+                )
+            );
 
-        expect(screen.queryByTestId('source-link')).not.toBeInTheDocument();
-    });
-
-    it('should match snapshot', () => {
-        const { container } = render(
-            <MessageAssistant
-                message={{
-                    message_type: 'input',
-                    content: 'x',
-                    response_chat: {
-                        descripcion: 'desc',
-                        fuentes: [
-                            { titulo: 'Fuente 1', url: 'https://a.com' },
-                            { titulo: 'Fuente 2', url: 'https://b.com' }
-                        ]
-                    }
-                }}
-                isLastOutput={false}
-            />
-        );
-        expect(container).toMatchSnapshot();
+            expect(container).toMatchSnapshot();
+        });
     });
 });

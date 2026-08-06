@@ -12,10 +12,7 @@ export function MessageContainer({ messages, isGenerating, onTypingDone }) {
                         index === messages.length - 1 &&
                         message.message_type !== 'output';
 
-                    const key =
-                        message.message_type === 'output'
-                            ? `out:${message.content}`
-                            : `in:${message.response_chat?.descripcion}`;
+                    const key = `${message.message_type}:${index}`;
 
                     if (message.message_type === 'output') {
                         return <MessageUserLN key={key} message={message} />;

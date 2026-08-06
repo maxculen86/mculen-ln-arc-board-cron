@@ -21,6 +21,13 @@ export default {
     API_KEY_QUERYLY_LN: '8075c0c1c4c44847',
     RESIZER_URL: 'https://sandbox-resizer.glanacion.com/resizer',
     RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com',
+    // El chatbot valida el JWT contra las claves de SU entorno
+    API_IA_FOODIT: 'https://qa-foodit-chatbot.clanacion.com.ar',
+    // API_IA_FOODIT: 'https://foodit-chatbot.clanacion.com.ar', // 🚀 prod
+    API_IA_MUNDIAL: 'https://dp-mundial-chatbot.clanacion.com.ar',
+    // API_IA_MUNDIAL: 'https://mundial-chatbot.clanacion.com.ar', // 🚀 prod
+    API_IA_CHAT_TIMEOUT: '90000',
+    API_IA_SESSION_TIMEOUT: '15000',
     // Fin variables de sandbox
 
     // 🔐 Claves API y configuración:

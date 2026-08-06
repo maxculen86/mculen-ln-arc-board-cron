@@ -1,4 +1,10 @@
-import { SITE_FOODIT, API_IA_FOODIT } from 'fusion:environment';
+import {
+    SITE_FOODIT,
+    API_IA_FOODIT,
+    API_IA_CHAT_TIMEOUT,
+    API_IA_SESSION_TIMEOUT
+} from 'fusion:environment';
+import fetchWithTimeout from '../../../../private/common/utils/fetchWithTimeout';
 
 const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
@@ -88,24 +94,37 @@ const getAuthHeaders = accessToken => ({
     'x-authorization': accessToken
 });
 
+// Los valores viajan como string desde `fusion:environment`
+export const CHAT_TIMEOUT_MS = Number(API_IA_CHAT_TIMEOUT);
+export const SESSION_TIMEOUT_MS = Number(API_IA_SESSION_TIMEOUT);
+
 export const searchFood = async ({ query, userId, accessToken }) => {
-    const response = await fetch(`${API_IA_FOODIT}/api/search`, {
-        method: 'POST',
-        headers: getAuthHeaders(accessToken),
-        body: JSON.stringify({
-            query,
-            user_id: userId
-        })
-    });
+    const response = await fetchWithTimeout(
+        `${API_IA_FOODIT}/api/search`,
+        {
+            method: 'POST',
+            headers: getAuthHeaders(accessToken),
+            body: JSON.stringify({
+                query,
+                user_id: userId
+            })
+        },
+        SESSION_TIMEOUT_MS
+    );
 
     return response.json();
 };
 
-export const createSessionChat = async ({ accessToken }) => {
-    const response = await fetch(`${API_IA_FOODIT}/api/session`, {
-        method: 'POST',
-        headers: getAuthHeaders(accessToken)
-    });
+export const createSessionChat = async ({ accessToken, userId }) => {
+    const response = await fetchWithTimeout(
+        `${API_IA_FOODIT}/api/session`,
+        {
+            method: 'POST',
+            headers: getAuthHeaders(accessToken),
+            body: JSON.stringify({ user_id: userId })
+        },
+        SESSION_TIMEOUT_MS
+    );
 
     const sessionResponse = await response.json();
 
@@ -116,15 +135,58 @@ export const createSessionChat = async ({ accessToken }) => {
     return sessionResponse;
 };
 
-export const sendChatMessage = async ({ sessionId, message, accessToken }) => {
-    const response = await fetch(`${API_IA_FOODIT}/api/chat`, {
-        method: 'POST',
-        headers: getAuthHeaders(accessToken),
-        body: JSON.stringify({
-            session_id: sessionId,
-            message
-        })
-    });
+// Alimenta el `response_type` del request y el `answerFormat` del render: si divergen, el markdown se ve crudo
+export const RESPONSE_FORMAT = 'markdown';
 
-    return response.json();
+// El runtime de `Thread` sólo appendea mensaje cuando esta promesa resuelve
+export const sendChatMessage = async ({
+    sessionId,
+    message,
+    accessToken,
+    userId
+}) => {
+    let response;
+    try {
+        response = await fetchWithTimeout(
+            `${API_IA_FOODIT}/api/chat`,
+            {
+                method: 'POST',
+                headers: getAuthHeaders(accessToken),
+                body: JSON.stringify({
+                    session_id: sessionId,
+                    message,
+                    user_id: userId,
+                    response_type: RESPONSE_FORMAT
+                })
+            },
+            CHAT_TIMEOUT_MS
+        );
+    } catch (err) {
+        console.error(
+            'ChatFoodit - /api/chat: fetch falló (red, CORS o timeout)',
+            err
+        );
+        throw err;
+    }
+
+    const rawBody = await response.text();
+
+    if (!response.ok) {
+        console.error(
+            'ChatFoodit - /api/chat respondió con error',
+            response.status,
+            rawBody
+        );
+    }
+
+    try {
+        return JSON.parse(rawBody);
+    } catch (err) {
+        console.error(
+            'ChatFoodit - /api/chat: body no es JSON válido',
+            response.status,
+            rawBody
+        );
+        throw err;
+    }
 };

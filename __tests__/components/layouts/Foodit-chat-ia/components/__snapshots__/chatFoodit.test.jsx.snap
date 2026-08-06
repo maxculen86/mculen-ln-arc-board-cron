@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatIaFoodit snapshots should match snapshot when not subscribed 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="-mb-8 border-2 border-muted px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32"
+  >
+    <h1
+      class="prumo prumo-semibold text-24 md:text-28 pb-16"
+    >
+      Foodit IA
+    </h1>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:-mx-[32px]"
+    >
+      <div
+        class="xl:col-span-10 xl:col-start-4"
+      >
+        <div
+          data-answer-format="markdown"
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-count="0"
+              data-show-after-render="false"
+              data-testid="message-container"
+            />
+          </div>
+          <div>
+            <div
+              data-testid="empty-state-chat"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="button-scroll"
+    />
+  </div>
+</div>
+`;
+
+exports[`ChatIaFoodit snapshots should match snapshot when subscribed and waiting for the first answer 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="-mb-8 border-2 border-muted px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32"
+  >
+    <h1
+      class="prumo prumo-semibold text-24 md:text-28 pb-16"
+    >
+      Foodit IA
+    </h1>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:-mx-[32px]"
+    >
+      <div
+        class="xl:col-span-10 xl:col-start-4"
+      >
+        <div
+          data-answer-format="markdown"
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-count="0"
+              data-show-after-render="false"
+              data-testid="message-container"
+            />
+            <div
+              class="pt-16 roboto roboto-regular"
+            >
+              Foodit está pensando ...
+            </div>
+          </div>
+          <div>
+            <div
+              data-disabled="false"
+              data-request-limit="false"
+              data-testid="form-container"
+            />
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="button-scroll"
+    />
+  </div>
+</div>
+`;
+
+exports[`ChatIaFoodit snapshots should match snapshot when the first answer already arrived 1`] = `
+<div
+  data-tw="true"
+>
+  <div
+    class="-mb-8 border-2 border-muted px-16 md:px-24 xl:px-32 py-16 md:py-24 xl:py-32"
+  >
+    <h1
+      class="prumo prumo-semibold text-24 md:text-28 pb-16"
+    >
+      Foodit IA
+    </h1>
+    <div
+      class="relative flex flex-column xl:grid xl:grid-cols-16 gap-16 xl:-mx-[32px]"
+    >
+      <div
+        class="xl:col-span-10 xl:col-start-4"
+      >
+        <div
+          data-answer-format="markdown"
+          data-testid="thread"
+        >
+          <div>
+            <div
+              data-count="2"
+              data-show-after-render="false"
+              data-testid="message-container"
+            />
+          </div>
+          <div>
+            <div
+              data-disabled="true"
+              data-request-limit="false"
+              data-testid="form-container"
+            />
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="button-scroll"
+    />
+  </div>
+</div>
+`;

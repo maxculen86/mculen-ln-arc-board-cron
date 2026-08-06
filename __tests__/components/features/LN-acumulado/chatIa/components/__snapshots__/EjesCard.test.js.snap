@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EjesCard matches snapshot 1`] = `
+exports[`EjesCard snapshots should match snapshot with default props 1`] = `
 <div
   class="flex items-center gap-responsive md:col-span-8 xl:col-span-10 pb-32"
 >

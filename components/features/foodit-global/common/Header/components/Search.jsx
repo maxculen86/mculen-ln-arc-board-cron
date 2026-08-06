@@ -11,6 +11,7 @@ import { getAuthTokens } from '../../../../../private/common/auth/helper/loginHe
 import { ClearButton } from './ClearButton';
 import { InputContainer } from './inputContainer';
 import { getMicPermissionState } from './helpers/getMicPermissionState';
+import { useNavigationData } from '../hooks/useNavigationData';
 
 export function Search({ className = '', ...r }) {
     const [inputValue, setInputValue] = useState('');
@@ -18,6 +19,9 @@ export function Search({ className = '', ...r }) {
     const [typedByUser, setTypedByUser] = useState(false);
     const { isSubscribed, id: userId } = useGetUserConfig();
     const [loading, setLoading] = useState(false);
+    const { termicasData = {} } = useNavigationData();
+
+    const hideChatIa = termicasData?.hide_chat_ia_foodit === 'true';
 
     const {
         listening: isListening,
@@ -52,17 +56,30 @@ export function Search({ className = '', ...r }) {
         // add a space at the end to the query term to avoid the search engine from suggesting
         const redirectToChat = `${urlChat}${encodedQuery}`;
         const redirectToSearch = `${urlSearch}${encodedQuery}`;
-        if (isSubscribed) {
+
+        // Con la térmica prendida el chat no existe: ni se consulta la API ni se deriva ahí
+        if (hideChatIa) {
+            window.location.href = redirectToSearch;
+            return;
+        }
+
+        if (!isSubscribed) {
+            window.location.href = redirectToChat;
+            return;
+        }
+
+        // El buscador no puede quedar sin salida si la API falla: derivar al buscador clásico
+        try {
             const { accessToken } = await getAuthTokens();
-            const resp = await searchFood({
+            const { chat } = await searchFood({
                 query,
                 userId,
                 accessToken
             });
-            const { chat } = resp;
             window.location.href = chat ? redirectToChat : redirectToSearch;
-        } else {
-            window.location.href = redirectToChat;
+        } catch (error) {
+            console.error('Search - error consultando searchFood', error);
+            window.location.href = redirectToSearch;
         }
     };
 

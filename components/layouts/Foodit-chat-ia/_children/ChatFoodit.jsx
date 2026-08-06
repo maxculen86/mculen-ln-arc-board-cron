@@ -8,6 +8,7 @@ import { useDisclosure } from '@ln/hooks';
 import getQueryParamValue from '../../../private/common/utils/getQueryParamValue';
 import {
     createSessionChat,
+    RESPONSE_FORMAT,
     sendChatMessage
 } from '../../../features/foodit-global/common/Header/_helpers';
 import useGetUserConfig from '../../../features/foodit-global/hooks/useGetUserConfig';
@@ -15,18 +16,24 @@ import { SkeletonChatIa } from './skeletonChatIa';
 import { SessionExpiredModal } from './SessionExpiredModal';
 import { useInactivityTimer } from './hooks/helpers';
 import { MessageContainer } from './MessageContainer/MessageContainer';
-import { SourceLink } from './MessageContainer/SourceLink';
 import { FormContainer } from './formContainer';
 import { ButtonScroll } from './buttonScroll';
-import { ButtonNavigation } from './buttonNavigation';
+import { SessionEnd } from './SessionEnd';
+import { getSearchTerm } from './getSearchTerm';
 import { pushFooditEvent } from '../../../features/foodit-global/common/utils/pushFooditEvent';
 import { cleanUrl } from '../../../features/foodit-global/common/dataLayer/_helpers';
 import { getAuthTokens } from '../../../private/common/auth/helper/loginHelper';
 import { EmptyStateChat } from './emptyStateChat';
+import {
+    isChatMockEnabled,
+    MOCK_SESSION_ID,
+    MOCK_USER,
+    sendMockChatMessage
+} from './chatMock';
 
 function ChatIaFoodit({ onSearchTermChange }) {
     const [sessionId, setSessionId] = useState('');
-    const [showSkeleton, setShowSkeleton] = useState(true);
+    const [isHydrated, setIsHydrated] = useState(false);
 
     const [accessTokenUser, setAccessTokenUser] = useState('');
     const { requestUri } = useAppContext();
@@ -40,8 +47,11 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const query = getQueryParamValue('query', `${SITE_FOODIT}/${requestUri}`);
     const queryUrl = decodeURIComponent(query) || '¿Qué es Foodit?';
 
-    const user = useGetUserConfig();
-    const { isSubscribed } = user;
+    const [isMock] = useState(isChatMockEnabled);
+
+    const realUser = useGetUserConfig();
+    const user = isMock ? { ...realUser, ...MOCK_USER } : realUser;
+    const { isSubscribed, id: userId, userType } = user;
 
     const initialMessages = [];
     if (!isSubscribed) {
@@ -63,17 +73,21 @@ function ChatIaFoodit({ onSearchTermChange }) {
     const runtime = useChatRuntime({
         onNewMessage: async userContent => {
             resetInactivity();
+
+            if (isMock) return sendMockChatMessage({ message: userContent });
+
             const resp = await sendChatMessage({
                 sessionId,
                 message: userContent,
-                accessToken: accessTokenUser
+                accessToken: accessTokenUser,
+                userId
             });
             const pageLocation = cleanUrl(`${SITE_FOODIT}${requestUri}`);
             pushFooditEvent({
                 rest: {
                     event: 'enviar_consulta',
                     page_location: pageLocation,
-                    cta: resp.chat_count
+                    cta: resp.data?.chat_count
                 }
             });
 
@@ -81,43 +95,52 @@ function ChatIaFoodit({ onSearchTermChange }) {
         },
         initialMessages
     });
-    const hasKeywords = msg =>
-        msg.message_type === 'input' && msg.response_chat?.keywords?.length > 0;
-    const lastInputWithKeywords = useMemo(
-        () => runtime.messages?.findLast(hasKeywords) ?? null,
+    const lastSearchTerm = useMemo(
+        () => getSearchTerm(runtime.messages),
         [runtime.messages]
     );
-    const lastKeywords = useMemo(
-        () => lastInputWithKeywords?.response_chat?.keywords?.slice(0, 2) ?? [],
-        [lastInputWithKeywords]
-    );
 
     useEffect(() => {
-        if (lastKeywords.length > 0 && onSearchTermChange) {
-            onSearchTermChange(lastKeywords.join(' / '));
+        if (lastSearchTerm && onSearchTermChange) {
+            onSearchTermChange(lastSearchTerm);
         }
-    }, [lastKeywords, onSearchTermChange]);
+    }, [lastSearchTerm, onSearchTermChange]);
 
     useEffect(() => {
-        setShowSkeleton(false);
+        setIsHydrated(true);
     }, []);
+
+    const showSkeleton = !isHydrated || userType === 'loading';
 
     useEffect(() => {
         async function fetchSession() {
             if (sessionId) return;
 
-            const { accessToken } = await getAuthTokens();
-
-            const { session_id: sessionIdResponse } = await createSessionChat({
-                accessToken
-            });
-
-            if (!sessionIdResponse) {
-                console.error('ChatFoodit - error create session chat');
+            // `session_id` falso en mock
+            if (isMock) {
+                setSessionId(MOCK_SESSION_ID);
                 return;
             }
-            setAccessTokenUser(accessToken);
-            setSessionId(sessionIdResponse);
+
+            try {
+                const { accessToken } = await getAuthTokens();
+
+                if (!accessToken) {
+                    throw new Error(
+                        'sin accessToken: window.UCL no expuso el JWT'
+                    );
+                }
+
+                const { session_id: sessionIdResponse } =
+                    await createSessionChat({ accessToken, userId });
+
+                setAccessTokenUser(accessToken);
+                setSessionId(sessionIdResponse);
+            } catch (error) {
+                console.error('ChatFoodit - error create session chat', error);
+                runtime.setError({ code: 'internal_error', message: null });
+                runtime.setStatus('error');
+            }
         }
         if (!isSubscribed) {
             return;
@@ -127,7 +150,7 @@ function ChatIaFoodit({ onSearchTermChange }) {
             runtime.setMessages([]);
             runtime.onSubmit(queryUrl);
         }
-    }, [isSubscribed, sessionId]);
+    }, [isSubscribed, sessionId, userId]);
 
     useEffect(() => {
         const pageLocation = cleanUrl(`${SITE_FOODIT}${requestUri}`);
@@ -139,21 +162,40 @@ function ChatIaFoodit({ onSearchTermChange }) {
         });
     }, []);
 
+    const lastMessage = runtime.messages[runtime.messages.length - 1];
+    // El tipeo corre con el runtime ya en `idle`: sin esto, escribir corta la animación
+    const isTypingAnswer =
+        lastMessage?.message_type === 'input' && !showAfterRenderAssistant;
+
+    // `error` queda afuera a propósito: es transitorio y el reintento es la
+    // única salida del chat (el CTA de `SessionEnd` espera un `onTypingComplete`
+    // que en error nunca llega). Trabar acá dejaba input muerto + cartel de
+    // error y sin forma de seguir salvo refrescar la página
     const disableInput =
         runtime.status === 'generating' ||
         runtime.status === 'blocked' ||
-        runtime.status === 'error' ||
+        isTypingAnswer ||
         isSessionExpired;
 
-    const errorCode = runtime.error?.code;
     const requestLimit = runtime.status === 'blocked';
+    // Por status: `runtime.error` puede venir informado con el chat vivo
+    const hasError = runtime.status === 'error';
+    const isSessionCompleted =
+        requestLimit && runtime.error?.code === 'session_completed';
 
+    const hasAnswer = runtime.messages.some(
+        message => message.message_type === 'input'
+    );
+
+    // Un solo gate para todo el arranque. Crear la sesión, enviar y generar son
+    // pasos internos con huecos de `idle` en el medio: colgar el cartel de cada
+    // uno lo hace parpadear en cada transición
     const showIsThinking =
         runtime.status === 'generating' ||
-        (runtime.messages.length === 1 && isSubscribed);
+        (isSubscribed && !hasAnswer && !hasError && !requestLimit);
 
     useEffect(() => {
-        if (runtime.status === 'generating') {
+        if (runtime.status === 'sending' || runtime.status === 'generating') {
             setShowAfterRenderAssistant(false);
         }
     }, [runtime.status]);
@@ -172,17 +214,16 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                 <Thread
                                     className="gap-16 max-w-[802px] mx-auto"
                                     runtime={runtime}
-                                    renderSource={SourceLink}
-                                    onTypingComplete={() =>
-                                        setShowAfterRenderAssistant(true)
-                                    }
+                                    responseOptions={{
+                                        answerFormat: RESPONSE_FORMAT,
+                                        onTypingComplete: () =>
+                                            setShowAfterRenderAssistant(true)
+                                    }}
                                 >
-                                    <Thread.Viewport className="overflow-y-hidden overflow-x-hidden">
+                                    <Thread.Viewport className="overflow-y-hidden overflow-x-hidden ds-thread-viewport">
                                         <>
                                             <MessageContainer
                                                 messages={runtime.messages}
-                                                requestLimit={requestLimit}
-                                                errorCode={errorCode}
                                                 showAfterRenderAssistant={
                                                     showAfterRenderAssistant
                                                 }
@@ -204,7 +245,9 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                                     }
                                                     disableInput={disableInput}
                                                     requestLimit={requestLimit}
-                                                    errorCode={errorCode}
+                                                    isTypingAnswer={
+                                                        isTypingAnswer
+                                                    }
                                                 />
                                                 <div
                                                     ref={composerSentinelRef}
@@ -215,7 +258,10 @@ function ChatIaFoodit({ onSearchTermChange }) {
                                         )}
                                     </Thread.Composer>
                                     {showAfterRenderAssistant && (
-                                        <ButtonNavigation
+                                        <SessionEnd
+                                            isSessionCompleted={
+                                                isSessionCompleted
+                                            }
                                             requestLimit={requestLimit}
                                         />
                                     )}

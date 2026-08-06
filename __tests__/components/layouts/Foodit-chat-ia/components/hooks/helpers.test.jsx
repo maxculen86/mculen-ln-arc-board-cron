@@ -3,8 +3,20 @@ import { useViewportDirection } from '../../../../../../components/layouts/Foodi
 
 const IO = { instances: [] };
 
-describe('useViewportDirection)', () => {
+const renderViewportDirection = () => {
+    const ref = { current: document.createElement('div') };
+    return renderHook(() => useViewportDirection(ref, {}));
+};
+
+const emitEntry = entry => {
+    act(() => {
+        IO.instances[0].cb([entry]);
+    });
+};
+
+describe('useViewportDirection', () => {
     beforeEach(() => {
+        jest.clearAllMocks();
         IO.instances = [];
 
         global.IntersectionObserver = jest.fn(cb => {
@@ -18,77 +30,68 @@ describe('useViewportDirection)', () => {
         });
     });
 
-    afterEach(() => {
-        jest.clearAllMocks();
+    describe('initial state', () => {
+        it('should return "in" when no entry was observed yet', () => {
+            const { result } = renderViewportDirection();
+
+            expect(result.current).toBe('in');
+        });
     });
 
-    it('default "in"', () => {
-        const ref = { current: document.createElement('div') };
-        const { result } = renderHook(() => useViewportDirection(ref, {}));
-        expect(result.current).toBe('in');
+    describe('when the element intersects the viewport', () => {
+        it('should return "in"', () => {
+            const { result } = renderViewportDirection();
+
+            emitEntry({ isIntersecting: true });
+
+            expect(result.current).toBe('in');
+        });
     });
 
-    it('if isIntersecting => "in"', () => {
-        const ref = { current: document.createElement('div') };
-        const { result } = renderHook(() => useViewportDirection(ref, {}));
+    describe('when the element is outside the viewport', () => {
+        it('should return "above" when the element is past the top edge', () => {
+            const { result } = renderViewportDirection();
 
-        act(() => {
-            IO.instances[0].cb([{ isIntersecting: true }]);
+            emitEntry({
+                isIntersecting: false,
+                rootBounds: { top: 100, bottom: 500 },
+                boundingClientRect: { bottom: 50, top: 0 }
+            });
+
+            expect(result.current).toBe('above');
         });
 
-        expect(result.current).toBe('in');
-    });
+        it('should return "below" when the element is past the bottom edge', () => {
+            const { result } = renderViewportDirection();
 
-    it('if not intersecting and above', () => {
-        const ref = { current: document.createElement('div') };
-        const { result } = renderHook(() => useViewportDirection(ref, {}));
+            emitEntry({
+                isIntersecting: false,
+                rootBounds: { top: 0, bottom: 500 },
+                boundingClientRect: { top: 600, bottom: 650 }
+            });
 
-        act(() => {
-            IO.instances[0].cb([
-                {
-                    isIntersecting: false,
-                    rootBounds: { top: 100, bottom: 500 },
-                    boundingClientRect: { bottom: 50, top: 0 }
-                }
-            ]);
+            expect(result.current).toBe('below');
         });
-
-        expect(result.current).toBe('above');
     });
 
-    it('if not intersecting and below', () => {
-        const ref = { current: document.createElement('div') };
-        const { result } = renderHook(() => useViewportDirection(ref, {}));
+    describe('cleanup', () => {
+        it('should disconnect the observer when the hook unmounts', () => {
+            const { unmount } = renderViewportDirection();
+            const inst = IO.instances[0];
 
-        act(() => {
-            IO.instances[0].cb([
-                {
-                    isIntersecting: false,
-                    rootBounds: { top: 0, bottom: 500 },
-                    boundingClientRect: { top: 600, bottom: 650 }
-                }
-            ]);
+            unmount();
+
+            expect(inst.disconnect).toHaveBeenCalledTimes(1);
         });
-
-        expect(result.current).toBe('below');
     });
 
-    it('cleanup: disconnect on unmount', () => {
-        const ref = { current: document.createElement('div') };
-        const { unmount } = renderHook(() => useViewportDirection(ref, {}));
+    describe('when IntersectionObserver is unavailable', () => {
+        it('should fall back to "in" instead of throwing', () => {
+            global.IntersectionObserver = undefined;
 
-        const inst = IO.instances[0];
-        unmount();
+            const { result } = renderViewportDirection();
 
-        expect(inst.disconnect).toHaveBeenCalledTimes(1);
-    });
-
-    it('if IntersectionObserver does not exist return "in"', () => {
-        global.IntersectionObserver = undefined;
-
-        const ref = { current: document.createElement('div') };
-        const { result } = renderHook(() => useViewportDirection(ref, {}));
-
-        expect(result.current).toBe('in');
+            expect(result.current).toBe('in');
+        });
     });
 });

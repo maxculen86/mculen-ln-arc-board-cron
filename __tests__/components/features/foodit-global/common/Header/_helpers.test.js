@@ -1,9 +1,18 @@
 import React from 'react';
-import transformMenuData from '../../../../../../components/features/foodit-global/common/Header/_helpers';
+import transformMenuData, {
+    CHAT_TIMEOUT_MS,
+    createSessionChat,
+    RESPONSE_FORMAT,
+    sendChatMessage,
+    SESSION_TIMEOUT_MS
+} from '../../../../../../components/features/foodit-global/common/Header/_helpers';
 
 jest.mock('fusion:environment', () => {
     return {
-        SITE_FOODIT: 'https://foodit.lanacion.com.ar'
+        SITE_FOODIT: 'https://foodit.lanacion.com.ar',
+        API_IA_FOODIT: 'https://foodit-chatbot.test',
+        API_IA_CHAT_TIMEOUT: '60000',
+        API_IA_SESSION_TIMEOUT: '10000'
     };
 });
 
@@ -318,5 +327,159 @@ describe('transformMenuData function', () => {
                 className: 'lg-none'
             }
         ]);
+    });
+});
+
+describe('sendChatMessage', () => {
+    const okResponse = (body = {}) => ({
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify(body)
+    });
+
+    beforeEach(() => {
+        global.fetch = jest.fn().mockResolvedValue(okResponse());
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        console.error.mockRestore();
+    });
+
+    // Contra la constante y no contra el literal: es la misma que alimenta el render
+    it('should ask for the format the chat renders with', async () => {
+        await sendChatMessage({
+            sessionId: 's-1',
+            message: 'hola',
+            accessToken: 'jwt',
+            userId: 'u-1'
+        });
+
+        const body = JSON.parse(global.fetch.mock.calls[0][1].body);
+        expect(body.response_type).toBe(RESPONSE_FORMAT);
+        expect(RESPONSE_FORMAT).toBe('markdown');
+        expect(body).toMatchObject({
+            session_id: 's-1',
+            message: 'hola',
+            user_id: 'u-1'
+        });
+    });
+
+    it('should send the token in the x-authorization header', async () => {
+        await sendChatMessage({ accessToken: 'jwt' });
+
+        const [, options] = global.fetch.mock.calls[0];
+        expect(options.headers['x-authorization']).toBe('jwt');
+    });
+
+    it('should return the parsed body for a successful response', async () => {
+        global.fetch.mockResolvedValue(okResponse({ success: true }));
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).resolves.toEqual({
+            success: true
+        });
+    });
+
+    it('should log and rethrow when the fetch itself rejects', async () => {
+        const networkError = new TypeError('Failed to fetch');
+        global.fetch.mockRejectedValue(networkError);
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).rejects.toBe(
+            networkError
+        );
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('fetch falló'),
+            networkError
+        );
+    });
+
+    it('should log but still return the body when the API answers with an HTTP error', async () => {
+        global.fetch.mockResolvedValue({
+            ok: false,
+            status: 401,
+            text: async () => JSON.stringify({ error: 'Unauthorized' })
+        });
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).resolves.toEqual({
+            error: 'Unauthorized'
+        });
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('respondió con error'),
+            401,
+            expect.any(String)
+        );
+    });
+
+    it('should log and rethrow when the body is not valid JSON', async () => {
+        global.fetch.mockResolvedValue({
+            ok: false,
+            status: 504,
+            text: async () => '<html>Gateway Timeout</html>'
+        });
+
+        await expect(sendChatMessage({ accessToken: 'jwt' })).rejects.toThrow();
+        expect(console.error).toHaveBeenCalledWith(
+            expect.stringContaining('no es JSON válido'),
+            504,
+            '<html>Gateway Timeout</html>'
+        );
+    });
+});
+
+describe('timeouts', () => {
+    // Babel transpila los `async` a generadores, así que el cuerpo del helper
+    // arranca en un microtask: sin drenarlos, el reloj se mueve antes de que el
+    // `fetch` (y su `setTimeout`) existan
+    const flushUntilFetchStarts = async () => {
+        for (let i = 0; i < 10 && !global.fetch.mock.calls.length; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+            await Promise.resolve();
+        }
+    };
+
+    beforeEach(() => {
+        jest.useFakeTimers();
+        global.fetch = jest.fn(
+            (url, options) =>
+                new Promise((resolve, reject) => {
+                    options?.signal?.addEventListener('abort', () => {
+                        const abortError = new Error('Aborted');
+                        abortError.name = 'AbortError';
+                        reject(abortError);
+                    });
+                })
+        );
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+        console.error.mockRestore();
+        jest.useRealTimers();
+    });
+
+    // `/api/chat` genera con el LLM: si compartiera el timeout corto de sesión,
+    // cortaría respuestas largas que están llegando bien
+    it('should give the chat endpoint more room than the session one', () => {
+        expect(CHAT_TIMEOUT_MS).toBeGreaterThan(SESSION_TIMEOUT_MS);
+    });
+
+    it.each([
+        ['sendChatMessage', sendChatMessage, CHAT_TIMEOUT_MS],
+        ['createSessionChat', createSessionChat, SESSION_TIMEOUT_MS]
+    ])('should cut a hung %s by time', async (_label, call, timeoutMs) => {
+        const pending = call({ accessToken: 'jwt' });
+        const assertion = expect(pending).rejects.toMatchObject({
+            isTimeout: true
+        });
+
+        await flushUntilFetchStarts();
+
+        // Un tick antes del corte el request sigue vivo: prueba que el valor que
+        // se aplica es el de este endpoint y no otro
+        jest.advanceTimersByTime(timeoutMs - 1);
+        expect(global.fetch.mock.calls[0][1].signal.aborted).toBe(false);
+
+        jest.advanceTimersByTime(1);
+        await assertion;
     });
 });

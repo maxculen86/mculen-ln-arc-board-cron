@@ -16,6 +16,7 @@ const demoBranchPrefixes = [
     'upgrade',
     'update',
     'hotfix',
+    'hotfeat',
     'release'
 ];
 let demoBranchSuffix = 'demo';

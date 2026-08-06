@@ -3,3 +3,9 @@
 [data-tw] {
     --spacing: 1px !important;
 }
+
+.ds-thread .ds-thread-viewport {
+    --proxy-primary-default: var(--proxy-accent-default);
+    --proxy-primary-light: var(--proxy-accent-light);
+    --proxy-primary-dark: var(--proxy-accent-dark);
+}

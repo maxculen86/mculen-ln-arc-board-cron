@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormContainer should match snapshot 1`] = `
+exports[`FormContainer snapshots should match snapshot when the input is disabled 1`] = `
 <div>
   <div
     class="border-2 border-secondary-lighten text-base-default rounded-sm focus-within:ring-transparent"

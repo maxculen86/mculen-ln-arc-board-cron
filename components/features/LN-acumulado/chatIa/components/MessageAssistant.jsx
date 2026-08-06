@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { ThreadMessageTyping } from '@ln/ds-blocks-thread';
+import React, { useCallback, useState } from 'react';
+import { Thread } from '@ln/ds-blocks-thread';
 import { cx } from '@ln/ds-cva';
 import Icon from '../../../ui/ln/icon/default';
 import Link from '../../../ui/ln/link/default';
 import { MessageFeedbackLN } from './MessageFeedback';
 
 export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
-    const descripcion = message?.response_chat?.descripcion ?? '';
-    const fuentes = message?.response_chat?.fuentes ?? [];
+    const sources = message?.data?.message?.sources ?? [];
     const [typingDone, setTypingDone] = useState(!isLastOutput);
+
+    const handleTypingComplete = useCallback(() => {
+        setTypingDone(true);
+        onTypingDone?.();
+    }, [onTypingDone]);
 
     return (
         <div className="flex flex-col gap-16 w-full max-w-720">
@@ -18,27 +22,19 @@ export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
                     isLastOutput && 'min-h-38'
                 )}
             >
-                {isLastOutput ? (
-                    <ThreadMessageTyping
-                        speed={15}
-                        onComplete={() => {
-                            setTypingDone(true);
-                            if (isLastOutput) onTypingDone?.();
-                        }}
-                    >
-                        {descripcion}
-                    </ThreadMessageTyping>
-                ) : (
-                    <p>{descripcion}</p>
-                )}
+                <Thread.MessageAssistant
+                    message={message}
+                    isLastOutput={isLastOutput}
+                    onTypingComplete={handleTypingComplete}
+                />
             </div>
 
-            {typingDone && fuentes.length > 0 && (
+            {typingDone && sources.length > 0 && (
                 <ul className="flex flex-col gap-8">
                     <p className="text-base-default font-secondary text-body-md font-bold">
                         Fuentes:
                     </p>
-                    {fuentes.map(({ titulo, url }) => {
+                    {sources.map(({ title, url }) => {
                         if (!url) return null;
                         return (
                             <li
@@ -55,7 +51,7 @@ export function MessageAssistantLN({ message, isLastOutput, onTypingDone }) {
                                     size="custom"
                                     className="text-label-sm font-bold font-secondary uppercase"
                                 >
-                                    {titulo}
+                                    {title}
                                 </Link>
                             </li>
                         );

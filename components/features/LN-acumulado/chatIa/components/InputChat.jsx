@@ -30,7 +30,9 @@ export function InputChat({ isGenerating, disabled, isBlocked, isSubscribed }) {
                 placeholder: isBlocked
                     ? ''
                     : 'Preguntá a la IA. ¿Qué querés saber acerca del mundial 2026 de la FIFA?',
-                onInput: e => setIsEmpty(e.target.value.trim() === '')
+                onInput: e => setIsEmpty(e.target.value.trim() === ''),
+                // El textarea solo mira `inputProps.disabled`: el `disabled` del root queda en el wrapper
+                disabled: isDisabled
             }}
             disabled={isDisabled}
         >

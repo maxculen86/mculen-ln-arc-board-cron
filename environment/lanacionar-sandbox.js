@@ -65,6 +65,8 @@ export default {
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     API_IA_FOODIT: 'https://qa-foodit-chatbot.clanacion.com.ar',
     API_IA_MUNDIAL: 'https://dp-mundial-chatbot.clanacion.com.ar',
+    API_IA_CHAT_TIMEOUT: '90000',
+    API_IA_SESSION_TIMEOUT: '15000',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
     AUDIONEWS_URL: 'https://qa-api-audios.lanacion.com.ar/status/',

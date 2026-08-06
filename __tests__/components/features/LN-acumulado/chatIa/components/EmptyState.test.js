@@ -20,17 +20,22 @@ jest.mock(
 const BannerMessage = require('../../../../../../components/features/LN/common/bannerMessage/default');
 
 describe('EmptyState', () => {
-    describe('when isSubscribed is true', () => {
-        it('renders subscriber icon and message', () => {
+    describe('when the user is subscribed', () => {
+        it('should render the subscriber icon', () => {
             render(<EmptyState isSubscribed />);
 
             expect(screen.getByTestId('icon-subscribe')).toBeInTheDocument();
+        });
+
+        it('should render the subscriber message', () => {
+            render(<EmptyState isSubscribed />);
+
             expect(
                 screen.getByText('Nueva herramienta para suscriptores.')
             ).toBeInTheDocument();
         });
 
-        it('does not render BannerMessage', () => {
+        it('should not render the paywall banner', () => {
             render(<EmptyState isSubscribed />);
 
             expect(
@@ -39,8 +44,8 @@ describe('EmptyState', () => {
         });
     });
 
-    describe('when isSubscribed is false', () => {
-        it('renders BannerMessage with correct static props', () => {
+    describe('when the user is not subscribed', () => {
+        it('should render the paywall banner with its static props', () => {
             render(<EmptyState isSubscribed={false} />);
 
             expect(BannerMessage).toHaveBeenCalledWith(
@@ -54,18 +59,7 @@ describe('EmptyState', () => {
             );
         });
 
-        it('does not render subscriber content', () => {
-            render(<EmptyState isSubscribed={false} />);
-
-            expect(
-                screen.queryByTestId('icon-subscribe')
-            ).not.toBeInTheDocument();
-            expect(
-                screen.queryByText('Nueva herramienta para suscriptores.')
-            ).not.toBeInTheDocument();
-        });
-
-        it('builds URLs using the encoded current location', () => {
+        it('should build the login and subscribe urls from the encoded location', () => {
             const encodedUrl = window.btoa(window.location.href);
 
             render(<EmptyState isSubscribed={false} />);
@@ -78,15 +72,33 @@ describe('EmptyState', () => {
                 undefined
             );
         });
+
+        it('should not render the subscriber icon', () => {
+            render(<EmptyState isSubscribed={false} />);
+
+            expect(
+                screen.queryByTestId('icon-subscribe')
+            ).not.toBeInTheDocument();
+        });
+
+        it('should not render the subscriber message', () => {
+            render(<EmptyState isSubscribed={false} />);
+
+            expect(
+                screen.queryByText('Nueva herramienta para suscriptores.')
+            ).not.toBeInTheDocument();
+        });
     });
 
-    it('matches snapshot when isSubscribed is true', () => {
-        const { container } = render(<EmptyState isSubscribed />);
-        expect(container.firstChild).toMatchSnapshot();
-    });
+    describe('snapshots', () => {
+        it('should match snapshot when the user is subscribed', () => {
+            const { container } = render(<EmptyState isSubscribed />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
 
-    it('matches snapshot when isSubscribed is false', () => {
-        const { container } = render(<EmptyState isSubscribed={false} />);
-        expect(container.firstChild).toMatchSnapshot();
+        it('should match snapshot when the user is not subscribed', () => {
+            const { container } = render(<EmptyState isSubscribed={false} />);
+            expect(container.firstChild).toMatchSnapshot();
+        });
     });
 });

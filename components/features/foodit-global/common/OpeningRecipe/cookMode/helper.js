@@ -1,3 +1,9 @@
+function normalizeText(str) {
+    return typeof str === 'string'
+        ? str.normalize('NFD').replace(/\p{Diacritic}/gu, '')
+        : '';
+}
+
 function getImageUrl(element) {
     if (element?.type === 'image' && element.url) {
         return element.url;
@@ -27,7 +33,7 @@ function extractStepsFromLists(contentElements) {
         const el = contentElements[i];
         if (
             el?.type === 'header' &&
-            el?.content?.toLowerCase().includes('preparación')
+            normalizeText(el?.content).toLowerCase().includes('preparacion')
         ) {
             prepIndex = i;
             break;
